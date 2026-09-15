@@ -1,0 +1,9 @@
+{
+  "requiredProfiles": [
+    "software-engineer",
+    "qa-platform-reviewer",
+    "ui-ux-reviewer",
+    "learning-content-reviewer"
+  ],
+  "identityMapping": {}
+}

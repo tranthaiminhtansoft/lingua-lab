@@ -1,0 +1,27 @@
+name: Release Gate
+
+on:
+  pull_request:
+    branches: [master]
+    types: [opened, reopened, synchronize, ready_for_review]
+
+permissions:
+  contents: read
+  pull-requests: read
+  checks: read
+
+jobs:
+  policy-baseline:
+    name: Release policy baseline
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out trusted policy script
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: master
+      - name: Validate fail-closed reviewer configuration
+        run: node scripts/verify-repo-policy.mjs
+      - name: Record bootstrap limitation
+        run: |
+          echo 'Current-head review and required-check aggregation are not enabled until trusted profile identity mappings and application check contexts are configured.'
+          echo 'This workflow does not deploy, release, merge, or execute PR code.'

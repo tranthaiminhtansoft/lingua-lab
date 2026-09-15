@@ -1,0 +1,23 @@
+# Node and Vite
+node_modules/
+dist/
+coverage/
+.vite/
+
+# Playwright
+playwright-report/
+test-results/
+blob-report/
+
+# Environment and local tooling
+.env
+.env.*
+!.env.example
+*.local
+.DS_Store
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*

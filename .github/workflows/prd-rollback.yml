@@ -1,0 +1,29 @@
+name: PRD Rollback
+
+on:
+  workflow_run:
+    workflows: ["PRD Release"]
+    types: [completed]
+    branches: [master]
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: lingua-lab-production
+  cancel-in-progress: false
+
+jobs:
+  read-only-bootstrap-validation:
+    name: Read-only rollback bootstrap validation
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Preserve no-op evidence
+        env:
+          SOURCE_RUN_ID: ${{ github.event.workflow_run.id }}
+          SOURCE_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
+        run: |
+          echo "PRD Release run ${SOURCE_RUN_ID} concluded ${SOURCE_CONCLUSION}."
+          echo 'No rollback candidate schema, retained release artifact, protected approval environment, recovery ledger, or rollback PAT policy has been configured.'
+          echo 'No artifact download, deployment, repository mutation, secret access, retry, reset, force-push, or revert is performed.'

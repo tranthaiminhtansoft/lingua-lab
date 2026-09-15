@@ -1,0 +1,29 @@
+name: PRD Release
+
+on:
+  push:
+    branches: [master]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lingua-lab-production
+  cancel-in-progress: false
+
+jobs:
+  release-preflight:
+    name: Release Preflight (no deployment)
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out trusted master revision
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Confirm release automation is not yet enabled
+        run: |
+          test "${GITHUB_REF}" = 'refs/heads/master'
+          if [ -f package.json ]; then
+            echo 'A deployable application is present, but immutable artifact, attestation, Pages deployment, and browser verification jobs have not been implemented.' >&2
+            exit 1
+          fi
+          echo 'No deployable application exists on this revision; no artifact is built and no Pages deployment is attempted.'
+          echo 'GitHub Pages is configured for Actions, but this bootstrap workflow intentionally has no pages or id-token write permission.'

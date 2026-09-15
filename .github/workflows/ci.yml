@@ -1,0 +1,43 @@
+name: PR Continuous Integration
+
+on:
+  pull_request:
+    branches: [master]
+    paths:
+      - 'src/**'
+      - 'e2e/**'
+      - 'public/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'vite.config.ts'
+      - 'tsconfig.json'
+      - 'vitest.config.ts'
+      - 'playwright.config.ts'
+      - 'eslint.config.js'
+      - 'scripts/**'
+      - '.github/workflows/**'
+      - '.github/profile-reviewers.json'
+      - '.github/dependabot.yml'
+      - 'docs/release-and-rollback.md'
+
+permissions:
+  contents: read
+
+jobs:
+  repository-policy:
+    name: Repository policy baseline
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out PR head
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Validate bootstrap policy configuration
+        run: node scripts/verify-repo-policy.mjs
+      - name: Explain application CI boundary
+        run: |
+          if [ ! -f package.json ]; then
+            echo 'No application scaffold exists yet; lint, typecheck, build, unit, browser, SAST, SCA, and SBOM jobs are deliberately not fabricated.'
+            echo 'Those independently reportable application gates are enabled with the approved app scaffold.'
+          else
+            echo 'Application scaffold detected; extend this foundation with the required deterministic application jobs before making checks required.'
+            exit 1
+          fi
