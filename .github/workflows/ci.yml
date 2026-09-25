@@ -9,8 +9,11 @@ on:
       - 'public/**'
       - 'package.json'
       - 'package-lock.json'
+      - 'index.html'
       - 'vite.config.ts'
       - 'tsconfig.json'
+      - 'tsconfig.app.json'
+      - 'tsconfig.node.json'
       - 'vitest.config.ts'
       - 'playwright.config.ts'
       - 'eslint.config.js'
@@ -32,12 +35,33 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Validate bootstrap policy configuration
         run: node scripts/verify-repo-policy.mjs
-      - name: Explain application CI boundary
-        run: |
-          if [ ! -f package.json ]; then
-            echo 'No application scaffold exists yet; lint, typecheck, build, unit, browser, SAST, SCA, and SBOM jobs are deliberately not fabricated.'
-            echo 'Those independently reportable application gates are enabled with the approved app scaffold.'
-          else
-            echo 'Application scaffold detected; extend this foundation with the required deterministic application jobs before making checks required.'
-            exit 1
-          fi
+  application-validation:
+    name: Application validation
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out PR head
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Set up Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Lint
+        run: npm run lint
+      - name: Type check
+        run: npm run typecheck
+      - name: Run unit tests
+        run: npm run test:unit -- --run
+      - name: Build GitHub Pages candidate
+        env:
+          GITHUB_ACTIONS: 'true'
+        run: npm run build
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium firefox webkit
+      - name: Run browser smoke checks against the Pages base path
+        env:
+          CI: 'true'
+          GITHUB_ACTIONS: 'true'
+        run: npm run test:e2e

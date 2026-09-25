@@ -1,0 +1,2 @@
+import { Link } from 'react-router-dom'; import type { Lesson } from './lessonTypes';
+export function LessonCard({ lesson }: { lesson: Lesson }) { return <article className={`lesson-card ${lesson.accent}`}><h2>{lesson.title} <span lang="ja">{lesson.japaneseTitle}</span></h2><p>{lesson.description}</p>{lesson.status === 'available' ? <Link to={lesson.path}>Start Kana</Link> : <p className="coming-soon" aria-label={`${lesson.title}: Coming soon`}>🏗️ Coming soon</p>}</article>; }

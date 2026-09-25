@@ -4,15 +4,26 @@ A public, multi-domain language-learning workspace. The initial product focus is
 
 ## Status
 
-The repository currently contains planning and UI-exploration material plus repository/CI-CD policy. The React/Vite application has **not** been scaffolded or deployed. No production release should be inferred from this repository bootstrap.
+The React/Vite Kana MVP scaffold is present, with application source under [`src/`](src/) and local test coverage. On the current workspace, `npm run lint`, `npm run typecheck`, and `npm run build` completed successfully.
+
+For local setup and development:
+
+```sh
+npm ci
+npm run dev
+```
+
+Use `npm run lint`, `npm run typecheck`, and `npm run build` for the available local static checks and production build. Unit and end-to-end scripts are also defined as `npm run test:unit` and `npm run test:e2e`.
 
 ## GitHub Pages
 
-GitHub Pages is configured to deploy through GitHub Actions. When a deployable static application is added, it must work under the repository project base path:
+The configured GitHub Pages target uses the repository project base path:
 
 - `https://tranthaiminhtansoft.github.io/lingua-lab/`
 
-Do not use root-relative application asset URLs; use the `/lingua-lab/` base-path contract.
+This URL is a deployment target, not a claim of a live site. `PRD Release` is manual-only and its intentional fail-closed `Release readiness gate` exits with status 1, so its build, GitHub Pages deployment, and published-route verification jobs cannot run. Production release remains blocked until a human approves and implements the readiness gate, and the platform owner enables and verifies the required GitHub Pages/Actions and protected-environment configuration. Required current-head checks, review evidence, and human approval are still required before an authorized human may dispatch a release.
+
+Do not use root-relative application asset URLs; use the `/lingua-lab/` base-path contract. See [`docs/release-and-rollback.md`](docs/release-and-rollback.md) for the canonical release and rollback state.
 
 ## Contribution policy
 

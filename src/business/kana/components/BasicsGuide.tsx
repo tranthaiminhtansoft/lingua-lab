@@ -1,0 +1,2 @@
+import { learningConcepts } from '../content/learningContent';
+export function BasicsGuide() { return <section className="panel guide" aria-labelledby="basics-title"><h2 id="basics-title">Learn the basics <span lang="ja">基本を学ぶ</span></h2><p>Compare scripts and say each sound aloud. Browser speech is listening support, not pronunciation certification.</p><dl>{learningConcepts.map(([english, japanese, description]) => <div key={english}><dt>{english} <span lang="ja">{japanese}</span></dt><dd>{description}</dd></div>)}</dl></section>; }
