@@ -57,7 +57,16 @@ test('Kana section edge menu is keyboard reachable and closes on Escape or outsi
 test('Kana route presents the source sections and real Japanese speech controls', async ({ page }) => {
   await page.goto('lessons/kana');
   await expect(page.getByText('Learn one sound at a time')).toBeVisible();
-  await expect(page.locator('#basics')).toBeVisible();
+  const basics = page.locator('#basics');
+  await expect(basics).toBeVisible();
+  await expect(basics.getByRole('heading', { name: /Learn the basics/i })).toHaveText(/基本を学ぶ/);
+  await expect(basics.locator('dt')).toHaveText([
+    'Hiragana ひらがな',
+    'Katakana カタカナ',
+    'Romaji ローマ字',
+    'Dakuten 濁点（゛）',
+    'Handakuten 半濁点（゜）',
+  ]);
   await expect(page.locator('#tables')).toBeVisible();
   const referenceTables = page.locator('#tables table');
   await expect(referenceTables).toHaveCount(3);
@@ -69,14 +78,21 @@ test('Kana route presents the source sections and real Japanese speech controls'
 
   const glyph = page.getByTestId('practice-glyph');
   const before = await glyph.textContent();
-  await page.getByRole('button', { name: /Random practice/i }).click();
+  const rate = page.getByRole('slider', { name: 'Speech rate' });
+  await expect(rate).toHaveValue('0.1');
+  await page.keyboard.press('ArrowRight');
   await expect(glyph).not.toHaveText(before ?? '');
+  const advancedGlyph = await glyph.textContent();
+  await rate.focus();
+  await page.keyboard.press('ArrowRight');
+  await page.keyboard.press('Control+ArrowRight');
+  await expect(glyph).toHaveText(advancedGlyph ?? '');
+  await page.getByRole('button', { name: /Random practice/i }).click();
+  await expect(glyph).not.toHaveText(advancedGlyph ?? '');
 
   const speakers = page.getByRole('button', { name: /Play Japanese pronunciation for/ });
   await expect(speakers).toHaveCount(47);
-  const rate = page.getByRole('slider', { name: 'Speech rate' });
   await expect(rate).toBeVisible();
-  await expect(rate).toHaveValue('0.1');
   await expect(page.getByRole('combobox', { name: 'Japanese voice' })).toHaveCount(0);
   await rate.fill('0.75');
   await expect(page.getByText('0.75×')).toBeVisible();

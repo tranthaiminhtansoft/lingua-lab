@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
 import { choonEntries, kanaEntries, sokuonEntries, yoonEntries } from './data/kana';
+import { BasicsGuide } from './components/BasicsGuide';
 import { KanaTables } from './components/KanaTables';
 import { useJapaneseSpeech } from './hooks/useJapaneseSpeech';
 import type { KanaEntry, SoundMarkEntry } from './types/kana';
@@ -25,6 +26,9 @@ function selectPractice(previous?: PracticeSelection): PracticeSelection {
   return next;
 }
 
+function isEditableControl(target: EventTarget | null) {
+  return target instanceof HTMLElement && target.matches('input, textarea, select, [contenteditable="true"]');
+}
 
 function speechStatusMessage(state: ReturnType<typeof useJapaneseSpeech>['state']) {
   return state === 'unsupported' ? 'Speech is not supported by this browser.'
@@ -70,6 +74,16 @@ export function KanaPage() {
     handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== 'ArrowRight' || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+      if (isEditableControl(event.target) || isEditableControl(document.activeElement)) return;
+      setSelection((previous) => selectPractice(previous));
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
   useEffect(() => {
@@ -132,7 +146,7 @@ export function KanaPage() {
       </nav>}
     </div>
     <div className="kana-grid">
-      <section className="panel guide" id="basics"><h2>Basics Guide / <span lang="ja">基礎ガイド</span></h2><p>See the shape, say the sound, then compare it with the reference.</p><ul><li>Hiragana: native words and grammar.</li><li>Katakana: loanwords and names.</li><li>゛Dakuten and ゜Handakuten change sound groups.</li></ul></section>
+      <BasicsGuide id="basics" />
       <section aria-labelledby="practice-title" className="panel practice" id="practice"><div className="practice-top"><div><div className="practice-kicker">Practice card / <span lang="ja">練習カード</span></div><h2 id="practice-title">Recognize the sound</h2></div><span className="eyebrow">{script}</span></div><div className="practice-stage"><div className="glyph" data-testid="practice-glyph" lang="ja">{glyph}</div><button aria-label={speaking ? 'Stop Japanese playback' : `Play Japanese pronunciation for ${glyph}`} className="speaker" disabled={disabled} onClick={speaking ? cancel : () => speak(glyph)} title={speaking ? 'Stop Japanese playback' : 'Play Japanese pronunciation'} type="button">🔊</button></div><p className="cue">{script} {glyph} — say this glyph out loud.</p><div className="speech-rate"><label htmlFor="speech-rate">Speech rate <span aria-hidden="true" className="speech-rate-value">{speechRate.toFixed(2)}×</span></label><input aria-describedby="speech-rate-help" aria-label="Speech rate" id="speech-rate" max="1" min="0.1" name="speech-rate" onChange={(event) => setSpeechRate(Number(event.target.value))} step="0.05" type="range" value={speechRate} /><div id="speech-rate-help">Slow 0.1× · 0.05× steps · Fast 1×</div></div><p className="status" role="status">{speechStatusMessage(speechState)}</p><div className="actions"><button className="action" onClick={showRandom} type="button">Random practice / <span lang="ja">ランダム練習</span></button></div></section>
       <KanaTables entries={kanaEntries} />
       <SoundMarkSection description={<>Small <span lang="ja">ゃ, ゅ, ょ</span> combine with the preceding sound to make one blended sound.</>} entries={yoonEntries} id="yoon" japanese="拗音" onCancel={cancel} onSpeak={speak} state={speechState} title="Yōon" />
