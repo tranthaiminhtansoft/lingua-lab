@@ -16,7 +16,9 @@ test('real Kana route renders the approved basics guide and advances only for un
     .mockReturnValueOnce(0)
     .mockReturnValueOnce(0)
     .mockReturnValueOnce(0.99)
-    .mockReturnValueOnce(0.99);
+    .mockReturnValueOnce(0.99)
+    .mockReturnValueOnce(0.5)
+    .mockReturnValueOnce(0);
 
   try {
     render(<MemoryRouter initialEntries={['/lessons/kana']}><App /></MemoryRouter>);
@@ -34,6 +36,11 @@ test('real Kana route renders the approved basics guide and advances only for un
     const rate = screen.getByRole('slider', { name: 'Speech rate' });
     rate.focus();
     fireEvent.keyDown(window, { key: 'ArrowRight' });
+    fireEvent.keyDown(window, { key: 'ArrowRight', ctrlKey: true });
+    expect(glyph).toHaveTextContent(advancedGlyph ?? '');
+
+    const randomPractice = screen.getByRole('button', { name: /Random practice/i });
+    randomPractice.focus();
     fireEvent.keyDown(window, { key: 'ArrowRight', ctrlKey: true });
     expect(glyph).toHaveTextContent(advancedGlyph ?? '');
   } finally {
