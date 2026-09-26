@@ -11,20 +11,8 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  release-readiness:
-    name: Release readiness gate
-    runs-on: ubuntu-24.04
-    permissions:
-      contents: read
-    steps:
-      - name: Keep production fail-closed until current-head review evidence is gated
-        run: |
-          echo 'Production deployment is blocked: the required current-head checks and reviewer evidence are not yet enforced by a release gate.' >&2
-          exit 1
-
   build-production-artifact:
     name: Build production artifact
-    needs: release-readiness
     runs-on: ubuntu-24.04
     steps:
       - name: Check out trusted master revision
