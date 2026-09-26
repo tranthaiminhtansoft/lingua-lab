@@ -17,4 +17,4 @@ if (!config.identityMapping || typeof config.identityMapping !== 'object') {
   throw new Error('identityMapping must be an object and fails closed until configured');
 }
 console.log('Repository policy bootstrap configuration is structurally valid.');
-console.log('Profile identities remain intentionally unconfigured; release readiness must fail closed.');
+console.log('Independent human PR approval and successful PR CI are operator-verified preconditions before manual release dispatch; GitHub does not enforce them as release checks.');

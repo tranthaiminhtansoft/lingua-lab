@@ -2,25 +2,21 @@
 
 ## Current `PRD Release` state
 
-`PRD Release` is a manual-only GitHub Actions workflow: its only trigger is `workflow_dispatch`. It has no push, pull-request, schedule, or automatic merge trigger. Starting the workflow manually does not currently authorize or perform a production deployment.
+`PRD Release` is a manual-only GitHub Actions workflow: its only trigger is `workflow_dispatch`. It has no push, pull-request, schedule, or automatic merge trigger. The repository owner treats an authorized manual dispatch as release approval. Before dispatch, the operator must manually verify an independent human approval on the PR and successful CI for that PR. These are procedural preconditions only: GitHub does not enforce them as release checks, and dispatch itself does not attest that they were met.
 
-The first job, `Release readiness gate`, is intentionally fail-closed. Its only step reports that required current-head checks and reviewer evidence are not yet enforced by a release gate, then exits with status 1. Consequently, `Build production artifact` cannot run; `Deploy GitHub Pages` cannot run; and `Verify published Pages routes` cannot run. There is no live GitHub Pages deployment or deployment verification from this workflow in its current state.
+The workflow does not contain a machine-enforced readiness gate. Once manually dispatched, it checks out `refs/heads/master` and runs the production build, Pages deployment, and published-route verification jobs below. A successful workflow run is not evidence that the operator completed the independent-review and green-CI preconditions.
 
-The downstream jobs are deliberately dormant behind that gate. If and only if the readiness gate is later implemented and passes:
+The workflow jobs are:
 
 - `Build production artifact` checks out the trusted `refs/heads/master` revision, uses Node.js 22, runs `npm ci` and `npm run build`, then uploads `dist` as the GitHub Pages artifact.
 - `Deploy GitHub Pages` deploys that Pages artifact through the `github-pages` environment with the workflow's Pages and OIDC permissions.
 - `Verify published Pages routes` uses the deployment URL emitted by the deploy job and Chromium to verify the `/nihongo-o-benkyuo/kana` deep link through the Pages fallback.
 
-These job definitions describe future enabled behavior; they are not evidence that an artifact has been built, a Pages site has been deployed, or post-deployment verification has passed.
+Job definitions are not evidence that an artifact has been built, a Pages site has been deployed, or post-deployment verification has passed.
 
-## Required enablement before deployment can run
+## Operator-verified preconditions
 
-A human must approve a change to replace the intentional failing readiness step. Before that change is approved and implemented, manually dispatching `PRD Release` will always stop at `Release readiness gate`.
-
-The platform owner must configure and verify a trusted release-readiness mechanism that evaluates the required checks and the required reviewer profiles against the exact current pull-request head. The platform owner must also configure and read back the repository's GitHub Pages/Actions and `github-pages` environment settings, including any required environment protections and approvals, so that the configured deployment action can receive its required permissions.
-
-After that gate is implemented and the platform configuration is verified, humans must obtain the required current-head check and review evidence, resolve actionable review threads, and approve the final merge to `master`. Only then may an authorized human manually dispatch `PRD Release`; the workflow must still pass its implemented readiness gate before any build, deploy, or verification job can start. The workflow never merges a pull request automatically.
+Before each manual dispatch, the operator is responsible for checking that the PR has an independent human approval and successful PR CI. These checks are not enforced by this workflow or GitHub repository settings; do not infer their completion from dispatch eligibility or workflow success. The workflow never merges a pull request automatically.
 
 GitHub Pages uses the repository project path `/lingua-lab/`. Asset paths and router configuration must be verified against that base path as part of the enabled deployment verification.
 

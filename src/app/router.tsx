@@ -3,6 +3,10 @@ import { AppShell } from './AppShell';
 import { LanguageConstellationPage } from '../business/language-home/LanguageConstellationPage';
 import { NihongoPage } from '../business/language-home/nihongo/NihongoPage';
 import { KanaPage } from '../business/language-home/nihongo/kana/KanaPage';
+import { GrammarPage } from '../business/language-home/nihongo/grammar/GrammarPage';
+import { FirstIntroductionsPage } from '../business/language-home/nihongo/grammar/FirstIntroductionsPage';
+import { VocabularyPage } from '../business/language-home/nihongo/vocabulary/VocabularyPage';
+import { FirstIntroductionsVocabularyPage } from '../business/language-home/nihongo/vocabulary/FirstIntroductionsVocabularyPage';
 
 export function restorePagesPath(basePath = import.meta.env.BASE_URL) {
   const fallbackPath = new URLSearchParams(window.location.search).get('p');
@@ -25,6 +29,10 @@ export const router = createBrowserRouter([
     children: [
       { path: 'nihongo-o-benkyuo', element: <NihongoPage /> },
       { path: 'nihongo-o-benkyuo/kana', element: <KanaPage /> },
+      { path: 'nihongo-o-benkyuo/grammar', element: <GrammarPage /> },
+      { path: 'nihongo-o-benkyuo/grammar/first-introductions', element: <FirstIntroductionsPage /> },
+      { path: 'nihongo-o-benkyuo/vocabulary', element: <VocabularyPage /> },
+      { path: 'nihongo-o-benkyuo/vocabulary/first-introductions', element: <FirstIntroductionsVocabularyPage /> },
       { path: 'lessons/kana', element: <Navigate replace to="/nihongo-o-benkyuo/kana" /> },
       { path: '*', element: <main><h1>Page not found</h1><p>That lesson is not available.</p></main> },
     ],

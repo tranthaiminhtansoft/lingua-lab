@@ -9,6 +9,7 @@ function renderShell(path: string) {
         <Route element={<AppShell />}>
           <Route path="/nihongo-o-benkyuo" element={<h1>Lessons page</h1>} />
           <Route path="/nihongo-o-benkyuo/kana" element={<h1>Kana page</h1>} />
+          <Route path="/nihongo-o-benkyuo/grammar/first-introductions" element={<h1>First introductions page</h1>} />
         </Route>
       </Routes>
     </MemoryRouter>,
@@ -29,10 +30,17 @@ test('mobile menu exposes current page as a non-clickable item and announces its
   const lessonChildren = screen.getByRole('group', { name: 'Lessons' });
   expect(lessonsParent.parentElement).toContainElement(lessonChildren);
   expect(within(lessonChildren).getByText('Kana')).toHaveAttribute('aria-current', 'page');
-  expect(within(lessonChildren).getByText('Grammar').closest('.nav-disabled')).toHaveAttribute('aria-disabled', 'true');
-  expect(within(lessonChildren).getByText('Vocabulary').closest('.nav-disabled')).toHaveAttribute('aria-disabled', 'true');
+  expect(within(lessonChildren).getByRole('link', { name: 'Grammar' })).toHaveAttribute('href', '/nihongo-o-benkyuo/grammar');
+  expect(within(lessonChildren).getByRole('link', { name: 'Vocabulary' })).toHaveAttribute('href', '/nihongo-o-benkyuo/vocabulary');
   expect(screen.getByText('Kana')).toHaveAttribute('aria-current', 'page');
   expect(screen.getByText('Kana').closest('a')).toBeNull();
+});
+
+test('keeps Grammar selected on its nested topic route', () => {
+  renderShell('/nihongo-o-benkyuo/grammar/first-introductions');
+
+  expect(screen.getByRole('heading', { name: 'First introductions page' })).toBeInTheDocument();
+  expect(screen.getByText('Grammar', { selector: '.nav-current' })).toHaveAttribute('aria-current', 'page');
 });
 
 test('closes the open menu with Escape', () => {
