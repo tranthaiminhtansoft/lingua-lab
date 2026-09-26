@@ -27,7 +27,7 @@ export function AppShell() {
           <div aria-labelledby="lessons-nav-parent" className="nav-lesson-children" role="group">
             {lessons.map((lesson) => lesson.path === ''
               ? <span aria-disabled="true" className="nav-disabled" key={lesson.id}>{lesson.title} <small>Coming soon</small></span>
-              : pathname === lesson.path
+              : pathname === lesson.path || pathname.startsWith(`${lesson.path}/`)
                 ? <span aria-current="page" className="nav-current" key={lesson.id}>{lesson.title}</span>
                 : <Link key={lesson.id} onClick={() => setIsMenuOpen(false)} to={lesson.path}>{lesson.title}</Link>)}
           </div>

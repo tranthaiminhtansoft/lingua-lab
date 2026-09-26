@@ -217,3 +217,208 @@ main.kana-page { padding: 28px clamp(16px, 4vw, 48px) 64px; }
 @media (max-width: 860px) { .kana-page .hero { grid-template-columns: 1fr; } .kana-learning-column, .kana-grid .tables { grid-column: 1 / -1; } }
 @media (max-width: 520px) { main.kana-page { padding-inline: 14px; } .kana-page .hero { padding-top: 30px; } .kana-page .hero h1 { font-size: 3.35rem; } .seal { justify-self: start; } .kana-grid .panel { padding: 18px; } .section-head { align-items: flex-start; flex-direction: column; } .sound-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .sound-item { padding: 10px; } .sound-pair { font-size: 1.2rem; } .table-wrap { padding: 8px; } .kana-row-title { margin: -8px -8px 8px; padding: 8px 10px; } .kana-cell { min-height: 72px; padding: 7px 2px; } .kana-pair { font-size: 1.35rem; } .kana-divider { font-size: .9rem; padding: 0 1px; } .kana-romaji { font-size: .72rem; } .practice-stage { grid-template-columns: minmax(0, 1fr) 54px; grid-template-areas: "glyph controls" "guide guide"; min-height: 0; gap: 10px; } .practice-glyph-stage { min-height: 180px; } .kana-page .glyph { font-size: clamp(7rem, 27vw, 8rem); } .writing-guide { min-height: 190px; padding: 10px; } .writing-guide-svg { height: clamp(90px, 22vw, 118px); } .practice-tips { display: none; } .kana-section-nav { margin-inline: -2px; } .back-to-top { right: 12px; bottom: 12px; } }
 @media (max-width: 360px) { .kana-grid .panel.tables { padding: 12px; } .table-wrap { padding: 5px; } .kana-row-title { margin: -5px -5px 5px; padding: 7px 8px; font-size: .9rem; } .kana-cell { min-height: 64px; padding: 5px 1px; } .kana-pair { font-size: 1.05rem; } .kana-divider { font-size: .72rem; padding: 0; } .kana-romaji { font-size: .65rem; } }
+
+/* Grammar is an editorial learning path: topic cards, vocabulary index, and pattern workshop. */
+main.grammar-page { width: min(100%, 1240px); margin: 0 auto; padding: 28px clamp(18px, 5vw, 64px) 80px; color: var(--ink); }
+.grammar-eyebrow { margin: 0; color: var(--verm); font-size: .72rem; font-weight: 800; letter-spacing: .12em; line-height: 1.4; text-transform: uppercase; }
+.grammar-eyebrow span[lang="ja"] { margin-left: .55em; color: var(--indigo); letter-spacing: .02em; text-transform: none; }
+.grammar-hero { display: grid; grid-template-columns: minmax(0, 1fr) 180px; gap: 32px; align-items: center; padding: 45px 0 38px; border-bottom: 3px solid var(--ink); }
+.grammar-hero h1 { margin: 12px 0 14px; font-size: clamp(4rem, 10vw, 7.5rem); letter-spacing: -.075em; line-height: .86; }
+.grammar-hero h1 span { margin-left: .16em; color: var(--indigo); font-size: .45em; letter-spacing: -.04em; vertical-align: .1em; }
+.grammar-hero-copy > p:last-child { max-width: 580px; margin: 0; font-size: 1.08rem; }
+.grammar-stamp { display: grid; aspect-ratio: 1; place-content: center; gap: 4px; border: 3px solid var(--verm); color: var(--verm); outline: 1px solid var(--verm); outline-offset: 5px; text-align: center; transform: rotate(5deg); }
+.grammar-stamp b { font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; font-size: 5rem; line-height: .95; }
+.grammar-stamp span:first-child { font-size: .7rem; font-weight: 800; letter-spacing: .13em; }
+.grammar-stamp span:last-child { font-size: .52rem; font-weight: 800; letter-spacing: .09em; }
+.grammar-feature { position: relative; margin-top: 38px; border: 3px solid var(--ink); background: var(--sun); box-shadow: 8px 8px 0 var(--ink); }
+.grammar-feature-top { display: flex; align-items: center; gap: 13px; padding: 14px 20px; border-bottom: 2px solid var(--ink); }
+.grammar-feature-number { display: grid; width: 38px; height: 38px; place-items: center; border-radius: 50%; background: var(--verm); color: var(--washi); font-size: .8rem; font-weight: 900; }
+.grammar-feature-label { font-size: .8rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+.grammar-feature-label span { margin-left: .6em; color: var(--indigo); text-transform: none; }
+.grammar-feature-main { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(235px, .6fr); gap: 36px; align-items: center; padding: clamp(22px, 4vw, 44px); }
+.grammar-feature-copy h2 { max-width: 680px; margin: 10px 0 14px; font-size: clamp(2rem, 5vw, 3.75rem); letter-spacing: -.06em; line-height: 1; }
+.grammar-feature-copy h2 span { color: var(--indigo); white-space: nowrap; }
+.grammar-feature-copy > p:not(.grammar-eyebrow) { max-width: 600px; margin: 0; }
+.grammar-primary-link { display: inline-flex; min-height: 48px; align-items: center; gap: 20px; margin-top: 22px; padding: 10px 16px; border: 2px solid var(--ink); background: var(--verm); box-shadow: 3px 3px 0 var(--ink); color: var(--washi); font-weight: 800; text-decoration: none; }
+.grammar-primary-link:hover, .grammar-primary-link:focus-visible { background: var(--indigo); }
+.grammar-feature-steps { display: grid; gap: 0; margin: 0; padding: 0; border-top: 2px solid var(--ink); list-style: none; }
+.grammar-feature-steps li { display: flex; min-height: 54px; align-items: center; gap: 12px; border-bottom: 2px solid var(--ink); font-size: .9rem; font-weight: 700; }
+.grammar-feature-steps li span:first-child { color: var(--verm); font-size: .74rem; font-weight: 900; }
+.grammar-pattern-ribbon { display: flex; flex-wrap: wrap; justify-content: space-around; gap: 8px 22px; padding: 14px 22px; background: var(--indigo); color: var(--washi); font-size: clamp(.95rem, 2vw, 1.25rem); font-weight: 700; }
+.grammar-source-note { margin: 0; padding: 9px 16px 11px; font-size: .7rem; }
+.grammar-approach { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: end; margin-top: 56px; padding: 25px 0; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); }
+.grammar-approach h2 { max-width: 460px; margin: 7px 0 0; font-size: clamp(1.6rem, 3vw, 2.4rem); letter-spacing: -.05em; line-height: 1.04; }
+.grammar-approach > p { max-width: 540px; margin: 0; }
+
+.grammar-topic-hero { padding: 14px 0 26px; }
+.grammar-back-link { color: var(--indigo); font-size: .84rem; font-weight: 800; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+.grammar-topic-heading { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: end; margin-top: 28px; }
+.grammar-topic-heading h1 { max-width: 900px; margin: 9px 0 11px; font-size: clamp(2.7rem, 7vw, 5.5rem); letter-spacing: -.075em; line-height: .92; }
+.grammar-topic-heading h1 span { color: var(--indigo); font-size: .64em; letter-spacing: -.04em; white-space: nowrap; }
+.grammar-topic-heading p:last-child { max-width: 600px; margin: 0; }
+.grammar-reference-stamp { display: grid; width: 125px; height: 125px; place-content: center; gap: 3px; border: 2px solid var(--verm); color: var(--verm); text-align: center; transform: rotate(-4deg); }
+.grammar-reference-stamp b { font-size: 3.3rem; line-height: .95; }
+.grammar-reference-stamp span { font-size: .53rem; font-weight: 900; letter-spacing: .1em; }
+.grammar-section-menu { position: fixed; top: 50%; right: 0; z-index: 6; transform: translateY(-50%); }
+.grammar-section-menu-trigger { display: grid; width: 52px; height: 52px; min-height: 52px; place-items: center; padding: 6px; border-right: 0; border-radius: 50% 0 0 50%; font-size: 1.75rem; line-height: 1; }
+.grammar-section-menu-trigger:focus-visible { outline-offset: -4px; }
+.grammar-section-nav { position: absolute; top: 50%; right: 52px; display: grid; width: min(220px, calc(100vw - 62px)); transform: translateY(-50%); border: var(--line); background: var(--paper); box-shadow: 4px 4px 0 var(--ink); }
+.grammar-section-nav a, .grammar-section-current { display: flex; min-height: 44px; align-items: center; padding: 8px 12px; border-bottom: 2px solid var(--ink); text-decoration: none; }
+.grammar-section-nav > :last-child { border-bottom: 0; }
+.grammar-section-nav a:hover, .grammar-section-nav a:focus-visible { background: var(--sun); }
+.grammar-section-current { background: var(--indigo); color: var(--washi); cursor: default; font-weight: 700; }
+.grammar-opening { display: grid; grid-template-columns: minmax(230px, .7fr) minmax(0, 1.3fr); gap: clamp(24px, 5vw, 64px); align-items: center; padding: 55px 0; border-bottom: 2px solid var(--ink); scroll-margin-top: 64px; }
+.grammar-opening-copy h2, .grammar-section-title h2, .grammar-dialogue-intro h2 { margin: 9px 0 12px; font-size: clamp(1.9rem, 4vw, 3rem); letter-spacing: -.06em; line-height: 1; }
+.grammar-opening-copy > p:last-child { max-width: 430px; margin: 0; }
+.greeting-sequence { display: grid; gap: 0; margin: 0; padding: 0; border-top: 2px solid var(--ink); list-style: none; }
+.greeting-sequence li { display: grid; grid-template-columns: 34px minmax(0, 1fr); column-gap: 12px; padding: 13px 0; border-bottom: 2px solid var(--ink); }
+.greeting-sequence li > span { grid-row: span 2; color: var(--verm); font-size: .73rem; font-weight: 900; }
+.greeting-sequence .japanese-with-romaji-text { font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; font-size: clamp(1.12rem, 2.4vw, 1.55rem); font-weight: 700; }
+.greeting-sequence small { color: var(--indigo); font-size: .78rem; }
+.japanese-with-romaji { display: flex; flex-wrap: wrap; align-items: start; gap: 5px 10px; min-width: 0; }
+.japanese-romaji-pair { display: inline-grid; grid-template-rows: auto auto; justify-items: center; align-content: start; min-width: 0; max-width: 100%; }
+.japanese-with-romaji-text { display: block; max-width: 100%; overflow-wrap: anywhere; text-align: center; }
+.grammar-romaji { display: block; max-width: 100%; margin-top: 2px; color: var(--indigo); font-family: inherit; font-size: .74rem; font-weight: 600; letter-spacing: .01em; line-height: 1.35; overflow-wrap: anywhere; text-align: center; }
+.japanese-romaji-alternative { display: grid; justify-items: center; margin-top: 5px; padding-top: 4px; border-top: 1px dashed currentColor; color: var(--verm); }
+.japanese-romaji-alternative-label { margin-bottom: 2px; font-family: inherit; font-size: .52rem; font-weight: 800; letter-spacing: .04em; line-height: 1; text-transform: uppercase; }
+.japanese-romaji-alternative .japanese-with-romaji-text { font-size: .88em; }
+.japanese-romaji-alternative .grammar-romaji { margin-top: 1px; font-size: .62rem; }
+.greeting-sequence .grammar-romaji { margin-top: 1px; font-size: .72rem; }
+.grammar-inline-reading { display: inline-flex; vertical-align: baseline; }
+.grammar-inline-reading .japanese-with-romaji-text { display: inline; }
+.grammar-inline-reading .grammar-romaji { margin-top: 0; font-size: .66rem; }
+.grammar-vocabulary, .grammar-patterns, .grammar-dialogue, .grammar-practice { padding: 54px 0; border-bottom: 2px solid var(--ink); scroll-margin-top: 64px; }
+.grammar-section-title { display: flex; justify-content: space-between; gap: 24px; align-items: end; margin-bottom: 24px; }
+.grammar-section-title h2 { margin-bottom: 0; }
+.grammar-section-title > p { max-width: 430px; margin: 0; font-size: .9rem; }
+.vocabulary-groups { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; align-items: start; }
+.vocabulary-group { min-width: 0; border: 2px solid var(--ink); background: var(--paper); }
+.vocabulary-group > header { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 3px 10px; align-items: baseline; padding: 12px 14px; border-bottom: 2px solid var(--ink); background: var(--indigo); color: var(--washi); }
+.vocabulary-group h3 { margin: 0; font-size: .98rem; }
+.vocabulary-group > header > span { font-size: .76rem; }
+.vocabulary-group dl { margin: 0; padding: 4px 13px; }
+.vocabulary-group dl > div { display: grid; grid-template-columns: minmax(84px, .8fr) minmax(0, 1.2fr); gap: 8px; padding: 8px 0; border-bottom: 1px solid color-mix(in srgb, var(--ink) 23%, transparent); }
+.vocabulary-group dl > div:last-child { border-bottom: 0; }
+.vocabulary-group dt { display: grid; align-content: start; gap: 2px; font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; font-size: .94rem; font-weight: 800; overflow-wrap: anywhere; }
+.vocabulary-group dt small { color: var(--indigo); font-family: inherit; font-size: .66rem; font-weight: 600; line-height: 1.25; overflow-wrap: anywhere; }
+.vocabulary-group dd { display: grid; gap: 2px; margin: 0; font-size: .72rem; line-height: 1.25; }
+.vocabulary-group dd span:first-child { color: var(--indigo); font-weight: 700; }
+.grammar-culture-note { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 15px; align-items: baseline; margin-top: 17px; padding: 14px 16px; border-left: 5px solid var(--verm); background: var(--sun); }
+.grammar-culture-note > span { color: var(--verm); font-size: .68rem; font-weight: 900; }
+.grammar-culture-note p { margin: 0; font-size: .84rem; }
+.vocabulary-topic-page .vocabulary-group, .vocabulary-topic-page #usage-notes { scroll-margin-top: 64px; }
+.vocabulary-topic-intro .grammar-section-title { margin-bottom: 24px; }
+.vocabulary-grammar-link { display: inline-block; margin-top: 12px; }
+.grammar-pattern-count { display: grid; justify-items: end; color: var(--verm); font-size: 2.7rem; font-weight: 900; line-height: .8; }
+.grammar-pattern-count small { margin-top: 6px; color: var(--ink); font-size: .66rem; letter-spacing: .08em; text-transform: uppercase; }
+.grammar-pattern-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.grammar-pattern-card { min-width: 0; padding: 18px; border: 2px solid var(--ink); background: var(--paper); box-shadow: 4px 4px 0 var(--ink); }
+.grammar-pattern-card-head { display: flex; gap: 12px; align-items: baseline; }
+.grammar-pattern-card-head > span { color: var(--verm); font-size: .75rem; font-weight: 900; }
+.grammar-pattern-card h3 { margin: 0; font-size: 1.02rem; }
+.grammar-pattern-card h3 small { margin-left: .4em; color: var(--indigo); font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; font-size: .82em; }
+.grammar-formula { margin: 16px 0 10px; padding: 11px 12px; background: var(--indigo); color: var(--washi); font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; font-size: clamp(1.05rem, 2.5vw, 1.35rem); font-weight: 800; line-height: 1.45; overflow-wrap: anywhere; }
+.grammar-formula-pairs { display: grid; gap: 7px; }
+.grammar-formula-row { gap: 4px 11px; }
+.grammar-formula .grammar-romaji { color: color-mix(in srgb, var(--washi) 80%, var(--sun)); font-size: .68rem; }
+.grammar-formula .japanese-romaji-alternative { color: var(--sun); }
+.grammar-pattern-explanation { min-height: 3em; margin: 0; font-size: .84rem; }
+.grammar-example { margin-top: 14px; padding: 11px 12px; border-left: 4px solid var(--verm); background: var(--washi); }
+.grammar-example-row + .grammar-example-row { margin-top: 8px; padding-top: 8px; border-top: 1px solid color-mix(in srgb, var(--ink) 20%, transparent); }
+.grammar-example-label { display: block; margin-bottom: 4px; color: var(--verm); font-size: .62rem; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; }
+.grammar-example-line { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; }
+.grammar-example-line.has-marker { grid-template-columns: 18px minmax(0, 1fr); }
+.grammar-example-marker { color: var(--verm); font-size: 1rem; font-weight: 900; line-height: 1.5; }
+.grammar-example-content { min-width: 0; }
+.grammar-example p { margin: 0; }
+.grammar-example-japanese .japanese-with-romaji-text { font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; font-size: 1.08rem; font-weight: 700; }
+.grammar-example-translation { margin-top: 4px !important; color: var(--indigo); font-size: .79rem; }
+.grammar-pattern-note { margin: 11px 0 0; font-size: .75rem; }
+.grammar-pattern-note span { color: var(--verm); font-weight: 900; }
+.grammar-dialogue { display: grid; grid-template-columns: minmax(230px, .65fr) minmax(0, 1.35fr); gap: clamp(24px, 5vw, 64px); align-items: start; }
+.grammar-dialogue-intro > p:last-child { max-width: 410px; margin: 0; }
+.dialogue-card { padding: clamp(16px, 3vw, 28px); border: 2px solid var(--ink); background: var(--sun); box-shadow: 6px 6px 0 var(--ink); }
+.dialogue-participants { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.dialogue-participants > span { display: inline-flex; flex-wrap: wrap; gap: 6px; align-items: center; padding: 6px 10px; border: 1px solid var(--ink); background: var(--washi); font-size: .72rem; font-weight: 700; }
+.dialogue-participants b { color: var(--verm); font-size: .62rem; letter-spacing: .06em; }
+.dialogue-playback { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 20px; }
+.dialogue-playback-button { display: inline-flex; min-height: 40px; align-items: center; gap: 8px; padding: 8px 12px; border: 2px solid var(--ink); background: var(--indigo); color: var(--washi); font: inherit; font-size: .77rem; font-weight: 900; cursor: pointer; }
+.dialogue-playback-button:hover:not(:disabled) { transform: translate(-2px, -2px); box-shadow: 3px 3px 0 var(--ink); }
+.dialogue-playback-button:focus-visible { outline: 3px solid var(--verm); outline-offset: 3px; }
+.dialogue-playback-button:disabled { opacity: .58; cursor: not-allowed; }
+.dialogue-playback-status { margin: 0; font-size: .7rem; line-height: 1.4; }
+.dialogue-line { display: grid; grid-template-columns: minmax(34px, auto) minmax(0, 1fr); gap: 11px; align-items: start; max-width: 620px; }
+.dialogue-line + .dialogue-line { margin-top: 14px; }
+.dialogue-line > span { display: grid; min-width: 34px; height: 28px; place-items: center; padding: 3px 6px; border: 2px solid var(--ink); border-radius: 999px; background: var(--verm); color: var(--washi); font-size: .68rem; font-weight: 900; white-space: nowrap; }
+.dialogue-line > div { min-width: 0; }
+.dialogue-line.is-speaking > div { border-radius: 2px; background: var(--washi); outline: 2px solid var(--verm); box-shadow: 0 0 0 5px var(--washi); }
+.dialogue-line.is-speaking > span { background: var(--indigo); box-shadow: 0 0 0 3px var(--sun), 0 0 0 5px var(--verm); }
+.dialogue-line .japanese-with-romaji-text { font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; font-size: 1.08rem; font-weight: 700; line-height: 1.55; }
+.dialogue-line .grammar-romaji { font-size: .75rem; }
+.dialogue-b { margin-left: clamp(10px, 5vw, 62px); }
+.dialogue-b > span { background: var(--indigo); }
+.dialogue-meaning { margin: 6px 0 0; color: var(--indigo); font-size: .74rem; line-height: 1.4; }
+.dialogue-name-note { margin: 20px 0 0; padding-top: 12px; border-top: 2px solid var(--ink); font-size: .7rem; line-height: 1.45; }
+.grammar-exercises { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.grammar-exercises details { align-self: start; border: 2px solid var(--ink); background: var(--paper); }
+.grammar-exercises summary { display: flex; min-height: 58px; align-items: center; gap: 12px; padding: 12px 14px; cursor: pointer; font-size: .87rem; font-weight: 800; list-style: none; }
+.grammar-exercises summary::-webkit-details-marker { display: none; }
+.grammar-exercises summary::after { margin-left: auto; color: var(--verm); content: '+'; font-size: 1.3rem; }
+.grammar-exercises details[open] summary::after { content: '−'; }
+.grammar-exercises summary span { color: var(--verm); font-size: .73rem; }
+.grammar-exercises details > p { margin: 0 14px 8px; padding: 12px; background: var(--indigo); color: var(--washi); font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; font-size: 1rem; font-weight: 700; overflow-wrap: anywhere; }
+.grammar-exercises details > p .grammar-romaji { color: var(--washi); font-size: .73rem; }
+.grammar-exercises details > small { display: block; padding: 0 14px 14px; font-size: .74rem; }
+.grammar-exercises details > .grammar-exercise-note { display: grid; gap: 6px; padding: 0 14px 14px; font-size: .74rem; }
+.grammar-exercise-note .japanese-with-romaji { gap: 3px 8px; }
+@media (max-width: 860px) {
+  .grammar-feature-main { grid-template-columns: minmax(0, 1fr) minmax(210px, .7fr); gap: 24px; }
+  .vocabulary-groups { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grammar-topic-heading h1 { font-size: clamp(2.7rem, 8vw, 4.6rem); }
+}
+@media (max-width: 620px) {
+  main.grammar-page { padding: 18px 16px 56px; }
+  .grammar-hero { grid-template-columns: minmax(0, 1fr) 90px; gap: 15px; padding: 32px 0 26px; }
+  .grammar-hero h1 { font-size: clamp(3.2rem, 13vw, 5rem); }
+  .grammar-stamp { outline-offset: 3px; }
+  .grammar-stamp b { font-size: 2.7rem; }
+  .grammar-stamp span:first-child { font-size: .55rem; }
+  .grammar-stamp span:last-child { font-size: .38rem; }
+  .grammar-feature { margin: 26px 4px 0 0; box-shadow: 5px 5px 0 var(--ink); }
+  .grammar-feature-top { padding: 10px 13px; }
+  .grammar-feature-main { grid-template-columns: minmax(0, 1fr); gap: 22px; padding: 20px 16px; }
+  .grammar-feature-copy h2 { font-size: clamp(1.9rem, 8vw, 2.8rem); }
+  .grammar-feature-copy h2 span { display: block; margin-top: 7px; }
+  .grammar-feature-steps li { min-height: 44px; }
+  .grammar-pattern-ribbon { justify-content: flex-start; padding: 12px 14px; }
+  .grammar-approach { grid-template-columns: 1fr; gap: 13px; margin-top: 38px; padding: 20px 0; }
+  .grammar-topic-hero { padding-top: 7px; }
+  .grammar-topic-heading { grid-template-columns: minmax(0, 1fr) 72px; gap: 12px; align-items: start; margin-top: 24px; }
+  .grammar-topic-heading h1 { font-size: clamp(2.2rem, 9vw, 3.4rem); line-height: .95; }
+  .grammar-topic-heading h1 span { display: block; margin-top: 8px; }
+  .grammar-reference-stamp { width: 70px; height: 70px; }
+  .grammar-reference-stamp b { font-size: 2rem; }
+  .grammar-reference-stamp span { font-size: .34rem; }
+  .grammar-opening, .grammar-vocabulary, .grammar-patterns, .grammar-dialogue, .grammar-practice { padding: 38px 0; }
+  .grammar-opening, .grammar-dialogue { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+  .grammar-section-title { align-items: start; flex-direction: column; gap: 11px; }
+  .vocabulary-groups { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .vocabulary-group dl > div { grid-template-columns: minmax(92px, .7fr) minmax(0, 1.3fr); }
+  .grammar-culture-note { grid-template-columns: 1fr; gap: 5px; }
+  .grammar-pattern-grid, .grammar-exercises { grid-template-columns: minmax(0, 1fr); }
+  .grammar-pattern-explanation { min-height: 0; }
+  .grammar-pattern-card { padding: 15px; }
+  .grammar-pattern-card h3 { font-size: .96rem; }
+  .grammar-pattern-count { align-self: end; font-size: 2rem; }
+  .dialogue-line .japanese-with-romaji-text { font-size: .99rem; }
+}
+@media (max-width: 370px) {
+  main.grammar-page { padding-inline: 12px; }
+  .grammar-topic-heading { grid-template-columns: minmax(0, 1fr) 60px; }
+  .grammar-reference-stamp { width: 60px; height: 60px; }
+  .grammar-reference-stamp b { font-size: 1.7rem; }
+  .grammar-reference-stamp span { font-size: .3rem; }
+  .grammar-vocabulary, .grammar-patterns, .grammar-dialogue, .grammar-practice, .grammar-opening { scroll-margin-top: 52px; }
+  .vocabulary-group dl { padding-inline: 9px; }
+  .vocabulary-group dl > div { grid-template-columns: minmax(80px, .7fr) minmax(0, 1.3fr); gap: 6px; }
+}
