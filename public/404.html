@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loading Lingua Lab…</title>
+    <script>
+      (() => {
+        const basePath = '/lingua-lab';
+        const routePath = window.location.pathname.startsWith(`${basePath}/`)
+          ? window.location.pathname.slice(basePath.length)
+          : '/';
+        const destination = new URL(`${basePath}/`, window.location.origin);
+        destination.searchParams.set('p', `${routePath}${window.location.search}`);
+        if (window.location.hash) destination.searchParams.set('h', window.location.hash);
+        window.location.replace(destination);
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>

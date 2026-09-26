@@ -1,8 +1,7 @@
 name: PRD Release
 
 on:
-  push:
-    branches: [master]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -12,18 +11,101 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  release-preflight:
-    name: Release Preflight (no deployment)
+  release-readiness:
+    name: Release readiness gate
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    steps:
+      - name: Keep production fail-closed until current-head review evidence is gated
+        run: |
+          echo 'Production deployment is blocked: the required current-head checks and reviewer evidence are not yet enforced by a release gate.' >&2
+          exit 1
+
+  build-production-artifact:
+    name: Build production artifact
+    needs: release-readiness
     runs-on: ubuntu-24.04
     steps:
       - name: Check out trusted master revision
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - name: Confirm release automation is not yet enabled
+        with:
+          ref: refs/heads/master
+      - name: Set up Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Build GitHub Pages artifact once
+        env:
+          GITHUB_ACTIONS: 'true'
+        run: npm run build
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4.0.0
+        with:
+          path: dist
+
+  deploy-pages:
+    name: Deploy GitHub Pages
+    needs: build-production-artifact
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    outputs:
+      page_url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy the built Pages artifact
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5
+
+  verify-published-pages:
+    name: Verify published Pages routes
+    needs: deploy-pages
+    runs-on: ubuntu-24.04
+    permissions: {}
+    env:
+      PAGE_URL: ${{ needs.deploy-pages.outputs.page_url }}
+    steps:
+      - name: Check out browser verification harness
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Set up Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Install Chromium for browser verification
+        run: npx playwright install --with-deps chromium
+      - name: Verify the deployed deep link through the Pages 404 fallback
         run: |
-          test "${GITHUB_REF}" = 'refs/heads/master'
-          if [ -f package.json ]; then
-            echo 'A deployable application is present, but immutable artifact, attestation, Pages deployment, and browser verification jobs have not been implemented.' >&2
-            exit 1
-          fi
-          echo 'No deployable application exists on this revision; no artifact is built and no Pages deployment is attempted.'
-          echo 'GitHub Pages is configured for Actions, but this bootstrap workflow intentionally has no pages or id-token write permission.'
+          set -euo pipefail
+          node --input-type=module <<'NODE'
+          import { chromium } from 'playwright';
+
+          const pageUrl = process.env.PAGE_URL;
+          if (!pageUrl) throw new Error('PAGE_URL is required');
+
+          const deploymentUrl = new URL(pageUrl);
+          if (!deploymentUrl.pathname.endsWith('/')) deploymentUrl.pathname += '/';
+          const deepLink = new URL('nihongo-o-benkyuo/kana', deploymentUrl);
+          const expectedPathname = deepLink.pathname;
+
+          const browser = await chromium.launch({ headless: true });
+          try {
+            const page = await browser.newPage();
+            await page.goto(deepLink.toString(), { waitUntil: 'networkidle' });
+            await page.getByRole('heading', { level: 1, name: /Kana/ }).waitFor({ state: 'visible' });
+            if (new URL(page.url()).pathname !== expectedPathname) {
+              throw new Error(`expected final pathname ${expectedPathname}, received ${new URL(page.url()).pathname}`);
+            }
+          } finally {
+            await browser.close();
+          }
+          NODE

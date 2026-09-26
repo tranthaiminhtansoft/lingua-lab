@@ -1,0 +1,3 @@
+import { learningConcepts } from '../content/learningContent';
+import { KanaMarkText } from './KanaMarkText';
+export function BasicsGuide({ id }: { id?: string }) { return <section className="panel guide" id={id} aria-labelledby="basics-title"><h2 id="basics-title">Learn the basics <span lang="ja">基本を学ぶ</span></h2><p>Compare scripts and say each sound aloud. Browser speech is listening support, not pronunciation certification.</p><dl>{learningConcepts.map(([english, japanese, description]) => <div key={english}><dt>{english} <KanaMarkText lang="ja">{japanese}</KanaMarkText></dt><dd><KanaMarkText>{description}</KanaMarkText></dd></div>)}</dl></section>; }

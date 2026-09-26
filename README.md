@@ -1,28 +1,35 @@
 # Lingua Lab
 
-A public, multi-domain language-learning workspace. The initial product focus is the Nihongo learning domain; the current committed HTML files under [`docs/ui-explorations/`](docs/ui-explorations/) are design references, not production application source.
+Lingua Lab is a multi-language learning workspace. The current learning path is Nihongo, with Kana available and Grammar and Vocabulary marked as coming soon.
 
-## Status
+## Start locally
 
-The repository currently contains planning and UI-exploration material plus repository/CI-CD policy. The React/Vite application has **not** been scaffolded or deployed. No production release should be inferred from this repository bootstrap.
+Requires the Node.js version in [`.nvmrc`](.nvmrc).
 
-## GitHub Pages
+```sh
+npm ci
+npm run dev
+```
 
-GitHub Pages is configured to deploy through GitHub Actions. When a deployable static application is added, it must work under the repository project base path:
+The local routes are `/` for the language home, `/nihongo-o-benkyuo` for the Nihongo lesson list, and `/nihongo-o-benkyuo/kana` for Kana.
 
-- `https://tranthaiminhtansoft.github.io/lingua-lab/`
+## Project documentation
 
-Do not use root-relative application asset URLs; use the `/lingua-lab/` base-path contract.
+- [Documentation index](docs/README.md)
+- [Current product state and local operation](docs/current-state.md)
+- [Application architecture and routing](docs/architecture.md)
+- [CI/CD workflows and release state](docs/ci-cd.md)
+- [Release and rollback policy](docs/release-and-rollback.md)
+- [UI exploration references](docs/ui-explorations/)
 
-## Contribution policy
+The dated plan in `docs/superpowers/plans/` is a historical planning artifact; use the current-state and architecture documents for the implementation as it exists now.
+
+## Contribution basics
 
 - Production branch: `master`.
-- Development work belongs on `develop/homelab/<slug>` branches; never add application code directly to `master`.
-- Pull requests target `master`; no workflow merges pull requests automatically.
-- Application CI is path-scoped. Documentation-only, plan-only, and unrelated-only pull requests are intentionally outside application CI unless they affect build, deployment, workflow, or policy evidence.
-- A production release is only eligible after current-head checks and required public reviews. Rollback, when implemented, must never force-push or reset history.
-
-See [`docs/release-and-rollback.md`](docs/release-and-rollback.md) and the canonical [implementation plan](docs/superpowers/plans/2026-09-11-nihongo-o-benkyou.md).
+- Development work belongs on `develop/homelab/<slug>` branches; pull requests target `master`.
+- CI is path-scoped. See [CI/CD](docs/ci-cd.md) for the exact triggers and checks.
+- Production deployment is currently fail-closed and is not enabled. The configured GitHub Pages URL is a target, not evidence of a live deployment.
 
 ## License
 

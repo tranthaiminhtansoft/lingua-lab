@@ -1,0 +1,2 @@
+import type { KanaEntry } from '../types/kana';
+export function selectRandomKana(entries: readonly KanaEntry[], previous: KanaEntry | undefined, random: () => number = Math.random): KanaEntry { if (entries.length === 0) throw new Error('Kana pool cannot be empty'); if (entries.length === 1) return entries[0]; const candidates = previous ? entries.filter((entry) => entry !== previous) : entries; return candidates[Math.floor(random() * candidates.length)] ?? candidates[0]; }

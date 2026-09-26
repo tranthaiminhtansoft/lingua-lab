@@ -1,0 +1,3 @@
+export const learningConcepts = [
+  ['Hiragana', 'ひらがな', 'Used for Japanese words and grammar.'], ['Katakana', 'カタカナ', 'Used for loanwords and names.'], ['Romaji', 'ローマ字', 'Latin letters that help learners read sounds.'], ['Dakuten', '濁点（゛）', 'Adds two small strokes (゛) to a Kana and voices the sound, for example か → が.'], ['Handakuten', '半濁点（゜）', 'Adds a small circle (゜) to the は row and changes the sound to p, for example は → ぱ.'], ['Yōon', '拗音', 'Small ゃ, ゅ, ょ combine with the preceding sound.'], ['Sokuon', '促音', 'Small っ / ッ marks a short stop and doubles the following consonant.'], ['Chōon', '長音', 'Long vowels use extra Kana; Katakana commonly uses ー.'],
+] as const;
