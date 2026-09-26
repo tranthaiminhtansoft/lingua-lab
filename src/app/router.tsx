@@ -1,7 +1,8 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 import { AppShell } from './AppShell';
-import { LessonLobbyPage } from '../business/lesson-lobby/LessonLobbyPage';
-import { KanaPage } from '../business/kana/KanaPage';
+import { LanguageConstellationPage } from '../business/language-home/LanguageConstellationPage';
+import { NihongoPage } from '../business/language-home/nihongo/NihongoPage';
+import { KanaPage } from '../business/language-home/nihongo/kana/KanaPage';
 
 export function restorePagesPath(basePath = import.meta.env.BASE_URL) {
   const fallbackPath = new URLSearchParams(window.location.search).get('p');
@@ -18,11 +19,13 @@ export function restorePagesPath(basePath = import.meta.env.BASE_URL) {
 restorePagesPath();
 
 export const router = createBrowserRouter([
+  { path: '/', element: <LanguageConstellationPage /> },
   {
     element: <AppShell />,
     children: [
-      { index: true, element: <LessonLobbyPage /> },
-      { path: 'lessons/kana', element: <KanaPage /> },
+      { path: 'nihongo-o-benkyuo', element: <NihongoPage /> },
+      { path: 'nihongo-o-benkyuo/kana', element: <KanaPage /> },
+      { path: 'lessons/kana', element: <Navigate replace to="/nihongo-o-benkyuo/kana" /> },
       { path: '*', element: <main><h1>Page not found</h1><p>That lesson is not available.</p></main> },
     ],
   },

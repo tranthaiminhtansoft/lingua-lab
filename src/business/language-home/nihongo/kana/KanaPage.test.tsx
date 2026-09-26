@@ -8,6 +8,10 @@ test('ports the source lesson markers, inventory, and sound-mark sections', () =
   expect(screen.getByRole('heading', { level: 1, name: /Kana/ })).toBeInTheDocument();
   expect(document.querySelector('#basics')).toBeInTheDocument();
   expect(document.querySelector('#practice')).toBeInTheDocument();
+  expect(screen.getByTestId('kana-writing-guide')).toBeInTheDocument();
+  expect(screen.getByRole('img', { name: /Animated stroke guide for/ })).toBeInTheDocument();
+  expect(screen.getByText('Practice tips')).toBeInTheDocument();
+  expect(document.querySelectorAll('.practice-tips li')).toHaveLength(3);
   expect(document.querySelector('#tables')).toBeInTheDocument();
   expect(document.querySelector('#yoon')).toBeInTheDocument();
   expect(document.querySelector('#sokuon')).toBeInTheDocument();
@@ -17,7 +21,7 @@ test('ports the source lesson markers, inventory, and sound-mark sections', () =
   expect(reference).toBeInTheDocument();
   expect(reference).toHaveAttribute('aria-labelledby', 'tables-title');
   expect(within(reference as HTMLElement).getAllByRole('table')).toHaveLength(3);
-  expect(within(reference as HTMLElement).getAllByRole('row')).toHaveLength(74);
+  expect(within(reference as HTMLElement).getAllByRole('row')).toHaveLength(16);
   expect(screen.getByRole('heading', { name: /Yōon/ })).toBeInTheDocument();
   expect(screen.getByRole('heading', { name: /Sokuon/ })).toBeInTheDocument();
   expect(screen.getByRole('heading', { name: /Chōon/ })).toBeInTheDocument();
@@ -35,6 +39,7 @@ test('opens the fixed Kana section menu with preserved anchors and a disabled cu
   const sectionNavigation = screen.getByRole('navigation', { name: 'Kana sections' });
   expect(trigger).toHaveAttribute('aria-expanded', 'true');
   expect(sectionNavigation).toHaveAttribute('id', 'kana-section-menu');
+  expect(Array.from(sectionNavigation.children, (item) => item.textContent)).toEqual(['Basics', 'Reference', 'Practice', 'Yōon', 'Sokuon', 'Chōon']);
   expect(screen.getByText('Basics', { selector: '[aria-current="location"]' })).toHaveAttribute('aria-disabled', 'true');
   expect(screen.getByText('Basics', { selector: '[aria-current="location"]' }).closest('a')).toBeNull();
   expect(screen.getByRole('link', { name: 'Practice' })).toHaveAttribute('href', '#practice');

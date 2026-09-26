@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 import { choonEntries, kanaEntries, sokuonEntries, yoonEntries } from './data/kana';
 import { BasicsGuide } from './components/BasicsGuide';
 import { KanaTables } from './components/KanaTables';
+import { KanaWritingGuide } from './components/KanaWritingGuide';
 import { useJapaneseSpeech } from './hooks/useJapaneseSpeech';
 import type { KanaEntry, SoundMarkEntry } from './types/kana';
 
@@ -10,8 +11,8 @@ type PracticeSelection = { entry: KanaEntry; script: 0 | 1 };
 
 const kanaSections = [
   { label: 'Basics', href: '#basics' },
-  { label: 'Practice', href: '#practice' },
   { label: 'Reference', href: '#tables' },
+  { label: 'Practice', href: '#practice' },
   { label: 'Yōon', href: '#yoon' },
   { label: 'Sokuon', href: '#sokuon' },
   { label: 'Chōon', href: '#choon' },
@@ -146,12 +147,14 @@ export function KanaPage() {
       </nav>}
     </div>
     <div className="kana-grid">
-      <BasicsGuide id="basics" />
-      <section aria-labelledby="practice-title" className="panel practice" id="practice"><div className="practice-top"><div><div className="practice-kicker">Practice card / <span lang="ja">練習カード</span></div><h2 id="practice-title">Recognize the sound</h2></div><span className="eyebrow">{script}</span></div><div className="practice-stage"><div className="glyph" data-testid="practice-glyph" lang="ja">{glyph}</div><button aria-label={speaking ? 'Stop Japanese playback' : `Play Japanese pronunciation for ${glyph}`} className="speaker" disabled={disabled} onClick={speaking ? cancel : () => speak(glyph)} title={speaking ? 'Stop Japanese playback' : 'Play Japanese pronunciation'} type="button">🔊</button></div><p className="cue">{script} {glyph} — say this glyph out loud.</p><div className="speech-rate"><label htmlFor="speech-rate">Speech rate <span aria-hidden="true" className="speech-rate-value">{speechRate.toFixed(2)}×</span></label><input aria-describedby="speech-rate-help" aria-label="Speech rate" id="speech-rate" max="1" min="0.1" name="speech-rate" onChange={(event) => setSpeechRate(Number(event.target.value))} step="0.05" type="range" value={speechRate} /><div id="speech-rate-help">Slow 0.1× · 0.05× steps · Fast 1×</div></div><p className="status" role="status">{speechStatusMessage(speechState)}</p><div className="actions"><button className="action" onClick={showRandom} type="button">Random practice / <span lang="ja">ランダム練習</span></button></div></section>
+      <div className="kana-learning-column">
+        <BasicsGuide id="basics" />
+      <section aria-labelledby="practice-title" className="panel practice" id="practice"><div className="practice-top"><div><div className="practice-kicker">Practice card / <span lang="ja">練習カード</span></div><h2 id="practice-title">Recognize the sound</h2></div><span className="eyebrow">{script}</span></div><div className="practice-stage"><div className="practice-glyph-stage"><div className="glyph" data-testid="practice-glyph" lang="ja">{glyph}</div></div><KanaWritingGuide glyph={glyph} /><div className="practice-controls"><button aria-label="Random practice" className="random-practice" onClick={showRandom} title="Random practice" type="button"><svg aria-hidden="true" fill="none" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11a8.1 8.1 0 0 0-15.5-2M4 4v5h5M4 13a8.1 8.1 0 0 0 15.5 2M20 20v-5h-5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" /></svg></button><button aria-label={speaking ? 'Stop Japanese playback' : `Play Japanese pronunciation for ${glyph}`} className="speaker" disabled={disabled} onClick={speaking ? cancel : () => speak(glyph)} title={speaking ? 'Stop Japanese playback' : 'Play Japanese pronunciation'} type="button">🔊</button></div></div><p className="cue">{script} {glyph} — say this glyph out loud.</p><div className="speech-rate"><label htmlFor="speech-rate">Speech rate <span aria-hidden="true" className="speech-rate-value">{speechRate.toFixed(2)}×</span></label><input aria-describedby="speech-rate-help" aria-label="Speech rate" id="speech-rate" max="1" min="0.1" name="speech-rate" onChange={(event) => setSpeechRate(Number(event.target.value))} step="0.05" type="range" value={speechRate} /><div id="speech-rate-help">Slow 0.1× · 0.05× steps · Fast 1×</div></div><p className="status" role="status">{speechStatusMessage(speechState)}</p><div aria-labelledby="practice-tips-title" className="practice-tips"><div className="practice-tips-title" id="practice-tips-title">Practice tips</div><ol><li><span aria-hidden="true">1</span><span>Observe stroke order</span></li><li><span aria-hidden="true">2</span><span>Play the sound</span></li><li><span aria-hidden="true">3</span><span>Say it aloud</span></li></ol></div></section>
+      </div>
       <KanaTables entries={kanaEntries} />
       <SoundMarkSection description={<>Small <span lang="ja">ゃ, ゅ, ょ</span> combine with the preceding sound to make one blended sound.</>} entries={yoonEntries} id="yoon" japanese="拗音" onCancel={cancel} onSpeak={speak} state={speechState} title="Yōon" />
       <SoundMarkSection description={<><span lang="ja">っ / ッ</span> marks a short stop and doubles the following consonant.</>} entries={sokuonEntries} id="sokuon" japanese="促音" label="Small tsu / Geminate consonant" onCancel={cancel} onSpeak={speak} state={speechState} title="Sokuon" />
-      <SoundMarkSection description={<>Long vowels use extra Kana in Hiragana; Katakana commonly uses <span lang="ja">ー</span>.</>} entries={choonEntries} id="choon" japanese="長音" label="Long vowel" onCancel={cancel} onSpeak={speak} state={speechState} title="Chōon" />
+      <SoundMarkSection description={<>Hiragana adds another vowel Kana; Katakana uses <span lang="ja">ー</span> for the same long sound.</>} entries={choonEntries} id="choon" japanese="長音" label="Long vowel" onCancel={cancel} onSpeak={speak} state={speechState} title="Chōon" />
     </div>
     {showBackToTop && <button aria-label="Back to top" className="back-to-top" onClick={() => window.scrollTo({ behavior: 'smooth', top: 0 })} type="button">↑ <span>Top</span></button>}
   </main>;

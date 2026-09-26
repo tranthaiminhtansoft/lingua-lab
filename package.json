@@ -11,6 +11,29 @@
     "test:unit": "vitest",
     "test:e2e": "playwright test"
   },
-  "dependencies": { "@vitejs/plugin-react": "latest", "react": "latest", "react-dom": "latest", "react-router-dom": "latest", "vite": "latest" },
-  "devDependencies": { "@eslint/js": "latest", "@playwright/test": "latest", "@testing-library/jest-dom": "latest", "@testing-library/react": "latest", "@types/node": "latest", "@types/react": "latest", "@types/react-dom": "latest", "eslint": "latest", "eslint-plugin-react-hooks": "latest", "eslint-plugin-react-refresh": "latest", "globals": "latest", "jsdom": "latest", "typescript": "latest", "typescript-eslint": "latest", "vitest": "latest" }
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "kana-svg-data": "^0.0.2",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-router-dom": "latest",
+    "vite": "latest"
+  },
+  "devDependencies": {
+    "@eslint/js": "latest",
+    "@playwright/test": "latest",
+    "@testing-library/jest-dom": "latest",
+    "@testing-library/react": "latest",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "eslint": "latest",
+    "eslint-plugin-react-hooks": "latest",
+    "eslint-plugin-react-refresh": "latest",
+    "globals": "latest",
+    "jsdom": "latest",
+    "typescript": "latest",
+    "typescript-eslint": "latest",
+    "vitest": "latest"
+  }
 }

@@ -1,2 +1,0 @@
-import { LessonCard } from './LessonCard'; import { lessons } from './lessonRegistry';
-export function LessonLobbyPage() { return <main><section className="hero"><p>Japanese learning lab / <span lang="ja">日本語学習</span></p><h1>Nihongo O Benkyou</h1><p>Pick one lesson, build one clear foundation.</p></section><section aria-labelledby="lesson-title"><h2 id="lesson-title">Choose a lesson <span lang="ja">レッスンを選ぶ</span></h2><div className="lesson-grid">{lessons.map((lesson) => <LessonCard key={lesson.id} lesson={lesson} />)}</div></section></main>; }
