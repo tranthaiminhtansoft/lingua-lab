@@ -1,39 +1,35 @@
 # Lingua Lab
 
-A public, multi-domain language-learning workspace. The initial product focus is the Nihongo learning domain; the current committed HTML files under [`docs/ui-explorations/`](docs/ui-explorations/) are design references, not production application source.
+Lingua Lab is a multi-language learning workspace. The current learning path is Nihongo, with Kana available and Grammar and Vocabulary marked as coming soon.
 
-## Status
+## Start locally
 
-The React/Vite Kana MVP scaffold is present, with application source under [`src/`](src/) and local test coverage. On the current workspace, `npm run lint`, `npm run typecheck`, and `npm run build` completed successfully.
-
-For local setup and development:
+Requires the Node.js version in [`.nvmrc`](.nvmrc).
 
 ```sh
 npm ci
 npm run dev
 ```
 
-Use `npm run lint`, `npm run typecheck`, and `npm run build` for the available local static checks and production build. Unit and end-to-end scripts are also defined as `npm run test:unit` and `npm run test:e2e`.
+The local routes are `/` for the language home, `/nihongo-o-benkyuo` for the Nihongo lesson list, and `/nihongo-o-benkyuo/kana` for Kana.
 
-## GitHub Pages
+## Project documentation
 
-The configured GitHub Pages target uses the repository project base path:
+- [Documentation index](docs/README.md)
+- [Current product state and local operation](docs/current-state.md)
+- [Application architecture and routing](docs/architecture.md)
+- [CI/CD workflows and release state](docs/ci-cd.md)
+- [Release and rollback policy](docs/release-and-rollback.md)
+- [UI exploration references](docs/ui-explorations/)
 
-- `https://tranthaiminhtansoft.github.io/lingua-lab/`
+The dated plan in `docs/superpowers/plans/` is a historical planning artifact; use the current-state and architecture documents for the implementation as it exists now.
 
-This URL is a deployment target, not a claim of a live site. `PRD Release` is manual-only and its intentional fail-closed `Release readiness gate` exits with status 1, so its build, GitHub Pages deployment, and published-route verification jobs cannot run. Production release remains blocked until a human approves and implements the readiness gate, and the platform owner enables and verifies the required GitHub Pages/Actions and protected-environment configuration. Required current-head checks, review evidence, and human approval are still required before an authorized human may dispatch a release.
-
-Do not use root-relative application asset URLs; use the `/lingua-lab/` base-path contract. See [`docs/release-and-rollback.md`](docs/release-and-rollback.md) for the canonical release and rollback state.
-
-## Contribution policy
+## Contribution basics
 
 - Production branch: `master`.
-- Development work belongs on `develop/homelab/<slug>` branches; never add application code directly to `master`.
-- Pull requests target `master`; no workflow merges pull requests automatically.
-- Application CI is path-scoped. Documentation-only, plan-only, and unrelated-only pull requests are intentionally outside application CI unless they affect build, deployment, workflow, or policy evidence.
-- A production release is only eligible after current-head checks and required public reviews. Rollback, when implemented, must never force-push or reset history.
-
-See [`docs/release-and-rollback.md`](docs/release-and-rollback.md) and the canonical [implementation plan](docs/superpowers/plans/2026-09-11-nihongo-o-benkyou.md).
+- Development work belongs on `develop/homelab/<slug>` branches; pull requests target `master`.
+- CI is path-scoped. See [CI/CD](docs/ci-cd.md) for the exact triggers and checks.
+- Production deployment is currently fail-closed and is not enabled. The configured GitHub Pages URL is a target, not evidence of a live deployment.
 
 ## License
 
