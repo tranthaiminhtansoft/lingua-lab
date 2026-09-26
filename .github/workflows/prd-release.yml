@@ -94,7 +94,7 @@ jobs:
 
           const deploymentUrl = new URL(pageUrl);
           if (!deploymentUrl.pathname.endsWith('/')) deploymentUrl.pathname += '/';
-          const deepLink = new URL('lessons/kana', deploymentUrl);
+          const deepLink = new URL('nihongo-o-benkyuo/kana', deploymentUrl);
           const expectedPathname = deepLink.pathname;
 
           const browser = await chromium.launch({ headless: true });

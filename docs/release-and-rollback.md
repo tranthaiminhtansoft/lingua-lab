@@ -10,7 +10,7 @@ The downstream jobs are deliberately dormant behind that gate. If and only if th
 
 - `Build production artifact` checks out the trusted `refs/heads/master` revision, uses Node.js 22, runs `npm ci` and `npm run build`, then uploads `dist` as the GitHub Pages artifact.
 - `Deploy GitHub Pages` deploys that Pages artifact through the `github-pages` environment with the workflow's Pages and OIDC permissions.
-- `Verify published Pages routes` uses the deployment URL emitted by the deploy job and Chromium to verify the `/lessons/kana` deep link through the Pages fallback.
+- `Verify published Pages routes` uses the deployment URL emitted by the deploy job and Chromium to verify the `/nihongo-o-benkyuo/kana` deep link through the Pages fallback.
 
 These job definitions describe future enabled behavior; they are not evidence that an artifact has been built, a Pages site has been deployed, or post-deployment verification has passed.
 

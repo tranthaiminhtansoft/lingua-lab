@@ -1,8 +1,10 @@
 import { expect, test } from '@playwright/test';
 
+const kanaPath = 'nihongo-o-benkyuo/kana';
+
 test('mobile host navigation remains keyboard accessible and Kana does not overflow', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto('lessons/kana');
+  await page.goto(kanaPath);
 
   const menu = page.getByRole('button', { name: /menu/i });
   await expect(menu).toHaveAttribute('aria-expanded', 'false');
@@ -17,7 +19,7 @@ test('mobile host navigation remains keyboard accessible and Kana does not overf
 
 test('mobile Kana sound pronunciation controls retain 44px hit targets without overflow', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto('lessons/kana');
+  await page.goto(kanaPath);
 
   const soundSpeakers = page.locator('.kana-page .sound-speaker');
   await expect(soundSpeakers).not.toHaveCount(0);
@@ -29,7 +31,7 @@ test('mobile Kana sound pronunciation controls retain 44px hit targets without o
 });
 
 test('Kana section edge menu is keyboard reachable and closes on Escape or outside click', async ({ page }) => {
-  await page.goto('lessons/kana');
+  await page.goto(kanaPath);
 
   const trigger = page.locator('.kana-section-menu-trigger');
   await expect(trigger).toHaveAccessibleName('Open Kana sections');
@@ -55,7 +57,7 @@ test('Kana section edge menu is keyboard reachable and closes on Escape or outsi
 });
 
 test('Kana route presents the source sections and real Japanese speech controls', async ({ page }) => {
-  await page.goto('lessons/kana');
+  await page.goto(kanaPath);
   await expect(page.getByText('Learn one sound at a time')).toBeVisible();
   const basics = page.locator('#basics');
   await expect(basics).toBeVisible();
@@ -66,9 +68,12 @@ test('Kana route presents the source sections and real Japanese speech controls'
     'Romaji ローマ字',
     'Dakuten 濁点（゛）',
     'Handakuten 半濁点（゜）',
+    'Yōon 拗音',
+    'Sokuon 促音',
+    'Chōon 長音',
   ]);
   await expect(page.locator('#tables')).toBeVisible();
-  const referenceTables = page.locator('#tables table');
+  const referenceTables = page.locator('#tables [role="table"]');
   await expect(referenceTables).toHaveCount(3);
   await expect(referenceTables.nth(0)).toHaveAccessibleName(/Basic kana/i);
   await expect(page.getByText('71 complete pairs')).toBeVisible();
@@ -105,20 +110,29 @@ test('Kana route presents the source sections and real Japanese speech controls'
   }
 });
 
-test('lobby links to the source-faithful Kana lesson', async ({ page }) => {
+test('language constellation and Nihongo lobby link to the Kana lesson', async ({ page }) => {
   await page.goto('.');
+  await expect(page.getByRole('heading', { name: 'Find your language.' })).toBeVisible();
+  await page.getByRole('link', { name: 'Explore Nihongo learning path' }).click();
+  await expect(page).toHaveURL(/\/lingua-lab\/nihongo-o-benkyuo$/);
   await expect(page.getByRole('heading', { name: 'Nihongo O Benkyou' })).toBeVisible();
   await page.getByRole('link', { name: 'Start Kana' }).click();
-  await expect(page).toHaveURL(/\/lingua-lab\/lessons\/kana$/);
+  await expect(page).toHaveURL(/\/lingua-lab\/nihongo-o-benkyuo\/kana$/);
   await expect(page.getByRole('heading', { level: 1, name: /Kana/ })).toBeVisible();
 });
 
 test('GitHub Pages fallback preserves the direct Kana URL through refresh', async ({ page }) => {
-  await page.goto('lessons/kana');
-  await expect(page).toHaveURL(/\/lingua-lab\/lessons\/kana$/);
+  await page.goto(kanaPath);
+  await expect(page).toHaveURL(/\/lingua-lab\/nihongo-o-benkyuo\/kana$/);
   await expect(page.getByRole('heading', { level: 1, name: /Kana/ })).toBeVisible();
 
   await page.reload();
-  await expect(page).toHaveURL(/\/lingua-lab\/lessons\/kana$/);
+  await expect(page).toHaveURL(/\/lingua-lab\/nihongo-o-benkyuo\/kana$/);
+  await expect(page.getByRole('heading', { level: 1, name: /Kana/ })).toBeVisible();
+});
+
+test('legacy Kana URL redirects to the canonical Nihongo route', async ({ page }) => {
+  await page.goto('lessons/kana');
+  await expect(page).toHaveURL(/\/lingua-lab\/nihongo-o-benkyuo\/kana$/);
   await expect(page.getByRole('heading', { level: 1, name: /Kana/ })).toBeVisible();
 });
