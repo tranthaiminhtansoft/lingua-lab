@@ -29,7 +29,7 @@ The dated plan in `docs/superpowers/plans/` is a historical planning artifact; u
 - Production branch: `master`.
 - Development work belongs on `develop/homelab/<slug>` branches; pull requests target `master`.
 - CI is path-scoped. See [CI/CD](docs/ci-cd.md) for the exact triggers and checks.
-- Production deployment is currently fail-closed and is not enabled. The configured GitHub Pages URL is a target, not evidence of a live deployment.
+- GitHub `prod` and `github-pages` environments are configured for `master`; `prod` requires approval from `tranthaiminhtansoft`. The configured Pages URL is a target, not evidence of a live deployment.
 
 ## License
 

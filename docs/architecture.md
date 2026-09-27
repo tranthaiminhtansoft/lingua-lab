@@ -38,4 +38,4 @@ Unit tests sit beside the feature and its components; browser smoke tests live i
 
 Vite uses `/` during ordinary local development and `/lingua-lab/` when `GITHUB_ACTIONS` is set. React Router uses Vite's `BASE_URL` as its basename. The router also restores GitHub Pages' `?p=` fallback URL before routing, while rejecting external-origin fallback targets.
 
-Use router links and base-aware asset URLs rather than hard-coded root-relative paths. The configured project path is part of the deployment contract even though production deployment is currently blocked; see [CI/CD](ci-cd.md).
+Use router links and base-aware asset URLs rather than hard-coded root-relative paths. The configured project path is part of the production deployment contract; see [CI/CD](ci-cd.md) for the release workflow and environment gates.

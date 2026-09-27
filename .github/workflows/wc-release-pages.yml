@@ -1,0 +1,27 @@
+name: Deploy GitHub Pages artifact
+
+on:
+  workflow_call:
+    outputs:
+      page_url:
+        description: URL of the deployed GitHub Pages artifact.
+        value: ${{ jobs.deploy.outputs.page_url }}
+
+permissions: {}
+
+jobs:
+  deploy:
+    name: 🚀 Deploy Pages artifact
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    outputs:
+      page_url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy the caller workflow's Pages artifact
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5
