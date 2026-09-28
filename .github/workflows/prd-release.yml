@@ -4,18 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       candidate_ref:
-        description: Release branch created by Create PRD Release Branch.
+        description: Release branch name, e.g. release/homelab/20260928.
         required: true
         type: string
-      candidate_sha:
-        description: Immutable commit SHA captured when the release branch was created.
-        required: true
-        type: string
-      source_creator_run_id:
-        description: Create PRD Release Branch workflow run ID.
-        required: true
-        type: string
-
 
 permissions: {}
 
@@ -28,13 +19,11 @@ jobs:
     name: 🔎 Validate release source and date
     runs-on: ubuntu-24.04
     permissions:
-      actions: read
       contents: read
     outputs:
       release_tag: ${{ steps.validate.outputs.release_tag }}
       source_ref: ${{ steps.validate.outputs.source_ref }}
       source_sha: ${{ steps.validate.outputs.source_sha }}
-      source_creator_run_id: ${{ steps.validate.outputs.source_creator_run_id }}
     steps:
       - name: Check out the trusted workflow revision
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -48,8 +37,6 @@ jobs:
           GH_REPOSITORY: ${{ github.repository }}
           WORKFLOW_REF: ${{ github.ref }}
           CANDIDATE_REF: ${{ inputs.candidate_ref }}
-          CANDIDATE_SHA: ${{ inputs.candidate_sha }}
-          SOURCE_CREATOR_RUN_ID: ${{ inputs.source_creator_run_id }}
         run: bash scripts/release/validate-candidate.sh
 
   build_release_artifact:
@@ -206,7 +193,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           GH_REPOSITORY: ${{ github.repository }}
           CANDIDATE_REF: ${{ needs.validate_release_ref.outputs.source_ref }}
-          CANDIDATE_SHA: ${{ needs.validate_release_ref.outputs.source_sha }}
+          SOURCE_SHA: ${{ needs.validate_release_ref.outputs.source_sha }}
           CANDIDATE_VERSION: ${{ needs.validate_release_ref.outputs.release_tag }}
         run: bash scripts/release/dispatch-rollback.sh
 
@@ -222,7 +209,6 @@ jobs:
           RELEASE_TAG: ${{ needs.validate_release_ref.outputs.release_tag }}
           SOURCE_REF: ${{ needs.validate_release_ref.outputs.source_ref }}
           SOURCE_SHA: ${{ needs.validate_release_ref.outputs.source_sha }}
-          SOURCE_CREATOR_RUN_ID: ${{ needs.validate_release_ref.outputs.source_creator_run_id }}
           RELEASE_URL: ${{ needs.publish_stable_release.outputs.release_url }}
         run: |
           {
@@ -231,7 +217,6 @@ jobs:
             echo "- Version: \`$RELEASE_TAG\`"
             echo "- Source: \`$SOURCE_REF\`"
             echo "- Commit: \`$SOURCE_SHA\`"
-            echo "- Branch creator run: [#${SOURCE_CREATOR_RUN_ID}](https://github.com/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_CREATOR_RUN_ID})"
             echo "- GitHub Release: $RELEASE_URL"
             echo '- Candidate deployment approval: passed'
             echo '- Production verification: passed'

@@ -13,7 +13,6 @@ jobs:
       contents: write
     outputs:
       release_branch: ${{ steps.create.outputs.release_branch }}
-      source_sha: ${{ steps.create.outputs.source_sha }}
     steps:
       - name: Check out the trusted workflow revision
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -38,19 +37,16 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           GH_REPOSITORY: ${{ github.repository }}
           RELEASE_BRANCH: ${{ needs.create_release_branch.outputs.release_branch }}
-          SOURCE_SHA: ${{ needs.create_release_branch.outputs.source_sha }}
         run: |
           set -euo pipefail
           gh workflow run prd-release.yml \
             --repo "$GH_REPOSITORY" \
             --ref master \
-            -f candidate_ref="refs/heads/${RELEASE_BRANCH}" \
-            -f candidate_sha="$SOURCE_SHA" \
-            -f source_creator_run_id="$GITHUB_RUN_ID"
+            -f candidate_ref="$RELEASE_BRANCH"
           {
             echo '## 🚀 PRD Release dispatched'
             echo
             echo "- Candidate branch: \`$RELEASE_BRANCH\`"
-            echo "- Candidate commit: \`$SOURCE_SHA\`"
+            echo '- The release workflow resolves and pins the branch commit during validation.'
             echo '- PRD Release runs separately from the trusted master workflow definition.'
           } >> "$GITHUB_STEP_SUMMARY"

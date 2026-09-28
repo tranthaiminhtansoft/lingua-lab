@@ -2,13 +2,13 @@
 
 ## Branch and tag policy
 
-Run the `Create PRD Release Branch` workflow from `master`; it has no inputs and uses the current date in the Asia/Ho_Chi_Minh timezone as `YYYYMMDD`. It creates `release/homelab/YYYYMMDD` at the current `master` commit, then dispatches the separate `PRD Release` workflow with that branch and its exact commit SHA. `PRD Release` is a `workflow_dispatch` workflow whose trusted definition runs from `master`; it only accepts a candidate ref matching `refs/heads/release/homelab/YYYYMMDD`.
+Run the `Create PRD Release Branch` workflow from `master`; it has no inputs and uses the current date in the Asia/Ho_Chi_Minh timezone as `YYYYMMDD`. It creates `release/homelab/YYYYMMDD` at the current `master` commit, then dispatches the separate `PRD Release` workflow with one input: that branch name. `PRD Release` is a `workflow_dispatch` workflow whose trusted definition runs from `master`; it only accepts a branch matching `release/homelab/YYYYMMDD`.
 
 A stable GitHub Release is created only after deployment verification succeeds and the final `prod` approval passes. Its tag uses the same `YYYYMMDD` suffix as the release branch. The release includes the exact deployable site archive and its SHA-256 checksum for rollback.
 
 ## PRD Release
 
-The branch creator validates the date, rejects an existing branch, tag, or GitHub Release for that date, and cuts the branch from `master`. It then dispatches the release workflow as a separate run. `PRD Release` verifies the creator workflow run, the branch pattern and calendar date, the branch SHA, and that the candidate is based on the current `master`. It runs these checks against the pinned candidate SHA:
+The branch creator validates the date, rejects an existing branch, tag, or GitHub Release for that date, and cuts the branch from `master`. It then dispatches the release workflow as a separate run. `PRD Release` validates the branch pattern and calendar date, resolves the branch commit internally, and checks that it is based on the current `master`. It runs these checks against the pinned commit:
 
 - `npm run lint`
 - `npm run typecheck`

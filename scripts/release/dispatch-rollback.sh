@@ -19,7 +19,7 @@ gh workflow run prd-rollback.yml --repo "$GH_REPOSITORY" --ref master -f release
   echo
   echo "- Failed candidate: $CANDIDATE_VERSION"
   echo "- Candidate ref: $CANDIDATE_REF"
-  echo "- Candidate commit: $CANDIDATE_SHA"
+  echo "- Candidate commit: $SOURCE_SHA"
   echo "- Rollback target: $rollback_version"
   echo 'PRD Rollback will validate this release artifact, then wait for the prod approval gate.'
 } >> "$GITHUB_STEP_SUMMARY"

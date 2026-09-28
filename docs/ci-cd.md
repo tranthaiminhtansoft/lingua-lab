@@ -8,7 +8,7 @@
 
 Run `.github/workflows/prd-create-release-branch.yml` manually from `master`; it takes no inputs. It creates `release/homelab/YYYYMMDD` from the current `master` commit using the Asia/Ho_Chi_Minh date, then dispatches `.github/workflows/prd-release.yml` as a separate workflow run.
 
-`PRD Release` is a separate `workflow_dispatch` workflow. It validates the release branch pattern/date, exact branch SHA, creator run, and relationship to current `master`. It then builds and validates the pinned candidate, waits for the first `prod` approval, and calls the reusable `.github/workflows/wc-release-pages.yml` workflow to deploy the Pages artifact. Production verification checks the homepage response and Kana deep link. A verification failure after successful deployment dispatches rollback to the latest stable release. A passing verification waits for a second `prod` approval before publishing the dated stable GitHub Release and its rollback archive/checksum.
+`PRD Release` is a separate `workflow_dispatch` workflow with one input: `candidate_ref`, the release branch name. It validates the branch pattern/date and relationship to current `master`, resolves the branch commit, and pins that commit for the build. It then waits for the first `prod` approval and calls the reusable `.github/workflows/wc-release-pages.yml` workflow to deploy the Pages artifact. Production verification checks the homepage response and Kana deep link. A verification failure after successful deployment dispatches rollback to the latest stable release. A passing verification waits for a second `prod` approval before publishing the dated stable GitHub Release and its rollback archive/checksum.
 
 ## PRD Rollback
 

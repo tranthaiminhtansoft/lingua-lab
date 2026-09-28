@@ -41,7 +41,6 @@ gh api --method POST "repos/$GH_REPOSITORY/git/refs" -f "ref=refs/heads/$release
 
 {
   echo "release_branch=$release_branch"
-  echo "source_sha=$source_sha"
 } >> "$GITHUB_OUTPUT"
 
 {
