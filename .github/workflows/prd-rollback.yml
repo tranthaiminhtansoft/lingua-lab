@@ -13,10 +13,11 @@ permissions: {}
 
 concurrency:
   group: lingua-lab-production
-  cancel-in-progress: false
+  queue: max
 
 jobs:
   resolve_rollback_target:
+    if: github.ref == 'refs/heads/master'
     name: 🔎 Resolve requested stable GitHub Release
     runs-on: ubuntu-24.04
     permissions:
@@ -29,7 +30,7 @@ jobs:
       - name: Check out the trusted workflow revision
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: refs/heads/master
+          ref: ${{ github.sha }}
           persist-credentials: false
       - name: Resolve requested release and prepare its retained site artifact
         id: resolve
@@ -64,10 +65,33 @@ jobs:
       pages: write
       id-token: write
 
-  rollback_summary:
-    name: 📝 Summarize rollback result
+  verify_rollback:
+    name: 🧪 Verify restored production site
     needs: [resolve_rollback_target, redeploy_stable_release]
     if: ${{ always() && needs.resolve_rollback_target.result == 'success' && needs.redeploy_stable_release.result == 'success' }}
+    runs-on: ubuntu-24.04
+    permissions: {}
+    env:
+      PAGE_URL: ${{ needs.redeploy_stable_release.outputs.page_url }}
+      SOURCE_REF: ${{ needs.resolve_rollback_target.outputs.release_tag }}
+      SOURCE_SHA: ${{ needs.resolve_rollback_target.outputs.release_sha }}
+    steps:
+      - name: Check out the trusted verifier from master
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Set up Node.js and install locked dependencies
+        uses: ./.github/actions/setup-node-and-install
+      - name: Install Chromium for production browser verification
+        run: npx playwright install --with-deps chromium
+      - name: Verify restored build identity and production routes
+        run: node scripts/release/verify-deployed-site.mjs
+
+  rollback_summary:
+    name: 📝 Summarize rollback result
+    needs: [resolve_rollback_target, redeploy_stable_release, verify_rollback]
+    if: ${{ always() && needs.resolve_rollback_target.result == 'success' }}
     runs-on: ubuntu-24.04
     permissions: {}
     steps:
@@ -77,15 +101,24 @@ jobs:
           RELEASE_URL: ${{ needs.resolve_rollback_target.outputs.release_url }}
           RELEASE_SHA: ${{ needs.resolve_rollback_target.outputs.release_sha }}
           PAGE_URL: ${{ needs.redeploy_stable_release.outputs.page_url }}
+          DEPLOY_RESULT: ${{ needs.redeploy_stable_release.result }}
+          VERIFY_RESULT: ${{ needs.verify_rollback.result }}
         run: |
           {
-            echo '# ✅ Rollback deployment complete'
+            if [[ "$DEPLOY_RESULT" == 'success' && "$VERIFY_RESULT" == 'success' ]]; then
+              echo '# ✅ Rollback verified'
+            else
+              echo '# ⚠️ Rollback unverified — manual intervention required'
+            fi
             echo
             echo "- Restored stable release: [\`${RELEASE_TAG}\`](${RELEASE_URL})"
             echo "- Release commit: \`${RELEASE_SHA}\`"
             echo "- Production URL: $PAGE_URL"
             echo "- Requested release version: $RELEASE_TAG"
             echo '- Production approval: passed'
-            echo '- Redeploy action: succeeded'
-            echo '- Application verification after rollback: intentionally not run'
+            echo "- Redeploy action: $DEPLOY_RESULT"
+            echo "- Application verification: $VERIFY_RESULT"
+            if [[ "$DEPLOY_RESULT" != 'success' || "$VERIFY_RESULT" != 'success' ]]; then
+              echo '- Recovery is not confirmed; inspect production and take manual action.'
+            fi
           } >> "$GITHUB_STEP_SUMMARY"

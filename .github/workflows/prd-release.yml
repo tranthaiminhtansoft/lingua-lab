@@ -12,10 +12,11 @@ permissions: {}
 
 concurrency:
   group: lingua-lab-production
-  cancel-in-progress: false
+  queue: max
 
 jobs:
   validate_release_ref:
+    if: github.ref == 'refs/heads/master'
     name: 🔎 Validate release source and date
     runs-on: ubuntu-24.04
     permissions:
@@ -70,6 +71,10 @@ jobs:
         env:
           GITHUB_ACTIONS: 'true'
         run: npm run build
+      - name: Stamp artifact with the pinned source identity
+        env:
+          SOURCE_SHA: ${{ needs.validate_release_ref.outputs.source_sha }}
+        run: printf '{"sourceSha":"%s"}\n' "$SOURCE_SHA" > dist/release-identity.json
       - name: Package the exact site artifact for rollback
         run: |
           set -euo pipefail
@@ -119,16 +124,16 @@ jobs:
       SOURCE_REF: ${{ needs.validate_release_ref.outputs.source_ref }}
       SOURCE_SHA: ${{ needs.validate_release_ref.outputs.source_sha }}
     steps:
-      - name: Check out the candidate browser verification harness
+      - name: Check out the trusted workflow revision for production verification
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: ${{ needs.validate_release_ref.outputs.source_sha }}
+          ref: ${{ github.sha }}
           persist-credentials: false
       - name: Set up Node.js and install locked dependencies
         uses: ./.github/actions/setup-node-and-install
       - name: Install Chromium for production browser verification
         run: npx playwright install --with-deps chromium
-      - name: Verify production homepage and Kana route
+      - name: Verify deployed identity and production route matrix
         run: node scripts/release/verify-deployed-site.mjs
 
   approve_stable_release:

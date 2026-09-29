@@ -1,6 +1,6 @@
 # Lingua Lab
 
-Lingua Lab is a multi-language learning workspace. The current learning path is Nihongo, with Kana available and Grammar and Vocabulary marked as coming soon.
+Lingua Lab is a multi-language learning workspace. The Japanese learning path includes Kana, Grammar, and Vocabulary; English is marked as coming soon.
 
 ## Start locally
 
@@ -19,7 +19,6 @@ The local routes are `/` for the language home, `/nihongo-o-benkyuo` for the Nih
 - [Current product state and local operation](docs/current-state.md)
 - [Application architecture and routing](docs/architecture.md)
 - [CI/CD workflows and release state](docs/ci-cd.md)
-- [Release and rollback policy](docs/release-and-rollback.md)
 - [UI exploration references](docs/ui-explorations/)
 
 The dated plan in `docs/superpowers/plans/` is a historical planning artifact; use the current-state and architecture documents for the implementation as it exists now.
@@ -28,7 +27,7 @@ The dated plan in `docs/superpowers/plans/` is a historical planning artifact; u
 
 - Production branch: `master`.
 - Development work belongs on `develop/homelab/<slug>` branches; pull requests target `master`.
-- CI is path-scoped. See [CI/CD](docs/ci-cd.md) for the exact triggers and checks.
+- CI runs for pull requests targeting `master` and pushes to `master`. See [CI/CD](docs/ci-cd.md) for the configured checks.
 - GitHub `prod` and `github-pages` environments are configured for `master`; `prod` requires approval from `tranthaiminhtansoft`. The configured Pages URL is a target, not evidence of a live deployment.
 
 ## License

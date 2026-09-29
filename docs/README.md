@@ -5,7 +5,6 @@ Use these documents as the current operational and technical reference for the r
 - [Current product state and local operation](current-state.md) — what is implemented, available routes, local setup, and verification commands.
 - [Application architecture and routing](architecture.md) — source ownership, page composition, route hierarchy, and GitHub Pages path handling.
 - [CI/CD workflows and release state](ci-cd.md) — pull-request checks, release/rollback triggers, and GitHub environment approvals.
-- [Release and rollback policy](release-and-rollback.md) — release prerequisites and bounded recovery rules.
 
 ## Reference material
 
