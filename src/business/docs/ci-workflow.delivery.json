@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "8992d820-2b5b-484d-a0d6-7fe2fa1da6e0",
+  "status": "current",
+  "command": "deliver",
+  "type": "workflow",
+  "input": "/Users/tranthaiminhtan/homelab_practice/lingua-lab/src/business/docs/ci-workflow.json",
+  "output": "/Users/tranthaiminhtan/homelab_practice/lingua-lab/src/business/docs/ci-workflow.html",
+  "specification": {
+    "sha256": "9583c33366a719eb13bd68f3ef8b4b9aa2b48c0da43896617c821e3416f47e77",
+    "bytes": 2587
+  },
+  "artifact": {
+    "sha256": "2a8ef45499c1bf3fd0877c68f3746c795796d8ee4f2743c8b77199b7d9d43d0c",
+    "bytes": 750540
+  }
+}

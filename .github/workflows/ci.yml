@@ -1,10 +1,24 @@
 name: PR Continuous Integration
 
 on:
-  push:
-    branches: [master]
   pull_request:
     branches: [master]
+    paths:
+      - 'src/app/**'
+      - 'src/business/language-home/**'
+      - 'src/shared/**'
+      - 'src/test/**'
+      - 'public/**'
+      - 'e2e/**'
+      - 'index.html'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.nvmrc'
+      - 'eslint.config.js'
+      - 'tsconfig*.json'
+      - 'vite.config.ts'
+      - 'vitest.config.ts'
+      - 'playwright.config.ts'
 
 permissions:
   contents: read

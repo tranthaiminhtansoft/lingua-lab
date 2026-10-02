@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lingua Lab documentation</title>
+  <style>
+    :root { color-scheme: light; font: 16px/1.65 system-ui, sans-serif; color: #172033; background: #f7f9fc; }
+    body { max-width: 1040px; margin: 0 auto; padding: 2rem 1.25rem; }
+    a { color: #075e8c; } header, main { background: white; border: 1px solid #dce4ed; border-radius: 1rem; padding: 1.5rem; }
+    header { margin-bottom: 1rem; } nav { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+    .card { display: block; padding: 1.25rem; border: 1px solid #dce4ed; border-radius: .75rem; text-decoration: none; }
+    .card:hover, .card:focus-visible { background: #edf6fb; outline: 2px solid #075e8c; }
+    .notice { border-left: 4px solid #9b6a00; padding: .75rem 1rem; background: #fff8e8; }
+  </style>
+</head>
+<body>
+  <header>
+    <p><a href="index.html">Lingua Lab documentation</a></p>
+    <h1>Project documentation</h1>
+    <nav aria-label="Documentation"><a href="product.html">Product and local operation</a><a href="topology.html">Application topology</a><a href="delivery.html">Delivery and release workflow</a><a href="pre-release.html">Pre-release</a><a href="release.html">Release</a><a href="post-release.html">Post-release</a><a href="rollback.html">Rollback</a></nav>
+  </header>
+  <main>
+    <p>These guides describe the repository's implemented learning experience and configured workflows. Configuration and local artifacts are not evidence that a production deployment is live or that a particular revision has passed its checks.</p>
+    <p class="notice"><strong>Publication status:</strong> GitHub Pages URLs are configured as documentation targets; publication at those URLs has not yet been verified.</p>
+    <section aria-labelledby="guides-title">
+      <h2 id="guides-title">Guides</h2>
+      <div class="cards">
+        <a class="card" href="product.html"><strong>Product and local operation</strong><br>Implemented routes, prerequisites, checks, and the limits of local verification.</a>
+        <a class="card" href="topology.html"><strong>Application topology</strong><br>Client-side feature ownership, routing, static hosting, and the retained architecture diagram.</a>
+        <a class="card" href="delivery.html"><strong>Delivery and release workflow</strong><br>Configured CI, approvals, deployment, rollback, and operational boundaries.</a>
+        <a class="card" href="pre-release.html"><strong>Pre-release checklist</strong><br>Readiness review, path-filtered CI implications, and release-branch handoff.</a>
+        <a class="card" href="release.html"><strong>Release checklist</strong><br>Candidate checks, two human approvals, deployed identity/routes, and stable publication.</a>
+        <a class="card" href="post-release.html"><strong>Post-release</strong><br>Visit the published site, test representative routes, and record the outcome.</a>
+        <a class="card" href="rollback.html"><strong>Rollback</strong><br>Inspect auto-dispatch, resolve a stable target, approve deliberately, and verify restoration.</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
