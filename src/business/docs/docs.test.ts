@@ -110,7 +110,7 @@ describe('standalone documentation sources', () => {
       readFile(`${docsDirectory}index.html`, 'utf8'),
       readFile(`${docsDirectory}delivery.html`, 'utf8'),
       readFile(`${docsDirectory}delivery-workflow.json`, 'utf8'),
-      readFile(`${process.cwd()}/.github/workflows/prd-release.yml`, 'utf8'),
+      readFile(`${docsDirectory}../../../.github/workflows/prd-release.yml`, 'utf8'),
     ]);
     expect(pre).toContain('Lingua Lab on GitHub Pages');
     expect(pre).toContain('Check the home page and a lesson route');
