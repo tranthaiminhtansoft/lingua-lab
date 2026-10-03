@@ -11,10 +11,6 @@ on:
 
 permissions: {}
 
-concurrency:
-  group: lingua-lab-production
-  queue: max
-
 jobs:
   resolve_rollback_target:
     if: github.ref == 'refs/heads/master'
@@ -61,6 +57,9 @@ jobs:
     name: ♻️ Redeploy selected stable release
     needs: [resolve_rollback_target, approve_rollback]
     uses: ./.github/workflows/wc-release-pages.yml
+    concurrency:
+      group: lingua-lab-production-deploy
+      cancel-in-progress: false
     permissions:
       pages: write
       id-token: write

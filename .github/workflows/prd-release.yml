@@ -10,10 +10,6 @@ on:
 
 permissions: {}
 
-concurrency:
-  group: lingua-lab-production
-  queue: max
-
 jobs:
   validate_release_ref:
     if: github.ref == 'refs/heads/master'
@@ -110,6 +106,9 @@ jobs:
     name: 🚀 Deploy release candidate to production
     needs: [validate_release_ref, build_release_artifact, approve_release_deploy]
     uses: ./.github/workflows/wc-release-pages.yml
+    concurrency:
+      group: lingua-lab-production-deploy
+      cancel-in-progress: false
     permissions:
       pages: write
       id-token: write
