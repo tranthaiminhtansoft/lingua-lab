@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "diagram_type": "workflow",
-  "meta": { "title": "Configured Release Workflow", "locale": "en", "quality_profile": "showcase", "output": "delivery-workflow.html", "repository": { "url": "https://github.com/tranthaiminhtansoft/lingua-lab.git", "provider": "github", "link_mode": "web", "revision": "03c6cdab6155ef6d0e320f92bc80f30b07d99a3b" } },
+  "meta": { "title": "Configured Release Workflow", "locale": "en", "quality_profile": "showcase", "output": "delivery-workflow.html", "repository": { "url": "https://github.com/tranthaiminhtansoft/lingua-lab.git", "provider": "github", "link_mode": "web", "revision": "ef363e8f8454586a01112dbbe4b5b9651efe515f" } },
   "lanes": [
     { "id": "start", "label": "Dispatch" },
     { "id": "checks", "label": "Validation and build" },
@@ -11,13 +11,13 @@
   "mainPath": ["dispatch", "validate", "build", "approve", "deploy", "verify", "publishApproval", "publish"],
   "nodes": [
     { "id": "dispatch", "lane": "start", "col": 0, "type": "external", "label": "Release dispatch", "sublabel": "candidate_ref", "width": 150, "sources": [{ "path": ".github/workflows/prd-release.yml", "line": 1, "end_line": 11 }] },
-    { "id": "validate", "lane": "checks", "col": 0, "type": "security", "label": "Validate source", "sublabel": "branch/date · exact master SHA · required checks", "width": 190, "sources": [{ "path": ".github/workflows/prd-release.yml", "line": 17, "end_line": 41 }, { "path": "scripts/release/validate-candidate.sh", "line": 1, "end_line": 66 }] },
-    { "id": "build", "lane": "checks", "col": 1, "type": "backend", "label": "Build candidate", "sublabel": "lint · types · tests · Pages", "width": 170, "sources": [{ "path": ".github/workflows/prd-release.yml", "line": 47, "end_line": 96 }] },
-    { "id": "approve", "lane": "approval", "col": 1, "type": "security", "label": "prod approval", "sublabel": "before candidate deployment", "width": 200, "sources": [{ "path": ".github/workflows/prd-release.yml", "line": 99, "end_line": 110 }] },
-    { "id": "deploy", "lane": "approval", "col": 2, "type": "cloud", "label": "Deploy Pages", "sublabel": "reusable workflow", "width": 160, "sources": [{ "path": ".github/workflows/prd-release.yml", "line": 112, "end_line": 120 }, { "path": ".github/workflows/wc-release-pages.yml", "line": 12, "end_line": 25 }] },
-    { "id": "verify", "lane": "verify", "col": 3, "type": "security", "label": "Verify deployed site", "sublabel": "identity · sampled routes", "width": 175, "sources": [{ "path": ".github/workflows/prd-release.yml", "line": 117, "end_line": 137 }, { "path": "scripts/release/verify-deployed-site.mjs", "line": 4, "end_line": 50 }] },
-    { "id": "publishApproval", "lane": "approval", "col": 3, "type": "security", "label": "prod approval", "sublabel": "before stable publication", "width": 210, "sources": [{ "path": ".github/workflows/prd-release.yml", "line": 142, "end_line": 152 }] },
-    { "id": "publish", "lane": "verify", "col": 4, "type": "cloud", "label": "Publish stable", "sublabel": "GitHub Release archive", "width": 170, "sources": [{ "path": ".github/workflows/prd-release.yml", "line": 154, "end_line": 177 }] }
+    { "id": "validate", "lane": "checks", "col": 0, "type": "security", "label": "Validate source", "sublabel": "branch/date · exact master SHA · required checks", "width": 190, "sources": [{ "path": ".github/workflows/prd-release.yml", "line": 14, "end_line": 37 }, { "path": "scripts/release/validate-candidate.sh", "line": 1, "end_line": 66 }] },
+    { "id": "build", "lane": "checks", "col": 1, "type": "backend", "label": "Build candidate", "sublabel": "lint · types · tests · Pages", "width": 170, "sources": [{ "path": ".github/workflows/prd-release.yml", "line": 39, "end_line": 92 }] },
+    { "id": "approve", "lane": "approval", "col": 1, "type": "security", "label": "prod approval", "sublabel": "before candidate deployment", "width": 200, "sources": [{ "path": ".github/workflows/prd-release.yml", "line": 94, "end_line": 103 }] },
+    { "id": "deploy", "lane": "approval", "col": 2, "type": "cloud", "label": "Deploy Pages", "sublabel": "reusable workflow", "width": 160, "sources": [{ "path": ".github/workflows/prd-release.yml", "line": 105, "end_line": 114 }, { "path": ".github/workflows/wc-release-pages.yml", "line": 12, "end_line": 25 }] },
+    { "id": "verify", "lane": "verify", "col": 3, "type": "security", "label": "Verify deployed site", "sublabel": "identity · sampled routes", "width": 175, "sources": [{ "path": ".github/workflows/prd-release.yml", "line": 116, "end_line": 136 }, { "path": "scripts/release/verify-deployed-site.mjs", "line": 4, "end_line": 50 }] },
+    { "id": "publishApproval", "lane": "approval", "col": 3, "type": "security", "label": "prod approval", "sublabel": "before stable publication", "width": 210, "sources": [{ "path": ".github/workflows/prd-release.yml", "line": 138, "end_line": 147 }] },
+    { "id": "publish", "lane": "verify", "col": 4, "type": "cloud", "label": "Publish stable", "sublabel": "GitHub Release archive", "width": 170, "sources": [{ "path": ".github/workflows/prd-release.yml", "line": 149, "end_line": 176 }] }
   ],
   "edges": [
     { "id": "start-validation", "from": "dispatch", "to": "validate", "label": "master dispatch" },

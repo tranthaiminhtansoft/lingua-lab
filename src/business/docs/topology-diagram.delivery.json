@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
-  "receiptId": "27d0f366-55a9-4e15-92ba-296b2ca44a76",
+  "receiptId": "819fbc59-6d2f-46c3-9520-02770806072c",
   "status": "current",
   "command": "deliver",
   "type": "architecture",
   "input": "/Users/tranthaiminhtan/homelab_practice/lingua-lab/src/business/docs/topology.json",
   "output": "/Users/tranthaiminhtan/homelab_practice/lingua-lab/src/business/docs/topology-diagram.html",
   "specification": {
-    "sha256": "fb79e8b6241df0086bb42083b7532588a4354d12f4014b2043371bda6a3ec355",
+    "sha256": "8d870cadc0e4f2d79fd1d52e80b2ae3155e64777a62741cde223b886e8806fb7",
     "bytes": 4201
   },
   "artifact": {
-    "sha256": "02818d974ddc482eb9593cdfbddfce151f29399bdf93f679d28460657616f30e",
+    "sha256": "be47bec9d8875b3713e76a089a696c0b1026e0b8ad40763a47d954ff5a9df706",
     "bytes": 763891
   }
 }
