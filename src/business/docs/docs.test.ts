@@ -111,6 +111,9 @@ describe('standalone documentation sources', () => {
     expect(pre).toContain('Check the home page and a lesson route');
     expect(release).toContain('Create PRD Release Branch');
     expect(release).toContain('candidate_ref');
+    expect(release).toContain('manually compare the pinned candidate SHA with the intended commit recorded during pre-release');
+    expect(release).toContain('This comparison is a human check, not an automatic gate.');
+    expect(release).toContain('Stop</strong> if they differ or either value/evidence is missing');
     expect(release).toContain('Review deployments');
     expect(release).toContain('no rollback is needed');
     expect(release).toContain('verify_release');
@@ -123,6 +126,9 @@ describe('standalone documentation sources', () => {
     expect(post).toContain('href="rollback.html"');
     expect(index).toContain('href="rollback.html"');
     expect(delivery).toContain('href="rollback.html"');
+    expect(delivery).toContain('blob/codex/release-rollback-workflows/.github/workflows/prd-release.yml');
+    expect(delivery).toContain('These branch links are mutable');
+    expect(delivery).not.toContain('blob/fdfe48633027e8b298023e7e54d7eb5f12afcdc9/');
     for (const html of [pre, release, post]) {
       expect(html).toContain('role="img"');
       expect(html).toContain('Screenshot placeholder');
