@@ -56,10 +56,11 @@ describe('standalone documentation sources', () => {
     dom.window.close();
   });
 
-  it('exports the seven HTML sources and three Archify assets', async () => {
+  it('exports the eight HTML sources, three Archify assets, and release evidence images', async () => {
     const script = await readFile(`${docsDirectory}../../../scripts/build-docs.mjs`, 'utf8');
     expect(script).toContain("'pre-release.html', 'release.html', 'post-release.html', 'rollback.html'");
-    expect(script).toContain("['topology-diagram.html', 'delivery-workflow.html', 'ci-workflow.html']");
+    expect(script).toContain("'assets/release-trigger.svg'");
+    expect(script).toContain("'assets/release-success.svg'");
     expect(script).not.toMatch(/\.md|markdown|htmlEscape/);
   });
 
@@ -127,17 +128,21 @@ describe('standalone documentation sources', () => {
     expect(post).toContain('representative routes');
     expect(post).toContain('href="rollback.html"');
     expect(index).toContain('href="rollback.html"');
+    expect(index).toContain('20261003');
     expect(delivery).toContain('href="rollback.html"');
     expect(delivery).toContain('blob/codex/release-rollback-workflows/.github/workflows/prd-release.yml');
     expect(delivery).toContain('These branch links are mutable');
     expect(delivery).not.toContain('blob/fdfe48633027e8b298023e7e54d7eb5f12afcdc9/');
     expect(delivery).toContain('requires that SHA to exactly match the protected');
     expect(delivery).toContain('GitHub Actions workflows/actions and release scripts do not match the allowlist');
-    for (const html of [pre, release, post]) {
+    for (const html of [pre, post]) {
       expect(html).toContain('role="img"');
       expect(html).toContain('Screenshot placeholder');
       expect(html).not.toMatch(/<img\b/i);
     }
+    expect(release).toContain('assets/release-trigger.svg');
+    expect(release).toContain('assets/release-success.svg');
+    expect(release).toContain('37110848365');
     expect(delivery).not.toContain('does not require master-tip equality');
     expect(delivery).toContain('Pull-request CI remains a merge control');
     expect(diagram).toContain('exact equality with the protected master tip');
