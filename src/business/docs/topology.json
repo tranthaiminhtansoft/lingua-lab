@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": { "title": "Lingua Lab: Browser Runtime and GitHub Actions Control Plane", "locale": "en", "quality_profile": "showcase", "output": "topology-diagram.html", "repository": { "url": "https://github.com/tranthaiminhtansoft/lingua-lab.git", "provider": "github", "link_mode": "web", "revision": "ef363e8f8454586a01112dbbe4b5b9651efe515f" } },
+  "components": [
+    { "id": "actions", "type": "cloud", "label": "GitHub Actions", "sublabel": "CI and manually dispatched releases", "pos": [40, 80], "size": [220, 76], "sources": [{ "path": ".github/workflows/ci.yml", "line": 1, "end_line": 71 }, { "path": ".github/workflows/prd-release.yml", "line": 1, "end_line": 229 }] },
+    { "id": "artifact", "type": "backend", "label": "Build artifact", "sublabel": "dist · candidate release output", "pos": [360, 80], "size": [190, 76], "sources": [{ "path": ".github/workflows/prd-release.yml", "line": 39, "end_line": 92 }] },
+    { "id": "approval", "type": "security", "label": "prod approval", "sublabel": "workflow environment gate", "pos": [650, 80], "size": [210, 76], "sources": [{ "path": ".github/workflows/prd-release.yml", "line": 94, "end_line": 103 }] },
+    { "id": "deploy", "type": "cloud", "label": "Pages deployment", "sublabel": "configured artifact deploy", "pos": [960, 80], "size": [210, 76], "sources": [{ "path": ".github/workflows/wc-release-pages.yml", "line": 12, "end_line": 27 }] },
+    { "id": "learner", "type": "external", "label": "Learner", "sublabel": "web browser", "pos": [40, 350], "size": [160, 64], "sources": [{ "path": "src/business/language-home/LanguageConstellationPage.tsx", "line": 3, "end_line": 49 }] },
+    { "id": "site", "type": "cloud", "label": "Static Pages site", "sublabel": "Vite output · base /lingua-lab/ in Actions", "pos": [330, 340], "size": [230, 76], "sources": [{ "path": "vite.config.ts", "line": 4, "end_line": 7 }, { "path": ".github/workflows/wc-release-pages.yml", "line": 12, "end_line": 23 }] },
+    { "id": "browser", "type": "frontend", "label": "Browser application", "sublabel": "React Router · client-side routes", "pos": [690, 340], "size": [220, 76], "sources": [{ "path": "src/app/router.tsx", "line": 1, "end_line": 40 }] },
+    { "id": "lessons", "type": "frontend", "label": "Learning experiences", "sublabel": "Kana · Grammar · Vocabulary", "pos": [1040, 340], "size": [220, 76], "sources": [{ "path": "src/business/language-home/nihongo/lessonRegistry.ts", "line": 1, "end_line": 7 }, { "path": "src/business/language-home/nihongo/kana/KanaPage.tsx", "line": 131, "end_line": 160 }] },
+    { "id": "speech", "type": "external", "label": "Browser speech", "sublabel": "optional Web Speech API", "pos": [1040, 510], "size": [220, 64], "sources": [{ "path": "src/business/language-home/nihongo/kana/KanaPage.tsx", "line": 66, "end_line": 70 }] }
+  ],
+  "connections": [
+    { "id": "build", "from": "actions", "to": "artifact", "label": "build" },
+    { "id": "candidate-gate", "from": "artifact", "to": "approval", "label": "candidate" },
+    { "id": "approved-deploy", "from": "approval", "to": "deploy", "label": "approved" },
+    { "id": "serve", "from": "deploy", "to": "site", "label": "deploys Pages artifact", "variant": "security", "fromSide": "bottom", "toSide": "top" },
+    { "id": "visit", "from": "learner", "to": "site", "label": "HTTPS" },
+    { "id": "load", "from": "site", "to": "browser", "label": "static files" },
+    { "id": "routes", "from": "browser", "to": "lessons", "label": "renders routes" },
+    { "id": "speak", "from": "lessons", "to": "speech", "label": "user-initiated", "fromSide": "bottom", "toSide": "top", "variant": "dashed" }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "Browser runtime", "items": ["Browser loads static build output and renders the React routes.", "Kana pronunciation uses optional browser-native speech; no application backend is configured."] },
+    { "dot": "rose", "title": "Actions control plane", "items": ["CI validates changes; separate manual release and rollback workflows govern deployment.", "Configuration is not proof of a workflow run or a currently live Pages site."] }
+  ]
+}

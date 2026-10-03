@@ -2,98 +2,228 @@ name: PRD Release
 
 on:
   workflow_dispatch:
+    inputs:
+      candidate_ref:
+        description: Release branch name, e.g. release/homelab/20260928.
+        required: true
+        type: string
 
-permissions:
-  contents: read
-
-concurrency:
-  group: lingua-lab-production
-  cancel-in-progress: false
+permissions: {}
 
 jobs:
-  build-production-artifact:
-    name: Build production artifact
+  validate_release_ref:
+    if: github.ref == 'refs/heads/master'
+    name: 🔎 Validate release source and date
     runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    outputs:
+      release_tag: ${{ steps.validate.outputs.release_tag }}
+      source_ref: ${{ steps.validate.outputs.source_ref }}
+      source_sha: ${{ steps.validate.outputs.source_sha }}
     steps:
-      - name: Check out trusted master revision
+      - name: Check out the trusted workflow revision
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: refs/heads/master
-      - name: Set up Node.js
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Validate release source, branch, and date
+        id: validate
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPOSITORY: ${{ github.repository }}
+          WORKFLOW_REF: ${{ github.ref }}
+          CANDIDATE_REF: ${{ inputs.candidate_ref }}
+        run: bash scripts/release/validate-candidate.sh
+
+  build_release_artifact:
+    name: 📦 Build and validate release candidate
+    needs: validate_release_ref
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    steps:
+      - name: Check out the immutable candidate revision
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          node-version: 22
-          cache: npm
-      - name: Install locked dependencies
-        run: npm ci
-      - name: Build GitHub Pages artifact once
+          ref: ${{ needs.validate_release_ref.outputs.source_sha }}
+          persist-credentials: false
+      - name: Set up Node.js and install locked dependencies
+        uses: ./.github/actions/setup-node-and-install
+      - name: Run lint
+        run: npm run lint
+      - name: Run type check
+        run: npm run typecheck
+      - name: Run unit tests
+        run: npm run test:unit -- --run
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium firefox webkit
+      - name: Run browser smoke checks against the Pages base path
+        env:
+          CI: 'true'
+          GITHUB_ACTIONS: 'true'
+        run: npm run test:e2e
+      - name: Build GitHub Pages artifact
         env:
           GITHUB_ACTIONS: 'true'
         run: npm run build
+      - name: Stamp artifact with the pinned source identity
+        env:
+          SOURCE_SHA: ${{ needs.validate_release_ref.outputs.source_sha }}
+        run: printf '{"sourceSha":"%s"}\n' "$SOURCE_SHA" > dist/release-identity.json
+      - name: Package the exact site artifact for rollback
+        run: |
+          set -euo pipefail
+          mkdir -p release-assets
+          tar -czf release-assets/site-dist.tar.gz -C dist .
+          (cd release-assets && sha256sum site-dist.tar.gz > site-dist.tar.gz.sha256)
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4.0.0
         with:
           path: dist
+      - name: Retain release asset until stable publication
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: stable-release-assets
+          path: |
+            release-assets/site-dist.tar.gz
+            release-assets/site-dist.tar.gz.sha256
+          if-no-files-found: error
+          retention-days: 30
 
-  deploy-pages:
-    name: Deploy GitHub Pages
-    needs: build-production-artifact
+  approve_release_deploy:
+    name: 🛡️ Approve release deployment
+    needs: build_release_artifact
     runs-on: ubuntu-24.04
+    environment:
+      name: prod
+      deployment: false
+    steps:
+      - name: Confirm production deployment approval
+        run: echo 'Production approval passed; the release candidate may be deployed.'
+
+  deploy_release_candidate:
+    name: 🚀 Deploy release candidate to production
+    needs: [validate_release_ref, build_release_artifact, approve_release_deploy]
+    uses: ./.github/workflows/wc-release-pages.yml
+    concurrency:
+      group: lingua-lab-production-deploy
+      cancel-in-progress: false
     permissions:
       pages: write
       id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    outputs:
-      page_url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy the built Pages artifact
-        id: deployment
-        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5
 
-  verify-published-pages:
-    name: Verify published Pages routes
-    needs: deploy-pages
+  verify_release:
+    name: 🧪 Verify deployed release
+    needs: [validate_release_ref, deploy_release_candidate]
     runs-on: ubuntu-24.04
     permissions: {}
     env:
-      PAGE_URL: ${{ needs.deploy-pages.outputs.page_url }}
+      PAGE_URL: ${{ needs.deploy_release_candidate.outputs.page_url }}
+      SOURCE_REF: ${{ needs.validate_release_ref.outputs.source_ref }}
+      SOURCE_SHA: ${{ needs.validate_release_ref.outputs.source_sha }}
     steps:
-      - name: Check out browser verification harness
+      - name: Check out the trusted workflow revision for production verification
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - name: Set up Node.js
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
-          node-version: 22
-          cache: npm
-      - name: Install locked dependencies
-        run: npm ci
-      - name: Install Chromium for browser verification
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Set up Node.js and install locked dependencies
+        uses: ./.github/actions/setup-node-and-install
+      - name: Install Chromium for production browser verification
         run: npx playwright install --with-deps chromium
-      - name: Verify the deployed deep link through the Pages 404 fallback
+      - name: Verify deployed identity and production route matrix
+        run: node scripts/release/verify-deployed-site.mjs
+
+  approve_stable_release:
+    name: 🛡️ Approve stable release publication
+    needs: verify_release
+    runs-on: ubuntu-24.04
+    environment:
+      name: prod
+      deployment: false
+    steps:
+      - name: Confirm stable publication approval
+        run: echo 'Production verification passed and stable release publication is approved.'
+
+  publish_stable_release:
+    name: 🎉 Publish stable GitHub Release
+    needs: [validate_release_ref, build_release_artifact, verify_release, approve_stable_release]
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    outputs:
+      release_url: ${{ steps.publish.outputs.release_url }}
+    steps:
+      - name: Check out the trusted workflow revision
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Download the verified site release assets
+        uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
+        with:
+          name: stable-release-assets
+          path: release-assets
+      - name: Create the stable tag and publish the GitHub Release
+        id: publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPOSITORY: ${{ github.repository }}
+          RELEASE_TAG: ${{ needs.validate_release_ref.outputs.release_tag }}
+          SOURCE_REF: ${{ needs.validate_release_ref.outputs.source_ref }}
+          SOURCE_SHA: ${{ needs.validate_release_ref.outputs.source_sha }}
+        run: bash scripts/release/publish-stable-release.sh
+
+  trigger_rollback:
+    name: ↩️ Start rollback after release verification failure
+    needs: [validate_release_ref, deploy_release_candidate, verify_release]
+    if: >-
+      always() &&
+      needs.deploy_release_candidate.result == 'success' &&
+      needs.verify_release.result == 'failure'
+    runs-on: ubuntu-24.04
+    permissions:
+      actions: write
+      contents: read
+    steps:
+      - name: Check out the trusted workflow revision
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Dispatch rollback to the latest stable release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPOSITORY: ${{ github.repository }}
+          CANDIDATE_REF: ${{ needs.validate_release_ref.outputs.source_ref }}
+          SOURCE_SHA: ${{ needs.validate_release_ref.outputs.source_sha }}
+          CANDIDATE_VERSION: ${{ needs.validate_release_ref.outputs.release_tag }}
+        run: bash scripts/release/dispatch-rollback.sh
+
+  release_summary:
+    name: 📝 Summarize stable release
+    needs: [validate_release_ref, verify_release, publish_stable_release]
+    if: ${{ needs.publish_stable_release.result == 'success' }}
+    runs-on: ubuntu-24.04
+    permissions: {}
+    steps:
+      - name: Write release summary
+        env:
+          RELEASE_TAG: ${{ needs.validate_release_ref.outputs.release_tag }}
+          SOURCE_REF: ${{ needs.validate_release_ref.outputs.source_ref }}
+          SOURCE_SHA: ${{ needs.validate_release_ref.outputs.source_sha }}
+          RELEASE_URL: ${{ needs.publish_stable_release.outputs.release_url }}
         run: |
-          set -euo pipefail
-          node --input-type=module <<'NODE'
-          import { chromium } from 'playwright';
-
-          const pageUrl = process.env.PAGE_URL;
-          if (!pageUrl) throw new Error('PAGE_URL is required');
-
-          const deploymentUrl = new URL(pageUrl);
-          if (!deploymentUrl.pathname.endsWith('/')) deploymentUrl.pathname += '/';
-          const deepLink = new URL('nihongo-o-benkyuo/kana', deploymentUrl);
-          const expectedPathname = deepLink.pathname;
-
-          const browser = await chromium.launch({ headless: true });
-          try {
-            const page = await browser.newPage();
-            await page.goto(deepLink.toString(), { waitUntil: 'networkidle' });
-            await page.getByRole('heading', { level: 1, name: /Kana/ }).waitFor({ state: 'visible' });
-            if (new URL(page.url()).pathname !== expectedPathname) {
-              throw new Error(`expected final pathname ${expectedPathname}, received ${new URL(page.url()).pathname}`);
-            }
-          } finally {
-            await browser.close();
-          }
-          NODE
+          {
+            echo '# ✅ Release complete'
+            echo
+            echo "- Version: \`$RELEASE_TAG\`"
+            echo "- Source: \`$SOURCE_REF\`"
+            echo "- Commit: \`$SOURCE_SHA\`"
+            echo "- GitHub Release: $RELEASE_URL"
+            echo '- Candidate deployment approval: passed'
+            echo '- Production verification: passed'
+            echo '- Stable publication approval: passed'
+            echo '- Site artifact and checksum retained on the GitHub Release for rollback.'
+          } >> "$GITHUB_STEP_SUMMARY"

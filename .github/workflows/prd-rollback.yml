@@ -1,29 +1,124 @@
 name: PRD Rollback
 
 on:
-  workflow_run:
-    workflows: ["PRD Release"]
-    types: [completed]
-    branches: [master]
+  workflow_dispatch:
+    inputs:
+      release_version:
+        description: Published stable release tag to restore, in YYYYMMDD format.
+        required: true
+        type: string
 
-permissions:
-  contents: read
-  actions: read
 
-concurrency:
-  group: lingua-lab-production
-  cancel-in-progress: false
+permissions: {}
 
 jobs:
-  read-only-bootstrap-validation:
-    name: Read-only rollback bootstrap validation
+  resolve_rollback_target:
+    if: github.ref == 'refs/heads/master'
+    name: 🔎 Resolve requested stable GitHub Release
     runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    outputs:
+      release_tag: ${{ steps.resolve.outputs.release_tag }}
+      release_url: ${{ steps.resolve.outputs.release_url }}
+      release_sha: ${{ steps.resolve.outputs.release_sha }}
     steps:
-      - name: Preserve no-op evidence
+      - name: Check out the trusted workflow revision
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Resolve requested release and prepare its retained site artifact
+        id: resolve
         env:
-          SOURCE_RUN_ID: ${{ github.event.workflow_run.id }}
-          SOURCE_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
+          GH_TOKEN: ${{ github.token }}
+          GH_REPOSITORY: ${{ github.repository }}
+          RELEASE_VERSION: ${{ inputs.release_version }}
+          ASSET_DIR: ${{ runner.temp }}/rollback-assets
+          SITE_DIR: ${{ runner.temp }}/rollback-site
+        run: bash scripts/release/resolve-rollback-target.sh
+      - name: Upload the selected stable Pages artifact
+        uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4.0.0
+        with:
+          path: ${{ runner.temp }}/rollback-site
+
+  approve_rollback:
+    name: 🛡️ Approve rollback to ${{ needs.resolve_rollback_target.outputs.release_tag }}
+    needs: resolve_rollback_target
+    runs-on: ubuntu-24.04
+    environment:
+      name: prod
+      deployment: false
+    steps:
+      - name: Confirm rollback approval
+        run: echo 'Rollback target is listed in the previous job summary; production approval passed.'
+
+  redeploy_stable_release:
+    name: ♻️ Redeploy selected stable release
+    needs: [resolve_rollback_target, approve_rollback]
+    uses: ./.github/workflows/wc-release-pages.yml
+    concurrency:
+      group: lingua-lab-production-deploy
+      cancel-in-progress: false
+    permissions:
+      pages: write
+      id-token: write
+
+  verify_rollback:
+    name: 🧪 Verify restored production site
+    needs: [resolve_rollback_target, redeploy_stable_release]
+    if: ${{ always() && needs.resolve_rollback_target.result == 'success' && needs.redeploy_stable_release.result == 'success' }}
+    runs-on: ubuntu-24.04
+    permissions: {}
+    env:
+      PAGE_URL: ${{ needs.redeploy_stable_release.outputs.page_url }}
+      SOURCE_REF: ${{ needs.resolve_rollback_target.outputs.release_tag }}
+      SOURCE_SHA: ${{ needs.resolve_rollback_target.outputs.release_sha }}
+    steps:
+      - name: Check out the trusted verifier from master
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Set up Node.js and install locked dependencies
+        uses: ./.github/actions/setup-node-and-install
+      - name: Install Chromium for production browser verification
+        run: npx playwright install --with-deps chromium
+      - name: Verify restored build identity and production routes
+        run: node scripts/release/verify-deployed-site.mjs
+
+  rollback_summary:
+    name: 📝 Summarize rollback result
+    needs: [resolve_rollback_target, approve_rollback, redeploy_stable_release, verify_rollback]
+    if: ${{ always() && needs.resolve_rollback_target.result == 'success' }}
+    runs-on: ubuntu-24.04
+    permissions: {}
+    steps:
+      - name: Write rollback summary
+        env:
+          RELEASE_TAG: ${{ needs.resolve_rollback_target.outputs.release_tag }}
+          RELEASE_URL: ${{ needs.resolve_rollback_target.outputs.release_url }}
+          RELEASE_SHA: ${{ needs.resolve_rollback_target.outputs.release_sha }}
+          PAGE_URL: ${{ needs.redeploy_stable_release.outputs.page_url }}
+          APPROVAL_RESULT: ${{ needs.approve_rollback.result }}
+          DEPLOY_RESULT: ${{ needs.redeploy_stable_release.result }}
+          VERIFY_RESULT: ${{ needs.verify_rollback.result }}
         run: |
-          echo "PRD Release run ${SOURCE_RUN_ID} concluded ${SOURCE_CONCLUSION}."
-          echo 'No rollback candidate schema, retained release artifact, protected approval environment, recovery ledger, or rollback PAT policy has been configured.'
-          echo 'No artifact download, deployment, repository mutation, secret access, retry, reset, force-push, or revert is performed.'
+          {
+            if [[ "$DEPLOY_RESULT" == 'success' && "$VERIFY_RESULT" == 'success' ]]; then
+              echo '# ✅ Rollback verified'
+            else
+              echo '# ⚠️ Rollback unverified — manual intervention required'
+            fi
+            echo
+            echo "- Restored stable release: [\`${RELEASE_TAG}\`](${RELEASE_URL})"
+            echo "- Release commit: \`${RELEASE_SHA}\`"
+            echo "- Production URL: $PAGE_URL"
+            echo "- Requested release version: $RELEASE_TAG"
+            echo "- Production approval: $APPROVAL_RESULT"
+            echo "- Redeploy action: $DEPLOY_RESULT"
+            echo "- Application verification: $VERIFY_RESULT"
+            if [[ "$DEPLOY_RESULT" != 'success' || "$VERIFY_RESULT" != 'success' ]]; then
+              echo '- Recovery is not confirmed; inspect production and take manual action.'
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"

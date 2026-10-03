@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Product and local operation — Lingua Lab</title>
+  <style>
+    :root { color-scheme: light; font: 16px/1.65 system-ui,sans-serif; color:#172033; background:#f7f9fc; } body{max-width:1040px;margin:auto;padding:2rem 1.25rem} a{color:#075e8c} header,main{background:white;border:1px solid #dce4ed;border-radius:1rem;padding:1.5rem}header{margin-bottom:1rem}nav{display:flex;flex-wrap:wrap;gap:.75rem 1.25rem}section{margin:1.5rem 0}table{border-collapse:collapse;width:100%;display:block;overflow-x:auto}th,td{text-align:left;vertical-align:top;border:1px solid #dce4ed;padding:.65rem}th{background:#edf3f8}.note{background:#eef7fb;padding:1rem;border-radius:.5rem}
+    .command-block{margin:1rem 0;border:1px solid #cbd7e3;border-radius:.65rem;overflow:hidden;background:#f2f6fa}.command-block__toolbar{display:flex;align-items:center;justify-content:flex-end;gap:.75rem;padding:.5rem .75rem;border-bottom:1px solid #d5e0e9}.command-block button{font:inherit;font-size:.9rem;font-weight:600;color:#075e8c;background:#fff;border:1px solid #8aa9bf;border-radius:.4rem;padding:.3rem .7rem;cursor:pointer}.command-block button:hover{background:#e5f2f8}.command-block button:focus-visible{outline:3px solid #075e8c;outline-offset:2px}.command-block__feedback{font-size:.9rem;color:#245a35}.command-block__feedback[data-state="error"]{color:#9b2525}.command-block pre{margin:0;padding:1rem;overflow-x:auto;white-space:pre; -webkit-overflow-scrolling:touch}.command-block code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+  </style>
+</head>
+<body>
+<header><p><a href="index.html">Lingua Lab docs</a></p><h1>Product and local operation</h1><nav aria-label="Documentation"><a href="index.html">Documentation index</a><a href="topology.html">Application topology</a><a href="delivery.html">Delivery and release workflow</a><a href="pre-release.html">Pre-release</a><a href="release.html">Release</a><a href="post-release.html">Post-release</a><a href="rollback.html">Rollback</a></nav></header>
+<main>
+<p>Lingua Lab is a multi-language learning workspace. The Japanese learning path includes Kana, Grammar, and Vocabulary; English is marked as coming soon. This guide describes repository state and local procedures, not a live production observation.</p>
+<section><h2>Prerequisites and install</h2><p>Run commands from the repository root. The <a href="https://github.com/tranthaiminhtansoft/lingua-lab/blob/codex/release-rollback-workflows/.nvmrc">.nvmrc</a> pins Node.js <strong>22.22.2</strong>. The npm lockfile is version 3 and includes dependencies requiring Node <code>^22.22.2 || ^24.15.0 || &gt;=26.0.0</code>; use the repository pin rather than assuming any Node 22 release is sufficient. The project does not declare a root <code>engines</code> or <code>packageManager</code> field.</p><pre><code>node --version
+npm --version
+npm ci
+npm run dev</code></pre><p><code>npm ci</code> replaces an existing <code>node_modules</code> directory. Playwright browser binaries must be installed separately for end-to-end checks.</p></section>
+<section><h2>Application routes</h2><table><thead><tr><th scope="col">Local path</th><th scope="col">What it displays</th></tr></thead><tbody>
+<tr><td><code>/</code></td><td>Language home</td></tr><tr><td><code>/nihongo-o-benkyuo</code></td><td>Nihongo learning path</td></tr><tr><td><code>/nihongo-o-benkyuo/kana</code></td><td>Kana lesson and practice</td></tr><tr><td><code>/nihongo-o-benkyuo/grammar</code></td><td>Grammar topics</td></tr><tr><td><code>/nihongo-o-benkyuo/grammar/first-introductions</code></td><td>First introductions grammar lesson</td></tr><tr><td><code>/nihongo-o-benkyuo/vocabulary</code></td><td>Vocabulary topics</td></tr><tr><td><code>/nihongo-o-benkyuo/vocabulary/first-introductions</code></td><td>First introductions vocabulary lesson</td></tr><tr><td><code>/lessons/kana</code></td><td>Legacy address; redirects to the nested Kana route</td></tr>
+</tbody></table><p>Open routes at the local dev-server origin; do not prefix them with <code>/lingua-lab/</code>. Japanese speech depends on browser/device support and an available voice.</p></section>
+<section><h2>Local checks</h2><p>Run these from the repository root; each check covers a different concern.</p><pre><code>npm run lint
+npm run typecheck
+npm run test:unit -- --run
+npm run build</code></pre><ul><li><code>lint</code> runs ESLint.</li><li><code>typecheck</code> runs <code>tsc -b --pretty false</code>.</li><li>The unit-test command runs Vitest once; its configuration uses jsdom and excludes <code>e2e/**</code>.</li><li><code>build</code> type-checks, builds the Vite app, then exports these documentation pages to <code>dist/docs</code>. A build is not a deployment.</li></ul></section>
+<section><h2>Browser checks</h2><p>The configured end-to-end suite uses Chromium, Firefox, and WebKit, and starts its own server after building with <code>GITHUB_ACTIONS=true</code>.</p><pre><code>npx playwright install chromium firefox webkit
+npm run test:e2e</code></pre><p>The test harness serves the Pages-style artifact under <code>http://127.0.0.1:4176/lingua-lab/</code> and covers navigation, lessons, narrow screens, and a Kana deep-link refresh. Port 4176 must be available; outside CI, Playwright may reuse an existing server there.</p></section>
+<section><h2>Pages-style local preview</h2><pre><code>GITHUB_ACTIONS=true npm run build
+GITHUB_ACTIONS=true npm exec -- vite preview</code></pre><p>Open the printed preview URL with <code>/lingua-lab/</code>. A local preview does not establish live Pages behavior or production deployment. The site's <code>public/404.html</code> provides the configured deep-link fallback; use the E2E server for its local model.</p></section>
+<p class="note"><strong>Interpreting results:</strong> The commands above are instructions, not claims that they passed on this revision. Record runtime versions, command, exit status, and failures. A local build or browser test is not production verification or release approval.</p>
+</main>
+<script>
+  document.querySelectorAll('main pre > code').forEach((code, index) => {
+    const pre = code.parentElement;
+    const block = document.createElement('div');
+    block.className = 'command-block';
+    block.setAttribute('role', 'group');
+    block.setAttribute('aria-label', `Command block ${index + 1}`);
+    pre.before(block);
+    block.append(pre);
+
+    const toolbar = document.createElement('div');
+    toolbar.className = 'command-block__toolbar';
+    const feedback = document.createElement('span');
+    feedback.className = 'command-block__feedback';
+    feedback.setAttribute('role', 'status');
+    feedback.setAttribute('aria-live', 'polite');
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.textContent = 'Copy';
+    button.setAttribute('aria-label', `Copy command block ${index + 1}`);
+    button.addEventListener('click', async () => {
+      try {
+        if (!navigator.clipboard?.writeText) throw new Error('Clipboard API unavailable');
+        await navigator.clipboard.writeText(code.textContent ?? '');
+        button.textContent = 'Copy';
+        feedback.dataset.state = 'success';
+        feedback.textContent = 'Copied to clipboard.';
+      } catch {
+        feedback.dataset.state = 'error';
+        feedback.textContent = 'Copy failed. Clipboard access is unavailable.';
+      }
+    });
+    toolbar.append(button, feedback);
+    block.prepend(toolbar);
+  });
+</script>
+</body></html>

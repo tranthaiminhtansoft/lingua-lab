@@ -4,24 +4,22 @@ on:
   pull_request:
     branches: [master]
     paths:
-      - 'src/**'
-      - 'e2e/**'
+      - 'src/app/**'
+      - 'src/business/language-home/**'
+      - 'src/shared/**'
+      - 'src/test/**'
       - 'public/**'
+      - 'e2e/**'
+      - 'index.html'
       - 'package.json'
       - 'package-lock.json'
-      - 'index.html'
+      - '.nvmrc'
+      - 'eslint.config.js'
+      - 'tsconfig*.json'
       - 'vite.config.ts'
-      - 'tsconfig.json'
-      - 'tsconfig.app.json'
-      - 'tsconfig.node.json'
       - 'vitest.config.ts'
       - 'playwright.config.ts'
-      - 'eslint.config.js'
-      - 'scripts/**'
-      - '.github/workflows/**'
-      - '.github/profile-reviewers.json'
-      - '.github/dependabot.yml'
-      - 'docs/release-and-rollback.md'
+      - 'src/business/docs/**'
 
 permissions:
   contents: read
@@ -33,6 +31,8 @@ jobs:
     steps:
       - name: Check out PR head
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
       - name: Validate bootstrap policy configuration
         run: node scripts/verify-repo-policy.mjs
   application-validation:
@@ -41,6 +41,8 @@ jobs:
     steps:
       - name: Check out PR head
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
       - name: Set up Node.js
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:

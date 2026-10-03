@@ -1,6 +1,6 @@
 # Lingua Lab
 
-Lingua Lab is a multi-language learning workspace. The current learning path is Nihongo, with Kana available and Grammar and Vocabulary marked as coming soon.
+Lingua Lab is a multi-language learning workspace. The Japanese learning path includes Kana, Grammar, and Vocabulary; English is marked as coming soon.
 
 ## Start locally
 
@@ -15,21 +15,23 @@ The local routes are `/` for the language home, `/nihongo-o-benkyuo` for the Nih
 
 ## Project documentation
 
-- [Documentation index](docs/README.md)
-- [Current product state and local operation](docs/current-state.md)
-- [Application architecture and routing](docs/architecture.md)
-- [CI/CD workflows and release state](docs/ci-cd.md)
-- [Release and rollback policy](docs/release-and-rollback.md)
-- [UI exploration references](docs/ui-explorations/)
+- [Documentation index](https://tranthaiminhtansoft.github.io/lingua-lab/docs/)
+- [Product and local operation](https://tranthaiminhtansoft.github.io/lingua-lab/docs/product.html)
+- [Application topology](https://tranthaiminhtansoft.github.io/lingua-lab/docs/topology.html)
+- [Delivery and release workflow](https://tranthaiminhtansoft.github.io/lingua-lab/docs/delivery.html)
 
-The dated plan in `docs/superpowers/plans/` is a historical planning artifact; use the current-state and architecture documents for the implementation as it exists now.
+These are the configured GitHub Pages documentation URLs; publication at these routes has not yet been verified. The standalone HTML sources are in `src/business/docs/`; the dated plan in `docs/superpowers/plans/` remains a historical artifact. Export the pages and interactive diagrams to `dist/docs` with:
+
+```sh
+npm run build
+```
 
 ## Contribution basics
 
 - Production branch: `master`.
 - Development work belongs on `develop/homelab/<slug>` branches; pull requests target `master`.
-- CI is path-scoped. See [CI/CD](docs/ci-cd.md) for the exact triggers and checks.
-- Production deployment is currently fail-closed and is not enabled. The configured GitHub Pages URL is a target, not evidence of a live deployment.
+- CI is configured for pull requests targeting `master` when at least one changed path matches its allowlist; it is not configured to run on pushes to `master`. Workflow-only, release-script, and standalone-doc changes do not match that allowlist. See [Delivery and release workflow](https://tranthaiminhtansoft.github.io/lingua-lab/docs/delivery.html) for the configured checks.
+- GitHub `prod` and `github-pages` environments are configured for `master`; `prod` requires approval from `tranthaiminhtansoft`. The configured Pages URL is a target, not evidence of a live deployment.
 
 ## License
 
