@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "diagram_type": "workflow",
-  "meta": { "title": "Configured Release Workflow", "locale": "en", "quality_profile": "showcase", "output": "delivery-workflow.html", "repository": { "url": "https://github.com/tranthaiminhtansoft/lingua-lab.git", "provider": "github", "link_mode": "web", "revision": "fdfe48633027e8b298023e7e54d7eb5f12afcdc9" } },
+  "meta": { "title": "Configured Release Workflow", "locale": "en", "quality_profile": "showcase", "output": "delivery-workflow.html", "repository": { "url": "https://github.com/tranthaiminhtansoft/lingua-lab.git", "provider": "github", "link_mode": "web", "revision": "3b08b048c481bc5fb3388c24dbbd1019459e492e" } },
   "lanes": [
     { "id": "start", "label": "Dispatch" },
     { "id": "checks", "label": "Validation and build" },
