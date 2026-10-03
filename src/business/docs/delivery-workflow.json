@@ -4,16 +4,16 @@
   "meta": { "title": "Configured Release Workflow", "locale": "en", "quality_profile": "showcase", "output": "delivery-workflow.html", "repository": { "url": "https://github.com/tranthaiminhtansoft/lingua-lab.git", "provider": "github", "link_mode": "web", "revision": "ef363e8f8454586a01112dbbe4b5b9651efe515f" } },
   "lanes": [
     { "id": "start", "label": "Dispatch" },
-    { "id": "checks", "label": "Validation and build" },
-    { "id": "approval", "label": "Approval and deployment" },
+    { "id": "checks", "label": "Source validation and pre-build gate" },
+    { "id": "approval", "label": "Artifact build and production gates" },
     { "id": "verify", "label": "Live verification and publication" }
   ],
-  "mainPath": ["dispatch", "validate", "build", "approve", "deploy", "verify", "publishApproval", "publish"],
+  "mainPath": ["dispatch", "validate", "approve", "build", "deploy", "verify", "publishApproval", "publish"],
   "nodes": [
     { "id": "dispatch", "lane": "start", "col": 0, "type": "external", "label": "Release dispatch", "sublabel": "candidate_ref", "width": 150, "sources": [{ "path": ".github/workflows/prd-release.yml", "line": 1, "end_line": 11 }] },
     { "id": "validate", "lane": "checks", "col": 0, "type": "security", "label": "Validate source", "sublabel": "branch/date · exact master SHA · release preflight", "width": 190, "sources": [{ "path": ".github/workflows/prd-release.yml", "line": 14, "end_line": 37 }, { "path": "scripts/release/validate-candidate.sh", "line": 1, "end_line": 54 }] },
-    { "id": "build", "lane": "checks", "col": 1, "type": "backend", "label": "Build candidate", "sublabel": "lint · types · tests · Pages", "width": 170, "sources": [{ "path": ".github/workflows/prd-release.yml", "line": 39, "end_line": 92 }] },
-    { "id": "approve", "lane": "approval", "col": 1, "type": "security", "label": "prod approval", "sublabel": "before candidate deployment", "width": 200, "sources": [{ "path": ".github/workflows/prd-release.yml", "line": 94, "end_line": 103 }] },
+    { "id": "build", "lane": "approval", "col": 1, "type": "backend", "label": "Build candidate", "sublabel": "Pages artifact only", "width": 170, "sources": [{ "path": ".github/workflows/prd-release.yml", "line": 50, "end_line": 79 }] },
+    { "id": "approve", "lane": "checks", "col": 1, "type": "security", "label": "prod approval", "sublabel": "before candidate build", "width": 200, "sources": [{ "path": ".github/workflows/prd-release.yml", "line": 39, "end_line": 49 }] },
     { "id": "deploy", "lane": "approval", "col": 2, "type": "cloud", "label": "Deploy Pages", "sublabel": "reusable workflow", "width": 160, "sources": [{ "path": ".github/workflows/prd-release.yml", "line": 105, "end_line": 114 }, { "path": ".github/workflows/wc-release-pages.yml", "line": 12, "end_line": 25 }] },
     { "id": "verify", "lane": "verify", "col": 3, "type": "security", "label": "Verify deployed site", "sublabel": "identity · sampled routes", "width": 175, "sources": [{ "path": ".github/workflows/prd-release.yml", "line": 116, "end_line": 136 }, { "path": "scripts/release/verify-deployed-site.mjs", "line": 4, "end_line": 50 }] },
     { "id": "publishApproval", "lane": "approval", "col": 3, "type": "security", "label": "prod approval", "sublabel": "before stable publication", "width": 210, "sources": [{ "path": ".github/workflows/prd-release.yml", "line": 138, "end_line": 147 }] },
@@ -21,15 +21,15 @@
   ],
   "edges": [
     { "id": "start-validation", "from": "dispatch", "to": "validate", "label": "master dispatch" },
-    { "id": "validated-build", "from": "validate", "to": "build", "label": "pinned SHA" },
-    { "id": "build-approval", "from": "build", "to": "approve", "label": "built" },
-    { "id": "approval-deploy", "from": "approve", "to": "deploy", "label": "approved" },
+    { "id": "validated-approval", "from": "validate", "to": "approve", "label": "pinned SHA" },
+    { "id": "approval-build", "from": "approve", "to": "build", "label": "approved" },
+    { "id": "build-deploy", "from": "build", "to": "deploy", "label": "built" },
     { "id": "deploy-verify", "from": "deploy", "to": "verify", "label": "URL" },
     { "id": "verify-approval", "from": "verify", "to": "publishApproval", "label": "identity/routes checked" },
     { "id": "approval-publish", "from": "publishApproval", "to": "publish", "label": "approved" }
   ],
   "cards": [
-    { "dot": "cyan", "title": "Candidate validation", "items": ["Release validates candidate branch/date, resolves and pins its commit, then requires exact equality with the protected master tip.", "The candidate build runs lint, typecheck, unit tests, Pages-base browser smoke, and build on that pinned SHA before deployment approval; it does not require historical PR check runs on the Squash-merged master SHA.", "Deployment verification checks the served identity stamp and representative route content. It is a deployed-identity/route check, not proof of overall production success."] },
-    { "dot": "rose", "title": "Human gates · evidence boundary", "items": ["Two separate prod approvals gate candidate deployment and stable publication. The diagram shows configured gates, not approvals or a successful run.", "Rollback is separate; workflow source is configuration evidence only and does not establish that a workflow ran or that production is live."] }
+    { "dot": "cyan", "title": "Candidate build", "items": ["Release validates candidate branch/date, resolves and pins its commit, then requires exact equality with the protected master tip.", "The first prod approval happens before candidate code is built. The build creates the Pages artifact and rollback archive from the pinned SHA; it runs no lint, typecheck, unit tests, or browser smoke checks.", "Deployment verification remains a separate post-deployment step and checks the served identity stamp and representative route content."] },
+    { "dot": "rose", "title": "Human gates · evidence boundary", "items": ["Two separate prod approvals gate candidate build/deployment and stable publication. The diagram shows configured gates, not approvals or a successful run.", "Rollback is separate; workflow source is configuration evidence only and does not establish that a workflow ran or that production is live."] }
   ]
 }

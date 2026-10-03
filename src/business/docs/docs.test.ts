@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 
 // @ts-expect-error Node globals are available to Vitest but excluded from app type declarations.
 const docsDirectory = `${process.cwd()}/src/business/docs/`;
-const pageNames = ['index.html', 'product.html', 'topology.html', 'delivery.html', 'pre-release.html', 'release.html', 'post-release.html', 'rollback.html'];
+const pageNames = ['index.html', 'product.html', 'reference.html', 'topology.html', 'delivery.html', 'procedures.html', 'pre-release.html', 'release.html', 'post-release.html', 'rollback.html'];
 
 describe('standalone documentation sources', () => {
   it('uses independent semantic HTML pages with relative sibling navigation', async () => {
@@ -22,7 +22,7 @@ describe('standalone documentation sources', () => {
       expect(html).not.toContain('/lingua-lab/docs/');
       expect(html).not.toContain('docs/README.md');
       expect(html).not.toMatch(/href="\.\.\/\.\.\//);
-      if (name !== 'index.html') expect(html).toMatch(/<(?:section|ol)>/);
+      if (name !== 'index.html') expect(html).toMatch(/<(?:section|ol)\b/);
     }
   });
 
@@ -56,11 +56,14 @@ describe('standalone documentation sources', () => {
     dom.window.close();
   });
 
-  it('exports the eight HTML sources, three Archify assets, and release evidence images', async () => {
+  it('exports all ten HTML sources, three Archify assets, and captured release screenshots', async () => {
     const script = await readFile(`${docsDirectory}../../../scripts/build-docs.mjs`, 'utf8');
+    expect(script).toContain("'reference.html', 'topology.html', 'delivery.html', 'procedures.html'");
     expect(script).toContain("'pre-release.html', 'release.html', 'post-release.html', 'rollback.html'");
-    expect(script).toContain("'assets/release-trigger.svg'");
-    expect(script).toContain("'assets/release-success.svg'");
+    expect(script).toContain("'assets/release-trigger-form.jpg'");
+    expect(script).toContain("'assets/release-trigger-success.jpg'");
+    expect(script).toContain("'assets/release-candidate-success.jpg'");
+    expect(script).toContain("'assets/release-approval-history.jpg'");
     expect(script).not.toMatch(/\.md|markdown|htmlEscape/);
   });
 
@@ -99,7 +102,7 @@ describe('standalone documentation sources', () => {
   });
 
   it('keeps operator guides concise, linked, and accurate to workflow approval order', async () => {
-    const [pre, release, post, rollback, index, delivery, diagram] = await Promise.all([
+    const [pre, release, post, rollback, index, delivery, diagram, releaseWorkflow] = await Promise.all([
       readFile(`${docsDirectory}pre-release.html`, 'utf8'),
       readFile(`${docsDirectory}release.html`, 'utf8'),
       readFile(`${docsDirectory}post-release.html`, 'utf8'),
@@ -107,6 +110,7 @@ describe('standalone documentation sources', () => {
       readFile(`${docsDirectory}index.html`, 'utf8'),
       readFile(`${docsDirectory}delivery.html`, 'utf8'),
       readFile(`${docsDirectory}delivery-workflow.json`, 'utf8'),
+      readFile(`${process.cwd()}/.github/workflows/prd-release.yml`, 'utf8'),
     ]);
     expect(pre).toContain('Lingua Lab on GitHub Pages');
     expect(pre).toContain('Check the home page and a lesson route');
@@ -114,12 +118,31 @@ describe('standalone documentation sources', () => {
     expect(pre).toContain('manual recovery plan');
     expect(release).toContain('Create PRD Release Branch');
     expect(release).toContain('candidate_ref');
-    expect(release).toContain('manually compare the pinned candidate SHA with the intended commit recorded during pre-release');
-    expect(release).toContain('This comparison is a human check, not an automatic gate.');
-    expect(release).toContain('Stop</strong> if they differ or either value/evidence is missing');
+    expect(release).toContain('release/homelab/YYYYMMDD');
+    expect(release).toContain('release/homelab/20261004');
+    expect(release).toContain('Branch: master</code> (default; do not change)');
+    expect(release).toContain('pinned commit SHA matches the approved commit');
+    expect(release).toContain('Dispatch PRD Release');
+    expect(release).toContain('Dispatch PRD Release as a separate workflow run');
+    expect(release).toContain('click the Actions URL in the log');
     expect(release).toContain('Review deployments');
-    expect(release).toContain('no rollback is needed');
-    expect(release).toContain('verify_release');
+    expect(release).toContain('Verify deployed release');
+    expect(release).toContain('Pages site: app + standalone docs');
+    expect(release).toContain('Run → <strong>Deploy release candidate to production</strong>');
+    expect(release).toContain('Deployed build identity matches candidate');
+    expect(release).toContain('Homepage application marker');
+    expect(release).toContain('Grammar refresh: all <strong>Passed</strong>');
+    expect(release).toContain('<strong>Not deployed to Pages.</strong>');
+    expect(release).toContain('Production verification</strong> summary');
+    expect(release).toContain('Deployment protection rules');
+    expect(release).toContain('alt="GitHub Actions deployment protection rules showing the two completed prod approvals"');
+    const gateOne = release.indexOf('<h2>Approve candidate (prod gate 1)</h2>');
+    const deployAndVerify = release.indexOf('<h2>Deploy and verify</h2>');
+    const gateTwo = release.indexOf('<h2>Approve stable publication (prod gate 2)</h2>');
+    expect(gateOne).toBeGreaterThan(-1);
+    expect(gateOne).toBeLessThan(deployAndVerify);
+    expect(deployAndVerify).toBeLessThan(gateTwo);
+    expect(release).toContain('stable publication succeeds');
     expect(release).toContain('href="rollback.html"');
     expect(rollback).toContain('release_version');
     expect(rollback).toContain('Resolve requested stable GitHub Release');
@@ -127,26 +150,42 @@ describe('standalone documentation sources', () => {
     expect(rollback).toContain('Review deployments');
     expect(post).toContain('representative routes');
     expect(post).toContain('href="rollback.html"');
-    expect(index).toContain('href="rollback.html"');
+    expect(index).toContain('href="procedures.html"');
     expect(index).toContain('20261003');
-    expect(delivery).toContain('href="rollback.html"');
-    expect(delivery).toContain('blob/codex/release-rollback-workflows/.github/workflows/prd-release.yml');
+    expect(delivery).toContain('href="procedures.html"');
+    expect(delivery).toContain('blob/master/.github/workflows/prd-release.yml');
     expect(delivery).toContain('These branch links are mutable');
     expect(delivery).not.toContain('blob/fdfe48633027e8b298023e7e54d7eb5f12afcdc9/');
     expect(delivery).toContain('requires that SHA to exactly match the protected');
-    expect(delivery).toContain('GitHub Actions workflows/actions and release scripts do not match the allowlist');
+    expect(delivery).toContain('Changes limited to <code>.github/**</code> or <code>scripts/**</code> do not match the allowlist');
     for (const html of [pre, post]) {
       expect(html).toContain('role="img"');
       expect(html).toContain('Screenshot placeholder');
       expect(html).not.toMatch(/<img\b/i);
     }
-    expect(release).toContain('assets/release-trigger.svg');
-    expect(release).toContain('assets/release-success.svg');
+    expect(release).toContain('assets/release-trigger-form.jpg');
+    expect(release).toContain('assets/release-trigger-success.jpg');
+    expect(release).toContain('assets/release-candidate-success.jpg');
+    expect(release).toContain('assets/release-approval-history.jpg');
+    expect(release).not.toMatch(/release-(?:trigger|success)\.svg/);
     expect(release).toContain('37110848365');
     expect(delivery).not.toContain('does not require master-tip equality');
-    expect(delivery).toContain('Pull-request CI remains a merge control');
+    expect(delivery).toContain('Pull-request CI remains the merge control');
     expect(diagram).toContain('exact equality with the protected master tip');
-    expect(diagram).toContain('does not require historical PR check runs');
+    const workflowDiagram = JSON.parse(diagram) as { mainPath: string[] };
+    expect(workflowDiagram.mainPath).toEqual(['dispatch', 'validate', 'approve', 'build', 'deploy', 'verify', 'publishApproval', 'publish']);
+    expect(diagram).toContain('first prod approval happens before candidate code is built');
+    expect(diagram).toContain('runs no lint, typecheck, unit tests, or browser smoke checks');
+    expect(releaseWorkflow.indexOf('  approve_release_deploy:')).toBeLessThan(releaseWorkflow.indexOf('  build_release_artifact:'));
+    expect(releaseWorkflow).toContain('approve_release_deploy:\n    name: 🛡️ Approve release candidate\n    needs: validate_release_ref');
+    const buildJob = releaseWorkflow.slice(
+      releaseWorkflow.indexOf('  build_release_artifact:'),
+      releaseWorkflow.indexOf('  deploy_release_candidate:'),
+    );
+    expect(buildJob).toContain('needs: [validate_release_ref, approve_release_deploy]');
+    expect(buildJob).toContain('run: npx vite build');
+    expect(buildJob).toContain('run: node scripts/build-docs.mjs');
+    expect(buildJob).not.toMatch(/npm run (?:lint|typecheck|test:unit|test:e2e)|playwright install/i);
     expect(diagram).not.toContain('master tip · CI checks');
     expect(diagram).not.toContain('There is no master-tip equality gate');
   });

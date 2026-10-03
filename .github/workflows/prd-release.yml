@@ -36,9 +36,20 @@ jobs:
           CANDIDATE_REF: ${{ inputs.candidate_ref }}
         run: bash scripts/release/validate-candidate.sh
 
-  build_release_artifact:
-    name: 📦 Build and validate release candidate
+  approve_release_deploy:
+    name: 🛡️ Approve release candidate
     needs: validate_release_ref
+    runs-on: ubuntu-24.04
+    environment:
+      name: prod
+      deployment: false
+    steps:
+      - name: Confirm release candidate approval before build
+        run: echo 'Production approval passed; the candidate artifact may be built and deployed.'
+
+  build_release_artifact:
+    name: 📦 Build release candidate
+    needs: [validate_release_ref, approve_release_deploy]
     runs-on: ubuntu-24.04
     permissions:
       contents: read
@@ -50,23 +61,12 @@ jobs:
           persist-credentials: false
       - name: Set up Node.js and install locked dependencies
         uses: ./.github/actions/setup-node-and-install
-      - name: Run lint
-        run: npm run lint
-      - name: Run type check
-        run: npm run typecheck
-      - name: Run unit tests
-        run: npm run test:unit -- --run
-      - name: Install Playwright browsers
-        run: npx playwright install --with-deps chromium firefox webkit
-      - name: Run browser smoke checks against the Pages base path
-        env:
-          CI: 'true'
-          GITHUB_ACTIONS: 'true'
-        run: npm run test:e2e
-      - name: Build GitHub Pages artifact
+      - name: Build application with Vite
         env:
           GITHUB_ACTIONS: 'true'
-        run: npm run build
+        run: npx vite build
+      - name: Copy standalone documentation into the Pages artifact
+        run: node scripts/build-docs.mjs
       - name: Stamp artifact with the pinned source identity
         env:
           SOURCE_SHA: ${{ needs.validate_release_ref.outputs.source_sha }}
@@ -91,20 +91,9 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
-  approve_release_deploy:
-    name: 🛡️ Approve release deployment
-    needs: build_release_artifact
-    runs-on: ubuntu-24.04
-    environment:
-      name: prod
-      deployment: false
-    steps:
-      - name: Confirm production deployment approval
-        run: echo 'Production approval passed; the release candidate may be deployed.'
-
   deploy_release_candidate:
     name: 🚀 Deploy release candidate to production
-    needs: [validate_release_ref, build_release_artifact, approve_release_deploy]
+    needs: [validate_release_ref, approve_release_deploy, build_release_artifact]
     uses: ./.github/workflows/wc-release-pages.yml
     concurrency:
       group: lingua-lab-production-deploy

@@ -3,39 +3,69 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lingua Lab documentation</title>
+  <title>Start here — Lingua Lab</title>
   <style>
-    :root { color-scheme: light; font: 16px/1.65 system-ui, sans-serif; color: #172033; background: #f7f9fc; }
-    body { max-width: 1040px; margin: 0 auto; padding: 2rem 1.25rem; }
-    a { color: #075e8c; } header, main { background: white; border: 1px solid #dce4ed; border-radius: 1rem; padding: 1.5rem; }
-    header { margin-bottom: 1rem; } nav { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; }
-    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
-    .card { display: block; padding: 1.25rem; border: 1px solid #dce4ed; border-radius: .75rem; text-decoration: none; }
-    .card:hover, .card:focus-visible { background: #edf6fb; outline: 2px solid #075e8c; }
-    .notice { border-left: 4px solid #9b6a00; padding: .75rem 1rem; background: #fff8e8; }
+    :root { color-scheme:light; font:16px/1.65 system-ui,sans-serif; color:#172033; background:#f7f9fc; }
+    * { box-sizing:border-box; }
+    body { max-width:1040px; margin:0 auto; padding:2rem 1.25rem; }
+    a { color:#075e8c; }
+    header,main { background:#fff; border:1px solid #dce4ed; border-radius:1rem; padding:clamp(1rem,4vw,1.5rem); }
+    header { margin-bottom:1rem; }
+    nav { display:flex; flex-wrap:wrap; gap:.6rem 1.25rem; }
+    nav a[aria-current="page"] { font-weight:700; text-decoration-thickness:2px; }
+    .lede { font-size:1.15rem; max-width:70ch; }
+    .live { border-left:4px solid #25834a; background:#edf7ef; padding:.8rem 1rem; border-radius:.25rem; }
+    .path-grid,.card-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1rem; }
+    .path,.card { border:1px solid #dce4ed; border-radius:.75rem; padding:1rem; background:#fff; }
+    .path h3,.card h3 { margin:.1rem 0 .45rem; }
+    .path p,.card p { margin:.3rem 0; }
+    .path ol { padding-left:1.35rem; }
+    .muted { color:#52677a; }
   </style>
 </head>
 <body>
   <header>
-    <p><a href="index.html">Lingua Lab documentation</a></p>
-    <h1>Project documentation</h1>
-    <nav aria-label="Documentation"><a href="product.html">Product and local operation</a><a href="topology.html">Application topology</a><a href="delivery.html">Delivery and release workflow</a><a href="pre-release.html">Pre-release</a><a href="release.html">Release</a><a href="post-release.html">Post-release</a><a href="rollback.html">Rollback</a></nav>
+    <p><a href="index.html">Lingua Lab docs</a></p>
+    <h1>Start here</h1>
+    <nav aria-label="Documentation">
+      <a href="index.html" aria-current="page">Start here</a>
+      <a href="product.html">Product guide</a>
+      <a href="reference.html">Reference</a>
+      <a href="procedures.html">Procedures</a>
+    </nav>
   </header>
   <main>
-    <p>These guides describe the repository's implemented learning experience and configured workflows. Configuration and local artifacts are not evidence that a production deployment is live or that a particular revision has passed its checks.</p>
-    <p class="notice"><strong>Publication status:</strong> Release <code>20261003</code> was published from <code>master</code> commit <code>177991a</code>; the production deployment and route verification passed. Continue to treat each future run as separate evidence.</p>
-    <section aria-labelledby="guides-title">
-      <h2 id="guides-title">Guides</h2>
-      <div class="cards">
-        <a class="card" href="product.html"><strong>Product and local operation</strong><br>Implemented routes, prerequisites, checks, and the limits of local verification.</a>
-        <a class="card" href="topology.html"><strong>Application topology</strong><br>Client-side feature ownership, routing, static hosting, and the retained architecture diagram.</a>
-        <a class="card" href="delivery.html"><strong>Delivery and release workflow</strong><br>Configured CI, approvals, deployment, rollback, and operational boundaries.</a>
-        <a class="card" href="pre-release.html"><strong>Pre-release checklist</strong><br>Readiness review, path-filtered CI implications, and release-branch handoff.</a>
-        <a class="card" href="release.html"><strong>Release checklist</strong><br>Candidate checks, two human approvals, deployed identity/routes, and stable publication.</a>
-        <a class="card" href="post-release.html"><strong>Post-release</strong><br>Visit the published site, test representative routes, and record the outcome.</a>
-        <a class="card" href="rollback.html"><strong>Rollback</strong><br>Inspect auto-dispatch, resolve a stable target, approve deliberately, and verify restoration.</a>
+    <p class="lede">Lingua Lab is a browser-based language learning workspace. The Japanese path currently offers Kana, Grammar, and Vocabulary; English is marked as coming soon.</p>
+    <p class="live"><strong>Live application:</strong> <a href="https://tranthaiminhtansoft.github.io/lingua-lab/">Open Lingua Lab on GitHub Pages</a>. The latest verified production release is <a href="https://github.com/tranthaiminhtansoft/lingua-lab/releases/tag/20261003">20261003</a>, deployed from commit <code>177991a</code>. A merge to <code>master</code> is not itself a deployment.</p>
+
+    <section aria-labelledby="reading-title">
+      <h2 id="reading-title">Choose where to begin</h2>
+      <div class="path-grid">
+        <article class="path">
+          <h3>I want to understand the project</h3>
+          <ol><li><a href="product.html">Product guide</a>: what the app does and how to run it.</li><li><a href="reference.html">Reference</a>: how the code and delivery system fit together.</li></ol>
+        </article>
+        <article class="path">
+          <h3>I need to make a release</h3>
+          <p>Open <a href="procedures.html">Procedures</a> and follow the sequence: pre-release → release → post-release. Rollback is the recovery procedure.</p>
+        </article>
+        <article class="path">
+          <h3>I need an engineering detail</h3>
+          <p>Use <a href="reference.html">Reference</a> for the application map, CI triggers, release workflow, approvals, and operational boundaries.</p>
+        </article>
       </div>
     </section>
+
+    <section aria-labelledby="sections-title">
+      <h2 id="sections-title">Documentation map</h2>
+      <div class="card-grid">
+        <article class="card"><h3><a href="product.html">Product guide</a></h3><p>Features, routes, setup, local checks, and Pages preview.</p></article>
+        <article class="card"><h3><a href="reference.html">Reference</a></h3><p>Parent page for application topology and delivery system details.</p></article>
+        <article class="card"><h3><a href="procedures.html">Procedures</a></h3><p>Parent page for release steps and rollback.</p></article>
+      </div>
+    </section>
+
+    <p class="muted">These pages explain the checked in product and configured workflows. A workflow diagram describes intended behavior; use the linked run and deployment evidence to confirm what actually happened.</p>
   </main>
 </body>
 </html>
