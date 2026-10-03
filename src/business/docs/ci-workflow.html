@@ -5035,8 +5035,8 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         <path data-edge-from="event" data-edge-to="policy" data-edge-label="eligible paths only" data-edge-key="3" data-edge-id="trigger-policy" data-composition-routing="workflow-v2-auto" data-edge-role="" data-composition-points="148,145;148,166;246,166;246,243;230,243" d="M 148 145 L 148 166 L 246 166 L 246 243 L 230 243" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
 
         <!-- Nodes -->
-        <g id="node-event" data-node-id="event" data-node-label="Eligible PR" tabindex="0" role="button" aria-label="Focus Eligible PR, target: master · product + control paths, Eligible pull request" aria-pressed="false" data-node-kind="external" data-node-sublabel="target: master · product + control paths" data-node-context="Eligible pull request">
-          <title>Eligible PR · target: master · product + control paths · Eligible pull request</title>
+        <g id="node-event" data-node-id="event" data-node-label="Eligible PR" tabindex="0" role="button" aria-label="Focus Eligible PR, target: master · product + docs, Eligible pull request" aria-pressed="false" data-node-kind="external" data-node-sublabel="target: master · product + docs" data-node-context="Eligible pull request">
+          <title>Eligible PR · target: master · product + docs · Eligible pull request</title>
           <rect x="48" y="93" width="200" height="52" rx="6" class="c-mask"/>
           <rect x="48" y="93" width="200" height="52" rx="6" class="c-external" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(54 99) scale(0.6875)">
@@ -5044,7 +5044,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
             <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
           </g>
           <text data-node-label="" data-detail-anchor="" x="148" y="114" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Eligible PR</text>
-          <text data-detail="context" x="148" y="131" class="t-muted" font-size="8" text-anchor="middle">target: master · product + control paths</text>
+          <text data-detail="context" x="148" y="131" class="t-muted" font-size="8" text-anchor="middle">target: master · product + docs</text>
         </g>
 
         <g id="node-policy" data-node-id="policy" data-node-label="Repository policy" tabindex="0" role="button" aria-label="Focus Repository policy, independent job · policy script, Repository policy job" aria-pressed="false" data-node-kind="security" data-node-sublabel="independent job · policy script" data-node-context="Repository policy job">
@@ -5307,8 +5307,8 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
           <h3>PR-only path filter</h3>
         </div>
         <ul>
-          <li>Only pull requests targeting master with changes under the listed product, test, public, E2E, root HTML/package/configuration, GitHub Actions, release-script, or standalone-doc paths trigger this workflow.</li>
-          <li>Control-plane workflow/action changes, release scripts, and operator documentation are included; this workflow has no push trigger.</li>
+          <li>Only pull requests targeting master with changes under the listed product, test, public, E2E, root HTML/package/configuration, or standalone-doc paths trigger this workflow.</li>
+          <li>GitHub Actions workflow/action changes and release-script changes are outside the allowlist; standalone operator documentation is included. This workflow has no push trigger.</li>
         </ul>
       </div>
 

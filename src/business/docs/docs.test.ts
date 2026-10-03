@@ -132,6 +132,7 @@ describe('standalone documentation sources', () => {
     expect(delivery).toContain('These branch links are mutable');
     expect(delivery).not.toContain('blob/fdfe48633027e8b298023e7e54d7eb5f12afcdc9/');
     expect(delivery).toContain('requires that SHA to exactly match the protected');
+    expect(delivery).toContain('GitHub Actions workflows/actions and release scripts do not match the allowlist');
     for (const html of [pre, release, post]) {
       expect(html).toContain('role="img"');
       expect(html).toContain('Screenshot placeholder');
