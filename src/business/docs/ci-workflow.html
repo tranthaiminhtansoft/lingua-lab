@@ -5319,7 +5319,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         </div>
         <ul>
           <li>Repository policy and application validation are independent jobs. Application validation runs npm ci, lint, typecheck, unit tests, Pages-base build, then Chromium, Firefox and WebKit browser smoke checks.</li>
-          <li>This diagram describes configured CI, not a successful run. Release candidate validation requires the candidate SHA to exactly match the protected master tip and both named CI contexts to pass on that exact SHA.</li>
+          <li>This diagram describes configured CI, not a successful run. Release candidate validation requires the candidate SHA to exactly match the protected master tip; the release workflow repeats its own validation on that pinned SHA instead of requiring historical PR check runs.</li>
           <li>Path-filtered workflow skips can leave a required check pending or skipped; confirm branch protection does not treat a skipped required workflow as satisfied before relying on a green merge gate.</li>
         </ul>
       </div>

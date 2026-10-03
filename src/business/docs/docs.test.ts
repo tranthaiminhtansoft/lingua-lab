@@ -139,8 +139,9 @@ describe('standalone documentation sources', () => {
       expect(html).not.toMatch(/<img\b/i);
     }
     expect(delivery).not.toContain('does not require master-tip equality');
+    expect(delivery).toContain('Pull-request CI remains a merge control');
     expect(diagram).toContain('exact equality with the protected master tip');
-    expect(diagram).toContain('Application validation and Repository policy baseline contexts');
+    expect(diagram).toContain('does not require historical PR check runs');
     expect(diagram).not.toContain('master tip · CI checks');
     expect(diagram).not.toContain('There is no master-tip equality gate');
   });

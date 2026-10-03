@@ -5053,8 +5053,8 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
           <text data-detail="context" x="143" y="137.3" class="t-muted" font-size="8" text-anchor="middle">candidate_ref</text>
         </g>
 
-        <g id="node-validate" data-node-id="validate" data-node-label="Validate source" tabindex="0" role="button" aria-label="Focus Validate source, branch/date · exact master SHA · required checks, Validation and build" aria-pressed="false" data-node-kind="security" data-node-sublabel="branch/date · exact master SHA · required checks" data-node-context="Validation and build">
-          <title>Validate source · branch/date · exact master SHA · required checks · Validation and build</title>
+        <g id="node-validate" data-node-id="validate" data-node-label="Validate source" tabindex="0" role="button" aria-label="Focus Validate source, branch/date · exact master SHA · release preflight, Validation and build" aria-pressed="false" data-node-kind="security" data-node-sublabel="branch/date · exact master SHA · release preflight" data-node-context="Validation and build">
+          <title>Validate source · branch/date · exact master SHA · release preflight · Validation and build</title>
           <rect x="48" y="217" width="190" height="52" rx="6" class="c-mask"/>
           <rect x="48" y="217" width="190" height="52" rx="6" class="c-security" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(54 223) scale(0.6875)">
@@ -5062,7 +5062,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
             <path d="m5.8 8 1.5 1.5 3-3"/>
           </g>
           <text data-node-label="" data-detail-anchor="" x="143" y="238" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Validate source</text>
-          <text data-detail="context" x="143" y="255" class="t-muted" font-size="6.3" text-anchor="middle">branch/date · exact master SHA · required checks</text>
+          <text data-detail="context" x="143" y="255" class="t-muted" font-size="6.3" text-anchor="middle">branch/date · exact master SHA · release preflight</text>
         </g>
 
         <g id="node-build" data-node-id="build" data-node-label="Build candidate" tabindex="0" role="button" aria-label="Focus Build candidate, lint · types · tests · Pages, Validation and build" aria-pressed="false" data-node-kind="backend" data-node-sublabel="lint · types · tests · Pages" data-node-context="Validation and build">
@@ -5366,8 +5366,8 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
           <h3>Candidate validation</h3>
         </div>
         <ul>
-          <li>Release validates candidate branch/date, resolves and pins its commit, then requires exact equality with the protected master tip and successful Application validation and Repository policy baseline contexts on that same SHA.</li>
-          <li>The candidate build still runs lint, typecheck, unit tests, Pages-base browser smoke, and build before deployment approval.</li>
+          <li>Release validates candidate branch/date, resolves and pins its commit, then requires exact equality with the protected master tip.</li>
+          <li>The candidate build runs lint, typecheck, unit tests, Pages-base browser smoke, and build on that pinned SHA before deployment approval; it does not require historical PR check runs on the Squash-merged master SHA.</li>
           <li>Deployment verification checks the served identity stamp and representative route content. It is a deployed-identity/route check, not proof of overall production success.</li>
         </ul>
       </div>
