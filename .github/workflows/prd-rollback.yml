@@ -90,7 +90,7 @@ jobs:
 
   rollback_summary:
     name: 📝 Summarize rollback result
-    needs: [resolve_rollback_target, redeploy_stable_release, verify_rollback]
+    needs: [resolve_rollback_target, approve_rollback, redeploy_stable_release, verify_rollback]
     if: ${{ always() && needs.resolve_rollback_target.result == 'success' }}
     runs-on: ubuntu-24.04
     permissions: {}
@@ -101,6 +101,7 @@ jobs:
           RELEASE_URL: ${{ needs.resolve_rollback_target.outputs.release_url }}
           RELEASE_SHA: ${{ needs.resolve_rollback_target.outputs.release_sha }}
           PAGE_URL: ${{ needs.redeploy_stable_release.outputs.page_url }}
+          APPROVAL_RESULT: ${{ needs.approve_rollback.result }}
           DEPLOY_RESULT: ${{ needs.redeploy_stable_release.result }}
           VERIFY_RESULT: ${{ needs.verify_rollback.result }}
         run: |
@@ -115,7 +116,7 @@ jobs:
             echo "- Release commit: \`${RELEASE_SHA}\`"
             echo "- Production URL: $PAGE_URL"
             echo "- Requested release version: $RELEASE_TAG"
-            echo '- Production approval: passed'
+            echo "- Production approval: $APPROVAL_RESULT"
             echo "- Redeploy action: $DEPLOY_RESULT"
             echo "- Application verification: $VERIFY_RESULT"
             if [[ "$DEPLOY_RESULT" != 'success' || "$VERIFY_RESULT" != 'success' ]]; then
