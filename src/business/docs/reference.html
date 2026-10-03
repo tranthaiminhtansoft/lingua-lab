@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reference — Lingua Lab</title>
+  <style>
+    :root { color-scheme:light; font:16px/1.65 system-ui,sans-serif; color:#172033; background:#f7f9fc; }
+    * { box-sizing:border-box; }
+    body { max-width:1040px; margin:0 auto; padding:2rem 1.25rem; }
+    a { color:#075e8c; }
+    header,main { background:#fff; border:1px solid #dce4ed; border-radius:1rem; padding:clamp(1rem,4vw,1.5rem); }
+    header { margin-bottom:1rem; }
+    nav { display:flex; flex-wrap:wrap; gap:.6rem 1.25rem; }
+    nav a[aria-current="page"] { font-weight:700; text-decoration-thickness:2px; }
+    .breadcrumb { color:#52677a; margin-bottom:.5rem; }
+    .lede { font-size:1.1rem; max-width:72ch; }
+    .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1rem; }
+    .card { border:1px solid #dce4ed; border-radius:.75rem; padding:1rem; }
+    .card h2 { font-size:1.15rem; margin:.1rem 0 .45rem; }
+    .card p { margin:.35rem 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <p class="breadcrumb"><a href="index.html">Start here</a> / Reference</p>
+    <h1>Reference</h1>
+    <nav aria-label="Documentation">
+      <a href="index.html">Start here</a>
+      <a href="product.html">Product guide</a>
+      <a href="reference.html" aria-current="page">Reference</a>
+      <a href="procedures.html">Procedures</a>
+    </nav>
+  </header>
+  <main>
+    <p class="lede">Use these pages when you need to understand how the repository is put together or how its automation is configured. They explain the system; for step-by-step release actions, go to <a href="procedures.html">Procedures</a>.</p>
+    <section class="cards" aria-label="Reference pages">
+      <article class="card">
+        <h2><a href="topology.html">Application topology</a></h2>
+        <p>Feature ownership, routes, runtime boundaries, and an interactive architecture map.</p>
+        <p>Read this first to see how the product code fits together.</p>
+      </article>
+      <article class="card">
+        <h2><a href="delivery.html">CI and delivery system</a></h2>
+        <p>Pull-request CI, release workflow, approvals, Pages deployment, verification, and recovery boundaries.</p>
+        <p>This is a configuration reference, not an operator checklist or proof that a run passed.</p>
+      </article>
+    </section>
+    <p>New to the repository? Start with the <a href="product.html">Product guide</a> for purpose, routes, and local setup, then return here for implementation details.</p>
+  </main>
+</body>
+</html>

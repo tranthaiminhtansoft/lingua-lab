@@ -5017,10 +5017,10 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         <text x="54" y="74" class="t-dim" font-size="10" font-weight="600">01 / Dispatch</text>
 
         <rect data-graph-role="structural-frame" data-composition-frame-kind="lane" data-composition-frame-id="lane-1" x="40" y="176" width="1137" height="104" rx="10" class="c-lane" stroke-width="1"/>
-        <text x="54" y="198" class="t-dim" font-size="10" font-weight="600">02 / Validation and build</text>
+        <text x="54" y="198" class="t-dim" font-size="10" font-weight="600">02 / Source validation and pre-build gate</text>
 
         <rect data-graph-role="structural-frame" data-composition-frame-kind="lane" data-composition-frame-id="lane-2" x="40" y="300" width="1137" height="104" rx="10" class="c-lane" stroke-width="1"/>
-        <text x="54" y="322" class="t-dim" font-size="10" font-weight="600">03 / Approval and deployment</text>
+        <text x="54" y="322" class="t-dim" font-size="10" font-weight="600">03 / Artifact build and production gates</text>
 
         <rect data-graph-role="structural-frame" data-composition-frame-kind="lane" data-composition-frame-id="lane-3" x="40" y="424" width="1137" height="104" rx="10" class="c-lane" stroke-width="1"/>
         <text x="54" y="446" class="t-dim" font-size="10" font-weight="600">04 / Live verification and publication</text>
@@ -5032,12 +5032,12 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
 
 
         <!-- Edge paths -->
-        <path data-edge-from="approve" data-edge-to="deploy" data-edge-label="approved" data-edge-key="0" data-edge-id="approval-deploy" data-composition-routing="workflow-v2-auto" data-edge-role="" data-composition-points="489,367;545.4,367" d="M 489 367 L 545.4 367" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="build" data-edge-to="deploy" data-edge-label="built" data-edge-key="0" data-edge-id="build-deploy" data-composition-routing="workflow-v2-auto" data-edge-role="" data-composition-points="474,367;545.4,367" d="M 474 367 L 545.4 367" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
         <path data-edge-from="publishApproval" data-edge-to="publish" data-edge-label="approved" data-edge-key="1" data-edge-id="approval-publish" data-composition-routing="workflow-v2-auto" data-edge-role="" data-composition-points="923.4,367;998.9,367;998.9,465" d="M 923.4 367 L 998.9 367 L 998.9 465" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
-        <path data-edge-from="build" data-edge-to="approve" data-edge-label="built" data-edge-key="2" data-edge-id="build-approval" data-composition-routing="workflow-v2-auto" data-edge-role="" data-composition-points="389,269;389,341" d="M 389 269 L 389 341" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="approve" data-edge-to="build" data-edge-label="approved" data-edge-key="2" data-edge-id="approval-build" data-composition-routing="workflow-v2-auto" data-edge-role="" data-composition-points="389,269;389,341" d="M 389 269 L 389 341" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
         <path data-edge-from="deploy" data-edge-to="verify" data-edge-label="URL" data-edge-key="3" data-edge-id="deploy-verify" data-composition-routing="workflow-v2-auto" data-edge-role="" data-composition-points="625.4,393;625.4,491;730.9,491" d="M 625.4 393 L 625.4 491 L 730.9 491" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
         <path data-edge-from="dispatch" data-edge-to="validate" data-edge-label="master dispatch" data-edge-key="4" data-edge-id="start-validation" data-composition-routing="workflow-v2-auto" data-edge-role="" data-composition-points="143,145;143,166;32,166;32,243;48,243" d="M 143 145 L 143 166 L 32 166 L 32 243 L 48 243" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
-        <path data-edge-from="validate" data-edge-to="build" data-edge-label="pinned SHA" data-edge-key="5" data-edge-id="validated-build" data-composition-routing="workflow-v2-auto" data-edge-role="" data-composition-points="238,243;304,243" d="M 238 243 L 304 243" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="validate" data-edge-to="approve" data-edge-label="pinned SHA" data-edge-key="5" data-edge-id="validated-approval" data-composition-routing="workflow-v2-auto" data-edge-role="" data-composition-points="238,243;289,243" d="M 238 243 L 289 243" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
         <path data-edge-from="verify" data-edge-to="publishApproval" data-edge-label="identity/routes checked" data-edge-key="6" data-edge-id="verify-approval" data-composition-routing="workflow-v2-auto" data-edge-role="" data-composition-points="818.4,465;818.4,393" d="M 818.4 465 L 818.4 393" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
 
         <!-- Nodes -->
@@ -5065,27 +5065,27 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
           <text data-detail="context" x="143" y="255" class="t-muted" font-size="6.3" text-anchor="middle">branch/date · exact master SHA · release preflight</text>
         </g>
 
-        <g id="node-build" data-node-id="build" data-node-label="Build candidate" tabindex="0" role="button" aria-label="Focus Build candidate, lint · types · tests · Pages, Validation and build" aria-pressed="false" data-node-kind="backend" data-node-sublabel="lint · types · tests · Pages" data-node-context="Validation and build">
-          <title>Build candidate · lint · types · tests · Pages · Validation and build</title>
-          <rect x="304" y="217" width="170" height="52" rx="6" class="c-mask"/>
-          <rect x="304" y="217" width="170" height="52" rx="6" class="c-backend" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(310 223) scale(0.6875)">
+        <g id="node-build" data-node-id="build" data-node-label="Build candidate" tabindex="0" role="button" aria-label="Focus Build candidate, Pages artifact only, Artifact build and production gates" aria-pressed="false" data-node-kind="backend" data-node-sublabel="Pages artifact only" data-node-context="Artifact build and production gates">
+          <title>Build candidate · Pages artifact only · Artifact build and production gates</title>
+          <rect x="304" y="341" width="170" height="52" rx="6" class="c-mask"/>
+          <rect x="304" y="341" width="170" height="52" rx="6" class="c-backend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(310 347) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="382.5" y="238" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Build candidate</text>
-          <text data-detail="context" x="389" y="255" class="t-muted" font-size="8" text-anchor="middle">lint · types · tests · Pages</text>
+          <text data-node-label="" data-detail-anchor="" x="389" y="362" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Build candidate</text>
+          <text data-detail="context" x="389" y="379" class="t-muted" font-size="8" text-anchor="middle">Pages artifact only</text>
         </g>
 
-        <g id="node-approve" data-node-id="approve" data-node-label="prod approval" tabindex="0" role="button" aria-label="Focus prod approval, before candidate deployment, Approval and deployment" aria-pressed="false" data-node-kind="security" data-node-sublabel="before candidate deployment" data-node-context="Approval and deployment">
-          <title>prod approval · before candidate deployment · Approval and deployment</title>
-          <rect x="289" y="341" width="200" height="52" rx="6" class="c-mask"/>
-          <rect x="289" y="341" width="200" height="52" rx="6" class="c-security" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(295 347) scale(0.6875)">
+        <g id="node-approve" data-node-id="approve" data-node-label="prod approval" tabindex="0" role="button" aria-label="Focus prod approval, before candidate build, Source validation and pre-build gate" aria-pressed="false" data-node-kind="security" data-node-sublabel="before candidate build" data-node-context="Source validation and pre-build gate">
+          <title>prod approval · before candidate build · Source validation and pre-build gate</title>
+          <rect x="289" y="217" width="200" height="52" rx="6" class="c-mask"/>
+          <rect x="289" y="217" width="200" height="52" rx="6" class="c-security" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(295 223) scale(0.6875)">
             <path d="M8 2.2 13 4v3.5c0 3.1-1.8 5.4-5 6.5-3.2-1.1-5-3.4-5-6.5V4Z"/>
             <path d="m5.8 8 1.5 1.5 3-3"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="389" y="362" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">prod approval</text>
-          <text data-detail="context" x="389" y="379" class="t-muted" font-size="8" text-anchor="middle">before candidate deployment</text>
+          <text data-node-label="" data-detail-anchor="" x="389" y="238" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">prod approval</text>
+          <text data-detail="context" x="389" y="255" class="t-muted" font-size="8" text-anchor="middle">before candidate build</text>
         </g>
 
         <g id="node-deploy" data-node-id="deploy" data-node-label="Deploy Pages" tabindex="0" role="button" aria-label="Focus Deploy Pages, reusable workflow, Approval and deployment" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="reusable workflow" data-node-context="Approval and deployment">
@@ -5135,17 +5135,17 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         </g>
 
         <!-- Edge labels -->
-        <g data-detail="context" data-edge-from="approve" data-edge-to="deploy" data-edge-label="approved" data-edge-key="0" data-edge-id="approval-deploy">
-          <rect x="493.00000000000006" y="347" width="48.4" height="14" rx="3" class="c-mask"/>
-          <text x="517.2" y="357" class="t-edge-default" font-size="8" text-anchor="middle">approved</text>
+        <g data-detail="context" data-edge-from="build" data-edge-to="deploy" data-edge-label="built" data-edge-key="0" data-edge-id="build-deploy">
+          <rect x="492.7" y="347" width="34" height="14" rx="3" class="c-mask"/>
+          <text x="509.7" y="357" class="t-edge-default" font-size="8" text-anchor="middle">built</text>
         </g>
         <g data-detail="context" data-edge-from="publishApproval" data-edge-to="publish" data-edge-label="approved" data-edge-key="1" data-edge-id="approval-publish">
           <rect x="936.9499999999999" y="347" width="48.4" height="14" rx="3" class="c-mask"/>
           <text x="961.15" y="357" class="t-edge-default" font-size="8" text-anchor="middle">approved</text>
         </g>
-        <g data-detail="context" data-edge-from="build" data-edge-to="approve" data-edge-label="built" data-edge-key="2" data-edge-id="build-approval">
-          <rect x="372" y="295" width="34" height="14" rx="3" class="c-mask"/>
-          <text x="389" y="305" class="t-edge-default" font-size="8" text-anchor="middle">built</text>
+        <g data-detail="context" data-edge-from="approve" data-edge-to="build" data-edge-label="approved" data-edge-key="2" data-edge-id="approval-build">
+          <rect x="364.8" y="295" width="48.4" height="14" rx="3" class="c-mask"/>
+          <text x="389" y="305" class="t-edge-default" font-size="8" text-anchor="middle">approved</text>
         </g>
         <g data-detail="context" data-edge-from="deploy" data-edge-to="verify" data-edge-label="URL" data-edge-key="3" data-edge-id="deploy-verify">
           <rect x="663.15" y="471" width="30" height="14" rx="3" class="c-mask"/>
@@ -5155,9 +5155,9 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
           <rect x="46.5" y="146" width="82" height="14" rx="3" class="c-mask"/>
           <text x="87.5" y="156" class="t-edge-default" font-size="8" text-anchor="middle">master dispatch</text>
         </g>
-        <g data-detail="context" data-edge-from="validate" data-edge-to="build" data-edge-label="pinned SHA" data-edge-key="5" data-edge-id="validated-build">
-          <rect x="242" y="223" width="58" height="14" rx="3" class="c-mask"/>
-          <text x="271" y="233" class="t-edge-default" font-size="8" text-anchor="middle">pinned SHA</text>
+        <g data-detail="context" data-edge-from="validate" data-edge-to="approve" data-edge-label="pinned SHA" data-edge-key="5" data-edge-id="validated-approval">
+          <rect x="234.5" y="223" width="58" height="14" rx="3" class="c-mask"/>
+          <text x="263.5" y="233" class="t-edge-default" font-size="8" text-anchor="middle">pinned SHA</text>
         </g>
         <g data-detail="context" data-edge-from="verify" data-edge-to="publishApproval" data-edge-label="identity/routes checked" data-edge-key="6" data-edge-id="verify-approval">
           <rect x="758.1999999999999" y="419" width="120.39999999999999" height="14" rx="3" class="c-mask"/>
@@ -5363,12 +5363,12 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
       <div class="card">
         <div class="card-header">
           <div class="card-dot cyan"></div>
-          <h3>Candidate validation</h3>
+          <h3>Candidate build</h3>
         </div>
         <ul>
           <li>Release validates candidate branch/date, resolves and pins its commit, then requires exact equality with the protected master tip.</li>
-          <li>The candidate build runs lint, typecheck, unit tests, Pages-base browser smoke, and build on that pinned SHA before deployment approval; it does not require historical PR check runs on the Squash-merged master SHA.</li>
-          <li>Deployment verification checks the served identity stamp and representative route content. It is a deployed-identity/route check, not proof of overall production success.</li>
+          <li>The first prod approval happens before candidate code is built. The build creates the Pages artifact and rollback archive from the pinned SHA; it runs no lint, typecheck, unit tests, or browser smoke checks.</li>
+          <li>Deployment verification remains a separate post-deployment step and checks the served identity stamp and representative route content.</li>
         </ul>
       </div>
 
@@ -5378,7 +5378,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
           <h3>Human gates · evidence boundary</h3>
         </div>
         <ul>
-          <li>Two separate prod approvals gate candidate deployment and stable publication. The diagram shows configured gates, not approvals or a successful run.</li>
+          <li>Two separate prod approvals gate candidate build/deployment and stable publication. The diagram shows configured gates, not approvals or a successful run.</li>
           <li>Rollback is separate; workflow source is configuration evidence only and does not establish that a workflow ran or that production is live.</li>
         </ul>
       </div>

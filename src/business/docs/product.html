@@ -9,10 +9,10 @@
   </style>
 </head>
 <body>
-<header><p><a href="index.html">Lingua Lab docs</a></p><h1>Product and local operation</h1><nav aria-label="Documentation"><a href="index.html">Documentation index</a><a href="topology.html">Application topology</a><a href="delivery.html">Delivery and release workflow</a><a href="pre-release.html">Pre-release</a><a href="release.html">Release</a><a href="post-release.html">Post-release</a><a href="rollback.html">Rollback</a></nav></header>
+<header><p class="breadcrumb"><a href="index.html">Start here</a> / Product guide</p><h1>Product guide</h1><nav aria-label="Documentation"><a href="index.html">Start here</a><a href="product.html" aria-current="page">Product guide</a><a href="reference.html">Reference</a><a href="procedures.html">Procedures</a></nav></header>
 <main>
 <p>Lingua Lab is a multi-language learning workspace. The Japanese learning path includes Kana, Grammar, and Vocabulary; English is marked as coming soon. This guide describes repository state and local procedures, not a live production observation.</p>
-<section><h2>Prerequisites and install</h2><p>Run commands from the repository root. The <a href="https://github.com/tranthaiminhtansoft/lingua-lab/blob/codex/release-rollback-workflows/.nvmrc">.nvmrc</a> pins Node.js <strong>22.22.2</strong>. The npm lockfile is version 3 and includes dependencies requiring Node <code>^22.22.2 || ^24.15.0 || &gt;=26.0.0</code>; use the repository pin rather than assuming any Node 22 release is sufficient. The project does not declare a root <code>engines</code> or <code>packageManager</code> field.</p><pre><code>node --version
+<section><h2>Prerequisites and install</h2><p>Run commands from the repository root. The <a href="https://github.com/tranthaiminhtansoft/lingua-lab/blob/master/.nvmrc">.nvmrc</a> pins Node.js <strong>22.22.2</strong>. The npm lockfile is version 3 and includes dependencies requiring Node <code>^22.22.2 || ^24.15.0 || &gt;=26.0.0</code>; use the repository pin rather than assuming any Node 22 release is sufficient. The project does not declare a root <code>engines</code> or <code>packageManager</code> field.</p><pre><code>node --version
 npm --version
 npm ci
 npm run dev</code></pre><p><code>npm ci</code> replaces an existing <code>node_modules</code> directory. Playwright browser binaries must be installed separately for end-to-end checks.</p></section>

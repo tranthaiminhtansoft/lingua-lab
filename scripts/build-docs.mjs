@@ -4,13 +4,15 @@ import { resolve } from 'node:path';
 const root = process.cwd();
 const source = resolve(root, 'src/business/docs');
 const out = resolve(root, 'dist/docs');
-const pages = ['index.html', 'product.html', 'topology.html', 'delivery.html', 'pre-release.html', 'release.html', 'post-release.html', 'rollback.html'];
+const pages = ['index.html', 'product.html', 'reference.html', 'topology.html', 'delivery.html', 'procedures.html', 'pre-release.html', 'release.html', 'post-release.html', 'rollback.html'];
 const assets = [
   { source: 'topology-diagram.html', destination: 'topology-diagram.html' },
   { source: 'delivery-workflow.html', destination: 'delivery-workflow.html' },
   { source: 'ci-workflow.html', destination: 'ci-workflow.html' },
-  { source: 'assets/release-trigger.svg', destination: 'release-trigger.svg' },
-  { source: 'assets/release-success.svg', destination: 'release-success.svg' },
+  { source: 'assets/release-trigger-form.jpg', destination: 'release-trigger-form.jpg' },
+  { source: 'assets/release-trigger-success.jpg', destination: 'release-trigger-success.jpg' },
+  { source: 'assets/release-candidate-success.jpg', destination: 'release-candidate-success.jpg' },
+  { source: 'assets/release-approval-history.jpg', destination: 'release-approval-history.jpg' },
 ];
 
 await mkdir(out, { recursive: true });
