@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="N5 Japanese grammar lesson: Minna no Nihongo Lesson 1.">
+  <title>N5 Grammar · Minna no Nihongo Lesson 1</title>
+  <style>
+    :root { --washi:#fff8e8; --paper:#fffdf5; --ink:#18253a; --indigo:#253a78; --verm:#e64c38; --sakura:#f5a6b8; --sun:#f8cf4a; --mint:#8ee0c5; --line:3px solid var(--ink); --shadow:7px 7px 0 var(--ink); }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:7.5rem; }
+    body { margin:0; background:var(--washi); color:var(--ink); font-family:Arial, Helvetica, sans-serif; font-weight:700; line-height:1.5; }
+    button, input { font:inherit; }
+    button { cursor:pointer; }
+    a { color:inherit; }
+    :focus-visible { outline:4px solid var(--verm); outline-offset:4px; }
+    .site-nav { position:sticky; top:0; z-index:10; background:var(--washi); border-bottom:var(--line); }
+    .nav-inner, .shell { max-width:1180px; margin:auto; padding-inline:clamp(14px,4vw,48px); }
+    .nav-inner { min-height:70px; display:flex; align-items:center; gap:12px; overflow-x:auto; }
+    .brand { margin-right:auto; text-decoration:none; white-space:nowrap; font-size:1.05rem; }
+    .brand span { color:var(--indigo); }
+    .nav-link, .level-tab { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:9px 13px; border:var(--line); background:var(--paper); box-shadow:4px 4px 0 var(--ink); text-decoration:none; white-space:nowrap; }
+    .nav-link[aria-current="page"] { background:var(--sun); transform:translate(2px,2px); box-shadow:2px 2px 0 var(--ink); }
+    .shell { padding-block:30px 72px; }
+    .eyebrow { font-size:.78rem; text-transform:uppercase; letter-spacing:.12em; }
+    .hero { display:grid; grid-template-columns:1.3fr .7fr; gap:28px; align-items:end; padding:34px 0; border-bottom:var(--line); }
+    h1, h2, h3, p { margin-top:0; }
+    h1 { font-size:clamp(3rem,8vw,6.5rem); line-height:.87; letter-spacing:-.07em; margin-bottom:18px; }
+    h1 span { display:block; color:var(--indigo); font-size:.48em; letter-spacing:-.03em; margin-top:12px; }
+    .hero-copy { max-width:650px; font-size:1.12rem; }
+    .lesson-stamp { justify-self:end; min-width:185px; padding:24px; border:var(--line); background:var(--verm); color:var(--washi); box-shadow:var(--shadow); text-align:center; transform:rotate(3deg); }
+    .lesson-stamp strong { display:block; font-size:3.1rem; line-height:1; }
+    .level-tabs { display:flex; flex-wrap:wrap; gap:10px; margin:30px 0; }
+    .level-tab[aria-selected="true"] { background:var(--sun); transform:translate(2px,2px); box-shadow:2px 2px 0 var(--ink); }
+    .level-tab[disabled] { cursor:not-allowed; color:#455064; background:#e7dfcf; box-shadow:none; opacity:.9; }
+    .grid { display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:22px; }
+    .panel, .grammar-card, .exercise { border:var(--line); box-shadow:var(--shadow); background:var(--paper); padding:24px; }
+    .panel h2, .exercise h2 { font-size:clamp(1.6rem,4vw,2.2rem); line-height:1; margin-bottom:12px; }
+    .outline { grid-column:span 4; background:var(--sakura); }
+    .outline ol { padding-left:1.4rem; margin-bottom:0; }
+    .outline li + li { margin-top:8px; }
+    .recap { grid-column:span 8; background:var(--sun); }
+    .recap ul { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:9px 20px; padding-left:1.3rem; margin-bottom:0; }
+    .patterns { grid-column:1/-1; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; }
+    .section-title { grid-column:1/-1; margin:10px 0 -4px; font-size:clamp(2rem,5vw,3.3rem); line-height:.95; letter-spacing:-.05em; }
+    .grammar-card { min-width:0; }
+    .grammar-card:nth-of-type(odd) { background:var(--paper); }
+    .grammar-card:nth-of-type(even) { background:#effafb; }
+    .grammar-card h3 { font-size:1.55rem; line-height:1.1; margin-bottom:14px; }
+    .label { display:block; font-size:.73rem; letter-spacing:.1em; text-transform:uppercase; margin-bottom:4px; color:var(--indigo); }
+    .pattern { display:inline-block; margin:0 0 4px; padding:9px 12px; border:2px solid var(--ink); background:var(--washi); font-size:1.25rem; line-height:1.35; font-family:"Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; }
+    .example { border-left:8px solid var(--verm); background:var(--ink); color:var(--washi); padding:14px; margin:16px 0; }
+    .example p:last-child, .dialogue p:last-child { margin-bottom:0; }
+    .jp { font-family:"Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; font-size:1.15rem; }
+    .romaji { margin:-8px 0 16px; font-size:.92rem; font-style:italic; font-weight:400; letter-spacing:.01em; }
+    .pattern + .romaji { margin:0 0 16px; }
+    .negative-formula { margin:0 0 16px; }
+    .negative-romaji { margin:0 0 6px; overflow-wrap:anywhere; }
+    .contraction-pair { display:inline-flex; flex-direction:column; align-items:center; vertical-align:middle; line-height:1; margin:0 .08em; }
+    .contraction-pair .dewa { font-size:.7em; color:var(--verm); margin-bottom:2px; }
+    .contraction-pair .ja { font-size:1em; }
+    .negative-note { margin:0; font-size:.93rem; font-weight:400; }
+    .example .jp, .dialogue .jp { margin-bottom:10px; }
+    .example .romaji, .dialogue .romaji { margin:-6px 0 12px; }
+    .translation { font-size:.93rem; font-weight:400; }
+    .dialogue { border:2px solid var(--ink); background:var(--washi); padding:14px; }
+    .practice-prompt { margin:16px 0 0; padding:12px; background:var(--mint); border:2px solid var(--ink); }
+    .register-notes { grid-column:1/-1; background:#eef0ff; }
+    .register-intro { max-width:820px; font-weight:400; }
+    .register-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+    .register-group { min-width:0; padding:14px; border:2px solid var(--ink); background:var(--paper); }
+    .register-group h3 { margin-bottom:10px; font-size:1.05rem; }
+    .register-item { margin:0; padding:9px 0; border-top:2px dashed #9ca4b3; overflow-wrap:anywhere; }
+    .register-item:first-of-type { padding-top:0; border-top:0; }
+    .register-item:last-child { padding-bottom:0; }
+    .register-jp { font-family:"Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; font-size:1.08rem; }
+    .register-romaji { font-weight:400; font-style:italic; }
+    .register-tag { display:inline-block; margin:3px 0; padding:2px 7px; border:2px solid var(--ink); background:var(--sun); font-size:.72rem; letter-spacing:.04em; text-transform:uppercase; }
+    .register-note, .register-example { display:block; font-size:.9rem; font-weight:400; }
+    .register-example { margin-top:7px; padding-top:7px; border-top:1px solid #c4c9d3; }
+    .footer-note { grid-column:1/-1; margin:0; font-size:.9rem; font-weight:400; }
+    @media (max-width:820px) { .hero { grid-template-columns:1fr; } .lesson-stamp { justify-self:start; } .outline, .recap { grid-column:1/-1; } .patterns { grid-template-columns:1fr; } }
+    @media (max-width:520px) { .nav-inner { padding-inline:14px; } .brand { display:none; } .shell { padding-inline:14px; } .hero { padding-top:24px; } h1 { font-size:3.45rem; } .lesson-stamp { min-width:0; } .panel, .grammar-card { padding:18px; box-shadow:5px 5px 0 var(--ink); } .recap ul, .register-grid { grid-template-columns:1fr; } .pattern { font-size:1.05rem; } }
+    @media (max-width:340px) { h1 { font-size:3.05rem; } .level-tab { padding-inline:10px; } .grammar-card h3 { font-size:1.32rem; } }
+    @media (prefers-reduced-motion:reduce) { *, *::before, *::after { animation:none!important; transition:none!important; scroll-behavior:auto!important; } }
+  </style>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a class="brand" href="#top">にほんご <span>おべんきょう</span></a>
+      <a class="nav-link" href="#outline">Lesson outline</a>
+      <a class="nav-link" href="#recap" aria-current="page">Grammar <span lang="ja">/ 文法</span></a>
+    </div>
+  </nav>
+  <main class="shell" id="top">
+    <header class="hero">
+      <div>
+        <div class="eyebrow">N5 Grammar · Minna no Nihongo</div>
+        <h1>Lesson 1 <span lang="ja">はじめまして</span></h1>
+        <p class="hero-copy">Build your first Japanese self-introductions: identify people and things, make a negative sentence, ask a polite question, add shared information, and connect nouns.</p>
+      </div>
+      <div class="lesson-stamp" aria-label="Lesson 1 stamp"><strong lang="ja">文法</strong><span>Grammar / N5</span></div>
+    </header>
+
+    <section aria-label="Japanese Language Proficiency Test level tabs">
+      <div class="level-tabs" role="tablist" aria-label="Grammar levels">
+        <button class="level-tab" type="button" role="tab" aria-selected="true" aria-controls="n5-content" id="n5-tab">N5 · Active</button>
+        <button class="level-tab" type="button" role="tab" aria-selected="false" disabled aria-label="N4, coming soon">N4 · COMING SOON</button>
+        <button class="level-tab" type="button" role="tab" aria-selected="false" disabled aria-label="N3, coming soon">N3 · COMING SOON</button>
+        <button class="level-tab" type="button" role="tab" aria-selected="false" disabled aria-label="N2, coming soon">N2 · COMING SOON</button>
+        <button class="level-tab" type="button" role="tab" aria-selected="false" disabled aria-label="N1, coming soon">N1 · COMING SOON</button>
+      </div>
+    </section>
+
+    <div class="grid" id="n5-content" role="tabpanel" aria-labelledby="n5-tab">
+      <section class="panel outline" id="outline" aria-labelledby="outline-title">
+        <h2 id="outline-title">Lesson outline <span lang="ja">/ 目次</span></h2>
+        <ol>
+          <li>Say what something is.</li>
+          <li>Make a polite negative.</li>
+          <li>Ask and answer yes/no questions.</li>
+          <li>Use <span lang="ja">も</span> for “also”.</li>
+          <li>Use <span lang="ja">の</span> to link nouns.</li>
+        </ol>
+      </section>
+      <section class="panel recap" id="recap" aria-labelledby="recap-title">
+        <h2 id="recap-title">Quick recap <span lang="ja">/ まとめ</span></h2>
+        <ul>
+          <li><span lang="ja">は</span> marks the topic (read <em>wa</em> here).</li>
+          <li><span lang="ja">です</span> makes a polite statement.</li>
+          <li><span lang="ja">ではありません</span> makes it politely negative.</li>
+          <li><span lang="ja">か</span> turns a sentence into a question.</li>
+          <li><span lang="ja">も</span> means “also / too”.</li>
+          <li><span lang="ja">の</span> shows a noun-to-noun relationship.</li>
+        </ul>
+      </section>
+
+      <h2 class="section-title" id="patterns-title">Five core patterns <span lang="ja">/ 基本文型</span></h2>
+      <section class="patterns" aria-labelledby="patterns-title">
+        <article class="grammar-card">
+          <h3>1. Identify something</h3>
+          <p class="pattern" lang="ja">N1 は N2 です</p>
+          <p class="romaji" lang="ja-Latn">N1 wa N2 desu</p>
+          <span class="label">Use</span><p>Use this polite pattern to say that N1 is N2.</p>
+          <div class="example"><span class="label">Japanese example</span><p class="jp" lang="ja">わたし は マリア です。</p><p class="romaji" lang="ja-Latn">Watashi wa Maria desu.</p><p class="translation">English meaning: I am Maria.</p></div>
+          <div class="dialogue"><span class="label">Mini dialogue / context</span><p class="jp" lang="ja">A: マリア は がくせい？</p><p class="romaji" lang="ja-Latn">A: Maria wa gakusei?</p><p class="jp" lang="ja">B: うん、がくせい だよ。</p><p class="romaji" lang="ja-Latn">B: Un, gakusei da yo.</p><p class="translation">Casual: A: Is Maria a student? B: Yeah, she is.</p></div>
+          <p class="practice-prompt"><strong>Practice:</strong> Say “I am a student.” → <span lang="ja">わたし は がくせい です。</span></p>
+        </article>
+
+        <article class="grammar-card">
+          <h3>2. Say what something is not</h3>
+          <p class="pattern" lang="ja">N1 は N2 じゃありません</p>
+          <p class="negative-formula" aria-label="Negative formula"><span class="negative-romaji" lang="ja-Latn">N1 wa N2 <span class="contraction-pair"><span class="dewa">dewa</span><span class="ja">ja</span></span> arimasen</span><span class="negative-note">(ja is the contracted form of dewa)</span></p>
+          <span class="label">Use</span><p>Use this polite negative to say that N1 is not N2.</p>
+          <div class="example"><span class="label">Japanese example</span><p class="jp" lang="ja">わたし は せんせい ではありません。</p><p class="romaji" lang="ja-Latn">Watashi wa sensei dewa arimasen.</p><p class="translation">English meaning: I am not a teacher.</p></div>
+          <div class="dialogue"><span class="label">Mini dialogue / context</span><p class="jp" lang="ja">A: せんせい ですか。</p><p class="romaji" lang="ja-Latn">A: Sensei desu ka.</p><p class="jp" lang="ja">B: いいえ、せんせいじゃありません。</p><p class="romaji" lang="ja-Latn">B: Iie, sensei ja arimasen.</p><p class="translation">A: Are you a teacher? B: No, I am not.</p><p class="translation"><strong>Conversation note:</strong> <span lang="ja">じゃありません</span> is a more natural conversational form of <span lang="ja">ではありません</span>; both are polite.</p></div>
+          <p class="practice-prompt"><strong>Practice:</strong> Say “Tanaka is not a doctor.” → <span lang="ja">たなかさん は いしゃ ではありません。</span></p>
+        </article>
+
+        <article class="grammar-card">
+          <h3>3. Ask a polite question</h3>
+          <p class="pattern" lang="ja">N1 は N2 ですか</p>
+          <p class="romaji" lang="ja-Latn">N1 wa N2 desu ka</p>
+          <span class="label">Use</span><p>Add <span lang="ja">か</span> at the end to ask whether N1 is N2. Answer with <span lang="ja">はい</span> (yes) or <span lang="ja">いいえ</span> (no).</p>
+          <div class="example"><span class="label">Japanese example</span><p class="jp" lang="ja">あなた は がくせい ですか。</p><p class="romaji" lang="ja-Latn">Anata wa gakusei desu ka.</p><p class="translation">English meaning: Are you a student?</p></div>
+          <div class="dialogue"><span class="label">Mini dialogue / context</span><p class="jp" lang="ja">A: サントスさん、ブラジルじん？</p><p class="romaji" lang="ja-Latn">A: Santosu-san, Burajiru-jin?</p><p class="jp" lang="ja">B: うん、ブラジルじん だよ。</p><p class="romaji" lang="ja-Latn">B: Un, Burajiru-jin da yo.</p><p class="translation">Casual: A: Is Ms. Santos Brazilian? B: Yeah, she is.</p></div>
+          <p class="practice-prompt"><strong>Practice:</strong> Ask “Is Mr. Kim a teacher?” → <span lang="ja">キムさん は せんせい ですか。</span></p>
+        </article>
+
+        <article class="grammar-card">
+          <h3>4. Add shared information</h3>
+          <p class="pattern" lang="ja">N1 も N2 です</p>
+          <p class="romaji" lang="ja-Latn">N1 mo N2 desu</p>
+          <span class="label">Use</span><p>Use <span lang="ja">も</span> instead of <span lang="ja">は</span> when N1 is also N2.</p>
+          <div class="example"><span class="label">Japanese example</span><p class="jp" lang="ja">ミラーさん も かいしゃいん です。</p><p class="romaji" lang="ja-Latn">Mirā-san mo kaishain desu.</p><p class="translation">English meaning: Mr. Miller is also a company employee.</p></div>
+          <div class="dialogue"><span class="label">Mini dialogue / context</span><p class="jp" lang="ja">A: わたし は がくせい です。</p><p class="romaji" lang="ja-Latn">A: Watashi wa gakusei desu.</p><p class="jp" lang="ja">B: わたし も がくせい です。</p><p class="romaji" lang="ja-Latn">B: Watashi mo gakusei desu.</p><p class="translation">A: I am a student. B: I am a student too.</p></div>
+          <p class="practice-prompt"><strong>Practice:</strong> Reply “I am Japanese too.” → <span lang="ja">わたし も にほんじん です。</span></p>
+        </article>
+
+        <article class="grammar-card">
+          <h3>5. Connect two nouns</h3>
+          <p class="pattern" lang="ja">N1 の N2</p>
+          <p class="romaji" lang="ja-Latn">N1 no N2</p>
+          <span class="label">Use</span><p>Use <span lang="ja">の</span> between nouns for relationships such as possession, affiliation, or description.</p>
+          <div class="example"><span class="label">Japanese example</span><p class="jp" lang="ja">わたし は IMC の しゃいん です。</p><p class="romaji" lang="ja-Latn">Watashi wa IMC no shain desu.</p><p class="translation">English meaning: I am an IMC employee.</p></div>
+          <div class="dialogue"><span class="label">Mini dialogue / context</span><p class="jp" lang="ja">A: かいしゃ の なまえ は？</p><p class="romaji" lang="ja-Latn">A: Kaisha no namae wa?</p><p class="jp" lang="ja">B: IMC です。</p><p class="romaji" lang="ja-Latn">B: IMC desu.</p><p class="translation">A: What is the company’s name? B: It is IMC.</p></div>
+          <p class="practice-prompt"><strong>Practice:</strong> Make “Japanese teacher.” → <span lang="ja">にほんご の せんせい</span></p>
+        </article>
+      </section>
+
+      <section class="panel register-notes" aria-labelledby="register-title">
+        <h2 id="register-title">Register / Politeness notes <span lang="ja">/ 丁寧さ</span></h2>
+        <p class="register-intro">Understanding politeness levels helps you choose the appropriate expression. The labels below describe the register of each form.</p>
+        <div class="register-grid">
+          <article class="register-group">
+            <h3>Affirmative copula</h3>
+            <p class="register-item"><strong class="register-jp" lang="ja">です</strong> · <span class="register-romaji" lang="ja-Latn">desu</span><br><span class="register-tag">Polite</span><span class="register-note">Used in polite conversation and situations that call for respectful distance.</span><span class="register-example"><strong>Example:</strong> <span lang="ja">田中さんは先生です。</span><br><span lang="ja-Latn"><em>Tanaka-san wa sensei desu.</em></span><br>English meaning: Mr. Tanaka is a teacher.</span></p>
+            <p class="register-item"><strong class="register-jp" lang="ja">だ</strong> · <span class="register-romaji" lang="ja-Latn">da</span><br><span class="register-tag">Casual / plain</span><span class="register-note">Common with friends and family or in informal writing; avoid it when politeness is required.</span><span class="register-example"><strong>Example:</strong> <span lang="ja">田中は先生だ。</span><br><span lang="ja-Latn"><em>Tanaka wa sensei da.</em></span><br>English meaning: Tanaka is a teacher.</span></p>
+          </article>
+          <article class="register-group">
+            <h3>Negative copula</h3>
+            <p class="register-item"><strong class="register-jp" lang="ja">ではありません</strong> · <span class="register-romaji" lang="ja-Latn">dewa arimasen</span><br><span class="register-tag">Polite / formal</span><span class="register-note">A polite, formal negative suitable for class, work, and official announcements.</span><span class="register-example"><strong>Example:</strong> <span lang="ja">田中さんは先生ではありません。</span><br><span lang="ja-Latn"><em>Tanaka-san wa sensei dewa arimasen.</em></span><br>English meaning: Mr. Tanaka is not a teacher.</span></p>
+            <p class="register-item"><strong class="register-jp" lang="ja">じゃありません</strong> · <span class="register-romaji" lang="ja-Latn">ja arimasen</span><br><span class="register-tag">Conversational polite</span><span class="register-note">Still polite, but more natural in everyday conversation.</span><span class="register-example"><strong>Example:</strong> <span lang="ja">田中さんは先生じゃありません。</span><br><span lang="ja-Latn"><em>Tanaka-san wa sensei ja arimasen.</em></span><br>English meaning: Mr. Tanaka is not a teacher.</span></p>
+            <p class="register-item"><strong class="register-jp" lang="ja">ではない</strong> · <span class="register-romaji" lang="ja-Latn">dewa nai</span><br><span class="register-tag">Plain negative</span><span class="register-note">A plain negative often found in writing or neutral speech that does not use polite forms.</span><span class="register-example"><strong>Example:</strong> <span lang="ja">田中は先生ではない。</span><br><span lang="ja-Latn"><em>Tanaka wa sensei dewa nai.</em></span><br>English meaning: Tanaka is not a teacher.</span></p>
+            <p class="register-item"><strong class="register-jp" lang="ja">じゃない</strong> · <span class="register-romaji" lang="ja-Latn">ja nai</span><br><span class="register-tag">Casual negative</span><span class="register-note">An informal negative common when speaking with friends or family.</span><span class="register-example"><strong>Example:</strong> <span lang="ja">田中は先生じゃない。</span><br><span lang="ja-Latn"><em>Tanaka wa sensei ja nai.</em></span><br>English meaning: Tanaka is not a teacher.</span></p>
+          </article>
+          <article class="register-group">
+            <h3>Questions</h3>
+            <p class="register-item"><strong class="register-jp" lang="ja">ですか</strong> · <span class="register-romaji" lang="ja-Latn">desu ka</span><br><span class="register-tag">Polite question</span><span class="register-note">A polite question form made by adding <span lang="ja">か</span> to a polite sentence.</span><span class="register-example"><strong>Example:</strong> <span lang="ja">田中さんは先生ですか。</span><br><span lang="ja-Latn"><em>Tanaka-san wa sensei desu ka.</em></span><br>English meaning: Is Mr. Tanaka a teacher?</span></p>
+            <p class="register-item"><strong class="register-jp" lang="ja">の？</strong> · <span class="register-romaji" lang="ja-Latn">no?</span><br><span class="register-tag">Casual question</span><span class="register-note">An informal question marker in conversation; its suitability depends on context and the speakers’ relationship.</span><span class="register-example"><strong>Example:</strong> <span lang="ja">何をしているの？</span><br><span lang="ja-Latn"><em>Nani o shite iru no?</em></span><br>English meaning: What are you doing?</span></p>
+            <p class="register-item"><strong class="register-jp" lang="ja">学生？</strong> · <span class="register-romaji" lang="ja-Latn">gakusei?</span><br><span class="register-tag">Plain question · rising intonation</span><span class="register-note">A plain statement can become a question through rising intonation alone, without <span lang="ja">か</span>.</span><span class="register-example"><strong>Example:</strong> <span lang="ja">学生？</span><br><span lang="ja-Latn"><em>Gakusei?</em></span><br>English meaning: Are you a student?</span></p>
+          </article>
+          <article class="register-group">
+            <h3>Particles do not set register</h3>
+            <p class="register-item"><strong class="register-jp" lang="ja">も</strong> · <span class="register-romaji" lang="ja-Latn">mo</span><br><span class="register-tag">Register-neutral particle</span><span class="register-note"><span lang="ja">も</span> does not mark politeness by itself; the rest of the sentence, such as <span lang="ja">です</span> or <span lang="ja">だ</span>, determines the register.</span><span class="register-example"><strong>Example:</strong> <span lang="ja">わたしも学生です。</span><br><span lang="ja-Latn"><em>Watashi mo gakusei desu.</em></span><br>English meaning: I am also a student.</span></p>
+            <p class="register-item"><strong class="register-jp" lang="ja">の</strong> · <span class="register-romaji" lang="ja-Latn">no</span><br><span class="register-tag">Register-neutral particle</span><span class="register-note">The noun-linking <span lang="ja">の</span> does not mark politeness by itself; its register depends on the surrounding sentence.</span><span class="register-example"><strong>Example:</strong> <span lang="ja">日本語の先生です。</span><br><span lang="ja-Latn"><em>Nihongo no sensei desu.</em></span><br>English meaning: I am a Japanese-language teacher.</span></p>
+          </article>
+        </div>
+      </section>
+
+      <p class="footer-note">Study note: <span lang="ja">は</span> is written <em>ha</em> but pronounced <em>wa</em> when it marks the topic. No account, network request, external asset, or tracking is used on this lesson page.</p>
+    </div>
+  </main>
+</body>
+</html>
