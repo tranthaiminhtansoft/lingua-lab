@@ -19,6 +19,9 @@ on:
       - 'vite.config.ts'
       - 'vitest.config.ts'
       - 'playwright.config.ts'
+      - '.github/**'
+      - 'scripts/**'
+      - 'src/business/docs/**'
 
 permissions:
   contents: read

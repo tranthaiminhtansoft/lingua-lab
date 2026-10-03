@@ -42,6 +42,10 @@ if ! valid_date_tag "$release_tag" || [[ "$is_draft" != "false" || "$is_prerelea
   summary_failure 'target is not a published stable date release' "Resolved tag: ${release_tag:-missing}; draft: ${is_draft:-unknown}; prerelease: ${is_prerelease:-unknown}. No rollback was deployed."
   exit 1
 fi
+if [[ "$release_tag" != "$RELEASE_VERSION" ]]; then
+  summary_failure 'resolved release tag does not match requested version' "Requested release: $RELEASE_VERSION; resolved tag: ${release_tag:-missing}. No rollback was deployed."
+  exit 1
+fi
 
 if ! jq -e '.assets | map(.name) | contains(["site-dist.tar.gz", "site-dist.tar.gz.sha256"])' "$release_json" >/dev/null; then
   summary_failure 'stable release asset is missing' "Release ${release_tag} does not contain both the deployable site archive and its checksum. No rollback was deployed."

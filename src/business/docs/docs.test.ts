@@ -109,6 +109,8 @@ describe('standalone documentation sources', () => {
     ]);
     expect(pre).toContain('Lingua Lab on GitHub Pages');
     expect(pre).toContain('Check the home page and a lesson route');
+    expect(pre).toContain('rollback unavailable');
+    expect(pre).toContain('manual recovery plan');
     expect(release).toContain('Create PRD Release Branch');
     expect(release).toContain('candidate_ref');
     expect(release).toContain('manually compare the pinned candidate SHA with the intended commit recorded during pre-release');
@@ -129,15 +131,16 @@ describe('standalone documentation sources', () => {
     expect(delivery).toContain('blob/codex/release-rollback-workflows/.github/workflows/prd-release.yml');
     expect(delivery).toContain('These branch links are mutable');
     expect(delivery).not.toContain('blob/fdfe48633027e8b298023e7e54d7eb5f12afcdc9/');
+    expect(delivery).toContain('requires that SHA to exactly match the protected');
     for (const html of [pre, release, post]) {
       expect(html).toContain('role="img"');
       expect(html).toContain('Screenshot placeholder');
       expect(html).not.toMatch(/<img\b/i);
     }
-    expect(delivery).not.toContain('requires equality with the then-current');
-    expect(delivery).not.toContain('checks for successful named CI contexts');
+    expect(delivery).not.toContain('does not require master-tip equality');
+    expect(diagram).toContain('exact equality with the protected master tip');
+    expect(diagram).toContain('Application validation and Repository policy baseline contexts');
     expect(diagram).not.toContain('master tip · CI checks');
-    expect(diagram).not.toContain('successful exact-SHA CI contexts');
-    expect(diagram).toContain('There is no master-tip equality gate');
+    expect(diagram).not.toContain('There is no master-tip equality gate');
   });
 });

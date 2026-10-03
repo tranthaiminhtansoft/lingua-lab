@@ -88,6 +88,9 @@ grep -Fq 'waiting for the `prod` approval' "$GITHUB_STEP_SUMMARY"
 reset_case; GH_RELEASE_LOOKUP_FAIL=1; export GH_RELEASE_LOOKUP_FAIL
 write_release; expect_failure 'requested release not found'
 
+reset_case; write_release 20261001; expect_failure 'resolved release tag does not match requested version'
+! grep -Fq 'release download' "$GH_CALL_LOG"
+
 reset_case; write_release 20260928 archive; expect_failure 'stable release asset is missing'
 ! grep -Fq 'release download' "$GH_CALL_LOG"
 

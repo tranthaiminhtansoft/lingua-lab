@@ -13,7 +13,7 @@
     { "id": "application", "label": "Application validation job" }
   ],
   "nodes": [
-    { "id": "event", "lane": "triggers", "col": 0, "type": "external", "label": "Eligible PR", "sublabel": "target: master · product paths", "width": 164 },
+    { "id": "event", "lane": "triggers", "col": 0, "type": "external", "label": "Eligible PR", "sublabel": "target: master · product + control paths", "width": 200 },
     { "id": "policy", "lane": "policy", "col": 0, "type": "security", "label": "Repository policy", "sublabel": "independent job · policy script", "width": 164 },
     { "id": "install", "lane": "application", "col": 0, "type": "backend", "label": "Install", "sublabel": "checkout · npm ci", "width": 164 },
     { "id": "checks", "lane": "application", "col": 1, "type": "security", "label": "Code checks", "sublabel": "lint · types · unit tests", "width": 164 },
@@ -26,7 +26,7 @@
     { "id": "checks-verify", "from": "checks", "to": "verify" }
   ],
   "cards": [
-    { "dot": "cyan", "title": "PR-only path filter", "items": ["Only pull requests targeting master with changes under the listed product, test, public, E2E, root HTML/package/configuration paths trigger this workflow.", "CI/CD workflow and release-script changes, documentation, and non-React business areas are outside the paths filter; this workflow has no push trigger."] },
-    { "dot": "rose", "title": "Independent jobs · configured checks", "items": ["Repository policy and application validation are independent jobs. Application validation runs npm ci, lint, typecheck, unit tests, Pages-base build, then Chromium, Firefox and WebKit browser smoke checks.", "This diagram describes configured CI, not a successful run. Release candidate validation does not require master-tip equality or named CI contexts.", "Path-filtered workflow skips can leave a required check pending or skipped; confirm branch protection does not treat a skipped required workflow as satisfied before relying on a green merge gate."] }
+    { "dot": "cyan", "title": "PR-only path filter", "items": ["Only pull requests targeting master with changes under the listed product, test, public, E2E, root HTML/package/configuration, GitHub Actions, release-script, or standalone-doc paths trigger this workflow.", "Control-plane workflow/action changes, release scripts, and operator documentation are included; this workflow has no push trigger."] },
+    { "dot": "rose", "title": "Independent jobs · configured checks", "items": ["Repository policy and application validation are independent jobs. Application validation runs npm ci, lint, typecheck, unit tests, Pages-base build, then Chromium, Firefox and WebKit browser smoke checks.", "This diagram describes configured CI, not a successful run. Release candidate validation requires the candidate SHA to exactly match the protected master tip and both named CI contexts to pass on that exact SHA.", "Path-filtered workflow skips can leave a required check pending or skipped; confirm branch protection does not treat a skipped required workflow as satisfied before relying on a green merge gate."] }
   ]
 }
