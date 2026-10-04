@@ -20,6 +20,7 @@ on:
       - 'vitest.config.ts'
       - 'playwright.config.ts'
       - 'src/business/docs/**'
+      - 'docs/ROADMAP.md'
 
 permissions:
   contents: read
