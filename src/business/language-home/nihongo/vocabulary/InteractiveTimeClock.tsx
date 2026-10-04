@@ -7,6 +7,11 @@ import { Reading } from './TimeReading';
 type Hand = 'hour' | 'minute';
 const zeroMinutes: TimeWord = { japanese: '0分', kana: 'れいふん', romaji: 'reifun', meaning: '0 minutes · on the hour', parts: [{ kana: 'れい', romaji: 'rei', role: 'base' }, { kana: 'ふん', romaji: 'fun', role: 'fun' }] };
 const point = (angle: number, radius: number) => ({ x: 160 + Math.sin(angle * Math.PI / 180) * radius, y: 160 - Math.cos(angle * Math.PI / 180) * radius });
+const clamp = (value: number, min: number, max: number) => Math.max(min, Math.min(max, value));
+function callout(tip: { x: number; y: number }) {
+  const width = 138, height = 72;
+  return { width, height, x: clamp(tip.x < 160 ? tip.x + 8 : tip.x - width - 8, 4, 178), y: clamp(tip.y - height / 2, 4, 244) };
+}
 
 export function InteractiveTimeClock() {
   const [hour, setHour] = useState(4);
@@ -34,6 +39,15 @@ export function InteractiveTimeClock() {
   };
   const hourTip = point((hour % 12 + minute / 60) * 30, 78);
   const minuteTip = point(minute * 6, 114);
+  let hourCallout = callout(hourTip), minuteCallout = callout(minuteTip);
+  const overlap = hourCallout.x < minuteCallout.x + minuteCallout.width + 6
+    && hourCallout.x + hourCallout.width + 6 > minuteCallout.x
+    && hourCallout.y < minuteCallout.y + minuteCallout.height + 6
+    && hourCallout.y + hourCallout.height + 6 > minuteCallout.y;
+  if (overlap) {
+    hourCallout = { ...hourCallout, y: 4 };
+    minuteCallout = { ...minuteCallout, y: 244 };
+  }
 
   function updateHand(hand: Hand, clientX: number, clientY: number) {
     const bounds = svgRef.current!.getBoundingClientRect();
@@ -58,10 +72,11 @@ export function InteractiveTimeClock() {
 
   return <section className="time-interactive-clock" aria-labelledby="interactive-clock-title">
     <h4 id="interactive-clock-title">Turn the hands. Read the time.</h4>
-    <p>Drag the short blue hour hand or the long red minute hand. You can also use the sliders below each reading. Explore all 60 minute positions.</p>
+    <p>Drag either hand, or use the compact sliders below the clock. The matching reading card follows each hand. Explore all 60 minute positions.</p>
     <div className="time-clock-workspace">
       <div className="time-clock-face-panel">
         <fieldset className="time-period-choice"><legend>Time of day</legend>{(['am', 'pm'] as const).map((value) => <label key={value}><input type="radio" name="clock-period" value={value} checked={period === value} onChange={() => setPeriod(value)} />{value === 'am' ? 'a.m.' : 'p.m.'}</label>)}</fieldset>
+        <div className="time-clock-stage">
         <svg ref={svgRef} className="time-clock-face" viewBox="0 0 320 320" aria-hidden="true"
           onPointerMove={(event) => { if (drag.current?.pointerId === event.pointerId) updateHand(drag.current.hand, event.clientX, event.clientY); }}
           onPointerUp={stopDrag} onPointerCancel={stopDrag} onLostPointerCapture={() => { drag.current = null; }}>
@@ -80,11 +95,18 @@ export function InteractiveTimeClock() {
           </g>
           <circle cx="160" cy="160" r="7" fill="var(--ink)" pointerEvents="none" />
         </svg>
+        <div className="time-clock-callout time-hour-callout" style={{ left: `${hourCallout.x / 320 * 100}%`, top: `${hourCallout.y / 320 * 100}%` }} aria-hidden="true">
+          <b>{hour} o’clock</b><Reading entry={hourEntry} meaning={false} />
+        </div>
+        <div className="time-clock-callout time-minute-callout" style={{ left: `${minuteCallout.x / 320 * 100}%`, top: `${minuteCallout.y / 320 * 100}%` }} aria-hidden="true">
+          <b>{minute} {minute === 1 ? 'minute' : 'minutes'}</b><Reading entry={minuteEntry} meaning={false} />
+        </div>
+        </div>
         <output className="time-digital-display" aria-label="Selected time">{digitalTime}</output>
       </div>
-      <div className="time-hand-readings">
-        <div className="time-hand-reading time-hour-reading"><label htmlFor="clock-hour">Hour hand · {hour} o’clock</label><Reading entry={hourEntry} meaning={false} /><input id="clock-hour" aria-label="Hour hand" type="range" min="1" max="12" value={hour} onChange={(event) => setHour(Number(event.target.value))} /></div>
-        <div className="time-hand-reading time-minute-reading"><label htmlFor="clock-minute">Minute hand · {minute} {minute === 1 ? 'minute' : 'minutes'}</label><Reading entry={minuteEntry} meaning={false} /><input id="clock-minute" aria-label="Minute hand" type="range" min="0" max="59" value={minute} onChange={(event) => setMinute(Number(event.target.value))} /></div>
+      <div className="time-hand-sliders" aria-label="Adjust clock hands">
+        <label className="time-hand-slider time-hour-reading" htmlFor="clock-hour"><span>Hour hand · {hour} o’clock</span><input id="clock-hour" aria-label="Hour hand" type="range" min="1" max="12" value={hour} onChange={(event) => setHour(Number(event.target.value))} /></label>
+        <label className="time-hand-slider time-minute-reading" htmlFor="clock-minute"><span>Minute hand · {minute} {minute === 1 ? 'minute' : 'minutes'}</span><input id="clock-minute" aria-label="Minute hand" type="range" min="0" max="59" value={minute} onChange={(event) => setMinute(Number(event.target.value))} /></label>
       </div>
     </div>
     <div className="time-combined-reading" aria-live="polite" aria-atomic="true"><b>Hours + minutes together</b><Reading entry={combined} />{minute === 30 && <Reading entry={halfPast} />}{minute === 0 && <p>On the hour: say the hour with no minutes.</p>}</div>

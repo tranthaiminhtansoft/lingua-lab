@@ -62,27 +62,24 @@
 
 .time-interactive-clock { margin-top: 32px; padding: 24px; border: 2px solid var(--ink); background: var(--washi); }
 .time-interactive-clock h4 { margin-top: 0; }
-.time-clock-workspace { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: 24px; }
+.time-clock-workspace { display: grid; justify-items: center; gap: 16px; }
 .time-clock-face-panel { display: grid; justify-items: center; gap: 16px; min-width: 0; }
-.time-clock-face { display: block; width: min(100%, 360px); overflow: visible; user-select: none; touch-action: none; }
+.time-clock-stage { position: relative; width: min(100%, 440px); aspect-ratio: 1; }
+.time-clock-face { display: block; width: 100%; overflow: visible; user-select: none; touch-action: none; }
 .time-clock-hand { cursor: grab; touch-action: none; }
 .time-clock-hand:active { cursor: grabbing; }
 .time-period-choice { display: flex; flex-wrap: wrap; gap: 16px; padding: 8px 16px; border: 1px solid var(--ink); }
 .time-period-choice legend { font-size: .8rem; }
 .time-period-choice label { display: flex; align-items: center; gap: 6px; min-height: 44px; cursor: pointer; }
 .time-digital-display { font-size: 1.7rem; font-weight: 800; font-variant-numeric: tabular-nums; }
-.time-hand-readings { display: grid; gap: 20px; min-width: 0; }
-.time-hand-reading { border: 2px solid var(--ink); padding: 16px; background: var(--paper); min-width: 0; }
-.time-hand-reading > label { display: block; margin-bottom: 12px; font-size: .9rem; }
-.time-hour-reading { border-top: 6px solid var(--indigo); }
-.time-minute-reading { border-top: 6px solid var(--verm); }
-.time-hand-reading .time-reading { font-size: 1.15rem; }
-.time-hand-reading input { display: block; width: 100%; min-height: 44px; margin: 12px 0 0; accent-color: var(--indigo); cursor: pointer; }
+.time-hour-reading { border-top: 4px solid var(--indigo); }
+.time-minute-reading { border-top: 4px solid var(--verm); }
+.time-hand-slider input { accent-color: var(--indigo); }
 .time-minute-reading input { accent-color: var(--verm); }
 .time-combined-reading { margin-top: 24px; padding: 20px; background: var(--paper); border: 2px solid var(--ink); }
 .time-combined-reading > .time-reading { margin-top: 16px; font-size: 1.2rem; }
 @media (max-width: 700px) {
   .time-interactive-clock { padding: 16px; }
-  .time-clock-workspace { grid-template-columns: minmax(0, 1fr); }
+  .time-hand-sliders { grid-template-columns: minmax(0, 1fr); }
   .time-combined-reading { padding: 12px; }
 }
