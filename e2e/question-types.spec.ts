@@ -73,7 +73,7 @@ for (const width of [1280, 360]) {
     await expect(page.getByRole('button', { name: 'Back to top' })).toHaveCount(0);
     await trigger.click();
     await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
-    if (test.info().project.name === 'chromium') await page.screenshot({ path: `/private/tmp/lingua-question-navigation-${width}.png` });
+    if (test.info().project.name === 'chromium') await page.screenshot({ path: test.info().outputPath(`lingua-question-navigation-${width}.png`) });
   });
 }
 
@@ -118,7 +118,7 @@ test('opens a question family and type, with matching replies across time', asyn
   await expect(page.locator('#yes-no-nouns')).toContainText('No, I wasn’t a student.');
   await expect(page.locator('#yes-no-nouns')).toContainText('Are you still going to be a student next year?');
   await expect(page.locator('#yes-no-nouns')).toContainText('No, I’m going to be a company employee next year.');
-  if (test.info().project.name === 'chromium') await page.screenshot({ path: '/private/tmp/lingua-question-side-by-side.png' });
+  if (test.info().project.name === 'chromium') await page.screenshot({ path: test.info().outputPath('lingua-question-side-by-side.png') });
   await chooseType(page, 'yes-no-actions');
   await expect(page.locator('.question-detail-panel')).toHaveCount(1);
   await expect(page.locator('#yes-no-nouns')).not.toHaveAttribute('open', '');
@@ -139,7 +139,7 @@ test('opens a question family and type, with matching replies across time', asyn
   expect(await page.locator('#yes-no .question-group-title').evaluate((element) => getComputedStyle(element).writingMode)).toBe('horizontal-tb');
   const [closedYesNo, closedWh] = await Promise.all([page.locator('#yes-no').boundingBox(), page.locator('#wh').boundingBox()]);
   expect(closedWh!.y - closedYesNo!.y - closedYesNo!.height).toBeLessThan(40);
-  if (test.info().project.name === 'chromium') await page.screenshot({ path: '/private/tmp/lingua-question-families-collapsed.png' });
+  if (test.info().project.name === 'chromium') await page.screenshot({ path: test.info().outputPath('lingua-question-families-collapsed.png') });
 });
 
 test('WH types preserve inline alternatives, romaji and question-answer pairs', async ({ page }) => {
@@ -165,7 +165,7 @@ test('WH types preserve inline alternatives, romaji and question-answer pairs', 
   await expect(question.locator('.japanese-romaji-alternative [lang="ja-Latn"]')).toHaveText('dochira');
   await expect(question).toContainText('doko');
   await expect(wherePresent.locator('.question-reply')).toContainText('It’s in the meeting room.');
-  if (test.info().project.name === 'chromium') await page.screenshot({ path: '/private/tmp/lingua-question-sidebar-wh.png' });
+  if (test.info().project.name === 'chromium') await page.screenshot({ path: test.info().outputPath('lingua-question-sidebar-wh.png') });
   await chooseType(page, 'which');
   await expect(page.locator('#which')).toContainText('Dore and dono + noun are different structures');
   await expect(page.locator('#which .question-time-card').first().locator('.question-prompt .question-full-alternative [lang="ja"]')).toHaveText(['どれ', 'が', '好（す）き', 'です', 'か。']);
@@ -265,11 +265,11 @@ test('aligns each Japanese phrase with its romaji and English gloss, with visibl
   await assertWordAlignment();
   if (test.info().project.name === 'chromium') {
     await page.locator('#yes-no-actions .question-time-card').nth(3).evaluate((element) => element.scrollIntoView({ block: 'start' }));
-    await page.screenshot({ path: '/private/tmp/lingua-question-annotations-desktop.png' });
+    await page.screenshot({ path: test.info().outputPath('lingua-question-annotations-desktop.png') });
     await page.setViewportSize({ width: 360, height: 800 });
     await assertWordAlignment();
     await page.locator('#yes-no-actions .question-time-card').nth(3).evaluate((element) => element.scrollIntoView({ block: 'start' }));
-    await page.screenshot({ path: '/private/tmp/lingua-question-annotations-mobile.png' });
+    await page.screenshot({ path: test.info().outputPath('lingua-question-annotations-mobile.png') });
   }
   for (const { id, card, reading } of [{ id: 'when', card: 1, reading: 'ni' }, { id: 'yes-no-nouns', card: 0, reading: 'wa' }]) {
     await page.goto(`${questionPath}#${id}`);
@@ -302,6 +302,6 @@ test('every selected question type fits narrow screens beside its vertical famil
   if (test.info().project.name === 'chromium') {
     await page.evaluate(() => new Promise<void>((resolve) => requestAnimationFrame(() => resolve())));
     await page.locator('.question-workspace').evaluate((element) => element.scrollIntoView({ block: 'start' }));
-    await page.screenshot({ path: '/private/tmp/lingua-question-sidebar-mobile.png' });
+    await page.screenshot({ path: test.info().outputPath('lingua-question-sidebar-mobile.png') });
   }
 });
