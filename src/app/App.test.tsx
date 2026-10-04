@@ -40,13 +40,14 @@ test('renders Grammar topics and the complete first-introductions lesson', () =>
   expect(screen.queryByText('Countries & origins')).not.toBeInTheDocument();
   expect(screen.queryByText('First-meeting phrases')).not.toBeInTheDocument();
   expect(screen.getByText('Say that you are also a student at a school.')).toBeInTheDocument();
-  expect(document.querySelectorAll('#patterns .grammar-formula-pairs')).toHaveLength(6);
+  expect(document.querySelectorAll('#patterns .grammar-formula-pairs')).toHaveLength(4);
   const alignedWord = document.querySelector('#patterns .grammar-formula-pairs .japanese-romaji-pair');
   expect(alignedWord?.querySelector('[lang="ja"]')).toHaveTextContent('N1');
   expect(alignedWord?.querySelector('[lang="ja-Latn"]')).toHaveTextContent('N1');
-  const questionPattern = document.querySelectorAll('#patterns .grammar-formula-pairs')[5];
-  const dareWord = Array.from(questionPattern.querySelectorAll('.japanese-romaji-pair')).find((part) => part.querySelector('[lang="ja"]')?.textContent === 'だれ');
-  expect(dareWord?.querySelector('[lang="ja-Latn"]')).toHaveTextContent('dare');
+  expect(screen.queryByRole('heading', { name: /Ask a yes-or-no question/ })).not.toBeInTheDocument();
+  expect(screen.queryByRole('heading', { name: /Ask who or how old/ })).not.toBeInTheDocument();
+  expect(document.querySelectorAll('#practice details')).toHaveLength(2);
+  expect(screen.getByRole('link', { name: 'Explore Yes/No and WH questions →' })).toHaveAttribute('href', '/nihongo-o-benkyuo/grammar/question-types');
   const negativePattern = document.querySelectorAll('.grammar-pattern-card')[1];
   const negativeFormulaAlternative = negativePattern.querySelector('.grammar-formula .japanese-romaji-alternative');
   expect(negativeFormulaAlternative?.querySelector('[lang="ja"]')).toHaveTextContent('では');
@@ -99,4 +100,21 @@ test('real Kana route renders the approved basics guide and advances only for un
   } finally {
     random.mockRestore();
   }
+});
+
+
+test('exposes a separate question topic with two collapsed families and no practice section', () => {
+  const { unmount } = render(<MemoryRouter initialEntries={['/nihongo-o-benkyuo/grammar']}><App /></MemoryRouter>);
+  expect(screen.getByRole('link', { name: /Explore question types/ })).toHaveAttribute('href', '/nihongo-o-benkyuo/grammar/question-types');
+  unmount();
+  render(<MemoryRouter initialEntries={['/nihongo-o-benkyuo/grammar/question-types']}><App /></MemoryRouter>);
+  expect(screen.getByRole('heading', { level: 1, name: /Question types/ })).toBeInTheDocument();
+  expect(screen.getByText('Grammar', { selector: '.nav-current' })).toHaveAttribute('aria-current', 'page');
+  const families = Array.from(document.querySelectorAll<HTMLDetailsElement>('.question-group'));
+  expect(families).toHaveLength(2);
+  expect(families.every((family) => !family.open)).toBe(true);
+  expect(families.every((family) => family.querySelectorAll('.question-type').length === 0)).toBe(true);
+  expect(screen.queryByText('Your turn')).not.toBeInTheDocument();
+  expect(screen.queryByRole('link', { name: 'Try it' })).not.toBeInTheDocument();
+  expect(document.querySelector('#question-practice')).toBeNull();
 });
