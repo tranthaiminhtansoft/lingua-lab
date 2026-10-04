@@ -13,6 +13,7 @@ export const routes = [
   { name: 'First introductions Grammar topic', path: 'nihongo-o-benkyuo/grammar/first-introductions', heading: 'First introductions', selectors: ['#opening', '#patterns'] },
   { name: 'First introductions Vocabulary topic', path: 'nihongo-o-benkyuo/vocabulary/first-introductions', heading: 'First introductions', selectors: ['#meeting-phrases', '#usage-notes'] },
   { name: 'Nihongo production route', path: 'nihongo-o-benkyuo', heading: 'Nihongo O Benkyou', selectors: ['.lesson-card a[href$="/nihongo-o-benkyuo/kana"]'] },
+  { name: 'Time Vocabulary topic', path: 'nihongo-o-benkyuo/vocabulary/time', heading: 'Time', selectors: ['#time-months', '#time-dates', '#time-clock', '.time-interactive-clock'], releaseOnly: true },
   { name: 'Grammar Question types topic', path: 'nihongo-o-benkyuo/grammar/question-types', heading: 'Question types', selectors: ['#yes-no', '#wh', '.question-reading-guide'], releaseOnly: true },
 ];
 
@@ -128,6 +129,10 @@ async function main() {
           const { verifyGrammarPractice } = await import('./verify-grammar-practice.mjs');
           for (const check of await verifyGrammarPractice(checkedBrowser, deploymentUrl, { evidenceDirectory })) record(check.name, check.passed, check.detail);
         } catch (error) { record('Grammar question verification', false, error.message); }
+        try {
+          const { verifyTimeVocabulary } = await import('./verify-time-vocabulary.mjs');
+          for (const check of await verifyTimeVocabulary(checkedBrowser, deploymentUrl, { evidenceDirectory })) record(check.name, check.passed, check.detail);
+        } catch (error) { record('Time Vocabulary verification', false, error.message); }
       }
       if (verifyKana) {
         try {

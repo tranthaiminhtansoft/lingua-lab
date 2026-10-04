@@ -138,3 +138,8 @@ test('requires observed document responses when SPA redirects make browser navig
   page.goto = async () => null;
   await assert.rejects(checkRoute(browserFor(page), new URL('https://example.test/lingua-lab/'), route), /HTTP no response/);
 });
+
+test('Time route is required for release but not for historical rollback artifacts', () => {
+  assert.ok(routesForVerification(true).some(({ path }) => path.endsWith('/vocabulary/time')));
+  assert.ok(!routesForVerification().some(({ path }) => path.endsWith('/vocabulary/time')));
+});

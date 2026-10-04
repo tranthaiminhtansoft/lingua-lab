@@ -43,6 +43,16 @@ export function VocabularyPage() {
       <p className="grammar-source-note">Topics follow the same learning path as Grammar, so related words and sentence patterns are easy to find together.</p>
     </section>
 
+    <section aria-labelledby="vocabulary-time-title" className="grammar-feature">
+      <div className="grammar-feature-top"><span className="grammar-feature-number">02</span><span className="grammar-feature-label">A day on the calendar</span></div>
+      <div className="grammar-feature-main"><div className="grammar-feature-copy">
+        <p className="grammar-eyebrow">Dates + daily rhythms + clock readings</p>
+        <h2 id="vocabulary-time-title">Time <span lang="ja">時間（じかん）</span> <small lang="ja-Latn">jikan</small></h2>
+        <p>Explore a teaching calendar: weekdays, months, relative days and nights, and every hour and minute.</p>
+        <Link className="grammar-primary-link" to="/nihongo-o-benkyuo/vocabulary/time">Explore Time <span aria-hidden="true">↗</span></Link>
+      </div><ol className="grammar-feature-steps" aria-label="Time vocabulary"><li><span>01</span><span>Days and months</span></li><li><span>02</span><span>Daily rhythms</span></li><li><span>03</span><span>Hours and minutes</span></li></ol></div>
+    </section>
+
     <section aria-labelledby="vocabulary-approach-title" className="grammar-approach">
       <div>
         <p className="grammar-eyebrow">How this section works</p>

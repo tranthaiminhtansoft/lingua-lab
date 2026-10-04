@@ -2,8 +2,10 @@ import { useEffect, useRef, useState } from 'react';
 
 type TopicSection = readonly [id: string, label: string];
 
-export function GrammarTopicNavigation({ sections, allowCurrentSectionNavigation = false, resolveSection, onSectionSelect }: {
+export function GrammarTopicNavigation({ sections, allowCurrentSectionNavigation = false, resolveSection, onSectionSelect, navigationLabel = 'Grammar sections', menuId = 'grammar-section-menu' }: {
   sections: readonly TopicSection[];
+  navigationLabel?: string;
+  menuId?: string;
   allowCurrentSectionNavigation?: boolean;
   resolveSection?: (id: string) => string | undefined;
   onSectionSelect?: (id: string) => void;
@@ -79,15 +81,15 @@ export function GrammarTopicNavigation({ sections, allowCurrentSectionNavigation
   return <>
     <div className="grammar-section-menu">
       <button
-        aria-controls="grammar-section-menu"
+        aria-controls={menuId}
         aria-expanded={isSectionMenuOpen}
-        aria-label={isSectionMenuOpen ? 'Close grammar sections' : 'Open grammar sections'}
+        aria-label={`${isSectionMenuOpen ? 'Close' : 'Open'} ${navigationLabel.toLowerCase()}`}
         className="grammar-section-menu-trigger"
         onClick={() => setIsSectionMenuOpen((isOpen) => !isOpen)}
         ref={sectionMenuTriggerRef}
         type="button"
       ><span aria-hidden="true">{isSectionMenuOpen ? '→' : '←'}</span></button>
-      {isSectionMenuOpen && <nav aria-label="Grammar sections" className="grammar-section-nav" id="grammar-section-menu" ref={sectionMenuRef}>
+      {isSectionMenuOpen && <nav aria-label={navigationLabel} className="grammar-section-nav" id={menuId} ref={sectionMenuRef}>
         {sections.map(([id, label]) => id === activeSection && !allowCurrentSectionNavigation
           ? <span aria-current="location" aria-disabled="true" className="grammar-section-current" key={id}>{label}</span>
           : <a aria-current={id === activeSection ? 'location' : undefined} className={id === activeSection ? 'grammar-section-current' : undefined} href={`#${id}`} key={id} onClick={() => navigateToSection(id)}>{label}</a>)}

@@ -1,4 +1,5 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
+import { TimeVocabularyPage } from '../business/language-home/nihongo/vocabulary/TimeVocabularyPage';
 import { AppShell } from './AppShell';
 import { LanguageConstellationPage } from '../business/language-home/LanguageConstellationPage';
 import { NihongoPage } from '../business/language-home/nihongo/NihongoPage';
@@ -33,6 +34,7 @@ export const router = createBrowserRouter([
       { path: 'nihongo-o-benkyuo/grammar', element: <GrammarPage /> },
       { path: 'nihongo-o-benkyuo/grammar/first-introductions', element: <FirstIntroductionsPage /> },
       { path: 'nihongo-o-benkyuo/grammar/question-types', element: <QuestionTypesPage /> },
+      { path: 'nihongo-o-benkyuo/vocabulary/time', element: <TimeVocabularyPage /> },
       { path: 'nihongo-o-benkyuo/vocabulary', element: <VocabularyPage /> },
       { path: 'nihongo-o-benkyuo/vocabulary/first-introductions', element: <FirstIntroductionsVocabularyPage /> },
       { path: 'lessons/kana', element: <Navigate replace to="/nihongo-o-benkyuo/kana" /> },
