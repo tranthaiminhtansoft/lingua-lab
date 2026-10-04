@@ -1,7 +1,40 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Delivery and release workflow — Lingua Lab</title>
 <style>:root{color-scheme:light;font:16px/1.65 system-ui,sans-serif;color:#172033;background:#f7f9fc}body{max-width:1040px;margin:auto;padding:2rem 1.25rem}a{color:#075e8c}header,main{background:white;border:1px solid #dce4ed;border-radius:1rem;padding:1.5rem}header{margin-bottom:1rem}nav{display:flex;flex-wrap:wrap;gap:.75rem 1.25rem}section{margin:1.5rem 0}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}.card{border:1px solid #dce4ed;border-radius:.75rem;padding:1rem}table{border-collapse:collapse;width:100%}th,td{text-align:left;vertical-align:top;border:1px solid #dce4ed;padding:.65rem}th{background:#edf3f8}iframe{display:block;width:100%;height:auto;border:1px solid #ccd5df;border-radius:.75rem}.warning{border-left:4px solid #9b6a00;background:#fff8e8;padding:.75rem 1rem}</style>
-<script>(()=>{document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('iframe').forEach(frame=>{const resize=()=>{try{const doc=frame.contentDocument;if(!doc)return;const height=Math.max(doc.documentElement.scrollHeight,doc.body?.scrollHeight||0);if(height)frame.style.height=height+'px';}catch{/* Cross-origin frames retain their intrinsic fallback height. */}};frame.addEventListener('load',()=>{resize();try{const doc=frame.contentDocument;if(!doc)return;const observer=new ResizeObserver(resize);observer.observe(doc.documentElement);if(doc.body)observer.observe(doc.body);frame.contentWindow?.addEventListener('resize',resize);doc.fonts?.ready.then(resize).catch(()=>{});}catch{/* Cross-origin access is intentionally optional. */}});window.addEventListener('resize',resize);});});})();</script></head>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('iframe').forEach(frame => {
+    let pendingResize = 0;
+    const resize = () => {
+      pendingResize = 0;
+      try {
+        const doc = frame.contentDocument;
+        if (!doc) return;
+        const height = Math.ceil(Math.max(doc.documentElement.scrollHeight, doc.body?.scrollHeight || 0));
+        const nextHeight = height + 'px';
+        if (height && frame.style.height !== nextHeight) frame.style.height = nextHeight;
+      } catch { /* Cross-origin frames retain their intrinsic fallback height. */ }
+    };
+    // ResizeObserver only schedules work; layout writes happen next frame.
+    const scheduleResize = () => {
+      if (!pendingResize) pendingResize = requestAnimationFrame(resize);
+    };
+    frame.addEventListener('load', () => {
+      scheduleResize();
+      try {
+        const doc = frame.contentDocument;
+        if (!doc) return;
+        const observer = new ResizeObserver(scheduleResize);
+        observer.observe(doc.documentElement);
+        if (doc.body) observer.observe(doc.body);
+        frame.contentWindow?.addEventListener('resize', scheduleResize);
+        doc.fonts?.ready.then(scheduleResize).catch(() => {});
+      } catch { /* Cross-origin access is intentionally optional. */ }
+    });
+    window.addEventListener('resize', scheduleResize);
+  });
+});
+</script></head>
 <body><header><p class="breadcrumb"><a href="index.html">Start here</a> / <a href="reference.html">Reference</a> / CI and delivery system</p><h1>CI and delivery system</h1><nav aria-label="Documentation"><a href="index.html">Start here</a><a href="product.html">Product guide</a><a href="reference.html" aria-current="location">Reference</a><a href="procedures.html">Procedures</a></nav></header>
 <main><p>This guide describes configured repository workflows and recorded environment configuration. Workflow definitions do not establish that a particular run passed or that a production deployment is currently live.</p>
 <section><h2>Pull-request CI</h2><p><code>.github/workflows/ci.yml</code> is PR-only, targets <code>master</code>, and uses a changed-path allowlist. Eligible changes include the React app, language-home and shared code, test/public/E2E paths, root HTML/package/tooling configuration, and standalone operator docs. Changes limited to <code>.github/**</code> or <code>scripts/**</code> do not match the allowlist; changes under <code>src/business/docs/**</code> do. Repository policy and application validation are independent jobs; each starts from the PR event. The diagram shows configured jobs, not a successful run.</p><p class="warning"><strong>Branch protection caveat:</strong> a skipped path-filtered workflow can leave its check pending or skipped. Inspect the repository's current required-check policy; do not assume a skipped required check is satisfied or that path filtering provides a complete merge gate.</p><iframe title="Interactive Lingua Lab pull-request CI diagram" src="assets/ci-workflow.html" loading="lazy"></iframe></section>

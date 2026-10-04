@@ -1,7 +1,40 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Application topology — Lingua Lab</title>
 <style>:root{color-scheme:light;font:16px/1.65 system-ui,sans-serif;color:#172033;background:#f7f9fc}body{max-width:1040px;margin:auto;padding:2rem 1.25rem}a{color:#075e8c}header,main{background:white;border:1px solid #dce4ed;border-radius:1rem;padding:1.5rem}header{margin-bottom:1rem}nav{display:flex;flex-wrap:wrap;gap:.75rem 1.25rem}section{margin:1.5rem 0}table{border-collapse:collapse;width:100%}th,td{text-align:left;vertical-align:top;border:1px solid #dce4ed;padding:.65rem}th{background:#edf3f8}iframe{display:block;width:100%;height:auto;border:1px solid #ccd5df;border-radius:.75rem}code{overflow-wrap:anywhere}</style>
-<script>(()=>{document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('iframe').forEach(frame=>{const resize=()=>{try{const doc=frame.contentDocument;if(!doc)return;const height=Math.max(doc.documentElement.scrollHeight,doc.body?.scrollHeight||0);if(height)frame.style.height=height+'px';}catch{/* Cross-origin frames retain their intrinsic fallback height. */}};frame.addEventListener('load',()=>{resize();try{const doc=frame.contentDocument;if(!doc)return;const observer=new ResizeObserver(resize);observer.observe(doc.documentElement);if(doc.body)observer.observe(doc.body);frame.contentWindow?.addEventListener('resize',resize);doc.fonts?.ready.then(resize).catch(()=>{});}catch{/* Cross-origin access is intentionally optional. */}});window.addEventListener('resize',resize);});});})();</script></head>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('iframe').forEach(frame => {
+    let pendingResize = 0;
+    const resize = () => {
+      pendingResize = 0;
+      try {
+        const doc = frame.contentDocument;
+        if (!doc) return;
+        const height = Math.ceil(Math.max(doc.documentElement.scrollHeight, doc.body?.scrollHeight || 0));
+        const nextHeight = height + 'px';
+        if (height && frame.style.height !== nextHeight) frame.style.height = nextHeight;
+      } catch { /* Cross-origin frames retain their intrinsic fallback height. */ }
+    };
+    // ResizeObserver only schedules work; layout writes happen next frame.
+    const scheduleResize = () => {
+      if (!pendingResize) pendingResize = requestAnimationFrame(resize);
+    };
+    frame.addEventListener('load', () => {
+      scheduleResize();
+      try {
+        const doc = frame.contentDocument;
+        if (!doc) return;
+        const observer = new ResizeObserver(scheduleResize);
+        observer.observe(doc.documentElement);
+        if (doc.body) observer.observe(doc.body);
+        frame.contentWindow?.addEventListener('resize', scheduleResize);
+        doc.fonts?.ready.then(scheduleResize).catch(() => {});
+      } catch { /* Cross-origin access is intentionally optional. */ }
+    });
+    window.addEventListener('resize', scheduleResize);
+  });
+});
+</script></head>
 <body><header><p class="breadcrumb"><a href="index.html">Start here</a> / <a href="reference.html">Reference</a> / Application topology</p><h1>Application topology</h1><nav aria-label="Documentation"><a href="index.html">Start here</a><a href="product.html">Product guide</a><a href="reference.html" aria-current="location">Reference</a><a href="procedures.html">Procedures</a></nav></header>
 <main><p>The application is a static client-side React site. The architecture and diagram below reflect repository configuration and source structure; they are not observations of a live deployment.</p>
 <section><h2>Feature ownership</h2><table><thead><tr><th scope="col">Area</th><th scope="col">Responsibility</th></tr></thead><tbody><tr><td><code>src/app/</code></td><td>Application shell, router setup, and shared lesson navigation.</td></tr><tr><td><code>src/business/language-home/</code></td><td>Language selection home.</td></tr><tr><td><code>src/business/language-home/nihongo/</code></td><td>Nihongo lesson hub, lesson registry, and lesson features.</td></tr><tr><td><code>.../nihongo/kana/</code></td><td>Kana reference, practice, content, data, speech hook, and tests.</td></tr></tbody></table><p>The former <code>lesson-lobby</code> folder is not part of the current source tree. Unit tests sit beside features; browser smoke tests live in <code>e2e/</code>.</p></section>
