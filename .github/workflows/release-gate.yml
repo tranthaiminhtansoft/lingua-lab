@@ -12,8 +12,9 @@ permissions:
 
 jobs:
   policy-baseline:
-    name: Release policy baseline
+    name: Release Gate
     runs-on: ubuntu-24.04
+    timeout-minutes: 30
     steps:
       - name: Check out trusted policy script
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -21,7 +22,75 @@ jobs:
           ref: master
       - name: Validate fail-closed reviewer configuration
         run: node scripts/verify-repo-policy.mjs
+      - name: Require applicable CI on the current PR head
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const pull_number = context.payload.pull_request.number;
+            const head = context.payload.pull_request.head.sha;
+            const pull = (await github.rest.pulls.get({ owner, repo, pull_number })).data;
+            if (pull.head.sha !== head) throw new Error('The PR head changed; use the latest gate run.');
+
+            // Read the CI allowlist from the trusted base, not from PR code.
+            const { data: config } = await github.rest.repos.getContent({
+              owner, repo, path: '.github/workflows/ci.yml', ref: pull.base.sha,
+            });
+            const workflow = Buffer.from(config.content, 'base64').toString('utf8');
+            const allowlist = workflow.match(/^    paths:\n((?:      - .*\n)+)/m);
+            if (!allowlist) throw new Error('The trusted CI path allowlist is missing.');
+            const patterns = [...allowlist[1].matchAll(/^      - '([^']+)'$/gm)].map(match => match[1]);
+            if (patterns.length !== allowlist[1].trim().split('\n').length) {
+              throw new Error('The trusted CI allowlist contains an unsupported entry.');
+            }
+            const matches = file => patterns.some(pattern => {
+              if (pattern.startsWith('!')) throw new Error('Negative CI path filters are unsupported.');
+              if (pattern.endsWith('/**')) return file.startsWith(pattern.slice(0, -2));
+              const escaped = pattern.replace(/[|\\{}()[\]^$+?.]/g, '\\$&').replaceAll('*', '[^/]*');
+              return new RegExp(`^${escaped}$`).test(file);
+            });
+            const files = await github.paginate(github.rest.pulls.listFiles, {
+              owner, repo, pull_number, per_page: 100,
+            });
+            if (files.length !== pull.changed_files) throw new Error('The PR changed-file list is incomplete.');
+            const needsCI = files.some(file => matches(file.filename) ||
+              (file.previous_filename && matches(file.previous_filename)));
+
+            if (!needsCI) {
+              core.info('No changed paths require application CI; Release Gate is sufficient.');
+              await core.summary.addHeading('Required PR checks')
+                .addRaw('No changed paths match the trusted CI allowlist. Application CI is not required.\n')
+                .write();
+              return;
+            }
+
+            const required = ['Repository policy baseline', 'Application validation'];
+            const deadline = Date.now() + 25 * 60 * 1000;
+            while (Date.now() < deadline) {
+              const current = (await github.rest.pulls.get({ owner, repo, pull_number })).data;
+              if (current.head.sha !== head) throw new Error('The PR head changed; use the latest gate run.');
+              const checks = await github.paginate(github.rest.checks.listForRef, {
+                owner, repo, ref: head, filter: 'all', per_page: 100,
+              });
+              const latest = required.map(name => checks
+                .filter(check => check.name === name && check.head_sha === head && check.app?.id === 15368)
+                .sort((a, b) => b.id - a.id)[0]);
+              const failed = latest.find(check => check?.status === 'completed' && check.conclusion !== 'success');
+              if (failed) throw new Error(`${failed.name} concluded ${failed.conclusion}: ${failed.html_url}`);
+              if (latest.every(check => check?.status === 'completed' && check.conclusion === 'success')) {
+                await core.summary.addHeading('Required PR checks')
+                  .addTable([['Check', 'Head SHA', 'Result'],
+                    ...latest.map(check => [check.name, head, check.conclusion])])
+                  .write();
+                return;
+              }
+              core.info(`Waiting for required CI on ${head}: ${latest.map((check, index) =>
+                `${required[index]}=${check?.status ?? 'missing'}`).join(', ')}`);
+              await new Promise(resolve => setTimeout(resolve, 15000));
+            }
+            throw new Error('Timed out waiting for required CI on the current PR head.');
       - name: Record bootstrap limitation
         run: |
-          echo 'Current-head review and required-check aggregation are not enabled until trusted profile identity mappings and application check contexts are configured.'
+          echo 'Independent human profile review remains an operator-verified release precondition until trusted identity mappings are configured.'
+          echo 'Release Gate requires successful current-head CI only when changed paths match the trusted CI allowlist.'
           echo 'This workflow does not deploy, release, merge, or execute PR code.'
