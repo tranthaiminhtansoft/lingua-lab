@@ -26,6 +26,7 @@ The local routes are `/` for the language home, `/nihongo-o-benkyuo` for the Nih
 - Production branch: `master`.
 - Development work belongs on `develop/homelab/<slug>` branches; pull requests target `master`.
 - CI is configured for pull requests targeting `master` when at least one changed path matches its allowlist; it is not configured to run on pushes to `master`. Changes limited to `.github/**`, `scripts/**`, or the README do not match that allowlist. Changes under `src/business/docs/**` do. See the [delivery reference](https://tranthaiminhtansoft.github.io/lingua-lab/docs/delivery.html) for the configured checks and release flow.
+- Release Gate runs for every pull request to `master` and is the required merge check. It requires successful CI on the current PR head when changed files match the trusted base branch's CI allowlist. Changes limited to standalone Markdown such as `README.md` or `docs/ROADMAP.md` require only Release Gate.
 - Production releases use the manual `Create PRD Release Branch` and `PRD Release` workflows. A successful release builds and deploys a Pages artifact, verifies production routes, then publishes a dated GitHub Release after its approval gate.
 
 ## Project documentation
