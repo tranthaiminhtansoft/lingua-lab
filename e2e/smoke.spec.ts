@@ -14,29 +14,12 @@ test('Grammar presents a distinct, complete first-introductions learning path', 
   await expect(page.getByRole('heading', { name: /First introductions/ })).toBeVisible();
   await expect(page.locator('#opening')).toContainText('はじめまして。');
 
-  await expect(page.locator('#patterns').locator('.grammar-pattern-card')).toHaveCount(6);
-  await expect(page.locator('#patterns .grammar-formula-pairs')).toHaveCount(6);
+  await expect(page.locator('#patterns').locator('.grammar-pattern-card')).toHaveCount(4);
+  await expect(page.locator('#patterns .grammar-formula-pairs')).toHaveCount(4);
   await expect.poll(() => page.locator('#patterns .grammar-formula-pairs').evaluateAll((formulas) => formulas.every((formula) => Array.from(formula.querySelectorAll('.japanese-romaji-pair')).every((pair) => Boolean(pair.querySelector('[lang="ja"]')?.textContent?.trim() && pair.querySelector('[lang="ja-Latn"]')?.textContent?.trim()))))).toBe(true);
-  await expect(page.locator('#patterns .grammar-pattern-card').last().locator('.japanese-romaji-pair').nth(2).locator('[lang="ja-Latn"]').first()).toHaveText('dare');
-  await expect(page.locator('#patterns .grammar-pattern-card').last().locator('.japanese-romaji-pair').nth(2).locator('.japanese-romaji-alternative [lang="ja"]')).toHaveText('どなた');
-  const questionRows = page.locator('#patterns .grammar-pattern-card').last().locator('.grammar-formula-row');
-  await expect(questionRows).toHaveCount(2);
-  await expect(questionRows.nth(1).locator('.japanese-romaji-alternative [lang="ja"]')).toHaveText('おいくつ');
-  const questionExamples = page.locator('#patterns .grammar-pattern-card').last().locator('.grammar-example-row');
-  await expect(questionExamples).toHaveCount(2);
-  await expect(questionExamples.nth(0).locator('.grammar-example-japanese')).toContainText('どなた');
-  await expect(questionExamples.nth(0).locator('.grammar-example-translation')).toContainText('Who is that person?');
-  await expect(questionExamples.nth(1).locator('.grammar-example-japanese')).toContainText('おいくつ');
-  await expect(questionExamples.nth(1).locator('.grammar-example-translation')).toContainText('How old is Lin?');
-  const yesNoExamples = page.locator('#patterns .grammar-pattern-card').nth(2).locator('.grammar-example-row');
-  await expect(yesNoExamples).toHaveCount(5);
-  await expect(yesNoExamples.nth(1).locator('.grammar-example-marker')).toHaveText('↳');
-  await expect(yesNoExamples.nth(1).locator('.grammar-example-japanese')).toContainText('hai');
-  await expect(yesNoExamples.nth(1).locator('.grammar-example-translation')).toHaveText('Yes, Min is a student.');
-  await expect(yesNoExamples.nth(2).locator('.grammar-example-label')).toHaveText('Negative');
-  await expect(yesNoExamples.nth(2).locator('.grammar-example-marker')).toHaveText('↳');
-  await expect(yesNoExamples.nth(2).locator('.grammar-example-japanese')).toContainText('arimasen');
-  await expect(yesNoExamples.nth(2).locator('.grammar-example-translation')).toHaveText('No, Min isn’t a student.');
+  await expect(page.locator('#patterns')).not.toContainText('Ask a yes-or-no question');
+  await expect(page.locator('#patterns')).not.toContainText('Ask who or how old');
+  await expect(page.getByRole('link', { name: 'Explore Yes/No and WH questions →' })).toHaveAttribute('href', '/lingua-lab/nihongo-o-benkyuo/grammar/question-types');
   const negativePattern = page.locator('#patterns .grammar-pattern-card').nth(1);
   await expect(negativePattern.locator('.grammar-formula .japanese-romaji-alternative [lang="ja"]')).toHaveText('では');
   await expect(negativePattern.locator('.grammar-formula .japanese-romaji-alternative [lang="ja-Latn"]')).toHaveText('de wa');
@@ -55,7 +38,7 @@ test('Grammar presents a distinct, complete first-introductions learning path', 
   await expect(jobQuestion).toContainText('nan');
   await expect(jobQuestion).toContainText('What do you do?');
   await expect.poll(() => dialogue.locator('.japanese-romaji-pair').evaluateAll((pairs) => pairs.every((pair) => Boolean(pair.querySelector('[lang="ja"]')?.textContent?.trim() && pair.querySelector('[lang="ja-Latn"]')?.textContent?.trim())))).toBe(true);
-  await expect(page.locator('#practice').locator('details')).toHaveCount(4);
+  await expect(page.locator('#practice').locator('details')).toHaveCount(2);
 });
 
 test('Grammar lesson fits narrow screens without page overflow', async ({ page }) => {

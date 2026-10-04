@@ -267,6 +267,8 @@ main.grammar-page { width: min(100%, 1240px); margin: 0 auto; padding: 28px clam
 .grammar-section-nav > :last-child { border-bottom: 0; }
 .grammar-section-nav a:hover, .grammar-section-nav a:focus-visible { background: var(--sun); }
 .grammar-section-current { background: var(--indigo); color: var(--washi); cursor: default; font-weight: 700; }
+.grammar-section-nav a.grammar-section-current { cursor: pointer; }
+.grammar-section-nav a.grammar-section-current:hover, .grammar-section-nav a.grammar-section-current:focus-visible { color: var(--ink); }
 .grammar-opening { display: grid; grid-template-columns: minmax(230px, .7fr) minmax(0, 1.3fr); gap: clamp(24px, 5vw, 64px); align-items: center; padding: 55px 0; border-bottom: 2px solid var(--ink); scroll-margin-top: 64px; }
 .grammar-opening-copy h2, .grammar-section-title h2, .grammar-dialogue-intro h2 { margin: 9px 0 12px; font-size: clamp(1.9rem, 4vw, 3rem); letter-spacing: -.06em; line-height: 1; }
 .grammar-opening-copy > p:last-child { max-width: 430px; margin: 0; }
@@ -371,6 +373,152 @@ main.grammar-page { width: min(100%, 1240px); margin: 0 auto; padding: 28px clam
 .grammar-exercises details > small { display: block; padding: 0 14px 14px; font-size: .74rem; }
 .grammar-exercises details > .grammar-exercise-note { display: grid; gap: 6px; padding: 0 14px 14px; font-size: .74rem; }
 .grammar-exercise-note .japanese-with-romaji { gap: 3px 8px; }
+.grammar-topic-related { margin: 24px 0 0; font-size: .84rem; }
+.grammar-topic-related a { color: var(--indigo); text-underline-offset: 3px; }
+.grammar-question-feature { background: var(--sakura); }
+.grammar-question-feature .grammar-pattern-ribbon .grammar-romaji { color: var(--washi); }
+.grammar-question-feature .japanese-romaji-alternative { color: var(--sun); }
+.question-reference-stamp { align-self: center; justify-items: center; transform: none; }
+.question-types-page .grammar-topic-heading h1 > span { display: inline-grid; justify-items: center; }
+.question-group, .question-type { min-width: 0; scroll-margin-top: 24px; }
+.question-group > summary, .question-type > summary { display: flex; align-items: center; gap: 16px; min-height: 60px; padding: 18px 22px; cursor: pointer; list-style: none; }
+.question-group > summary::-webkit-details-marker, .question-type > summary::-webkit-details-marker { display: none; }
+.question-type > summary:hover { background: var(--washi); }
+.question-toggle { flex: 0 0 24px; margin-left: auto; color: var(--verm); font-size: 1.6rem; font-weight: 900; text-align: center; }
+.question-toggle::after { content: '+'; }
+details[open] > summary > .question-toggle::after { content: '−'; }
+.question-forms { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; align-items: start; }
+.question-workspace { display: grid; gap: 28px; min-width: 0; scroll-margin-top: 24px; }
+.question-family-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0fr); column-gap: 0; align-items: start; min-width: 0; transition: grid-template-columns 320ms cubic-bezier(.2, .7, .2, 1), column-gap 320ms ease; }
+/* Fill the remaining width even when the rail reaches its minimum size. */
+.question-family-row.has-selection { grid-template-columns: minmax(72px, .075fr) minmax(0, 1fr); align-items: stretch; }
+.question-group { margin: 0 8px 8px 0; border: 3px solid var(--ink); background: var(--paper); box-shadow: 6px 6px 0 var(--ink); }
+.question-group > summary { flex-wrap: wrap; background: var(--sun); transition: padding 320ms ease; }
+.question-group-rail { display: contents; }
+.question-group[open] > summary .question-toggle::after { content: '−'; }
+.question-family-row:nth-child(2) .question-group > summary { background: var(--sakura); }
+.question-group-heading { display: grid; flex: 1; min-width: 0; gap: 7px; }
+.question-group-title { font-size: clamp(1.6rem, 4vw, 2.5rem); line-height: 1; letter-spacing: -.05em; transition: font-size 320ms ease; }
+.question-group-heading .japanese-with-romaji { justify-content: start; font-size: .8rem; }
+.question-group-heading .grammar-romaji { font-size: .65rem; text-align: left; }
+.question-group-count { color: var(--indigo); font-size: .78rem; white-space: nowrap; }
+.question-group-tip { color: var(--indigo); }
+.question-type-list { display: grid; gap: 12px; padding: 4px 20px 20px; }
+.question-type { border: 2px solid var(--ink); }
+.question-disclosure-body { height: 0; overflow: hidden; }
+.question-type > summary[aria-expanded='false'] > .question-toggle::after { content: '+'; }
+.question-family-row.has-selection .question-group { margin-right: 0; border-right: 0; }
+.question-family-row.has-selection .question-group > summary { height: 100%; flex-direction: column; flex-wrap: nowrap; padding: 14px 8px; }
+.question-family-row.has-selection .question-group-rail { display: flex; flex-direction: column; align-items: center; gap: 14px; position: sticky; top: 24px; }
+.question-family-row.has-selection .grammar-feature-number { display: none; }
+.question-family-row.has-selection .question-group-heading { flex: none; justify-items: center; gap: 16px; }
+.question-family-row.has-selection .question-group-title { writing-mode: vertical-rl; text-orientation: mixed; white-space: nowrap; font-size: 1.4rem; letter-spacing: -.03em; }
+.question-family-row.has-selection .question-group-heading > .japanese-with-romaji { justify-content: center; font-size: .75rem; }
+.question-family-row.has-selection .question-group-heading .japanese-romaji-pair { display: flex; gap: 3px; align-items: start; }
+.question-family-row.has-selection .question-group-heading .japanese-with-romaji-text, .question-family-row.has-selection .question-group-heading .grammar-romaji { writing-mode: vertical-rl; text-orientation: mixed; max-width: none; white-space: nowrap; }
+.question-family-row.has-selection .question-group-heading .grammar-romaji { margin-top: 0; }
+.question-family-row.has-selection .question-group-count { margin: 0; font-size: .6rem; text-align: center; white-space: normal; }
+.question-family-row.has-selection .question-group > summary .question-toggle { order: -1; margin: 0; font-size: 1.3rem; }
+.question-detail-slot { display: grid; grid-template-rows: minmax(0, 0fr); min-width: 0; overflow: hidden; visibility: hidden; opacity: 0; transform: translateX(12px); pointer-events: none; transition: grid-template-rows 320ms ease, opacity 220ms ease, transform 320ms ease, visibility 0s 320ms; }
+.question-family-row.has-selection .question-detail-slot { grid-template-rows: minmax(0, 1fr); visibility: visible; opacity: 1; transform: translateX(0); pointer-events: auto; transition-delay: 0s; }
+.question-detail-clip { display: flex; flex-direction: column; min-width: 0; min-height: 0; overflow: hidden; }
+.question-detail-panel { flex: 1; min-width: 0; margin: 0 8px 8px 0; border: 3px solid var(--ink); background: var(--paper); box-shadow: 6px 6px 0 var(--ink); scroll-margin-top: 24px; container-type: inline-size; }
+.question-family-row.has-selection .question-detail-panel { animation: question-panel-enter 220ms ease; }
+@keyframes question-panel-enter {
+  from { opacity: 0; transform: translateX(12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.question-detail-panel:focus-visible { outline: 3px solid var(--verm); outline-offset: 4px; }
+.question-detail-intro { display: flex; align-items: start; gap: 16px; padding: 20px 20px 12px; }
+.question-detail-intro > .question-detail-family-description { flex: 1; min-width: 0; margin: 0; }
+.question-detail-close { display: grid; place-items: center; flex: 0 0 36px; width: 36px; height: 36px; min-width: 36px; min-height: 36px; padding: 0; font-size: 1.5rem; line-height: 1; }
+.question-detail-family-description { margin: 16px 20px; font-size: .8rem; }
+@container (max-width: 700px) {
+  .question-detail-panel .question-forms { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .question-family-row, .question-group > summary, .question-group-title, .question-detail-slot { transition: none; }
+  .question-family-row.has-selection .question-detail-panel { animation: none; }
+}
+.question-type > summary { padding: 15px 18px; }
+.question-type-label { display: flex; flex: 1; flex-wrap: wrap; min-width: 0; gap: 12px 24px; align-items: center; }
+.question-type-title { flex: 1 1 180px; font-size: 1rem; }
+.question-type-label > .japanese-with-romaji { justify-content: start; gap: 6px 14px; font-size: .95rem; }
+.question-type-label .grammar-romaji { font-size: .66rem; }
+.question-type-label .japanese-romaji-alternative { font-size: .7rem; }
+.question-type-content { padding: 4px 18px 20px; border-top: 2px solid var(--ink); }
+.question-type-explanation { font-size: .9rem; }
+.question-usage-note { margin: 18px 0; padding: 13px 16px; border-left: 4px solid var(--verm); background: var(--washi); font-size: .78rem; }
+.question-usage-note > b { color: var(--verm); font-size: .7rem; letter-spacing: .04em; text-transform: uppercase; }
+.question-usage-note > p { margin: 5px 0 0; }
+.question-time-card { min-width: 0; border: 2px solid var(--ink); padding: 16px; background: var(--paper); }
+.question-time-card > h3 { margin: 0; color: var(--indigo); font-size: .95rem; }
+.question-time-card .grammar-formula { margin-top: 12px; font-size: 1rem; }
+.question-time-note { min-height: 4.5em; margin: 10px 0 18px; font-size: .74rem; }
+.question-exchange { min-width: 0; }
+.question-time-card .question-exchange + .question-exchange { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--ink); }
+.question-context { margin: 0 0 14px; color: var(--indigo); font-size: .76rem; }
+.question-sentence { padding: 12px; background: var(--washi); }
+.question-prompt { border-left: 4px solid var(--verm); }
+.question-reply { margin-top: 8px; border-left: 4px solid var(--indigo); }
+.question-sentence-label { display: block; margin-bottom: 6px; color: var(--verm); font-size: .62rem; font-weight: 900; letter-spacing: .07em; text-transform: uppercase; }
+.question-reply .question-sentence-label { color: var(--indigo); }
+.question-sentence .japanese-with-romaji { justify-content: start; font-size: 1rem; }
+.question-sentence .japanese-romaji-pair { min-width: 0; }
+.question-sentence .grammar-romaji { font-size: .73rem; }
+.question-sentence .grammar-example-translation { margin-bottom: 0; }
+.question-heading-reading { display: block; margin-top: 4px; font-size: max(.6rem, .3em); font-weight: 600; letter-spacing: 0; }
+.question-reading-guide { max-width: 850px; margin: 0 0 22px; font-size: .8rem; }
+.question-annotated .japanese-romaji-pair, .question-annotated .japanese-romaji-alternative { justify-items: start; }
+.question-annotated .japanese-with-romaji-text, .question-annotated .grammar-romaji { text-align: left; }
+.question-aligned { display: block; }
+.question-aligned.grammar-inline-reading { display: inline-flex; max-width: 100%; }
+.question-aligned-line { display: flex; flex-wrap: wrap; align-items: stretch; gap: 12px 14px; width: 100%; }
+.question-aligned-line > .japanese-romaji-pair { display: grid; grid-template-rows: 1.7rem 1.2rem; min-width: 2.5rem; align-content: start; }
+.question-aligned-line.has-glosses > .japanese-romaji-pair { grid-template-rows: 1.7rem 1.2rem 2.2rem; }
+.question-aligned-line.has-alternatives > .japanese-romaji-pair { grid-template-rows: 1.7rem 1.2rem 4.5rem; }
+.question-aligned-line.has-glosses.has-alternatives > .japanese-romaji-pair { grid-template-rows: 1.7rem 1.2rem 2.2rem 6rem; }
+.question-aligned .japanese-with-romaji-text { white-space: nowrap; line-height: 1.5; }
+.question-word-gloss { display: block; max-width: 115px; margin-top: 4px; color: var(--ink); font-size: .62rem; font-weight: 500; line-height: 1.3; text-align: left; }
+.question-aligned .japanese-romaji-alternative { grid-template-rows: .7rem 1.7rem 1.2rem; width: 100%; margin-top: 0; }
+.question-aligned .has-glosses .japanese-romaji-alternative { grid-template-rows: .7rem 1.7rem 1.2rem 2.2rem; }
+.question-aligned .question-full-alternative { display: block; margin-top: 12px; padding-top: 10px; }
+.question-full-alternative > .japanese-romaji-alternative-label { display: block; margin-bottom: 10px; }
+.grammar-formula .question-word-gloss { color: var(--washi); }
+.question-sentence .grammar-example-translation { margin-top: 12px !important; padding-top: 10px; border-top: 1px solid color-mix(in srgb, var(--ink) 18%, transparent); }
+.question-kana-reading { color: var(--indigo); font-size: .78em; font-weight: 500; }
+.question-grammar-emphasis { color: #a22e24; font-weight: 900; }
+.question-annotated .japanese-romaji-alternative .japanese-with-romaji-text { color: var(--ink); }
+.grammar-formula .question-grammar-emphasis, .grammar-question-feature .grammar-pattern-ribbon .question-grammar-emphasis { color: var(--sun); }
+.grammar-formula .question-kana-reading, .grammar-question-feature .grammar-pattern-ribbon .question-kana-reading { color: var(--washi); }
+.grammar-formula .question-annotated .japanese-romaji-alternative .japanese-with-romaji-text, .grammar-question-feature .grammar-pattern-ribbon .question-annotated .japanese-romaji-alternative .japanese-with-romaji-text { color: var(--washi); }
+@media (max-width: 620px) {
+  .question-forms { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .question-types-page .grammar-topic-heading h1 > span { display: grid; width: fit-content; }
+  .question-group > summary { gap: 10px; padding: 15px 12px; }
+  .question-group .grammar-feature-number { width: 30px; height: 30px; }
+  .question-group-heading { flex-basis: calc(100% - 80px); }
+  .question-group-count { margin-left: 40px; }
+  .question-group > summary .question-toggle { margin-top: -32px; }
+  .question-type-list { padding: 4px 12px 12px; }
+  .question-type > summary { gap: 8px; padding: 12px; }
+  .question-type-label { gap: 8px; }
+  .question-type-title { flex-basis: 100%; }
+  .question-type-content { padding-right: 10px; padding-left: 10px; }
+  .question-time-card { padding: 12px; }
+  .question-time-note { min-height: 0; }
+  .question-usage-note { padding: 12px; }
+  .question-sentence { padding: 10px; }
+  .question-family-row.has-selection { grid-template-columns: minmax(56px, .075fr) minmax(0, 1fr); }
+  .question-family-row.has-selection .question-group > summary { padding: 12px 4px; }
+  .question-family-row.has-selection .question-group-title { font-size: 1.1rem; }
+  .question-detail-intro { gap: 8px; padding: 12px; }
+  .question-detail-family-description { margin: 12px; }
+  .question-detail-panel .question-type-list { padding: 4px 6px 6px; }
+  .question-detail-panel .question-type-content { padding: 4px 6px 12px; }
+  .question-detail-panel .question-time-card, .question-detail-panel .question-sentence { padding: 8px; }
+  .question-detail-panel .question-sentence .japanese-with-romaji { font-size: .9rem; }
+}
 @media (max-width: 860px) {
   .grammar-feature-main { grid-template-columns: minmax(0, 1fr) minmax(210px, .7fr); gap: 24px; }
   .vocabulary-groups { grid-template-columns: repeat(2, minmax(0, 1fr)); }

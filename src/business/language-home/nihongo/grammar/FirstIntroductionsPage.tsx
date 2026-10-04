@@ -2,7 +2,9 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { GrammarPatternCard } from './components/GrammarPatternCard';
 import { JapaneseWithRomaji } from './components/JapaneseWithRomaji';
+import { GrammarTopicNavigation } from './components/GrammarTopicNavigation';
 import { grammarPatterns } from './content/firstIntroductions';
+import { questionTypesPath } from './content/questionTypes';
 
 const pair = (japanese: string, romaji: string, alternative?: readonly [string, string]) => alternative
   ? [japanese, romaji, alternative] as const
@@ -90,11 +92,6 @@ const lessonSections = [
 ] as const;
 
 export function FirstIntroductionsPage() {
-  const [showBackToTop, setShowBackToTop] = useState(false);
-  const [isSectionMenuOpen, setIsSectionMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState(() => lessonSections.find(([id]) => `#${id}` === window.location.hash)?.[0] ?? lessonSections[0][0]);
-  const sectionMenuRef = useRef<HTMLElement>(null);
-  const sectionMenuTriggerRef = useRef<HTMLButtonElement>(null);
   const [speechAvailability, setSpeechAvailability] = useState<'loading' | 'ready' | 'no-japanese-voice' | 'unsupported' | 'error'>(() =>
     'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window ? 'loading' : 'unsupported',
   );
@@ -111,56 +108,6 @@ export function FirstIntroductionsPage() {
       interTurnTimer.current = null;
     }
   }, []);
-
-  useEffect(() => {
-    const handleScroll = () => setShowBackToTop(window.scrollY > 300);
-    handleScroll();
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const handleHashChange = () => {
-      const matchingSection = lessonSections.find(([id]) => `#${id}` === window.location.hash);
-      if (matchingSection) setActiveSection(matchingSection[0]);
-    };
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
-  }, []);
-
-  useEffect(() => {
-    if (!('IntersectionObserver' in window)) return;
-    const observer = new IntersectionObserver((entries) => {
-      const visibleSection = entries.find((entry) => entry.isIntersecting);
-      const matchingSection = lessonSections.find(([id]) => id === visibleSection?.target.id);
-      if (matchingSection) setActiveSection(matchingSection[0]);
-    }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
-    lessonSections.forEach(([id]) => {
-      const section = document.getElementById(id);
-      if (section) observer.observe(section);
-    });
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (!isSectionMenuOpen) return;
-    const handlePointerDown = (event: PointerEvent) => {
-      const target = event.target as Node;
-      if (!sectionMenuRef.current?.contains(target) && !sectionMenuTriggerRef.current?.contains(target)) setIsSectionMenuOpen(false);
-    };
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        setIsSectionMenuOpen(false);
-        sectionMenuTriggerRef.current?.focus();
-      }
-    };
-    document.addEventListener('pointerdown', handlePointerDown);
-    document.addEventListener('keydown', handleKeyDown);
-    return () => {
-      document.removeEventListener('pointerdown', handlePointerDown);
-      document.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [isSectionMenuOpen]);
 
   useEffect(() => {
     if (!('speechSynthesis' in window) || !('SpeechSynthesisUtterance' in window)) return;
@@ -278,7 +225,7 @@ export function FirstIntroductionsPage() {
         <div>
           <p className="grammar-eyebrow">First topic <span lang="ja">最初のテーマ</span></p>
           <h1>First introductions <span lang="ja">はじめまして</span></h1>
-          <p>Meet someone, tell them who you are, and ask a few simple questions.</p>
+          <p>Meet someone, tell them who you are, and connect simple statements.</p>
         </div>
         <div aria-label="Reference: Minna no Nihongo lesson 1" className="grammar-reference-stamp">
           <span>REFERENCE</span><b>01</b><span>MINNA NO NIHONGO</span>
@@ -286,22 +233,7 @@ export function FirstIntroductionsPage() {
       </div>
     </header>
 
-    <div className="grammar-section-menu">
-      <button
-        aria-controls="grammar-section-menu"
-        aria-expanded={isSectionMenuOpen}
-        aria-label={isSectionMenuOpen ? 'Close grammar sections' : 'Open grammar sections'}
-        className="grammar-section-menu-trigger"
-        onClick={() => setIsSectionMenuOpen((isOpen) => !isOpen)}
-        ref={sectionMenuTriggerRef}
-        type="button"
-      ><span aria-hidden="true">{isSectionMenuOpen ? '→' : '←'}</span></button>
-      {isSectionMenuOpen && <nav aria-label="Grammar sections" className="grammar-section-nav" id="grammar-section-menu" ref={sectionMenuRef}>
-        {lessonSections.map(([id, label]) => id === activeSection
-          ? <span aria-current="location" aria-disabled="true" className="grammar-section-current" key={id}>{label}</span>
-          : <a href={`#${id}`} key={id} onClick={() => { setActiveSection(id); setIsSectionMenuOpen(false); }}>{label}</a>)}
-      </nav>}
-    </div>
+    <GrammarTopicNavigation sections={lessonSections} />
 
     <section aria-labelledby="opening-title" className="grammar-opening" id="opening">
       <div className="grammar-opening-copy">
@@ -319,11 +251,12 @@ export function FirstIntroductionsPage() {
     <section aria-labelledby="patterns-title" className="grammar-patterns" id="patterns">
       <div className="grammar-section-title grammar-patterns-title">
         <div><p className="grammar-eyebrow">From one idea to a sentence <span lang="ja">文のかたち</span></p><h2 id="patterns-title">Build the patterns.</h2></div>
-        <span className="grammar-pattern-count">06 <small>patterns</small></span>
+        <span className="grammar-pattern-count">{String(grammarPatterns.length).padStart(2, '0')} <small>patterns</small></span>
       </div>
       <div className="grammar-pattern-grid">
         {grammarPatterns.map((pattern) => <GrammarPatternCard key={pattern.number} pattern={pattern} />)}
       </div>
+      <p className="grammar-topic-related">Ready to ask questions? <Link to={questionTypesPath}>Explore Yes/No and WH questions →</Link></p>
     </section>
 
     <section aria-labelledby="dialogue-title" className="grammar-dialogue" id="dialogue">
@@ -331,6 +264,7 @@ export function FirstIntroductionsPage() {
         <p className="grammar-eyebrow">Put the pieces together <span lang="ja">会話にしてみよう</span></p>
         <h2 id="dialogue-title">A first conversation.</h2>
         <p>Arata and Wakana exchange names, ask about nationality and work, then say goodbye.</p>
+        <p className="grammar-topic-related">Study the questions: <Link to={`${questionTypesPath}#yes-no-nouns`}>Yes/No about nationality</Link> · <Link to={`${questionTypesPath}#what`}>WH about work</Link>.</p>
       </div>
       <div className="dialogue-card">
         <div aria-label="Conversation participants" className="dialogue-participants">
@@ -363,11 +297,8 @@ export function FirstIntroductionsPage() {
       </div>
       <div className="grammar-exercises">
         <details><summary><span>01</span> Say your name and what you do.</summary><p><JapaneseWithRomaji parts={[pair('わたし', 'watashi'), pair('は', 'wa'), pair('[name]', '[name]'), pair('です。', 'desu'), pair('[job]', '[job]'), pair('です。', 'desu')]} /></p><div className="grammar-exercise-note"><JapaneseWithRomaji parts={[pair('わたし', 'watashi'), pair('は', 'wa'), pair('タン', 'Tan'), pair('です。', 'desu'), pair('ソフトウェア会社', 'sofutowea kaisha'), pair('の', 'no'), pair('エンジニア', 'enjinia'), pair('です。', 'desu')]} /><span>I’m Tân. I’m an engineer at a software company.</span></div></details>
-        <details><summary><span>02</span> Ask if someone is a student, then answer no.</summary><p><JapaneseWithRomaji parts={[pair('[name]', '[name]'), pair('さん', 'san'), pair('は', 'wa'), pair('学生', 'gakusei'), pair('です', 'desu'), pair('か。', 'ka?'), pair('—', '—'), pair('いいえ、', 'iie,'), pair('学生', 'gakusei'), pair('じゃ', 'ja'), pair('ありません。', 'arimasen')]} /></p><small className="grammar-exercise-note">Add the correct name and replace the answer with a true detail about the person.</small></details>
-        <details><summary><span>03</span> Say that you are also a student at a school.</summary><p><JapaneseWithRomaji parts={[pair('わたし', 'watashi'), pair('も', 'mo'), pair('[school]', '[school]'), pair('の', 'no'), pair('学生', 'gakusei'), pair('です。', 'desu')]} /></p><div className="grammar-exercise-note"><JapaneseWithRomaji parts={[pair('わたし', 'watashi'), pair('も', 'mo'), pair('ABC大学', 'ABC daigaku'), pair('の', 'no'), pair('学生', 'gakusei'), pair('です。', 'desu')]} /><span>I’m also a student at ABC University.</span></div></details>
-        <details><summary><span>04</span> Ask who someone is; ask their age only when appropriate.</summary><p><JapaneseWithRomaji parts={[pair('あの方', 'ano kata'), pair('は', 'wa'), pair('どなた', 'donata'), pair('ですか。', 'desu ka?'), pair('リンさん', 'Rin-san'), pair('は', 'wa'), pair('おいくつ', 'oikutsu'), pair('ですか。', 'desu ka?')]} /></p><small className="grammar-exercise-note">おいくつ is polite, but age can feel personal.</small></details>
+        <details><summary><span>02</span> Say that you are also a student at a school.</summary><p><JapaneseWithRomaji parts={[pair('わたし', 'watashi'), pair('も', 'mo'), pair('[school]', '[school]'), pair('の', 'no'), pair('学生', 'gakusei'), pair('です。', 'desu')]} /></p><div className="grammar-exercise-note"><JapaneseWithRomaji parts={[pair('わたし', 'watashi'), pair('も', 'mo'), pair('ABC大学', 'ABC daigaku'), pair('の', 'no'), pair('学生', 'gakusei'), pair('です。', 'desu')]} /><span>I’m also a student at ABC University.</span></div></details>
       </div>
     </section>
-    {showBackToTop && <button aria-label="Back to top" className="back-to-top" onClick={() => window.scrollTo({ behavior: 'smooth', top: 0 })} type="button">↑ <span>Top</span></button>}
   </main>;
 }
