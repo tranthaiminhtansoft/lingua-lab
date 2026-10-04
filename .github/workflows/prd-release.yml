@@ -77,6 +77,17 @@ jobs:
           mkdir -p release-assets
           tar -czf release-assets/site-dist.tar.gz -C dist .
           (cd release-assets && sha256sum site-dist.tar.gz > site-dist.tar.gz.sha256)
+      - name: Record candidate file digests
+        env:
+          SOURCE_SHA: ${{ needs.validate_release_ref.outputs.source_sha }}
+        run: node scripts/release/site-manifest.mjs
+      - name: Retain candidate manifest separately from the deployed site
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: candidate-site-manifest
+          path: release-assets/site-manifest.json
+          if-no-files-found: error
+          retention-days: 30
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4.0.0
         with:
@@ -104,13 +115,18 @@ jobs:
 
   verify_release:
     name: 🧪 Verify deployed release
-    needs: [validate_release_ref, deploy_release_candidate]
+    needs: [validate_release_ref, build_release_artifact, deploy_release_candidate]
     runs-on: ubuntu-24.04
+    timeout-minutes: 15
     permissions: {}
     env:
       PAGE_URL: ${{ needs.deploy_release_candidate.outputs.page_url }}
       SOURCE_REF: ${{ needs.validate_release_ref.outputs.source_ref }}
       SOURCE_SHA: ${{ needs.validate_release_ref.outputs.source_sha }}
+      VERIFY_EVIDENCE_DIR: release-verification-evidence
+      VERIFY_KANA_PRACTICE: 'true'
+      VERIFY_SITE_EXTENDED: 'true'
+      SITE_MANIFEST_PATH: candidate-manifest/site-manifest.json
     steps:
       - name: Check out the trusted workflow revision for production verification
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -121,8 +137,21 @@ jobs:
         uses: ./.github/actions/setup-node-and-install
       - name: Install Chromium for production browser verification
         run: npx playwright install --with-deps chromium
+      - name: Download the candidate manifest from this run
+        uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
+        with:
+          name: candidate-site-manifest
+          path: candidate-manifest
       - name: Verify deployed identity and production route matrix
         run: node scripts/release/verify-deployed-site.mjs
+      - name: Upload production verification evidence
+        if: ${{ always() }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: production-verification
+          path: release-verification-evidence
+          if-no-files-found: ignore
+          retention-days: 14
 
   approve_stable_release:
     name: 🛡️ Approve stable release publication

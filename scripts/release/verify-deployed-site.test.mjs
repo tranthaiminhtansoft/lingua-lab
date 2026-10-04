@@ -118,3 +118,18 @@ test('rechecks Grammar topic application content after a nested-route refresh', 
   await checkRoute(browserFor(page), new URL('https://example.test/lingua-lab/'), route, { reload: true });
   assert.equal(page.reloadCount, 1);
 });
+
+test('requires observed document responses when SPA redirects make browser navigation return null', async () => {
+  const route = routes.find(({ name }) => name === 'Kana production route');
+  const page = fakePage({ pathname: `/lingua-lab/${route.path}`, content: contentByRoute.get(route.path) });
+  let listener;
+  const frame = {};
+  page.mainFrame = () => frame;
+  page.on = (event, handler) => { if (event === 'response') listener = handler; };
+  page.off = () => {};
+  const observed = { ok: () => false, status: () => 404, request: () => ({ resourceType: () => 'document' }), frame: () => frame };
+  page.goto = page.reload = async () => { listener(observed); return null; };
+  await assert.doesNotReject(checkRoute(browserFor(page), new URL('https://example.test/lingua-lab/'), route, { reload: true }));
+  page.goto = async () => null;
+  await assert.rejects(checkRoute(browserFor(page), new URL('https://example.test/lingua-lab/'), route), /HTTP no response/);
+});

@@ -1,5 +1,5 @@
 # Node and Vite
-node_modules/
+node_modules
 dist/
 coverage/
 .vite/
@@ -8,6 +8,7 @@ coverage/
 playwright-report/
 test-results/
 blob-report/
+release-verification-evidence/
 
 # Environment and local tooling
 .env

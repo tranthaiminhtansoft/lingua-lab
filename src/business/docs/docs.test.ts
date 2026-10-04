@@ -130,8 +130,12 @@ describe('standalone documentation sources', () => {
     expect(release).toContain('Pages site: app + standalone docs');
     expect(release).toContain('Run → <strong>Deploy release candidate to production</strong>');
     expect(release).toContain('Deployed build identity matches candidate');
-    expect(release).toContain('Homepage application marker');
-    expect(release).toContain('Grammar refresh: all <strong>Passed</strong>');
+    expect(release).toContain('including direct open and refresh');
+    expect(release).toContain('Legacy Kana redirect and refresh');
+    expect(release).toContain('Deployed files match candidate SHA-256 manifest');
+    expect(release).toContain('Documentation images and diagrams');
+    expect(release).toContain('Browser JS/CSS loading');
+    expect(release).toContain('Artifacts → production-verification');
     expect(release).toContain('<strong>Not deployed to Pages.</strong>');
     expect(release).toContain('Production verification</strong> summary');
     expect(release).toContain('Deployment protection rules');
@@ -156,7 +160,9 @@ describe('standalone documentation sources', () => {
     expect(delivery).toContain('blob/master/.github/workflows/prd-release.yml');
     expect(delivery).toContain('These branch links are mutable');
     expect(delivery).not.toContain('blob/fdfe48633027e8b298023e7e54d7eb5f12afcdc9/');
-    expect(delivery).toContain('requires that SHA to exactly match the protected');
+    expect(delivery).toContain('candidate SHA matching the protected master tip');
+    expect(delivery).toContain("every candidate file's SHA-256");
+    expect(delivery).toContain('Speech controls use a simulated voice');
     expect(delivery).toContain('Changes limited to <code>.github/**</code> or <code>scripts/**</code> do not match the allowlist');
     for (const html of [pre, post]) {
       expect(html).toContain('role="img"');
