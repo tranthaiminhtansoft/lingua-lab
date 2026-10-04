@@ -13,7 +13,10 @@ export const routes = [
   { name: 'First introductions Grammar topic', path: 'nihongo-o-benkyuo/grammar/first-introductions', heading: 'First introductions', selectors: ['#opening', '#patterns'] },
   { name: 'First introductions Vocabulary topic', path: 'nihongo-o-benkyuo/vocabulary/first-introductions', heading: 'First introductions', selectors: ['#meeting-phrases', '#usage-notes'] },
   { name: 'Nihongo production route', path: 'nihongo-o-benkyuo', heading: 'Nihongo O Benkyou', selectors: ['.lesson-card a[href$="/nihongo-o-benkyuo/kana"]'] },
+  { name: 'Grammar Question types topic', path: 'nihongo-o-benkyuo/grammar/question-types', heading: 'Question types', selectors: ['#yes-no', '#wh', '.question-reading-guide'], releaseOnly: true },
 ];
+
+export const routesForVerification = (extended = false) => routes.filter((route) => extended || !route.releaseOnly);
 
 export function verifyIdentity(identity, sourceSha) {
   if (!/^[a-f\d]{40}$/i.test(sourceSha ?? '')) throw new Error(`expected candidate SOURCE_SHA to be a 40-character commit SHA, received ${sourceSha ?? 'missing'}`);
@@ -67,6 +70,7 @@ async function main() {
   const sourceSha = process.env.SOURCE_SHA ?? 'unknown';
   const verifyKana = process.env.VERIFY_KANA_PRACTICE === 'true';
   const extended = process.env.VERIFY_SITE_EXTENDED === 'true';
+  const activeRoutes = routesForVerification(extended);
   const evidenceDirectory = process.env.VERIFY_EVIDENCE_DIR ?? 'release-verification-evidence';
   const save = async (name, data) => {
     await mkdir(evidenceDirectory, { recursive: true });
@@ -80,7 +84,7 @@ async function main() {
 
   if (!pageUrl) {
     record('Deployed build identity matches candidate', false, 'PAGE_URL is required');
-    for (const { name } of routes) record(name, false, 'skipped because PAGE_URL is missing');
+    for (const { name } of activeRoutes) record(name, false, 'skipped because PAGE_URL is missing');
   } else {
     const deploymentUrl = new URL(pageUrl);
     if (!deploymentUrl.pathname.endsWith('/')) deploymentUrl.pathname += '/';
@@ -107,7 +111,7 @@ async function main() {
       browser = await chromium.launch({ headless: true });
       monitor = extended ? monitorBrowser(browser, evidenceDirectory) : null;
       const checkedBrowser = monitor?.browser ?? browser;
-      for (const route of routes) {
+      for (const route of activeRoutes) {
         try {
           record(route.name, true, await checkRoute(checkedBrowser, deploymentUrl, route, { reload: extended || route.name === 'First introductions Grammar topic' }));
         } catch (error) {
@@ -120,6 +124,10 @@ async function main() {
           for (const check of report.results) record(check.name, check.passed, check.detail);
           await save('site-results.json', report);
         } catch (error) { record('Extended site browser verification', false, error.message); }
+        try {
+          const { verifyGrammarPractice } = await import('./verify-grammar-practice.mjs');
+          for (const check of await verifyGrammarPractice(checkedBrowser, deploymentUrl, { evidenceDirectory })) record(check.name, check.passed, check.detail);
+        } catch (error) { record('Grammar question verification', false, error.message); }
       }
       if (verifyKana) {
         try {
@@ -132,7 +140,7 @@ async function main() {
         }
       }
     } catch (error) {
-      for (const { name } of routes) if (!checks.some(({ name: checked }) => checked === name)) record(name, false, error.message);
+      for (const { name } of activeRoutes) if (!checks.some(({ name: checked }) => checked === name)) record(name, false, error.message);
       if (verifyKana && !checks.some(({ name }) => name.startsWith('Kana random:') || name === 'Kana practice verification')) record('Kana practice verification', false, error.message);
       if (extended) record('Extended site browser verification', false, error.message);
     } finally {

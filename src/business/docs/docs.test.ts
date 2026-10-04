@@ -135,6 +135,8 @@ describe('standalone documentation sources', () => {
     expect(release).toContain('Deployed files match candidate SHA-256 manifest');
     expect(release).toContain('Documentation images and diagrams');
     expect(release).toContain('Browser JS/CSS loading');
+    expect(release).toContain('Grammar Question types topic');
+    expect(release).toContain('17/17 types');
     expect(release).toContain('Artifacts → production-verification');
     expect(release).toContain('<strong>Not deployed to Pages.</strong>');
     expect(release).toContain('Production verification</strong> summary');

@@ -28,11 +28,12 @@
       <tbody>
         <tr><th scope="row">Pages site: app + standalone docs</th><td>Run → <strong>Deploy release candidate to production</strong> → <strong>Deploy Pages artifact</strong>: <strong>Success</strong>. Copy its Pages URL.</td></tr>
         <tr><th scope="row"><code>release-identity.json</code></th><td>Run → <strong>Verify deployed release</strong> → <strong>Production verification</strong> summary → <strong>Deployed build identity matches candidate</strong>: <strong>Passed</strong>; SHA matches the pinned candidate.</td></tr>
-        <tr><th scope="row">Production routes</th><td>Same summary: Homepage, Nihongo, Kana, Grammar, Vocabulary and both First introductions topics: <strong>Passed</strong>, including direct open and refresh.</td></tr>
+        <tr><th scope="row">Production routes</th><td>Same summary: Homepage, Nihongo, Kana, Grammar, Vocabulary, both First introductions topics and <strong>Grammar Question types topic</strong>: <strong>Passed</strong>, including direct open and refresh.</td></tr>
         <tr><th scope="row">Navigation / redirect</th><td>Same summary: all <strong>Navigation: Home → Nihongo</strong> checks and <strong>Legacy Kana redirect and refresh</strong>: <strong>Passed</strong>.</td></tr>
         <tr><th scope="row">Deployed files</th><td><strong>Deployed files match candidate SHA-256 manifest</strong>: <strong>Passed</strong>; every candidate file matches.</td></tr>
         <tr><th scope="row">Docs</th><td><strong>Standalone documentation and internal links</strong> + <strong>Documentation images and diagrams</strong>: <strong>Passed</strong>; 10 pages, 4 screenshots, 3 diagrams.</td></tr>
         <tr><th scope="row">Browser errors</th><td><strong>Browser JavaScript errors</strong> + <strong>Browser JS/CSS loading</strong>: <strong>Passed</strong>.</td></tr>
+        <tr><th scope="row">Grammar questions</th><td>Same summary: all four <strong>Grammar question</strong> checks: <strong>Passed</strong>. Confirm <strong>17/17 types</strong> for content/accordions, deep links/refresh and 360px mobile layout; navigation and related links pass.</td></tr>
         <tr><th scope="row">Kana practice</th><td><strong>Kana random: all practice glyphs</strong>, <strong>Kana stroke guides: all practice glyphs</strong>, <strong>Kana speech controls: simulated Japanese voice</strong>, <strong>Kana speech fallback and recovery</strong>: <strong>Passed</strong>; <strong>142/142 glyphs</strong>.</td></tr>
         <tr><th scope="row">Rollback archive + SHA-256</th><td><strong>Not deployed to Pages.</strong> After gate 2, open the dated GitHub Release → <strong>Assets</strong>; confirm <code>site-dist.tar.gz</code> and <code>site-dist.tar.gz.sha256</code>.</td></tr>
       </tbody>

@@ -1,6 +1,11 @@
 import { test } from 'vitest';
 import assert from 'node:assert/strict';
-import { checkRoute, routes, verifyIdentity } from './verify-deployed-site.mjs';
+import { checkRoute, routes, routesForVerification, verifyIdentity } from './verify-deployed-site.mjs';
+
+test('release checks the new Grammar topic without requiring it in older rollback artifacts', () => {
+  assert.ok(routesForVerification(true).some(({ path }) => path.endsWith('/question-types')));
+  assert.ok(!routesForVerification().some(({ path }) => path.endsWith('/question-types')));
+});
 
 function fakePage({ pathname, content, responseStatus = 200, finalPath }) {
   const page = {
