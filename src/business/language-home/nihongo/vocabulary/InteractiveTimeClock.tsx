@@ -8,9 +8,9 @@ type Hand = 'hour' | 'minute';
 const zeroMinutes: TimeWord = { japanese: '0分', kana: 'れいふん', romaji: 'reifun', meaning: '0 minutes · on the hour', parts: [{ kana: 'れい', romaji: 'rei', role: 'base' }, { kana: 'ふん', romaji: 'fun', role: 'fun' }] };
 const point = (angle: number, radius: number) => ({ x: 160 + Math.sin(angle * Math.PI / 180) * radius, y: 160 - Math.cos(angle * Math.PI / 180) * radius });
 const clamp = (value: number, min: number, max: number) => Math.max(min, Math.min(max, value));
-function callout(direction: { x: number; y: number }) {
-  const width = 118, height = 66;
-  return { width, height, x: clamp(direction.x - width / 2, 4, 198), y: clamp(direction.y - height / 2, 4, 250) };
+function callout(angle: number) {
+  const radians = angle * Math.PI / 180;
+  return { x: clamp(50 + Math.sin(radians) * 56, 19, 81), y: clamp(50 - Math.cos(radians) * 56, 11, 89) };
 }
 
 export function InteractiveTimeClock() {
@@ -39,14 +39,12 @@ export function InteractiveTimeClock() {
   };
   const hourTip = point((hour % 12 + minute / 60) * 30, 78);
   const minuteTip = point(minute * 6, 114);
-  let hourCallout = callout(point((hour % 12 + minute / 60) * 30, 144)), minuteCallout = callout(point(minute * 6, 144));
-  const overlap = hourCallout.x < minuteCallout.x + minuteCallout.width + 6
-    && hourCallout.x + hourCallout.width + 6 > minuteCallout.x
-    && hourCallout.y < minuteCallout.y + minuteCallout.height + 6
-    && hourCallout.y + hourCallout.height + 6 > minuteCallout.y;
-  if (overlap) {
-    hourCallout = { ...hourCallout, y: 4 };
-    minuteCallout = { ...minuteCallout, y: 244 };
+  let hourCallout = callout((hour % 12 + minute / 60) * 30), minuteCallout = callout(minute * 6);
+  const labelsCollide = Math.abs(hourCallout.x - minuteCallout.x) < 36 && Math.abs(hourCallout.y - minuteCallout.y) < 23;
+  if (labelsCollide) {
+    const hourIsRight = hourCallout.x >= minuteCallout.x;
+    hourCallout = { ...hourCallout, x: clamp(hourCallout.x + (hourIsRight ? 19 : -19), 19, 81) };
+    minuteCallout = { ...minuteCallout, x: clamp(minuteCallout.x + (hourIsRight ? -19 : 19), 19, 81) };
   }
 
   function updateHand(hand: Hand, clientX: number, clientY: number) {
@@ -95,10 +93,10 @@ export function InteractiveTimeClock() {
           </g>
           <circle cx="160" cy="160" r="7" fill="var(--ink)" pointerEvents="none" />
         </svg>
-        <div className="time-clock-callout time-hour-callout" style={{ left: `${hourCallout.x / 320 * 100}%`, top: `${hourCallout.y / 320 * 100}%`, width: `${hourCallout.width / 320 * 100}%` }} aria-hidden="true">
+        <div className="time-clock-callout time-hour-callout" style={{ left: `${hourCallout.x}%`, top: `${hourCallout.y}%` }} aria-hidden="true">
           <Reading entry={hourEntry} meaning={false} />
         </div>
-        <div className="time-clock-callout time-minute-callout" style={{ left: `${minuteCallout.x / 320 * 100}%`, top: `${minuteCallout.y / 320 * 100}%`, width: `${minuteCallout.width / 320 * 100}%` }} aria-hidden="true">
+        <div className="time-clock-callout time-minute-callout" style={{ left: `${minuteCallout.x}%`, top: `${minuteCallout.y}%` }} aria-hidden="true">
           <Reading entry={minuteEntry} meaning={false} />
         </div>
         </div>

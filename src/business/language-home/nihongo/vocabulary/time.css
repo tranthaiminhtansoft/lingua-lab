@@ -65,7 +65,7 @@
 .time-clock-workspace { display: grid; justify-items: center; gap: 16px; }
 .time-clock-face-panel { display: grid; justify-items: center; gap: 16px; min-width: 0; }
 .time-clock-stage { position: relative; width: min(100%, 440px); aspect-ratio: 1; }
-.time-clock-face { display: block; width: 100%; overflow: visible; user-select: none; touch-action: none; }
+.time-clock-face { position: absolute; top: 13%; left: 13%; display: block; width: 74%; overflow: visible; user-select: none; touch-action: none; }
 .time-clock-hand { cursor: grab; touch-action: none; }
 .time-clock-hand:active { cursor: grabbing; }
 .time-period-choice { display: flex; flex-wrap: wrap; gap: 16px; padding: 8px 16px; border: 1px solid var(--ink); }
@@ -83,9 +83,9 @@
   .time-hand-sliders { grid-template-columns: minmax(0, 1fr); }
   .time-combined-reading { padding: 12px; }
 }
-.time-clock-callout { position: absolute; z-index: 2; display: grid; align-content: center; min-width: 0; min-height: 58px; padding: 4px 6px; overflow-wrap: anywhere; border: 2px solid var(--ink); background: var(--paper); box-shadow: 2px 2px 0 var(--ink); pointer-events: none; }
-.time-clock-callout .time-reading { display: grid; gap: 2px; min-width: 0; font-size: .75rem; }
-.time-clock-callout .time-reading > [lang="ja"] { display: none; }
-.time-clock-callout .time-pronunciation { overflow-wrap: anywhere; }
-.time-hour-callout { border-left: 5px solid var(--indigo); }
-.time-minute-callout { border-left: 5px solid var(--verm); }
+.time-clock-callout { position: absolute; z-index: 2; display: grid; place-items: center; width: 36%; min-width: 0; padding: 2px; overflow-wrap: anywhere; transform: translate(-50%, -50%); background: transparent; border: 0; box-shadow: none; text-align: center; pointer-events: none; }
+.time-clock-callout .time-reading { display: grid; justify-items: center; gap: 1px; min-width: 0; font-size: .7rem; line-height: 1.15; }
+.time-clock-callout .time-meaning { display: none; }
+.time-clock-callout .time-pronunciation { overflow-wrap: anywhere; text-shadow: 0 1px 2px var(--washi), 0 -1px 2px var(--washi); }
+.time-hour-callout .time-pronunciation { color: var(--indigo); }
+.time-minute-callout .time-pronunciation { color: var(--verm); }
