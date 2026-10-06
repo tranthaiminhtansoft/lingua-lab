@@ -84,16 +84,20 @@
   .time-combined-reading { padding: 12px; }
 }
 .time-clock-callout { position: absolute; z-index: 2; display: grid; place-items: center; width: 120px; min-width: 0; padding: 2px; overflow-wrap: anywhere; transform: translate(-50%, -50%); background: transparent; border: 0; box-shadow: none; text-align: center; pointer-events: none; }
-.time-clock-callout .time-reading { display: grid; justify-items: center; gap: 1px; min-width: 0; font-size: .7rem; line-height: 1.15; }
+.time-clock-callout .time-reading { display: grid; justify-items: center; gap: 2px; min-width: 0; font-size: .8rem; line-height: 1.15; }
+.time-clock-callout .time-reading > [lang="ja"] { font-size: 1.25rem; font-weight: 800; }
+.time-clock-callout .time-pronunciation[lang="ja"] { font-size: 1.05rem; font-weight: 800; }
+.time-clock-callout .time-pronunciation[lang="ja-Latn"] { font-size: .85rem; }
+.time-clock-callout .time-alternative { font-size: .72rem; }
 .time-clock-callout .time-meaning { display: none; }
 .time-clock-callout .time-pronunciation { overflow-wrap: anywhere; text-shadow: 0 1px 2px var(--washi), 0 -1px 2px var(--washi); }
 .time-hour-callout .time-pronunciation { color: var(--indigo); }
 .time-minute-callout .time-pronunciation { color: var(--verm); }
 
 @media (max-width: 700px) {
-  .time-clock-stage { width: min(100%, 380px); height: 480px; }
+  .time-clock-stage { width: min(100%, 380px); height: 560px; }
   .time-clock-face { top: 50%; left: 50%; width: 90%; transform: translate(-50%, -50%); }
   .time-clock-callout { left: calc(50% + var(--mobile-x)) !important; width: 42%; }
-  .time-clock-callout[data-half="upper"] { top: 5% !important; }
-  .time-clock-callout[data-half="lower"] { top: 95% !important; }
+  .time-clock-callout[data-half="upper"] { top: 10% !important; }
+  .time-clock-callout[data-half="lower"] { top: 90% !important; }
 }

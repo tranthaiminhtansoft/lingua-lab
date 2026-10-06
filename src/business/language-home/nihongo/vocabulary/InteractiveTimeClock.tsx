@@ -11,7 +11,7 @@ function callout(angle: number) {
   const radians = angle * Math.PI / 180;
   const sine = Math.sin(radians), cosine = Math.cos(radians);
   // Keep the whole reading outside the 440px dial (plus an 8px gap).
-  const radius = 209 + Math.abs(sine) * 60 + Math.abs(cosine) * 45 + 8;
+  const radius = 209 + Math.abs(sine) * 60 + Math.abs(cosine) * 55 + 8;
   return {
     x: 50 + sine * radius / 640 * 100,
     y: 50 - cosine * radius / 700 * 100,
@@ -55,13 +55,13 @@ export function InteractiveTimeClock() {
     hourCallout = { ...hourCallout, mobileX: center + (hourOnRight ? 22 : -22) };
     minuteCallout = { ...minuteCallout, mobileX: center + (hourOnRight ? -22 : 22) };
   }
-  const desktopLabelsCollide = Math.abs(hourCallout.x - minuteCallout.x) * 6.4 < 120 && Math.abs(hourCallout.y - minuteCallout.y) * 7 < 90;
+  const desktopLabelsCollide = Math.abs(hourCallout.x - minuteCallout.x) * 6.4 < 120 && Math.abs(hourCallout.y - minuteCallout.y) * 7 < 110;
   if (desktopLabelsCollide) {
     const hourRadians = hourAngle * Math.PI / 180, minuteRadians = minuteAngle * Math.PI / 180;
     const radialX = Math.sin(hourRadians) + Math.sin(minuteRadians), radialY = -Math.cos(hourRadians) - Math.cos(minuteRadians);
     const radialLength = Math.hypot(radialX, radialY) || 1;
     const tangentX = -radialY / radialLength, tangentY = radialX / radialLength;
-    const shift = 80;
+    const shift = 88;
     hourCallout = { ...hourCallout, x: hourCallout.x + tangentX * shift / 640 * 100, y: hourCallout.y + tangentY * shift / 700 * 100 };
     minuteCallout = { ...minuteCallout, x: minuteCallout.x - tangentX * shift / 640 * 100, y: minuteCallout.y - tangentY * shift / 700 * 100 };
   }
@@ -99,7 +99,7 @@ export function InteractiveTimeClock() {
           onPointerUp={stopDrag} onPointerCancel={stopDrag} onLostPointerCapture={() => { drag.current = null; }}>
           <circle cx="160" cy="160" r="152" fill="var(--washi)" stroke="var(--ink)" strokeWidth="3" />
           {Array.from({ length: 60 }, (_, index) => { const start = point(index * 6, index % 5 ? 143 : 136), end = point(index * 6, 148); return <line key={index} x1={start.x} y1={start.y} x2={end.x} y2={end.y} stroke="var(--ink)" strokeWidth={index % 5 ? 1 : 3} />; })}
-          {Array.from({ length: 12 }, (_, index) => { const position = point((index + 1) * 30, 122); return <text key={index} x={position.x} y={position.y} textAnchor="middle" dominantBaseline="central" fontSize="20" fill="var(--ink)">{index + 1}</text>; })}
+          {Array.from({ length: 12 }, (_, index) => { const position = point((index + 1) * 30, 122); return <text key={index} x={position.x} y={position.y} textAnchor="middle" dominantBaseline="central" fontSize="28" fontWeight="700" fill="var(--ink)">{index + 1}</text>; })}
           <g data-hand="hour" className="time-clock-hand" onPointerDown={(event) => startDrag('hour', event)}>
             <line x1="160" y1="160" x2={hourTip.x} y2={hourTip.y} stroke="transparent" strokeWidth="28" />
             <line x1="160" y1="160" x2={hourTip.x} y2={hourTip.y} stroke="var(--indigo)" strokeWidth="9" strokeLinecap="round" />
