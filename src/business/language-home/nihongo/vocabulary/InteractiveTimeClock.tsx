@@ -7,10 +7,17 @@ import { Reading } from './TimeReading';
 type Hand = 'hour' | 'minute';
 const zeroMinutes: TimeWord = { japanese: '0分', kana: 'れいふん', romaji: 'reifun', meaning: '0 minutes · on the hour', parts: [{ kana: 'れい', romaji: 'rei', role: 'base' }, { kana: 'ふん', romaji: 'fun', role: 'fun' }] };
 const point = (angle: number, radius: number) => ({ x: 160 + Math.sin(angle * Math.PI / 180) * radius, y: 160 - Math.cos(angle * Math.PI / 180) * radius });
-const clamp = (value: number, min: number, max: number) => Math.max(min, Math.min(max, value));
 function callout(angle: number) {
   const radians = angle * Math.PI / 180;
-  return { x: clamp(50 + Math.sin(radians) * 56, 19, 81), y: clamp(50 - Math.cos(radians) * 56, 11, 89) };
+  const sine = Math.sin(radians), cosine = Math.cos(radians);
+  // Keep the whole reading outside the 440px dial (plus an 8px gap).
+  const radius = 209 + Math.abs(sine) * 60 + Math.abs(cosine) * 45 + 8;
+  return {
+    x: 50 + sine * radius / 640 * 100,
+    y: 50 - cosine * radius / 700 * 100,
+    mobileX: sine * 30,
+    half: cosine >= 0 ? 'upper' as const : 'lower' as const,
+  };
 }
 
 export function InteractiveTimeClock() {
@@ -39,12 +46,24 @@ export function InteractiveTimeClock() {
   };
   const hourTip = point((hour % 12 + minute / 60) * 30, 78);
   const minuteTip = point(minute * 6, 114);
-  let hourCallout = callout((hour % 12 + minute / 60) * 30), minuteCallout = callout(minute * 6);
-  const labelsCollide = Math.abs(hourCallout.x - minuteCallout.x) < 36 && Math.abs(hourCallout.y - minuteCallout.y) < 23;
+  const hourAngle = (hour % 12 + minute / 60) * 30, minuteAngle = minute * 6;
+  let hourCallout = callout(hourAngle), minuteCallout = callout(minuteAngle);
+  const labelsCollide = hourCallout.half === minuteCallout.half && Math.abs(hourCallout.mobileX - minuteCallout.mobileX) < 43;
   if (labelsCollide) {
-    const hourIsRight = hourCallout.x >= minuteCallout.x;
-    hourCallout = { ...hourCallout, x: clamp(hourCallout.x + (hourIsRight ? 19 : -19), 19, 81) };
-    minuteCallout = { ...minuteCallout, x: clamp(minuteCallout.x + (hourIsRight ? -19 : 19), 19, 81) };
+    const center = Math.max(-5, Math.min(5, (hourCallout.mobileX + minuteCallout.mobileX) / 2));
+    const hourOnRight = hourCallout.mobileX >= minuteCallout.mobileX;
+    hourCallout = { ...hourCallout, mobileX: center + (hourOnRight ? 22 : -22) };
+    minuteCallout = { ...minuteCallout, mobileX: center + (hourOnRight ? -22 : 22) };
+  }
+  const desktopLabelsCollide = Math.abs(hourCallout.x - minuteCallout.x) * 6.4 < 120 && Math.abs(hourCallout.y - minuteCallout.y) * 7 < 90;
+  if (desktopLabelsCollide) {
+    const hourRadians = hourAngle * Math.PI / 180, minuteRadians = minuteAngle * Math.PI / 180;
+    const radialX = Math.sin(hourRadians) + Math.sin(minuteRadians), radialY = -Math.cos(hourRadians) - Math.cos(minuteRadians);
+    const radialLength = Math.hypot(radialX, radialY) || 1;
+    const tangentX = -radialY / radialLength, tangentY = radialX / radialLength;
+    const shift = 80;
+    hourCallout = { ...hourCallout, x: hourCallout.x + tangentX * shift / 640 * 100, y: hourCallout.y + tangentY * shift / 700 * 100 };
+    minuteCallout = { ...minuteCallout, x: minuteCallout.x - tangentX * shift / 640 * 100, y: minuteCallout.y - tangentY * shift / 700 * 100 };
   }
 
   function updateHand(hand: Hand, clientX: number, clientY: number) {
@@ -93,10 +112,10 @@ export function InteractiveTimeClock() {
           </g>
           <circle cx="160" cy="160" r="7" fill="var(--ink)" pointerEvents="none" />
         </svg>
-        <div className="time-clock-callout time-hour-callout" style={{ left: `${hourCallout.x}%`, top: `${hourCallout.y}%` }} aria-hidden="true">
+        <div className="time-clock-callout time-hour-callout" data-half={hourCallout.half} style={{ left: `${hourCallout.x}%`, top: `${hourCallout.y}%`, ['--mobile-x' as string]: `${hourCallout.mobileX}%` }} aria-hidden="true">
           <Reading entry={hourEntry} meaning={false} />
         </div>
-        <div className="time-clock-callout time-minute-callout" style={{ left: `${minuteCallout.x}%`, top: `${minuteCallout.y}%` }} aria-hidden="true">
+        <div className="time-clock-callout time-minute-callout" data-half={minuteCallout.half} style={{ left: `${minuteCallout.x}%`, top: `${minuteCallout.y}%`, ['--mobile-x' as string]: `${minuteCallout.mobileX}%` }} aria-hidden="true">
           <Reading entry={minuteEntry} meaning={false} />
         </div>
         </div>
