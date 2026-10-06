@@ -8,9 +8,9 @@ type Hand = 'hour' | 'minute';
 const zeroMinutes: TimeWord = { japanese: '0分', kana: 'れいふん', romaji: 'reifun', meaning: '0 minutes · on the hour', parts: [{ kana: 'れい', romaji: 'rei', role: 'base' }, { kana: 'ふん', romaji: 'fun', role: 'fun' }] };
 const point = (angle: number, radius: number) => ({ x: 160 + Math.sin(angle * Math.PI / 180) * radius, y: 160 - Math.cos(angle * Math.PI / 180) * radius });
 const clamp = (value: number, min: number, max: number) => Math.max(min, Math.min(max, value));
-function callout(tip: { x: number; y: number }) {
-  const width = 138, height = 72;
-  return { width, height, x: clamp(tip.x < 160 ? tip.x + 8 : tip.x - width - 8, 4, 178), y: clamp(tip.y - height / 2, 4, 244) };
+function callout(direction: { x: number; y: number }) {
+  const width = 118, height = 66;
+  return { width, height, x: clamp(direction.x - width / 2, 4, 198), y: clamp(direction.y - height / 2, 4, 250) };
 }
 
 export function InteractiveTimeClock() {
@@ -39,7 +39,7 @@ export function InteractiveTimeClock() {
   };
   const hourTip = point((hour % 12 + minute / 60) * 30, 78);
   const minuteTip = point(minute * 6, 114);
-  let hourCallout = callout(hourTip), minuteCallout = callout(minuteTip);
+  let hourCallout = callout(point((hour % 12 + minute / 60) * 30, 144)), minuteCallout = callout(point(minute * 6, 144));
   const overlap = hourCallout.x < minuteCallout.x + minuteCallout.width + 6
     && hourCallout.x + hourCallout.width + 6 > minuteCallout.x
     && hourCallout.y < minuteCallout.y + minuteCallout.height + 6
@@ -95,11 +95,11 @@ export function InteractiveTimeClock() {
           </g>
           <circle cx="160" cy="160" r="7" fill="var(--ink)" pointerEvents="none" />
         </svg>
-        <div className="time-clock-callout time-hour-callout" style={{ left: `${hourCallout.x / 320 * 100}%`, top: `${hourCallout.y / 320 * 100}%` }} aria-hidden="true">
-          <b>{hour} o’clock</b><Reading entry={hourEntry} meaning={false} />
+        <div className="time-clock-callout time-hour-callout" style={{ left: `${hourCallout.x / 320 * 100}%`, top: `${hourCallout.y / 320 * 100}%`, width: `${hourCallout.width / 320 * 100}%` }} aria-hidden="true">
+          <Reading entry={hourEntry} meaning={false} />
         </div>
-        <div className="time-clock-callout time-minute-callout" style={{ left: `${minuteCallout.x / 320 * 100}%`, top: `${minuteCallout.y / 320 * 100}%` }} aria-hidden="true">
-          <b>{minute} {minute === 1 ? 'minute' : 'minutes'}</b><Reading entry={minuteEntry} meaning={false} />
+        <div className="time-clock-callout time-minute-callout" style={{ left: `${minuteCallout.x / 320 * 100}%`, top: `${minuteCallout.y / 320 * 100}%`, width: `${minuteCallout.width / 320 * 100}%` }} aria-hidden="true">
+          <Reading entry={minuteEntry} meaning={false} />
         </div>
         </div>
         <output className="time-digital-display" aria-label="Selected time">{digitalTime}</output>

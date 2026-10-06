@@ -83,3 +83,9 @@
   .time-hand-sliders { grid-template-columns: minmax(0, 1fr); }
   .time-combined-reading { padding: 12px; }
 }
+.time-clock-callout { position: absolute; z-index: 2; display: grid; align-content: center; min-width: 0; min-height: 58px; padding: 4px 6px; overflow-wrap: anywhere; border: 2px solid var(--ink); background: var(--paper); box-shadow: 2px 2px 0 var(--ink); pointer-events: none; }
+.time-clock-callout .time-reading { display: grid; gap: 2px; min-width: 0; font-size: .75rem; }
+.time-clock-callout .time-reading > [lang="ja"] { display: none; }
+.time-clock-callout .time-pronunciation { overflow-wrap: anywhere; }
+.time-hour-callout { border-left: 5px solid var(--indigo); }
+.time-minute-callout { border-left: 5px solid var(--verm); }
