@@ -9,6 +9,7 @@ import { FirstIntroductionsPage } from '../business/language-home/nihongo/gramma
 import { QuestionTypesPage } from '../business/language-home/nihongo/grammar/QuestionTypesPage';
 import { VocabularyPage } from '../business/language-home/nihongo/vocabulary/VocabularyPage';
 import { FirstIntroductionsVocabularyPage } from '../business/language-home/nihongo/vocabulary/FirstIntroductionsVocabularyPage';
+import { NumbersPage } from '../business/language-home/nihongo/numbers/NumbersPage';
 
 export function restorePagesPath(basePath = import.meta.env.BASE_URL) {
   const fallbackPath = new URLSearchParams(window.location.search).get('p');
@@ -36,6 +37,7 @@ export const router = createBrowserRouter([
       { path: 'nihongo-o-benkyuo/grammar/question-types', element: <QuestionTypesPage /> },
       { path: 'nihongo-o-benkyuo/vocabulary/time', element: <TimeVocabularyPage /> },
       { path: 'nihongo-o-benkyuo/vocabulary', element: <VocabularyPage /> },
+      { path: 'nihongo-o-benkyuo/numbers', element: <NumbersPage /> },
       { path: 'nihongo-o-benkyuo/vocabulary/first-introductions', element: <FirstIntroductionsVocabularyPage /> },
       { path: 'lessons/kana', element: <Navigate replace to="/nihongo-o-benkyuo/kana" /> },
       { path: '*', element: <main><h1>Page not found</h1><p>That lesson is not available.</p></main> },

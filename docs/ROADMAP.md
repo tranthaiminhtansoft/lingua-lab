@@ -24,7 +24,7 @@ Các hạng mục đã hoàn thành và hướng phát triển của Lingua Lab.
 
 ## 🔜 Dự kiến
 
-Thực hiện **Bảng chữ số → Từ vựng thời gian → Grammar bổ trợ → Mở rộng câu hỏi thời gian**. Grammar bổ trợ gồm ba bài theo thứ tự **Động từ lịch sự → Nối danh từ → Thời gian & địa điểm**; phần địa điểm sẽ bổ sung sau khi có nội dung bài học mới. Phần học tiếng Anh là định hướng tương lai.
+Tiếp tục với **Grammar bổ trợ → Mở rộng câu hỏi thời gian**. Chủ đề **Bảng chữ số** và **Time** trong Vocabulary đã hoàn thành và được ghi nhận ở phần trên. Grammar bổ trợ gồm ba bài theo thứ tự **Động từ lịch sự → Nối danh từ → Thời gian & địa điểm**; phần địa điểm sẽ bổ sung sau khi có nội dung bài học mới. Phần học tiếng Anh là định hướng tương lai.
 
 **Quy ước chung cho các bài mới**
 
@@ -37,29 +37,26 @@ Thực hiện **Bảng chữ số → Từ vựng thời gian → Grammar bổ t
 
 ### Bảng chữ số
 
-Bài riêng **Numbers** trên trang Nihongo, đứng trước **Vocabulary** trong danh sách bài học. Bảng chính chỉ hiển thị con số và cách đọc bằng Kana, Romaji; ví dụ đặt riêng bên dưới bảng.
+Bài riêng **Numbers** trên trang Nihongo, đứng trước **Vocabulary** trong danh sách bài học. Chỉ dùng bố cục **Number ladder**, nhóm số theo hàng giá trị. Mỗi mục hiển thị Kanji ở trên, Kana và Romaji ở dưới; ví dụ ghép số đặt riêng bên dưới các nhóm.
 
-**Bố cục bảng**
+**Bố cục giao diện**
 
-| Cột | Nội dung từ trên xuống |
+| Màn hình | Cách sắp xếp |
 |---|---|
-| 1 | 1, 2, 3, …, 9 |
-| 2 | 10, 20, 30, …, 90 |
-| 3 | 100, 200, 300, …, 900 |
-| 4 | 1,000, 2,000, 3,000, …, 9,000 |
-| 5 | 10,000, 20,000, 30,000, …, 90,000 |
+| **Number ladder** trên màn hình rộng | Năm nhóm theo hàng giá trị (Ones đến Ten-thousands); mỗi nhóm có chín số cùng hàng. |
+| **Number ladder** trên màn hình nhỏ (≤620 px) | Mỗi nhóm hiển thị ba cột, ba hàng; ghi chú đọc mở thành panel bên dưới nhóm. |
 
-Mỗi cột có chín mục, cùng một hàng ứng với cùng hệ số 1–9. Số nổi bật, Kana và Romaji dễ đọc. Tô màu và in đậm cách đọc thay thế hoặc phần biến âm khác quy tắc; ví dụ dưới bảng được nhóm theo các hàng số đã học.
+Mỗi nhóm Number ladder có chín mục theo hệ số 1–9. Số nổi bật, Kanji đứng trên Kana và Romaji; cách đọc thay thế hoặc phần biến âm được tô màu, in đậm và giải thích trong reading notes. Ví dụ ghép số nằm riêng bên dưới các nhóm.
 
 **Checklist**
 
-- [ ] `NUM-001` Chuẩn bị đủ 45 mục số cùng cách đọc Kana, Romaji và các cách đọc thay thế phù hợp.
-- [ ] `NUM-002` Tạo bảng năm cột, mỗi cột chín mục theo bố cục trên.
-- [ ] `NUM-003` Tô màu và in đậm cách đọc thay thế hoặc phần biến âm khác quy tắc.
-- [ ] `NUM-004` Đặt ví dụ ghép số riêng bên dưới bảng, kèm Kana và Romaji, có ví dụ tương ứng cho từng hàng số.
-- [ ] `NUM-005` Tạo bài Numbers và thêm thẻ bài học đứng trước Vocabulary trên trang Nihongo.
-- [ ] `NUM-006` Kiểm tra các cột và cách đọc trên màn hình nhỏ; bảo đảm không mất nội dung khi cuộn bảng.
-- [ ] `NUM-007` Kiểm tra mở bài từ trang Nihongo, quay lại danh sách bài học và tải lại URL trực tiếp.
+- [x] `NUM-001` Chuẩn bị đủ 45 mục số cùng cách đọc Kana, Romaji và các cách đọc thay thế phù hợp.
+- [x] `NUM-002` Tạo Number ladder với năm nhóm hàng giá trị, mỗi nhóm chín mục theo thứ tự hệ số 1–9.
+- [x] `NUM-003` Tô màu và in đậm cách đọc thay thế hoặc phần biến âm khác quy tắc.
+- [x] `NUM-004` Đặt ví dụ ghép số riêng bên dưới nội dung chính, kèm Kana và Romaji, có ví dụ tương ứng cho từng hàng giá trị.
+- [x] `NUM-005` Tạo bài Numbers và thêm thẻ bài học đứng trước Vocabulary trên trang Nihongo.
+- [x] `NUM-006` Kiểm tra bố cục và cách đọc trên màn hình nhỏ: ladder chuyển thành ba cột, không tràn ngang; reading notes không gây tràn trang.
+- [x] `NUM-007` Kiểm tra mở bài từ trang Nihongo, quay lại danh sách bài học và tải lại URL trực tiếp.
 
 ### Từ vựng thời gian — đã hoàn thành
 
