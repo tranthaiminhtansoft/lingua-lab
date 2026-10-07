@@ -9,6 +9,7 @@ Các hạng mục đã hoàn thành và hướng phát triển của Lingua Lab.
 | **Lộ trình học tiếng Nhật** | Trang Nihongo tập hợp các nội dung học hiện có. |
 | **Kana** | Nhận biết Hiragana, Katakana và Romaji; có phần luyện tập và hướng dẫn viết. |
 | **Ngữ pháp** | Học mẫu câu, chủ đề giới thiệu bản thân và các dạng câu hỏi. |
+| **Từ vựng: thời gian** | Chủ đề Time với lịch mẫu cố định, ngày/tháng, mốc ngày/đêm, buổi, tần suất và cách đọc giờ/phút. |
 | **Từ vựng: giới thiệu lần đầu** | Từ và cách diễn đạt về tên, con người, nghề nghiệp, xuất xứ và lần gặp đầu tiên. |
 | **Lối vào phần học tiếng Anh** | Tiếng Anh đã xuất hiện trên trang chọn ngôn ngữ với trạng thái “sắp ra mắt”. |
 
@@ -60,7 +61,9 @@ Mỗi cột có chín mục, cùng một hàng ứng với cùng hệ số 1–9
 - [ ] `NUM-006` Kiểm tra các cột và cách đọc trên màn hình nhỏ; bảo đảm không mất nội dung khi cuộn bảng.
 - [ ] `NUM-007` Kiểm tra mở bài từ trang Nihongo, quay lại danh sách bài học và tải lại URL trực tiếp.
 
-### Từ vựng thời gian
+### Từ vựng thời gian — đã hoàn thành
+
+Bài hiện có tại `/nihongo-o-benkyuo/vocabulary/time`, với ngày mẫu **October 15, 2026**. Liên kết học tiếp mở nhóm **When & what time?** hiện có; bổ sung liên kết Grammar khi các bài bổ trợ được triển khai. Kiểm tra desktop/mobile, mở trực tiếp và tải lại URL đã qua trên Chromium, Firefox và WebKit.
 
 Chủ đề **Time** trong Vocabulary. Dùng **một ngày mẫu cố định** làm mốc “today”; ghi rõ đây là lịch mẫu phục vụ học tập. Chọn tháng có 31 ngày và ngày mẫu ở giữa tháng để cả năm mốc ngày/đêm đều nằm trong lịch. Lưu ngày mẫu trong dữ liệu bài học, mọi mốc tương đối được tính từ ngày này.
 
@@ -75,24 +78,25 @@ Toàn bộ nội dung nằm trong **cùng một khung lịch**. Các ngày, mố
 - **Mốc ngày:** the day before yesterday, yesterday, today, tomorrow, the day after tomorrow — gắn vào năm ngày tương ứng quanh ngày mẫu.
 - **Mốc ban đêm:** the night before last, last night, tonight, tomorrow night, the night after next — gắn vào phần ban đêm của năm ngày tương ứng.
 - **Buổi trong ngày:** morning, afternoon, evening, night; có nhãn riêng để phân biệt buổi chiều, buổi tối và ban đêm, dùng icon mặt trời/mặt trăng kèm chữ.
-- **Tần suất:** every morning, every afternoon, every evening, every day, every night; biểu diễn bằng nhãn lặp lại ở phần buổi/ngày tương ứng trong khung lịch.
-- **Giờ và phút:** giờ 1時–12時 và phút 1分–59分, mỗi mục có Kana và Romaji. Giải thích cách đọc 分 là *ふん/ぷん* và biến âm theo số; thêm 何分（なんぷん, *nanpun*）với nghĩa “what minute?”. Nhấn màu/in đậm cách đọc đặc biệt và có ví dụ ghép giờ-phút bên dưới.
+- **Tần suất:** every morning, every afternoon, every evening, every day, every night; biểu diễn một lần tại phần buổi/ngày tương ứng của ngày mẫu trong khung lịch.
+- **Giờ và phút:** giờ 1時–12時 và bảng phút 1分–10分; đồng hồ tương tác cho phép chọn phút 0–59, mỗi mục có Kana và Romaji. Giải thích cách đọc 分 là *ふん/ぷん* và biến âm theo số; thêm 何分（なんぷん, *nanpun*）với nghĩa “what minute?”. Nhấn màu/in đậm cách đọc đặc biệt; cách đọc ghép giờ-phút cập nhật theo hai kim và hiển thị dưới đồng hồ.
 - **Cách diễn đạt giờ:** 午前（ごぜん, *gozen* — a.m.）, 午後（ごご, *gogo* — p.m.）và 半（はん, *han* — half past）trong phần đọc giờ để chuẩn bị cho các mẫu hỏi đáp.
 
 **Checklist**
 
-- [ ] `TIME-001` Chuẩn bị đủ các nhóm nội dung ở trên, kèm Kana, Romaji và nghĩa tiếng Anh.
-- [ ] `TIME-002` Chọn ngày mẫu cố định; bố trí đúng thứ và ngày trong tháng, tính năm mốc ngày/đêm từ ngày mẫu thay vì ngày hiện tại của thiết bị.
-- [ ] `TIME-003` Tạo khung lịch chứa ngày trong tuần, ngày trong tháng và đủ tên/cách đọc 12 tháng.
-- [ ] `TIME-004` Gắn các mốc ngày/đêm vào đúng ô ngày và sắp theo thứ tự trước đây → hiện tại → sắp tới.
-- [ ] `TIME-005` Thể hiện các buổi và tần suất ngay trên lịch; dùng icon mặt trời/mặt trăng kèm nhãn chữ rõ nghĩa.
-- [ ] `TIME-006` Thêm bảng đọc 12 giờ và 59 phút trong cùng khung lịch, nhấn cách đọc đặc biệt và giải thích quy tắc 分.
-- [ ] `TIME-007` Đặt ví dụ ghép giờ-phút bên dưới bảng đọc giờ/phút, kèm Kana và Romaji.
-- [ ] `TIME-008` Bổ sung a.m./p.m. và cách nói half past vào phần đọc giờ trong khung lịch.
-- [ ] `TIME-009` Tạo chủ đề Time và liên kết từ trang Vocabulary.
-- [ ] `TIME-010` Thêm liên kết học tiếp tới nhóm câu hỏi thời gian trong Grammar → Question types và các bài Grammar bổ trợ khi nội dung đích đã có.
-- [ ] `TIME-011` Kiểm tra đọc đủ nội dung trên màn hình nhỏ, bao gồm các mốc ngày/đêm và bảng giờ/phút.
-- [ ] `TIME-012` Kiểm tra mở bài từ Vocabulary, quay lại danh sách chủ đề và tải lại URL trực tiếp; mốc “today” luôn là ngày mẫu cố định.
+- [x] `TIME-001` Chuẩn bị đủ các nhóm nội dung ở trên, kèm Kana, Romaji và nghĩa tiếng Anh.
+- [x] `TIME-002` Chọn ngày mẫu cố định; bố trí đúng thứ và ngày trong tháng, tính năm mốc ngày/đêm từ ngày mẫu thay vì ngày hiện tại của thiết bị.
+- [x] `TIME-003` Tạo khung lịch chứa ngày trong tuần, ngày trong tháng và đủ tên/cách đọc 12 tháng.
+- [x] `TIME-004` Gắn các mốc ngày/đêm vào đúng ô ngày và sắp theo thứ tự trước đây → hiện tại → sắp tới.
+- [x] `TIME-005` Thể hiện các buổi và tần suất ngay trên lịch; dùng icon mặt trời/mặt trăng kèm nhãn chữ rõ nghĩa.
+- [x] `TIME-006` Thêm bảng đọc 12 giờ và 10 phút trong cùng khung lịch, kèm đồng hồ tương tác để đọc các phút còn lại, nhấn cách đọc đặc biệt và giải thích quy tắc 分.
+- [x] `TIME-007` Hiển thị cách đọc ghép giờ-phút dưới đồng hồ tương tác, kèm Kana và Romaji.
+- [x] `TIME-008` Bổ sung a.m./p.m. và cách nói half past vào phần đọc giờ trong khung lịch.
+- [x] `TIME-009` Tạo chủ đề Time và liên kết từ trang Vocabulary.
+- [x] `TIME-010` Thêm liên kết học tiếp tới nhóm câu hỏi thời gian trong Grammar → Question types và các bài Grammar bổ trợ khi nội dung đích đã có.
+- [x] `TIME-011` Kiểm tra đọc đủ nội dung trên màn hình nhỏ, bao gồm các mốc ngày/đêm và bảng giờ/phút.
+- [x] `TIME-012` Kiểm tra mở bài từ Vocabulary, quay lại danh sách chủ đề và tải lại URL trực tiếp; mốc “today” luôn là ngày mẫu cố định.
+- [x] `TIME-013` Tạo đồng hồ tương tác kéo kim giờ/phút, có thanh điều chỉnh dùng bàn phím, lựa chọn a.m./p.m., cách đọc riêng từng kim và cách đọc kết hợp; thêm half past ở phút 30.
 
 ### Mở rộng câu hỏi thời gian
 

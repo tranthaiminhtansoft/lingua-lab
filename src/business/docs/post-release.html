@@ -5,6 +5,7 @@
 <main><p>After publication, check the deployed site directly; workflow success and live behavior are separate evidence.</p>
 <ol><li>Open the Pages URL returned by the successful deployment: <a href="https://tranthaiminhtansoft.github.io/lingua-lab/">https://tranthaiminhtansoft.github.io/lingua-lab/</a>.</li>
 <li>Test the home page, then representative routes such as <code>/nihongo-o-benkyuo/kana</code>, <code>/nihongo-o-benkyuo/grammar</code>, and <code>/nihongo-o-benkyuo/vocabulary</code>. Refresh a nested route and note any failures.</li>
+<li>For Vocabulary → Time, open <code>/nihongo-o-benkyuo/vocabulary/time</code> and refresh. Confirm the fixed sample date October 15, 2026, drag both clock hands, check the combined Kana/Romaji, and try a.m./p.m., half past, the section menu and Top on mobile. The release verification artifact includes <code>time-results.json</code> and failure screenshots when a check fails.</li>
 <li>Record the URL, date/time, routes tested, and observed outcome. Escalate errors; do not call the release healthy based only on HTTP status or workflow completion.</li>
 <li>If the spot-check fails, pause further release activity and have the release owner decide next steps. If rollback is authorized, follow the standalone <a href="rollback.html">Rollback guide</a>.</li></ol>
 <div class="capture" role="img" aria-label="Screenshot placeholder: post-release site check"><strong>Screenshot placeholder — post-release route check</strong>User-provided capture goes here.</div>
