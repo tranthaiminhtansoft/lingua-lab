@@ -4,6 +4,32 @@ const kanaPath = 'nihongo-o-benkyuo/kana';
 const grammarPath = 'nihongo-o-benkyuo/grammar';
 const firstIntroductionsPath = `${grammarPath}/first-introductions`;
 const vocabularyPath = 'nihongo-o-benkyuo/vocabulary';
+const numbersPath = 'nihongo-o-benkyuo/numbers';
+
+test('Numbers ladder adapts from nine items per row to three columns on mobile', async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto(numbersPath);
+  await expect(page.getByRole('heading', { level: 1, name: 'Numbers' })).toBeVisible();
+  await expect.poll(() => page.locator('.number-ladder-grid').first().evaluate((grid) => getComputedStyle(grid).gridTemplateColumns.split(' ').length)).toBe(9);
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  await expect.poll(() => page.locator('.number-ladder-grid').first().evaluate((grid) => getComputedStyle(grid).gridTemplateColumns.split(' ').length)).toBe(3);
+  await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+  await page.getByRole('button', { name: 'Open number sections' }).click();
+  await expect(page.getByRole('navigation', { name: 'Number sections' })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Hundreds' })).toHaveAttribute('href', '#number-step-hundreds');
+  await page.evaluate(() => window.scrollTo(0, 600));
+  await expect(page.getByRole('button', { name: 'Back to top' })).toBeVisible();
+  await page.getByRole('button', { name: 'Back to top' }).click();
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
+
+  const hundreds = page.locator('.number-ladder-step').filter({ has: page.getByRole('heading', { name: 'Hundreds' }) });
+  await hundreds.getByRole('button', { name: 'Reading notes' }).first().click();
+  await expect(page.getByRole('complementary', { name: 'Reading notes for 三百' })).toBeVisible();
+  await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+  await expect(page.getByRole('button', { name: 'Original table' })).toHaveCount(0);
+  await expect(page.getByRole('group', { name: 'Choose number layout' })).toHaveCount(0);
+});
 
 test('Grammar presents a distinct, complete first-introductions learning path', async ({ page }) => {
   await page.goto(grammarPath);

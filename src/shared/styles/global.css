@@ -486,6 +486,70 @@ details[open] > summary > .question-toggle::after { content: '−'; }
 .question-full-alternative > .japanese-romaji-alternative-label { display: block; margin-bottom: 10px; }
 .grammar-formula .question-word-gloss { color: var(--washi); }
 .question-sentence .grammar-example-translation { margin-top: 12px !important; padding-top: 10px; border-top: 1px solid color-mix(in srgb, var(--ink) 18%, transparent); }
+
+/* Numbers reference keeps the five place-value columns in a locally scrollable table. */
+.numbers-page { min-width: 0; }
+.numbers-back { margin: 0; }
+.numbers-back a { color: var(--indigo); }
+.numbers-hero { padding: 28px 0; border-bottom: 3px solid var(--ink); }
+.numbers-hero h1 { margin: 8px 0; font-size: clamp(3rem, 9vw, 6rem); line-height: .95; color: var(--indigo); }
+.numbers-hero > p:last-child, .numbers-examples > p { max-width: 760px; }
+.numbers-table-section, .numbers-examples { padding: 26px 0; }
+.numbers-table-scroll { position: relative; max-width: 100%; overflow-x: auto; overscroll-behavior-inline: contain; border: 3px solid var(--ink); background: var(--paper); }
+.numbers-table-scroll:focus-visible { outline: 4px solid var(--indigo); outline-offset: 3px; }
+.numbers-table-scroll table { width: 100%; min-width: 980px; table-layout: fixed; }
+.numbers-table-scroll td { vertical-align: top; text-align: center; }
+.number-value, .number-kana, .number-romaji { display: block; }
+.number-value { max-width: 100%; overflow-wrap: anywhere; font-size: 1.4rem; }
+.number-composition { margin: 4px 0 7px; font-size: .68rem; line-height: 1.3; }
+.number-composition-equation { display: block; overflow-wrap: anywhere; font-weight: 800; text-align: center; }
+.number-composition-reading { display: flex; flex-wrap: wrap; justify-content: center; gap: 2px 5px; align-items: start; }
+.number-composition-reading > span { display: inline-grid; grid-template-rows: auto auto; justify-items: center; align-content: start; }
+.number-composition-phonetics { align-items: start; }
+.number-composition-reading .number-kana { font-size: .82rem; }
+.number-composition-reading .number-romaji { font-size: .65rem; }
+.number-kana { font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; font-size: 1.05rem; white-space: nowrap; }
+.number-romaji { color: var(--indigo); font-size: .8rem; }
+.number-reading-comparison { display: flex; flex-wrap: wrap; justify-content: center; align-items: start; gap: 8px; }
+.number-reading-line { display: flex; flex-wrap: wrap; justify-content: center; gap: 3px 5px; min-width: 0; }
+.number-reading-unit { display: inline-grid; grid-template-rows: auto auto; justify-items: center; align-content: start; }
+.number-alternatives { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; margin: 0; padding: 0; list-style: none; text-align: center; }
+.number-alternatives li { max-width: 100%; padding-left: 7px; border-left: 1px dashed var(--verm); }
+.number-alternative-label { display: block; color: #a22e24; font-size: .6rem; font-weight: 900; }
+.number-alternative, .number-alternative-romaji { display: block; color: #a22e24; font-weight: 800; }
+.number-alternative { font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; }
+.number-alternative-romaji { font-size: .75rem; }
+.number-context { display: block; margin-top: 3px; font-size: .68rem; font-weight: 400; line-height: 1.35; }
+.number-sound-change { color: #a22e24; font-weight: 900; }
+.numbers-reading-key, .numbers-source { font-size: .8rem; }
+.numbers-example-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); gap: 12px; }
+.numbers-example { display: grid; min-width: 0; gap: 4px; padding: 14px; border: 2px solid var(--ink); background: var(--paper); text-align: center; }
+.numbers-example h3 { margin: 0; font-size: .9rem; }
+.numbers-example > .number-value { font-size: 1.3rem; }
+.numbers-example .number-reading-line { justify-content: center; }
+.numbers-page-shell { min-width: 0; }
+.number-ladder-notes-button:focus-visible, .number-ladder-note-heading button:focus-visible { outline: 3px solid var(--verm); outline-offset: 3px; }
+.number-ladder { display: grid; gap: 14px; padding: 22px 0; }
+.number-ladder-step { display: grid; grid-template-columns: minmax(145px, 190px) minmax(0, 1fr); align-items: stretch; border: 2px solid var(--ink); background: color-mix(in srgb, var(--paper) 78%, white); }
+.number-ladder-heading { display: flex; align-items: center; gap: 12px; padding: 16px; border-right: 2px solid var(--ink); background: var(--sun); }
+.number-ladder-heading h2 { margin: 0; font-size: 1.05rem; }
+.number-ladder-heading p { margin: 5px 0 0; font-size: .7rem; line-height: 1.35; }
+.number-ladder-index { display: grid; flex: 0 0 34px; width: 34px; height: 34px; place-items: center; border: 2px solid var(--ink); border-radius: 50%; font-size: .72rem; font-weight: 900; }
+.number-ladder-grid { display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); align-items: stretch; }
+.number-ladder-card { position: relative; display: grid; min-width: 0; align-content: start; justify-items: center; gap: 5px; padding: 12px 6px; text-align: center; }
+.number-ladder-card + .number-ladder-card { border-left: 1px solid color-mix(in srgb, var(--ink) 20%, transparent); }
+.number-ladder-card > .number-value { font-size: 1.45rem; line-height: 1.2; }
+.number-ladder-kana { font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; font-size: .9rem; font-weight: 800; overflow-wrap: anywhere; }
+.number-ladder-romaji { color: var(--indigo); font-size: .72rem; overflow-wrap: anywhere; }
+.number-ladder-notes-button { margin-top: 4px; padding: 0; border: 0; background: transparent; color: #a22e24; font: inherit; font-size: .62rem; font-weight: 800; cursor: pointer; }
+.number-ladder-note-panel { display: grid; grid-column: 1 / -1; gap: 7px; margin: 0; padding: 12px 16px; border-top: 2px solid var(--ink); background: color-mix(in srgb, var(--sun) 20%, var(--paper)); }
+.number-ladder-note-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.number-ladder-note-heading h3 { margin: 0; font-size: .9rem; }
+.number-ladder-note-heading button { padding: 5px 9px; border: 1px solid var(--ink); background: var(--paper); color: var(--ink); font: inherit; font-size: .7rem; font-weight: 800; cursor: pointer; }
+.number-ladder-note-panel .number-composition { width: fit-content; min-width: 180px; margin: 0 auto; padding: 7px 12px; border: 1px solid color-mix(in srgb, var(--ink) 25%, transparent); background: var(--paper); }
+.number-ladder-alternative { display: grid; gap: 3px; margin-top: 7px; padding-top: 6px; border-top: 1px dashed var(--verm); text-align: center; }
+.number-ladder-alternative strong { color: #a22e24; font-size: .68rem; }
+.number-ladder-alternative span { font-size: .62rem; line-height: 1.35; }
 .question-kana-reading { color: var(--indigo); font-size: .78em; font-weight: 500; }
 .question-grammar-emphasis { color: #a22e24; font-weight: 900; }
 .question-annotated .japanese-romaji-alternative .japanese-with-romaji-text { color: var(--ink); }
@@ -493,6 +557,11 @@ details[open] > summary > .question-toggle::after { content: '−'; }
 .grammar-formula .question-kana-reading, .grammar-question-feature .grammar-pattern-ribbon .question-kana-reading { color: var(--washi); }
 .grammar-formula .question-annotated .japanese-romaji-alternative .japanese-with-romaji-text, .grammar-question-feature .grammar-pattern-ribbon .question-annotated .japanese-romaji-alternative .japanese-with-romaji-text { color: var(--washi); }
 @media (max-width: 620px) {
+  .number-ladder-step { grid-template-columns: minmax(0, 1fr); }
+  .number-ladder-heading { border-right: 0; border-bottom: 2px solid var(--ink); }
+  .number-ladder-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .number-ladder-card:nth-child(3n + 1) { border-left: 0; }
+  .number-ladder-card:nth-child(n + 4) { border-top: 1px solid color-mix(in srgb, var(--ink) 20%, transparent); }
   .question-forms { grid-template-columns: minmax(0, 1fr); gap: 14px; }
   .question-types-page .grammar-topic-heading h1 > span { display: grid; width: fit-content; }
   .question-group > summary { gap: 10px; padding: 15px 12px; }
