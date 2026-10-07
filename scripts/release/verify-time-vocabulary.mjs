@@ -98,8 +98,8 @@ export async function verifyTimeVocabulary(browser, deploymentUrl, { evidenceDir
     await assertTime(page, '7:01 a.m.', 'gozen shichiji ippun');
     assert.equal(await page.getByRole('slider', { name: 'Hour hand', exact: true }).inputValue(), '7');
     assert.equal(await page.getByRole('slider', { name: 'Minute hand', exact: true }).inputValue(), '1');
-    await page.locator('.time-hour-reading [aria-label="shichiji"]').waitFor({ state: 'visible' });
-    await page.locator('.time-minute-reading [aria-label="ippun"]').waitFor({ state: 'visible' });
+    await page.locator('.time-hour-callout [aria-label="shichiji"]').waitFor({ state: 'visible' });
+    await page.locator('.time-minute-callout [aria-label="ippun"]').waitFor({ state: 'visible' });
     return 'Both hands dragged; keyboard endpoints, a.m./p.m., on the hour, half past and combined Kana/Romaji checked';
   });
 
