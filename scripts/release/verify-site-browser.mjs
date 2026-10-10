@@ -54,7 +54,7 @@ export function monitorBrowser(browser, evidenceDirectory) {
 }
 
 const documentation = [
-  ['index.html', 'Start here'], ['product.html', 'Product guide'], ['reference.html', 'Reference'],
+  ['index.html', 'Start here'], ['product.html', 'Product Guideline'], ['reference.html', 'Reference'],
   ['topology.html', 'Application topology'], ['delivery.html', 'CI/CD'],
   ['procedures.html', 'Procedures'], ['pre-release.html', 'Pre-release'], ['release.html', 'Release'],
   ['post-release.html', 'Post-release'], ['rollback.html', 'Rollback and recovery'],

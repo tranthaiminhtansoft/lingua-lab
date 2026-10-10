@@ -33,7 +33,7 @@ describe('standalone documentation sources', () => {
     const sourceDom = new JSDOM(html);
     const originalCommands = [...sourceDom.window.document.querySelectorAll('pre code')].map((code) => code.textContent ?? '');
     sourceDom.window.close();
-    expect(originalCommands).toHaveLength(4);
+    expect(originalCommands).toHaveLength(3);
 
     const dom = new JSDOM(html, { runScripts: 'dangerously', url: 'https://example.test/product.html' });
     const { document, navigator } = dom.window;
@@ -41,7 +41,7 @@ describe('standalone documentation sources', () => {
     let writeClipboard = async (text: string) => { copied = text; };
     Object.defineProperty(navigator, 'clipboard', { value: { writeText: (text: string) => writeClipboard(text) } });
     const buttons = [...document.querySelectorAll('.command-block button')];
-    expect(buttons).toHaveLength(4);
+    expect(buttons).toHaveLength(3);
 
     await buttons[0].click();
     await new Promise((resolve) => setTimeout(resolve, 0));

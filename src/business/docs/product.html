@@ -2,24 +2,42 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Product and local operation — Lingua Lab</title>
+  <title>Product Guideline — Lingua Lab</title>
   <style>
-    :root { color-scheme: light; font: 16px/1.65 system-ui,sans-serif; color:#172033; background:#f7f9fc; } body{max-width:1040px;margin:auto;padding:2rem 1.25rem} a{color:#075e8c} header,main{background:white;border:1px solid #dce4ed;border-radius:1rem;padding:1.5rem}header{margin-bottom:1rem}nav{display:flex;flex-wrap:wrap;gap:.75rem 1.25rem}section{margin:1.5rem 0}table{border-collapse:collapse;width:100%;display:block;overflow-x:auto}th,td{text-align:left;vertical-align:top;border:1px solid #dce4ed;padding:.65rem}th{background:#edf3f8}.note{background:#eef7fb;padding:1rem;border-radius:.5rem}
+    :root { color-scheme: light; font: 16px/1.65 system-ui,sans-serif; color:#172033; background:#f7f9fc; } body{max-width:1040px;margin:auto;padding:2rem 1.25rem} a{color:#075e8c} header,main{background:white;border:1px solid #dce4ed;border-radius:1rem;padding:1.5rem}header{margin-bottom:1rem}nav{display:flex;flex-wrap:wrap;gap:.75rem 1.25rem}section{margin:1.5rem 0}table{border-collapse:collapse;width:100%;display:block;overflow-x:auto}th,td{text-align:left;vertical-align:top;border:1px solid #dce4ed;padding:.65rem}th{background:#edf3f8}.note{background:#eef7fb;padding:1rem;border-radius:.5rem}.requirements td:first-child{width:20%;font-weight:700;white-space:nowrap}.install-steps{padding-left:1.35rem}.install-steps li{margin:.55rem 0}
     .command-block{margin:1rem 0;border:1px solid #cbd7e3;border-radius:.65rem;overflow:hidden;background:#f2f6fa}.command-block__toolbar{display:flex;align-items:center;justify-content:flex-end;gap:.75rem;padding:.5rem .75rem;border-bottom:1px solid #d5e0e9}.command-block button{font:inherit;font-size:.9rem;font-weight:600;color:#075e8c;background:#fff;border:1px solid #8aa9bf;border-radius:.4rem;padding:.3rem .7rem;cursor:pointer}.command-block button:hover{background:#e5f2f8}.command-block button:focus-visible{outline:3px solid #075e8c;outline-offset:2px}.command-block__feedback{font-size:.9rem;color:#245a35}.command-block__feedback[data-state="error"]{color:#9b2525}.command-block pre{margin:0;padding:1rem;overflow-x:auto;white-space:pre; -webkit-overflow-scrolling:touch}.command-block code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
   </style>
   <link rel="stylesheet" href="assets/docs-menu.css?v=20261010-menu2">
   <script src="assets/docs-menu.js?v=20261010-menu2" defer></script>
 </head>
 <body>
-<header><p class="breadcrumb"><a href="index.html">Start here</a> / Product guide</p><h1>Product guide</h1><nav aria-label="Documentation"><a href="index.html">Start here</a><a href="product.html" aria-current="page">Product guide</a><a href="reference.html">Reference</a><a href="procedures.html">Procedures</a></nav></header>
+<header><p class="breadcrumb"><a href="index.html">Start here</a> / Product Guideline</p><h1>Product Guideline</h1><nav aria-label="Documentation"><a href="index.html">Start here</a><a href="product.html" aria-current="page">Product Guideline</a><a href="reference.html">Reference</a><a href="procedures.html">Procedures</a></nav></header>
 <main>
-<p>Lingua Lab is a multi-language learning workspace. The Japanese learning path includes Kana, Grammar, and Vocabulary; English is marked as coming soon. This guide describes repository state and local procedures, not a live production observation.</p>
-<section><h2>Prerequisites and install</h2><p>Run commands from the repository root. The <a href="https://github.com/tranthaiminhtansoft/lingua-lab/blob/master/.nvmrc">.nvmrc</a> pins Node.js <strong>22.22.2</strong>. The npm lockfile is version 3 and includes dependencies requiring Node <code>^22.22.2 || ^24.15.0 || &gt;=26.0.0</code>; use the repository pin rather than assuming any Node 22 release is sufficient. The project does not declare a root <code>engines</code> or <code>packageManager</code> field.</p><pre><code>node --version
-npm --version
-npm ci
-npm run dev</code></pre><p><code>npm ci</code> replaces an existing <code>node_modules</code> directory. Playwright browser binaries must be installed separately for end-to-end checks.</p></section>
+<p>Lingua Lab is a multi-language learning workspace. It helps people learn independently through practical activities drawn from everyday life, making learning feel familiar and easier to remember. Current language examples include Japanese and English.</p>
+<section><h2>Prerequisites and install</h2>
+<table class="requirements"><thead><tr><th scope="col">Requirement</th><th scope="col">Details</th></tr></thead><tbody>
+<tr><td>Node.js</td><td>Use version <strong>22.22.2</strong>, pinned in <a href="https://github.com/tranthaiminhtansoft/lingua-lab/blob/master/.nvmrc"><code>.nvmrc</code></a>.</td></tr>
+<tr><td>Dependencies</td><td>Install from the repository root using the committed npm lockfile.</td></tr>
+<tr><td>Working directory</td><td>Run all commands below from the repository root.</td></tr>
+</tbody></table>
+<ol class="install-steps">
+<li>Confirm the selected Node.js and npm versions with <code>node --version</code> and <code>npm --version</code>. Node.js should report <code>v22.22.2</code>.</li>
+<li>Install the locked dependencies with <code>npm ci</code>. This replaces the existing <code>node_modules</code> directory.</li>
+<li>Start the local application with <code>npm run dev</code>, then open the URL printed by Vite.</li>
+</ol>
+</section>
 <section><h2>Application routes</h2><table><thead><tr><th scope="col">Local path</th><th scope="col">What it displays</th></tr></thead><tbody>
-<tr><td><code>/</code></td><td>Language home</td></tr><tr><td><code>/nihongo-o-benkyuo</code></td><td>Nihongo learning path</td></tr><tr><td><code>/nihongo-o-benkyuo/kana</code></td><td>Kana lesson and practice</td></tr><tr><td><code>/nihongo-o-benkyuo/grammar</code></td><td>Grammar topics</td></tr><tr><td><code>/nihongo-o-benkyuo/grammar/first-introductions</code></td><td>First introductions grammar lesson</td></tr><tr><td><code>/nihongo-o-benkyuo/vocabulary</code></td><td>Vocabulary topics</td></tr><tr><td><code>/nihongo-o-benkyuo/vocabulary/first-introductions</code></td><td>First introductions vocabulary lesson</td></tr><tr><td><code>/lessons/kana</code></td><td>Legacy address; redirects to the nested Kana route</td></tr>
+<tr><td><code>/</code></td><td>Language selection home</td></tr>
+<tr><td><code>/nihongo-o-benkyuo</code></td><td>Nihongo learning hub</td></tr>
+<tr><td><code>/nihongo-o-benkyuo/kana</code></td><td>Kana reference and practice</td></tr>
+<tr><td><code>/nihongo-o-benkyuo/grammar</code></td><td>Grammar hub</td></tr>
+<tr><td><code>/nihongo-o-benkyuo/grammar/first-introductions</code></td><td>First introductions grammar lesson</td></tr>
+<tr><td><code>/nihongo-o-benkyuo/grammar/question-types</code></td><td>Question types</td></tr>
+<tr><td><code>/nihongo-o-benkyuo/numbers</code></td><td>Japanese number ladder and reading notes</td></tr>
+<tr><td><code>/nihongo-o-benkyuo/vocabulary</code></td><td>Vocabulary hub</td></tr>
+<tr><td><code>/nihongo-o-benkyuo/vocabulary/first-introductions</code></td><td>First introductions vocabulary lesson</td></tr>
+<tr><td><code>/nihongo-o-benkyuo/vocabulary/time</code></td><td>Time lesson and interactive clock</td></tr>
+<tr><td><code>/lessons/kana</code></td><td>Legacy address; redirects to the nested Kana route</td></tr>
 </tbody></table><p>Open routes at the local dev-server origin; do not prefix them with <code>/lingua-lab/</code>. Japanese speech depends on browser/device support and an available voice.</p></section>
 <section><h2>Local checks</h2><p>Run these from the repository root; each check covers a different concern.</p><pre><code>npm run lint
 npm run typecheck
