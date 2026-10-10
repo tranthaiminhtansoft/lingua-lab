@@ -21,7 +21,9 @@ test('documentation iframe resize remains stable without browser errors', async 
         await page.setViewportSize({ width, height: 900 });
         await expect.poll(() => page.locator('iframe').evaluateAll((frames) => frames.every((frame) => {
           const doc = frame.contentDocument;
-          return Boolean(doc) && parseFloat(frame.style.height) >= doc.body.scrollHeight;
+          if (!doc?.body || !doc.documentElement) return false;
+          const contentHeight = Math.max(doc.body.scrollHeight, doc.documentElement.scrollHeight);
+          return frame.getBoundingClientRect().height + 1 >= contentHeight;
         }))).toBe(true);
         await page.evaluate(() => new Promise((done) => requestAnimationFrame(() => requestAnimationFrame(done))));
       }

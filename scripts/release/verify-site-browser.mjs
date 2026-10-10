@@ -55,13 +55,17 @@ export function monitorBrowser(browser, evidenceDirectory) {
 
 const documentation = [
   ['index.html', 'Start here'], ['product.html', 'Product guide'], ['reference.html', 'Reference'],
-  ['topology.html', 'Application topology'], ['delivery.html', 'CI and delivery system'],
+  ['topology.html', 'Application topology'], ['delivery.html', 'CI/CD'],
   ['procedures.html', 'Procedures'], ['pre-release.html', 'Pre-release'], ['release.html', 'Release'],
   ['post-release.html', 'Post-release'], ['rollback.html', 'Rollback and recovery'],
 ];
 const diagrams = {
   'topology-diagram.html': 'Lingua Lab: Browser Runtime and GitHub Actions Control Plane',
-  'delivery-workflow.html': 'Configured Release Workflow', 'ci-workflow.html': 'Configured PR-only Product CI',
+  'delivery-workflow.html': 'CI/CD Workflow Overview',
+  'ci-workflow.html': 'Pull-request CI and Required Gate',
+  'release-sequence.html': 'Release Candidate to Stable Release',
+  'verification-flowchart.html': 'Production Automation Verification',
+  'rollback-sequence.html': 'Rollback and Production Recovery',
 };
 
 export async function verifySiteBrowser(browser, deploymentUrl, { evidenceDirectory = 'release-verification-evidence' } = {}) {
@@ -144,7 +148,7 @@ export async function verifySiteBrowser(browser, deploymentUrl, { evidenceDirect
         const src = new URL(await iframe.getAttribute('src'), url);
         const name = src.pathname.split('/').at(-1);
         assert.equal(src.origin, deploymentUrl.origin);
-        assert.ok(src.pathname.startsWith(new URL('docs/assets/', deploymentUrl).pathname) && diagrams[name], `Unexpected diagram URL ${src}`);
+        assert.ok(src.pathname.startsWith(new URL('docs/', deploymentUrl).pathname) && diagrams[name], `Unexpected diagram URL ${src}`);
         await iframe.scrollIntoViewIfNeeded();
         const frame = await iframe.contentFrame();
         await frame.getByRole('heading', { level: 1, name: diagrams[name], exact: true }).waitFor({ state: 'visible' });
@@ -164,7 +168,7 @@ export async function verifySiteBrowser(browser, deploymentUrl, { evidenceDirect
     } catch (error) { pageErrors.push(`${url}: ${error.message}`); }
   }
   if (images !== 4) assetErrors.push(`Expected 4 release screenshots; found ${images}`);
-  if (loadedDiagrams.size !== 3) assetErrors.push(`Expected 3 diagrams; found ${loadedDiagrams.size}`);
+  if (loadedDiagrams.size !== 6) assetErrors.push(`Expected 6 diagrams; found ${loadedDiagrams.size}`);
   results.push({ name: 'Standalone documentation and internal links', passed: pageErrors.length === 0, detail: pageErrors.length ? pageErrors.slice(0, 3).join('; ') : `${documentation.length} pages and ${links.size} internal links checked` });
   results.push({ name: 'Documentation images and diagrams', passed: assetErrors.length === 0, detail: assetErrors.length ? assetErrors.slice(0, 3).join('; ') : `${images} screenshots decoded; ${loadedDiagrams.size} diagrams rendered` });
   return { results, details };

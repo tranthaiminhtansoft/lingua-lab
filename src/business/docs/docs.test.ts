@@ -101,9 +101,11 @@ describe('standalone documentation sources', () => {
       expect(html).not.toMatch(/<iframe[^>]*(?:scrolling\s*=|height:\s*\d{4,}px)/i);
     }
     expect(delivery).toContain('height:760px');
-    expect(delivery).toContain('.release-sequence-frame { width:100%; max-width:100%; height:1120px; }');
-    expect(delivery).toContain('.ci-sequence-frame { height:1050px; }');
-    expect(delivery).toContain('.verification-frame { height:1250px; }');
+    expect(delivery).toContain('.release-sequence-frame { width:100%; max-width:100%; height:auto; aspect-ratio:1550 / 920; }');
+    expect(delivery).toContain('.ci-sequence-frame { height:auto; aspect-ratio:1220 / 700; }');
+    expect(delivery).toContain('.workflow-overview-frame { height:auto; aspect-ratio:1240 / 800; }');
+    expect(delivery).toContain('.verification-frame { height:auto; aspect-ratio:1184 / 878; }');
+    expect(delivery).toContain('.rollback-sequence-frame { height:auto; aspect-ratio:1180 / 640; }');
     expect(delivery).not.toContain('ResizeObserver');
     expect(delivery).not.toContain('scrollHeight');
   });
