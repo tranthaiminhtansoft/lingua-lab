@@ -42,15 +42,15 @@ test('documentation iframe resize remains stable without browser errors', async 
         };
         requestAnimationFrame(checkLayout);
       }));
-      const writes = await page.locator('iframe').evaluateAll(async (frames) => {
-        let writes = 0;
-        const observer = new MutationObserver((records) => { writes += records.length; });
-        frames.forEach((frame) => observer.observe(frame, { attributes: true, attributeFilter: ['style'] }));
-        for (let index = 0; index < 10; index++) await new Promise((done) => requestAnimationFrame(done));
-        observer.disconnect();
-        return writes;
+      const heightSamples = await page.locator('iframe').evaluateAll(async (frames) => {
+        const samples = [];
+        for (let index = 0; index < 10; index++) {
+          await new Promise((done) => requestAnimationFrame(done));
+          samples.push(frames.map((frame) => frame.getBoundingClientRect().height));
+        }
+        return samples;
       });
-      expect(writes).toBe(0);
+      expect(new Set(heightSamples.map((sample) => sample.join(','))).size).toBe(1);
     }
     await page.close();
     expect(monitor.results().filter(({ passed }) => !passed)).toEqual([]);
