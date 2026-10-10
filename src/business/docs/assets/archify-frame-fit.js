@@ -36,17 +36,6 @@
         });
       };
 
-      if (window.ResizeObserver) {
-        let observedWidth = frame.getBoundingClientRect().width;
-        const frameWidthObserver = new ResizeObserver((entries) => {
-          const nextWidth = entries[0]?.contentRect.width ?? frame.getBoundingClientRect().width;
-          if (Math.abs(nextWidth - observedWidth) <= 1) return;
-          observedWidth = nextWidth;
-          scheduleFit();
-        });
-        frameWidthObserver.observe(frame);
-      }
-
       frame.addEventListener('load', () => {
         const frameWindow = frame.contentWindow;
         frameWindow?.addEventListener('resize', scheduleFit);
