@@ -1,175 +1,177 @@
 # Roadmap
 
-Các hạng mục đã hoàn thành và hướng phát triển của Lingua Lab. Chưa gắn mốc thời gian cho các mục dự kiến.
+Completed work and planned development for Lingua Lab. Planned items have no target dates.
 
-## ✅ Đã hoàn thành — Sản phẩm
+## ✅ Completed — Product
 
-| Hạng mục | Nội dung |
+| Area | Scope delivered |
 |---|---|
-| **Lộ trình học tiếng Nhật** | Trang Nihongo tập hợp các nội dung học hiện có. |
-| **Kana** | Nhận biết Hiragana, Katakana và Romaji; có phần luyện tập và hướng dẫn viết. |
-| **Ngữ pháp** | Học mẫu câu, chủ đề giới thiệu bản thân và các dạng câu hỏi. |
-| **Từ vựng: thời gian** | Chủ đề Time với lịch mẫu cố định, ngày/tháng, mốc ngày/đêm, buổi, tần suất và cách đọc giờ/phút. |
-| **Từ vựng: giới thiệu lần đầu** | Từ và cách diễn đạt về tên, con người, nghề nghiệp, xuất xứ và lần gặp đầu tiên. |
-| **Lối vào phần học tiếng Anh** | Tiếng Anh đã xuất hiện trên trang chọn ngôn ngữ với trạng thái “sắp ra mắt”. |
+| **Japanese learning path** | The Nihongo page brings together the available Japanese learning content. |
+| **Kana** | Hiragana, Katakana, and Romaji recognition, with practice and writing guidance. |
+| **Grammar** | Sentence patterns, first introductions, and question types. |
+| **Vocabulary: Numbers** | A Number ladder organized by place value, with Kanji, Kana, Romaji, reading notes, and combined-number examples. |
+| **Vocabulary: Time** | A fixed sample calendar, dates and months, day/night references, parts of the day, frequency, and hour/minute readings. |
+| **Vocabulary: First introductions** | Words and expressions for names, people, occupations, origins, and meeting someone for the first time. |
+| **English learning entry point** | English appears on the language selection page with a “Coming soon” status. |
 
-## ✅ Đã hoàn thành — Kỹ thuật & phát hành
+## ✅ Completed — Engineering and delivery
 
-| Hạng mục | Nội dung |
+| Area | Scope delivered |
 |---|---|
-| **CI cho pull request** | Workflow kiểm tra các thay đổi phù hợp trước khi merge vào `master`. |
-| **Phát hành production** | Quy trình tạo release branch, build, yêu cầu phê duyệt, deploy lên GitHub Pages và xác minh các route sau deploy. |
-| **Rollback** | Workflow khôi phục một bản phát hành ổn định đã lưu, sau đó xác minh site được khôi phục. |
-| **Tài liệu vận hành** | Có hướng dẫn trước/sau phát hành, phát hành và rollback; tài liệu tham chiếu mô tả topology ứng dụng, CI, delivery và các bước kiểm chứng. |
+| **Pull-request CI** | Workflows validate applicable changes before they can be merged into `master`. |
+| **Production releases** | A release-branch workflow builds a candidate, requests approval, deploys to GitHub Pages, and verifies routes after deployment. |
+| **Rollback** | A workflow restores a saved stable release and verifies the recovered site. |
+| **Operational documentation** | Pre-release, post-release, release, and rollback guides are available. Reference documentation covers application topology, CI, delivery, and verification procedures. |
+| **Branch naming policy** | The required `Release Gate` validates PR source branches using `feature/homelab/**` and `release/homelab/**` prefixes. The release workflow generates `release/homelab/YYYYMMDD`. |
 
-## 🔜 Dự kiến
+## 🔜 Planned
 
-Tiếp tục với **Grammar bổ trợ → Mở rộng câu hỏi thời gian**. Chủ đề **Bảng chữ số** và **Time** trong Vocabulary đã hoàn thành và được ghi nhận ở phần trên. Grammar bổ trợ gồm ba bài theo thứ tự **Động từ lịch sự → Nối danh từ → Thời gian & địa điểm**; phần địa điểm sẽ bổ sung sau khi có nội dung bài học mới. Phần học tiếng Anh là định hướng tương lai.
+Continue with **Supplemental Grammar → Expand time questions**. **Numbers** and **Time** in Vocabulary are complete. Supplemental Grammar consists of three lessons in this order: **Polite verb forms → Connecting nouns → Time & place**. The place section will be added after new lesson content is available. English learning remains a future direction.
 
-**Quy ước chung cho các bài mới**
+**Shared requirements for new lessons**
 
-- Nhãn giao diện, nghĩa và phần giải thích dùng **tiếng Anh**, đồng nhất với các bài hiện tại.
-- Chữ Nhật có Kanji phải kèm cách đọc bằng Hiragana hoặc Katakana và Romaji. Các mục viết bằng Kana cũng kèm Romaji.
-- Cách đọc thay thế và biến âm phải được thể hiện rõ. Dùng màu và chữ đậm để nhấn mạnh, giữ cách nhấn nhất quán giữa các bài.
-- Nội dung dưới đây mô tả yêu cầu đầy đủ; không cần ảnh hoặc video trong cuộc trò chuyện để triển khai. Đối chiếu cách đọc tiếng Nhật với nguồn học đáng tin cậy khi xây dựng dữ liệu bài học.
+- Use **English** for interface labels, meanings, and explanations, consistent with existing lessons.
+- For Japanese written with Kanji, include a Hiragana or Katakana reading and Romaji. Kana-only entries also include Romaji.
+- Clearly show alternate readings and sound changes. Use color and bold consistently across lessons to highlight them.
+- The requirements below are complete specifications; implementation does not depend on images or video from the conversation. Verify Japanese readings against reliable learning references when preparing lesson data.
 
-**ID checklist:** Mỗi task có một ID duy nhất theo nhóm nội dung. Giữ nguyên ID khi đổi thứ tự, chuyển mục hoặc đánh dấu hoàn thành; task mới dùng số tiếp theo trong nhóm, không đánh lại số hoặc tái sử dụng ID đã cấp.
+**Checklist IDs:** Each task has a unique ID within its content group. Keep an ID when reordering, moving, or completing a task. Assign new tasks the next available number in that group; do not renumber or reuse IDs.
 
-### Bảng chữ số
+### Vocabulary: Numbers — completed
 
-Bài riêng **Numbers** trên trang Nihongo, đứng trước **Vocabulary** trong danh sách bài học. Chỉ dùng bố cục **Number ladder**, nhóm số theo hàng giá trị. Mỗi mục hiển thị Kanji ở trên, Kana và Romaji ở dưới; ví dụ ghép số đặt riêng bên dưới các nhóm.
+The dedicated **Numbers** lesson appears on the Nihongo page before **Vocabulary**. It uses a single **Number ladder** layout, grouping numbers by place value. Kanji appears above Kana and Romaji; combined-number examples are shown separately below the groups.
 
-**Bố cục giao diện**
+**Layout**
 
-| Màn hình | Cách sắp xếp |
+| Screen | Arrangement |
 |---|---|
-| **Number ladder** trên màn hình rộng | Năm nhóm theo hàng giá trị (Ones đến Ten-thousands); mỗi nhóm có chín số cùng hàng. |
-| **Number ladder** trên màn hình nhỏ (≤620 px) | Mỗi nhóm hiển thị ba cột, ba hàng; ghi chú đọc mở thành panel bên dưới nhóm. |
+| **Number ladder**, wide screens | Five place-value groups (Ones through Ten-thousands), each with nine numbers in that place. |
+| **Number ladder**, small screens (≤620 px) | Each group uses three columns and three rows. Reading notes open in a panel below the group. |
 
-Mỗi nhóm Number ladder có chín mục theo hệ số 1–9. Số nổi bật, Kanji đứng trên Kana và Romaji; cách đọc thay thế hoặc phần biến âm được tô màu, in đậm và giải thích trong reading notes. Ví dụ ghép số nằm riêng bên dưới các nhóm.
+Each Number ladder group has nine entries for multipliers 1–9. The number is prominent, with Kanji above Kana and Romaji. Alternate readings and irregular sound changes are highlighted in color and bold, and explained in reading notes. Combined-number examples appear separately below the groups.
 
 **Checklist**
 
-- [x] `NUM-001` Chuẩn bị đủ 45 mục số cùng cách đọc Kana, Romaji và các cách đọc thay thế phù hợp.
-- [x] `NUM-002` Tạo Number ladder với năm nhóm hàng giá trị, mỗi nhóm chín mục theo thứ tự hệ số 1–9.
-- [x] `NUM-003` Tô màu và in đậm cách đọc thay thế hoặc phần biến âm khác quy tắc.
-- [x] `NUM-004` Đặt ví dụ ghép số riêng bên dưới nội dung chính, kèm Kana và Romaji, có ví dụ tương ứng cho từng hàng giá trị.
-- [x] `NUM-005` Tạo bài Numbers và thêm thẻ bài học đứng trước Vocabulary trên trang Nihongo.
-- [x] `NUM-006` Kiểm tra bố cục và cách đọc trên màn hình nhỏ: ladder chuyển thành ba cột, không tràn ngang; reading notes không gây tràn trang.
-- [x] `NUM-007` Kiểm tra mở bài từ trang Nihongo, quay lại danh sách bài học và tải lại URL trực tiếp.
+- [x] `NUM-001` Prepare all 45 number entries with Kana, Romaji, and applicable alternate readings.
+- [x] `NUM-002` Build a Number ladder with five place-value groups, each containing nine entries ordered by multipliers 1–9.
+- [x] `NUM-003` Highlight alternate readings and irregular sound changes with color and bold text.
+- [x] `NUM-004` Place combined-number examples below the main content, with Kana and Romaji examples for each place value.
+- [x] `NUM-005` Create the Numbers lesson and add its lesson card before Vocabulary on the Nihongo page.
+- [x] `NUM-006` Check small-screen layout: the ladder becomes three columns without horizontal overflow, and reading notes do not cause page overflow.
+- [x] `NUM-007` Check opening the lesson from Nihongo, returning to the lesson list, and loading its URL directly.
 
-### Từ vựng thời gian — đã hoàn thành
+### Vocabulary: Time — completed
 
-Bài hiện có tại `/nihongo-o-benkyuo/vocabulary/time`, với ngày mẫu **October 15, 2026**. Liên kết học tiếp mở nhóm **When & what time?** hiện có; bổ sung liên kết Grammar khi các bài bổ trợ được triển khai. Kiểm tra desktop/mobile, mở trực tiếp và tải lại URL đã qua trên Chromium, Firefox và WebKit.
+The lesson is available at `/nihongo-o-benkyuo/vocabulary/time` and uses **October 15, 2026** as its sample date. The continue-learning link opens the existing **When & what time?** group. Add Grammar links as supplemental lessons become available. Desktop and mobile layouts, direct navigation, and page reloads have been verified in Chromium, Firefox, and WebKit.
 
-Chủ đề **Time** trong Vocabulary. Dùng **một ngày mẫu cố định** làm mốc “today”; ghi rõ đây là lịch mẫu phục vụ học tập. Chọn tháng có 31 ngày và ngày mẫu ở giữa tháng để cả năm mốc ngày/đêm đều nằm trong lịch. Lưu ngày mẫu trong dữ liệu bài học, mọi mốc tương đối được tính từ ngày này.
+Use **one fixed sample date** as “today” and label it as a learning calendar. Choose a 31-day month and a sample date near the middle so all five relative day/night references fit within the calendar. Store the sample date in lesson data and calculate all relative references from that date.
 
-**Bố cục bài học**
+**Lesson layout**
 
-Toàn bộ nội dung nằm trong **cùng một khung lịch**. Các ngày, mốc tương đối, buổi và tần suất xuất hiện ngay trên lịch. Phần **đọc giờ và phút** nằm cạnh hoặc dưới lịch tháng, vẫn thuộc khung lịch; ví dụ ghép giờ-phút đặt bên dưới phần này.
+Keep all content in **one calendar frame**. Show dates, relative references, parts of the day, and frequency on the calendar. Place **hour and minute readings** beside or below the monthly calendar, within the same frame; put combined hour-and-minute examples below this section.
 
-**Nội dung cần có**
+**Required content**
 
-- **Các ngày trong tuần:** đủ Monday–Sunday trên tiêu đề cột lịch.
-- **Ngày và tháng:** cách đọc ngày 1–31 trong tháng và đủ January–December trong phần tháng của khung lịch.
-- **Mốc ngày:** the day before yesterday, yesterday, today, tomorrow, the day after tomorrow — gắn vào năm ngày tương ứng quanh ngày mẫu.
-- **Mốc ban đêm:** the night before last, last night, tonight, tomorrow night, the night after next — gắn vào phần ban đêm của năm ngày tương ứng.
-- **Buổi trong ngày:** morning, afternoon, evening, night; có nhãn riêng để phân biệt buổi chiều, buổi tối và ban đêm, dùng icon mặt trời/mặt trăng kèm chữ.
-- **Tần suất:** every morning, every afternoon, every evening, every day, every night; biểu diễn một lần tại phần buổi/ngày tương ứng của ngày mẫu trong khung lịch.
-- **Giờ và phút:** giờ 1時–12時 và bảng phút 1分–10分; đồng hồ tương tác cho phép chọn phút 0–59, mỗi mục có Kana và Romaji. Giải thích cách đọc 分 là *ふん/ぷん* và biến âm theo số; thêm 何分（なんぷん, *nanpun*）với nghĩa “what minute?”. Nhấn màu/in đậm cách đọc đặc biệt; cách đọc ghép giờ-phút cập nhật theo hai kim và hiển thị dưới đồng hồ.
-- **Cách diễn đạt giờ:** 午前（ごぜん, *gozen* — a.m.）, 午後（ごご, *gogo* — p.m.）và 半（はん, *han* — half past）trong phần đọc giờ để chuẩn bị cho các mẫu hỏi đáp.
+- **Days of the week:** Monday–Sunday in the calendar column headings.
+- **Dates and months:** readings for dates 1–31 and all January–December month names in the calendar frame.
+- **Relative days:** the day before yesterday, yesterday, today, tomorrow, and the day after tomorrow, placed on the five corresponding dates around the sample date.
+- **Night references:** the night before last, last night, tonight, tomorrow night, and the night after next, placed in the night portion of the corresponding five dates.
+- **Parts of the day:** morning, afternoon, evening, and night. Label afternoon, evening, and night distinctly; use sun/moon icons with text labels.
+- **Frequency:** every morning, every afternoon, every evening, every day, and every night. Show each once in the matching part of the sample date on the calendar.
+- **Hours and minutes:** readings for 1時–12時 and a 1分–10分 reference table; an interactive clock that selects minutes 0–59, with Kana and Romaji for every entry. Explain 分 readings *ふん/ぷん* and number-based sound changes. Add 何分（なんぷん, *nanpun*), meaning “what minute?”. Highlight special readings in color/bold. Update the combined hour-and-minute reading beneath the clock as its hands move.
+- **Time expressions:** 午前（ごぜん, *gozen* — a.m.）, 午後（ごご, *gogo* — p.m.）, and 半（はん, *han* — half past）in the time-reading section, as preparation for related question-and-answer patterns.
 
 **Checklist**
 
-- [x] `TIME-001` Chuẩn bị đủ các nhóm nội dung ở trên, kèm Kana, Romaji và nghĩa tiếng Anh.
-- [x] `TIME-002` Chọn ngày mẫu cố định; bố trí đúng thứ và ngày trong tháng, tính năm mốc ngày/đêm từ ngày mẫu thay vì ngày hiện tại của thiết bị.
-- [x] `TIME-003` Tạo khung lịch chứa ngày trong tuần, ngày trong tháng và đủ tên/cách đọc 12 tháng.
-- [x] `TIME-004` Gắn các mốc ngày/đêm vào đúng ô ngày và sắp theo thứ tự trước đây → hiện tại → sắp tới.
-- [x] `TIME-005` Thể hiện các buổi và tần suất ngay trên lịch; dùng icon mặt trời/mặt trăng kèm nhãn chữ rõ nghĩa.
-- [x] `TIME-006` Thêm bảng đọc 12 giờ và 10 phút trong cùng khung lịch, kèm đồng hồ tương tác để đọc các phút còn lại, nhấn cách đọc đặc biệt và giải thích quy tắc 分.
-- [x] `TIME-007` Hiển thị cách đọc ghép giờ-phút dưới đồng hồ tương tác, kèm Kana và Romaji.
-- [x] `TIME-008` Bổ sung a.m./p.m. và cách nói half past vào phần đọc giờ trong khung lịch.
-- [x] `TIME-009` Tạo chủ đề Time và liên kết từ trang Vocabulary.
-- [x] `TIME-010` Thêm liên kết học tiếp tới nhóm câu hỏi thời gian trong Grammar → Question types và các bài Grammar bổ trợ khi nội dung đích đã có.
-- [x] `TIME-011` Kiểm tra đọc đủ nội dung trên màn hình nhỏ, bao gồm các mốc ngày/đêm và bảng giờ/phút.
-- [x] `TIME-012` Kiểm tra mở bài từ Vocabulary, quay lại danh sách chủ đề và tải lại URL trực tiếp; mốc “today” luôn là ngày mẫu cố định.
-- [x] `TIME-013` Tạo đồng hồ tương tác kéo kim giờ/phút, có thanh điều chỉnh dùng bàn phím, lựa chọn a.m./p.m., cách đọc riêng từng kim và cách đọc kết hợp; thêm half past ở phút 30.
+- [x] `TIME-001` Prepare every content group above with Kana, Romaji, and English meanings.
+- [x] `TIME-002` Choose a fixed sample date; place dates and weekdays correctly, and calculate relative day/night references from it instead of the device's current date.
+- [x] `TIME-003` Build the calendar frame with weekdays, dates, and all 12 month names/readings.
+- [x] `TIME-004` Place day/night references on the correct dates and order them past → present → future.
+- [x] `TIME-005` Show parts of the day and frequency on the calendar with clearly labeled sun/moon icons.
+- [x] `TIME-006` Add 12-hour and 10-minute reading tables in the calendar frame, plus an interactive clock for remaining minutes; highlight special readings and explain 分 rules.
+- [x] `TIME-007` Show the combined hour-and-minute reading beneath the interactive clock with Kana and Romaji.
+- [x] `TIME-008` Add a.m./p.m. and half-past expressions to the time-reading section in the calendar frame.
+- [x] `TIME-009` Create the Time topic and link to it from Vocabulary.
+- [x] `TIME-010` Add a continue-learning link to the time-question group in Grammar → Question types, and to supplemental Grammar lessons when their destinations exist.
+- [x] `TIME-011` Check all content on small screens, including day/night references and hour/minute tables.
+- [x] `TIME-012` Check navigation from Vocabulary, returning to the topic list, and reloading the direct URL; “today” always uses the fixed sample date.
+- [x] `TIME-013` Add a hands-on interactive clock with draggable hour/minute hands, keyboard-accessible sliders, a.m./p.m. selection, separate hand readings, and the combined reading; include half past at minute 30.
 
-### Mở rộng câu hỏi thời gian
+### Expand time questions
 
-Mở rộng nhóm **When & what time?** hiện có trong **Grammar → Question types**. Bài Vocabulary → Time dẫn tới nhóm này để người học chuyển từ nhận biết từ vựng sang đặt câu hỏi. Các mẫu có liên kết tới bài Grammar giải thích cấu trúc tương ứng.
+Expand the existing **When & what time?** group in **Grammar → Question types**. Vocabulary → Time links to this group so learners can move from recognizing vocabulary to asking questions. Link each pattern to the relevant supplemental Grammar lesson.
 
-**Nội dung cần có**
+**Required patterns**
 
-| Tình huống | Mẫu câu cần học |
+| Situation | Pattern |
 |---|---|
-| Hỏi giờ hiện tại | 今、何時ですか — *Ima, nanji desu ka?* |
-| Hỏi giờ của sự kiện | N は 何時ですか — *N wa nanji desu ka?*; câu trả lời có giờ, phút, a.m./p.m. hoặc half past. |
-| Biết giờ, hỏi phần phút | N は X時何分ですか — *N wa X-ji nanpun desu ka?*; trả lời thời điểm cụ thể. |
-| Hỏi giờ thực hiện hành động | 何時に V-ますか／何時に V-ましたか — *Nanji ni V-masu ka? / Nanji ni V-mashita ka?*; ví dụ giờ thức dậy, đi ngủ, kết thúc buổi họp. |
-| Hỏi khoảng giờ, điểm bắt đầu hoặc kết thúc | 何時から何時まで V-ますか — *Nanji kara nanji made V-masu ka?*; thêm mẫu chỉ hỏi 何時から hoặc 何時まで. |
-| Hỏi khoảng ngày trong tuần | 何曜日から何曜日まで V-ますか — *Nan-yōbi kara nan-yōbi made V-masu ka?*; ví dụ các ngày làm việc. |
+| Ask for the current time | 今、何時ですか — *Ima, nanji desu ka?* |
+| Ask when an event takes place | N は 何時ですか — *N wa nanji desu ka?*; answers include the hour, minute, a.m./p.m., or half past. |
+| Know the hour and ask for the minute | N は X時何分ですか — *N wa X-ji nanpun desu ka?*; answer with the specific time. |
+| Ask when an action happens | 何時に V-ますか／何時に V-ましたか — *Nanji ni V-masu ka? / Nanji ni V-mashita ka?*; examples include waking up, going to bed, and ending a meeting. |
+| Ask for a time range, start, or end | 何時から何時まで V-ますか — *Nanji kara nanji made V-masu ka?*; also include questions using only 何時から or 何時まで. |
+| Ask for a range of weekdays | 何曜日から何曜日まで V-ますか — *Nan-yōbi kara nan-yōbi made V-masu ka?*; for example, workdays. |
 
-Giữ các mẫu **いつ** (*itsu*) hiện có và giải thích lựa chọn từ hỏi: *itsu* hỏi khi nào, *nanji* hỏi giờ, *nanpun* hỏi phần phút, *nan-yōbi* hỏi thứ trong tuần. Ví dụ về thói quen, kế hoạch và hành động đã xảy ra phải dùng đuôi động từ phù hợp; hiện tại/thói quen và tương lai cùng dùng dạng non-past.
+Keep the existing **いつ** (*itsu*) patterns and explain question-word choices: *itsu* asks when, *nanji* asks what time, *nanpun* asks what minute, and *nan-yōbi* asks which day of the week. Examples about habits, plans, and completed actions must use the appropriate verb form. Non-past forms express present habits or future plans according to context.
 
 **Checklist**
 
-- [ ] `TIME-Q-001` Mở rộng nhóm When & what time? với đủ sáu tình huống trong bảng, giữ các mẫu đang có.
-- [ ] `TIME-Q-002` Mỗi tình huống có công thức, ít nhất một cặp câu hỏi–trả lời, Kana, Romaji và nghĩa tiếng Anh.
-- [ ] `TIME-Q-003` Bổ sung ví dụ a.m./p.m., half past, thói quen, kế hoạch và hành động đã xảy ra ở các tình huống phù hợp.
-- [ ] `TIME-Q-004` Phân biệt câu hỏi thời điểm/sự kiện dùng です với giờ thực hiện hành động dùng に + động từ.
-- [ ] `TIME-Q-005` Phân biệt hỏi phút của một thời điểm với hỏi độ dài thời gian trong nhóm How long hiện có.
-- [ ] `TIME-Q-006` Liên kết từng nhóm mẫu tới bài Grammar bổ trợ, đồng thời thêm đường học tiếp từ Vocabulary → Time.
-- [ ] `TIME-Q-007` Kiểm tra điều hướng tới đúng nhóm câu hỏi, cách đọc và bố cục trên màn hình nhỏ.
+- [ ] `TIME-Q-001` Expand When & what time? with all six situations in the table and retain its existing patterns.
+- [ ] `TIME-Q-002` Give each situation a formula and at least one question-and-answer pair with Kana, Romaji, and English meaning.
+- [ ] `TIME-Q-003` Add suitable examples for a.m./p.m., half past, habits, plans, and completed actions.
+- [ ] `TIME-Q-004` Distinguish time/event questions using です from action-time questions using に + a verb.
+- [ ] `TIME-Q-005` Distinguish asking for the minute of a time from asking for a duration in the existing How long? group.
+- [ ] `TIME-Q-006` Link each pattern group to supplemental Grammar lessons and add a continue-learning path from Vocabulary → Time.
+- [ ] `TIME-Q-007` Check navigation to the correct question group, readings, and small-screen layout.
 
-### Grammar bổ trợ
+### Supplemental Grammar
 
-Ba bài riêng nằm trong **Grammar**, theo thứ tự dưới đây. Các bài giải thích cấu trúc và có ví dụ ứng dụng; mẫu hỏi đáp được liên kết với nhóm câu hỏi thời gian.
+Create three separate lessons in **Grammar**, in the order below. Each lesson explains its structure and gives applied examples; link relevant question-and-answer patterns to the time-question group.
 
-**1. Động từ lịch sự — Polite verb forms**
+**1. Polite verb forms**
 
-Giải thích câu có vị ngữ danh từ và câu có vị ngữ động từ; liên hệ phần です đã học. Dạy bốn dạng **ます／ません／ました／ませんでした**, phân biệt khẳng định/phủ định và non-past/past. Dạng non-past diễn đạt thói quen hoặc kế hoạch tương lai tùy ngữ cảnh.
+Explain sentences with noun predicates and verb predicates, relating them to the previously learned です. Teach **ます／ません／ました／ませんでした** and distinguish affirmative/negative and non-past/past forms. Non-past forms express habits or future plans depending on context.
 
-- [ ] `GR-VERB-001` Tạo bài Polite verb forms trên trang Grammar.
-- [ ] `GR-VERB-002` Trình bày bảng bốn dạng, làm nổi bật phần đuôi thay đổi và kèm Kana/Romaji.
-- [ ] `GR-VERB-003` Dùng các động từ phục vụ lịch sinh hoạt: thức dậy, đi ngủ, làm việc, nghỉ, học và kết thúc.
-- [ ] `GR-VERB-004` Có ví dụ khẳng định/phủ định ở hiện tại, tương lai và quá khứ; giải thích ngữ cảnh xác định ý nghĩa thời gian.
-- [ ] `GR-VERB-005` Liên kết tới các câu hỏi giờ thực hiện hành động và bài Thời gian & địa điểm.
+- [ ] `GR-VERB-001` Create a Polite verb forms lesson in Grammar.
+- [ ] `GR-VERB-002` Present the four forms in a table, highlight the changing endings, and include Kana/Romaji.
+- [ ] `GR-VERB-003` Use daily-routine verbs: wake up, go to bed, work, rest, study, and finish.
+- [ ] `GR-VERB-004` Give affirmative/negative examples in present, future, and past contexts; explain how context determines time meaning.
+- [ ] `GR-VERB-005` Link to questions about when an action happens and to Time & place.
 
-**2. Nối danh từ — Connecting nouns**
+**2. Connecting nouns**
 
-Dạy **N1 と N2** (*N1 to N2*) để nối hai danh từ. Ví dụ chính gồm các ngày nghỉ trong tuần; thêm ví dụ nối người hoặc vật để cho thấy cấu trúc dùng được ngoài chủ đề thời gian. Giải thích danh từ 休み（やすみ, *yasumi*）và động từ 休みます（やすみます, *yasumimasu*）trong hai cách diễn đạt ngày nghỉ.
+Teach **N1 と N2** (*N1 to N2*) to connect two nouns. Use days off during the week as the main example, with additional examples connecting people or objects to show that the pattern applies beyond time. Explain the noun 休み（やすみ, *yasumi*）and verb 休みます（やすみます, *yasumimasu*）in expressions about days off.
 
-- [ ] `GR-NOUN-001` Tạo bài Connecting nouns trên trang Grammar, sau Polite verb forms.
-- [ ] `GR-NOUN-002` Giải thích và minh họa と nối danh từ, kèm Kana/Romaji và nghĩa tiếng Anh.
-- [ ] `GR-NOUN-003` Có ví dụ các ngày nghỉ và ví dụ nối người hoặc vật.
-- [ ] `GR-NOUN-004` So sánh câu dùng danh từ 休み + です với câu dùng động từ 休みます.
-- [ ] `GR-NOUN-005` Liên kết tới bài Thời gian & địa điểm để giải thích cách dùng に khi nói về các ngày trong tuần.
+- [ ] `GR-NOUN-001` Create a Connecting nouns lesson in Grammar after Polite verb forms.
+- [ ] `GR-NOUN-002` Explain and illustrate と between nouns, with Kana/Romaji and English meanings.
+- [ ] `GR-NOUN-003` Include examples about days off and examples connecting people or objects.
+- [ ] `GR-NOUN-004` Compare sentences using the noun 休み + です with sentences using the verb 休みます.
+- [ ] `GR-NOUN-005` Link to Time & place to explain に when talking about weekdays.
 
-**3. Thời gian & địa điểm — Time & place**
+**3. Time & place**
 
-Một bài chung cho cách diễn đạt thời gian và địa điểm. **Giai đoạn hiện tại triển khai phần thời gian**: thời điểm với に, cách đưa thời gian thành chủ đề bằng は, khoảng thời gian với から・まで. Phần địa điểm sẽ bổ sung sau khi người dùng học bài mới và chốt phạm vi.
+One lesson covering expressions for time and place. **The current implementation scope is the time section:** time points with に, making time the topic with は, and ranges with から・まで. Add the place section after the user has studied the new material and confirmed its scope.
 
-- [ ] `GR-TIME-001` Tạo bài Time & place trên trang Grammar, sau Connecting nouns; xác định rõ phần thời gian đang có và phần địa điểm dự kiến.
-- [ ] `GR-TIME-002` Giải thích **thời điểm + に + động từ**, phân biệt với câu chỉ nói giờ hiện tại/sự kiện bằng です.
-- [ ] `GR-TIME-003` Có ví dụ cần に với giờ/ngày cụ thể, có thể dùng hoặc bỏ に với ngày trong tuần, và thường không dùng に với các mốc tương đối như today/tomorrow hoặc tần suất every day.
-- [ ] `GR-TIME-004` Có ví dụ đưa ngày/thời gian thành chủ đề bằng は, như “as for today”.
-- [ ] `GR-TIME-005` Dạy **A から B まで** (*A kara B made*), có ví dụ khoảng giờ, khoảng ngày trong tuần và khoảng ngủ qua đêm.
-- [ ] `GR-TIME-006` Giải thích から và まで có thể dùng riêng; có ví dụ chỉ nêu điểm bắt đầu hoặc kết thúc.
-- [ ] `GR-TIME-007` Liên kết tới câu hỏi 何時に, 何時から／まで và 何曜日から／まで trong Question types.
+- [ ] `GR-TIME-001` Create a Time & place lesson in Grammar after Connecting nouns; clearly identify the available time section and planned place section.
+- [ ] `GR-TIME-002` Explain **time point + に + verb**, distinguishing it from current-time/event sentences using です.
+- [ ] `GR-TIME-003` Include examples where に is used with specific times/dates, may be used or omitted with weekdays, and is generally omitted with relative references such as today/tomorrow or every day.
+- [ ] `GR-TIME-004` Include examples that make a day/time the topic with は, such as “as for today”.
+- [ ] `GR-TIME-005` Teach **A から B まで** (*A kara B made*) with ranges of time, weekdays, and overnight sleep.
+- [ ] `GR-TIME-006` Explain that から and まで can be used separately, with examples giving only a start or an end point.
+- [ ] `GR-TIME-007` Link to questions using 何時に, 何時から／まで, and 何曜日から／まで in Question types.
 
-**Địa điểm — bổ sung sau**
+**Place — add later**
 
-- [ ] `GR-PLACE-001` Chốt nội dung phần địa điểm sau khi người dùng học bài mới, rồi mở rộng trong cùng bài Time & place.
+- [ ] `GR-PLACE-001` Confirm the place-section content after the user studies the new lesson, then extend the existing Time & place lesson.
 
-**Kiểm tra chung cho Grammar bổ trợ**
+**Shared checks for supplemental Grammar**
 
-- [ ] `GR-QA-001` Cả ba bài có liên kết từ trang Grammar và đường quay lại danh sách bài học.
-- [ ] `GR-QA-002` Công thức, ví dụ, câu hỏi và câu trả lời đều tuân theo quy ước tiếng Anh + Kana + Romaji.
-- [ ] `GR-QA-003` Kiểm tra bố cục trên màn hình nhỏ, các liên kết học tiếp và tải lại URL trực tiếp.
+- [ ] `GR-QA-001` Link all three lessons from the Grammar page and provide a route back to the lesson list.
+- [ ] `GR-QA-002` Follow the English + Kana + Romaji convention in formulas, examples, questions, and answers.
+- [ ] `GR-QA-003` Check small-screen layout, continue-learning links, and direct URL reloads.
 
-### Phần học tiếng Anh
+### English learning
 
-Phát triển nội dung học tiếng Anh bên cạnh mục giới thiệu “sắp ra mắt”. Cần xác định chủ đề và phạm vi bài học trước khi triển khai.
+Develop English-learning content alongside the existing “Coming soon” entry. Define lesson topics and scope before implementation.
 
-> Chuyển một mục sang **Đã hoàn thành** khi tính năng đã có thể sử dụng trong ứng dụng. Chỉ thêm mốc thời gian khi đã thống nhất.
+> Move an item to **Completed** when the feature is usable in the application. Add a target date only after it has been agreed.
