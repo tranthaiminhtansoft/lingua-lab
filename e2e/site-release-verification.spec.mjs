@@ -27,6 +27,21 @@ test('documentation iframe resize remains stable without browser errors', async 
         }))).toBe(true);
         await page.evaluate(() => new Promise((done) => requestAnimationFrame(() => requestAnimationFrame(done))));
       }
+      await page.locator('iframe').evaluateAll((frames) => Promise.all(frames.map((frame) => frame.contentDocument?.fonts?.ready)));
+      await page.evaluate(() => new Promise((done) => {
+        let previous = '';
+        let stableFrames = 0;
+        const checkLayout = () => {
+          const current = [...document.querySelectorAll('iframe')]
+            .map((frame) => frame.getBoundingClientRect().height)
+            .join(',');
+          stableFrames = current === previous ? stableFrames + 1 : 0;
+          previous = current;
+          if (stableFrames >= 3) done();
+          else requestAnimationFrame(checkLayout);
+        };
+        requestAnimationFrame(checkLayout);
+      }));
       const writes = await page.locator('iframe').evaluateAll(async (frames) => {
         let writes = 0;
         const observer = new MutationObserver((records) => { writes += records.length; });
