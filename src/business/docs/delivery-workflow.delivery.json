@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
-  "receiptId": "edc78474-cbe7-4f18-87c1-3247e2405a4f",
+  "receiptId": "27ffb3d0-38b3-46fd-b519-b56c774a2883",
   "status": "current",
   "command": "deliver",
   "type": "workflow",
-  "input": "/Users/tranthaiminhtan/homelab_practice/lingua-lab/src/business/docs/delivery-workflow.json",
-  "output": "/Users/tranthaiminhtan/homelab_practice/lingua-lab/src/business/docs/delivery-workflow.html",
+  "input": "/Users/tranthaiminhtan/.codex/worktrees/6698/lingua-lab/src/business/docs/delivery-workflow.json",
+  "output": "/Users/tranthaiminhtan/.codex/worktrees/6698/lingua-lab/src/business/docs/delivery-workflow.html",
   "specification": {
-    "sha256": "c8bc22903efc677273a635c51dbdc36c2859a14f1ece435cfd4ac69754ee4599",
-    "bytes": 4568
+    "sha256": "21afa9ff793d73a54746e745bdeccfb3d17a30b2f4cdb1d357e27a6e147b1271",
+    "bytes": 5443
   },
   "artifact": {
-    "sha256": "59299101263eaf9981084904a4a76b4078c1c64023ec0c7907b06dddb24afcda",
-    "bytes": 760303
+    "sha256": "dd7bbceb85a5a180a21aa17a88787f6aa25415a4f23d7f2fd0fc8854ff7b65e7",
+    "bytes": 759089
   }
 }

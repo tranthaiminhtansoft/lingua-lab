@@ -1,48 +1,292 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Delivery and release workflow — Lingua Lab</title>
-<style>:root{color-scheme:light;font:16px/1.65 system-ui,sans-serif;color:#172033;background:#f7f9fc}body{max-width:1040px;margin:auto;padding:2rem 1.25rem}a{color:#075e8c}header,main{background:white;border:1px solid #dce4ed;border-radius:1rem;padding:1.5rem}header{margin-bottom:1rem}nav{display:flex;flex-wrap:wrap;gap:.75rem 1.25rem}section{margin:1.5rem 0}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}.card{border:1px solid #dce4ed;border-radius:.75rem;padding:1rem}table{border-collapse:collapse;width:100%}th,td{text-align:left;vertical-align:top;border:1px solid #dce4ed;padding:.65rem}th{background:#edf3f8}iframe{display:block;width:100%;height:auto;border:1px solid #ccd5df;border-radius:.75rem}.warning{border-left:4px solid #9b6a00;background:#fff8e8;padding:.75rem 1rem}</style>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('iframe').forEach(frame => {
-    let pendingResize = 0;
-    const resize = () => {
-      pendingResize = 0;
-      try {
-        const doc = frame.contentDocument;
-        if (!doc) return;
-        const height = Math.ceil(Math.max(doc.documentElement.scrollHeight, doc.body?.scrollHeight || 0));
-        const nextHeight = height + 'px';
-        if (height && frame.style.height !== nextHeight) frame.style.height = nextHeight;
-      } catch { /* Cross-origin frames retain their intrinsic fallback height. */ }
-    };
-    // ResizeObserver only schedules work; layout writes happen next frame.
-    const scheduleResize = () => {
-      if (!pendingResize) pendingResize = requestAnimationFrame(resize);
-    };
-    frame.addEventListener('load', () => {
-      scheduleResize();
-      try {
-        const doc = frame.contentDocument;
-        if (!doc) return;
-        const observer = new ResizeObserver(scheduleResize);
-        observer.observe(doc.documentElement);
-        if (doc.body) observer.observe(doc.body);
-        frame.contentWindow?.addEventListener('resize', scheduleResize);
-        doc.fonts?.ready.then(scheduleResize).catch(() => {});
-      } catch { /* Cross-origin access is intentionally optional. */ }
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CI/CD — Lingua Lab</title>
+  <style>
+    :root { color-scheme:light; font:16px/1.6 system-ui,sans-serif; color:#172033; background:#f4f7fb; }
+    * { box-sizing:border-box; }
+    body { max-width:1440px; margin:0 auto; padding:1.25rem; }
+    a { color:#075e8c; }
+    header,main { background:#fff; border:1px solid #d7e1eb; border-radius:1rem; padding:clamp(1rem,3vw,1.6rem); }
+    header { margin-bottom:1rem; }
+    code { display:inline; border:1px solid #c4deeb; background:#edf8fc; color:#064c68; border-radius:.25rem; padding:0 .25rem; overflow-wrap:anywhere; }
+    .path-list code { white-space:nowrap; overflow-wrap:normal; }
+    .paths-table th:first-child,.paths-table td:first-child { width:44%; }
+    section { margin:2rem 0; }
+    section > h2 { border-bottom:2px solid #dce6ef; padding-bottom:.45rem; }
+    h3 { margin-top:1.4rem; }
+    p,li { max-width:85ch; }
+    .lede { font-size:1.08rem; }
+    .path { display:inline-block; border:1px solid #a8d8ea; background:#e8f7fc; color:#064c68; border-radius:.3rem; padding:.05rem .35rem; overflow-wrap:anywhere; }
+    .path code { font-size:.92em; }
+    .callout { border-left:4px solid #e3a008; background:#fff8e6; padding:.7rem 1rem; border-radius:.25rem; }
+    .note { color:#46566b; }
+    .page-layout { display:grid; grid-template-columns:minmax(190px,230px) minmax(0,1fr); gap:1rem; align-items:start; }
+    .page-layout-menu-collapsed { grid-template-columns:3.25rem minmax(0,1fr); }
+    .page-menu { position:sticky; top:1rem; max-height:calc(100vh - 2rem); overflow:visible; background:#fff; border:1px solid #d7e1eb; border-radius:.9rem; padding:1rem; }
+    .page-menu.is-collapsed { height:0; min-height:0; max-height:none; overflow:visible; padding:0; border:0; background:transparent; }
+    .page-menu.is-collapsed .menu-panel { display:none; }
+    .menu-toggle { display:grid; place-items:center; position:absolute; z-index:2; top:50%; right:-1.1rem; width:2.2rem; height:2.2rem; margin:0; transform:translateY(-50%); border:1px solid #9aafc0; border-radius:.5rem 0 0 .5rem; background:#e8f3fa; color:#123c56; font-size:1.1rem; font-weight:800; cursor:pointer; }
+    .page-menu.is-collapsed .menu-toggle { position:fixed; top:50%; right:auto; left:0; transform:translateY(-50%); border-radius:0 .5rem .5rem 0; }
+    .menu-panel h2 { margin:.25rem 0 .5rem; font-size:.95rem; }
+    .menu-panel { max-height:calc(100vh - 4rem); overflow:auto; }
+    .menu-panel nav { display:grid; gap:.3rem; }
+    .menu-panel nav + h2 { margin-top:1.2rem; }
+    .menu-panel nav a { display:block; text-decoration:none; padding:.35rem .5rem; border-radius:.4rem; }
+    .menu-panel nav a:hover,.menu-panel nav a[aria-current="location"] { background:#e8f3fa; color:#073f61; font-weight:700; }
+    .menu-panel .subnav { display:grid; gap:.2rem; margin:-.15rem 0 .35rem .65rem; padding-left:.5rem; border-left:2px solid #d7e1eb; }
+    .menu-panel .subnav a { padding:.25rem .45rem; font-size:.93rem; }
+    .table-wrap { overflow-x:auto; }
+    table { width:100%; border-collapse:collapse; margin:.8rem 0 1.2rem; }
+    th,td { border:1px solid #d7e1eb; padding:.65rem .75rem; text-align:left; vertical-align:top; }
+    th { background:#edf3f8; }
+    td ul { margin:.2rem 0; padding-left:1.2rem; }
+    .diagram { margin:1rem 0 1.5rem; }
+    iframe { display:block; width:100%; height:760px; overflow:hidden; border:1px solid #cbd6e1; border-radius:.8rem; background:#f8fafc; }
+    .release-sequence-frame { width:100%; max-width:100%; height:1120px; }
+    .ci-sequence-frame { height:1050px; }
+    .workflow-overview-frame { height:1160px; }
+    .verification-frame { height:1250px; }
+    .rollback-sequence-frame { height:1000px; }
+    .legend { display:flex; flex-wrap:wrap; gap:.5rem; padding:0; list-style:none; }
+    .legend li { border:1px solid #d7e1eb; border-radius:99px; padding:.2rem .65rem; }
+    .actor { background:#f1f5f9; border-color:#94a3b8 !important; }
+    .platform { background:#fff3dc; border-color:#fbbf24 !important; }
+    .infra { background:#e9fbf4; border-color:#34d399 !important; }
+    .gate { background:#fff0f3; border-color:#fb7185 !important; }
+    .approval-required { display:inline-block; margin:0 0 .2rem; padding:.08rem .42rem; border:1px solid #e11d48; border-radius:.35rem; background:#fff1f2; color:#9f1239; font-size:.75rem; font-weight:850; letter-spacing:.035em; line-height:1.45; text-transform:uppercase; }
+    .approval-row th { border-left:4px solid #e11d48; background:#fff1f2; }
+    .small { font-size:.93rem; }
+    .status { display:inline-grid; place-items:center; width:1.35rem; height:1.35rem; margin-right:.3rem; font-weight:800; line-height:1; vertical-align:-.18em; }
+    .status.enabled,.status.pass { color:#087443; }
+    .status.disabled,.status.fail { color:#b42318; }
+    .status.na { width:auto; color:#596579; font-size:.85em; }
+    .path-list,.condition-list { margin:.2rem 0; padding-left:1.2rem; }
+    .path-list li,.condition-list li { margin:.2rem 0; }
+    .pass-list { padding-left:0; list-style:none; }
+    .gate-fail { list-style:none; margin:.7rem 0; padding:0; }
+    .gate-fail > strong::before { content:""; display:inline-block; width:.72rem; height:.72rem; margin:0 .55rem .02rem .1rem; border-radius:50%; background:#c62828; vertical-align:middle; }
+    .gate-fail ul { margin:.4rem 0 .2rem 1.5rem; }
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; clip-path:inset(50%); white-space:nowrap; border:0; }
+    @media (max-width:760px) {
+      body { padding:.65rem; }
+      .page-layout { display:block; }
+      .page-menu { position:fixed; z-index:20; top:50%; right:0; width:2.8rem; height:3.5rem; max-height:none; overflow:visible; padding:0; transform:translateY(-50%); background:transparent; border:0; box-shadow:none; transition:width .22s ease,height .22s ease; }
+      .page-menu .menu-panel { display:none; }
+      .page-menu.is-open { width:min(320px,88vw); height:auto; max-height:68vh; overflow:visible; background:#fff; border:1px solid #d7e1eb; box-shadow:0 8px 28px #17203330; }
+      .page-menu.is-open .menu-panel { display:block; }
+      .menu-toggle { display:grid; place-items:center; position:absolute; top:50%; right:0; left:auto; width:1.9rem; height:2.5rem; margin:0; transform:translateY(-50%); border:1px solid #9aafc0; border-radius:.5rem 0 0 .5rem; background:#e8f3fa; color:#123c56; font-size:1.1rem; font-weight:800; cursor:pointer; }
+      .menu-panel { max-height:68vh; overflow:auto; padding:.85rem 3rem .85rem .75rem; }
+      th,td { padding:.5rem; }
+    }
+    @media (prefers-reduced-motion:reduce) { .page-menu { transition:none; } }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const menu = document.getElementById('page-menu');
+      const toggle = document.getElementById('menu-toggle');
+      const menuPanel = document.getElementById('menu-panel');
+      const arrow = document.getElementById('menu-arrow');
+      const label = document.getElementById('menu-toggle-label');
+      const mobileMenu = window.matchMedia('(max-width: 760px)');
+      const setMenuOpen = (open) => {
+        const pageLayout = menu.closest('.page-layout');
+        menu.classList.toggle('is-open', open);
+        menu.classList.toggle('is-collapsed', !open && !mobileMenu.matches);
+        pageLayout.classList.toggle('page-layout-menu-collapsed', !open && !mobileMenu.matches);
+        toggle.setAttribute('aria-expanded', String(open));
+        arrow.textContent = mobileMenu.matches ? (open ? '›' : '‹') : (open ? '‹' : '›');
+        label.textContent = mobileMenu.matches
+          ? (open ? 'Close contents menu' : 'Open contents menu')
+          : (open ? 'Collapse documentation menu' : 'Expand documentation menu');
+        toggle.setAttribute('aria-label', label.textContent);
+        menuPanel.inert = !open;
+      };
+      toggle.addEventListener('click', () => setMenuOpen(!menu.classList.contains('is-open')));
+      mobileMenu.addEventListener('change', () => setMenuOpen(!mobileMenu.matches));
+      setMenuOpen(!mobileMenu.matches);
+
+      const links = [...document.querySelectorAll('[data-section-link]')];
+      const sections = links.map((link) => document.getElementById(link.dataset.sectionLink)).filter(Boolean);
+      let activeUpdate = 0;
+      const updateCurrentSection = () => {
+        activeUpdate = 0;
+        const current = sections.filter((section) => section.getBoundingClientRect().top <= 160).at(-1) ?? sections[0];
+        if (!current) return;
+        links.forEach((link) => {
+          if (link.dataset.sectionLink === current.id) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+      };
+      const scheduleActiveUpdate = () => {
+        if (!activeUpdate) activeUpdate = requestAnimationFrame(updateCurrentSection);
+      };
+      window.addEventListener('scroll', scheduleActiveUpdate, { passive:true });
+      window.addEventListener('resize', scheduleActiveUpdate);
+      updateCurrentSection();
+      links.forEach((link) => link.addEventListener('click', () => setMenuOpen(false)));
     });
-    window.addEventListener('resize', scheduleResize);
-  });
-});
-</script></head>
-<body><header><p class="breadcrumb"><a href="index.html">Start here</a> / <a href="reference.html">Reference</a> / CI and delivery system</p><h1>CI and delivery system</h1><nav aria-label="Documentation"><a href="index.html">Start here</a><a href="product.html">Product guide</a><a href="reference.html" aria-current="location">Reference</a><a href="procedures.html">Procedures</a></nav></header>
-<main><p>This guide describes configured repository workflows and recorded environment configuration. Workflow definitions do not establish that a particular run passed or that a production deployment is currently live.</p>
-<section><h2>Pull-request CI</h2><p><code>.github/workflows/ci.yml</code> is PR-only, targets <code>master</code>, and uses a changed-path allowlist. Eligible changes include the React app, language-home and shared code, test/public/E2E paths, root HTML/package/tooling configuration, and standalone operator docs. Changes limited to <code>.github/**</code> or <code>scripts/**</code> do not match the allowlist; changes under <code>src/business/docs/**</code> do. Repository policy and application validation are independent jobs; each starts from the PR event. The diagram shows configured jobs, not a successful run.</p><p class="warning"><strong>Branch protection caveat:</strong> a skipped path-filtered workflow can leave its check pending or skipped. Inspect the repository's current required-check policy; do not assume a skipped required check is satisfied or that path filtering provides a complete merge gate.</p><iframe title="Interactive Lingua Lab pull-request CI diagram" src="assets/ci-workflow.html" loading="lazy"></iframe></section>
-<section><h2>Release candidate and deployment path</h2><ol><li>Run <code>prd-create-release-branch.yml</code> from <code>master</code>; it creates <code>release/homelab/YYYYMMDD</code> and dispatches PRD Release.</li><li>PRD Release validates the branch/date, absence of a prior release and candidate SHA matching the protected master tip.</li><li>Gate 1: approve the candidate before build.</li><li>Build the pinned candidate, copy docs, stamp identity and retain the rollback archive/checksum plus a separate file-digest manifest. No lint, typecheck or tests run during build.</li><li>Deploy through <code>wc-release-pages.yml</code>. Verify identity, every candidate file's SHA-256, direct routes/refresh, actual navigation, legacy redirect, docs/images/diagrams, JS/CSS errors and all 142 Kana glyphs. Speech controls use a simulated voice; audible playback requires a manual browser check. Download <code>production-verification</code> for results and failure screenshots.</li><li>Gate 2: approve stable publication only after verification and the audible playback check pass.</li></ol><p class="warning"><strong>Trust boundary:</strong> dispatch from trusted <code>master</code>. Candidate code runs after gate 1; inspect the pinned SHA, results and both approvals.</p></section>
-<section><h2>Rollback and recovery</h2><p><code>prd-rollback.yml</code> supports automatic dispatch after failed post-deployment verification and manual dispatch with a stable release version. Target resolution requires a published, non-draft, non-prerelease dated release, archive, and matching checksum. Following <code>prod</code> approval it redeploys the archive and verifies restored identity and representative routes. Its summary distinguishes verified recovery from unverified recovery requiring intervention. Dispatching rollback is not proof that recovery succeeded; a deploy failure or skipped verifier also requires careful status interpretation.</p></section>
-<section><h2>Approvals and serialization</h2><p>Approval waits are not held in a workflow-level concurrency group, so a pending release approval does not block an emergency rollback approval. The actual release and rollback deployment jobs share the valid GitHub Actions concurrency group <code>lingua-lab-production-deploy</code> with cancellation disabled, which serializes Pages deployments without serializing human approval waits. GitHub keeps at most one pending run per group and may replace an older pending run; inspect queued deployment jobs and do not assume this is a durable FIFO queue.</p><p>Repository operational notes recorded required <code>prod</code> reviewer <code>tranthaiminhtansoft</code> and <code>master</code>-only policies for <code>github-pages</code> as read back on 2026-09-27. These are dated observations, not current evidence; re-read settings before a future release. Approval configuration does not mean approval was granted for any particular run.</p></section>
-<section><h2>Evidence and acceptance boundaries</h2><div class="cards"><article class="card"><h3>Configured source</h3><p>Workflow YAML and scripts describe intended automation and checks.</p></article><article class="card"><h3>Run evidence</h3><p>Inspect the exact head SHA, check conclusions, approval actor/time, and deployment verifier output.</p></article><article class="card"><h3>Live evidence</h3><p>Use the returned deployment URL to check served identity and route-specific content; HTTP success alone is insufficient.</p></article></div><p>Identity stamps and checksums have defined limits: a build stamp is not cryptographic proof of all served bytes, and archive/checksum stored together are not an independently trusted signature. Sampled routes do not prove the whole site. No production verification is asserted here.</p></section>
-<p>Pull-request CI remains the merge control; release verification checks the deployed artifact.</p>
-<section><h2>Interactive delivery workflow</h2><p>The retained Archify artifact represents configured release dependencies, not a transaction, guaranteed queue order, or live deployment observation. Its labels describe configured gates and do not assert a passing run.</p><iframe title="Interactive Lingua Lab delivery workflow diagram" src="assets/delivery-workflow.html" loading="lazy"></iframe></section>
-<section><h2>Primary repository references</h2><ul><li><a href="https://github.com/tranthaiminhtansoft/lingua-lab/blob/master/.github/workflows/ci.yml">CI workflow</a>, <a href="https://github.com/tranthaiminhtansoft/lingua-lab/blob/master/.github/workflows/prd-release.yml">release workflow</a>, and <a href="https://github.com/tranthaiminhtansoft/lingua-lab/blob/master/.github/workflows/prd-rollback.yml">rollback workflow</a>.</li><li><a href="https://github.com/tranthaiminhtansoft/lingua-lab/blob/master/.github/workflows/wc-release-pages.yml">Reusable Pages deployment</a> and <a href="https://github.com/tranthaiminhtansoft/lingua-lab/blob/master/scripts/release/verify-deployed-site.mjs">deployed-site verifier</a>.</li><li><a href="https://github.com/tranthaiminhtansoft/lingua-lab/blob/master/scripts/release/validate-candidate.sh">candidate validation</a> and <a href="https://github.com/tranthaiminhtansoft/lingua-lab/blob/master/scripts/release/resolve-rollback-target.sh">rollback target resolution</a>. These branch links are mutable; inspect the source revision used for a particular run.</li></ul></section>
-</main></body></html>
+  </script>
+  <script src="assets/archify-frame-fit.js?v=20261010-scroll" defer></script>
+</head>
+<body>
+  <header>
+    <p class="breadcrumb"><a href="index.html">Start here</a> / <a href="reference.html">Reference</a> / CI/CD</p>
+    <h1>CI/CD</h1>
+    <p class="lede">A reference to the repository's verified GitHub configuration, pull-request checks, production delivery, and recovery workflows.</p>
+  </header>
+  <div class="page-layout">
+    <aside class="page-menu" id="page-menu" aria-label="Page menu">
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-panel" aria-label="Open contents menu"><span id="menu-arrow" aria-hidden="true">‹</span><span class="sr-only" id="menu-toggle-label">Open contents menu</span></button>
+      <div class="menu-panel" id="menu-panel">
+        <h2>Documentation</h2>
+        <nav aria-label="Documentation"><a href="index.html">Start here</a><a href="product.html">Product guide</a><a href="reference.html" aria-current="location">Reference</a><div class="subnav"><a href="topology.html">Application topology</a><a href="delivery.html" aria-current="page">CI/CD</a></div><a href="procedures.html">Procedures</a><div class="subnav"><a href="pre-release.html">Pre-release</a><a href="release.html">Release</a><a href="post-release.html">Post-release</a><a href="rollback.html">Rollback and recovery</a></div></nav>
+        <h2>On this page</h2>
+        <nav aria-label="On this page">
+          <a href="#repository-configuration" data-section-link="repository-configuration">Repository configuration</a>
+          <a href="#workflow-overview" data-section-link="workflow-overview">Workflow Overview</a>
+          <div class="subnav">
+            <a href="#pull-request-ci" data-section-link="pull-request-ci">Pull-request CI</a>
+            <a href="#delivery-system" data-section-link="delivery-system">Delivery System</a>
+            <div class="subnav"><a href="#release-workflow" data-section-link="release-workflow">Release Workflow</a><a href="#automation-verification" data-section-link="automation-verification">Automation Verification</a><a href="#rollback-recovery" data-section-link="rollback-recovery">Rollback and recovery</a><a href="#approval-gates" data-section-link="approval-gates">Approval gates</a></div>
+          </div>
+        </nav>
+      </div>
+    </aside>
+    <main id="main-content">
+    <section id="repository-configuration">
+      <h2>1. Repository configuration</h2>
+      <p class="note">Values below were read from GitHub repository settings and workflow configuration on 2026-10-10. This page describes configured behavior, not a successful run or the result of a particular run.</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Area</th><th>Verified configuration</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Default branch</th><td><code>master</code>.</td></tr>
+          <tr><th scope="row">Branch protection</th><td><ul class="condition-list"><li><span class="status enabled" role="img" aria-label="Enabled">✓</span>Strict required status check: <code>Release Gate</code></li><li><span class="status enabled" role="img" aria-label="Enabled">✓</span>Admin enforcement</li><li><span class="status disabled" role="img" aria-label="Disabled">✕</span>Force-push</li><li><span class="status disabled" role="img" aria-label="Disabled">✕</span>Branch deletion</li><li><span class="status na">N/A</span>Required PR-review rule: none configured</li><li><span class="status na">N/A</span>Push restriction: none configured</li></ul></td></tr>
+          <tr><th scope="row">Merge settings</th><td><ul class="condition-list"><li><span class="status enabled" role="img" aria-label="Enabled">✓</span>Squash merge</li><li><span class="status disabled" role="img" aria-label="Disabled">✕</span>Merge commits</li><li><span class="status disabled" role="img" aria-label="Disabled">✕</span>Rebase merge</li><li><span class="status disabled" role="img" aria-label="Disabled">✕</span>Auto-merge</li><li><span class="status enabled" role="img" aria-label="Enabled">✓</span>Delete branch after merge</li></ul></td></tr>
+          <tr><th scope="row"><code>prod</code> environment</th><td><span class="status enabled" role="img" aria-label="Enabled">✓</span>Required reviewer: <code>tranthaiminhtansoft</code>. <span class="status enabled" role="img" aria-label="Enabled">✓</span>Deployment branch policy allows <code>master</code>. <span class="status enabled" role="img" aria-label="Enabled">✓</span>Self-review allowed.</td></tr>
+          <tr><th scope="row"><code>github-pages</code> environment</th><td><span class="status enabled" role="img" aria-label="Enabled">✓</span>Deployment branch policy allows <code>master</code>; the reusable deploy job uses this environment.</td></tr>
+          <tr><th scope="row">Production deployment concurrency</th><td>Release and rollback deployment jobs use <code>lingua-lab-production-deploy</code>. <span class="status disabled" role="img" aria-label="Disabled">✕</span>Cancel-in-progress. This serializes deployments, not approval waits.</td></tr>
+          <tr><th scope="row">Reviewer profile bootstrap</th><td><code>.github/profile-reviewers.json</code> lists four required review profiles; the identity mapping is empty. The release gate records independent human profile review as an operator-verified precondition, not an automated PR check.</td></tr>
+        </tbody>
+      </table></div>
+      <p>Repository policy source: <strong class="path"><code>.github/profile-reviewers.json</code></strong> and <strong class="path"><code>scripts/verify-repo-policy.mjs</code></strong>. Release-gate implementation: <strong class="path"><code>.github/workflows/release-gate.yml</code></strong>.</p>
+    </section>
+
+    <section id="workflow-overview">
+      <h2>2. Workflow Overview</h2>
+      <h3 id="workflow-sources">Workflow sources</h3>
+      <ul class="workflow-sources">
+        <li><a href="https://github.com/tranthaiminhtansoft/lingua-lab/blob/master/.github/workflows/ci.yml"><strong class="path"><code>.github/workflows/ci.yml</code></strong></a> · PR application CI.</li>
+        <li><a href="https://github.com/tranthaiminhtansoft/lingua-lab/blob/master/.github/workflows/release-gate.yml"><strong class="path"><code>.github/workflows/release-gate.yml</code></strong></a> · required PR status gate.</li>
+        <li><a href="https://github.com/tranthaiminhtansoft/lingua-lab/blob/master/.github/workflows/prd-create-release-branch.yml"><strong class="path"><code>.github/workflows/prd-create-release-branch.yml</code></strong></a> · release branch creation.</li>
+        <li><a href="https://github.com/tranthaiminhtansoft/lingua-lab/blob/master/.github/workflows/prd-release.yml"><strong class="path"><code>.github/workflows/prd-release.yml</code></strong></a> · release orchestration, verification, and publication.</li>
+        <li><a href="https://github.com/tranthaiminhtansoft/lingua-lab/blob/master/.github/workflows/wc-release-pages.yml"><strong class="path"><code>.github/workflows/wc-release-pages.yml</code></strong></a> · reusable Pages deployment.</li>
+        <li><a href="https://github.com/tranthaiminhtansoft/lingua-lab/blob/master/.github/workflows/prd-rollback.yml"><strong class="path"><code>.github/workflows/prd-rollback.yml</code></strong></a> · stable artifact recovery.</li>
+      </ul>
+      <h3 id="workflow-diagram">Overview</h3>
+      <p>The flowchart shows workflow files, dispatch, and the actor that starts each entry point. Internal jobs and steps are intentionally omitted.</p>
+      <iframe class="workflow-overview-frame" title="Archify CI/CD Workflow Overview" src="delivery-workflow.html?theme=light&v=auto-trigger" loading="lazy"></iframe>
+      <p class="note small">These branch links are mutable; inspect the source revision associated with a specific workflow run.</p>
+    <section id="pull-request-ci">
+      <h3>Pull-request CI</h3>
+      <h4>PR template</h4>
+      <ul>
+        <li>Use the repository template: <a href="https://github.com/tranthaiminhtansoft/lingua-lab/blob/master/.github/pull_request_template.md"><strong class="path"><code>.github/pull_request_template.md</code></strong></a>.</li>
+        <li>It asks for scope and source branch, user/reliability/security/maintainability benefit, evidence and run URLs, reviewed head SHA, applicable profile-review evidence, and the required safety/resolution checkboxes.</li>
+        <li>The linked file is the source of truth; this page does not duplicate its text.</li>
+      </ul>
+
+      <h4>Trigger and path filter</h4>
+      <p><strong class="path"><code>.github/workflows/ci.yml</code></strong> starts on pull requests targeting <code>master</code> when at least one changed path matches its allowlist. <span class="status disabled" role="img" aria-label="Disabled">✕</span>Push trigger is not configured.</p>
+      <div class="table-wrap"><table class="paths-table">
+        <thead><tr><th>Included path groups</th><th>Path-filter behavior</th></tr></thead>
+        <tbody>
+          <tr><td><ul class="path-list"><li><code>src/app/**</code></li><li><code>src/business/language-home/**</code></li><li><code>src/shared/**</code></li><li><code>src/test/**</code></li></ul></td><td>Application and learning-product changes trigger application CI.</td></tr>
+          <tr><td><ul class="path-list"><li><code>public/**</code></li><li><code>e2e/**</code></li><li><code>index.html</code></li><li><code>package.json</code></li><li><code>package-lock.json</code></li><li><code>.nvmrc</code></li><li><code>eslint.config.js</code></li><li><code>tsconfig*.json</code></li><li><code>vite.config.ts</code></li><li><code>vitest.config.ts</code></li><li><code>playwright.config.ts</code></li></ul></td><td>Static assets, browser tests, and build/test configuration trigger application CI.</td></tr>
+          <tr><td><ul class="path-list"><li><code>src/business/docs/**</code></li></ul></td><td>Standalone documentation changes trigger application CI.</td></tr>
+          <tr><td><ul class="path-list"><li><code>.github/**</code></li><li><code>scripts/**</code></li></ul></td><td>Changes limited to these paths do not match the application allowlist. The separate required Release Gate still evaluates the PR and skips its CI wait when no changed path matches.</td></tr>
+        </tbody>
+      </table></div>
+
+      <h4>Pass and fail conditions</h4>
+      <h5>Application validation</h5>
+      <ul class="condition-list pass-list">
+        <li><span class="status pass" role="img" aria-label="Pass">✓</span><code>npm ci</code> completes.</li>
+        <li><span class="status pass" role="img" aria-label="Pass">✓</span>Lint passes.</li>
+        <li><span class="status pass" role="img" aria-label="Pass">✓</span>Type checking passes.</li>
+        <li><span class="status pass" role="img" aria-label="Pass">✓</span>Unit tests pass.</li>
+        <li><span class="status pass" role="img" aria-label="Pass">✓</span>Pages-base build succeeds.</li>
+        <li><span class="status pass" role="img" aria-label="Pass">✓</span>Chromium, Firefox, and WebKit browser smoke checks pass.</li>
+      </ul>
+      <h5>Release Gate pass</h5>
+      <ul class="condition-list pass-list">
+        <li><span class="status pass" role="img" aria-label="Pass">✓</span>Trusted policy configuration is valid.</li>
+        <li><span class="status pass" role="img" aria-label="Pass">✓</span>When changed paths match the trusted allowlist, both current-head CI checks succeed within 25 minutes.</li>
+        <li><span class="status pass" role="img" aria-label="Pass">✓</span>When no changed path matches, the application CI wait is skipped.</li>
+      </ul>
+      <ul class="gate-fail"><li><strong>Release Gate fail</strong><ul class="condition-list"><li>Policy configuration is invalid.</li><li>PR head is stale.</li><li>Changed-file list is incomplete.</li><li>A required CI check fails.</li><li>The 25-minute wait expires.</li></ul></li></ul>
+      <p>The required status is <code>Release Gate</code> with strict up-to-date checking.</p>
+      <p class="callout"><strong>Configuration boundary:</strong> branch protection requires <code>Release Gate</code>, not the two application CI job names directly. The release gate reads the allowlist from the trusted PR base and checks results for the current PR head. A path-filtered skip can leave other checks skipped or pending; do not assume a skipped check satisfies a required status.</p>
+      <div class="diagram">
+        <h4>PR check sequence</h4>
+      <iframe class="ci-sequence-frame" title="Archify pull-request CI sequence" src="ci-workflow.html?theme=light" loading="lazy"></iframe>
+      </div>
+    </section>
+
+    <section id="delivery-system">
+      <h3>Delivery System</h3>
+      <p>Diagram colors follow Archify's component palette across workflow and sequence diagrams.</p>
+      <ul class="legend" aria-label="Diagram role colors"><li class="actor">Actor</li><li class="platform">Platform / GitHub</li><li class="infra">Workflow / automation</li><li class="gate">Approval gate</li></ul>
+
+      <h4>Release candidate and deployment path</h4>
+      <h5 id="release-workflow">Release Workflow</h5>
+      <ul>
+        <li>Releaser manually starts <strong class="path"><code>.github/workflows/prd-create-release-branch.yml</code></strong> on <code>master</code>.</li>
+        <li>The workflow creates <code>release/homelab/YYYYMMDD</code> and dispatches <strong class="path"><code>.github/workflows/prd-release.yml</code></strong> as a separate workflow run.</li>
+        <li>Release validation checks branch/date, tag uniqueness, and candidate SHA matching the protected master tip exactly.</li>
+        <li>After approval gate 1, build the candidate artifact and retained rollback archive. The release build does not run lint, typecheck, unit tests, or browser smoke tests.</li>
+        <li>Deploy through the reusable <strong class="path"><code>.github/workflows/wc-release-pages.yml</code></strong> workflow. Automation verification then checks the deployed site.</li>
+        <li>If post-deployment verification fails, PRD Release dispatches <strong class="path"><code>.github/workflows/prd-rollback.yml</code></strong>. If verification passes, approval gate 2 permits stable GitHub Release publication.</li>
+      </ul>
+      <iframe class="release-sequence-frame" title="Archify release workflow sequence" src="assets/release-sequence.html?theme=light" loading="lazy"></iframe>
+
+      <h5 id="automation-verification">Automation Verification</h5>
+      <ul>
+        <li>Verify the deployed identity against the candidate SHA and compare every candidate file's SHA-256 with the candidate manifest.</li>
+        <li>Check direct route opens and refreshes, route-specific content, navigation, legacy redirect, docs/assets, and browser JavaScript/CSS failures.</li>
+        <li>The verifier runs the configured Grammar, Time, and Kana checks automatically after the deployed-site checks.</li>
+        <li>Kana speech controls use a simulated voice; audible playback is outside this automated verification.</li>
+        <li>The <code>production-verification</code> artifact retains the run report and failure evidence.</li>
+      </ul>
+      <iframe class="verification-frame" title="Archify production automation verification flowchart" src="assets/verification-flowchart.html?theme=light" loading="lazy"></iframe>
+
+      <h4 id="rollback-recovery">Rollback and recovery</h4>
+      <ul>
+        <li>Rollback may be dispatched automatically after a deployed candidate fails verification or manually with a stable release tag.</li>
+        <li>Target resolution requires a published, non-draft, non-prerelease dated release with a retained site archive and matching checksum.</li>
+        <li>After the <code>prod</code> approval gate, redeploy the retained artifact through the same reusable Pages workflow and verify restored identity/routes.</li>
+        <li>The workflow summary reports either verified recovery or unverified recovery requiring manual intervention.</li>
+      </ul>
+      <iframe class="rollback-sequence-frame" title="Archify rollback and recovery sequence" src="assets/rollback-sequence.html?theme=light" loading="lazy"></iframe>
+
+      <h4 id="approval-gates">Approval gates</h4>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Gate</th><th>Workflow point</th><th>When it is requested</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">PR Release Gate</th><td><strong class="path"><code>.github/workflows/release-gate.yml</code></strong></td><td>On PR create/reopen/synchronize/ready-for-review to <code>master</code>; requires trusted policy and applicable current-head CI.</td></tr>
+          <tr class="approval-row"><th scope="row"><span class="approval-required">Releaser approval required</span><br>Candidate deployment</th><td><strong class="path"><code>.github/workflows/prd-release.yml</code></strong> · <code>prod</code></td><td>After source validation and before candidate build/deploy.</td></tr>
+          <tr class="approval-row"><th scope="row"><span class="approval-required">Releaser approval required</span><br>Stable publication</th><td><strong class="path"><code>.github/workflows/prd-release.yml</code></strong> · <code>prod</code></td><td>After successful production verification and before the dated GitHub Release is published.</td></tr>
+          <tr class="approval-row"><th scope="row"><span class="approval-required">Releaser approval required</span><br>Rollback</th><td><strong class="path"><code>.github/workflows/prd-rollback.yml</code></strong> · <code>prod</code></td><td>After the requested stable target is resolved and before it is redeployed.</td></tr>
+        </tbody>
+      </table></div>
+      <p class="callout"><strong>Human approval:</strong> these three <code>prod</code> environment jobs pause for a Releaser decision. The PR <code>Release Gate</code> is an automated status check and does not request production approval.</p>
+
+      <p class="note small">These branch links are mutable; inspect the source revision associated with a specific workflow run. Pull-request CI remains the merge control; release verification checks the deployed artifact. Configuration and workflow source describe intended behavior, not a successful run or a currently live release. Check the exact workflow run, head SHA, approval record, deployment result, and verification artifact for run-specific evidence.</p>
+    </section>
+    </section>
+    </main>
+  </div>
+</body>
+</html>

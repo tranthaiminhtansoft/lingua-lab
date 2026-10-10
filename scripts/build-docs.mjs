@@ -6,9 +6,15 @@ const source = resolve(root, 'src/business/docs');
 const out = resolve(root, 'dist/docs');
 const pages = ['index.html', 'product.html', 'reference.html', 'topology.html', 'delivery.html', 'procedures.html', 'pre-release.html', 'release.html', 'post-release.html', 'rollback.html'];
 const assets = [
+  { source: 'assets/docs-menu.css', destination: 'docs-menu.css' },
+  { source: 'assets/docs-menu.js', destination: 'docs-menu.js' },
+  { source: 'assets/archify-frame-fit.js', destination: 'archify-frame-fit.js' },
   { source: 'topology-diagram.html', destination: 'topology-diagram.html' },
-  { source: 'delivery-workflow.html', destination: 'delivery-workflow.html' },
-  { source: 'ci-workflow.html', destination: 'ci-workflow.html' },
+  { source: 'delivery-workflow.html', destination: '../delivery-workflow.html' },
+  { source: 'ci-workflow.html', destination: '../ci-workflow.html' },
+  { source: 'assets/release-sequence.html', destination: 'release-sequence.html' },
+  { source: 'assets/verification-flowchart.html', destination: 'verification-flowchart.html' },
+  { source: 'assets/rollback-sequence.html', destination: 'rollback-sequence.html' },
   { source: 'assets/release-trigger-form.jpg', destination: 'release-trigger-form.jpg' },
   { source: 'assets/release-trigger-success.jpg', destination: 'release-trigger-success.jpg' },
   { source: 'assets/release-candidate-success.jpg', destination: 'release-candidate-success.jpg' },

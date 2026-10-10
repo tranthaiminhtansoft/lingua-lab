@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "6a5bb8c2-3af0-40f3-82a8-9e8e0e822986",
+  "status": "current",
+  "command": "deliver",
+  "type": "workflow",
+  "input": "/Users/tranthaiminhtan/.codex/worktrees/6698/lingua-lab/src/business/docs/verification-flowchart.json",
+  "output": "/Users/tranthaiminhtan/.codex/worktrees/6698/lingua-lab/src/business/docs/assets/verification-flowchart.html",
+  "specification": {
+    "sha256": "6fba4c624db0e3710c25b6128b36a2ef446180a4717cd2a473a4026581cf1f35",
+    "bytes": 5614
+  },
+  "artifact": {
+    "sha256": "7f4d5cac9245e88d1d47a15a5f8f7fa28b0fcb31b3189c8612e5effb1dc0f9dd",
+    "bytes": 762542
+  }
+}

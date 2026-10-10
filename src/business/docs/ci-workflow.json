@@ -1,32 +1,88 @@
 {
-  "schema_version": 2,
-  "diagram_type": "workflow",
+  "schema_version": 1,
+  "diagram_type": "sequence",
   "meta": {
-    "title": "Configured PR-only Product CI",
-    "locale": "en",
+    "title": "Pull-request CI and Required Gate",
+    "output": "src/business/docs/ci-workflow.html",
+    "viewBox": [1220, 700],
+    "column_fit": "spread",
     "quality_profile": "showcase",
-    "output": "ci-workflow.html"
+    "repository": {
+      "url": "https://github.com/tranthaiminhtansoft/lingua-lab.git",
+      "provider": "github",
+      "link_mode": "web",
+      "revision": "df7921d94d9b2aebba71ea861015baf4e0a2f8a8"
+    }
   },
-  "lanes": [
-    { "id": "triggers", "label": "Eligible pull request" },
-    { "id": "policy", "label": "Repository policy job" },
-    { "id": "application", "label": "Application validation job" }
+  "participants": [
+    { "id": "developer", "type": "external", "label": "Developer" },
+    {
+      "id": "pulls",
+      "type": "cloud",
+      "label": "GitHub PRs",
+      "sources": [
+        { "path": ".github/workflows/ci.yml", "line": 3, "end_line": 5 },
+        { "path": ".github/workflows/release-gate.yml", "line": 3, "end_line": 6 }
+      ]
+    },
+    {
+      "id": "ci",
+      "type": "backend",
+      "label": "ci.yml",
+      "sources": [{ "path": ".github/workflows/ci.yml", "line": 1, "end_line": 69 }]
+    },
+    {
+      "id": "runner",
+      "type": "cloud",
+      "label": "GitHub Runner",
+      "sources": [
+        { "path": ".github/workflows/ci.yml", "line": 27, "end_line": 40 },
+        { "path": ".github/workflows/release-gate.yml", "line": 13, "end_line": 18 }
+      ]
+    },
+    {
+      "id": "gate",
+      "type": "backend",
+      "label": "release-gate.yml",
+      "sources": [{ "path": ".github/workflows/release-gate.yml", "line": 1, "end_line": 96 }]
+    }
   ],
-  "nodes": [
-    { "id": "event", "lane": "triggers", "col": 0, "type": "external", "label": "Eligible PR", "sublabel": "target: master · product + docs", "width": 200 },
-    { "id": "policy", "lane": "policy", "col": 0, "type": "security", "label": "Repository policy", "sublabel": "independent job · policy script", "width": 164 },
-    { "id": "install", "lane": "application", "col": 0, "type": "backend", "label": "Install", "sublabel": "checkout · npm ci", "width": 164 },
-    { "id": "checks", "lane": "application", "col": 1, "type": "security", "label": "Code checks", "sublabel": "lint · types · unit tests", "width": 164 },
-    { "id": "verify", "lane": "application", "col": 2, "type": "cloud", "label": "Build and E2E", "sublabel": "Pages build · 3 browsers", "width": 164 }
+  "segments": [
+    { "from": 150, "to": 230, "label": "PR opened or updated" },
+    { "from": 250, "to": 360, "label": "Path-filtered CI runs" },
+    { "from": 380, "to": 520, "label": "Release Gate evaluates current head" }
   ],
-  "edges": [
-    { "id": "trigger-policy", "from": "event", "to": "policy", "label": "eligible paths only" },
-    { "id": "trigger-app", "from": "event", "to": "install", "label": "eligible paths only" },
-    { "id": "install-checks", "from": "install", "to": "checks" },
-    { "id": "checks-verify", "from": "checks", "to": "verify" }
+  "messages": [
+    { "id": "open-pr", "from": "developer", "to": "pulls", "y": 165, "label": "open or update PR targeting master", "variant": "emphasis" },
+    { "id": "trigger-ci", "from": "pulls", "to": "ci", "y": 200, "label": "auto-trigger pull_request when changed paths match", "variant": "emphasis" },
+    { "id": "trigger-gate", "from": "pulls", "to": "gate", "y": 235, "label": "independently trigger required PR gate", "variant": "security" },
+    { "id": "queue-jobs", "from": "ci", "to": "runner", "y": 270, "label": "queue policy and application validation jobs", "variant": "default" },
+    { "id": "job-results", "from": "runner", "to": "ci", "y": 305, "label": "return job results for PR head SHA", "variant": "return" },
+    { "id": "inspect-pr", "from": "gate", "to": "pulls", "y": 355, "label": "read changed files, base allowlist, head SHA, and checks", "variant": "security" },
+    { "id": "pr-evidence", "from": "pulls", "to": "gate", "y": 395, "label": "return trusted path match and current-head check results", "variant": "return" },
+    { "id": "required-status", "from": "gate", "to": "pulls", "y": 445, "label": "publish required Release Gate pass or fail", "variant": "emphasis", "note": "No matching changed path skips the application-CI wait. Matching paths require both current-head CI checks to succeed; stale heads, policy errors, failed checks, or timeout fail the gate." }
+  ],
+  "activations": [
+    { "participant": "ci", "from": 198, "to": 312, "type": "backend" },
+    { "participant": "runner", "from": 267, "to": 310, "type": "cloud" },
+    { "participant": "gate", "from": 233, "to": 452, "type": "backend" }
   ],
   "cards": [
-    { "dot": "cyan", "title": "PR-only path filter", "items": ["Only pull requests targeting master with changes under the listed product, test, public, E2E, root HTML/package/configuration, or standalone-doc paths trigger this workflow.", "GitHub Actions workflow/action changes and release-script changes are outside the allowlist; standalone operator documentation is included. This workflow has no push trigger."] },
-    { "dot": "rose", "title": "Independent jobs · configured checks", "items": ["Repository policy and application validation are independent jobs. Application validation runs npm ci, lint, typecheck, unit tests, Pages-base build, then Chromium, Firefox and WebKit browser smoke checks.", "This diagram describes configured CI, not a successful run. Release candidate validation requires the candidate SHA to exactly match the protected master tip; the release workflow repeats its own validation on that pinned SHA instead of requiring historical PR check runs.", "Path-filtered workflow skips can leave a required check pending or skipped; confirm branch protection does not treat a skipped required workflow as satisfied before relying on a green merge gate."] }
+    {
+      "dot": "cyan",
+      "title": "Separate PR workflows",
+      "items": [
+        "GitHub starts ci.yml only when the PR changed-path allowlist matches.",
+        "release-gate.yml starts from its own pull_request trigger and is the required branch-protection status."
+      ]
+    },
+    {
+      "dot": "orange",
+      "title": "Current-head check",
+      "items": [
+        "When paths are eligible, the gate waits for both CI jobs on the exact PR head SHA.",
+        "A changed head, invalid policy, failed check, or expired wait fails Release Gate."
+      ]
+    }
   ]
 }

@@ -1,0 +1,249 @@
+{
+  "schema_version": 1,
+  "diagram_type": "sequence",
+  "meta": {
+    "title": "Release Candidate to Stable Release",
+    "output": "src/business/docs/assets/release-sequence.html",
+    "viewBox": [
+      1550,
+      920
+    ],
+    "column_fit": "spread",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/tranthaiminhtansoft/lingua-lab.git",
+      "provider": "github",
+      "link_mode": "web",
+      "revision": "df7921d94d9b2aebba71ea861015baf4e0a2f8a8"
+    }
+  },
+  "participants": [
+    {
+      "id": "releaser",
+      "type": "external",
+      "label": "Releaser"
+    },
+    {
+      "id": "create",
+      "type": "backend",
+      "label": "prd-create-release-branch",
+      "sources": [
+        {
+          "path": ".github/workflows/prd-create-release-branch.yml",
+          "line": 1,
+          "end_line": 53
+        }
+      ]
+    },
+    {
+      "id": "release",
+      "type": "backend",
+      "label": "prd-release.yml",
+      "sources": [
+        {
+          "path": ".github/workflows/prd-release.yml",
+          "line": 1,
+          "end_line": 247
+        }
+      ]
+    },
+    {
+      "id": "pages",
+      "type": "cloud",
+      "label": "GitHub Pages",
+      "sources": [
+        {
+          "path": ".github/workflows/wc-release-pages.yml",
+          "line": 13,
+          "end_line": 27
+        }
+      ]
+    },
+    {
+      "id": "rollback",
+      "type": "backend",
+      "label": "prd-rollback.yml",
+      "sources": [
+        {
+          "path": ".github/workflows/prd-rollback.yml",
+          "line": 1,
+          "end_line": 124
+        }
+      ]
+    },
+    {
+      "id": "releases",
+      "type": "cloud",
+      "label": "GitHub Releases",
+      "sources": [
+        {
+          "path": ".github/workflows/prd-release.yml",
+          "line": 167,
+          "end_line": 194
+        }
+      ]
+    }
+  ],
+  "segments": [
+    {
+      "from": 150,
+      "to": 285,
+      "label": "Start release workflows"
+    },
+    {
+      "from": 295,
+      "to": 460,
+      "label": "HUMAN APPROVAL REQUIRED · Candidate deployment"
+    },
+    {
+      "from": 470,
+      "to": 600,
+      "label": "Deploy · verify · recover on failure"
+    },
+    {
+      "from": 610,
+      "to": 705,
+      "label": "HUMAN APPROVAL REQUIRED · Stable publication"
+    },
+    {
+      "from": 710,
+      "to": 780,
+      "label": "Publish stable release"
+    }
+  ],
+  "messages": [
+    {
+      "id": "dispatch-create",
+      "from": "releaser",
+      "to": "create",
+      "y": 165,
+      "label": "dispatch workflow on master",
+      "variant": "emphasis"
+    },
+    {
+      "id": "create-branch",
+      "from": "create",
+      "to": "release",
+      "y": 235,
+      "label": "create dated branch; dispatch candidate_ref",
+      "variant": "emphasis"
+    },
+    {
+      "id": "request-candidate-approval",
+      "from": "release",
+      "to": "releaser",
+      "y": 375,
+      "label": "pause at prod · request candidate approval",
+      "variant": "security",
+      "note": "prd-release.yml pauses at its prod environment before candidate build/deploy. Releaser approval is required to continue."
+    },
+    {
+      "id": "candidate-approval",
+      "from": "releaser",
+      "to": "release",
+      "y": 410,
+      "label": "[ APPROVE ]",
+      "variant": "security"
+    },
+    {
+      "id": "deploy-candidate",
+      "from": "release",
+      "to": "pages",
+      "y": 480,
+      "label": "build pinned SHA; retain archive; deploy candidate",
+      "variant": "emphasis"
+    },
+    {
+      "id": "candidate-live",
+      "from": "pages",
+      "to": "release",
+      "y": 515,
+      "label": "return deployment URL and status",
+      "variant": "return"
+    },
+    {
+      "id": "dispatch-rollback",
+      "from": "release",
+      "to": "rollback",
+      "y": 585,
+      "label": "on verification failure: dispatch rollback",
+      "variant": "security",
+      "note": "This is the failure branch. The rollback workflow has its own sequence below."
+    },
+    {
+      "id": "request-publication-approval",
+      "from": "release",
+      "to": "releaser",
+      "y": 625,
+      "label": "pause at prod · request stable publication approval",
+      "variant": "security",
+      "note": "After successful verification, prd-release.yml pauses at its prod environment until Releaser approves publication."
+    },
+    {
+      "id": "publication-approval",
+      "from": "releaser",
+      "to": "release",
+      "y": 660,
+      "label": "[ APPROVE ]",
+      "variant": "security"
+    },
+    {
+      "id": "publish-release",
+      "from": "release",
+      "to": "releases",
+      "y": 730,
+      "label": "publish dated stable release and retained assets",
+      "variant": "emphasis"
+    }
+  ],
+  "activations": [
+    {
+      "participant": "create",
+      "from": 198,
+      "to": 238,
+      "type": "backend"
+    },
+    {
+      "participant": "release",
+      "from": 265,
+      "to": 740,
+      "type": "backend"
+    },
+    {
+      "participant": "pages",
+      "from": 478,
+      "to": 522,
+      "type": "cloud"
+    },
+    {
+      "participant": "rollback",
+      "from": 583,
+      "to": 605,
+      "type": "backend"
+    },
+    {
+      "participant": "releases",
+      "from": 728,
+      "to": 752,
+      "type": "cloud"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "orange",
+      "title": "RELEASER ACTION REQUIRED · 2 approval gates",
+      "items": [
+        "Candidate deployment and stable publication each stop at a prod environment job inside prd-release.yml.",
+        "Releaser sends an explicit approval to prd-release.yml at each pause; the workflow continues only after approval."
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Conditional recovery",
+      "items": [
+        "A failed deployed-candidate verification dispatches prd-rollback.yml.",
+        "A successful verification reaches a separate human approval before GitHub Release publication."
+      ]
+    }
+  ]
+}

@@ -6,7 +6,6 @@ Lingua Lab is a multi-language learning workspace. Its live Japanese learning pa
 
 - **Application:** [Open Lingua Lab on GitHub Pages](https://tranthaiminhtansoft.github.io/lingua-lab/)
 - **Documentation:** [Open the documentation start page](https://tranthaiminhtansoft.github.io/lingua-lab/docs/)
-- **Latest verified production release:** [20261003](https://github.com/tranthaiminhtansoft/lingua-lab/releases/tag/20261003), deployed from commit `177991a` on 2026-10-03. The Pages site changes only after a release deployment succeeds; changes merged to `master` are not automatically published.
 
 Start with the documentation page if you are new to the repository. It explains what the product does, where to go next, and groups engineering references separately from release procedures.
 

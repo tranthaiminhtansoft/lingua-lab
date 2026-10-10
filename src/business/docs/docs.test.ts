@@ -56,10 +56,16 @@ describe('standalone documentation sources', () => {
     dom.window.close();
   });
 
-  it('exports all ten HTML sources, three Archify assets, and captured release screenshots', async () => {
+  it('exports all ten HTML sources, six Archify diagrams, and captured release screenshots', async () => {
     const script = await readFile(`${docsDirectory}../../../scripts/build-docs.mjs`, 'utf8');
     expect(script).toContain("'reference.html', 'topology.html', 'delivery.html', 'procedures.html'");
     expect(script).toContain("'pre-release.html', 'release.html', 'post-release.html', 'rollback.html'");
+    expect(script).toContain("{ source: 'assets/release-sequence.html'");
+    expect(script).toContain("{ source: 'assets/verification-flowchart.html'");
+    expect(script).toContain("{ source: 'assets/rollback-sequence.html'");
+    expect(script).toContain("{ source: 'assets/archify-frame-fit.js'");
+    expect(script).toContain("{ source: 'assets/docs-menu.css'");
+    expect(script).toContain("{ source: 'assets/docs-menu.js'");
     expect(script).toContain("'assets/release-trigger-form.jpg'");
     expect(script).toContain("'assets/release-trigger-success.jpg'");
     expect(script).toContain("'assets/release-candidate-success.jpg'");
@@ -67,38 +73,53 @@ describe('standalone documentation sources', () => {
     expect(script).not.toMatch(/\.md|markdown|htmlEscape/);
   });
 
-  it('keeps same-origin relative interactive diagrams with dynamic iframe sizing', async () => {
+  it('loads the shared sticky navigation on the other documentation pages', async () => {
+    const pages = ['index.html', 'product.html', 'reference.html', 'topology.html', 'procedures.html', 'pre-release.html', 'release.html', 'post-release.html', 'rollback.html'];
+    const htmlPages = await Promise.all(pages.map((name) => readFile(`${docsDirectory}${name}`, 'utf8')));
+    for (const html of htmlPages) {
+      expect(html).toContain('assets/docs-menu.css');
+      expect(html).toContain('assets/docs-menu.js');
+      expect(html).toContain('<nav aria-label="Documentation">');
+    }
+  });
+
+  it('keeps same-origin Archify diagrams in sized frames to avoid clipping and scroll jumps', async () => {
     const topology = await readFile(`${docsDirectory}topology.html`, 'utf8');
     const delivery = await readFile(`${docsDirectory}delivery.html`, 'utf8');
 
     for (const [html, source, title] of [
-      [topology, 'assets/topology-diagram.html', 'Interactive Lingua Lab application topology diagram'],
-      [delivery, 'assets/delivery-workflow.html', 'Interactive Lingua Lab delivery workflow diagram'],
-      [delivery, 'assets/ci-workflow.html', 'Interactive Lingua Lab pull-request CI diagram'],
+      [topology, 'assets/topology-diagram.html?theme=light', 'Interactive Lingua Lab application topology diagram'],
+      [delivery, 'delivery-workflow.html?theme=light&v=auto-trigger', 'Archify CI/CD Workflow Overview'],
+      [delivery, 'ci-workflow.html?theme=light', 'Archify pull-request CI sequence'],
+      [delivery, 'assets/release-sequence.html?theme=light', 'Archify release workflow sequence'],
+      [delivery, 'assets/verification-flowchart.html?theme=light', 'Archify production automation verification flowchart'],
+      [delivery, 'assets/rollback-sequence.html?theme=light', 'Archify rollback and recovery sequence'],
     ]) {
       expect(html).toContain(`src="${source}"`);
       expect(html).toContain(`title="${title}"`);
-      expect(html).toContain('addEventListener(\'load\'');
-      expect(html).toContain('ResizeObserver');
-      expect(html).toContain('scrollHeight');
+      expect(html).not.toMatch(/<iframe[^>]*height:\s*\d{4,}px/i);
       expect(html).not.toMatch(/<iframe[^>]*(?:scrolling\s*=|height:\s*\d{4,}px)/i);
-      expect(html).not.toContain('overflow:hidden');
     }
+    expect(delivery).toContain('height:760px');
+    expect(delivery).toContain('.release-sequence-frame { width:100%; max-width:100%; height:1120px; }');
+    expect(delivery).toContain('.ci-sequence-frame { height:1050px; }');
+    expect(delivery).toContain('.verification-frame { height:1250px; }');
+    expect(delivery).not.toContain('ResizeObserver');
+    expect(delivery).not.toContain('scrollHeight');
   });
 
-  it('depicts both configured CI jobs without implying a passing run', async () => {
+  it('depicts the PR checks and required gate without implying a passing run', async () => {
     const delivery = await readFile(`${docsDirectory}delivery.html`, 'utf8');
     const spec = JSON.parse(await readFile(`${docsDirectory}ci-workflow.json`, 'utf8')) as {
-      lanes: { label: string }[]; cards: { items: string[] }[];
+      participants: { label: string }[]; messages: { label: string; note?: string }[]; cards: { items: string[] }[];
     };
     const artifact = await readFile(`${docsDirectory}ci-workflow.html`, 'utf8');
-    expect(delivery).toContain('<h2>Pull-request CI</h2>');
+    expect(delivery).toContain('<h3>Pull-request CI</h3>');
     expect(delivery).toContain('not a successful run');
-    expect(spec.lanes.map((lane) => lane.label).join(' ')).toContain('Eligible pull request Repository policy job Application validation job');
-    expect(spec.cards.flatMap((card) => card.items).join(' ')).toContain('npm ci');
-    expect(spec.cards.flatMap((card) => card.items).join(' ')).toContain('not a successful run');
-    expect(spec.cards.flatMap((card) => card.items).join(' ')).toContain('a required check pending or skipped');
-    expect(artifact).toContain('Configured PR-only Product CI');
+    expect(spec.participants.map((participant) => participant.label).join(' ')).toContain('Developer GitHub PRs ci.yml GitHub Runner release-gate.yml');
+    expect(spec.messages.map((message) => `${message.label} ${message.note ?? ''}`).join(' ')).toContain('both current-head CI checks to succeed');
+    expect(spec.cards.flatMap((card) => card.items).join(' ')).toContain('exact PR head SHA');
+    expect(artifact).toContain('Pull-request CI and Required Gate');
   });
 
   it('keeps operator guides concise, linked, and accurate to workflow approval order', async () => {
@@ -164,8 +185,12 @@ describe('standalone documentation sources', () => {
     expect(delivery).not.toContain('blob/fdfe48633027e8b298023e7e54d7eb5f12afcdc9/');
     expect(delivery).toContain('candidate SHA matching the protected master tip');
     expect(delivery).toContain("every candidate file's SHA-256");
-    expect(delivery).toContain('Speech controls use a simulated voice');
-    expect(delivery).toContain('Changes limited to <code>.github/**</code> or <code>scripts/**</code> do not match the allowlist');
+    expect(delivery).toContain('Kana speech controls use a simulated voice');
+    expect(delivery).toContain('Changes limited to these paths do not match the application allowlist');
+    expect(delivery).toContain('<h2>2. Workflow Overview</h2>');
+    expect(delivery.indexOf('id="workflow-sources"')).toBeLessThan(delivery.indexOf('id="workflow-diagram"'));
+    expect(delivery).toContain('id="page-menu"');
+    expect(delivery).toContain('getBoundingClientRect().top <= 160');
     for (const html of [pre, post]) {
       expect(html).toContain('role="img"');
       expect(html).toContain('Screenshot placeholder');
@@ -179,11 +204,14 @@ describe('standalone documentation sources', () => {
     expect(release).toContain('37110848365');
     expect(delivery).not.toContain('does not require master-tip equality');
     expect(delivery).toContain('Pull-request CI remains the merge control');
-    expect(diagram).toContain('exact equality with the protected master tip');
-    const workflowDiagram = JSON.parse(diagram) as { mainPath: string[] };
-    expect(workflowDiagram.mainPath).toEqual(['dispatch', 'validate', 'approve', 'build', 'deploy', 'verify', 'publishApproval', 'publish']);
-    expect(diagram).toContain('first prod approval happens before candidate code is built');
-    expect(diagram).toContain('runs no lint, typecheck, unit tests, or browser smoke checks');
+    const workflowDiagram = JSON.parse(diagram) as { mainPath: string[]; nodes: { label: string }[]; edges: { id: string; from: string; to: string; label: string }[] };
+    expect(workflowDiagram.mainPath).toEqual(['create', 'release', 'pages']);
+    expect(workflowDiagram.nodes.map((node) => node.label).join(' ')).toContain('Developer CI workflow GitHub PR event Releaser');
+    expect(workflowDiagram.edges.find((edge) => edge.id === 'developer-pr')).toMatchObject({ from: 'developer', to: 'pull-request-event', label: 'open / update PR' });
+    expect(workflowDiagram.edges.find((edge) => edge.id === 'pr-event-ci')).toMatchObject({ from: 'pull-request-event', to: 'ci-workflow', label: 'auto-trigger · path-filtered' });
+    expect(diagram).toContain('Each node is one workflow file');
+    expect(diagram).toContain('same reusable Pages deployment workflow');
+    expect(delivery).toContain('release build does not run lint, typecheck, unit tests, or browser smoke tests');
     expect(releaseWorkflow.indexOf('  approve_release_deploy:')).toBeLessThan(releaseWorkflow.indexOf('  build_release_artifact:'));
     expect(releaseWorkflow).toContain('approve_release_deploy:\n    name: 🛡️ Approve release candidate\n    needs: validate_release_ref');
     const buildJob = releaseWorkflow.slice(

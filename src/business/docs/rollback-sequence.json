@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "diagram_type": "sequence",
+  "meta": {
+    "title": "Rollback and Production Recovery",
+    "output": "src/business/docs/assets/rollback-sequence.html",
+    "viewBox": [1180, 640],
+    "column_fit": "spread",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/tranthaiminhtansoft/lingua-lab.git",
+      "provider": "github",
+      "link_mode": "web",
+      "revision": "df7921d94d9b2aebba71ea861015baf4e0a2f8a8"
+    }
+  },
+  "participants": [
+    { "id": "releaser", "type": "external", "label": "Releaser" },
+    {
+      "id": "release",
+      "type": "backend",
+      "label": "prd-release.yml",
+      "sources": [{ "path": ".github/workflows/prd-release.yml", "line": 196, "end_line": 220 }]
+    },
+    {
+      "id": "rollback",
+      "type": "backend",
+      "label": "prd-rollback.yml",
+      "sources": [{ "path": ".github/workflows/prd-rollback.yml", "line": 1, "end_line": 124 }]
+    },
+    {
+      "id": "pages",
+      "type": "cloud",
+      "label": "GitHub Pages",
+      "sources": [{ "path": ".github/workflows/wc-release-pages.yml", "line": 13, "end_line": 27 }]
+    }
+  ],
+  "segments": [
+    { "from": 150, "to": 255, "label": "Manual or automatic request · resolve target" },
+    { "from": 260, "to": 360, "label": "HUMAN APPROVAL REQUIRED · prod" },
+    { "from": 380, "to": 490, "label": "Restore · verify" }
+  ],
+  "messages": [
+    { "id": "manual-request", "from": "releaser", "to": "rollback", "y": 165, "label": "manually dispatch with release_version", "variant": "emphasis" },
+    { "id": "automatic-request", "from": "release", "to": "rollback", "y": 195, "label": "on deployed verification failure: dispatch rollback", "variant": "security" },
+    { "id": "resolve-target", "from": "rollback", "to": "releaser", "y": 245, "label": "resolve stable release; verify retained archive and checksum", "variant": "return" },
+    { "id": "request-approval", "from": "rollback", "to": "releaser", "y": 285, "label": "WAITING FOR RELEASER · rollback approval required", "variant": "security", "note": "HUMAN APPROVAL REQUIRED. prd-rollback.yml is paused at the prod environment until the Releaser approves the resolved stable target." },
+    { "id": "approve-rollback", "from": "releaser", "to": "rollback", "y": 325, "label": "RELEASER APPROVES · selected target restore", "variant": "security" },
+    { "id": "redeploy", "from": "rollback", "to": "pages", "y": 375, "label": "deploy selected stable Pages artifact", "variant": "emphasis" },
+    { "id": "deployment-result", "from": "pages", "to": "rollback", "y": 415, "label": "return restored production URL and status", "variant": "return" },
+    { "id": "verified-recovery", "from": "rollback", "to": "releaser", "y": 465, "label": "report verified recovery or manual intervention", "variant": "return" }
+  ],
+  "activations": [
+    { "participant": "rollback", "from": 190, "to": 480, "type": "backend" },
+    { "participant": "pages", "from": 372, "to": 425, "type": "cloud" }
+  ],
+  "cards": [
+    {
+      "dot": "orange",
+      "title": "RELEASER ACTION REQUIRED · rollback",
+      "items": [
+        "The prod environment approval is a job inside prd-rollback.yml, not a separate system actor.",
+        "The workflow stays paused after target resolution. The Releaser must approve before GitHub Pages is redeployed."
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Recovery needs verification",
+      "items": [
+        "A deploy or verification failure is reported as unverified recovery.",
+        "Successful recovery requires restored identity and route checks."
+      ]
+    }
+  ]
+}

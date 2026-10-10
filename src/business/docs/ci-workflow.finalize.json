@@ -3,18 +3,18 @@
   "ok": false,
   "command": "finalize",
   "status": "fail",
-  "type": "workflow",
+  "type": "sequence",
   "quality": "showcase",
-  "startedAt": "2026-10-02T05:50:21.872Z",
+  "startedAt": "2026-10-10T06:01:03.478Z",
   "specification": {
-    "path": "/Users/tranthaiminhtan/homelab_practice/lingua-lab/src/business/docs/ci-workflow.json",
-    "sha256": "9583c33366a719eb13bd68f3ef8b4b9aa2b48c0da43896617c821e3416f47e77",
-    "bytes": 2587
+    "path": "/Users/tranthaiminhtan/.codex/worktrees/6698/lingua-lab/src/business/docs/ci-workflow.json",
+    "sha256": "f2a61be4d984cd6ff821757132de384b63c8e6e18a2da8e66e75f1e0ad354fb7",
+    "bytes": 3956
   },
   "artifact": {
-    "path": "/Users/tranthaiminhtan/homelab_practice/lingua-lab/src/business/docs/ci-workflow.html",
-    "sha256": "2a8ef45499c1bf3fd0877c68f3746c795796d8ee4f2743c8b77199b7d9d43d0c",
-    "bytes": 750540
+    "path": "/Users/tranthaiminhtan/.codex/worktrees/6698/lingua-lab/src/business/docs/ci-workflow.html",
+    "sha256": "6e4e7e47fa02c82533a499573576d6be7191632bd48954b18640f039e3a0c62c",
+    "bytes": 755364
   },
   "stages": {
     "validate": {
@@ -23,16 +23,16 @@
       "durationMs": null,
       "execution": "embedded-in-deliver",
       "command": [
-        "/opt/homebrew/Cellar/node/25.2.1/bin/node",
-        "/private/tmp/archify-docs/archify/bin/archify.mjs",
+        "/Users/tranthaiminhtan/.hermes/node/bin/node",
+        "/private/tmp/archify-renderer/archify/bin/archify.mjs",
         "deliver",
-        "workflow",
-        "/Users/tranthaiminhtan/homelab_practice/lingua-lab/src/business/docs/ci-workflow.json",
-        "/Users/tranthaiminhtan/homelab_practice/lingua-lab/src/business/docs/ci-workflow.html",
+        "sequence",
+        "/Users/tranthaiminhtan/.codex/worktrees/6698/lingua-lab/src/business/docs/ci-workflow.json",
+        "/Users/tranthaiminhtan/.codex/worktrees/6698/lingua-lab/src/business/docs/ci-workflow.html",
         "--quality",
         "showcase",
         "--repo-root",
-        "/Users/tranthaiminhtan/homelab_practice/lingua-lab",
+        "/Users/tranthaiminhtan/.codex/worktrees/6698/lingua-lab",
         "--json"
       ],
       "receipt": {
@@ -40,8 +40,8 @@
         "ok": true,
         "command": "validate",
         "specification": {
-          "sha256": "9583c33366a719eb13bd68f3ef8b4b9aa2b48c0da43896617c821e3416f47e77",
-          "bytes": 2587
+          "sha256": "f2a61be4d984cd6ff821757132de384b63c8e6e18a2da8e66e75f1e0ad354fb7",
+          "bytes": 3956
         },
         "validation": {
           "checksPassed": 9,
@@ -56,35 +56,35 @@
     "deliver": {
       "status": "pass",
       "exitCode": 0,
-      "durationMs": 341,
+      "durationMs": 226,
       "command": [
-        "/opt/homebrew/Cellar/node/25.2.1/bin/node",
-        "/private/tmp/archify-docs/archify/bin/archify.mjs",
+        "/Users/tranthaiminhtan/.hermes/node/bin/node",
+        "/private/tmp/archify-renderer/archify/bin/archify.mjs",
         "deliver",
-        "workflow",
-        "/Users/tranthaiminhtan/homelab_practice/lingua-lab/src/business/docs/ci-workflow.json",
-        "/Users/tranthaiminhtan/homelab_practice/lingua-lab/src/business/docs/ci-workflow.html",
+        "sequence",
+        "/Users/tranthaiminhtan/.codex/worktrees/6698/lingua-lab/src/business/docs/ci-workflow.json",
+        "/Users/tranthaiminhtan/.codex/worktrees/6698/lingua-lab/src/business/docs/ci-workflow.html",
         "--quality",
         "showcase",
         "--repo-root",
-        "/Users/tranthaiminhtan/homelab_practice/lingua-lab",
+        "/Users/tranthaiminhtan/.codex/worktrees/6698/lingua-lab",
         "--json"
       ],
       "receipt": {
         "schemaVersion": 1,
-        "receiptId": "669efa06-1aad-433e-9796-300ea3debe83",
+        "receiptId": "e0fe9f2a-c168-4b50-b1b0-a865789dc67b",
         "ok": true,
         "command": "deliver",
-        "type": "workflow",
-        "input": "/Users/tranthaiminhtan/homelab_practice/lingua-lab/src/business/docs/ci-workflow.json",
-        "output": "/Users/tranthaiminhtan/homelab_practice/lingua-lab/src/business/docs/ci-workflow.html",
+        "type": "sequence",
+        "input": "/Users/tranthaiminhtan/.codex/worktrees/6698/lingua-lab/src/business/docs/ci-workflow.json",
+        "output": "/Users/tranthaiminhtan/.codex/worktrees/6698/lingua-lab/src/business/docs/ci-workflow.html",
         "specification": {
-          "sha256": "9583c33366a719eb13bd68f3ef8b4b9aa2b48c0da43896617c821e3416f47e77",
-          "bytes": 2587
+          "sha256": "f2a61be4d984cd6ff821757132de384b63c8e6e18a2da8e66e75f1e0ad354fb7",
+          "bytes": 3956
         },
         "artifact": {
-          "sha256": "2a8ef45499c1bf3fd0877c68f3746c795796d8ee4f2743c8b77199b7d9d43d0c",
-          "bytes": 750540
+          "sha256": "6e4e7e47fa02c82533a499573576d6be7191632bd48954b18640f039e3a0c62c",
+          "bytes": 755364
         },
         "validation": {
           "checksPassed": 9,
@@ -93,6 +93,12 @@
           "compositionStatus": "pass",
           "errors": 0,
           "warnings": 0
+        },
+        "evidence": {
+          "verified": true,
+          "repository": "https://github.com/tranthaiminhtansoft/lingua-lab",
+          "revision": "df7921d94d9b2aebba71ea861015baf4e0a2f8a8",
+          "references": 6
         },
         "update": {
           "status": "unavailable",
@@ -110,20 +116,20 @@
     "check": {
       "status": "pass",
       "exitCode": 0,
-      "durationMs": 172,
+      "durationMs": 77,
       "command": [
-        "/opt/homebrew/Cellar/node/25.2.1/bin/node",
-        "/private/tmp/archify-docs/archify/bin/archify.mjs",
+        "/Users/tranthaiminhtan/.hermes/node/bin/node",
+        "/private/tmp/archify-renderer/archify/bin/archify.mjs",
         "check",
-        "/Users/tranthaiminhtan/homelab_practice/lingua-lab/src/business/docs/ci-workflow.html",
+        "/Users/tranthaiminhtan/.codex/worktrees/6698/lingua-lab/src/business/docs/ci-workflow.html",
         "--require-provenance"
       ],
       "receipt": {
         "ok": true,
-        "file": "/Users/tranthaiminhtan/homelab_practice/lingua-lab/src/business/docs/ci-workflow.html",
+        "file": "/Users/tranthaiminhtan/.codex/worktrees/6698/lingua-lab/src/business/docs/ci-workflow.html",
         "artifact": {
-          "sha256": "2a8ef45499c1bf3fd0877c68f3746c795796d8ee4f2743c8b77199b7d9d43d0c",
-          "bytes": 750540
+          "sha256": "6e4e7e47fa02c82533a499573576d6be7191632bd48954b18640f039e3a0c62c",
+          "bytes": 755364
         },
         "checks": [
           {
@@ -190,16 +196,16 @@
             "containerBorderRuns": 0,
             "labelRouteClearanceIssues": 0,
             "labelCanvasOverflowIssues": 0,
-            "minLabelRouteClearance": 27,
+            "minLabelRouteClearance": 15,
             "desktopReadabilityIssues": 0,
             "viewportHeightIssues": 0,
-            "minProjectedNodeTextPx": 6.326530612244898,
-            "maxBends": 3,
-            "routesOverSuggestedBends": 2,
-            "maxStretch": 6.411,
-            "routesOverSuggestedStretch": 1,
-            "minSegmentPx": 16,
-            "minInteriorSegmentPx": 77,
+            "minProjectedNodeTextPx": 8.385245901639344,
+            "maxBends": 0,
+            "routesOverSuggestedBends": 0,
+            "maxStretch": 1,
+            "routesOverSuggestedStretch": 0,
+            "minSegmentPx": 218,
+            "minInteriorSegmentPx": null,
             "shortSegmentCount": 0,
             "shortEndpointSegmentCount": 0,
             "shortInteriorSegmentCount": 0,
@@ -213,47 +219,22 @@
           },
           "routeReview": {
             "crossings": [],
-            "detours": [
-              {
-                "relationship": {
-                  "id": "trigger-app",
-                  "from": "event",
-                  "to": "install",
-                  "label": "eligible paths only",
-                  "collectionIndex": 2,
-                  "artifactIndex": 3
-                },
-                "bends": 3,
-                "stretch": 6.411,
-                "directCorridorBlockers": [
-                  {
-                    "id": "policy",
-                    "label": "Repository policy",
-                    "box": [
-                      48,
-                      217,
-                      164,
-                      52
-                    ]
-                  }
-                ]
-              },
-              {
-                "relationship": {
-                  "id": "trigger-policy",
-                  "from": "event",
-                  "to": "policy",
-                  "label": "eligible paths only",
-                  "collectionIndex": 3,
-                  "artifactIndex": 4
-                },
-                "bends": 3,
-                "stretch": 1.178
-              }
-            ]
+            "detours": []
           },
           "leadingSpace": {
             "measured": false,
+            "reviewSuggested": false
+          },
+          "sequenceColumnSpace": {
+            "measured": true,
+            "columnFit": "spread",
+            "participantCount": 5,
+            "occupiedRight": 1219.6,
+            "viewBoxLeft": 0,
+            "canvasWidth": 1220,
+            "emptyRightPx": 0.4,
+            "emptyRightRatio": 0,
+            "typicalParticipantWidth": 190,
             "reviewSuggested": false
           },
           "desktopReadability": {
@@ -267,17 +248,19 @@
             "hardFloorPx": 6,
             "hardFloorMet": true,
             "minimumOwner": {
-              "kind": "node",
-              "id": "event"
+              "kind": "edge",
+              "id": "open-pr",
+              "from": "developer",
+              "to": "pulls"
             },
-            "minimumSourceTextPx": 8,
-            "minimumProjectedTextPx": 6.326530612244898,
-            "semanticTextCount": 12
+            "minimumSourceTextPx": 11,
+            "minimumProjectedTextPx": 8.385245901639344,
+            "semanticTextCount": 13
           },
           "issues": []
         },
         "provenance": "current",
-        "deliveryReceiptId": "669efa06-1aad-433e-9796-300ea3debe83"
+        "deliveryReceiptId": "e0fe9f2a-c168-4b50-b1b0-a865789dc67b"
       }
     },
     "browser-check": {
@@ -285,10 +268,10 @@
       "exitCode": 1,
       "durationMs": 5,
       "command": [
-        "/opt/homebrew/Cellar/node/25.2.1/bin/node",
-        "/private/tmp/archify-docs/archify/bin/archify.mjs",
+        "/Users/tranthaiminhtan/.hermes/node/bin/node",
+        "/private/tmp/archify-renderer/archify/bin/archify.mjs",
         "browser-check",
-        "/Users/tranthaiminhtan/homelab_practice/lingua-lab/src/business/docs/ci-workflow.html",
+        "/Users/tranthaiminhtan/.codex/worktrees/6698/lingua-lab/src/business/docs/ci-workflow.html",
         "--json",
         "--require-provenance"
       ],
@@ -301,11 +284,11 @@
         "status": "fail",
         "visualReview": "not-requested",
         "provenance": "current",
-        "deliveryReceiptId": "669efa06-1aad-433e-9796-300ea3debe83",
+        "deliveryReceiptId": "e0fe9f2a-c168-4b50-b1b0-a865789dc67b",
         "artifact": {
-          "path": "/Users/tranthaiminhtan/homelab_practice/lingua-lab/src/business/docs/ci-workflow.html",
-          "sha256": "2a8ef45499c1bf3fd0877c68f3746c795796d8ee4f2743c8b77199b7d9d43d0c",
-          "bytes": 750540
+          "path": "/Users/tranthaiminhtan/.codex/worktrees/6698/lingua-lab/src/business/docs/ci-workflow.html",
+          "sha256": "6e4e7e47fa02c82533a499573576d6be7191632bd48954b18640f039e3a0c62c",
+          "bytes": 755364
         },
         "state": {
           "detail": "read",
@@ -319,14 +302,14 @@
           {
             "code": "viewer/evidence-path-conflict",
             "severity": "error",
-            "message": "browser-check will not replace the existing unowned evidence path \"/Users/tranthaiminhtan/homelab_practice/lingua-lab/src/business/docs/ci-workflow.browser-check.json\".",
+            "message": "browser-check will not replace the existing unowned evidence path \"/Users/tranthaiminhtan/.codex/worktrees/6698/lingua-lab/src/business/docs/ci-workflow.browser-check.json\".",
             "subject": {
-              "artifact": "/Users/tranthaiminhtan/homelab_practice/lingua-lab/src/business/docs/ci-workflow.html",
-              "evidencePath": "/Users/tranthaiminhtan/homelab_practice/lingua-lab/src/business/docs/ci-workflow.browser-check.json"
+              "artifact": "/Users/tranthaiminhtan/.codex/worktrees/6698/lingua-lab/src/business/docs/ci-workflow.html",
+              "evidencePath": "/Users/tranthaiminhtan/.codex/worktrees/6698/lingua-lab/src/business/docs/ci-workflow.browser-check.json"
             },
             "evidence": {
               "reason": {
-                "code": "ownership-artifact-mismatch"
+                "code": "ownership-sidecar-path-mismatch"
               }
             },
             "supportedFixes": [
@@ -361,7 +344,7 @@
           "receipt": "ci-workflow.browser-check.json",
           "files": []
         },
-        "error": "browser-check will not replace the existing unowned evidence path \"/Users/tranthaiminhtan/homelab_practice/lingua-lab/src/business/docs/ci-workflow.browser-check.json\"."
+        "error": "browser-check will not replace the existing unowned evidence path \"/Users/tranthaiminhtan/.codex/worktrees/6698/lingua-lab/src/business/docs/ci-workflow.browser-check.json\"."
       }
     }
   },
@@ -369,14 +352,14 @@
     {
       "code": "viewer/evidence-path-conflict",
       "severity": "error",
-      "message": "browser-check will not replace the existing unowned evidence path \"/Users/tranthaiminhtan/homelab_practice/lingua-lab/src/business/docs/ci-workflow.browser-check.json\".",
+      "message": "browser-check will not replace the existing unowned evidence path \"/Users/tranthaiminhtan/.codex/worktrees/6698/lingua-lab/src/business/docs/ci-workflow.browser-check.json\".",
       "subject": {
-        "artifact": "/Users/tranthaiminhtan/homelab_practice/lingua-lab/src/business/docs/ci-workflow.html",
-        "evidencePath": "/Users/tranthaiminhtan/homelab_practice/lingua-lab/src/business/docs/ci-workflow.browser-check.json"
+        "artifact": "/Users/tranthaiminhtan/.codex/worktrees/6698/lingua-lab/src/business/docs/ci-workflow.html",
+        "evidencePath": "/Users/tranthaiminhtan/.codex/worktrees/6698/lingua-lab/src/business/docs/ci-workflow.browser-check.json"
       },
       "evidence": {
         "reason": {
-          "code": "ownership-artifact-mismatch"
+          "code": "ownership-sidecar-path-mismatch"
         }
       },
       "supportedFixes": [
@@ -385,22 +368,23 @@
     }
   ],
   "evidence": {
-    "receipt": "/Users/tranthaiminhtan/homelab_practice/lingua-lab/src/business/docs/ci-workflow.finalize.json",
-    "summaryReceipt": "/Users/tranthaiminhtan/homelab_practice/lingua-lab/src/business/docs/ci-workflow.finalize-summary.json",
-    "browserCheckReceipt": "/Users/tranthaiminhtan/homelab_practice/lingua-lab/src/business/docs/ci-workflow.browser-check.json"
+    "receipt": "/Users/tranthaiminhtan/.codex/worktrees/6698/lingua-lab/src/business/docs/ci-workflow.finalize.json",
+    "summaryReceipt": "/Users/tranthaiminhtan/.codex/worktrees/6698/lingua-lab/src/business/docs/ci-workflow.finalize-summary.json",
+    "browserCheckReceipt": "/Users/tranthaiminhtan/.codex/worktrees/6698/lingua-lab/src/business/docs/ci-workflow.browser-check.json"
   },
   "visualReview": "not-requested",
   "failedStage": "browser-check",
-  "finishedAt": "2026-10-02T05:50:22.481Z",
-  "durationMs": 608,
+  "finishedAt": "2026-10-10T06:01:03.983Z",
+  "durationMs": 504,
   "update": {
-    "status": "current",
-    "installedVersion": "3.0.1",
-    "availableVersion": "3.0.1",
+    "status": "unavailable",
+    "installedVersion": null,
+    "availableVersion": null,
     "releaseNotes": null,
-    "checkedAt": "2026-10-01T13:47:19.675Z",
-    "source": "cache",
+    "checkedAt": null,
+    "source": null,
     "noticeRequired": false,
-    "noticeText": null
+    "noticeText": null,
+    "reason": "cache-unavailable"
   }
 }
