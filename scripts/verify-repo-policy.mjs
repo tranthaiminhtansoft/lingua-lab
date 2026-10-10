@@ -10,11 +10,11 @@ const required = [
   'learning-content-reviewer',
 ];
 const pullRequestBranch = process.env.GITHUB_HEAD_REF;
-const allowedPullRequestBranch = /^(feature\/homelab\/.+|release\/homelab\/[0-9]{8})$/;
+const allowedPullRequestBranch = /^(feature\/homelab\/.+|release\/homelab\/.+)$/;
 
 if (pullRequestBranch && !allowedPullRequestBranch.test(pullRequestBranch)) {
   throw new Error(
-    `Pull request branch "${pullRequestBranch}" must use feature/homelab/<topic> or release/homelab/YYYYMMDD.`,
+    `Pull request branch "${pullRequestBranch}" must use feature/homelab/<topic> or release/homelab/<topic>.`,
   );
 }
 
