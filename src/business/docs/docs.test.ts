@@ -177,7 +177,9 @@ describe('standalone documentation sources', () => {
     expect(rollback).toContain('Resolve requested stable GitHub Release');
     expect(rollback).toContain('Rollback verified');
     expect(rollback).toContain('Review deployments');
-    expect(post).toContain('representative routes');
+    expect(post).toContain('Post-release checklist');
+    expect(post).toContain('production-verification');
+    expect(post).toContain('one route changed in this release');
     expect(post).toContain('href="rollback.html"');
     expect(index).toContain('href="procedures.html"');
     expect(index).toContain('20261003');
@@ -193,11 +195,11 @@ describe('standalone documentation sources', () => {
     expect(delivery.indexOf('id="workflow-sources"')).toBeLessThan(delivery.indexOf('id="workflow-diagram"'));
     expect(delivery).toContain('id="page-menu"');
     expect(delivery).toContain('getBoundingClientRect().top <= 160');
-    for (const html of [pre, post]) {
-      expect(html).toContain('role="img"');
-      expect(html).toContain('Screenshot placeholder');
-      expect(html).not.toMatch(/<img\b/i);
-    }
+    expect(pre).toContain('role="img"');
+    expect(pre).toContain('Screenshot placeholder');
+    expect(pre).not.toMatch(/<img\b/i);
+    expect(post).not.toContain('Screenshot placeholder');
+    expect(post).not.toMatch(/<img\b/i);
     expect(release).toContain('assets/release-trigger-form.jpg');
     expect(release).toContain('assets/release-trigger-success.jpg');
     expect(release).toContain('assets/release-candidate-success.jpg');

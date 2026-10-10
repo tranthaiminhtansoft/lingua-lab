@@ -1,7 +1,7 @@
 ## 🧩 WHAT CHANGED
 
 - Describe the change and its scope.
-- Confirm the source branch follows `develop/homelab/<slug>`.
+- Confirm the source branch follows `feature/homelab/<slug>` for feature work or `release/homelab/<slug>` for release work.
 
 ## 🚀 BENEFIT
 

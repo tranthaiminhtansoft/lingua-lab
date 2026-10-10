@@ -1,14 +1,62 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Post-release guide — Lingua Lab</title>
-<style>:root{color-scheme:light;font:16px/1.6 system-ui,sans-serif;color:#172033;background:#f7f9fc}*{box-sizing:border-box}body{max-width:900px;margin:auto;padding:1rem}a{color:#075e8c}header,main{background:#fff;border:1px solid #dce4ed;border-radius:1rem;padding:clamp(1rem,4vw,1.5rem)}header{margin-bottom:1rem}nav{display:flex;flex-wrap:wrap;gap:.5rem 1rem}li{margin:.65rem 0}.capture{margin:1rem 0;border:1px dashed #8aa9bf;border-radius:.75rem;min-height:150px;padding:1rem;background:#f4f8fb;color:#40556a}.capture strong{display:block}.note{border-left:4px solid #9b6a00;background:#fff8e8;padding:.75rem 1rem}</style>  <link rel="stylesheet" href="assets/docs-menu.css?v=20261010-menu2">
+<style>:root{color-scheme:light;font:16px/1.6 system-ui,sans-serif;color:#172033;background:#f7f9fc}*{box-sizing:border-box}body{max-width:900px;margin:auto;padding:1rem}a{color:#075e8c}header,main{background:#fff;border:1px solid #dce4ed;border-radius:1rem;padding:clamp(1rem,4vw,1.5rem)}header{margin-bottom:1rem}nav{display:flex;flex-wrap:wrap;gap:.5rem 1rem}table{width:100%;border-collapse:collapse;margin:.75rem 0;font-size:.93rem}th,td{border:1px solid #c8d8e4;padding:.55rem .65rem;text-align:left;vertical-align:top}th{background:#edf4f8}pre{overflow-wrap:anywhere;white-space:pre-wrap;background:#f4f8fb;border:1px solid #dce4ed;border-radius:.6rem;padding:1rem}</style>  <link rel="stylesheet" href="assets/docs-menu.css?v=20261010-menu2">
   <script src="assets/docs-menu.js?v=20261010-menu2" defer></script>
 </head>
-<body><header><p class="breadcrumb"><a href="index.html">Start here</a> / <a href="procedures.html">Procedures</a> / Post-release</p><h1>Post-release</h1><nav aria-label="Documentation"><a href="index.html">Start here</a><a href="product.html">Product Guideline</a><a href="reference.html">Reference</a><a href="procedures.html" aria-current="location">Procedures</a></nav></header>
-<main><p>After publication, check the deployed site directly; workflow success and live behavior are separate evidence.</p>
-<ol><li>Open the Pages URL returned by the successful deployment: <a href="https://tranthaiminhtansoft.github.io/lingua-lab/">https://tranthaiminhtansoft.github.io/lingua-lab/</a>.</li>
-<li>Test the home page, then representative routes such as <code>/nihongo-o-benkyuo/kana</code>, <code>/nihongo-o-benkyuo/grammar</code>, and <code>/nihongo-o-benkyuo/vocabulary</code>. Refresh a nested route and note any failures.</li>
-<li>For Vocabulary → Time, open <code>/nihongo-o-benkyuo/vocabulary/time</code> and refresh. Confirm the fixed sample date October 15, 2026, drag both clock hands, check the combined Kana/Romaji, and try a.m./p.m., half past, the section menu and Top on mobile. The release verification artifact includes <code>time-results.json</code> and failure screenshots when a check fails.</li>
-<li>Record the URL, date/time, routes tested, and observed outcome. Escalate errors; do not call the release healthy based only on HTTP status or workflow completion.</li>
-<li>If the spot-check fails, pause further release activity and have the release owner decide next steps. If rollback is authorized, follow the standalone <a href="rollback.html">Rollback guide</a>.</li></ol>
-<div class="capture" role="img" aria-label="Screenshot placeholder: post-release site check"><strong>Screenshot placeholder — post-release route check</strong>User-provided capture goes here.</div>
+<body><header><div class="breadcrumb"><a href="index.html">Start here</a> / <a href="procedures.html">Procedures</a> / Post-release</div><h1>Post-release</h1><nav aria-label="Documentation"><a href="index.html">Start here</a><a href="product.html">Product Guideline</a><a href="reference.html">Reference</a><a href="procedures.html" aria-current="location">Procedures</a></nav></header>
+<main>
+<h2>1. Post-release checklist</h2>
+<table>
+  <thead><tr><th scope="col">Checklist</th><th scope="col">Complete when</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">☐ Workflow result</th><td><ul><li><strong>Verify deployed release:</strong> Success</li><li><strong>Publish stable GitHub Release:</strong> Success</li><li><strong>Production verification:</strong> all checks passed</li></ul></td></tr>
+    <tr><th scope="row">☐ Release notes</th><td><ul><li>Source branch matches the PRD Release run.</li><li>Include merged PRs from the previous stable tag through the current source commit.</li><li>List only changes verified against each PR diff.</li><li>Omit unchanged items, Summary, commit SHA, and production-verification status.</li><li>Preserve tag, title, target commit, and rollback assets.</li><li>Use the format below.</li></ul></td></tr>
+    <tr><th scope="row">☐ Live spot-check</th><td><ul><li>Open the Pages URL from the run.</li><li>Confirm the home page loads.</li><li>Open and refresh one route changed in this release.</li><li>Confirm the change is visible.</li></ul></td></tr>
+  </tbody>
+</table>
+
+<section id="edit-github-release">
+<h2>2. Edit the GitHub Release</h2>
+<ol>
+  <li>Open <a href="https://github.com/tranthaiminhtansoft/lingua-lab/releases">Lingua Lab → Releases</a>, then open the stable release created by the successful PRD Release run.</li>
+  <li>On the release page, select <strong>Edit release</strong> (pencil icon in the release card).</li>
+  <li>In the edit form, keep the existing tag and title. Replace the content in <strong>Release description</strong> → <strong>Write</strong> with the notes format below.</li>
+  <li>Select <strong>Preview</strong>. Check the source branch, PR links, and each listed change.</li>
+  <li>Select <strong>Update release</strong> to save the notes.</li>
+</ol>
+
+<table>
+  <thead><tr><th scope="col">GitHub field</th><th scope="col">Action</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Tag</th><td>Keep the existing release tag.</td></tr>
+    <tr><th scope="row">Release title</th><td>Keep the existing title.</td></tr>
+    <tr><th scope="row">Release description</th><td>Replace with the verified notes below; use <strong>Preview</strong> to confirm rendering.</td></tr>
+    <tr><th scope="row">Assets and release label</th><td>Leave unchanged.</td></tr>
+    <tr><th scope="row">Save</th><td>Select <strong>Update release</strong> after reviewing the preview.</td></tr>
+  </tbody>
+</table>
+
+<h3>Release description format</h3>
+<pre><code>## Source branch
+release/homelab/YYYYMMDD
+
+## PRs and changes
+
+| PR | Changes |
+|---|---|
+| [#&lt;number&gt; — &lt;title&gt;](&lt;PR URL&gt;) | - &lt;Specific feature, fix, CI/CD, or documentation change&gt;&lt;br&gt;- &lt;Another concrete change, if applicable&gt; |
+| [#&lt;number&gt; — &lt;title&gt;](&lt;PR URL&gt;) | - &lt;Specific change&gt; |</code></pre>
+
+<ul>
+  <li>List merged PRs from the previous stable tag through the release source commit.</li>
+  <li>Verify every bullet against its PR diff; omit unchanged items, a separate summary, commit SHA, and production verification status.</li>
+  <li>Keep each PR in one table row. Separate multiple changes with <code>&lt;br&gt;-</code>.</li>
+</ul>
+</section>
+
+<section id="failed-checks">
+<h2>3. If a check fails</h2>
+<ul><li>Stop release follow-up and consult the release owner.</li><li>Use the <a href="rollback.html">Rollback guide</a> only when authorized.</li><li>Download <code>production-verification</code> only to inspect failed checks.</li></ul>
+</section>
+
 </main></body></html>
