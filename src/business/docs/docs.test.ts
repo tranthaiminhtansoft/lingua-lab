@@ -16,7 +16,7 @@ describe('standalone documentation sources', () => {
     for (const [name, html] of pages) {
       expect(html).toContain('<!doctype html>');
       expect(html).toContain('<html lang="en">');
-      expect(html).toContain('<main>');
+      expect(html).toMatch(/<main(?:\s|>)/);
       expect(html).toContain('<nav aria-label="Documentation">');
       expect(html).not.toMatch(/<pre>[^<]*(?:#{1,6} |\*\*|```)/);
       expect(html).not.toContain('/lingua-lab/docs/');
