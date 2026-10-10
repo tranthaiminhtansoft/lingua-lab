@@ -1,35 +1,234 @@
 {
   "schema_version": 2,
   "diagram_type": "workflow",
-  "meta": { "title": "Configured Release Workflow", "locale": "en", "quality_profile": "showcase", "output": "delivery-workflow.html", "repository": { "url": "https://github.com/tranthaiminhtansoft/lingua-lab.git", "provider": "github", "link_mode": "web", "revision": "ef363e8f8454586a01112dbbe4b5b9651efe515f" } },
+  "meta": {
+    "title": "CI/CD Workflow Overview",
+    "output": "src/business/docs/delivery-workflow.html",
+    "viewBox": [
+      1240,
+      800
+    ],
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/tranthaiminhtansoft/lingua-lab.git",
+      "provider": "github",
+      "link_mode": "web",
+      "revision": "df7921d94d9b2aebba71ea861015baf4e0a2f8a8"
+    }
+  },
   "lanes": [
-    { "id": "start", "label": "Dispatch" },
-    { "id": "checks", "label": "Source validation and pre-build gate" },
-    { "id": "approval", "label": "Artifact build and production gates" },
-    { "id": "verify", "label": "Live verification and publication" }
+    {
+      "id": "ci",
+      "label": "Developer · Pull-request CI"
+    },
+    {
+      "id": "entry",
+      "label": "Releaser · Release entry"
+    },
+    {
+      "id": "release",
+      "label": "Release orchestration"
+    },
+    {
+      "id": "recovery",
+      "label": "Recovery orchestration"
+    },
+    {
+      "id": "platform",
+      "label": "Reusable platform delivery"
+    }
   ],
-  "mainPath": ["dispatch", "validate", "approve", "build", "deploy", "verify", "publishApproval", "publish"],
+  "mainPath": [
+    "create",
+    "release",
+    "pages"
+  ],
   "nodes": [
-    { "id": "dispatch", "lane": "start", "col": 0, "type": "external", "label": "Release dispatch", "sublabel": "candidate_ref", "width": 150, "sources": [{ "path": ".github/workflows/prd-release.yml", "line": 1, "end_line": 11 }] },
-    { "id": "validate", "lane": "checks", "col": 0, "type": "security", "label": "Validate source", "sublabel": "branch/date · exact master SHA · release preflight", "width": 190, "sources": [{ "path": ".github/workflows/prd-release.yml", "line": 14, "end_line": 37 }, { "path": "scripts/release/validate-candidate.sh", "line": 1, "end_line": 54 }] },
-    { "id": "build", "lane": "approval", "col": 1, "type": "backend", "label": "Build candidate", "sublabel": "Pages artifact only", "width": 170, "sources": [{ "path": ".github/workflows/prd-release.yml", "line": 50, "end_line": 79 }] },
-    { "id": "approve", "lane": "checks", "col": 1, "type": "security", "label": "prod approval", "sublabel": "before candidate build", "width": 200, "sources": [{ "path": ".github/workflows/prd-release.yml", "line": 39, "end_line": 49 }] },
-    { "id": "deploy", "lane": "approval", "col": 2, "type": "cloud", "label": "Deploy Pages", "sublabel": "reusable workflow", "width": 160, "sources": [{ "path": ".github/workflows/prd-release.yml", "line": 105, "end_line": 114 }, { "path": ".github/workflows/wc-release-pages.yml", "line": 12, "end_line": 25 }] },
-    { "id": "verify", "lane": "verify", "col": 3, "type": "security", "label": "Verify deployed site", "sublabel": "identity · sampled routes", "width": 175, "sources": [{ "path": ".github/workflows/prd-release.yml", "line": 116, "end_line": 136 }, { "path": "scripts/release/verify-deployed-site.mjs", "line": 4, "end_line": 50 }] },
-    { "id": "publishApproval", "lane": "approval", "col": 3, "type": "security", "label": "prod approval", "sublabel": "before stable publication", "width": 210, "sources": [{ "path": ".github/workflows/prd-release.yml", "line": 138, "end_line": 147 }] },
-    { "id": "publish", "lane": "verify", "col": 4, "type": "cloud", "label": "Publish stable", "sublabel": "GitHub Release archive", "width": 170, "sources": [{ "path": ".github/workflows/prd-release.yml", "line": 149, "end_line": 176 }] }
+    {
+      "id": "developer",
+      "lane": "ci",
+      "col": 0,
+      "type": "external",
+      "label": "Developer",
+      "sublabel": "opens PR to master",
+      "width": 190
+    },
+    {
+      "id": "ci-workflow",
+      "lane": "ci",
+      "col": 2,
+      "type": "backend",
+      "label": "CI workflow",
+      "sublabel": "ci.yml · PR checks",
+      "width": 210,
+      "sources": [
+        {
+          "path": ".github/workflows/ci.yml",
+          "line": 1,
+          "end_line": 69
+        }
+      ]
+    },
+    {
+      "id": "pull-request-event",
+      "lane": "ci",
+      "col": 1,
+      "type": "cloud",
+      "label": "GitHub PR event",
+      "sublabel": "pull_request · master",
+      "width": 220
+    },
+    {
+      "id": "releaser",
+      "lane": "entry",
+      "col": 0,
+      "type": "external",
+      "label": "Releaser",
+      "sublabel": "manual dispatch",
+      "width": 190
+    },
+    {
+      "id": "create",
+      "lane": "entry",
+      "col": 1,
+      "type": "backend",
+      "label": "Create release branch",
+      "sublabel": "prd-create-release-branch.yml",
+      "width": 230,
+      "sources": [
+        {
+          "path": ".github/workflows/prd-create-release-branch.yml",
+          "line": 1,
+          "end_line": 53
+        }
+      ]
+    },
+    {
+      "id": "release",
+      "lane": "release",
+      "col": 2,
+      "type": "backend",
+      "label": "PRD Release",
+      "sublabel": "prd-release.yml",
+      "width": 190,
+      "sources": [
+        {
+          "path": ".github/workflows/prd-release.yml",
+          "line": 1,
+          "end_line": 247
+        }
+      ]
+    },
+    {
+      "id": "rollback",
+      "lane": "recovery",
+      "col": 3,
+      "type": "backend",
+      "label": "PRD Rollback",
+      "sublabel": "prd-rollback.yml",
+      "width": 190,
+      "sources": [
+        {
+          "path": ".github/workflows/prd-rollback.yml",
+          "line": 1,
+          "end_line": 124
+        }
+      ]
+    },
+    {
+      "id": "pages",
+      "lane": "platform",
+      "col": 4,
+      "type": "cloud",
+      "label": "Pages deploy",
+      "sublabel": "wc-release-pages.yml · reusable",
+      "width": 230,
+      "sources": [
+        {
+          "path": ".github/workflows/wc-release-pages.yml",
+          "line": 1,
+          "end_line": 27
+        }
+      ]
+    }
   ],
   "edges": [
-    { "id": "start-validation", "from": "dispatch", "to": "validate", "label": "master dispatch" },
-    { "id": "validated-approval", "from": "validate", "to": "approve", "label": "pinned SHA" },
-    { "id": "approval-build", "from": "approve", "to": "build", "label": "approved" },
-    { "id": "build-deploy", "from": "build", "to": "deploy", "label": "built" },
-    { "id": "deploy-verify", "from": "deploy", "to": "verify", "label": "URL" },
-    { "id": "verify-approval", "from": "verify", "to": "publishApproval", "label": "identity/routes checked" },
-    { "id": "approval-publish", "from": "publishApproval", "to": "publish", "label": "approved" }
+    {
+      "id": "developer-pr",
+      "from": "developer",
+      "to": "pull-request-event",
+      "label": "open / update PR",
+      "variant": "emphasis"
+    },
+    {
+      "id": "pr-event-ci",
+      "from": "pull-request-event",
+      "to": "ci-workflow",
+      "label": "auto-trigger · path-filtered",
+      "variant": "emphasis"
+    },
+    {
+      "id": "releaser-create",
+      "from": "releaser",
+      "to": "create",
+      "label": "workflow_dispatch",
+      "variant": "emphasis"
+    },
+    {
+      "id": "create-release",
+      "from": "create",
+      "to": "release",
+      "label": "workflow_dispatch · candidate_ref",
+      "variant": "emphasis"
+    },
+    {
+      "id": "release-pages",
+      "from": "release",
+      "to": "pages",
+      "label": "deploy candidate / stable artifact",
+      "variant": "emphasis"
+    },
+    {
+      "id": "release-rollback",
+      "from": "release",
+      "to": "rollback",
+      "label": "verification failure",
+      "variant": "security",
+      "role": "error"
+    },
+    {
+      "id": "rollback-pages",
+      "from": "rollback",
+      "to": "pages",
+      "label": "redeploy retained release",
+      "variant": "dashed",
+      "role": "return"
+    }
   ],
   "cards": [
-    { "dot": "cyan", "title": "Candidate build", "items": ["Release validates candidate branch/date, resolves and pins its commit, then requires exact equality with the protected master tip.", "The first prod approval happens before candidate code is built. The build creates the Pages artifact and rollback archive from the pinned SHA; it runs no lint, typecheck, unit tests, or browser smoke checks.", "Deployment verification remains a separate post-deployment step and checks the served identity stamp and representative route content."] },
-    { "dot": "rose", "title": "Human gates · evidence boundary", "items": ["Two separate prod approvals gate candidate build/deployment and stable publication. The diagram shows configured gates, not approvals or a successful run.", "Rollback is separate; workflow source is configuration evidence only and does not establish that a workflow ran or that production is live."] }
+    {
+      "dot": "cyan",
+      "title": "Workflow-level view",
+      "items": [
+        "Each node is one workflow file; internal jobs and steps are intentionally omitted.",
+        "The release and recovery workflows call the same reusable Pages deployment workflow."
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Failure hand-off",
+      "items": [
+        "PRD Release dispatches PRD Rollback only after a deployed candidate fails post-deployment verification.",
+        "The separate rollback sequence shows the recovery steps and its approval gate."
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "Workflow entry points",
+      "items": [
+        "Developer opens or updates a PR to master; GitHub emits the pull_request event and automatically starts CI when changed paths match its allowlist.",
+        "Releaser manually dispatches the release-branch workflow; it is not connected to PR CI."
+      ]
+    }
   ]
 }

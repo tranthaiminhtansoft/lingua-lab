@@ -21,19 +21,36 @@ test('documentation iframe resize remains stable without browser errors', async 
         await page.setViewportSize({ width, height: 900 });
         await expect.poll(() => page.locator('iframe').evaluateAll((frames) => frames.every((frame) => {
           const doc = frame.contentDocument;
-          return Boolean(doc) && parseFloat(frame.style.height) >= doc.body.scrollHeight;
+          if (!doc?.body || !doc.documentElement) return false;
+          const contentHeight = Math.max(doc.body.scrollHeight, doc.documentElement.scrollHeight);
+          return frame.getBoundingClientRect().height + 1 >= contentHeight;
         }))).toBe(true);
         await page.evaluate(() => new Promise((done) => requestAnimationFrame(() => requestAnimationFrame(done))));
       }
-      const writes = await page.locator('iframe').evaluateAll(async (frames) => {
-        let writes = 0;
-        const observer = new MutationObserver((records) => { writes += records.length; });
-        frames.forEach((frame) => observer.observe(frame, { attributes: true, attributeFilter: ['style'] }));
-        for (let index = 0; index < 10; index++) await new Promise((done) => requestAnimationFrame(done));
-        observer.disconnect();
-        return writes;
+      await page.locator('iframe').evaluateAll((frames) => Promise.all(frames.map((frame) => frame.contentDocument?.fonts?.ready)));
+      await page.evaluate(() => new Promise((done) => {
+        let previous = '';
+        let stableFrames = 0;
+        const checkLayout = () => {
+          const current = [...document.querySelectorAll('iframe')]
+            .map((frame) => frame.getBoundingClientRect().height)
+            .join(',');
+          stableFrames = current === previous ? stableFrames + 1 : 0;
+          previous = current;
+          if (stableFrames >= 3) done();
+          else requestAnimationFrame(checkLayout);
+        };
+        requestAnimationFrame(checkLayout);
+      }));
+      const heightSamples = await page.locator('iframe').evaluateAll(async (frames) => {
+        const samples = [];
+        for (let index = 0; index < 10; index++) {
+          await new Promise((done) => requestAnimationFrame(done));
+          samples.push(frames.map((frame) => frame.getBoundingClientRect().height));
+        }
+        return samples;
       });
-      expect(writes).toBe(0);
+      expect(new Set(heightSamples.map((sample) => sample.join(','))).size).toBe(1);
     }
     await page.close();
     expect(monitor.results().filter(({ passed }) => !passed)).toEqual([]);

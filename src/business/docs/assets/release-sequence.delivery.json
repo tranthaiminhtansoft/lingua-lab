@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "d899a10e-0059-48c2-9f6c-b599691449a9",
+  "status": "current",
+  "command": "deliver",
+  "type": "sequence",
+  "input": "/Users/tranthaiminhtan/.codex/worktrees/6698/lingua-lab/src/business/docs/release-sequence.json",
+  "output": "/Users/tranthaiminhtan/.codex/worktrees/6698/lingua-lab/src/business/docs/assets/release-sequence.html",
+  "specification": {
+    "sha256": "361f439e1a516bab5b0f8b60f374f0d0affc720d10291c4e47e6a9155f5584e7",
+    "bytes": 5928
+  },
+  "artifact": {
+    "sha256": "c826075685334c93abf78ced48f39041284683084aa1cc2c371b4772cd6dc195",
+    "bytes": 759454
+  }
+}

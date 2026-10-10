@@ -1,0 +1,102 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Production Automation Verification",
+    "output": "src/business/docs/assets/verification-flowchart.html",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/tranthaiminhtansoft/lingua-lab.git",
+      "provider": "github",
+      "link_mode": "web",
+      "revision": "df7921d94d9b2aebba71ea861015baf4e0a2f8a8"
+    }
+  },
+  "lanes": [
+    { "id": "setup", "label": "GitHub Actions · verify_release" },
+    { "id": "deployed", "label": "Deployed-site checks" },
+    { "id": "extended", "label": "Extended site browser checks" },
+    { "id": "result", "label": "Verification result + evidence" }
+  ],
+  "phases": [
+    { "id": "prepare", "label": "Prepare verifier", "fromCol": 0, "toCol": 1 },
+    { "id": "verify", "label": "Run deployed-site verification", "fromCol": 2, "toCol": 4, "variant": "emphasis" },
+    { "id": "report", "label": "Report + retain evidence", "fromCol": 5, "toCol": 5, "variant": "dashed" }
+  ],
+  "mainPath": ["checkout", "prepare", "manifest", "deployed", "routes", "extended", "features", "result", "upload"],
+  "nodes": [
+    {
+      "id": "checkout", "lane": "setup", "col": 0, "type": "backend", "width": 160,
+      "label": "Checkout workflow", "sublabel": "ref = github.sha",
+      "sources": [{ "path": ".github/workflows/prd-release.yml", "line": 116, "end_line": 135 }]
+    },
+    {
+      "id": "prepare", "lane": "setup", "col": 1, "type": "backend", "width": 175,
+      "label": "Install Node + deps", "sublabel": "npm ci · Playwright Chromium",
+      "sources": [{ "path": ".github/actions/setup-node-and-install/action.yml", "line": 1, "end_line": 13 }, { "path": ".github/workflows/prd-release.yml", "line": 136, "end_line": 137 }]
+    },
+    {
+      "id": "manifest", "lane": "setup", "col": 2, "type": "database", "width": 175,
+      "label": "Download site manifest", "sublabel": "candidate manifest",
+      "sources": [{ "path": ".github/workflows/prd-release.yml", "line": 138, "end_line": 144 }]
+    },
+    {
+      "id": "deployed", "lane": "deployed", "col": 3, "type": "security", "width": 175,
+      "label": "Verify files + identity", "sublabel": "size/SHA · SOURCE_SHA",
+      "sources": [{ "path": "scripts/release/site-manifest.mjs", "line": 47, "end_line": 74 }, { "path": "scripts/release/verify-deployed-site.mjs", "line": 24, "end_line": 26 }, { "path": "scripts/release/verify-deployed-site.mjs", "line": 88, "end_line": 105 }]
+    },
+    {
+      "id": "routes", "lane": "deployed", "col": 4, "type": "cloud", "width": 185,
+      "label": "Check route matrix", "sublabel": "HTTP · content · refresh",
+      "sources": [{ "path": "scripts/release/verify-deployed-site.mjs", "line": 8, "end_line": 21 }, { "path": "scripts/release/verify-deployed-site.mjs", "line": 39, "end_line": 67 }]
+    },
+    {
+      "id": "extended", "lane": "extended", "col": 4, "type": "backend", "width": 185,
+      "label": "Extended site checks", "sublabel": "Redirects · docs/assets · JS/CSS",
+      "sources": [{ "path": "scripts/release/verify-site-browser.mjs", "line": 1, "end_line": 171 }, { "path": "scripts/release/verify-deployed-site.mjs", "line": 106, "end_line": 127 }]
+    },
+    {
+      "id": "features", "lane": "extended", "col": 5, "type": "backend", "width": 185,
+      "label": "Grammar → Time → Kana", "sublabel": "Content · clock · strokes/speech",
+      "sources": [{ "path": "scripts/release/verify-grammar-practice.mjs", "line": 59, "end_line": 133 }, { "path": "scripts/release/verify-time-vocabulary.mjs", "line": 10, "end_line": 135 }, { "path": "scripts/release/verify-kana-practice.mjs", "line": 114, "end_line": 221 }]
+    },
+    {
+      "id": "result", "lane": "result", "col": 5, "type": "backend", "width": 185, "yOffset": 0,
+      "label": "Summarize + set exit code", "sublabel": "Any failed check → exit 1",
+      "sources": [{ "path": "scripts/release/verify-deployed-site.mjs", "line": 155, "end_line": 175 }]
+    },
+    {
+      "id": "upload", "lane": "result", "col": 5, "type": "cloud", "width": 185, "yOffset": 120,
+      "label": "Upload verification evidence", "sublabel": "production-verification · if: always()",
+      "sources": [{ "path": ".github/workflows/prd-release.yml", "line": 146, "end_line": 154 }]
+    }
+  ],
+  "edges": [
+    { "from": "checkout", "to": "prepare" },
+    { "from": "prepare", "to": "manifest" },
+    { "from": "manifest", "to": "deployed" },
+    { "from": "deployed", "to": "routes" },
+    { "from": "routes", "to": "extended" },
+    { "from": "extended", "to": "features" },
+    { "from": "features", "to": "result", "label": "collect results; continue on failures", "variant": "dashed" },
+    { "from": "result", "to": "upload", "label": "always()", "variant": "dashed" }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Automated checks in configured order",
+      "items": [
+        "After the route matrix, verify-deployed-site.mjs calls the extended site browser checks, then Grammar, Time, and Kana checks in that order.",
+        "The workflow sets VERIFY_SITE_EXTENDED and VERIFY_KANA_PRACTICE to true for verify_release."
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Collected result and evidence",
+      "items": [
+        "Check failures are recorded while the configured checks continue; any failure makes the verification step exit nonzero.",
+        "The workflow uploads production-verification with if: always(), including after verifier failure. Kana speech is simulated; audible playback is not measured."
+      ]
+    }
+  ]
+}

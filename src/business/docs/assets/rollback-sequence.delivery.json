@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "aa124307-402c-454f-aaf3-6020ead4cfa8",
+  "status": "current",
+  "command": "deliver",
+  "type": "sequence",
+  "input": "/Users/tranthaiminhtan/.codex/worktrees/6698/lingua-lab/src/business/docs/rollback-sequence.json",
+  "output": "/Users/tranthaiminhtan/.codex/worktrees/6698/lingua-lab/src/business/docs/assets/rollback-sequence.html",
+  "specification": {
+    "sha256": "6c2ffb2e8feab2a92f96422441b287438c587c6e9f2997ea2e55753137a47a3b",
+    "bytes": 3647
+  },
+  "artifact": {
+    "sha256": "6c67409b3edc2df8b20f4cf53e3df78a00a399921ad2dd46098c7b1a0e24a942",
+    "bytes": 753509
+  }
+}
