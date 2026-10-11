@@ -49,7 +49,7 @@ Neo-Brutalism is the default visual language for the entire product, not only a 
 - Preserve surface-appropriate contrast: dark ink/navy surfaces use white text; light cream/washi surfaces use dark text. Validate contrast for every accent combination.
 - Every interactive target is at least 44×44px, has a visible focus state, and remains usable at 320px. Respect `prefers-reduced-motion` by removing transitions that are not essential.
 - Kana tables prioritize glyph readability, cell spacing, font size, contrast, and local horizontal scrolling. Do not shrink or clip kana to force a table into a narrow viewport.
-- The retained reference-only design inventory is `docs/ui-explorations/01-language-constellation.html`, `docs/ui-explorations/02-nihongo-home-page.html`, `docs/ui-explorations/03-nihongo-grammar-page.html`, and `docs/ui-explorations/04-nihongo-kana-page.html`. These are visual references only, not production source or deployment artifacts.
+- The reference-only design inventory is grouped by scope under `docs/ui-explorations/shared/`, `docs/ui-explorations/japanese/`, and `docs/ui-explorations/english/`. These HTML files are visual references only, not production source or deployment artifacts.
 
 ---
 
@@ -61,10 +61,10 @@ lingua-lab/
 │   ├── release-and-rollback.md
 │   ├── superpowers/plans/2026-09-11-nihongo-o-benkyou.md
 │   └── ui-explorations/
-│       ├── 01-language-constellation.html
-│       ├── 02-nihongo-home-page.html
-│       ├── 03-nihongo-grammar-page.html
-│       └── 04-nihongo-kana-page.html
+│       ├── README.md
+│       ├── shared/language-constellation.html
+│       ├── english/english-learning-concept.html
+│       └── japanese/{home-page,grammar-page,kana-page}.html
 ├── src/
 │   ├── app/
 │   │   ├── App.tsx
@@ -174,9 +174,9 @@ Expected: a PR exists; do not merge it.
 
 The current implementation plan remains scoped to the Japanese MVP and its existing repository conventions. The intended broader product/repository direction is **`lingua-lab`**, where Japanese is one business domain alongside English and future languages. This section records the target structure for the next repository-level evolution; it does not authorize repository creation, migration, deployment, commit, or push.
 
-The retained homepage concept is **Language Constellation**: a responsive, non-book language hub where Nihongo and English appear as navigable constellations in a shared sky. The canonical visual reference is `docs/ui-explorations/01-language-constellation.html`. The concept must remain usable on both desktop and phone, avoid login/dashboard card composition, preserve clear text entry points, and keep the two language routes `/lingua-lab/nihongo/` and `/lingua-lab/english/` as the navigation contract. The exploration is design reference only; implementation still requires a later approved design and implementation plan.
+The retained homepage concept is **Language Constellation**: a responsive, non-book language hub where Nihongo and English appear as navigable constellations in a shared sky. The canonical visual reference is `docs/ui-explorations/shared/language-constellation.html`. The concept must remain usable on both desktop and phone, avoid login/dashboard card composition, preserve clear text entry points, and keep the two language routes `/lingua-lab/nihongo/` and `/lingua-lab/english/` as the navigation contract. The exploration is design reference only; implementation still requires a later approved design and implementation plan.
 
-The current design files are stored under the `lingua-lab` documentation namespace at `docs/ui-explorations/`. `02-nihongo-home-page.html`, `03-nihongo-grammar-page.html`, and `04-nihongo-kana-page.html` represent the already-designed Nihongo domain pages; `01-language-constellation.html` represents the cross-domain homepage. Preserve these files during future implementation work unless the user explicitly approves replacement or deletion.
+The design files are stored under `docs/ui-explorations/`, grouped into `shared/`, `japanese/`, and `english/`. The Japanese folder contains the home, grammar, and kana explorations; the shared folder contains the language-selection concept; the English folder contains the English Learning Studio concept. Preserve these references during future implementation work unless the user explicitly approves replacement or deletion.
 
 ```text
 lingua-lab/
@@ -670,4 +670,4 @@ Query current `headRefOid`, checks, reviews, threads, ruleset evaluation, legal/
 - [ ] Any metadata mismatch, advanced `master`, approval failure, recovery verification failure, merge-parent ambiguity, push conflict/rejection, or uncertain outcome preserves evidence and performs no automatic retry, reset, force-push, or second revert.
 - [ ] `actionlint`, permission review, fixture/state-machine tests, secret-log scan, and live API read-back for ruleset, Environments, deployments, artifacts, repository controls, and rollback-principal compatibility all pass before production automation is enabled.
 - [ ] License owner choice, valid `LICENSE`, dependency/asset inventory, `NOTICE`/attribution, waiver policy, and public-repository secret/history checks pass; no PAT/token or credential-bearing metadata appears in source, Pages, SBOM, provenance, artifacts, summaries, or logs.
-- [ ] No application backend, tracker, persistence layer, audio asset, or unapproved network request was introduced. The four files under `docs/ui-explorations/` remain design references only and are not treated as production source.
+- [ ] No application backend, tracker, persistence layer, audio asset, or unapproved network request was introduced. Files under `docs/ui-explorations/` remain design references only and are not treated as production source.
