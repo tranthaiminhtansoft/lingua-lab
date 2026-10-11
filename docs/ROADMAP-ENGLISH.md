@@ -188,7 +188,7 @@ Start with a navigable English hub and the first two groups: **Sentence foundati
 
 ### English interface direction
 
-Use the **English Learning Studio** concept as the visual direction for the English path. The hub combines a learning dashboard (resume lesson, stage progress, and weekly goal), a scenario-based learning path, and a flexible practice studio where learners choose a short session and skill. Lessons open with a useful conversation or task, then explain grammar and vocabulary in context. Keep this interaction model visually distinct from Nihongo’s lesson-card/reference layout. Make progress indicators and practice state compatible with local-only browser storage, and label sample or unavailable data honestly. The standalone [`english-learning-concept.html`](../english-learning-concept.html) is the visual reference for implementation.
+Use the **English Learning Studio** concept as the visual direction for the English path. The hub combines a learning dashboard (resume lesson, stage progress, and weekly goal), a scenario-based learning path, and a flexible practice studio where learners choose a short session and skill. Lessons open with a useful conversation or task, then explain grammar and vocabulary in context. Keep this interaction model visually distinct from Nihongo’s lesson-card/reference layout. Make progress indicators and practice state compatible with local-only browser storage, and label sample or unavailable data honestly. The standalone [`English Learning Studio concept`](ui-explorations/english/english-learning-concept.html) is the visual reference for implementation.
 
 ### Shared lesson conventions
 
