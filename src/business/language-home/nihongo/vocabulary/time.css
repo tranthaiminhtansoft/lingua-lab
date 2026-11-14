@@ -93,6 +93,9 @@
 .time-interactive-clock h4 { margin-top: 0; }
 .time-clock-workspace { display: grid; justify-items: center; gap: 16px; }
 .time-clock-face-panel { display: grid; justify-items: center; gap: 16px; width: 100%; min-width: 0; }
+.time-hand-sliders { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; width: min(100%, 640px); }
+.time-hand-slider { display: grid; gap: 8px; min-width: 0; padding: 12px; border: 1px solid var(--ink); background: var(--paper); font-size: .78rem; font-weight: 800; }
+.time-hand-slider input { width: 100%; min-height: 32px; }
 .time-clock-stage { position: relative; width: min(100%, 640px); height: 700px; }
 .time-clock-face { position: absolute; top: 50%; left: 50%; display: block; width: min(100%, 440px); transform: translate(-50%, -50%); overflow: visible; user-select: none; touch-action: none; }
 .time-clock-hand { cursor: grab; touch-action: none; }

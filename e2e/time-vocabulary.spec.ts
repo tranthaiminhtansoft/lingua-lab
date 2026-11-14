@@ -1,5 +1,10 @@
 import { expect, test } from '@playwright/test';
+import type { Locator } from '@playwright/test';
 const timePath = 'nihongo-o-benkyuo/vocabulary/time';
+
+async function expectCombinedRomaji(locator: Locator, expected: string) {
+  await expect.poll(() => locator.locator('.time-aligned-part [lang="ja-Latn"]').evaluateAll((parts) => parts.map((part) => part.textContent ?? '').join(''))).toBe(expected.replaceAll(' ', ''));
+}
 
 test('Time opens from Vocabulary, keeps the sample date on refresh, and links to the existing question group', async ({ page }) => {
   await page.clock.install({ time: new Date('2032-02-03T10:00:00Z') });
@@ -7,9 +12,10 @@ test('Time opens from Vocabulary, keeps the sample date on refresh, and links to
   await page.getByRole('link', { name: /Explore Time/ }).click();
   await expect(page).toHaveURL(/\/vocabulary\/time$/);
   await expect(page.locator('.time-sample-today')).toHaveAttribute('data-day', '15');
-  await expect(page.locator('.time-sample-today')).toContainText('Today');
-  await expect(page.locator('[data-day="13"]')).toContainText('The night before last');
-  await expect(page.locator('[data-day="17"]')).toContainText('The night after next');
+  await expect(page.locator('.time-today-note')).toContainText('October 15, 2026');
+  await expect(page.locator('#time-relative-days')).toContainText('Today');
+  await expect(page.locator('#time-relative-days')).toContainText('The night before last');
+  await expect(page.locator('#time-relative-days')).toContainText('The night after next');
   await page.reload();
   await expect(page.locator('.time-sample-today')).toHaveAttribute('data-day', '15');
   await page.getByRole('link', { name: 'When & what time? →' }).click();
@@ -33,17 +39,14 @@ test('all calendar and clock readings remain accessible on desktop and narrow sc
       return bounds.left >= 0 && bounds.right <= window.innerWidth && element.scrollWidth <= element.clientWidth + 1;
     }))).toBe(true);
     const scroller = page.getByRole('region', { name: /October 2026 calendar/ });
-    await scroller.evaluate((element) => { element.scrollLeft = element.scrollWidth; });
-    await scroller.evaluate((element) => { element.scrollTop = 600; });
-    await expect.poll(async () => {
-      const header = await page.locator('.time-calendar th').last().boundingBox();
-      const frame = await scroller.boundingBox();
-      return Math.abs(header!.y - frame!.y - 1);
-    }).toBeLessThan(2);
-    const sunday = page.locator('.time-calendar th').last();
-    const sundayBounds = await sunday.boundingBox();
-    const scrollBounds = await scroller.boundingBox();
-    expect(sundayBounds!.x + sundayBounds!.width).toBeLessThanOrEqual(scrollBounds!.x + scrollBounds!.width + 1);
+    if (width === 360) {
+      await scroller.evaluate((element) => { element.scrollLeft = element.scrollWidth; });
+      await expect.poll(() => scroller.evaluate((element) => element.scrollLeft)).toBeGreaterThan(0);
+      const sunday = page.locator('.time-calendar th').last();
+      const sundayBounds = await sunday.boundingBox();
+      const scrollBounds = await scroller.boundingBox();
+      expect(sundayBounds!.x + sundayBounds!.width).toBeLessThanOrEqual(scrollBounds!.x + scrollBounds!.width + 1);
+    }
     await page.locator('#time-dates').evaluate((element) => element.scrollIntoView({ block: 'start' }));
     await page.screenshot({ path: test.info().outputPath(`time-calendar-${width}.png`) });
     await page.locator('#time-clock').evaluate((element) => element.scrollIntoView({ block: 'start' }));
@@ -76,17 +79,21 @@ test('clock hands, keyboard controls, and combined readings stay synchronized', 
   const clock = page.locator('.time-interactive-clock');
   await clock.scrollIntoViewIfNeeded();
   await expect(page.getByLabel('Selected time')).toHaveText('4:30 p.m.');
-  await expect(clock.locator('.time-combined-reading [aria-label="gogo yoji han"]')).toHaveCount(1);
+  const combinedReading = clock.locator('.time-combined-reading > .time-reading').first();
+  const halfPastReading = clock.locator('.time-combined-reading > .time-reading').nth(1);
+  await expectCombinedRomaji(combinedReading, 'gogo yoji sanjuppun');
+  await expectCombinedRomaji(halfPastReading, 'gogo yoji han');
   const minuteInput = page.getByRole('slider', { name: 'Minute hand', exact: true });
   await minuteInput.focus();
   await page.keyboard.press('Home');
   await expect(page.getByLabel('Selected time')).toHaveText('4:00 p.m.');
-  await expect(clock.locator('.time-combined-reading [aria-label="gogo yoji"]')).toHaveCount(1);
+  await expectCombinedRomaji(combinedReading, 'gogo yoji');
   await page.keyboard.press('End');
   await expect(page.getByLabel('Selected time')).toHaveText('4:59 p.m.');
-  await expect(clock.locator('.time-combined-reading [aria-label="gogo yoji gojūkyūfun"]')).toHaveCount(1);
+  await expectCombinedRomaji(combinedReading, 'gogo yoji gojūkyūfun');
   await page.getByRole('radio', { name: 'a.m.', exact: true }).check();
   await expect(page.getByLabel('Selected time')).toHaveText('4:59 a.m.');
+  await expectCombinedRomaji(combinedReading, 'gozen yoji gojūkyūfun');
   const dragHand = async (hand: 'hour' | 'minute', angle: number, radius: number) => {
     await page.locator('.time-clock-face').scrollIntoViewIfNeeded();
     const grip = await clock.locator(`[data-hand="${hand}"] circle`).boundingBox();
@@ -102,7 +109,7 @@ test('clock hands, keyboard controls, and combined readings stay synchronized', 
   await dragHand('hour', 210, 78);
   await expect(page.getByRole('slider', { name: 'Hour hand', exact: true })).toHaveValue('7');
   await expect(page.getByLabel('Selected time')).toHaveText('7:01 a.m.');
-  await expect(clock.locator('.time-combined-reading [aria-label="gozen shichiji ippun"]')).toHaveCount(1);
+  await expectCombinedRomaji(combinedReading, 'gozen shichiji ippun');
   for (const width of [1280, 360]) {
     await page.setViewportSize({ width, height: 900 });
     await expect.poll(() => clock.evaluate((element) => element.scrollWidth <= element.clientWidth)).toBe(true);

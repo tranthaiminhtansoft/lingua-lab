@@ -22,8 +22,8 @@ test('production Time verifier rejects corrupted clock readings and saves failur
       const page = await browser.newPage();
       await page.addInitScript(() => {
         const observer = new MutationObserver(() => {
-          const reading = document.querySelector('.time-combined-reading [lang="ja-Latn"]');
-          if (reading) reading.setAttribute('aria-label', 'wrong deployed reading');
+          const reading = document.querySelector('.time-combined-reading > .time-reading .time-aligned-part [lang="ja-Latn"]');
+          if (reading && reading.textContent !== 'wrong-reading') reading.textContent = 'wrong-reading';
         });
         observer.observe(document, { childList: true, subtree: true });
       });

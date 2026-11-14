@@ -232,7 +232,8 @@ test('related links reveal nested question content and survive direct refresh', 
   await page.goto('nihongo-o-benkyuo/grammar/first-introductions');
   await expect(page.locator('#patterns .grammar-pattern-card')).toHaveCount(4);
   await expect(page.locator('#practice details')).toHaveCount(2);
-  await expect(page.locator('#dialogue .dialogue-line')).toHaveCount(10);
+  await expect(page.locator('#conversation')).toContainText('The full conversation, audio playback, and key vocabulary now live together in the Vocabulary lesson.');
+  await expect(page.locator('#conversation .dialogue-line')).toHaveCount(0);
   await page.getByRole('link', { name: 'WH about work' }).click();
   await expect(page).toHaveURL(/\/grammar\/question-types#what$/);
   await expect(page.locator('#wh')).toHaveAttribute('open', '');

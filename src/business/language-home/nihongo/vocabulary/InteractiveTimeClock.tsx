@@ -108,7 +108,7 @@ export function InteractiveTimeClock() {
 
   return <section className="time-interactive-clock" aria-labelledby="interactive-clock-title">
     <h4 id="interactive-clock-title">Turn the hands. Read the time.</h4>
-    <p>Drag either hand. The matching reading card follows each hand. Explore all 60 minute positions.</p>
+    <p>Drag either hand, or use the accessible sliders below the clock. The matching reading card follows each hand. Explore all 60 minute positions.</p>
     <div className="time-clock-workspace">
       <div className="time-clock-face-panel">
         <fieldset className="time-period-choice"><legend>Time of day</legend>{(['am', 'pm'] as const).map((value) => <label key={value}><input type="radio" name="clock-period" value={value} checked={period === value} onChange={() => setPeriod(value)} />{value === 'am' ? 'a.m.' : 'p.m.'}</label>)}</fieldset>
@@ -139,6 +139,10 @@ export function InteractiveTimeClock() {
         </div>
         </div>
         <output className="time-digital-display" aria-label="Selected time">{digitalTime}</output>
+      </div>
+      <div className="time-hand-sliders" aria-label="Adjust clock hands">
+        <label className="time-hand-slider time-hour-reading" htmlFor="clock-hour"><span>Hour hand · {hour} o’clock</span><input id="clock-hour" aria-label="Hour hand" type="range" min="1" max="12" value={hour} onChange={(event) => setHour(Number(event.target.value))} /></label>
+        <label className="time-hand-slider time-minute-reading" htmlFor="clock-minute"><span>Minute hand · {minute} {minute === 1 ? 'minute' : 'minutes'}</span><input id="clock-minute" aria-label="Minute hand" type="range" min="0" max="59" value={minute} onChange={(event) => { const nextMinute = Number(event.target.value); lastMinuteAngle.current = nextMinute * 6; setMinute(nextMinute); }} /></label>
       </div>
     </div>
     <div className="time-combined-reading" aria-live="polite" aria-atomic="true"><b>Hours + minutes together</b><Reading entry={combined} />{minute === 30 && <Reading entry={halfPast} />}{minute === 0 && <p>On the hour: say the hour with no minutes.</p>}</div>
