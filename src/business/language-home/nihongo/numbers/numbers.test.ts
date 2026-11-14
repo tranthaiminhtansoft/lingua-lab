@@ -24,12 +24,14 @@ describe('Japanese number reference data', () => {
     }
   });
 
-  it('records evidenced common alternatives and irregular unit readings with context', () => {
+  it('records established contextual readings and omits rare numeric alternatives', () => {
     const entries: NumberEntry[] = numberGroups.flatMap((group) => [...group.entries]);
     const entry = (number: number) => entries.find((item) => item.number === number);
 
-    expect(entry(4)?.alternatives).toContainEqual(expect.objectContaining({ kana: 'し', context: expect.stringContaining('death') }));
-    expect(entry(70)?.alternatives).toContainEqual(expect.objectContaining({ kana: 'しちじゅう', context: expect.stringContaining('older') }));
+    expect(entry(4)?.alternatives).toContainEqual(expect.objectContaining({ kana: 'し', context: expect.stringContaining('四月') }));
+    expect(entry(7)?.alternatives).toContainEqual(expect.objectContaining({ kana: 'しち', context: expect.stringContaining('七時') }));
+    expect(entry(9)?.alternatives).toContainEqual(expect.objectContaining({ kana: 'く', context: expect.stringContaining('九時') }));
+    for (const number of [40, 70, 90, 1000]) expect(entry(number)?.alternatives).toEqual([]);
     expect(entry(300)?.kana).toBe('さんびゃく');
     expect(entry(600)?.kana).toBe('ろっぴゃく');
     expect(entry(8000)?.kana).toBe('はっせん');

@@ -33,12 +33,14 @@
 <tr><td><code>/nihongo-o-benkyuo/grammar</code></td><td>Grammar hub</td></tr>
 <tr><td><code>/nihongo-o-benkyuo/grammar/first-introductions</code></td><td>First introductions grammar lesson</td></tr>
 <tr><td><code>/nihongo-o-benkyuo/grammar/question-types</code></td><td>Question types</td></tr>
-<tr><td><code>/nihongo-o-benkyuo/numbers</code></td><td>Japanese number ladder and reading notes</td></tr>
 <tr><td><code>/nihongo-o-benkyuo/vocabulary</code></td><td>Vocabulary hub</td></tr>
-<tr><td><code>/nihongo-o-benkyuo/vocabulary/first-introductions</code></td><td>First introductions vocabulary lesson</td></tr>
+<tr><td><code>/nihongo-o-benkyuo/vocabulary/first-introductions</code></td><td>First introductions vocabulary lesson, with a DevOps teammate welcoming a new QA teammate, inline vocabulary notes, and Japanese speech playback controls</td></tr>
 <tr><td><code>/nihongo-o-benkyuo/vocabulary/time</code></td><td>Time lesson and interactive clock</td></tr>
+<tr><td><code>/nihongo-o-benkyuo/vocabulary/numbers</code></td><td>Japanese number ladder and reading notes</td></tr>
+<tr><td><code>/nihongo-o-benkyuo/numbers</code></td><td>Legacy address; redirects to the Vocabulary Numbers topic</td></tr>
 <tr><td><code>/lessons/kana</code></td><td>Legacy address; redirects to the nested Kana route</td></tr>
 </tbody></table><p>Open routes at the local dev-server origin; do not prefix them with <code>/lingua-lab/</code>. Japanese speech depends on browser/device support and an available voice.</p></section>
+<section><h2>First introductions lesson</h2><p>The full workplace conversation appears in Vocabulary: a DevOps teammate meets a new QA teammate, then has to leave for a meeting he forgot was scheduled. Each turn includes relevant vocabulary explanations (including <span lang="ja">お仕事</span>, <em>oshigoto</em>, “work/job,” in the explanation of <span lang="ja">お仕事中</span>). A speaker key explains the red and blue markers. Speech playback supports pause, resume, restart, and turn-by-turn progress when a Japanese voice is available. Grammar retains sentence-pattern instruction and links to the conversation rather than duplicating it.</p></section>
 <section><h2>Local checks</h2><p>Run these from the repository root; each check covers a different concern.</p><pre><code>npm run lint
 npm run typecheck
 npm run test:unit -- --run

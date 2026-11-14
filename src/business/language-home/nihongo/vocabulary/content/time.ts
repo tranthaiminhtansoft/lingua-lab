@@ -35,6 +35,13 @@ export const relativeDays = [
   word('一昨日', 'おととい', 'ototoi', 'The day before yesterday'), word('昨日', 'きのう', 'kinō', 'Yesterday'),
   word('今日', 'きょう', 'kyō', 'Today'), word('明日', 'あした', 'ashita', 'Tomorrow'), word('明後日', 'あさって', 'asatte', 'The day after tomorrow'),
 ];
+export const relativeMornings = [
+  word('一昨日の朝', 'おとといのあさ', 'ototoi no asa', 'The morning before yesterday'),
+  word('昨日の朝', 'きのうのあさ', 'kinō no asa', 'Yesterday morning'),
+  word('今朝', 'けさ', 'kesa', 'This morning'),
+  word('明日の朝', 'あしたのあさ', 'ashita no asa', 'Tomorrow morning'),
+  word('明後日の朝', 'あさってのあさ', 'asatte no asa', 'The morning after tomorrow'),
+];
 export const relativeNights = [
   word('一昨日の夜', 'おとといのよる', 'ototoi no yoru', 'The night before last'), word('昨夜', 'ゆうべ', 'yūbe', 'Last night'),
   word('今夜', 'こんや', 'konya', 'Tonight'), word('明日の夜', 'あしたのよる', 'ashita no yoru', 'Tomorrow night'), word('明後日の夜', 'あさってのよる', 'asatte no yoru', 'The night after next'),
@@ -42,10 +49,15 @@ export const relativeNights = [
 relativeDays[3].alternative = { kana: 'あす', romaji: 'asu' };
 relativeNights[1].alternative = { kana: 'さくや', romaji: 'sakuya' };
 export const dayPeriods = [
-  { icon: '☀', word: word('朝', 'あさ', 'asa', 'Morning'), repeat: word('毎朝', 'まいあさ', 'maiasa', 'Every morning') },
-  { icon: '☀', word: word('午後', 'ごご', 'gogo', 'Afternoon'), repeat: word('毎日午後', 'まいにちごご', 'mainichi gogo', 'Every afternoon') },
-  { icon: '☀', word: word('夕方', 'ゆうがた', 'yūgata', 'Evening'), repeat: word('毎日夕方', 'まいにちゆうがた', 'mainichi yūgata', 'Every evening') },
+  { icon: '🌅', word: word('朝', 'あさ', 'asa', 'Morning'), repeat: word('毎朝', 'まいあさ', 'maiasa', 'Every morning') },
+  { icon: '☀', word: word('正午', 'しょうご', 'shōgo', 'Noon'), repeat: word('毎日正午', 'まいにちしょうご', 'mainichi shōgo', 'Every noon') },
+  { icon: '🌤', word: word('午後', 'ごご', 'gogo', 'Afternoon'), repeat: word('毎日午後', 'まいにちごご', 'mainichi gogo', 'Every afternoon') },
+  { icon: '☀︎☾', word: word('夕方', 'ゆうがた', 'yūgata', 'Evening'), repeat: word('毎日夕方', 'まいにちゆうがた', 'mainichi yūgata', 'Every evening') },
   { icon: '☾', word: word('夜', 'よる', 'yoru', 'Night'), repeat: word('毎晩', 'まいばん', 'maiban', 'Every night') },
+];
+export const dayBoundaryWords = [
+  word('日の出', 'ひので', 'hinode', 'Sunrise'),
+  word('日の入り', 'ひのいり', 'hinoiri', 'Sunset'),
 ];
 export const everyDay = word('毎日', 'まいにち', 'mainichi', 'Every day');
 export const hours = monthKana.map((reading, i) => word(`${i + 1}時`, `${i === 3 ? 'よ' : reading}じ`, `${i === 3 ? 'yo' : monthRomaji[i]}ji`, `${i + 1} o’clock`, [3, 6, 8].includes(i)));
@@ -71,7 +83,7 @@ export function buildSampleCalendar() {
   const first = new Date(Date.UTC(sampleDate.year, sampleDate.month - 1, 1));
   const offset = (first.getUTCDay() + 6) % 7;
   const today = Date.UTC(sampleDate.year, sampleDate.month - 1, sampleDate.day);
-  const relative = relativeDays.map((day, i) => ({ timestamp: today + (i - 2) * 86400000, day, night: relativeNights[i] }));
+  const relative = relativeDays.map((day, i) => ({ timestamp: today + (i - 2) * 86400000, morning: relativeMornings[i], day, night: relativeNights[i] }));
   return Array.from({ length: Math.ceil((offset + dates.length) / 7) * 7 }, (_, i) => {
     const day = i - offset + 1;
     if (day < 1 || day > dates.length) return null;
@@ -116,13 +128,23 @@ relativeNights.forEach((entry) => {
     entry.parts = [part(entry.kana.slice(0, index), entry.romaji.split(' no ')[0]), part('の', 'no', 'link'), part('よる', 'yoru', 'shared')];
   }
 });
+relativeMornings.forEach((entry) => {
+  if (entry.kana.includes('のあさ')) {
+    const index = entry.kana.indexOf('のあさ');
+    entry.parts = [part(entry.kana.slice(0, index), entry.romaji.split(' no ')[0]), part('の', 'no', 'link'), part('あさ', 'asa', 'shared')];
+  }
+});
 relativeNights[2].parts = [part('こん', 'kon'), part('や', 'ya', 'shared')];
 relativeNights[1].alternative!.parts = [part('さく', 'saku'), part('や', 'ya', 'shared')];
 everyDay.parts = [part('まい', 'mai', 'repeat'), part('にち', 'nichi', 'shared')];
 dayPeriods[0].repeat.parts = [part('まい', 'mai', 'repeat'), part('あさ', 'asa', 'shared')];
-dayPeriods[1].repeat.parts = [part('まい', 'mai', 'repeat'), part('にち', 'nichi', 'shared'), part('ごご', 'gogo')];
-dayPeriods[2].repeat.parts = [part('まい', 'mai', 'repeat'), part('にち', 'nichi', 'shared'), part('ゆうがた', 'yūgata')];
-dayPeriods[3].repeat.parts = [part('まい', 'mai', 'repeat'), part('ばん', 'ban', 'shared')];
+dayPeriods[1].word.parts = [part('しょう', 'shō'), part('ご', 'go')];
+dayPeriods[1].repeat.parts = [part('まい', 'mai', 'repeat'), part('にち', 'nichi', 'shared'), part('しょう', 'shō'), part('ご', 'go')];
+dayPeriods[2].repeat.parts = [part('まい', 'mai', 'repeat'), part('にち', 'nichi', 'shared'), part('ごご', 'gogo')];
+dayPeriods[3].repeat.parts = [part('まい', 'mai', 'repeat'), part('にち', 'nichi', 'shared'), part('ゆうがた', 'yūgata')];
+dayPeriods[4].repeat.parts = [part('まい', 'mai', 'repeat'), part('ばん', 'ban', 'shared')];
+dayBoundaryWords[0].parts = [part('ひ', 'hi'), part('の', 'no', 'link'), part('で', 'de')];
+dayBoundaryWords[1].parts = [part('ひ', 'hi'), part('の', 'no', 'link'), part('いり', 'iri')];
 clockExamples[0].parts = [part('ごぜん', 'gozen'), part('しち', 'shichi', 'changed'), part('じ', 'ji', 'shared'), part('ご', 'go'), part('ふん', 'fun', 'fun')];
 clockExamples[1].parts = [part('ごご', 'gogo'), part('よ', 'yo', 'changed'), part('じ', 'ji', 'shared'), part('はん', 'han', 'shared')];
 clockExamples[2].parts = [part('く', 'ku', 'changed'), part('じ', 'ji', 'shared'), part('じゅうはっ', 'jūhap', 'changed'), part('ぷん', 'pun', 'pun')];
@@ -130,11 +152,11 @@ clockExamples[3].parts = [part('じゅうに', 'jūni'), part('じ', 'ji', 'shar
 
 // Standalone words retain the same color as the matching part of a compound.
 dayPeriods[0].word.parts = [part('あさ', 'asa', 'shared')];
-dayPeriods[3].word.parts = [part('よる', 'yoru', 'shared')];
+dayPeriods[4].word.parts = [part('よる', 'yoru', 'shared')];
 clockWords[2].parts = [part('はん', 'han', 'shared')];
 
 const numberParts: [string, string][] = [
-  ['じゅう', 'jū'], ['じゅっ', 'jup'], ['じっ', 'jip'], ['しち', 'shichi'], ['きゅう', 'kyū'],
+  ['じゅう', 'jū'], ['じゅっ', 'jup'], ['じっ', 'jip'], ['よっ', 'yok'], ['みっ', 'mik'], ['しち', 'shichi'], ['きゅう', 'kyū'],
   ['いち', 'ichi'], ['ろく', 'roku'], ['なな', 'nana'], ['はち', 'hachi'], ['さん', 'san'], ['よん', 'yon'],
   ['いっ', 'ip'], ['ろっ', 'rop'], ['はっ', 'hap'], ['に', 'ni'], ['ご', 'go'], ['し', 'shi'], ['よ', 'yo'], ['く', 'ku'],
 ];
@@ -152,7 +174,7 @@ function splitNumberPart(original: ReadingPart): ReadingPart[] {
   }
   return romaji ? [original] : result;
 }
-const allWords = [...weekdays, ...months, ...dates, ...relativeDays, ...relativeNights, everyDay,
+const allWords = [...weekdays, ...months, ...dates, ...relativeDays, ...relativeMornings, ...relativeNights, ...dayBoundaryWords, everyDay,
   ...dayPeriods.flatMap((period) => [period.word, period.repeat]), ...hours, ...minutes, ...clockWords, ...clockExamples];
 allWords.forEach((entry) => {
   if (entry.parts) entry.parts = entry.parts.flatMap(splitNumberPart);

@@ -311,6 +311,19 @@ main.grammar-page { width: min(100%, 1240px); margin: 0 auto; padding: 28px clam
 .vocabulary-topic-page .vocabulary-group, .vocabulary-topic-page #usage-notes { scroll-margin-top: 64px; }
 .vocabulary-topic-intro .grammar-section-title { margin-bottom: 24px; }
 .vocabulary-grammar-link { display: inline-block; margin-top: 12px; }
+.vocabulary-conversation { padding: 44px 0; border-bottom: 2px solid var(--ink); scroll-margin-top: 64px; }
+.vocabulary-conversation .grammar-section-title { margin-bottom: 18px; }
+.vocabulary-conversation .dialogue-card { max-width: 920px; margin-inline: auto; }
+.conversation-keywords { display: flex; flex-wrap: wrap; gap: 6px; margin: 9px 0 0; padding: 0; list-style: none; }
+.conversation-keywords li { display: grid; grid-template-columns: auto auto; gap: 0 6px; padding: 5px 7px; border: 1px solid color-mix(in srgb, var(--ink) 25%, transparent); background: var(--paper); font-size: .66rem; line-height: 1.3; }
+.conversation-keywords li > [lang="ja"] { font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; font-weight: 800; }
+.conversation-keywords li small { color: var(--indigo); }
+.conversation-keywords li > span:last-child { grid-column: 1 / -1; color: color-mix(in srgb, var(--ink) 78%, transparent); }
+.grammar-conversation-bridge { display: block; padding: 26px; border: 2px solid var(--ink); background: var(--washi); }
+.grammar-conversation-bridge > div { max-width: 760px; }
+.grammar-conversation-bridge h2 { margin: 8px 0; font-size: clamp(1.7rem, 3.4vw, 2.4rem); }
+.grammar-conversation-bridge > div > p:not(.grammar-eyebrow) { max-width: 620px; }
+.grammar-conversation-bridge .grammar-primary-link { display: inline-flex; margin-top: 8px; }
 .grammar-pattern-count { display: grid; justify-items: end; color: var(--verm); font-size: 2.7rem; font-weight: 900; line-height: .8; }
 .grammar-pattern-count small { margin-top: 6px; color: var(--ink); font-size: .66rem; letter-spacing: .08em; text-transform: uppercase; }
 .grammar-pattern-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
@@ -343,18 +356,30 @@ main.grammar-page { width: min(100%, 1240px); margin: 0 auto; padding: 28px clam
 .dialogue-participants { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
 .dialogue-participants > span { display: inline-flex; flex-wrap: wrap; gap: 6px; align-items: center; padding: 6px 10px; border: 1px solid var(--ink); background: var(--washi); font-size: .72rem; font-weight: 700; }
 .dialogue-participants b { color: var(--verm); font-size: .62rem; letter-spacing: .06em; }
+.dialogue-speaker-key { display: flex; flex-wrap: wrap; gap: 8px 16px; margin: -8px 0 18px; }
+.dialogue-speaker-key > span { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 7px; font-size: .7rem; }
+.dialogue-speaker-key b { display: inline-grid; min-width: 32px; min-height: 27px; place-items: center; padding: 2px 6px; border: 2px solid var(--ink); border-radius: 999px; color: var(--washi); font-size: .68rem; }
+.dialogue-speaker-key-red { background: var(--verm); }
+.dialogue-speaker-key-blue { background: var(--indigo); }
 .dialogue-playback { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 20px; }
 .dialogue-playback-button { display: inline-flex; min-height: 40px; align-items: center; gap: 8px; padding: 8px 12px; border: 2px solid var(--ink); background: var(--indigo); color: var(--washi); font: inherit; font-size: .77rem; font-weight: 900; cursor: pointer; }
 .dialogue-playback-button:hover:not(:disabled) { transform: translate(-2px, -2px); box-shadow: 3px 3px 0 var(--ink); }
 .dialogue-playback-button:focus-visible { outline: 3px solid var(--verm); outline-offset: 3px; }
 .dialogue-playback-button:disabled { opacity: .58; cursor: not-allowed; }
+.dialogue-restart-button { min-height: 40px; padding: 7px 10px; border: 2px solid var(--ink); background: var(--paper); color: var(--ink); font: inherit; font-size: .74rem; font-weight: 900; cursor: pointer; }
+.dialogue-restart-button:hover:not(:disabled) { transform: translate(-2px, -2px); box-shadow: 3px 3px 0 var(--ink); }
+.dialogue-restart-button:focus-visible { outline: 3px solid var(--verm); outline-offset: 3px; }
+.dialogue-restart-button:disabled { opacity: .5; cursor: not-allowed; }
 .dialogue-playback-status { margin: 0; font-size: .7rem; line-height: 1.4; }
+.dialogue-progress { height: 9px; margin: -7px 0 20px; overflow: hidden; border: 1px solid var(--ink); background: var(--paper); }
+.dialogue-progress-fill { display: block; height: 100%; background: var(--verm); transition: width .25s ease; }
 .dialogue-line { display: grid; grid-template-columns: minmax(34px, auto) minmax(0, 1fr); gap: 11px; align-items: start; max-width: 620px; }
 .dialogue-line + .dialogue-line { margin-top: 14px; }
 .dialogue-line > span { display: grid; min-width: 34px; height: 28px; place-items: center; padding: 3px 6px; border: 2px solid var(--ink); border-radius: 999px; background: var(--verm); color: var(--washi); font-size: .68rem; font-weight: 900; white-space: nowrap; }
 .dialogue-line > div { min-width: 0; }
 .dialogue-line.is-speaking > div { border-radius: 2px; background: var(--washi); outline: 2px solid var(--verm); box-shadow: 0 0 0 5px var(--washi); }
 .dialogue-line.is-speaking > span { background: var(--indigo); box-shadow: 0 0 0 3px var(--sun), 0 0 0 5px var(--verm); }
+.dialogue-line.is-paused > div { outline-style: dashed; }
 .dialogue-line .japanese-with-romaji-text { font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; font-size: 1.08rem; font-weight: 700; line-height: 1.55; }
 .dialogue-line .grammar-romaji { font-size: .75rem; }
 .dialogue-b { margin-left: clamp(10px, 5vw, 62px); }
@@ -528,7 +553,6 @@ details[open] > summary > .question-toggle::after { content: '−'; }
 .numbers-example > .number-value { font-size: 1.3rem; }
 .numbers-example .number-reading-line { justify-content: center; }
 .numbers-page-shell { min-width: 0; }
-.number-ladder-notes-button:focus-visible, .number-ladder-note-heading button:focus-visible { outline: 3px solid var(--verm); outline-offset: 3px; }
 .number-ladder { display: grid; gap: 14px; padding: 22px 0; }
 .number-ladder-step { display: grid; grid-template-columns: minmax(145px, 190px) minmax(0, 1fr); align-items: stretch; border: 2px solid var(--ink); background: color-mix(in srgb, var(--paper) 78%, white); }
 .number-ladder-heading { display: flex; align-items: center; gap: 12px; padding: 16px; border-right: 2px solid var(--ink); background: var(--sun); }
@@ -541,15 +565,10 @@ details[open] > summary > .question-toggle::after { content: '−'; }
 .number-ladder-card > .number-value { font-size: 1.45rem; line-height: 1.2; }
 .number-ladder-kana { font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; font-size: .9rem; font-weight: 800; overflow-wrap: anywhere; }
 .number-ladder-romaji { color: var(--indigo); font-size: .72rem; overflow-wrap: anywhere; }
-.number-ladder-notes-button { margin-top: 4px; padding: 0; border: 0; background: transparent; color: #a22e24; font: inherit; font-size: .62rem; font-weight: 800; cursor: pointer; }
-.number-ladder-note-panel { display: grid; grid-column: 1 / -1; gap: 7px; margin: 0; padding: 12px 16px; border-top: 2px solid var(--ink); background: color-mix(in srgb, var(--sun) 20%, var(--paper)); }
-.number-ladder-note-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-.number-ladder-note-heading h3 { margin: 0; font-size: .9rem; }
-.number-ladder-note-heading button { padding: 5px 9px; border: 1px solid var(--ink); background: var(--paper); color: var(--ink); font: inherit; font-size: .7rem; font-weight: 800; cursor: pointer; }
-.number-ladder-note-panel .number-composition { width: fit-content; min-width: 180px; margin: 0 auto; padding: 7px 12px; border: 1px solid color-mix(in srgb, var(--ink) 25%, transparent); background: var(--paper); }
-.number-ladder-alternative { display: grid; gap: 3px; margin-top: 7px; padding-top: 6px; border-top: 1px dashed var(--verm); text-align: center; }
-.number-ladder-alternative strong { color: #a22e24; font-size: .68rem; }
-.number-ladder-alternative span { font-size: .62rem; line-height: 1.35; }
+.number-ladder-alternative { display: grid; gap: 2px; width: 100%; margin-top: 3px; padding-top: 5px; border-top: 1px dashed var(--verm); text-align: center; }
+.number-ladder-alternative-label { color: #a22e24; font-size: .58rem; font-weight: 800; line-height: 1.25; }
+.number-ladder-alternative > strong { color: #a22e24; font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; font-size: .82rem; }
+.number-ladder-alternative-romaji { color: var(--indigo); font-size: .68rem; line-height: 1.25; overflow-wrap: anywhere; }
 .question-kana-reading { color: var(--indigo); font-size: .78em; font-weight: 500; }
 .question-grammar-emphasis { color: #a22e24; font-weight: 900; }
 .question-annotated .japanese-romaji-alternative .japanese-with-romaji-text { color: var(--ink); }
@@ -616,7 +635,7 @@ details[open] > summary > .question-toggle::after { content: '−'; }
   .grammar-reference-stamp { width: 70px; height: 70px; }
   .grammar-reference-stamp b { font-size: 2rem; }
   .grammar-reference-stamp span { font-size: .34rem; }
-  .grammar-opening, .grammar-vocabulary, .grammar-patterns, .grammar-dialogue, .grammar-practice { padding: 38px 0; }
+  .grammar-opening, .grammar-vocabulary, .grammar-patterns, .grammar-dialogue, .grammar-practice, .vocabulary-conversation { padding: 38px 0; }
   .grammar-opening, .grammar-dialogue { grid-template-columns: minmax(0, 1fr); gap: 22px; }
   .grammar-section-title { align-items: start; flex-direction: column; gap: 11px; }
   .vocabulary-groups { grid-template-columns: minmax(0, 1fr); gap: 12px; }
@@ -635,7 +654,7 @@ details[open] > summary > .question-toggle::after { content: '−'; }
   .grammar-reference-stamp { width: 60px; height: 60px; }
   .grammar-reference-stamp b { font-size: 1.7rem; }
   .grammar-reference-stamp span { font-size: .3rem; }
-  .grammar-vocabulary, .grammar-patterns, .grammar-dialogue, .grammar-practice, .grammar-opening { scroll-margin-top: 52px; }
+  .grammar-vocabulary, .grammar-patterns, .grammar-dialogue, .grammar-practice, .grammar-opening, .vocabulary-conversation { scroll-margin-top: 52px; }
   .vocabulary-group dl { padding-inline: 9px; }
   .vocabulary-group dl > div { grid-template-columns: minmax(80px, .7fr) minmax(0, 1.3fr); gap: 6px; }
 }

@@ -55,7 +55,9 @@ test('renders Grammar topics and the complete first-introductions lesson', () =>
   const negativeExampleAlternative = negativePattern.querySelector('.grammar-example .japanese-romaji-alternative');
   expect(negativeExampleAlternative?.querySelector('[lang="ja"]')).toHaveTextContent('では');
   expect(negativeExampleAlternative?.querySelector('[lang="ja-Latn"]')).toHaveTextContent('de wa');
-  expect(screen.getAllByText('Hajimemashite.')).toHaveLength(3);
+  expect(screen.getAllByText('Hajimemashite.')).toHaveLength(1);
+  expect(screen.getByRole('link', { name: 'Open the conversation and vocabulary →' })).toHaveAttribute('href', '/nihongo-o-benkyuo/vocabulary/first-introductions#conversation');
+  expect(screen.queryByRole('button', { name: 'Play dialogue' })).not.toBeInTheDocument();
 });
 
 test('redirects the former Kana URL to the nested Nihongo route', () => {
