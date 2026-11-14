@@ -1,4 +1,3 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { GrammarPatternCard } from './components/GrammarPatternCard';
 import { JapaneseWithRomaji } from './components/JapaneseWithRomaji';
@@ -10,214 +9,14 @@ const pair = (japanese: string, romaji: string, alternative?: readonly [string, 
   ? [japanese, romaji, alternative] as const
   : [japanese, romaji] as const;
 
-const firstConversation = [
-  {
-    speaker: '山田',
-    side: 'dialogue-a',
-    parts: [pair('はじめまして。', 'Hajimemashite.'), pair('山田新', 'Yamada Arata'), pair('です。', 'desu'), pair('よろしく', 'yoroshiku'), pair('お願いします。', 'onegaishimasu')],
-    translation: 'Nice to meet you. I’m Arata Yamada.',
-  },
-  {
-    speaker: '森',
-    side: 'dialogue-b',
-    parts: [pair('はじめまして。', 'Hajimemashite.'), pair('森若菜', 'Mori Wakana'), pair('です。', 'desu'), pair('こちらこそ、', 'kochira koso,'), pair('よろしく', 'yoroshiku'), pair('お願いします。', 'onegaishimasu')],
-    translation: 'Nice to meet you. I’m Wakana Mori. Likewise.',
-  },
-  {
-    speaker: '山田',
-    side: 'dialogue-a',
-    parts: [pair('森', 'Mori'), pair('さん', 'san'), pair('は', 'wa'), pair('日本人', 'nihonjin'), pair('です', 'desu'), pair('か。', 'ka?')],
-    translation: 'Are you Japanese?',
-  },
-  {
-    speaker: '森',
-    side: 'dialogue-b',
-    parts: [pair('はい、', 'hai,'), pair('日本人', 'nihonjin'), pair('です。', 'desu'), pair('山田', 'Yamada'), pair('さん', 'san'), pair('は？', 'wa?')],
-    translation: 'Yes, I am. And you?',
-  },
-  {
-    speaker: '山田',
-    side: 'dialogue-a',
-    parts: [pair('わたし', 'watashi'), pair('も', 'mo'), pair('日本人', 'nihonjin'), pair('です。', 'desu')],
-    translation: 'I am too.',
-  },
-  {
-    speaker: '森',
-    side: 'dialogue-b',
-    parts: [pair('そうなん', 'sō nan'), pair('です', 'desu'), pair('ね。', 'ne.'), pair('お仕事', 'oshigoto'), pair('は', 'wa'), pair('何', 'nan'), pair('です', 'desu'), pair('か。', 'ka?')],
-    translation: 'I see. What do you do?',
-  },
-  {
-    speaker: '山田',
-    side: 'dialogue-a',
-    parts: [pair('エンジニア', 'enjinia'), pair('です。', 'desu'), pair('森', 'Mori'), pair('さん', 'san'), pair('は？', 'wa?')],
-    translation: 'I’m an engineer. And you?',
-  },
-  {
-    speaker: '森',
-    side: 'dialogue-b',
-    parts: [pair('病院', 'byōin'), pair('の', 'no'), pair('技師', 'gishi'), pair('です。', 'desu')],
-    translation: 'I’m a hospital technician.',
-  },
-  {
-    speaker: '森',
-    side: 'dialogue-b',
-    parts: [pair('そろそろ', 'sorosoro'), pair('失礼', 'shitsurei'), pair('します。', 'shimasu.'), pair('また', 'mata'), pair('お会い', 'oai'), pair('しましょう。', 'shimashō.')],
-    translation: 'I should get going. See you again.',
-  },
-  {
-    speaker: '山田',
-    side: 'dialogue-a',
-    parts: [pair('はい、', 'hai,'), pair('ぜひ。', 'zehi.')],
-    translation: 'Yes, I’d like that.',
-  },
-] as const;
-
-const dialogueSpeechReadings: Readonly<Record<string, string>> = {
-  山田新: 'やまだ あらた',
-  森若菜: 'もり わかな',
-  森: 'もり',
-  山田: 'やまだ',
-};
-
-function splitJapaneseSpeechAtPunctuation(text: string) {
-  return text.match(/[^、。！？!?]+[、。！？!?]?/gu)?.filter(Boolean) ?? [text];
-}
-
 const lessonSections = [
   ['opening', 'First words'],
   ['patterns', 'Sentence patterns'],
-  ['dialogue', 'Put it together'],
+  ['conversation', 'Vocabulary conversation'],
   ['practice', 'Try it'],
 ] as const;
 
 export function FirstIntroductionsPage() {
-  const [speechAvailability, setSpeechAvailability] = useState<'loading' | 'ready' | 'no-japanese-voice' | 'unsupported' | 'error'>(() =>
-    'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window ? 'loading' : 'unsupported',
-  );
-  const [japaneseVoice, setJapaneseVoice] = useState<SpeechSynthesisVoice | null>(null);
-  const [activeDialogueLine, setActiveDialogueLine] = useState<number | null>(null);
-  const [isPlayingDialogue, setIsPlayingDialogue] = useState(false);
-  const playbackId = useRef(0);
-  const isPlayingRef = useRef(false);
-  const interTurnTimer = useRef<number | null>(null);
-
-  const clearInterTurnTimer = useCallback(() => {
-    if (interTurnTimer.current !== null) {
-      window.clearTimeout(interTurnTimer.current);
-      interTurnTimer.current = null;
-    }
-  }, []);
-
-  useEffect(() => {
-    if (!('speechSynthesis' in window) || !('SpeechSynthesisUtterance' in window)) return;
-
-    const synthesis = window.speechSynthesis;
-    const updateVoice = () => {
-      const voices = synthesis.getVoices();
-      const japaneseVoices = voices.filter((voice) => /^ja(?:-|$)/i.test(voice.lang));
-      const voice = japaneseVoices.find((candidate) => candidate.lang.toLowerCase() === 'ja-jp' && candidate.name.toLowerCase().includes('siri'))
-        ?? japaneseVoices.find((candidate) => candidate.lang.toLowerCase() === 'ja-jp')
-        ?? japaneseVoices[0]
-        ?? null;
-
-      setJapaneseVoice(voice);
-      setSpeechAvailability(voice ? 'ready' : 'no-japanese-voice');
-    };
-
-    updateVoice();
-    synthesis.addEventListener('voiceschanged', updateVoice);
-    return () => {
-      synthesis.removeEventListener('voiceschanged', updateVoice);
-      playbackId.current += 1;
-      isPlayingRef.current = false;
-      clearInterTurnTimer();
-      synthesis.cancel();
-    };
-  }, [clearInterTurnTimer]);
-
-  const toggleDialoguePlayback = () => {
-    const synthesis = window.speechSynthesis;
-    if (isPlayingRef.current) {
-      playbackId.current += 1;
-      isPlayingRef.current = false;
-      clearInterTurnTimer();
-      synthesis.cancel();
-      setIsPlayingDialogue(false);
-      setActiveDialogueLine(null);
-      return;
-    }
-    if (!japaneseVoice) return;
-
-    const currentPlaybackId = ++playbackId.current;
-    isPlayingRef.current = true;
-    setIsPlayingDialogue(true);
-    setActiveDialogueLine(null);
-    clearInterTurnTimer();
-    synthesis.cancel();
-    const voice = japaneseVoice;
-
-    const failPlayback = () => {
-      if (playbackId.current !== currentPlaybackId) return;
-      playbackId.current += 1;
-      isPlayingRef.current = false;
-      clearInterTurnTimer();
-      synthesis.cancel();
-      setIsPlayingDialogue(false);
-      setActiveDialogueLine(null);
-      setSpeechAvailability('error');
-    };
-
-    const speakLine = (index: number, segmentIndex = 0) => {
-      if (playbackId.current !== currentPlaybackId) return;
-      const line = firstConversation[index];
-      if (!line) return;
-
-      try {
-        const spokenText = line.parts.map(([japanese]) => dialogueSpeechReadings[japanese] ?? japanese).join('');
-        const speechSegments = splitJapaneseSpeechAtPunctuation(spokenText);
-        const segment = speechSegments[segmentIndex] ?? spokenText;
-        const utterance = new SpeechSynthesisUtterance(segment);
-        utterance.lang = 'ja-JP';
-        utterance.rate = 0.82;
-        utterance.voice = voice;
-        utterance.onstart = () => {
-          if (playbackId.current === currentPlaybackId) setActiveDialogueLine(index);
-        };
-        utterance.onend = () => {
-          if (playbackId.current !== currentPlaybackId) return;
-          if (segmentIndex < speechSegments.length - 1) {
-            const pause = /[、,]$/.test(segment) ? 300 : 480;
-            interTurnTimer.current = window.setTimeout(() => {
-              interTurnTimer.current = null;
-              speakLine(index, segmentIndex + 1);
-            }, pause);
-            return;
-          }
-          if (index === firstConversation.length - 1) {
-            isPlayingRef.current = false;
-            setIsPlayingDialogue(false);
-            setActiveDialogueLine(null);
-            return;
-          }
-
-          const lineText = line.parts.map(([japanese]) => japanese).join('');
-          const pause = lineText.includes('か。') || lineText.includes('？') ? 1200 : 560;
-          interTurnTimer.current = window.setTimeout(() => {
-            interTurnTimer.current = null;
-            speakLine(index + 1);
-          }, pause);
-        };
-        utterance.onerror = failPlayback;
-        synthesis.speak(utterance);
-      } catch {
-        failPlayback();
-      }
-    };
-
-    speakLine(0);
-  };
-
   return <main className="grammar-page grammar-topic-page">
     <header className="grammar-topic-hero">
       <Link className="grammar-back-link" to="/nihongo-o-benkyuo/grammar">← Grammar topics</Link>
@@ -259,34 +58,13 @@ export function FirstIntroductionsPage() {
       <p className="grammar-topic-related">Ready to ask questions? <Link to={questionTypesPath}>Explore Yes/No and WH questions →</Link></p>
     </section>
 
-    <section aria-labelledby="dialogue-title" className="grammar-dialogue" id="dialogue">
-      <div className="grammar-dialogue-intro">
+    <section aria-labelledby="conversation-title" className="grammar-dialogue grammar-conversation-bridge" id="conversation">
+      <div>
         <p className="grammar-eyebrow">Put the pieces together <span lang="ja">会話にしてみよう</span></p>
-        <h2 id="dialogue-title">A first conversation.</h2>
-        <p>Arata and Wakana exchange names, ask about nationality and work, then say goodbye.</p>
+        <h2 id="conversation-title">Hear the words in context.</h2>
+        <p>The full conversation, audio playback, and key vocabulary now live together in the Vocabulary lesson.</p>
         <p className="grammar-topic-related">Study the questions: <Link to={`${questionTypesPath}#yes-no-nouns`}>Yes/No about nationality</Link> · <Link to={`${questionTypesPath}#what`}>WH about work</Link>.</p>
-      </div>
-      <div className="dialogue-card">
-        <div aria-label="Conversation participants" className="dialogue-participants">
-          <span><b>MAN</b>Arata Yamada</span>
-          <span><b>WOMAN</b>Wakana Mori</span>
-        </div>
-        <div className="dialogue-playback">
-          <button aria-pressed={isPlayingDialogue} className="dialogue-playback-button" disabled={speechAvailability === 'loading' || speechAvailability === 'unsupported' || speechAvailability === 'no-japanese-voice'} onClick={toggleDialoguePlayback} type="button">
-            <span aria-hidden="true">{isPlayingDialogue ? '■' : '▶'}</span>{isPlayingDialogue ? 'Stop playback' : 'Play dialogue'}
-          </button>
-          <p aria-live="polite" className="dialogue-playback-status">{isPlayingDialogue ? 'Reading in Japanese; the current turn is highlighted.'
-            : speechAvailability === 'loading' ? 'Loading Japanese voice…'
-              : speechAvailability === 'no-japanese-voice' ? 'No Japanese voice is available on this device.'
-                  : speechAvailability === 'unsupported' ? 'Japanese speech is not available in this browser.'
-                    : speechAvailability === 'error' ? 'Speech could not be played. Try again.'
-                  : 'Play all turns from the beginning.'}</p>
-        </div>
-        {firstConversation.map((line, index) => <div aria-current={activeDialogueLine === index ? 'true' : undefined} className={`dialogue-line ${line.side}${activeDialogueLine === index ? ' is-speaking' : ''}`} id={`dialogue-line-${index}`} key={`${line.speaker}-${index}`}>
-          <span className="dialogue-speaker" lang="ja">{line.speaker}</span>
-          <div><JapaneseWithRomaji parts={line.parts} /><p className="dialogue-meaning">{line.translation}</p></div>
-        </div>)}
-        <p className="dialogue-name-note">These fictional Japanese practice names use the given names 新 (Arata, “new”) and 若菜 (Wakana, “young edible greens”). 若菜 is only a loose botanical association with one possible sense of Thảo when written as 草 (grass/plants), not an exact translation. Surname + さん is a common polite choice at a first meeting.</p>
+        <Link className="grammar-primary-link" to="/nihongo-o-benkyuo/vocabulary/first-introductions#conversation">Open the conversation and vocabulary →</Link>
       </div>
     </section>
 

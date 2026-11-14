@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { JapaneseWithRomaji } from '../grammar/components/JapaneseWithRomaji';
+import { FirstIntroductionsConversation } from './FirstIntroductionsConversation';
 import { vocabularyGroups, vocabularySections } from './content/firstIntroductions';
 
 export function FirstIntroductionsVocabularyPage() {
@@ -44,7 +45,7 @@ export function FirstIntroductionsVocabularyPage() {
         <div>
           <p className="grammar-eyebrow">Topic 01 <span lang="ja">最初のテーマ</span></p>
           <h1>First introductions <span lang="ja">はじめまして</span></h1>
-          <p>Words for introducing yourself, meeting someone, and asking a few simple questions.</p>
+          <p>Read a complete first-meeting exchange, then look up its key words by topic.</p>
           <Link className="grammar-back-link vocabulary-grammar-link" to="/nihongo-o-benkyuo/grammar/first-introductions">Study the sentence patterns →</Link>
         </div>
         <div aria-hidden="true" className="grammar-reference-stamp">
@@ -69,6 +70,8 @@ export function FirstIntroductionsVocabularyPage() {
       </nav>}
     </div>
 
+    <FirstIntroductionsConversation />
+
     <section aria-labelledby="word-set-title" className="grammar-vocabulary vocabulary-topic-intro">
       <div className="grammar-section-title">
         <div><p className="grammar-eyebrow">Words for a first conversation <span lang="ja">会話のことば</span></p><h2 id="word-set-title">Find the words you need.</h2></div>
@@ -88,6 +91,16 @@ export function FirstIntroductionsVocabularyPage() {
         <span aria-hidden="true">ことばのマナー</span>
         <p id="usage-notes-title"><JapaneseWithRomaji className="grammar-inline-reading" parts={[[ '彼', 'kare' ]]} /> and <JapaneseWithRomaji className="grammar-inline-reading" parts={[[ '彼女', 'kanojo' ]]} /> mean “he” and “she,” but can also mean “boyfriend” and “girlfriend.” Japanese speakers often omit pronouns when the meaning is clear, or use the person’s name. <JapaneseWithRomaji className="grammar-inline-reading" parts={[[ '僕', 'boku' ]]} /> is common for boys and men and sounds more masculine; <JapaneseWithRomaji className="grammar-inline-reading" parts={[[ 'あたし', 'atashi' ]]} /> is casual and feminine-coded. Use <JapaneseWithRomaji className="grammar-inline-reading" parts={[[ '〜さん', '〜san' ]]} /> for other people, not yourself.</p>
       </aside>
+    </section>
+    <section aria-labelledby="vocabulary-grammar-bridge-title" className="grammar-approach">
+      <div>
+        <p className="grammar-eyebrow">Next · Grammar <span lang="ja">文法</span></p>
+        <h2 id="vocabulary-grammar-bridge-title">Ready to use these words in sentences?</h2>
+      </div>
+      <div>
+        <p>Continue with the matching First introductions lesson to learn the sentence patterns for meeting someone and introducing yourself.</p>
+        <Link className="grammar-primary-link" to="/nihongo-o-benkyuo/grammar/first-introductions">Continue to First introductions Grammar <span aria-hidden="true">↗</span></Link>
+      </div>
     </section>
     {showBackToTop && <button aria-label="Back to top" className="back-to-top" onClick={() => window.scrollTo({ behavior: 'smooth', top: 0 })} type="button">↑ <span>Top</span></button>}
   </main>;

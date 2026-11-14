@@ -4,7 +4,7 @@ const kanaPath = 'nihongo-o-benkyuo/kana';
 const grammarPath = 'nihongo-o-benkyuo/grammar';
 const firstIntroductionsPath = `${grammarPath}/first-introductions`;
 const vocabularyPath = 'nihongo-o-benkyuo/vocabulary';
-const numbersPath = 'nihongo-o-benkyuo/numbers';
+const numbersPath = 'nihongo-o-benkyuo/vocabulary/numbers';
 
 test('Numbers ladder adapts from nine items per row to three columns on mobile', async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 900 });
@@ -24,11 +24,13 @@ test('Numbers ladder adapts from nine items per row to three columns on mobile',
   await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
 
   const hundreds = page.locator('.number-ladder-step').filter({ has: page.getByRole('heading', { name: 'Hundreds' }) });
-  await hundreds.getByRole('button', { name: 'Reading notes' }).first().click();
-  await expect(page.getByRole('complementary', { name: 'Reading notes for 三百' })).toBeVisible();
+  await expect(hundreds.locator('.number-ladder-card')).toHaveCount(9);
+  await expect(hundreds).toContainText('さんびゃく');
+  await expect(page.getByRole('link', { name: 'Back to Vocabulary' })).toHaveAttribute('href', '/lingua-lab/nihongo-o-benkyuo/vocabulary');
   await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
-  await expect(page.getByRole('button', { name: 'Original table' })).toHaveCount(0);
-  await expect(page.getByRole('group', { name: 'Choose number layout' })).toHaveCount(0);
+  await page.goto('nihongo-o-benkyuo/numbers');
+  await expect(page).toHaveURL(/\/vocabulary\/numbers$/);
+  await expect(page.getByRole('heading', { level: 1, name: 'Numbers' })).toBeVisible();
 });
 
 test('Grammar presents a distinct, complete first-introductions learning path', async ({ page }) => {
@@ -51,20 +53,20 @@ test('Grammar presents a distinct, complete first-introductions learning path', 
   await expect(negativePattern.locator('.grammar-formula .japanese-romaji-alternative [lang="ja-Latn"]')).toHaveText('de wa');
   await expect(negativePattern.locator('.grammar-example .japanese-romaji-alternative [lang="ja"]')).toHaveText('では');
   await expect(negativePattern.locator('.grammar-example .japanese-romaji-alternative [lang="ja-Latn"]')).toHaveText('de wa');
-  const dialogue = page.locator('#dialogue');
-  await expect(dialogue.locator('.dialogue-line')).toHaveCount(10);
-  const japaneseDialogue = (await dialogue.locator('[lang="ja"]').allTextContents()).join('');
-  expect(japaneseDialogue).toContain('山田新');
-  expect(japaneseDialogue).toContain('森若菜');
-  expect(japaneseDialogue).toContain('お仕事');
-  expect(japaneseDialogue).toContain('エンジニア');
-  expect(japaneseDialogue).toContain('技師');
-  expect(japaneseDialogue).toContain('またお会い');
-  const jobQuestion = dialogue.locator('.dialogue-line').nth(5);
-  await expect(jobQuestion).toContainText('nan');
-  await expect(jobQuestion).toContainText('What do you do?');
-  await expect.poll(() => dialogue.locator('.japanese-romaji-pair').evaluateAll((pairs) => pairs.every((pair) => Boolean(pair.querySelector('[lang="ja"]')?.textContent?.trim() && pair.querySelector('[lang="ja-Latn"]')?.textContent?.trim())))).toBe(true);
   await expect(page.locator('#practice').locator('details')).toHaveCount(2);
+  await expect(page.locator('#conversation')).toContainText('The full conversation');
+  await expect(page.locator('#conversation')).toContainText('Open the conversation and vocabulary');
+  await page.getByRole('link', { name: 'Open the conversation and vocabulary →' }).click();
+  await expect(page).toHaveURL(/\/vocabulary\/first-introductions#conversation$/);
+  const dialogue = page.locator('#conversation');
+  await expect(dialogue.locator('.dialogue-line')).toHaveCount(11);
+  const japaneseDialogue = (await dialogue.locator('[lang="ja"]').allTextContents()).join('');
+  expect(japaneseDialogue).toContain('DevOpsチーム');
+  expect(japaneseDialogue).toContain('QAチーム');
+  expect(japaneseDialogue).toContain('ミーティング');
+  expect(japaneseDialogue).toContain('忘れていました');
+  await expect(dialogue.locator('.conversation-keywords').nth(7)).toContainText('お仕事');
+  await expect.poll(() => dialogue.locator('.japanese-romaji-pair').evaluateAll((pairs) => pairs.every((pair) => Boolean(pair.querySelector('[lang="ja"]')?.textContent?.trim() && pair.querySelector('[lang="ja-Latn"]')?.textContent?.trim())))).toBe(true);
 });
 
 test('Grammar lesson fits narrow screens without page overflow', async ({ page }) => {

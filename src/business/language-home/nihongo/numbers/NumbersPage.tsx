@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { GrammarTopicNavigation } from '../grammar/components/GrammarTopicNavigation';
 import { numberGroups } from './content/numbers';
@@ -88,7 +87,7 @@ function NumberComposition({ number, showReading = true }: { number: number; sho
 
 export function NumbersMatrixView() {
   return <main className="numbers-page">
-    <p className="numbers-back"><Link to="/nihongo-o-benkyuo" aria-label="Back to Nihongo lessons">← Back to Nihongo lessons</Link></p>
+    <p className="numbers-back"><Link to="/nihongo-o-benkyuo/vocabulary" aria-label="Back to Vocabulary">← Back to Vocabulary</Link></p>
     <header className="numbers-hero"><p className="eyebrow">Japanese foundations / 数字</p><h1>Numbers</h1><p>Read the basic Kango numbers by place value. Each row uses the same multiplier across all five groups.</p></header>
     <section aria-labelledby="numbers-table-title" className="numbers-table-section">
       <h2 id="numbers-table-title">Number reference</h2>
@@ -123,39 +122,25 @@ const numberGroupNames: Record<(typeof numberGroups)[number]['id'], string> = {
   'ten-thousands': 'Ten-thousands',
 };
 
-const soundChangedNumbers = [300, 600, 800, 3000, 8000];
-
 function NumberLadderView() {
-  const [activeNumber, setActiveNumber] = useState<number | null>(null);
   return <main className="numbers-page numbers-ladder-page">
-    <p className="numbers-back"><Link to="/nihongo-o-benkyuo" aria-label="Back to Nihongo lessons">← Back to Nihongo lessons</Link></p>
+    <p className="numbers-back"><Link to="/nihongo-o-benkyuo/vocabulary" aria-label="Back to Vocabulary">← Back to Vocabulary</Link></p>
     <header className="numbers-hero"><p className="eyebrow">Japanese foundations / 数字</p><h1>Numbers</h1><p>Follow each place-value step. Read the Kanji first, then the Hiragana and Romaji.</p></header>
     <section className="number-ladder" aria-label="Japanese numbers by place value">
       {numberGroups.map((group, groupIndex) => <section className="number-ladder-step" aria-labelledby={`number-step-${group.id}`} key={group.id}>
         <header className="number-ladder-heading"><span className="number-ladder-index">{String(groupIndex + 1).padStart(2, '0')}</span><div><h2 id={`number-step-${group.id}`}>{numberGroupNames[group.id]}</h2><p>{groupIndex === 0 ? 'Start with the basic digits.' : `Build ${numberGroupNames[group.id].toLowerCase()} from the same digits.`}</p></div></header>
         <div className="number-ladder-grid">{group.entries.map((entry) => {
-          const hasSoundChange = soundChangedNumbers.includes(entry.number);
-          const hasNote = hasSoundChange || entry.alternatives.length > 0;
-          const isNoteOpen = activeNumber === entry.number;
           return <article className="number-ladder-card" key={entry.number}>
             <strong className="number-value" data-number={entry.number}>{kanjiNumber(entry.number)}</strong>
             <span className="number-ladder-kana" lang="ja">{entry.kana}</span>
             <span className="number-ladder-romaji">{entry.romaji}</span>
-            {hasNote && <button className="number-ladder-notes-button" type="button" aria-expanded={isNoteOpen} aria-controls={`number-notes-${group.id}`} onClick={() => setActiveNumber(isNoteOpen ? null : entry.number)}>{isNoteOpen ? 'Hide notes' : 'Reading notes'}</button>}
+            {entry.alternatives.map((alternative) => <div className="number-ladder-alternative" key={alternative.kana}>
+              <span className="number-ladder-alternative-label">{('label' in alternative ? alternative.label : 'Alternative')}</span>
+              <strong lang="ja">{alternative.kana}</strong>
+              <span className="number-ladder-alternative-romaji">{alternative.romaji}</span>
+            </div>)}
           </article>;
         })}</div>
-        {group.entries.some((entry) => entry.number === activeNumber) && (() => {
-          const entry = group.entries.find((item) => item.number === activeNumber)!;
-          const hasSoundChange = soundChangedNumbers.includes(entry.number);
-          return <aside className="number-ladder-note-panel" id={`number-notes-${group.id}`} aria-label={`Reading notes for ${kanjiNumber(entry.number)}`}>
-            <div className="number-ladder-note-heading"><h3>{kanjiNumber(entry.number)} · {entry.kana} · {entry.romaji}</h3><button type="button" aria-label="Close reading notes" onClick={() => setActiveNumber(null)}>Close</button></div>
-            {hasSoundChange && <NumberComposition number={entry.number} />}
-            {entry.alternatives.map((alternative) => <div className="number-ladder-alternative" key={alternative.kana}>
-              <strong>{'label' in alternative ? alternative.label : 'Alternative'}: {alternative.kana} / {alternative.romaji}</strong>
-              <span>{alternative.context}</span>
-            </div>)}
-          </aside>;
-        })()}
       </section>)}
     </section>
     <section aria-labelledby="number-ladder-examples-title" className="numbers-examples">

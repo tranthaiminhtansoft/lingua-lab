@@ -8,6 +8,7 @@ import { QuestionTypesPage } from '../business/language-home/nihongo/grammar/Que
 import { VocabularyPage } from '../business/language-home/nihongo/vocabulary/VocabularyPage';
 import { FirstIntroductionsVocabularyPage } from '../business/language-home/nihongo/vocabulary/FirstIntroductionsVocabularyPage';
 import { TimeVocabularyPage } from '../business/language-home/nihongo/vocabulary/TimeVocabularyPage';
+import { NumbersPage } from '../business/language-home/nihongo/numbers/NumbersPage';
 import { AppShell } from './AppShell';
 
 export default function App() {
@@ -20,6 +21,8 @@ export default function App() {
       <Route path="/nihongo-o-benkyuo/grammar/first-introductions" element={<FirstIntroductionsPage />} />
       <Route path="/nihongo-o-benkyuo/grammar/question-types" element={<QuestionTypesPage />} />
       <Route path="/nihongo-o-benkyuo/vocabulary/time" element={<TimeVocabularyPage />} />
+      <Route path="/nihongo-o-benkyuo/vocabulary/numbers" element={<NumbersPage />} />
+      <Route path="/nihongo-o-benkyuo/numbers" element={<Navigate replace to="/nihongo-o-benkyuo/vocabulary/numbers" />} />
       <Route path="/nihongo-o-benkyuo/vocabulary" element={<VocabularyPage />} />
       <Route path="/nihongo-o-benkyuo/vocabulary/first-introductions" element={<FirstIntroductionsVocabularyPage />} />
       <Route path="/lessons/kana" element={<Navigate replace to="/nihongo-o-benkyuo/kana" />} />

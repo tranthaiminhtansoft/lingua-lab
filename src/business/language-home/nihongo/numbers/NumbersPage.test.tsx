@@ -17,22 +17,23 @@ describe('Numbers lesson', () => {
     expect(within(navigation).getByRole('link', { name: 'Examples' })).toHaveAttribute('href', '#number-ladder-examples-title');
   });
 
-  it('uses only the number ladder and explains sound-changed readings in the group panel', () => {
+  it('shows alternative readings inline without reading-note buttons or panels', () => {
     render(<MemoryRouter><NumbersPage /></MemoryRouter>);
     expect(screen.getAllByRole('heading', { name: 'Ones' }).length).toBeGreaterThan(0);
     expect(screen.getAllByRole('heading', { name: 'Ten-thousands' }).length).toBeGreaterThan(0);
     expect(screen.queryByRole('group', { name: 'Choose number layout' })).not.toBeInTheDocument();
     expect(screen.queryByRole('button', { name: 'Original table' })).not.toBeInTheDocument();
     expect(screen.queryByRole('table')).not.toBeInTheDocument();
-    const changedReading = screen.getByText('三百', { selector: '.number-value' }).closest('article')!;
-    const notesButton = within(changedReading).getByRole('button', { name: 'Reading notes' });
-    fireEvent.click(notesButton);
-    expect(notesButton).toHaveAttribute('aria-expanded', 'true');
-    const notesPanel = screen.getByRole('complementary', { name: 'Reading notes for 三百' });
-    expect(notesPanel).toHaveTextContent('さん + ひゃく → さんびゃく');
-    expect(notesPanel).toHaveTextContent('3 × 100 = 300');
-    fireEvent.click(within(notesPanel).getByRole('button', { name: 'Close reading notes' }));
-    expect(screen.queryByRole('complementary', { name: 'Reading notes for 三百' })).not.toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /reading notes/i })).not.toBeInTheDocument();
+    expect(screen.queryByRole('complementary', { name: /reading notes for/i })).not.toBeInTheDocument();
+    const seven = screen.getByText('七', { selector: '.number-value' }).closest('article')!;
+    expect(within(seven).getByText('しち')).toBeInTheDocument();
+    expect(within(seven).getByText('shichi')).toBeInTheDocument();
+    const four = screen.getByText('四', { selector: '.number-value' }).closest('article')!;
+    expect(within(four).getByText('し', { exact: true })).toBeInTheDocument();
+    expect(within(four).getByText('Contextual alternative')).toBeInTheDocument();
+    const forty = screen.getByText('四十', { selector: '.number-value' }).closest('article')!;
+    expect(within(forty).queryByText('しじゅう')).not.toBeInTheDocument();
   });
 
   it('renders a five-column, nine-row table and seven grounded examples', () => {
@@ -58,7 +59,7 @@ describe('Numbers lesson', () => {
       expect(total).toBe(Number(element.closest('td, article')?.querySelector<HTMLElement>('.number-value')?.dataset.number));
     }
     expect(screen.getByRole('link', { name: /Mami Suzuki/i })).toHaveAttribute('href', 'https://www.tofugu.com/japanese/counting-in-japanese/');
-    expect(screen.getByRole('link', { name: /Back to Nihongo lessons/i })).toHaveAttribute('href', '/nihongo-o-benkyuo');
+    expect(screen.getByRole('link', { name: /Back to Vocabulary/i })).toHaveAttribute('href', '/nihongo-o-benkyuo/vocabulary');
   });
 
   it('renders composed million and billion examples with aligned, accessible readings and attribution', () => {
@@ -81,7 +82,7 @@ describe('Numbers lesson', () => {
     expect(within(million).queryByRole('cell')).not.toBeInTheDocument();
   });
 
-  it('shows kana units paired with romaji and labels source-supported alternative registers', () => {
+  it('shows kana units paired with romaji and avoids presenting uncommon readings as alternatives', () => {
     renderTableView();
     const cells = screen.getAllByRole('cell');
     const cell = cells.find((item) => item.querySelector<HTMLElement>('.number-value')?.dataset.number === '40');
@@ -90,8 +91,7 @@ describe('Numbers lesson', () => {
     expect(within(cell!).getByLabelText('Reading unit よ yo')).toBeInTheDocument();
     expect(within(cell!).getByLabelText('Reading unit ん n')).toBeInTheDocument();
     expect(within(cell!).getByLabelText('Reading unit じゅう jū')).toBeInTheDocument();
-    expect(within(cell!).getByText(/Alternate reading: Rare \/ archaic/)).toBeInTheDocument();
-    expect(within(cell!).getByLabelText('Alternate reading: しじゅう / shijū')).toBeInTheDocument();
+    expect(within(cell!).queryByLabelText('Alternate reading: しじゅう / shijū')).not.toBeInTheDocument();
     expect(screen.queryByText('Casual')).not.toBeInTheDocument();
     const ten = cells.find((item) => item.querySelector<HTMLElement>('.number-value')?.dataset.number === '10');
     expect(ten).toBeDefined();

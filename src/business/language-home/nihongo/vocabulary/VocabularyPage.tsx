@@ -43,8 +43,18 @@ export function VocabularyPage() {
       <p className="grammar-source-note">Topics follow the same learning path as Grammar, so related words and sentence patterns are easy to find together.</p>
     </section>
 
+    <section aria-labelledby="vocabulary-numbers-title" className="grammar-feature">
+      <div className="grammar-feature-top"><span className="grammar-feature-number">02</span><span className="grammar-feature-label">Counting in everyday life</span></div>
+      <div className="grammar-feature-main"><div className="grammar-feature-copy">
+        <p className="grammar-eyebrow">Numbers + counting</p>
+        <h2 id="vocabulary-numbers-title">Numbers <span lang="ja">数字（すうじ）</span></h2>
+        <p>Learn Japanese number readings, place values, and how to build larger numbers.</p>
+        <Link className="grammar-primary-link" to="/nihongo-o-benkyuo/vocabulary/numbers">Explore Numbers <span aria-hidden="true">↗</span></Link>
+      </div><ol className="grammar-feature-steps" aria-label="Number vocabulary"><li><span>01</span><span>Digits and counting</span></li><li><span>02</span><span>Place values</span></li><li><span>03</span><span>Large numbers</span></li></ol></div>
+    </section>
+
     <section aria-labelledby="vocabulary-time-title" className="grammar-feature">
-      <div className="grammar-feature-top"><span className="grammar-feature-number">02</span><span className="grammar-feature-label">A day on the calendar</span></div>
+      <div className="grammar-feature-top"><span className="grammar-feature-number">03</span><span className="grammar-feature-label">A day on the calendar</span></div>
       <div className="grammar-feature-main"><div className="grammar-feature-copy">
         <p className="grammar-eyebrow">Dates + daily rhythms + clock readings</p>
         <h2 id="vocabulary-time-title">Time <span lang="ja">時間（じかん）</span> <small lang="ja-Latn">jikan</small></h2>

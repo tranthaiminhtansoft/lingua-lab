@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { GrammarTopicNavigation } from '../grammar/components/GrammarTopicNavigation';
-import { buildSampleCalendar, clockWords, dayPeriods, everyDay, hours, minutes, months, sampleDate, weekdays } from './content/time';
+import { buildSampleCalendar, clockWords, dayBoundaryWords, dayPeriods, everyDay, hours, minutes, months, sampleDate, weekdays } from './content/time';
 import { Reading } from './TimeReading';
 import { InteractiveTimeClock } from './InteractiveTimeClock';
 import './time.css';
@@ -8,12 +8,16 @@ import './time.css';
 const timeSections = [
   ['time-months', 'Months'],
   ['time-dates', 'Days & nights'],
+  ['time-dayparts', 'Parts of the day'],
+  ['time-relative-days', 'Relative days'],
+  ['time-rhythm', 'Every…'],
   ['time-clock', 'Hours & minutes'],
   ['time-next', 'Keep learning'],
 ] as const;
 
 export function TimeVocabularyPage() {
   const calendar = buildSampleCalendar();
+  const relativeDates = calendar.flatMap((cell) => cell?.relative ? [{ day: cell.day, relative: cell.relative }] : []);
   return <main className="grammar-page vocabulary-topic-page time-page">
     <header className="grammar-topic-hero">
       <Link className="grammar-back-link" to="/nihongo-o-benkyuo/vocabulary">← Vocabulary topics</Link>
@@ -40,25 +44,45 @@ export function TimeVocabularyPage() {
         <div className="time-months">{months.map((entry) => <div key={entry.japanese}><Reading entry={entry} /></div>)}</div>
       </section>
       <section id="time-dates" className="time-frame-section" aria-labelledby="dates-title">
-        <h3 id="dates-title">Days, nights & daily rhythms</h3><p>Read across from Monday to Sunday. Follow October 13–17 for the five relative days and nights. The sample routine and recurring labels appear once, on October 15. Scroll within the calendar to explore the dates; the weekday headings stay visible. On a small screen, scroll sideways to explore the full week.</p>
+        <h3 id="dates-title">Days & nights</h3><p>Read across from Monday to Sunday. Follow October 13–17 for morning, day, and night readings across five relative dates. The month is shown together; on a small screen, scroll sideways to explore the full week.</p>
         <div className="time-calendar-scroll" tabIndex={0} role="region" aria-label="October 2026 calendar, scroll horizontally">
           <table className="time-calendar"><caption>October 2026 · sample today is Thursday the 15th</caption>
             <thead><tr>{weekdays.map((entry) => <th scope="col" key={entry.japanese}><Reading entry={entry} /></th>)}</tr></thead>
             <tbody>{Array.from({ length: 5 }, (_, week) => <tr key={week}>{calendar.slice(week * 7, week * 7 + 7).map((cell, column) => <td key={column} className={cell?.day === sampleDate.day ? 'time-sample-today' : undefined} data-day={cell?.day}>
-              {cell && <><b className="time-date-number">{cell.day}</b><Reading entry={cell.date} meaning={false} />
-                {cell.relative && <div className="time-relative-day"><Reading entry={cell.relative.day} /></div>}
-                {cell.day === sampleDate.day && <div className="time-daily-repeat"><Reading entry={everyDay} /></div>}
-                {cell.day === sampleDate.day && <div className="time-periods">{dayPeriods.map((period, index) => <div className={`time-period time-period-${index}`} key={period.word.japanese}>
-                  <span className="time-period-icon" aria-hidden="true">{period.icon}</span><Reading entry={period.word} /><Reading entry={period.repeat} />
-                  {index === 3 && cell.relative && <div className="time-relative-night"><Reading entry={cell.relative.night} /></div>}
-                </div>)}</div>}
-                {cell.relative && cell.day !== sampleDate.day && <div className="time-relative-night">
-                  <span className="time-period-icon" aria-hidden="true">☾</span><Reading entry={cell.relative.night} />
-                </div>}
-              </>}
+              {cell && <><b className="time-date-number">{cell.day}</b><Reading entry={cell.date} meaning={false} alignKanaRomaji /></>}
             </td>)}</tr>)}</tbody>
           </table>
         </div>
+        <section id="time-dayparts" className="time-daily-rhythm" aria-labelledby="dayparts-title">
+          <h3 id="dayparts-title">Parts of the day</h3>
+          <p>Learn the words for morning, noon, afternoon, evening, and night.</p>
+          <div className="time-rhythm-grid time-dayparts-grid">
+            {dayPeriods.map((period) => <article className="time-rhythm-card" key={period.word.japanese}>
+              <span className="time-period-icon" aria-hidden="true">{period.icon}</span><Reading entry={period.word} />
+            </article>)}
+          </div>
+          <h4 className="time-boundary-title">Sunrise & sunset</h4>
+          <div className="time-boundary-grid">
+            {dayBoundaryWords.map((entry) => <article className="time-rhythm-card" key={entry.japanese}><Reading entry={entry} /></article>)}
+          </div>
+        </section>
+        <section id="time-relative-days" className="time-relative-timeline" aria-labelledby="relative-days-title">
+          <h3 id="relative-days-title">Morning, yesterday, today & tomorrow</h3>
+          <p>These related readings sit together for October 13–17, from morning to day and night.</p>
+          <div className="time-relative-timeline-row" role="group" aria-label="Morning readings">{relativeDates.map(({ day, relative }) => <article key={day}><Reading entry={relative.morning} /></article>)}</div>
+          <div className="time-relative-timeline-row" role="group" aria-label="Relative day readings">{relativeDates.map(({ day, relative }) => <article key={day}><Reading entry={relative.day} /></article>)}</div>
+          <div className="time-relative-timeline-row" role="group" aria-label="Night readings">{relativeDates.map(({ day, relative }) => <article key={day}><Reading entry={relative.night} /></article>)}</div>
+        </section>
+        <section id="time-rhythm" className="time-daily-rhythm" aria-labelledby="daily-rhythm-title">
+          <h3 id="daily-rhythm-title">Every day & recurring words</h3>
+          <p>These “every…” expressions are grouped separately from the calendar.</p>
+          <div className="time-rhythm-grid">
+            <article className="time-rhythm-card"><Reading entry={everyDay} /></article>
+            {dayPeriods.map((period, index) => <article className={`time-rhythm-card time-period-${index}`} key={period.repeat.japanese}>
+              <span className="time-period-icon" aria-hidden="true">{period.icon}</span><Reading entry={period.repeat} />
+            </article>)}
+          </div>
+        </section>
         <p className="grammar-source-note">Afternoon follows noon; evening is the late afternoon around sunset; night is after dark. These are everyday labels, not fixed clock boundaries. The first day of a month is <span lang="ja">ついたち</span> (<span lang="ja-Latn">tsuitachi</span>); “one day” is <span lang="ja">いちにち</span> (<span lang="ja-Latn">ichinichi</span>).</p>
       </section>
       <section id="time-clock" className="time-frame-section" aria-labelledby="clock-title">
