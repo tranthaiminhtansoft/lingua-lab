@@ -88,10 +88,14 @@ export function TimeVocabularyPage() {
           <h3 id="daily-rhythm-title">Every day & recurring words</h3>
           <p>These “every…” expressions are grouped separately from the calendar.</p>
           <div className="time-rhythm-grid">
-            {[everyDay, everyWeek, everyMonth, everyYear].map((entry, index) => <article className="time-rhythm-card" key={`${entry.japanese}-${entry.kana}-${index}`}><Reading entry={entry} /></article>)}
-            {dayPeriods.map((period, index) => <article className={`time-rhythm-card time-period-${index}`} key={period.repeat.japanese}>
+            {dayPeriods.slice(0, 2).map((period, index) => <article className={`time-rhythm-card time-period-${index}`} key={period.repeat.japanese}>
               <span className="time-period-icon" aria-hidden="true">{period.icon}</span><Reading entry={period.repeat} />
             </article>)}
+            <article className="time-rhythm-card"><Reading entry={everyDay} /></article>
+            {dayPeriods.slice(2).map((period, index) => <article className={`time-rhythm-card time-period-${index + 2}`} key={period.repeat.japanese}>
+              <span className="time-period-icon" aria-hidden="true">{period.icon}</span><Reading entry={period.repeat} />
+            </article>)}
+            {[everyWeek, everyMonth, everyYear].map((entry, index) => <article className="time-rhythm-card" key={`${entry.japanese}-${entry.kana}-${index}`}><Reading entry={entry} /></article>)}
           </div>
         </section>
         <p className="grammar-source-note">Afternoon follows noon; evening is the late afternoon around sunset; night is after dark. These are everyday labels, not fixed clock boundaries. The first day of a month is <span lang="ja">ついたち</span> (<span lang="ja-Latn">tsuitachi</span>); “one day” is <span lang="ja">いちにち</span> (<span lang="ja-Latn">ichinichi</span>).</p>
