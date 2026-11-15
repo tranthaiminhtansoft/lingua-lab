@@ -22,6 +22,8 @@ export type EnglishTopic = {
   title: string;
   description: string;
   availableFrom: string;
+  /** Daily essentials stay available every day. */
+  daily?: boolean;
   vocab: EnglishVocabularyItem[];
   grammar: EnglishGrammarItem[];
   examples: string[];
@@ -74,6 +76,209 @@ function dateKey(date: Date): string {
 }
 
 const TOPICS: EnglishTopic[] = [
+  {
+    id: 'devops-meeting',
+    title: 'DevOps team meeting',
+    description: 'Give a stand-up update, raise incidents, and agree next steps.',
+    availableFrom: '2020-01-01',
+    daily: true,
+    vocab: [
+      { term: 'incident', meaning: 'sự cố', pronunciation: '/ˈɪnsɪdənt/', score: 0 },
+      { term: 'rollback', meaning: 'khôi phục phiên bản cũ', pronunciation: '/ˈrəʊlbæk/', score: 0 },
+      { term: 'deployment', meaning: 'triển khai', pronunciation: '/dɪˈplɔɪmənt/', score: 0 },
+      { term: 'pipeline', meaning: 'quy trình CI/CD', pronunciation: '/ˈpaɪplaɪn/', score: 0 },
+      { term: 'outage', meaning: 'gián đoạn dịch vụ', pronunciation: '/ˈaʊtɪdʒ/', score: 0 },
+      { term: 'root cause', meaning: 'nguyên nhân gốc', pronunciation: '/ruːt kɔːz/', score: 0 },
+      { term: 'monitoring', meaning: 'giám sát', pronunciation: '/ˈmɒnɪtərɪŋ/', score: 0 },
+      { term: 'runbook', meaning: 'tài liệu xử lý', pronunciation: '/ˈrʌnbʊk/', score: 0 },
+      { term: 'postmortem', meaning: 'đánh giá sau sự cố', pronunciation: '/ˌpəʊstˈmɔːtəm/', score: 0 },
+    ],
+    grammar: [
+      { title: 'Present perfect for updates', example: 'We have deployed the fix to staging.' },
+      { title: 'Present perfect continuous for ongoing work', example: 'We have been monitoring the cluster since the incident.' },
+    ],
+    examples: [
+      'We rolled back the last deployment because the error rate spiked.',
+      'The root cause was a misconfigured timeout, so we added a runbook for it.',
+    ],
+    quizzes: [
+      {
+        question: 'Choose the correct stand-up update:',
+        options: [
+          'We have deployed the patch to staging.',
+          'We have deploy the patch to staging.',
+          'We has deployed the patch to staging.',
+        ],
+        answerIndex: 0,
+        explanation: 'Present perfect is have/has + past participle: have deployed.',
+      },
+      {
+        question: 'Which word means “sự cố nghiêm trọng”?',
+        options: ['incident', 'insight', 'instance'],
+        answerIndex: 0,
+        explanation: 'An incident is an unplanned event that disrupts a service.',
+      },
+      {
+        question: 'Complete the sentence: “The error rate ___ after the rollback.”',
+        options: ['dropped', 'drop', 'dropping'],
+        answerIndex: 0,
+        explanation: 'Use past simple for a finished action: the error rate dropped.',
+      },
+      {
+        question: 'Which sentence proposes next steps in a meeting?',
+        options: [
+          'Let’s assign an owner and set a deadline.',
+          'That is not my job.',
+          'Someone should do it eventually.',
+        ],
+        answerIndex: 0,
+        explanation: 'A clear owner plus a deadline keeps the meeting actionable.',
+      },
+    ],
+    readExpected: 'We rolled back the deployment after the error rate spiked.',
+    dialogue: [
+      'A: Morning, everyone. Can we start with the incident?',
+      'B: Sure. The checkout service went down at 8:40.',
+      'A: We rolled back the last deployment, and the error rate is normal now.',
+      'B: Do we know the root cause yet?',
+      'A: Not yet, but we’re checking the timeout configuration.',
+      'B: Great. Let’s write the postmortem and update the runbook today.',
+    ],
+  },
+  {
+    id: 'neighbor-morning',
+    title: 'Morning greetings with neighbors',
+    description: 'Say good morning, make small talk, and keep it friendly.',
+    availableFrom: '2020-01-01',
+    daily: true,
+    vocab: [
+      { term: 'good morning', meaning: 'chào buổi sáng', pronunciation: '/ɡʊd ˈmɔːnɪŋ/', score: 0 },
+      { term: 'how’s it going', meaning: 'dạo này thế nào', pronunciation: '/haʊz ɪt ˈɡəʊɪŋ/', score: 0 },
+      { term: 'lovely weather', meaning: 'thời tiết đẹp', pronunciation: '/ˈlʌvli ˈweðə/', score: 0 },
+      { term: 'commute', meaning: 'đi lại hàng ngày', pronunciation: '/kəˈmjuːt/', score: 0 },
+      { term: 'catch up', meaning: 'trò chuyện cập nhật', pronunciation: '/kætʃ ʌp/', score: 0 },
+      { term: 'have a good one', meaning: 'chúc một ngày tốt lành', pronunciation: '/hæv ə ɡʊd wʌn/', score: 0 },
+      { term: 'neighbor', meaning: 'hàng xóm', pronunciation: '/ˈneɪbə/', score: 0 },
+      { term: 'small talk', meaning: 'chuyện xã giao ngắn', pronunciation: '/smɔːl tɔːk/', score: 0 },
+      { term: 'take care', meaning: 'giữ gìn sức khoẻ', pronunciation: '/teɪk keə/', score: 0 },
+    ],
+    grammar: [
+      { title: 'Present continuous for now', example: 'I’m just heading to the station.' },
+      { title: 'Question tags for small talk', example: 'Lovely morning, isn’t it?' },
+    ],
+    examples: [
+      'Morning! Lovely weather today, isn’t it?',
+      'I’m just heading to work, but let’s catch up this weekend.',
+    ],
+    quizzes: [
+      {
+        question: 'Which is the most natural morning greeting to a neighbor?',
+        options: [
+          'Morning! How’s it going?',
+          'Good morning, citizen. State your purpose.',
+          'Hello. What do you want?',
+        ],
+        answerIndex: 0,
+        explanation: 'A short, friendly greeting with a light question fits small talk.',
+      },
+      {
+        question: 'Which phrase ends a short chat politely?',
+        options: ['Have a good one!', 'Go away now.', 'Stop talking.'],
+        answerIndex: 0,
+        explanation: '“Have a good one!” is a casual, friendly sign-off.',
+      },
+      {
+        question: 'Complete the question tag: “Lovely morning, ___?”',
+        options: ['isn’t it', 'is it', 'doesn’t it'],
+        answerIndex: 0,
+        explanation: 'A positive statement takes a negative tag: isn’t it?',
+      },
+      {
+        question: 'Which sentence is typical small talk?',
+        options: [
+          'I’m just heading to the station.',
+          'I need to see your ID.',
+          'Move out of my way, please.',
+        ],
+        answerIndex: 0,
+        explanation: 'Small talk shares a light, everyday detail.',
+      },
+    ],
+    readExpected: 'Morning! Lovely weather today, isn’t it?',
+    dialogue: [
+      'A: Morning, Mrs. Lan! How’s it going?',
+      'B: Morning! Pretty good, thanks. Off to work?',
+      'A: Yeah, I’m just heading to the station.',
+      'B: Lovely weather today, isn’t it?',
+      'A: It really is. Let’s catch up this weekend.',
+      'B: Sounds good. Have a good one!',
+    ],
+  },
+  {
+    id: 'daily-meals',
+    title: 'Breakfast, lunch, and dinner',
+    description: 'Talk about meals, portions, and eating out during the day.',
+    availableFrom: '2020-01-01',
+    daily: true,
+    vocab: [
+      { term: 'breakfast', meaning: 'bữa sáng', pronunciation: '/ˈbrekfəst/', score: 0 },
+      { term: 'lunch', meaning: 'bữa trưa', pronunciation: '/lʌntʃ/', score: 0 },
+      { term: 'dinner', meaning: 'bữa tối', pronunciation: '/ˈdɪnə/', score: 0 },
+      { term: 'portion', meaning: 'khẩu phần', pronunciation: '/ˈpɔːʃən/', score: 0 },
+      { term: 'skip a meal', meaning: 'bỏ bữa', pronunciation: '/skɪp ə miːl/', score: 0 },
+      { term: 'eat out', meaning: 'ăn ngoài', pronunciation: '/iːt aʊt/', score: 0 },
+      { term: 'home-cooked', meaning: 'nấu tại nhà', pronunciation: '/ˌhəʊm ˈkʊkt/', score: 0 },
+      { term: 'leftovers', meaning: 'đồ ăn thừa', pronunciation: '/ˈleftəʊvəz/', score: 0 },
+      { term: 'balanced meal', meaning: 'bữa ăn cân đối', pronunciation: '/ˈbælənst miːl/', score: 0 },
+    ],
+    grammar: [
+      { title: 'Adverbs of frequency', example: 'I usually have rice for lunch.' },
+      { title: 'Portions with countable and uncountable nouns', example: 'I’d like a bowl of soup and some rice.' },
+    ],
+    examples: [
+      'I usually grab a quick breakfast, but I cook dinner at home.',
+      'I’m trying to eat a balanced meal at lunch, so I add more vegetables.',
+    ],
+    quizzes: [
+      {
+        question: 'Which meal do you usually eat in the evening?',
+        options: ['dinner', 'breakfast', 'lunch'],
+        answerIndex: 0,
+        explanation: 'Dinner is the main meal in the evening.',
+      },
+      {
+        question: 'Complete the sentence: “I usually ___ breakfast at 7 a.m.”',
+        options: ['have', 'has', 'having'],
+        answerIndex: 0,
+        explanation: 'With “I”, use the base form: I have breakfast.',
+      },
+      {
+        question: 'Which phrase means “ăn ngoài”?',
+        options: ['eat out', 'eat up', 'eat in'],
+        answerIndex: 0,
+        explanation: '“Eat out” means to eat at a restaurant instead of at home.',
+      },
+      {
+        question: 'Which sentence is polite when ordering food?',
+        options: [
+          'Could I have a bowl of soup, please?',
+          'Give me soup.',
+          'I want soup now.',
+        ],
+        answerIndex: 0,
+        explanation: '“Could I have …, please?” is the standard polite request.',
+      },
+    ],
+    readExpected: 'I usually have a quick breakfast and cook dinner at home.',
+    dialogue: [
+      'A: What did you have for breakfast?',
+      'B: Just coffee and a banana, because I was in a hurry.',
+      'A: I usually have pho, but I’m trying to eat a balanced meal.',
+      'B: Nice. Are you eating out for lunch today?',
+      'A: Yeah, my team is going out. Do you want to join?',
+      'B: I’d love to, but I brought leftovers.',
+    ],
+  },
   {
     id: 'autumn-routine',
     title: 'Autumn routine & energy',
