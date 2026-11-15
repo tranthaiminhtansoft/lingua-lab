@@ -200,8 +200,7 @@ Use the **English Learning Studio** concept as the visual direction for the Engl
 
 ### Contextual daily English (proposed)
 
-Instead of forcing a strictly linear path, offer a **date-aware suggestion** based on the device’s local date. On each day, show the current season, any Catholic feast, and any Vietnamese holiday, then propose matching sentence structures and vocabulary. Special-day topics (for example Black Friday) use a flexible **coming soon** marker in the content bank and only become available from **00:00** on their date. Prioritize phrases people commonly use and IELTS 6.5–8.0 level language.
-
+Instead of forcing a strictly linear path, offer a **date-aware suggestion** based on the device’s local date. On each day, show the current season, any Catholic feast, and any Vietnamese holiday, then propose matching sentence structures and vocabulary. Special-day topics (for example Black Friday) use a flexible **coming soon** marker in the content bank and only become available from **00:00** on their date. Prioritize phrases and grammar that people commonly use for real communication, at IELTS 6.5–8.0 level.
 - Store English content in a static content bank (JSON/TS) with tags such as `frequency`, `level`, `topic`, `season`, `holiday`, and `availableFrom`. Selecting a topic shows its vocabulary, matching grammar structures, and example sentences for application.
 - Provide a simulated backend service (`englishContentApi`) that reads the bundled bank and returns today’s context and suggestions; keep the API shape swappable for a real backend later.- Include Catholic feasts (fixed plus movable feasts such as Easter) and Vietnamese holidays for a 5-year range, using the device time zone.
 - Show a **Coming soon** state for not-yet-available special-day topics.
@@ -238,8 +237,8 @@ Instead of forcing a strictly linear path, offer a **date-aware suggestion** bas
 - [ ] `ENG-028` Implement a simulated backend service (`englishContentApi`) with `getTodayContext` and `getSuggestions`, including 00:00 date gating in the device time zone.
 - [ ] `ENG-029` Add calendar data for seasons, Catholic feasts (fixed and movable, including Easter), and Vietnamese holidays for a 5-year range.
 - [ ] `ENG-030` Add a “Today’s English” card to the English hub that shows today’s available topics and asks the learner which one to study, with a Coming soon state for future special-day topics.
-- [ ] `ENG-031` Filter and rank suggestions by common usage and IELTS 6.5–8.0 level, with a way to browse other topics.- [ ] `ENG-032` Add reinforcement multiple-choice practice with local answer keys and immediate feedback for contextual daily topics.
-- [ ] `ENG-033` Add read-aloud detection where supported, comparing spoken input to expected text with percentage match and score, plus recording/text fallback when speech recognition is unavailable.
+- [ ] `ENG-031` Filter and rank suggestions by common usage, communication value, and IELTS 6.5–8.0 level, with a way to browse other topics.
+- [ ] `ENG-032` Add reinforcement multiple-choice practice with local answer keys and immediate feedback for contextual daily topics.- [ ] `ENG-033` Add read-aloud detection where supported, comparing spoken input to expected text with percentage match and score, plus recording/text fallback when speech recognition is unavailable.
 - [ ] `ENG-034` Support remote JSON content with version check, throttled update detection, refresh action, and bundled fallback for offline or failed fetches.
 - [ ] `ENG-035` Track per-topic completion percentage and per-vocabulary pronunciation/read-aloud scores with clear red-to-green color coding; a vocabulary item counts as complete only after its read-aloud evaluation reaches the threshold, and every topic must reach 100% before overall progress can be 100%.
 Keep the later groups as the proposed sequence; break them into implementation tasks after the first release boundary is reviewed. Do not assign dates until they are agreed.
