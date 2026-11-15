@@ -95,6 +95,8 @@ export function TimeVocabularyPage() {
             {dayPeriods.slice(2).map((period, index) => <article className={`time-rhythm-card time-period-${index + 2}`} key={period.repeat.japanese}>
               <span className="time-period-icon" aria-hidden="true">{period.icon}</span><Reading entry={period.repeat} />
             </article>)}
+          </div>
+          <div className="time-rhythm-stack">
             {[everyWeek, everyMonth, everyYear].map((entry, index) => <article className="time-rhythm-card" key={`${entry.japanese}-${entry.kana}-${index}`}><Reading entry={entry} /></article>)}
           </div>
         </section>
