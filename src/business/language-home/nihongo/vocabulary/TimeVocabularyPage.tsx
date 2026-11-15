@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
 import { GrammarTopicNavigation } from '../grammar/components/GrammarTopicNavigation';
-import { buildSampleCalendar, clockWords, dayBoundaryWords, dayPeriods, everyDay, hours, minutes, months, sampleDate, weekdays } from './content/time';
+import { buildSampleCalendar, clockWords, dayBoundaryWords, dayPeriods, everyDay, hours, minutes, months, sampleDate, weekdays, years } from './content/time';
 import { Reading } from './TimeReading';
 import { InteractiveTimeClock } from './InteractiveTimeClock';
 import './time.css';
 
 const timeSections = [
+  ['time-years', 'Years'],
   ['time-months', 'Months'],
   ['time-dates', 'Days & nights'],
   ['time-dayparts', 'Parts of the day'],
@@ -27,6 +28,12 @@ export function TimeVocabularyPage() {
     </header>
 
     <GrammarTopicNavigation sections={timeSections} allowCurrentSectionNavigation navigationLabel="Time sections" menuId="time-section-menu" />
+
+    <section id="time-years" className="time-frame-section" aria-labelledby="years-title">
+      <h3 id="years-title">Years</h3>
+      <p>Read years as <span lang="ja">ねん</span> (<span lang="ja-Latn">nen</span>) when counting and <span lang="ja">とし</span> (<span lang="ja-Latn">toshi</span>) for a year or age. Then use the words for this, last, next, and every year.</p>
+      <div className="time-clock-words">{years.map((entry, index) => <Reading entry={entry} key={`${entry.japanese}-${entry.kana}-${index}`} />)}</div>
+    </section>
 
     <section className="time-calendar-frame" aria-labelledby="sample-calendar-title">
       <header className="time-calendar-heading">

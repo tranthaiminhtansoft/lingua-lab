@@ -60,6 +60,16 @@ export const dayBoundaryWords = [
   word('日の入り', 'ひのいり', 'hinoiri', 'Sunset'),
 ];
 export const everyDay = word('毎日', 'まいにち', 'mainichi', 'Every day');
+export const years = [
+  word('年', 'ねん', 'nen', 'year (counter)'),
+  word('年', 'とし', 'toshi', 'year; age'),
+  word('今年', 'ことし', 'kotoshi', 'this year'),
+  word('去年', 'きょねん', 'kyonen', 'last year'),
+  word('来年', 'らいねん', 'rainen', 'next year'),
+  word('毎年', 'まいとし', 'maitoshi', 'every year'),
+  word('〜年前', '〜ねんまえ', '~nemmae', 'years ago'),
+  word('〜年後', '〜ねんご', '~nengo', 'years later'),
+];
 export const hours = monthKana.map((reading, i) => word(`${i + 1}時`, `${i === 3 ? 'よ' : reading}じ`, `${i === 3 ? 'yo' : monthRomaji[i]}ji`, `${i + 1} o’clock`, [3, 6, 8].includes(i)));
 hours[6].alternative = { kana: 'ななじ', romaji: 'nanaji' };
 const minuteUnits = [['', ''], ['いっぷん', 'ippun'], ['にふん', 'nifun'], ['さんぷん', 'sanpun'], ['よんぷん', 'yonpun'], ['ごふん', 'gofun'], ['ろっぷん', 'roppun'], ['ななふん', 'nanafun'], ['はっぷん', 'happun'], ['きゅうふん', 'kyūfun']];
