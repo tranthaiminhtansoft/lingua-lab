@@ -18,18 +18,39 @@ export function TodayEnglishPage() {
   const [progress] = useState(readProgress);
   const [remoteVersion, setRemoteVersion] = useState<string | null>(null);
   const [versionChecked, setVersionChecked] = useState(false);
+  const [today, setToday] = useState(() => new Date());
 
   useEffect(() => {
-    void getTodayEnglishContextApi().then(setContext);
     void getContentVersionApi().then((version) => {
       setRemoteVersion(version.version);
       setVersionChecked(true);
     });
   }, []);
 
+  useEffect(() => {
+    // Refresh content when the local date changes so a topic never stays “Coming soon”
+    // after its availableFrom date has passed.
+    const checkDate = () => setToday((current) => {
+      const now = new Date();
+      return current.toDateString() === now.toDateString() ? current : now;
+    });
+    const interval = window.setInterval(checkDate, 30_000);
+    window.addEventListener('focus', checkDate);
+    document.addEventListener('visibilitychange', checkDate);
+    return () => {
+      window.clearInterval(interval);
+      window.removeEventListener('focus', checkDate);
+      document.removeEventListener('visibilitychange', checkDate);
+    };
+  }, []);
+
+  useEffect(() => {
+    void getTodayEnglishContextApi(today).then(setContext);
+  }, [today]);
+
   const availableTopicIds = useMemo(
-    () => context?.topics.filter((topic) => isTopicAvailableApi(topic)).map((topic) => topic.id) ?? [],
-    [context],
+    () => context?.topics.filter((topic) => isTopicAvailableApi(topic, today)).map((topic) => topic.id) ?? [],
+    [context, today],
   );
 
   const overallProgress = useMemo(() => {
@@ -39,7 +60,7 @@ export function TodayEnglishPage() {
   }, [progress, availableTopicIds]);
 
   function handleSelectTopic(topic: EnglishTopic) {
-    if (!isTopicAvailableApi(topic)) {
+    if (!isTopicAvailableApi(topic, today)) {
       window.alert('Chủ đề này đang Coming soon và sẽ mở từ ' + topic.availableFrom + '.');
       return;
     }
@@ -97,7 +118,7 @@ export function TodayEnglishPage() {
         </div>
         <div className="english-today-topic-grid">
           {context.topics.map((topic) => {
-            const available = isTopicAvailableApi(topic);
+            const available = isTopicAvailableApi(topic, today);
             const tp = getTopicProgress(progress, topic.id, topic.vocab.map((item) => item.term));
             return (
               <button

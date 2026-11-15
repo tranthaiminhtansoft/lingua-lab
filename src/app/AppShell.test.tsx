@@ -1,6 +1,7 @@
 import { fireEvent, render, screen, within } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { AppShell } from './AppShell';
+import { getTodayEnglishContext } from '../business/language-home/english/content/todayEnglish';
 
 function renderShell(path: string) {
   return render(
@@ -64,7 +65,10 @@ test('hides the top tabs on the English home page', () => {
 });
 
 test('opens a menu of other English topics from a topic page', () => {
-  renderShell('/english/devops-meeting');
+  const topics = getTodayEnglishContext().topics;
+  const current = topics[0];
+  const other = topics[1];
+  renderShell(`/english/${current.id}`);
 
   const menu = screen.getByRole('button', { name: /menu/i });
   expect(menu).toHaveAttribute('aria-expanded', 'false');
@@ -73,8 +77,7 @@ test('opens a menu of other English topics from a topic page', () => {
 
   expect(menu).toHaveAttribute('aria-expanded', 'true');
   const topicsGroup = screen.getByRole('group', { name: 'Today’s English' });
-  expect(within(topicsGroup).getByText('DevOps team meeting')).toHaveAttribute('aria-current', 'page');
-  expect(within(topicsGroup).getByRole('link', { name: 'Morning greetings with neighbors' })).toHaveAttribute('href', '/english/neighbor-morning');
-  expect(within(topicsGroup).getByRole('link', { name: 'Autumn routine & energy' })).toHaveAttribute('href', '/english/autumn-routine');
+  expect(within(topicsGroup).getByText(current.title)).toHaveAttribute('aria-current', 'page');
+  expect(within(topicsGroup).getByRole('link', { name: other.title })).toHaveAttribute('href', `/english/${other.id}`);
   expect(screen.getByRole('link', { name: 'Today’s English' })).toHaveAttribute('href', '/english');
 });

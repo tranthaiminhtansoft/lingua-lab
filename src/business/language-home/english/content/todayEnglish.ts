@@ -17,6 +17,8 @@ export type EnglishQuiz = {
   explanation: string;
 };
 
+export type EnglishTheme = 'devops' | 'neighbor' | 'meals';
+
 export type EnglishTopic = {
   id: string;
   title: string;
@@ -24,6 +26,8 @@ export type EnglishTopic = {
   availableFrom: string;
   /** Daily essentials stay available every day. */
   daily?: boolean;
+  /** Daily topics rotate within their theme. */
+  theme?: EnglishTheme;
   vocab: EnglishVocabularyItem[];
   grammar: EnglishGrammarItem[];
   examples: string[];
@@ -82,6 +86,7 @@ const TOPICS: EnglishTopic[] = [
     description: 'Give a stand-up update, raise incidents, and agree next steps.',
     availableFrom: '2020-01-01',
     daily: true,
+    theme: 'devops',
     vocab: [
       { term: 'incident', meaning: 'sự cố', pronunciation: '/ˈɪnsɪdənt/', score: 0 },
       { term: 'rollback', meaning: 'khôi phục phiên bản cũ', pronunciation: '/ˈrəʊlbæk/', score: 0 },
@@ -151,6 +156,7 @@ const TOPICS: EnglishTopic[] = [
     description: 'Say good morning, make small talk, and keep it friendly.',
     availableFrom: '2020-01-01',
     daily: true,
+    theme: 'neighbor',
     vocab: [
       { term: 'good morning', meaning: 'chào buổi sáng', pronunciation: '/ɡʊd ˈmɔːnɪŋ/', score: 0 },
       { term: 'how’s it going', meaning: 'dạo này thế nào', pronunciation: '/haʊz ɪt ˈɡəʊɪŋ/', score: 0 },
@@ -220,6 +226,7 @@ const TOPICS: EnglishTopic[] = [
     description: 'Talk about meals, portions, and eating out during the day.',
     availableFrom: '2020-01-01',
     daily: true,
+    theme: 'meals',
     vocab: [
       { term: 'breakfast', meaning: 'bữa sáng', pronunciation: '/ˈbrekfəst/', score: 0 },
       { term: 'lunch', meaning: 'bữa trưa', pronunciation: '/lʌntʃ/', score: 0 },
@@ -481,11 +488,307 @@ const TOPICS: EnglishTopic[] = [
       'B: I’ll buy it now.',
     ],
   },
+  {
+    id: 'devops-release-planning',
+    title: 'DevOps release planning',
+    description: 'Plan a release window, freeze code, and agree on go/no-go.',
+    availableFrom: '2020-01-01',
+    daily: true,
+    theme: 'devops',
+    vocab: [
+      { term: 'release window', meaning: 'cửa sổ phát hành', pronunciation: '/rɪˈliːs ˈwɪndəʊ/', score: 0 },
+      { term: 'code freeze', meaning: 'đóng băng mã nguồn', pronunciation: '/kəʊd friːz/', score: 0 },
+      { term: 'staging', meaning: 'môi trường thử', pronunciation: '/ˈsteɪdʒɪŋ/', score: 0 },
+      { term: 'canary', meaning: 'phát hành thử', pronunciation: '/kəˈneəri/', score: 0 },
+      { term: 'approval', meaning: 'phê duyệt', pronunciation: '/əˈpruːvəl/', score: 0 },
+      { term: 'rollback plan', meaning: 'phương án khôi phục', pronunciation: '/ˈrəʊlbæk plæn/', score: 0 },
+      { term: 'go/no-go', meaning: 'quyết định triển khai hay không', pronunciation: '/ɡəʊ nəʊ ɡəʊ/', score: 0 },
+      { term: 'capacity', meaning: 'năng lực hệ thống', pronunciation: '/kəˈpæsəti/', score: 0 },
+      { term: 'smoke test', meaning: 'kiểm tra nhanh', pronunciation: '/sməʊk test/', score: 0 },
+    ],
+    grammar: [
+      { title: 'Present continuous for future arrangements', example: 'We’re releasing on Thursday.' },
+      { title: 'Modals for obligation', example: 'We need to freeze the code by Wednesday.' },
+    ],
+    examples: [
+      'We’re releasing on Thursday, so the code freeze starts tonight.',
+      'If the canary looks healthy, we’ll roll out to all regions.',
+    ],
+    quizzes: [
+      {
+        question: 'Choose the correct future arrangement:',
+        options: [
+          'We’re releasing on Thursday.',
+          'We release on Thursday tomorrow.',
+          'We are release on Thursday.',
+        ],
+        answerIndex: 0,
+        explanation: 'Present continuous describes a fixed future arrangement.',
+      },
+      {
+        question: 'Which term means “đóng băng mã nguồn”?',
+        options: ['code freeze', 'canary', 'capacity'],
+        answerIndex: 0,
+        explanation: 'A code freeze stops code changes before a release.',
+      },
+      {
+        question: 'Complete the sentence: “We ___ freeze the code by Wednesday.”',
+        options: ['need to', 'need', 'needing'],
+        answerIndex: 0,
+        explanation: 'Use need + to-infinitive to express obligation.',
+      },
+      {
+        question: 'Which sentence gives a condition for rollout?',
+        options: [
+          'If the canary looks healthy, we’ll roll out.',
+          'The canary looks healthy.',
+          'We roll out maybe.',
+        ],
+        answerIndex: 0,
+        explanation: 'First conditional: if + present simple, will + verb.',
+      },
+    ],
+    readExpected: 'We’re releasing on Thursday, so the code freeze starts tonight.',
+    dialogue: [
+      'A: Quick sync on Thursday’s release?',
+      'B: Sure. The code freeze starts tonight at eight.',
+      'A: Do we have approval from product?',
+      'B: Yes, and the rollback plan is ready.',
+      'A: What about the canary?',
+      'B: We’ll check it at nine and make the go/no-go call.',
+    ],
+  },
+  {
+    id: 'neighbor-weekend',
+    title: 'Weekend catch-up with neighbors',
+    description: 'Talk about weekend plans, weather, and helping each other out.',
+    availableFrom: '2020-01-01',
+    daily: true,
+    theme: 'neighbor',
+    vocab: [
+      { term: 'weekend plans', meaning: 'kế hoạch cuối tuần', pronunciation: '/ˌwiːkˈend plænz/', score: 0 },
+      { term: 'forecast', meaning: 'dự báo thời tiết', pronunciation: '/ˈfɔːkɑːst/', score: 0 },
+      { term: 'garden', meaning: 'khu vườn', pronunciation: '/ˈɡɑːdn/', score: 0 },
+      { term: 'local market', meaning: 'chợ địa phương', pronunciation: '/ˌləʊkl ˈmɑːkɪt/', score: 0 },
+      { term: 'lend', meaning: 'cho mượn', pronunciation: '/lend/', score: 0 },
+      { term: 'borrow', meaning: 'mượn', pronunciation: '/ˈbɒrəʊ/', score: 0 },
+      { term: 'catch up', meaning: 'trò chuyện', pronunciation: '/kætʃ ʌp/', score: 0 },
+      { term: 'take care of', meaning: 'chăm sóc', pronunciation: '/teɪk keə əv/', score: 0 },
+      { term: 'have a good weekend', meaning: 'chúc cuối tuần vui vẻ', pronunciation: '/hæv ə ɡʊd ˌwiːkˈend/', score: 0 },
+    ],
+    grammar: [
+      { title: '‘going to’ for plans', example: 'I’m going to fix the fence this weekend.' },
+      { title: 'Polite requests with ‘could’', example: 'Could you lend me a ladder?' },
+    ],
+    examples: [
+      'Are you doing anything fun this weekend?',
+      'I’m going to the local market on Saturday morning.',
+    ],
+    quizzes: [
+      {
+        question: 'Complete the sentence: “I ___ fix the fence this weekend.”',
+        options: ['am going to', 'going to', 'go to'],
+        answerIndex: 0,
+        explanation: '‘Be going to’ needs the verb be: I am going to fix …',
+      },
+      {
+        question: 'Which word means “mượn”?',
+        options: ['borrow', 'lend', 'bring'],
+        answerIndex: 0,
+        explanation: 'You borrow something from someone; they lend it to you.',
+      },
+      {
+        question: 'Which sentence is a polite request?',
+        options: [
+          'Could you lend me a ladder?',
+          'Give me your ladder.',
+          'Ladder, now.',
+        ],
+        answerIndex: 0,
+        explanation: '“Could you …?” is a polite way to ask for help.',
+      },
+      {
+        question: 'Which question asks about weekend plans?',
+        options: [
+          'Are you doing anything fun this weekend?',
+          'What is your address?',
+          'Do you have a receipt?',
+        ],
+        answerIndex: 0,
+        explanation: 'This question invites the other person to share plans.',
+      },
+    ],
+    readExpected: 'Are you doing anything fun this weekend?',
+    dialogue: [
+      'A: Morning! Are you doing anything fun this weekend?',
+      'B: I’m going to fix the fence if the forecast is good.',
+      'A: Nice. I’m heading to the local market on Saturday.',
+      'B: Could you grab some tomatoes for me?',
+      'A: Sure, no problem. I’ll drop them off in the afternoon.',
+      'B: Thanks! Have a good weekend.',
+    ],
+  },
+  {
+    id: 'eating-out',
+    title: 'Eating out and ordering food',
+    description: 'Book a table, ask for recommendations, and pay politely.',
+    availableFrom: '2020-01-01',
+    daily: true,
+    theme: 'meals',
+    vocab: [
+      { term: 'menu', meaning: 'thực đơn', pronunciation: '/ˈmenjuː/', score: 0 },
+      { term: 'recommendation', meaning: 'gợi ý', pronunciation: '/ˌrekəmenˈdeɪʃən/', score: 0 },
+      { term: 'order', meaning: 'gọi món', pronunciation: '/ˈɔːdə/', score: 0 },
+      { term: 'spicy', meaning: 'cay', pronunciation: '/ˈspaɪsi/', score: 0 },
+      { term: 'bill', meaning: 'hoá đơn', pronunciation: '/bɪl/', score: 0 },
+      { term: 'split the bill', meaning: 'chia hoá đơn', pronunciation: '/splɪt ðə bɪl/', score: 0 },
+      { term: 'takeaway', meaning: 'đồ mang về', pronunciation: '/ˈteɪkəweɪ/', score: 0 },
+      { term: 'tip', meaning: 'tiền boa', pronunciation: '/tɪp/', score: 0 },
+      { term: 'reservation', meaning: 'đặt bàn', pronunciation: '/ˌrezəˈveɪʃən/', score: 0 },
+    ],
+    grammar: [
+      { title: 'Polite requests with ‘could’', example: 'Could we have the bill, please?' },
+      { title: 'Quantifiers with food', example: 'Could I have a little more rice?' },
+    ],
+    examples: [
+      'Could we have the bill, please?',
+      'I’d like something spicy but not too heavy.',
+    ],
+    quizzes: [
+      {
+        question: 'Which sentence is polite when asking for the bill?',
+        options: [
+          'Could we have the bill, please?',
+          'Bill now.',
+          'Give bill.',
+        ],
+        answerIndex: 0,
+        explanation: '“Could we … , please?” is the standard polite form.',
+      },
+      {
+        question: 'Which phrase means “chia hoá đơn”?',
+        options: ['split the bill', 'takeaway', 'tip'],
+        answerIndex: 0,
+        explanation: 'To split the bill is to share the cost between people.',
+      },
+      {
+        question: 'Complete the sentence: “Could I have ___ more rice?”',
+        options: ['a little', 'a few', 'many'],
+        answerIndex: 0,
+        explanation: 'Rice is uncountable, so use a little.',
+      },
+      {
+        question: 'Which question asks for a recommendation?',
+        options: [
+          'What do you recommend?',
+          'What is your name?',
+          'Where is the exit?',
+        ],
+        answerIndex: 0,
+        explanation: '“What do you recommend?” asks for a suggestion.',
+      },
+    ],
+    readExpected: 'Could we have the bill, please?',
+    dialogue: [
+      'A: Good evening. Do you have a reservation?',
+      'B: Yes, under Minh, for two.',
+      'A: Here’s the menu. Can I get you something to drink?',
+      'B: Just water, please. What do you recommend?',
+      'A: The grilled chicken is popular, and it isn’t too spicy.',
+      'B: Great. We’ll take that, and could we split the bill later?',
+    ],
+  },
+  {
+    id: 'meal-prep',
+    title: 'Meal prep and healthy eating',
+    description: 'Talk about groceries, recipes, and staying healthy during the week.',
+    availableFrom: '2020-01-01',
+    daily: true,
+    theme: 'meals',
+    vocab: [
+      { term: 'groceries', meaning: 'thực phẩm mua về', pronunciation: '/ˈɡrəʊsəriz/', score: 0 },
+      { term: 'ingredients', meaning: 'nguyên liệu', pronunciation: '/ɪnˈɡriːdiənts/', score: 0 },
+      { term: 'recipe', meaning: 'công thức', pronunciation: '/ˈresəpi/', score: 0 },
+      { term: 'portion', meaning: 'khẩu phần', pronunciation: '/ˈpɔːʃən/', score: 0 },
+      { term: 'protein', meaning: 'chất đạm', pronunciation: '/ˈprəʊtiːn/', score: 0 },
+      { term: 'sugary', meaning: 'nhiều đường', pronunciation: '/ˈʃʊɡəri/', score: 0 },
+      { term: 'stay hydrated', meaning: 'uống đủ nước', pronunciation: '/steɪ ˈhaɪdreɪtɪd/', score: 0 },
+      { term: 'junk food', meaning: 'đồ ăn vặt', pronunciation: '/dʒʌŋk fuːd/', score: 0 },
+      { term: 'meal prep', meaning: 'chuẩn bị bữa ăn', pronunciation: '/miːl prep/', score: 0 },
+    ],
+    grammar: [
+      { title: '‘should’ for advice', example: 'You should prep meals on Sunday.' },
+      { title: 'Adverbs of frequency', example: 'I rarely order junk food during the week.' },
+    ],
+    examples: [
+      'I do meal prep on Sunday so I eat better during the week.',
+      'I try to add protein to every meal and drink more water.',
+    ],
+    quizzes: [
+      {
+        question: 'Which word means “nguyên liệu”?',
+        options: ['ingredients', 'groceries', 'recipe'],
+        answerIndex: 0,
+        explanation: 'Ingredients are the items you use to cook a dish.',
+      },
+      {
+        question: 'Complete the sentence: “You ___ prep meals on Sunday.”',
+        options: ['should', 'should to', 'shoulds'],
+        answerIndex: 0,
+        explanation: 'Use should + base verb, without to.',
+      },
+      {
+        question: 'Which sentence gives advice?',
+        options: [
+          'You should drink more water.',
+          'You drink more water.',
+          'Drinking water yesterday.',
+        ],
+        answerIndex: 0,
+        explanation: 'Should expresses advice or a recommendation.',
+      },
+      {
+        question: 'Which phrase means “đồ ăn vặt”?',
+        options: ['junk food', 'meal prep', 'protein'],
+        answerIndex: 0,
+        explanation: 'Junk food is food with little nutritional value.',
+      },
+    ],
+    readExpected: 'I do meal prep on Sunday so I eat better during the week.',
+    dialogue: [
+      'A: How do you eat healthy on busy days?',
+      'B: I do meal prep on Sunday and portion everything.',
+      'A: Sounds smart. What do you usually cook?',
+      'B: Chicken, rice, and vegetables. I add protein to every meal.',
+      'A: Do you ever order junk food?',
+      'B: Rarely. I keep fruit at home and stay hydrated.',
+    ],
+  },
 ];
+
+const DAILY_THEMES: EnglishTheme[] = ['devops', 'neighbor', 'meals'];
+
+function dayNumber(date: Date): number {
+  return Math.floor(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) / 86_400_000);
+}
+
+export function getDailyTopics(date = new Date()): EnglishTopic[] {
+  const seed = dayNumber(date);
+  return DAILY_THEMES.flatMap((theme, index) => {
+    const pool = TOPICS.filter((topic) => topic.daily && topic.theme === theme);
+    if (pool.length === 0) return [];
+    return [pool[(seed + index) % pool.length]];
+  });
+}
 
 export function getTodayEnglishContext(date = new Date()): TodayEnglishContext {
   const todayKey = dateKey(date);
-  const topics = TOPICS.map((topic) => ({
+  // Daily themes rotate by date so the same three topics do not repeat every day.
+  const ordered = [
+    ...getDailyTopics(date),
+    ...TOPICS.filter((topic) => !topic.daily),
+  ];
+  const topics = ordered.map((topic) => ({
     ...topic,
     vocab: topic.vocab.map((item) => ({ ...item })),
   }));
