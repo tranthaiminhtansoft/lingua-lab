@@ -194,12 +194,7 @@ export function TodayEnglishPage() {
   return (
     <main className="english-today-page">
       <div className="english-today-topbar">
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
-          <div className="english-today-crumb">English <span aria-hidden="true">/</span> <b>Today’s English</b></div>
-          <div className="english-today-overall">
-            Tổng thể: <span className={scoreClass(overallProgress)}>{overallProgress}%</span>
-          </div>
-        </div>
+        <div className="english-today-crumb">English <span aria-hidden="true">/</span> <b>Today’s English</b></div>
         <div className="english-today-tag">MVP PREVIEW</div>
       </div>
 
