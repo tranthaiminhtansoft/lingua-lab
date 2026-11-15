@@ -29,12 +29,6 @@ export function TimeVocabularyPage() {
 
     <GrammarTopicNavigation sections={timeSections} allowCurrentSectionNavigation navigationLabel="Time sections" menuId="time-section-menu" />
 
-    <section id="time-years" className="time-frame-section" aria-labelledby="years-title">
-      <h3 id="years-title">Years</h3>
-      <p>Read years as <span lang="ja">ねん</span> (<span lang="ja-Latn">nen</span>) when counting and <span lang="ja">とし</span> (<span lang="ja-Latn">toshi</span>) for a year or age. Then use the words for this, last, next, and every year.</p>
-      <div className="time-clock-words">{years.map((entry, index) => <Reading entry={entry} key={`${entry.japanese}-${entry.kana}-${index}`} />)}</div>
-    </section>
-
     <section className="time-calendar-frame" aria-labelledby="sample-calendar-title">
       <header className="time-calendar-heading">
         <div><p className="grammar-eyebrow">A fixed teaching calendar</p><h2 id="sample-calendar-title">October {sampleDate.year}</h2><Reading entry={months[sampleDate.month - 1]} meaning={false} /></div>
@@ -46,6 +40,12 @@ export function TimeVocabularyPage() {
         <div><span className="time-sound time-sound-shared">Shared ending</span><span className="time-sound time-sound-fun">ふん · fun</span><span className="time-sound time-sound-pun">ぷん · pun</span><span className="time-sound time-sound-repeat">まい · mai · every</span><span className="time-sound time-sound-changed">Special / changed sound</span></div>
         <p>For example, <span lang="ja-Latn">ip + pun</span> joins into <span lang="ja-Latn">ippun</span>: the doubled p reflects the small <span lang="ja">っ</span>. Whole irregular words such as <span lang="ja">ついたち</span> (<span lang="ja-Latn">tsuitachi</span>) stay together.</p>
       </aside>
+      <section id="time-years" className="time-frame-section" aria-labelledby="years-title">
+        <h3 id="years-title">Years</h3>
+        <p>Read years as <span lang="ja">ねん</span> (<span lang="ja-Latn">nen</span>) when counting and <span lang="ja">とし</span> (<span lang="ja-Latn">toshi</span>) for a year or age. Then use the words for this, last, next, and every year.</p>
+        <div className="time-clock-words">{years.map((entry, index) => <Reading entry={entry} key={`${entry.japanese}-${entry.kana}-${index}`} />)}</div>
+      </section>
+
       <section id="time-months" className="time-frame-section" aria-labelledby="months-title">
         <h3 id="months-title">The twelve months</h3><p>Number + <span lang="ja">月（がつ）</span> <span lang="ja-Latn">gatsu</span>. Shared endings are teal; red marks special number readings.</p>
         <div className="time-months">{months.map((entry) => <div key={entry.japanese}><Reading entry={entry} /></div>)}</div>
