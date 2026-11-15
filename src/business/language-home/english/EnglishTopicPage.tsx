@@ -22,7 +22,7 @@ type SpeechRecognitionLike = {
   continuous: boolean;
   interimResults: boolean;
   onresult: ((event: SpeechRecognitionEventLike) => void) | null;
-  onerror: ((event: unknown) => void) | null;
+  onerror: ((event: { error?: string }) => void) | null;
   onend: (() => void) | null;
   start: () => void;
   stop: () => void;
@@ -94,16 +94,22 @@ function scoreClass(score: number): string {
   return 'score-low';
 }
 
-function simulatedReadScore(): number {
-  return Math.round(70 + Math.random() * 25);
-}
-
 type WordFeedback = 'good' | 'near' | 'missed';
 
-function simulateTranscript(expected: string, score: number): string {
-  const words = expected.split(/\s+/).filter(Boolean);
-  const keep = Math.max(0, Math.min(words.length, Math.round((score / 100) * words.length)));
-  return words.slice(0, keep).join(' ');
+function describeSpeechError(code?: string): string {
+  switch (code) {
+    case 'not-allowed':
+    case 'service-not-allowed':
+      return 'Micro đang bị chặn. Hãy cấp quyền micro cho trang này rồi thử lại.';
+    case 'audio-capture':
+      return 'Không tìm thấy micro. Hãy kiểm tra thiết bị ghi âm.';
+    case 'no-speech':
+      return 'Không nghe thấy giọng nói. Hãy thử lại và nói to hơn.';
+    case 'network':
+      return 'Lỗi kết nối khi nhận diện giọng nói. Hãy kiểm tra mạng và thử lại.';
+    default:
+      return 'Không nhận diện được giọng nói. Hãy thử lại.';
+  }
 }
 
 function getWordFeedback(expected: string, spoken: string): WordFeedback[] {
@@ -201,6 +207,7 @@ export function EnglishTopicPage() {
   const [dialogueIndex, setDialogueIndex] = useState(0);
   const [isListening, setIsListening] = useState(false);
   const [readFeedback, setReadFeedback] = useState<Record<string, string>>({});
+  const [readNotice, setReadNotice] = useState<{ target: string; message: string } | null>(null);
 
   useEffect(() => {
     void getTodayEnglishContextApi().then(setContext);
@@ -271,12 +278,14 @@ export function EnglishTopicPage() {
   function handleReadAloud(target: string, key?: string, kind: 'vocab' | 'dialogue' = 'vocab') {
     const expected = cleanSentence(target);
     if (!expected) return;
+    setReadNotice(null);
     stopSampleAudio();
     const Constructor = getSpeechRecognitionConstructor();
     if (!Constructor) {
-      const simulated = simulatedReadScore();
-      recordSpoken(expected, simulateTranscript(expected, simulated));
-      applyReadScore(simulated, key, kind);
+      setReadNotice({
+        target: expected,
+        message: 'Trình duyệt không hỗ trợ nhận diện giọng nói. Hãy dùng Chrome hoặc Edge và cấp quyền micro.',
+      });
       return;
     }
     const recognition = new Constructor();
@@ -285,24 +294,36 @@ export function EnglishTopicPage() {
     recognition.interimResults = false;
     setIsListening(true);
     let receivedResult = false;
+    let hadError = false;
     recognition.onresult = (event) => {
-      receivedResult = true;
       const transcript = Array.from(event.results)
         .map((result) => result[0]?.transcript ?? '')
         .join(' ')
         .trim();
-      recordSpoken(expected, transcript || simulateTranscript(expected, 0));
+      if (!transcript) return;
+      receivedResult = true;
+      recordSpoken(expected, transcript);
       applyReadScore(scoreText(transcript, expected), key, kind);
     };
-    recognition.onerror = () => setIsListening(false);
+    recognition.onerror = (event) => {
+      hadError = true;
+      setIsListening(false);
+      setReadNotice({ target: expected, message: describeSpeechError(event.error) });
+    };
     recognition.onend = () => {
       setIsListening(false);
-      if (receivedResult) return;
-      const simulated = simulatedReadScore();
-      recordSpoken(expected, simulateTranscript(expected, simulated));
-      applyReadScore(simulated, key, kind);
+      if (hadError || receivedResult) return;
+      setReadNotice({
+        target: expected,
+        message: 'Không nghe thấy giọng nói. Hãy thử lại và nói to, rõ hơn.',
+      });
     };
-    recognition.start();
+    try {
+      recognition.start();
+    } catch {
+      setIsListening(false);
+      setReadNotice({ target: expected, message: 'Không bắt đầu được micro. Hãy thử lại.' });
+    }
   }
 
   if (!context) {
@@ -394,6 +415,11 @@ export function EnglishTopicPage() {
                       🔊 Nghe mẫu
                     </button>
                   </div>
+                  {readNotice?.target === item.term && (
+                    <div style={{ marginTop: 8, fontSize: 11, color: '#c0392b', lineHeight: 1.5 }}>
+                      {readNotice.message}
+                    </div>
+                  )}
                 </div>
               );
             })}
@@ -511,6 +537,11 @@ export function EnglishTopicPage() {
                               🔊 Nghe mẫu
                             </button>
                           </div>
+                          {readNotice?.target === messageText && (
+                            <div style={{ marginTop: 8, fontSize: 11, color: '#c0392b', lineHeight: 1.5 }}>
+                              {readNotice.message}
+                            </div>
+                          )}
                           {record.score > 0 && (
                             <div style={{ marginTop: 6, fontSize: 11 }}>
                               Đọc: <span className={scoreClass(record.score)}>{record.score}%</span>
