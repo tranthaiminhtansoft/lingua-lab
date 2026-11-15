@@ -11,7 +11,7 @@ on:
 permissions: {}
 
 concurrency:
-  group: wc-check-guard-${{ github.repository }}-${{ inputs.workflow_ref }}
+  group: check-guard-${{ github.repository }}
   cancel-in-progress: false
 
 jobs:
