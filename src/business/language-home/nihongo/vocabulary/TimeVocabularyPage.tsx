@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { GrammarTopicNavigation } from '../grammar/components/GrammarTopicNavigation';
-import { buildSampleCalendar, clockWords, dayBoundaryWords, dayPeriods, everyDay, hours, minutes, months, relativeMonths, relativeWeeks, relativeYears, sampleDate, weekdays, years } from './content/time';
+import { buildSampleCalendar, clockWords, dayBoundaryWords, dayPeriods, everyDay, everyMonth, everyWeek, everyYear, hours, minutes, months, relativeMonths, relativeWeeks, relativeYears, sampleDate, weekdays, years } from './content/time';
 import { Reading } from './TimeReading';
 import { InteractiveTimeClock } from './InteractiveTimeClock';
 import './time.css';
@@ -88,7 +88,7 @@ export function TimeVocabularyPage() {
           <h3 id="daily-rhythm-title">Every day & recurring words</h3>
           <p>These “every…” expressions are grouped separately from the calendar.</p>
           <div className="time-rhythm-grid">
-            <article className="time-rhythm-card"><Reading entry={everyDay} /></article>
+            {[everyDay, everyWeek, everyMonth, everyYear].map((entry, index) => <article className="time-rhythm-card" key={`${entry.japanese}-${entry.kana}-${index}`}><Reading entry={entry} /></article>)}
             {dayPeriods.map((period, index) => <article className={`time-rhythm-card time-period-${index}`} key={period.repeat.japanese}>
               <span className="time-period-icon" aria-hidden="true">{period.icon}</span><Reading entry={period.repeat} />
             </article>)}

@@ -63,6 +63,10 @@ export const dayBoundaryWords = [
   word('日の入り', 'ひのいり', 'hinoiri', 'Sunset'),
 ];
 export const everyDay = word('毎日', 'まいにち', 'mainichi', 'Every day');
+export const everyWeek = word('毎週', 'まいしゅう', 'maishū', 'Every week');
+export const everyMonth = word('毎月', 'まいつき', 'maitsuki', 'Every month');
+export const everyYear = word('毎年', 'まいとし', 'maitoshi', 'Every year');
+everyYear.alternative = { kana: 'まいねん', romaji: 'mainen' };
 export const years = [
   word('年', 'ねん', 'nen', 'year (counter)'),
   word('年', 'とし', 'toshi', 'year; age'),
