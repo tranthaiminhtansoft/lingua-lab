@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { GrammarTopicNavigation } from '../grammar/components/GrammarTopicNavigation';
-import { buildSampleCalendar, clockWords, dayBoundaryWords, dayPeriods, everyDay, hours, minutes, months, sampleDate, weekdays, years } from './content/time';
+import { buildSampleCalendar, clockWords, dayBoundaryWords, dayPeriods, everyDay, hours, minutes, months, relativeMonths, relativeWeeks, relativeYears, sampleDate, weekdays, years } from './content/time';
 import { Reading } from './TimeReading';
 import { InteractiveTimeClock } from './InteractiveTimeClock';
 import './time.css';
@@ -80,6 +80,9 @@ export function TimeVocabularyPage() {
           <div className="time-relative-timeline-row" role="group" aria-label="Morning readings">{relativeDates.map(({ day, relative }) => <article key={day}><Reading entry={relative.morning} /></article>)}</div>
           <div className="time-relative-timeline-row" role="group" aria-label="Relative day readings">{relativeDates.map(({ day, relative }) => <article key={day}><Reading entry={relative.day} /></article>)}</div>
           <div className="time-relative-timeline-row" role="group" aria-label="Night readings">{relativeDates.map(({ day, relative }) => <article key={day}><Reading entry={relative.night} /></article>)}</div>
+        <div className="time-relative-timeline-row" role="group" aria-label="Week readings">{relativeWeeks.map((entry, index) => <article key={`${entry.japanese}-${index}`}><Reading entry={entry} /></article>)}</div>
+        <div className="time-relative-timeline-row" role="group" aria-label="Month readings">{relativeMonths.map((entry, index) => <article key={`${entry.japanese}-${index}`}><Reading entry={entry} /></article>)}</div>
+        <div className="time-relative-timeline-row" role="group" aria-label="Year readings">{relativeYears.map((entry, index) => <article key={`${entry.japanese}-${entry.kana}-${index}`}><Reading entry={entry} /></article>)}</div>
         </section>
         <section id="time-rhythm" className="time-daily-rhythm" aria-labelledby="daily-rhythm-title">
           <h3 id="daily-rhythm-title">Every day & recurring words</h3>

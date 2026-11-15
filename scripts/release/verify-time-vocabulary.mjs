@@ -65,7 +65,7 @@ export async function verifyTimeVocabulary(browser, deploymentUrl, { evidenceDir
   await check('Time calendar content and fixed sample today', async (page) => {
     await page.clock.install({ time: new Date('2040-02-01T10:00:00Z') });
     await openTopic(page);
-    const expectedCounts = [['.time-months > div', 12], ['.time-calendar th', 7], ['.time-calendar td[data-day]', 31], ['[aria-label="Hour readings"] > .time-reading', 12], ['[aria-label="Minute readings"] > .time-reading', 10], ['#time-rhythm .time-rhythm-card', 6], ['#time-dayparts .time-dayparts-grid .time-rhythm-card', 5], ['#time-dayparts .time-boundary-grid .time-rhythm-card', 2], ['#time-relative-days .time-relative-timeline-row', 3]];
+    const expectedCounts = [['.time-months > div', 12], ['.time-calendar th', 7], ['.time-calendar td[data-day]', 31], ['[aria-label="Hour readings"] > .time-reading', 12], ['[aria-label="Minute readings"] > .time-reading', 10], ['#time-rhythm .time-rhythm-card', 6], ['#time-dayparts .time-dayparts-grid .time-rhythm-card', 5], ['#time-dayparts .time-boundary-grid .time-rhythm-card', 2], ['#time-relative-days .time-relative-timeline-row', 6]];
     for (const [selector, count] of expectedCounts) assert.equal(await page.locator(selector).count(), count, `Time content count: ${selector}`);
     assert.equal(await page.locator('.time-calendar th').first().locator('.time-meaning').textContent(), 'Monday');
     assert.equal(await page.locator('.time-calendar tbody tr').first().locator('td').nth(3).getAttribute('data-day'), '1');

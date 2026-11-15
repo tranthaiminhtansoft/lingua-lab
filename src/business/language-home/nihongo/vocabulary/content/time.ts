@@ -150,6 +150,27 @@ relativeMornings.forEach((entry) => {
 relativeNights[2].parts = [part('こん', 'kon'), part('や', 'ya', 'shared')];
 relativeNights[1].alternative!.parts = [part('さく', 'saku'), part('や', 'ya', 'shared')];
 everyDay.parts = [part('まい', 'mai', 'repeat'), part('にち', 'nichi', 'shared')];
+export const relativeWeeks = [
+  word('一昨週', 'いっさくしゅう', 'issakushū', 'The week before last'),
+  word('先週', 'せんしゅう', 'senshū', 'Last week'),
+  word('今週', 'こんしゅう', 'konshū', 'This week'),
+  word('来週', 'らいしゅう', 'raishū', 'Next week'),
+  word('再来週', 'さらいしゅう', 'saraishū', 'The week after next'),
+];
+export const relativeMonths = [
+  word('一昨月', 'いっさくげつ', 'issakugatsu', 'The month before last'),
+  word('先月', 'せんげつ', 'sengetsu', 'Last month'),
+  word('今月', 'こんげつ', 'kongetsu', 'This month'),
+  word('来月', 'らいげつ', 'raigetsu', 'Next month'),
+  word('再来月', 'さらいげつ', 'saraigetsu', 'The month after next'),
+];
+export const relativeYears = [
+  word('一昨年', 'いっさくねん', 'issakunen', 'The year before last'),
+  years[3],
+  years[2],
+  years[4],
+  word('再来年', 'さらいねん', 'sarairen', 'The year after next'),
+];
 dayPeriods[0].repeat.parts = [part('まい', 'mai', 'repeat'), part('あさ', 'asa', 'shared')];
 dayPeriods[1].word.parts = [part('しょう', 'shō'), part('ご', 'go')];
 dayPeriods[1].repeat.parts = [part('まい', 'mai', 'repeat'), part('にち', 'nichi', 'shared'), part('しょう', 'shō'), part('ご', 'go')];
