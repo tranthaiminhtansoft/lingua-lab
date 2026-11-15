@@ -69,6 +69,15 @@ function simulatedReadScore(): number {
   return Math.round(70 + Math.random() * 25);
 }
 
+function speakText(text: string) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = 'en-US';
+  utterance.rate = 0.85;
+  window.speechSynthesis.speak(utterance);
+}
+
 export function EnglishTopicPage() {
   const { topicId } = useParams();
   const navigate = useNavigate();
@@ -205,9 +214,12 @@ export function EnglishTopicPage() {
                     {item.meaning} · {item.pronunciation} · Phát âm: <span className={scoreClass(vp.score)}>{vp.score}%</span>
                     {vp.completed ? ' (đạt ngưỡng)' : ' (chưa đạt)'}
                   </span>
-                  <div style={{ marginTop: 8 }}>
+                  <div style={{ marginTop: 8, display: 'flex', gap: 8, flexWrap: 'wrap' }}>
                     <button className="english-today-button secondary" type="button" onClick={() => handleReadAloud(item.term)} disabled={isListening}>
                       {isListening ? 'Đang nghe…' : 'Đọc từ này'}
+                    </button>
+                    <button className="english-today-button ghost" type="button" onClick={() => speakText(item.term)}>
+                      🔊 Nghe mẫu
                     </button>
                   </div>
                 </div>
@@ -270,6 +282,9 @@ export function EnglishTopicPage() {
             <div className="english-today-read-controls">
               <button className="english-today-button secondary" type="button" onClick={() => handleReadAloud()} disabled={isListening}>
                 {isListening ? 'Đang nghe…' : 'Bắt đầu đọc'}
+              </button>
+              <button className="english-today-button ghost" type="button" onClick={() => speakText(topic.readExpected)}>
+                🔊 Nghe mẫu
               </button>
             </div>
             <div className="english-today-score">
