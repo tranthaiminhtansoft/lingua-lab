@@ -457,11 +457,31 @@ export function EnglishTopicPage() {
                 const isCurrent = index === dialogueIndex;
                 const isRight = sentence.startsWith('B:');
                 const isLast = index === topic.dialogue.length - 1;
+                const messageText = cleanSentence(sentence);
+                const messageFeedback = lastExpected === messageText && spokenTranscript
+                  ? getWordFeedback(messageText, spokenTranscript)
+                  : null;
                 return (
                   <div key={sentence} style={{ display: 'flex', justifyContent: isRight ? 'flex-end' : 'flex-start' }}>
                     <div style={{ maxWidth: '88%', padding: '10px 12px', borderRadius: 14, background: isRight ? '#e9edff' : '#fbfaf6', border: '1px solid #e7e5de' }}>
                       <strong style={{ display: 'block', fontSize: 11, color: '#697382' }}>{isRight ? 'B' : 'A'}</strong>
-                      <div style={{ fontSize: 13, lineHeight: 1.5 }}>{cleanSentence(sentence)}</div>
+                      <div style={{ fontSize: 13, lineHeight: 1.5 }}>
+                        {messageText.split(/\s+/).map((word, wordIndex) => (
+                          <span
+                            key={`${sentence}-${wordIndex}`}
+                            className={messageFeedback
+                              ? messageFeedback[wordIndex] === 'good'
+                                ? 'score-high'
+                                : messageFeedback[wordIndex] === 'near'
+                                  ? 'score-mid'
+                                  : 'score-low'
+                              : undefined}
+                            style={{ marginRight: 4 }}
+                          >
+                            {word}
+                          </span>
+                        ))}
+                      </div>
                       {record.completed && (
                         <div className="score-high" style={{ marginTop: 6, fontSize: 11 }}>Đã đạt {record.score}%</div>
                       )}
@@ -483,19 +503,6 @@ export function EnglishTopicPage() {
                           {record.score > 0 && (
                             <div style={{ marginTop: 6, fontSize: 11 }}>
                               Đọc: <span className={scoreClass(record.score)}>{record.score}%</span>
-                            </div>
-                          )}
-                          {lastExpected === cleanSentence(sentence) && spokenTranscript && (
-                            <div style={{ marginTop: 8, lineHeight: 1.8 }}>
-                              {getWordFeedback(lastExpected, spokenTranscript).map((status, wordIndex) => (
-                                <span
-                                  key={`${lastExpected}-${wordIndex}`}
-                                  className={status === 'good' ? 'score-high' : status === 'near' ? 'score-mid' : 'score-low'}
-                                  style={{ marginRight: 6 }}
-                                >
-                                  {lastExpected.split(/\s+/)[wordIndex]}
-                                </span>
-                              ))}
                             </div>
                           )}
                         </>
