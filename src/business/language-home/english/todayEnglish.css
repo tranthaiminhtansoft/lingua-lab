@@ -158,6 +158,15 @@
   color: #394eaa;
 }
 
+.english-today-button.listening {
+  animation: english-listening-pulse 1s ease-in-out infinite;
+}
+
+@keyframes english-listening-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(98, 121, 220, .35); }
+  50% { box-shadow: 0 0 0 8px rgba(98, 121, 220, 0); }
+}
+
 .english-today-button.ghost {
   background: transparent;
   color: #243550;
