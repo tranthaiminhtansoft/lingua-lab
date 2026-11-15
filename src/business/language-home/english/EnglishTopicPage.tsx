@@ -43,20 +43,48 @@ function normalizeText(value: string): string[] {
     .filter(Boolean);
 }
 
+function levenshtein(a: string, b: string): number {
+  if (a === b) return 0;
+  if (a.length === 0) return b.length;
+  if (b.length === 0) return a.length;
+  let previous = Array.from({ length: b.length + 1 }, (_, i) => i);
+  for (let i = 1; i <= a.length; i += 1) {
+    const current = [i];
+    for (let j = 1; j <= b.length; j += 1) {
+      const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+      current[j] = Math.min(previous[j] + 1, current[j - 1] + 1, previous[j - 1] + cost);
+    }
+    previous = current;
+  }
+  return previous[b.length];
+}
+
 function scoreText(spoken: string, expected: string): number {
   const spokenWords = normalizeText(spoken);
   const expectedWords = normalizeText(expected);
   if (expectedWords.length === 0) return 0;
-  let matches = 0;
   const used = new Set<number>();
-  for (const word of spokenWords) {
-    const index = expectedWords.findIndex((candidate, i) => candidate === word && !used.has(i));
-    if (index >= 0) {
-      used.add(index);
-      matches += 1;
+  let score = 0;
+  for (const expectedWord of expectedWords) {
+    let best = 0;
+    spokenWords.forEach((spokenWord, index) => {
+      if (used.has(index)) return;
+      if (spokenWord === expectedWord) {
+        best = Math.max(best, 1);
+        return;
+      }
+      const distance = levenshtein(spokenWord, expectedWord);
+      const maxLength = Math.max(spokenWord.length, expectedWord.length);
+      const similarity = maxLength === 0 ? 1 : 1 - distance / maxLength;
+      if (similarity >= 0.55) best = Math.max(best, similarity * 0.75);
+    });
+    if (best > 0) {
+      const index = spokenWords.findIndex((word, i) => !used.has(i) && (word === expectedWord || levenshtein(word, expectedWord) <= 2));
+      if (index >= 0) used.add(index);
     }
+    score += best;
   }
-  return Math.round((matches / expectedWords.length) * 100);
+  return Math.round(Math.min(100, (score / expectedWords.length) * 100));
 }
 
 function scoreClass(score: number): string {
@@ -313,8 +341,8 @@ export function EnglishTopicPage() {
               <div>
                 <strong className={readScore === null ? 'score-mid' : scoreClass(readScore)}>{readScore === null ? '—' : readScore}</strong> % khớp
                 {readScore !== null && (
-                  <span style={{ marginLeft: 8 }} className={readScore >= VOCAB_THRESHOLD ? 'score-high' : 'score-low'}>
-                    {readScore >= VOCAB_THRESHOLD ? 'Đọc đạt' : 'Chưa đạt'}
+                  <span style={{ marginLeft: 8 }} className={scoreClass(readScore)}>
+                    {readScore >= VOCAB_THRESHOLD ? 'Đọc đạt' : readScore >= 50 ? 'Gần đúng' : 'Chưa đạt'}
                   </span>
                 )}
               </div>
