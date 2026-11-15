@@ -11,6 +11,7 @@ import {
   getTopicProgress,
   updateVocabularyScore,
   updateDialogueScore,
+  resetTopicProgress,
   VOCAB_THRESHOLD,
 } from './progress/englishProgress';
 import './todayEnglish.css';
@@ -231,6 +232,19 @@ export function EnglishTopicPage() {
     }
   }, [context, topic, navigate]);
 
+  function handleResetTopic() {
+    if (!topic) return;
+    const confirmed = window.confirm('Luyện tập lại sẽ xoá toàn bộ điểm của chủ đề này. Bạn có chắc không?');
+    if (!confirmed) return;
+    const nextState = resetTopicProgress(progress, topic.id);
+    setProgress(nextState);
+    writeProgress(nextState);
+    setReadFeedback({});
+    setReadNotice(null);
+    setDialogueIndex(0);
+    setQuizAnswers({});
+  }
+
   function handleQuizAnswer(questionIndex: number, optionIndex: number) {
     setQuizAnswers((current) => ({ ...current, [questionIndex]: optionIndex }));
     playFeedbackSound(optionIndex === topic?.quizzes[questionIndex]?.answerIndex);
@@ -368,6 +382,9 @@ export function EnglishTopicPage() {
               <div className="english-today-score-bar">
                 <i style={{ width: `${topicProgress.progress}%` }} />
               </div>
+              <button className="english-today-button ghost" type="button" onClick={handleResetTopic} style={{ marginTop: 10 }}>
+                Luyện tập lại chủ đề
+              </button>
             </div>
           </div>
         )}

@@ -120,4 +120,10 @@ export function isOverallComplete(state: EnglishProgressState, availableTopicIds
   return availableTopicIds.length > 0 && availableTopicIds.every((id) => state.topics[id]?.completed === true);
 }
 
+export function resetTopicProgress(state: EnglishProgressState, topicId: string): EnglishProgressState {
+  const topics = { ...state.topics };
+  delete topics[topicId];
+  return { ...state, topics };
+}
+
 export { VOCAB_THRESHOLD };
