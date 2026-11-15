@@ -11,8 +11,7 @@ Proposed scope and implementation checklist for adding a broad English learning 
 1. Confirm the beginner-to-intermediate audience, Vietnamese explanation language, and practical communication goal (`ENG-001`).
 2. Define the lesson and accessibility conventions (`ENG-002`), then build the hub and first two lessons (`ENG-003` to `ENG-006`).
 3. Review those lessons before expanding the course (`ENG-007`). Keep later groups in the proposed order and adapt examples to learner goals.
-4. (Proposed follow-on) Add contextual daily English based on the device date, season, Catholic feasts, and Vietnamese holidays, with coming-soon markers and IELTS 6.5–8.0/common-usage prioritization (`ENG-026` to `ENG-031`).
-## Planning conventions
+4. (Proposed follow-on) Add contextual daily English based on the device date, season, Catholic feasts, and Vietnamese holidays, with coming-soon markers and IELTS 6.5–8.0/common-usage prioritization (`ENG-026` to `ENG-034`).## Planning conventions
 
 - Keep checklist IDs stable when items move or change status; assign new tasks the next available number.
 - Do not assign target dates until they are agreed.
@@ -237,9 +236,11 @@ Instead of forcing a strictly linear path, offer a **date-aware suggestion** bas
 - [ ] `ENG-027` Create a static English content bank (JSON/TS) with tags for frequency, IELTS level, topic, season, holiday, and `availableFrom`.
 - [ ] `ENG-028` Implement a simulated backend service (`englishContentApi`) with `getTodayContext` and `getSuggestions`, including 00:00 date gating in the device time zone.
 - [ ] `ENG-029` Add calendar data for seasons, Catholic feasts (fixed and movable, including Easter), and Vietnamese holidays for a 5-year range.
-- [ ] `ENG-030` Add a “Today’s English” card to the English hub that shows today’s available topics and asks the learner which one to study, with a Coming soon state for future special-day topics.- [ ] `ENG-031` Filter and rank suggestions by common usage and IELTS 6.5–8.0 level, with a way to browse other topics.
-- [ ] `ENG-032` Add reinforcement multiple-choice practice with local answer keys and immediate feedback for contextual daily topics.
-- [ ] `ENG-033` Add read-aloud detection where supported, comparing spoken input to expected text with percentage match and score, plus recording/text fallback when speech recognition is unavailable.Keep the later groups as the proposed sequence; break them into implementation tasks after the first release boundary is reviewed. Do not assign dates until they are agreed.
+- [ ] `ENG-030` Add a “Today’s English” card to the English hub that shows today’s available topics and asks the learner which one to study, with a Coming soon state for future special-day topics.
+- [ ] `ENG-031` Filter and rank suggestions by common usage and IELTS 6.5–8.0 level, with a way to browse other topics.- [ ] `ENG-032` Add reinforcement multiple-choice practice with local answer keys and immediate feedback for contextual daily topics.
+- [ ] `ENG-033` Add read-aloud detection where supported, comparing spoken input to expected text with percentage match and score, plus recording/text fallback when speech recognition is unavailable.
+- [ ] `ENG-034` Support remote JSON content with version check, throttled update detection, refresh action, and bundled fallback for offline or failed fetches.
 
+Keep the later groups as the proposed sequence; break them into implementation tasks after the first release boundary is reviewed. Do not assign dates until they are agreed.
 
 > Move an item to **Completed** when the feature is usable in the application. Add a target date only after it has been agreed.
