@@ -150,6 +150,7 @@
   font-size: 12px;
   font-weight: 750;
   cursor: pointer;
+  box-shadow: none;
 }
 
 .english-today-button.secondary {
@@ -192,8 +193,11 @@
   border: 1px solid #e7e5de;
   border-radius: 16px;
   background: #fffefa;
+  color: #202a38;
   cursor: pointer;
   text-align: left;
+  box-shadow: none;
+  min-height: auto;
 }
 
 .english-today-topic:hover {
@@ -346,9 +350,11 @@
   border: 1px solid #e7e5de;
   border-radius: 10px;
   background: white;
+  color: #202a38;
   cursor: pointer;
   font-size: 13px;
   text-align: left;
+  box-shadow: none;
 }
 
 .english-today-option.correct {
