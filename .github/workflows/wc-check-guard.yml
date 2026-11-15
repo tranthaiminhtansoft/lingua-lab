@@ -11,7 +11,7 @@ on:
 permissions: {}
 
 concurrency:
-  group: check-guard-${{ github.repository }}
+  group: check-guard
   cancel-in-progress: false
 
 jobs:
