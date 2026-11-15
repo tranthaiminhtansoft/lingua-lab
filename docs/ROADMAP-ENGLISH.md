@@ -11,7 +11,7 @@ Proposed scope and implementation checklist for adding a broad English learning 
 1. Confirm the beginner-to-intermediate audience, Vietnamese explanation language, and practical communication goal (`ENG-001`).
 2. Define the lesson and accessibility conventions (`ENG-002`), then build the hub and first two lessons (`ENG-003` to `ENG-006`).
 3. Review those lessons before expanding the course (`ENG-007`). Keep later groups in the proposed order and adapt examples to learner goals.
-
+4. (Proposed follow-on) Add contextual daily English based on the device date, season, Catholic feasts, and Vietnamese holidays, with coming-soon markers and IELTS 6.5–8.0/common-usage prioritization (`ENG-026` to `ENG-031`).
 ## Planning conventions
 
 - Keep checklist IDs stable when items move or change status; assign new tasks the next available number.
@@ -198,6 +198,15 @@ Use the **English Learning Studio** concept as the visual direction for the Engl
 - Provide practice that asks learners to retrieve or make a choice, not only reread explanations. Give a short explanation with feedback after an answer.
 - Keep lesson pages usable on small screens and link related lessons in a clear next-step path.
 
+### Contextual daily English (proposed)
+
+Instead of forcing a strictly linear path, offer a **date-aware suggestion** based on the device’s local date. On each day, show the current season, any Catholic feast, and any Vietnamese holiday, then propose matching sentence structures and vocabulary. Special-day topics (for example Black Friday) use a flexible **coming soon** marker in the content bank and only become available from **00:00** on their date. Prioritize phrases people commonly use and IELTS 6.5–8.0 level language.
+
+- Store English content in a static content bank (JSON/TS) with tags such as `frequency`, `level`, `topic`, `season`, `holiday`, and `availableFrom`.
+- Provide a simulated backend service (`englishContentApi`) that reads the bundled bank and returns today’s context and suggestions; keep the API shape swappable for a real backend later.
+- Include Catholic feasts (fixed plus movable feasts such as Easter) and Vietnamese holidays for a 5-year range, using the device time zone.
+- Show a **Coming soon** state for not-yet-available special-day topics.
+
 ### Checklist
 
 - [ ] `ENG-001` Confirm broad beginner-to-intermediate audience, Vietnamese explanation language, and practical communication goal.
@@ -225,7 +234,12 @@ Use the **English Learning Studio** concept as the visual direction for the Engl
 - [ ] `ENG-023` Add practical interaction skills for taking turns, interrupting politely, clarifying, and agreeing/disagreeing across social and work scenarios.
 - [ ] `ENG-024` Define a pronunciation/listening progression covering sound contrasts, syllables, stress, intonation, connected speech, gist/detail listening, and a declared reference accent.
 - [ ] `ENG-025` Provide self-check rubrics and model responses for open speaking/writing tasks; only auto-score activities with reliable local answer keys and make recording opt-in.
-
+- [ ] `ENG-026` Define contextual daily English: device-date-aware suggestions for season, Catholic feasts, and Vietnamese holidays, with coming-soon markers and IELTS 6.5–8.0/common-usage prioritization.
+- [ ] `ENG-027` Create a static English content bank (JSON/TS) with tags for frequency, IELTS level, topic, season, holiday, and `availableFrom`.
+- [ ] `ENG-028` Implement a simulated backend service (`englishContentApi`) with `getTodayContext` and `getSuggestions`, including 00:00 date gating in the device time zone.
+- [ ] `ENG-029` Add calendar data for seasons, Catholic feasts (fixed and movable, including Easter), and Vietnamese holidays for a 5-year range.
+- [ ] `ENG-030` Add a “Today’s English” card to the English hub that shows context and suggestions, with a Coming soon state for future special-day topics.
+- [ ] `ENG-031` Filter and rank suggestions by common usage and IELTS 6.5–8.0 level, with a way to browse other topics.
 Keep the later groups as the proposed sequence; break them into implementation tasks after the first release boundary is reviewed. Do not assign dates until they are agreed.
 
 

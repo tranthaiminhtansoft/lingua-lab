@@ -29,8 +29,7 @@ Start with `GR-VERB-001` in [Japanese Roadmap](ROADMAP-JAPANESE.md): create the 
 These are documented directions, not the immediate work queue:
 
 - **CI/CD:** review CI trigger coverage first, then workflow/release-script validation and live repository protections. See [CI/CD Roadmap](ROADMAP-CICD.md).
-- **English:** confirm the audience and lesson conventions, then build the hub, **Sentence foundations**, and **Introductions and everyday conversation**. See [English Roadmap](ROADMAP-ENGLISH.md).
-- **Shared progress:** define browser-local progress scoped by language, starting with Japanese Kana and English foundations practice. See the shared progress plan below.
+- **English:** confirm the audience and lesson conventions, then build the hub, **Sentence foundations**, and **Introductions and everyday conversation**. Proposed follow-on: contextual daily English based on device date, season, and holidays (`ENG-026` to `ENG-031`). See [English Roadmap](ROADMAP-ENGLISH.md).- **Shared progress:** define browser-local progress scoped by language, starting with Japanese Kana and English foundations practice. See the shared progress plan below.
 
 ## Completed work at a glance
 
