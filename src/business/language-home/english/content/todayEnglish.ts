@@ -1,0 +1,185 @@
+export type EnglishVocabularyItem = {
+  term: string;
+  meaning: string;
+  pronunciation: string;
+  score: number;
+};
+
+export type EnglishGrammarItem = {
+  title: string;
+  example: string;
+};
+
+export type EnglishQuiz = {
+  question: string;
+  options: string[];
+  answerIndex: number;
+  explanation: string;
+};
+
+export type EnglishTopic = {
+  id: string;
+  title: string;
+  description: string;
+  availableFrom: string;
+  vocab: EnglishVocabularyItem[];
+  grammar: EnglishGrammarItem[];
+  examples: string[];
+  quiz: EnglishQuiz;
+  readExpected: string;
+};
+
+export type TodayEnglishContext = {
+  date: string;
+  season: string;
+  holiday: string;
+  topics: EnglishTopic[];
+};
+
+const SEASONS_BY_MONTH: Record<number, string> = {
+  0: 'Winter',
+  1: 'Winter',
+  2: 'Spring',
+  3: 'Spring',
+  4: 'Spring',
+  5: 'Summer',
+  6: 'Summer',
+  7: 'Summer',
+  8: 'Autumn',
+  9: 'Autumn',
+  10: 'Autumn',
+  11: 'Winter',
+};
+
+const FIXED_HOLIDAYS: Record<string, string> = {
+  '01-01': 'New Year’s Day',
+  '04-30': 'Reunification Day (Vietnam)',
+  '05-01': 'International Workers’ Day',
+  '09-02': 'National Day (Vietnam)',
+  '12-25': 'Christmas',
+};
+
+function seasonFor(date: Date): string {
+  return SEASONS_BY_MONTH[date.getMonth()] ?? 'Season';
+}
+
+function holidayFor(date: Date): string {
+  const key = `${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+  return FIXED_HOLIDAYS[key] ?? 'No special holiday today';
+}
+
+function dateKey(date: Date): string {
+  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+}
+
+const TOPICS: EnglishTopic[] = [
+  {
+    id: 'autumn-routine',
+    title: 'Autumn routine & energy',
+    description: 'Talk about autumn routines, energy, and weekly plans.',
+    availableFrom: '2020-01-01',
+    vocab: [
+      { term: 'energy level', meaning: 'mức năng lượng', pronunciation: '/ˈen.ə.dʒi ˌlev.əl/', score: 0 },
+      { term: 'get back into routine', meaning: 'trở lại thói quen', pronunciation: '/ɡet bæk ˈɪn.tuː ruːˈtiːn/', score: 0 },
+      { term: 'wrap up warm', meaning: 'mặc ấm', pronunciation: '/ræp ʌp wɔːm/', score: 0 },
+    ],
+    grammar: [
+      { title: 'Present simple for routines', example: 'I usually walk in the park in autumn.' },
+      { title: 'Present continuous for temporary changes', example: 'I’m trying to sleep earlier this week.' },
+    ],
+    examples: [
+      'In autumn, I usually feel more focused, so I plan heavier tasks in the morning.',
+      'This week I’m getting back into a routine after a busy period.',
+    ],
+    quiz: {
+      question: 'Choose the correct sentence about an autumn routine:',
+      options: [
+        'I am usually walk in the park in autumn.',
+        'I usually walk in the park in autumn.',
+        'I usually walks in the park in autumn.',
+      ],
+      answerIndex: 1,
+      explanation: 'Use present simple for habits: subject + base verb.',
+    },
+    readExpected: 'I usually walk in the park in autumn.',
+  },
+  {
+    id: 'work-update',
+    title: 'Work update in English',
+    description: 'Give work updates, progress, and blockers in a meeting.',
+    availableFrom: '2020-01-01',
+    vocab: [
+      { term: 'on track', meaning: 'đúng tiến độ', pronunciation: '/ɒn træk/', score: 0 },
+      { term: 'blocker', meaning: 'điểm chặn', pronunciation: '/ˈblɒk.ər/', score: 0 },
+      { term: 'hand off', meaning: 'bàn giao', pronunciation: '/hænd ɒf/', score: 0 },
+    ],
+    grammar: [
+      { title: 'Present perfect for progress', example: 'We have finished the first review.' },
+      { title: 'Passive for status', example: 'The deployment was rolled back.' },
+    ],
+    examples: [
+      'We’re on track, but we still have one blocker with the API.',
+      'I’ll hand off the logs after this meeting.',
+    ],
+    quiz: {
+      question: 'Choose the correct work update:',
+      options: [
+        'We are on track, but we still has one blocker.',
+        'We are on track, but we still have one blocker.',
+        'We on track, but we still have one blocker.',
+      ],
+      answerIndex: 1,
+      explanation: 'Use “have” with “we” and keep the full verb phrase.',
+    },
+    readExpected: 'We are on track, but we still have one blocker.',
+  },
+  {
+    id: 'black-friday',
+    title: 'Black Friday shopping',
+    description: 'Talk about shopping, prices, and comparing choices.',
+    availableFrom: '2026-11-28',
+    vocab: [
+      { term: 'deal', meaning: 'ưu đãi', pronunciation: '/diːl/', score: 0 },
+      { term: 'discount', meaning: 'giảm giá', pronunciation: '/ˈdɪskaʊnt/', score: 0 },
+      { term: 'worth it', meaning: 'đáng giá', pronunciation: '/wɜːθ ɪt/', score: 0 },
+    ],
+    grammar: [
+      { title: 'Comparatives', example: 'This laptop is cheaper than that one.' },
+      { title: 'Whether for choices', example: 'We need to decide whether to buy now or wait.' },
+    ],
+    examples: [
+      'This deal looks good, but I’m not sure whether it is worth it.',
+      'The discount is bigger online than in the store.',
+    ],
+    quiz: {
+      question: 'Choose the correct shopping sentence:',
+      options: [
+        'This deal is worth than the other one.',
+        'This deal is more worth than the other one.',
+        'This deal is worth it.',
+      ],
+      answerIndex: 2,
+      explanation: '“Worth it” is a common chunk; avoid forcing a comparative.',
+    },
+    readExpected: 'This deal looks good, but I am not sure whether it is worth it.',
+  },
+];
+
+export function getTodayEnglishContext(date = new Date()): TodayEnglishContext {
+  const todayKey = dateKey(date);
+  const topics = TOPICS.map((topic) => ({
+    ...topic,
+    vocab: topic.vocab.map((item) => ({ ...item })),
+  }));
+  // Keep future topics visible as coming soon, but mark them by availableFrom.
+  return {
+    date: todayKey,
+    season: seasonFor(date),
+    holiday: holidayFor(date),
+    topics,
+  };
+}
+
+export function isTopicAvailable(topic: EnglishTopic, date = new Date()): boolean {
+  return topic.availableFrom <= dateKey(date);
+}

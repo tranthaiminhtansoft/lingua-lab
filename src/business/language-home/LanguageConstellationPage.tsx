@@ -27,19 +27,19 @@ export function LanguageConstellationPage() {
               <span>Nihongo</span>
             </span>
           </Link>
-          <div aria-label="English learning path coming soon" className="language-constellation language-english" role="img">
+          <Link aria-label="Explore English learning path" className="language-constellation language-english" to="/english">
             <span>
               <b>A</b>
               <span>English</span>
-              <small>Coming soon</small>
+              <small>Today's English</small>
             </span>
-          </div>
+          </Link>
           <i aria-hidden="true" className="language-small-star language-star-one">✦</i>
           <i aria-hidden="true" className="language-small-star language-star-two">✧</i>
           <i aria-hidden="true" className="language-small-star language-star-three">✦</i>
         </section>
 
-        <p className="language-home-hint">Begin with Nihongo; English is coming soon.</p>
+        <p className="language-home-hint">Choose Nihongo or Today's English.</p>
         <footer className="language-home-foot">
           <span>One sky · many ways to learn</span>
           <span>Find your next learning path</span>
