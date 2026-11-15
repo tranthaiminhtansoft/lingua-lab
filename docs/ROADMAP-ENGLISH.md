@@ -238,7 +238,8 @@ Instead of forcing a strictly linear path, offer a **date-aware suggestion** bas
 - [ ] `ENG-028` Implement a simulated backend service (`englishContentApi`) with `getTodayContext` and `getSuggestions`, including 00:00 date gating in the device time zone.
 - [ ] `ENG-029` Add calendar data for seasons, Catholic feasts (fixed and movable, including Easter), and Vietnamese holidays for a 5-year range.
 - [ ] `ENG-030` Add a “Today’s English” card to the English hub that shows today’s available topics and asks the learner which one to study, with a Coming soon state for future special-day topics.- [ ] `ENG-031` Filter and rank suggestions by common usage and IELTS 6.5–8.0 level, with a way to browse other topics.
-Keep the later groups as the proposed sequence; break them into implementation tasks after the first release boundary is reviewed. Do not assign dates until they are agreed.
+- [ ] `ENG-032` Add reinforcement multiple-choice practice with local answer keys and immediate feedback for contextual daily topics.
+- [ ] `ENG-033` Add read-aloud detection where supported, comparing spoken input to expected text with percentage match and score, plus recording/text fallback when speech recognition is unavailable.Keep the later groups as the proposed sequence; break them into implementation tasks after the first release boundary is reviewed. Do not assign dates until they are agreed.
 
 
 > Move an item to **Completed** when the feature is usable in the application. Add a target date only after it has been agreed.
