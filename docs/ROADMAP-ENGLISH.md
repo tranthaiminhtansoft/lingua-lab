@@ -11,8 +11,7 @@ Proposed scope and implementation checklist for adding a broad English learning 
 1. Confirm the beginner-to-intermediate audience, Vietnamese explanation language, and practical communication goal (`ENG-001`).
 2. Define the lesson and accessibility conventions (`ENG-002`), then build the hub and first two lessons (`ENG-003` to `ENG-006`).
 3. Review those lessons before expanding the course (`ENG-007`). Keep later groups in the proposed order and adapt examples to learner goals.
-4. (Proposed follow-on) Add contextual daily English based on the device date, season, Catholic feasts, and Vietnamese holidays, with coming-soon markers and IELTS 6.5–8.0/common-usage prioritization (`ENG-026` to `ENG-035`).
-
+4. (Proposed follow-on) Add contextual daily English based on the device date, season, Catholic feasts, and Vietnamese holidays, with coming-soon markers and IELTS 6.5–8.0/common-usage prioritization (`ENG-026` to `ENG-036`).
 ## Planning conventions
 - Keep checklist IDs stable when items move or change status; assign new tasks the next available number.
 - Do not assign target dates until they are agreed.
@@ -200,11 +199,17 @@ Use the **English Learning Studio** concept as the visual direction for the Engl
 
 ### Contextual daily English (proposed)
 
-Instead of forcing a strictly linear path, offer a **date-aware suggestion** based on the device’s local date. On each day, show the current season, any Catholic feast, and any Vietnamese holiday, then propose matching sentence structures and vocabulary. Special-day topics (for example Black Friday) use a flexible **coming soon** marker in the content bank and only become available from **00:00** on their date. Prioritize phrases and grammar that people commonly use for real communication, at IELTS 6.5–8.0 level.
-- Store English content in a static content bank (JSON/TS) with tags such as `frequency`, `level`, `topic`, `season`, `holiday`, and `availableFrom`. Selecting a topic shows its vocabulary, matching grammar structures, and example sentences for application.
+Instead of forcing a strictly linear path, offer a **date-aware suggestion** based on the device’s local date. On each day, show the current season, any Catholic feast, and any Vietnamese holiday, then propose matching sentence structures and vocabulary. Special-day topics (for example Black Friday) use a flexible **coming soon** marker in the content bank and only become available from **00:00** on their date. Prioritize phrases and grammar that people commonly use for real communication, at IELTS 6.5–8.0 level. Daily topics should also include conversation-extending sentences and advanced adverb/adverbial usage.- Store English content in a static content bank (JSON/TS) with tags such as `frequency`, `level`, `topic`, `season`, `holiday`, and `availableFrom`. Selecting a topic shows its vocabulary, matching grammar structures, and example sentences for application.
 - Provide a simulated backend service (`englishContentApi`) that reads the bundled bank and returns today’s context and suggestions; keep the API shape swappable for a real backend later.- Include Catholic feasts (fixed plus movable feasts such as Easter) and Vietnamese holidays for a 5-year range, using the device time zone.
 - Show a **Coming soon** state for not-yet-available special-day topics.
 
+### Merged communication focus
+
+Daily English should merge the original learning scope with the daily model. Include:
+- Practical communication and turn-taking: clarify, agree/disagree, follow-up questions, repair phrases.
+- Story-extending connectors: *because/so/that’s why, although/even though/though, despite/in spite of, before/after/while/as soon as, if/whether, not only…but also*.
+- Advanced adverb and adverbial usage: time, frequency, manner, degree, viewpoint, and sentence-position guidance, with natural spoken forms.
+- Keep examples conversational and useful for real life, study, travel, and work.
 ### Checklist
 
 - [ ] `ENG-001` Confirm broad beginner-to-intermediate audience, Vietnamese explanation language, and practical communication goal.
@@ -241,5 +246,5 @@ Instead of forcing a strictly linear path, offer a **date-aware suggestion** bas
 - [ ] `ENG-032` Add reinforcement multiple-choice practice with local answer keys and immediate feedback for contextual daily topics.- [ ] `ENG-033` Add read-aloud detection where supported, comparing spoken input to expected text with percentage match and score, plus recording/text fallback when speech recognition is unavailable.
 - [ ] `ENG-034` Support remote JSON content with version check, throttled update detection, refresh action, and bundled fallback for offline or failed fetches.
 - [ ] `ENG-035` Track per-topic completion percentage and per-vocabulary pronunciation/read-aloud scores with clear red-to-green color coding; a vocabulary item counts as complete only after its read-aloud evaluation reaches the threshold, and every topic must reach 100% before overall progress can be 100%.
-Keep the later groups as the proposed sequence; break them into implementation tasks after the first release boundary is reviewed. Do not assign dates until they are agreed.
+- [ ] `ENG-036` Merge daily English with the original learning scope, including practical communication, story-extending connectors, and advanced adverb/adverbial usage.Keep the later groups as the proposed sequence; break them into implementation tasks after the first release boundary is reviewed. Do not assign dates until they are agreed.
 > Move an item to **Completed** when the feature is usable in the application. Add a target date only after it has been agreed.
