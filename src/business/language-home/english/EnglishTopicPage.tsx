@@ -359,12 +359,31 @@ export function EnglishTopicPage() {
 
         <div className="english-today-block">
           <h4>Từ vựng hôm nay</h4>
-          <div className="english-today-list">
+          <div className="english-today-list english-today-vocab-grid">
             {topic.vocab.map((item) => {
               const vp = topicProgress?.vocabulary[item.term] ?? { score: 0, completed: false };
+              const termFeedback = lastExpected === item.term && spokenTranscript
+                ? getWordFeedback(item.term, spokenTranscript)
+                : null;
               return (
                 <div className="english-today-item" key={item.term}>
-                  <strong>{item.term}</strong>
+                  <strong>
+                    {item.term.split(/\s+/).map((word, wordIndex) => (
+                      <span
+                        key={`${item.term}-${wordIndex}`}
+                        className={termFeedback
+                          ? termFeedback[wordIndex] === 'good'
+                            ? 'score-high'
+                            : termFeedback[wordIndex] === 'near'
+                              ? 'score-mid'
+                              : 'score-low'
+                          : undefined}
+                        style={{ marginRight: 4 }}
+                      >
+                        {word}
+                      </span>
+                    ))}
+                  </strong>
                   <span>
                     {item.meaning} · {item.pronunciation} · Phát âm: <span className={scoreClass(vp.score)}>{vp.score}%</span>
                     {vp.completed ? ' (đạt ngưỡng)' : ' (chưa đạt)'}
