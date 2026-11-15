@@ -25,7 +25,7 @@ export type EnglishTopic = {
   vocab: EnglishVocabularyItem[];
   grammar: EnglishGrammarItem[];
   examples: string[];
-  quiz: EnglishQuiz;
+  quizzes: EnglishQuiz[];
   readExpected: string;
   dialogue: string[];
 };
@@ -92,16 +92,40 @@ const TOPICS: EnglishTopic[] = [
       'In autumn, I usually feel more focused, so I plan heavier tasks in the morning.',
       'This week I’m getting back into a routine after a busy period.',
     ],
-    quiz: {
-      question: 'Choose the correct sentence about an autumn routine:',
-      options: [
-        'I am usually walk in the park in autumn.',
-        'I usually walk in the park in autumn.',
-        'I usually walks in the park in autumn.',
-      ],
-      answerIndex: 1,
-      explanation: 'Use present simple for habits: subject + base verb.',
-    },
+    quizzes: [
+      {
+        question: 'Choose the correct sentence about an autumn routine:',
+        options: [
+          'I am usually walk in the park in autumn.',
+          'I usually walk in the park in autumn.',
+          'I usually walks in the park in autumn.',
+        ],
+        answerIndex: 1,
+        explanation: 'Use present simple for habits: subject + base verb.',
+      },
+      {
+        question: 'Which phrase means “trở lại thói quen”?',
+        options: ['wrap up warm', 'get back into routine', 'energy level'],
+        answerIndex: 1,
+        explanation: '“Get back into routine” means to return to a usual habit.',
+      },
+      {
+        question: 'Complete the sentence: “This week I’m ___ to sleep earlier.”',
+        options: ['try', 'trying', 'tried'],
+        answerIndex: 1,
+        explanation: 'Present continuous uses am/is/are + -ing for temporary changes.',
+      },
+      {
+        question: 'Which sentence keeps a conversation going?',
+        options: [
+          'That sounds like a good plan. How about you?',
+          'I usually walk in the park.',
+          'Wrap up warm.',
+        ],
+        answerIndex: 0,
+        explanation: 'A reaction plus a follow-up question extends the conversation.',
+      },
+    ],
     readExpected: 'I usually walk in the park in autumn.',
     dialogue: [
       'A: In autumn, I usually feel more focused.',
@@ -128,16 +152,44 @@ const TOPICS: EnglishTopic[] = [
       'We’re on track, but we still have one blocker with the API.',
       'I’ll hand off the logs after this meeting.',
     ],
-    quiz: {
-      question: 'Choose the correct work update:',
-      options: [
-        'We are on track, but we still has one blocker.',
-        'We are on track, but we still have one blocker.',
-        'We on track, but we still have one blocker.',
-      ],
-      answerIndex: 1,
-      explanation: 'Use “have” with “we” and keep the full verb phrase.',
-    },
+    quizzes: [
+      {
+        question: 'Choose the correct work update:',
+        options: [
+          'We are on track, but we still has one blocker.',
+          'We are on track, but we still have one blocker.',
+          'We on track, but we still have one blocker.',
+        ],
+        answerIndex: 1,
+        explanation: 'Use “have” with “we” and keep the full verb phrase.',
+      },
+      {
+        question: 'Which word means “điểm chặn”?',
+        options: ['hand off', 'blocker', 'on track'],
+        answerIndex: 1,
+        explanation: 'A blocker is something that stops progress.',
+      },
+      {
+        question: 'Which sentence reports progress with present perfect?',
+        options: [
+          'We finished the first review.',
+          'We have finished the first review.',
+          'We are finish the first review.',
+        ],
+        answerIndex: 1,
+        explanation: 'Present perfect is have/has + past participle.',
+      },
+      {
+        question: 'Which reply shows polite turn-taking in a meeting?',
+        options: [
+          'Can I add something?',
+          'You are wrong.',
+          'No, listen to me.',
+        ],
+        answerIndex: 0,
+        explanation: '“Can I add something?” is a polite way to take a turn.',
+      },
+    ],
     readExpected: 'We are on track, but we still have one blocker.',
     dialogue: [
       'A: We’re on track with the release.',
@@ -164,16 +216,40 @@ const TOPICS: EnglishTopic[] = [
       'This deal looks good, but I’m not sure whether it is worth it.',
       'The discount is bigger online than in the store.',
     ],
-    quiz: {
-      question: 'Choose the correct shopping sentence:',
-      options: [
-        'This deal is worth than the other one.',
-        'This deal is more worth than the other one.',
-        'This deal is worth it.',
-      ],
-      answerIndex: 2,
-      explanation: '“Worth it” is a common chunk; avoid forcing a comparative.',
-    },
+    quizzes: [
+      {
+        question: 'Choose the correct shopping sentence:',
+        options: [
+          'This deal is worth than the other one.',
+          'This deal is more worth than the other one.',
+          'This deal is worth it.',
+        ],
+        answerIndex: 2,
+        explanation: '“Worth it” is a common chunk; avoid forcing a comparative.',
+      },
+      {
+        question: 'Which word means “giảm giá”?',
+        options: ['deal', 'discount', 'worth it'],
+        answerIndex: 1,
+        explanation: 'A discount is a reduction in price.',
+      },
+      {
+        question: 'Complete the comparison: “The discount is bigger ___.”',
+        options: ['than online', 'online than', 'more online'],
+        answerIndex: 1,
+        explanation: 'Use comparative + than: bigger than …',
+      },
+      {
+        question: 'Which sentence asks about a choice?',
+        options: [
+          'I’m not sure whether to buy now or wait.',
+          'I’m not sure if to buy now or wait.',
+          'I’m not sure buy now or wait.',
+        ],
+        answerIndex: 0,
+        explanation: 'Use whether + to-infinitive when presenting a choice.',
+      },
+    ],
     readExpected: 'This deal looks good, but I am not sure whether it is worth it.',
     dialogue: [
       'A: This deal looks good.',

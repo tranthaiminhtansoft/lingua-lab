@@ -204,8 +204,8 @@ export function EnglishTopicPage() {
   const navigate = useNavigate();
   const [context, setContext] = useState<TodayEnglishContext | null>(null);
   const [progress, setProgress] = useState(readProgress);
-  const [quizAnswer, setQuizAnswer] = useState<number | null>(null);
-  const [readScore, setReadScore] = useState<number | null>(null);
+  const [quizAnswers, setQuizAnswers] = useState<Record<number, number>>({});
+  const [dialogueIndex, setDialogueIndex] = useState(0);
   const [isListening, setIsListening] = useState(false);
   const [lastExpected, setLastExpected] = useState('');
   const [spokenTranscript, setSpokenTranscript] = useState('');
@@ -232,9 +232,9 @@ export function EnglishTopicPage() {
     }
   }, [context, topic, navigate]);
 
-  function handleQuizAnswer(index: number) {
-    setQuizAnswer(index);
-    playFeedbackSound(index === quiz.answerIndex);
+  function handleQuizAnswer(questionIndex: number, optionIndex: number) {
+    setQuizAnswers((current) => ({ ...current, [questionIndex]: optionIndex }));
+    playFeedbackSound(optionIndex === topic?.quizzes[questionIndex]?.answerIndex);
   }
 
   function cleanSentence(value: string): string {
@@ -263,8 +263,13 @@ export function EnglishTopicPage() {
     }
     setProgress(nextState);
     writeProgress(nextState);
-    setReadScore(score);
     playFeedbackSound(score >= VOCAB_THRESHOLD);
+    if (key && kind === 'dialogue' && score >= VOCAB_THRESHOLD) {
+      const completedIndex = topic.dialogue.indexOf(key);
+      if (completedIndex >= 0) {
+        setDialogueIndex((current) => Math.max(current, Math.min(completedIndex + 1, topic.dialogue.length - 1)));
+      }
+    }
   }
 
   function handleReadAloud(target: string, key?: string, kind: 'vocab' | 'dialogue' = 'vocab') {
@@ -311,8 +316,6 @@ export function EnglishTopicPage() {
     );
   }
 
-  const quiz = topic.quiz;
-  const quizCorrect = quizAnswer !== null && quizAnswer === quiz.answerIndex;
 
   return (
     <main className="english-today-page">
@@ -400,109 +403,102 @@ export function EnglishTopicPage() {
           </div>
         </div>
 
-        <div className="english-today-block">
-          <h4>Đoạn hội thoại dài (đọc to)</h4>
-          <p style={{ margin: '0 0 10px', color: '#697382', fontSize: 12 }}>
-            Mỗi câu cần đạt ít nhất {VOCAB_THRESHOLD}% để hoàn thành chủ đề.
-          </p>
-          <div className="english-today-list">
-            {topic.dialogue.map((sentence) => {
-              const record = topicProgress?.dialogue[sentence] ?? { score: 0, completed: false };
-              return (
-                <div className="english-today-item" key={sentence}>
-                  <strong>{sentence}</strong>
-                  <span>
-                    Phát âm/đọc: <span className={scoreClass(record.score)}>{record.score}%</span>
-                    {record.completed ? ' (đạt)' : ' (chưa đạt)'}
-                  </span>
-                  <div style={{ marginTop: 8, display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-                    <button
-                      className={`english-today-button secondary${isListening ? ' listening' : ''}`}
-                      type="button"
-                      onClick={() => handleReadAloud(sentence, sentence, 'dialogue')}
-                      disabled={isListening || record.completed}
-                    >
-                      {record.completed ? 'Đã đạt' : isListening ? 'Đang nghe…' : record.score > 0 ? 'Đọc lại' : 'Đọc câu này'}
-                    </button>
-                    <button className="english-today-button ghost" type="button" onClick={() => speakText(cleanSentence(sentence))}>
-                      🔊 Nghe mẫu
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
         <div className="english-today-practice">
           <section className="english-today-card" style={{ padding: 18 }}>
             <h4 style={{ margin: '0 0 10px', fontSize: 13, color: '#394eaa', textTransform: 'uppercase' }}>Trắc nghiệm củng cố</h4>
-            <p className="english-today-quiz-question">{quiz.question}</p>
-            <div className="english-today-options">
-              {quiz.options.map((option, index) => (
-                <button
-                  key={option}
-                  type="button"
-                  className={`english-today-option${quizAnswer === index ? (index === quiz.answerIndex ? ' correct' : ' wrong') : ''}`}
-                  onClick={() => handleQuizAnswer(index)}
-                >
-                  {option}
-                </button>
-              ))}
-            </div>
-            <div className="english-today-feedback">
-              {quizAnswer === null
-                ? 'Chọn một đáp án.'
-                : quizCorrect
-                  ? quiz.explanation
-                  : 'Chưa đúng. Hãy xem lại giải thích và thử lại.'}
+            <div style={{ display: 'grid', gap: 18 }}>
+              {topic.quizzes.map((quizItem, questionIndex) => {
+                const answer = quizAnswers[questionIndex];
+                const correct = answer === quizItem.answerIndex;
+                return (
+                  <div key={quizItem.question}>
+                    <p className="english-today-quiz-question">{questionIndex + 1}. {quizItem.question}</p>
+                    <div className="english-today-options">
+                      {quizItem.options.map((option, optionIndex) => (
+                        <button
+                          key={option}
+                          type="button"
+                          className={`english-today-option${answer === optionIndex ? (optionIndex === quizItem.answerIndex ? ' correct' : ' wrong') : ''}`}
+                          onClick={() => handleQuizAnswer(questionIndex, optionIndex)}
+                        >
+                          {option}
+                        </button>
+                      ))}
+                    </div>
+                    <div className="english-today-feedback">
+                      {answer === undefined
+                        ? 'Chọn một đáp án.'
+                        : correct
+                          ? quizItem.explanation
+                          : 'Chưa đúng. Hãy xem lại và thử lại.'}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </section>
 
           <section className="english-today-card" style={{ padding: 18 }}>
-            <h4 style={{ margin: '0 0 10px', fontSize: 13, color: '#394eaa', textTransform: 'uppercase' }}>Đọc to và chấm điểm</h4>
-            <div className="english-today-read-expected">{topic.readExpected}</div>
-            <div className="english-today-read-controls">
-              <button
-                className={`english-today-button secondary${isListening ? ' listening' : ''}`}
-                type="button"
-                onClick={() => handleReadAloud(topic.readExpected)}
-                disabled={isListening || topicProgress?.completed === true}
-              >
-                {topicProgress?.completed ? 'Đã đạt' : isListening ? 'Đang nghe…' : 'Bắt đầu đọc'}
-              </button>
-              <button className="english-today-button ghost" type="button" onClick={() => speakText(topic.readExpected)}>
-                🔊 Nghe mẫu
-              </button>
-            </div>
-            <div className="english-today-score">
-              <div>
-                <strong className={readScore === null ? 'score-mid' : scoreClass(readScore)}>{readScore === null ? '—' : readScore}</strong> % khớp
-                {readScore !== null && (
-                  <span style={{ marginLeft: 8 }} className={scoreClass(readScore)}>
-                    {readScore >= VOCAB_THRESHOLD ? 'Đọc đạt' : readScore >= 50 ? 'Gần đúng' : 'Chưa đạt'}
-                  </span>
-                )}
-              </div>
-              <div className="english-today-score-bar">
-                <i style={{ width: `${readScore ?? 0}%` }} />
-              </div>
-              {spokenTranscript && lastExpected && (
-                <div style={{ marginTop: 10, lineHeight: 1.8 }}>
-                  {getWordFeedback(lastExpected, spokenTranscript).map((status, index) => (
-                    <span
-                      key={`${lastExpected}-${index}`}
-                      className={status === 'good' ? 'score-high' : status === 'near' ? 'score-mid' : 'score-low'}
-                      style={{ marginRight: 6 }}
-                    >
-                      {lastExpected.split(/\\s+/)[index]}
-                    </span>
-                  ))}
-                </div>
-              )}
-              <p style={{ margin: '8px 0 0', color: '#697382', fontSize: 11 }}>
-                Xanh: đọc đúng, vàng: gần đúng, đỏ: sai hoặc bị miss. Ngưỡng đạt: {VOCAB_THRESHOLD}%.
-              </p>
+            <h4 style={{ margin: '0 0 10px', fontSize: 13, color: '#394eaa', textTransform: 'uppercase' }}>Kiểm tra đoạn hội thoại</h4>
+            <p style={{ margin: '0 0 12px', color: '#697382', fontSize: 12 }}>
+              Đọc từng tin nhắn. Đạt {VOCAB_THRESHOLD}% mới mở tin nhắn tiếp theo.
+            </p>
+            <div style={{ display: 'grid', gap: 10 }}>
+              {topic.dialogue.slice(0, dialogueIndex + 1).map((sentence, index) => {
+                const record = topicProgress?.dialogue[sentence] ?? { score: 0, completed: false };
+                const isCurrent = index === dialogueIndex;
+                const isRight = sentence.startsWith('B:');
+                const isLast = index === topic.dialogue.length - 1;
+                return (
+                  <div key={sentence} style={{ display: 'flex', justifyContent: isRight ? 'flex-end' : 'flex-start' }}>
+                    <div style={{ maxWidth: '88%', padding: '10px 12px', borderRadius: 14, background: isRight ? '#e9edff' : '#fbfaf6', border: '1px solid #e7e5de' }}>
+                      <strong style={{ display: 'block', fontSize: 11, color: '#697382' }}>{isRight ? 'B' : 'A'}</strong>
+                      <div style={{ fontSize: 13, lineHeight: 1.5 }}>{cleanSentence(sentence)}</div>
+                      {record.completed && (
+                        <div className="score-high" style={{ marginTop: 6, fontSize: 11 }}>Đã đạt {record.score}%</div>
+                      )}
+                      {!record.completed && isCurrent && (
+                        <>
+                          <div style={{ marginTop: 8, display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                            <button
+                              className={`english-today-button secondary${isListening ? ' listening' : ''}`}
+                              type="button"
+                              onClick={() => handleReadAloud(sentence, sentence, 'dialogue')}
+                              disabled={isListening}
+                            >
+                              {isListening ? 'Đang nghe…' : record.score > 0 ? 'Đọc lại' : 'Đọc tin nhắn'}
+                            </button>
+                            <button className="english-today-button ghost" type="button" onClick={() => speakText(cleanSentence(sentence))}>
+                              🔊 Nghe mẫu
+                            </button>
+                          </div>
+                          {record.score > 0 && (
+                            <div style={{ marginTop: 6, fontSize: 11 }}>
+                              Đọc: <span className={scoreClass(record.score)}>{record.score}%</span>
+                            </div>
+                          )}
+                          {lastExpected === cleanSentence(sentence) && spokenTranscript && (
+                            <div style={{ marginTop: 8, lineHeight: 1.8 }}>
+                              {getWordFeedback(lastExpected, spokenTranscript).map((status, wordIndex) => (
+                                <span
+                                  key={`${lastExpected}-${wordIndex}`}
+                                  className={status === 'good' ? 'score-high' : status === 'near' ? 'score-mid' : 'score-low'}
+                                  style={{ marginRight: 6 }}
+                                >
+                                  {lastExpected.split(/\s+/)[wordIndex]}
+                                </span>
+                              ))}
+                            </div>
+                          )}
+                        </>
+                      )}
+                      {record.completed && isLast && (
+                        <div className="score-high" style={{ marginTop: 6, fontSize: 11 }}>Hoàn thành đoạn hội thoại.</div>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </section>
         </div>
