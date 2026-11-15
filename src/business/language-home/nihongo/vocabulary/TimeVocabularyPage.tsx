@@ -19,6 +19,7 @@ const timeSections = [
 export function TimeVocabularyPage() {
   const calendar = buildSampleCalendar();
   const relativeDates = calendar.flatMap((cell) => cell?.relative ? [{ day: cell.day, relative: cell.relative }] : []);
+  const specialDateDays = new Set([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 14, 17, 19, 20, 24, 27]);
   return <main className="grammar-page vocabulary-topic-page time-page">
     <header className="grammar-topic-hero">
       <Link className="grammar-back-link" to="/nihongo-o-benkyuo/vocabulary">← Vocabulary topics</Link>
@@ -55,7 +56,7 @@ export function TimeVocabularyPage() {
         <div className="time-calendar-scroll" tabIndex={0} role="region" aria-label="October 2026 calendar, scroll horizontally">
           <table className="time-calendar"><caption>October 2026 · sample today is Thursday the 15th</caption>
             <thead><tr>{weekdays.map((entry) => <th scope="col" key={entry.japanese}><Reading entry={entry} /></th>)}</tr></thead>
-            <tbody>{Array.from({ length: 5 }, (_, week) => <tr key={week}>{calendar.slice(week * 7, week * 7 + 7).map((cell, column) => <td key={column} className={cell?.day === sampleDate.day ? 'time-sample-today' : undefined} data-day={cell?.day}>
+            <tbody>{Array.from({ length: 5 }, (_, week) => <tr key={week}>{calendar.slice(week * 7, week * 7 + 7).map((cell, column) => <td key={column} className={[cell?.day === sampleDate.day ? 'time-sample-today' : '', cell?.day !== undefined && specialDateDays.has(cell.day) ? 'time-special-date' : ''].filter(Boolean).join(' ') || undefined} data-day={cell?.day}>
               {cell && <><b className="time-date-number">{cell.day}</b><Reading entry={cell.date} meaning={false} alignKanaRomaji /></>}
             </td>)}</tr>)}</tbody>
           </table>

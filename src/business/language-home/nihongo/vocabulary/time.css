@@ -34,6 +34,7 @@
 .time-calendar td:empty { background: var(--washi); }
 .time-date-number { display: inline-grid; place-items: center; min-width: 1.65rem; min-height: 1.65rem; margin-bottom: 3px; padding-inline: 3px; border-radius: 50%; background: var(--washi); font-size: 1rem; line-height: 1; }
 .time-sample-today { background: #fff1b5; box-shadow: inset 0 0 0 3px var(--indigo); }
+.time-special-date { background: #efe7ff; }
 .time-calendar .time-reading { gap: 2px; font-size: .8rem; }
 .time-calendar .time-aligned-parts { gap: .12em; }
 .time-calendar td > .time-reading { margin-bottom: 4px; }
