@@ -136,27 +136,6 @@ function getWordFeedback(expected: string, spoken: string): WordFeedback[] {
   });
 }
 
-function playListeningSound() {
-  try {
-    const audioContext = new AudioContext();
-    const oscillator = audioContext.createOscillator();
-    const gain = audioContext.createGain();
-    oscillator.type = 'sine';
-    oscillator.frequency.setValueAtTime(440, audioContext.currentTime);
-    oscillator.frequency.linearRampToValueAtTime(660, audioContext.currentTime + 0.12);
-    gain.gain.value = 0.05;
-    oscillator.connect(gain);
-    gain.connect(audioContext.destination);
-    oscillator.start();
-    oscillator.stop(audioContext.currentTime + 0.14);
-    oscillator.onended = () => {
-      void audioContext.close();
-    };
-  } catch {
-    // Ignore browsers that block audio.
-  }
-}
-
 function playFeedbackSound(correct: boolean) {
   try {
     const audioContext = new AudioContext();
@@ -195,6 +174,12 @@ function playFeedbackSound(correct: boolean) {
     }, correct ? 700 : 500);
   } catch {
     // Ignore browsers that block audio.
+  }
+}
+
+function stopSampleAudio() {
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
   }
 }
 
@@ -286,6 +271,7 @@ export function EnglishTopicPage() {
   function handleReadAloud(target: string, key?: string, kind: 'vocab' | 'dialogue' = 'vocab') {
     const expected = cleanSentence(target);
     if (!expected) return;
+    stopSampleAudio();
     const Constructor = getSpeechRecognitionConstructor();
     if (!Constructor) {
       const simulated = simulatedReadScore();
@@ -316,7 +302,6 @@ export function EnglishTopicPage() {
       recordSpoken(expected, simulateTranscript(expected, simulated));
       applyReadScore(simulated, key, kind);
     };
-    playListeningSound();
     recognition.start();
   }
 
@@ -405,7 +390,7 @@ export function EnglishTopicPage() {
                     >
                       {vp.completed ? 'Đã đạt' : isListening ? 'Đang nghe…' : vp.score > 0 ? 'Đọc lại' : 'Đọc từ này'}
                     </button>
-                    <button className="english-today-button ghost" type="button" onClick={() => speakText(item.term)}>
+                    <button className="english-today-button ghost" type="button" onClick={() => speakText(item.term)} disabled={isListening}>
                       🔊 Nghe mẫu
                     </button>
                   </div>
@@ -522,7 +507,7 @@ export function EnglishTopicPage() {
                             >
                               {isListening ? 'Đang nghe…' : record.score > 0 ? 'Đọc lại' : 'Đọc tin nhắn'}
                             </button>
-                            <button className="english-today-button ghost" type="button" onClick={() => speakText(cleanSentence(sentence))}>
+                            <button className="english-today-button ghost" type="button" onClick={() => speakText(cleanSentence(sentence))} disabled={isListening}>
                               🔊 Nghe mẫu
                             </button>
                           </div>
