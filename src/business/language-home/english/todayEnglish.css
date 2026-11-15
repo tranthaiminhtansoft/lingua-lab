@@ -336,12 +336,24 @@
   font-size: 14px;
 }
 
-.english-today-item span {
+.english-today-item > span {
   display: block;
   color: #697382;
   font-size: 12px;
   margin-top: 3px;
 }
+
+.english-today-item .score-low,
+.english-today-item .score-mid,
+.english-today-item .score-high {
+  display: inline;
+  margin-top: 0;
+  font-size: inherit;
+}
+
+.english-today-item .score-low { color: #c0392b; }
+.english-today-item .score-mid { color: #b7791f; }
+.english-today-item .score-high { color: #2f7a55; }
 
 .english-today-example {
   font-size: 13px;

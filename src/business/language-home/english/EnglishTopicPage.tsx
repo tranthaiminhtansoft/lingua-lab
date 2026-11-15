@@ -107,7 +107,7 @@ function simulateTranscript(expected: string, score: number): string {
 }
 
 function getWordFeedback(expected: string, spoken: string): WordFeedback[] {
-  const expectedWords = expected.split(/\\s+/).filter(Boolean);
+  const expectedWords = expected.split(/\s+/).filter(Boolean);
   const spokenWords = normalizeText(spoken);
   const used = new Set<number>();
   return expectedWords.map((rawWord) => {
@@ -215,8 +215,7 @@ export function EnglishTopicPage() {
   const [quizAnswers, setQuizAnswers] = useState<Record<number, number>>({});
   const [dialogueIndex, setDialogueIndex] = useState(0);
   const [isListening, setIsListening] = useState(false);
-  const [lastExpected, setLastExpected] = useState('');
-  const [spokenTranscript, setSpokenTranscript] = useState('');
+  const [readFeedback, setReadFeedback] = useState<Record<string, string>>({});
 
   useEffect(() => {
     void getTodayEnglishContextApi().then(setContext);
@@ -280,15 +279,17 @@ export function EnglishTopicPage() {
     }
   }
 
+  function recordSpoken(expected: string, transcript: string) {
+    setReadFeedback((current) => ({ ...current, [expected]: transcript }));
+  }
+
   function handleReadAloud(target: string, key?: string, kind: 'vocab' | 'dialogue' = 'vocab') {
     const expected = cleanSentence(target);
     if (!expected) return;
-    setLastExpected(expected);
-    setSpokenTranscript('');
     const Constructor = getSpeechRecognitionConstructor();
     if (!Constructor) {
       const simulated = simulatedReadScore();
-      setSpokenTranscript(simulateTranscript(expected, simulated));
+      recordSpoken(expected, simulateTranscript(expected, simulated));
       applyReadScore(simulated, key, kind);
       return;
     }
@@ -297,16 +298,24 @@ export function EnglishTopicPage() {
     recognition.continuous = false;
     recognition.interimResults = false;
     setIsListening(true);
+    let receivedResult = false;
     recognition.onresult = (event) => {
+      receivedResult = true;
       const transcript = Array.from(event.results)
         .map((result) => result[0]?.transcript ?? '')
         .join(' ')
         .trim();
-      setSpokenTranscript(transcript || simulateTranscript(expected, 0));
+      recordSpoken(expected, transcript || simulateTranscript(expected, 0));
       applyReadScore(scoreText(transcript, expected), key, kind);
     };
     recognition.onerror = () => setIsListening(false);
-    recognition.onend = () => setIsListening(false);
+    recognition.onend = () => {
+      setIsListening(false);
+      if (receivedResult) return;
+      const simulated = simulatedReadScore();
+      recordSpoken(expected, simulateTranscript(expected, simulated));
+      applyReadScore(simulated, key, kind);
+    };
     playListeningSound();
     recognition.start();
   }
@@ -362,9 +371,8 @@ export function EnglishTopicPage() {
           <div className="english-today-list english-today-vocab-grid">
             {topic.vocab.map((item) => {
               const vp = topicProgress?.vocabulary[item.term] ?? { score: 0, completed: false };
-              const termFeedback = lastExpected === item.term && spokenTranscript
-                ? getWordFeedback(item.term, spokenTranscript)
-                : null;
+              const spoken = readFeedback[item.term];
+              const termFeedback = spoken ? getWordFeedback(item.term, spoken) : null;
               return (
                 <div className="english-today-item" key={item.term}>
                   <strong>
@@ -380,7 +388,7 @@ export function EnglishTopicPage() {
                           : undefined}
                         style={{ marginRight: 4 }}
                       >
-                        {word}
+                        {word}{' '}
                       </span>
                     ))}
                   </strong>
@@ -477,9 +485,8 @@ export function EnglishTopicPage() {
                 const isRight = sentence.startsWith('B:');
                 const isLast = index === topic.dialogue.length - 1;
                 const messageText = cleanSentence(sentence);
-                const messageFeedback = lastExpected === messageText && spokenTranscript
-                  ? getWordFeedback(messageText, spokenTranscript)
-                  : null;
+                const spoken = readFeedback[messageText];
+                const messageFeedback = spoken ? getWordFeedback(messageText, spoken) : null;
                 return (
                   <div key={sentence} style={{ display: 'flex', justifyContent: isRight ? 'flex-end' : 'flex-start' }}>
                     <div style={{ maxWidth: '88%', padding: '10px 12px', borderRadius: 14, background: isRight ? '#e9edff' : '#fbfaf6', border: '1px solid #e7e5de' }}>
@@ -497,7 +504,7 @@ export function EnglishTopicPage() {
                               : undefined}
                             style={{ marginRight: 4 }}
                           >
-                            {word}
+                            {word}{' '}
                           </span>
                         ))}
                       </div>
