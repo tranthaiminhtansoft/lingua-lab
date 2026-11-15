@@ -10,6 +10,10 @@ on:
 
 permissions: {}
 
+concurrency:
+  group: wc-check-guard-${{ github.repository }}-${{ inputs.workflow_ref }}
+  cancel-in-progress: false
+
 jobs:
   check_master:
     name: Verify workflow runs from master
