@@ -11,9 +11,15 @@ on:
 permissions: {}
 
 jobs:
+  master_guard:
+    name: Verify workflow runs from master
+    uses: ./.github/workflows/wc-check-guard.yml
+    with:
+      workflow_ref: ${{ github.ref }}
+
   validate_release_ref:
-    if: github.ref == 'refs/heads/master'
     name: 🔎 Validate release source and date
+    needs: master_guard
     runs-on: ubuntu-24.04
     permissions:
       contents: read
