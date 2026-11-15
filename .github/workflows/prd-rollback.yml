@@ -12,9 +12,13 @@ on:
 permissions: {}
 
 jobs:
+  master_guard:
+    name: Verify workflow runs from master
+    uses: ./.github/workflows/wc-check-guard.yml
+
   resolve_rollback_target:
-    if: github.ref == 'refs/heads/master'
     name: 🔎 Resolve requested stable GitHub Release
+    needs: master_guard
     runs-on: ubuntu-24.04
     permissions:
       contents: read

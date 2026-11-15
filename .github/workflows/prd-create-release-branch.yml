@@ -6,9 +6,13 @@ on:
 permissions: {}
 
 jobs:
+  master_guard:
+    name: Verify workflow runs from master
+    uses: ./.github/workflows/wc-check-guard.yml
+
   create_release_branch:
-    if: github.ref == 'refs/heads/master'
     name: 🌿 Create release branch from master
+    needs: master_guard
     runs-on: ubuntu-24.04
     permissions:
       contents: write
