@@ -275,6 +275,11 @@ export function EnglishTopicPage() {
             <div className="english-today-score">
               <div>
                 <strong className={readScore === null ? 'score-mid' : scoreClass(readScore)}>{readScore === null ? '—' : readScore}</strong> % khớp
+                {readScore !== null && (
+                  <span style={{ marginLeft: 8 }} className={readScore >= VOCAB_THRESHOLD ? 'score-high' : 'score-low'}>
+                    {readScore >= VOCAB_THRESHOLD ? 'Đọc đạt' : 'Chưa đạt'}
+                  </span>
+                )}
               </div>
               <div className="english-today-score-bar">
                 <i style={{ width: `${readScore ?? 0}%` }} />

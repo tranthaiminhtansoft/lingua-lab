@@ -65,8 +65,11 @@ export function updateVocabularyScore(
   const completed = score >= VOCAB_THRESHOLD;
   topic.vocabulary[term] = { score, completed };
   const completedCount = vocabTerms.filter((item) => topic.vocabulary[item]?.completed).length;
-  topic.progress = vocabTerms.length === 0 ? 0 : Math.round((completedCount / vocabTerms.length) * 100);
-  topic.completed = topic.progress === 100;
+  const averageScore = vocabTerms.length === 0
+    ? 0
+    : Math.round(vocabTerms.reduce((sum, item) => sum + (topic.vocabulary[item]?.score ?? 0), 0) / vocabTerms.length);
+  topic.progress = averageScore;
+  topic.completed = vocabTerms.length > 0 && completedCount === vocabTerms.length;
   return {
     ...state,
     topics: { ...state.topics, [topicId]: topic },
