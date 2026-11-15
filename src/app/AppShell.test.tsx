@@ -55,21 +55,26 @@ test('closes the open menu with Escape', () => {
   expect(menu).toHaveAttribute('aria-expanded', 'false');
 });
 
-test('replaces the Japanese tabs with English ones on English routes', () => {
+test('hides the top tabs on the English home page', () => {
   renderShell('/english');
 
-  const englishGroup = screen.getByRole('group', { name: 'English' });
-  expect(within(englishGroup).getByText('Today’s English')).toHaveAttribute('aria-current', 'page');
-  expect(within(englishGroup).getByRole('link', { name: 'DevOps team meeting' })).toHaveAttribute('href', '/english/devops-meeting');
-  expect(within(englishGroup).getByRole('link', { name: 'Morning greetings with neighbors' })).toHaveAttribute('href', '/english/neighbor-morning');
-  expect(within(englishGroup).getByRole('link', { name: 'Breakfast, lunch, and dinner' })).toHaveAttribute('href', '/english/daily-meals');
-  expect(screen.queryByText('Kana')).toBeNull();
+  expect(screen.getByRole('heading', { name: 'English page' })).toBeInTheDocument();
+  expect(screen.queryByRole('navigation', { name: 'Primary' })).toBeNull();
+  expect(screen.queryByRole('button', { name: /menu/i })).toBeNull();
 });
 
-test('marks the open English topic as current in the tabs', () => {
+test('opens a menu of other English topics from a topic page', () => {
   renderShell('/english/devops-meeting');
 
-  const englishGroup = screen.getByRole('group', { name: 'English' });
-  expect(within(englishGroup).getByText('DevOps team meeting')).toHaveAttribute('aria-current', 'page');
-  expect(within(englishGroup).getByRole('link', { name: 'Today’s English' })).toHaveAttribute('href', '/english');
+  const menu = screen.getByRole('button', { name: /menu/i });
+  expect(menu).toHaveAttribute('aria-expanded', 'false');
+
+  fireEvent.click(menu);
+
+  expect(menu).toHaveAttribute('aria-expanded', 'true');
+  const topicsGroup = screen.getByRole('group', { name: 'Today’s English' });
+  expect(within(topicsGroup).getByText('DevOps team meeting')).toHaveAttribute('aria-current', 'page');
+  expect(within(topicsGroup).getByRole('link', { name: 'Morning greetings with neighbors' })).toHaveAttribute('href', '/english/neighbor-morning');
+  expect(within(topicsGroup).getByRole('link', { name: 'Autumn routine & energy' })).toHaveAttribute('href', '/english/autumn-routine');
+  expect(screen.getByRole('link', { name: 'Today’s English' })).toHaveAttribute('href', '/english');
 });
