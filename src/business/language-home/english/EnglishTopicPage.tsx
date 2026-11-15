@@ -160,18 +160,31 @@ function playListeningSound() {
 function playFeedbackSound(correct: boolean) {
   try {
     const audioContext = new AudioContext();
-    const oscillator = audioContext.createOscillator();
-    const gain = audioContext.createGain();
-    oscillator.type = 'sine';
-    oscillator.frequency.value = correct ? 660 : 220;
-    gain.gain.value = 0.08;
-    oscillator.connect(gain);
-    gain.connect(audioContext.destination);
-    oscillator.start();
-    oscillator.stop(audioContext.currentTime + (correct ? 0.18 : 0.25));
-    oscillator.onended = () => {
-      void audioContext.close();
+    const now = audioContext.currentTime;
+    const playTone = (frequency: number, start: number, duration: number, volume: number) => {
+      const oscillator = audioContext.createOscillator();
+      const gain = audioContext.createGain();
+      oscillator.type = 'sine';
+      oscillator.frequency.value = frequency;
+      gain.gain.setValueAtTime(0, now + start);
+      gain.gain.linearRampToValueAtTime(volume, now + start + 0.01);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + start + duration);
+      oscillator.connect(gain);
+      gain.connect(audioContext.destination);
+      oscillator.start(now + start);
+      oscillator.stop(now + start + duration);
     };
+    if (correct) {
+      playTone(660, 0, 0.12, 0.08);
+      playTone(880, 0.13, 0.16, 0.08);
+      playTone(1046, 0.3, 0.2, 0.07);
+    } else {
+      playTone(220, 0, 0.12, 0.08);
+      playTone(220, 0.18, 0.12, 0.08);
+    }
+    window.setTimeout(() => {
+      void audioContext.close();
+    }, correct ? 700 : 500);
   } catch {
     // Ignore browsers that block audio.
   }
