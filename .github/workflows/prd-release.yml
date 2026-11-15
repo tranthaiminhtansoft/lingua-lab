@@ -14,8 +14,6 @@ jobs:
   master_guard:
     name: Verify workflow runs from master
     uses: ./.github/workflows/wc-check-guard.yml
-    with:
-      workflow_ref: ${{ github.ref }}
 
   validate_release_ref:
     name: 🔎 Validate release source and date

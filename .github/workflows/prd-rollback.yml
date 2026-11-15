@@ -15,8 +15,6 @@ jobs:
   master_guard:
     name: Verify workflow runs from master
     uses: ./.github/workflows/wc-check-guard.yml
-    with:
-      workflow_ref: ${{ github.ref }}
 
   resolve_rollback_target:
     name: 🔎 Resolve requested stable GitHub Release

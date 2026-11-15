@@ -2,11 +2,6 @@ name: Check workflow branch guard
 
 on:
   workflow_call:
-    inputs:
-      workflow_ref:
-        description: Git ref that triggered the calling workflow.
-        required: true
-        type: string
 
 permissions: {}
 
@@ -21,9 +16,9 @@ jobs:
     permissions: {}
     steps:
       - name: Reject non-master workflow ref
-        if: inputs.workflow_ref != 'refs/heads/master'
+        if: github.ref != 'refs/heads/master'
         env:
-          WORKFLOW_REF: ${{ inputs.workflow_ref }}
+          WORKFLOW_REF: ${{ github.ref }}
         run: |
           echo '::error title=Unsupported workflow branch::This workflow must be run from master.'
           {
@@ -35,7 +30,7 @@ jobs:
           exit 1
 
       - name: Confirm master workflow ref
-        if: inputs.workflow_ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/master'
         run: |
           echo 'Workflow branch guard passed: refs/heads/master.'
           {
