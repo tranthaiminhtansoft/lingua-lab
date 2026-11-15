@@ -34,13 +34,15 @@
 .time-calendar td:empty { background: var(--washi); }
 .time-date-number { display: inline-grid; place-items: center; min-width: 1.65rem; min-height: 1.65rem; margin-bottom: 3px; padding-inline: 3px; border-radius: 50%; background: var(--washi); font-size: 1rem; line-height: 1; }
 .time-sample-today { background: #fff1b5; box-shadow: inset 0 0 0 3px var(--indigo); }
+.time-calendar td.time-special-date { background: #efe7ff; }
 .time-calendar .time-reading { gap: 2px; font-size: .8rem; }
 .time-calendar .time-aligned-parts { gap: .12em; }
 .time-calendar td > .time-reading { margin-bottom: 4px; }
 .time-daily-rhythm { margin-top: 24px; padding: 20px; border: 1px solid var(--ink); background: var(--washi); scroll-margin-top: 80px; }
 .time-daily-rhythm > h3 { margin-top: 0; }
 .time-boundary-title { margin: 24px 0 10px; }
-.time-rhythm-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; }
+.time-rhythm-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; align-items: start; }
+.time-rhythm-stack { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; margin-top: 10px; }
 .time-boundary-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; max-width: 640px; }
 .time-rhythm-card { display: grid; align-content: start; gap: 8px; min-width: 0; padding: 12px; border: 1px solid var(--ink); background: var(--paper); }
 .time-rhythm-card .time-reading { min-width: 0; }

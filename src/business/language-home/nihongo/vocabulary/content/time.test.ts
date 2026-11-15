@@ -1,5 +1,5 @@
 import { expect, test, vi } from 'vitest';
-import { buildSampleCalendar, clockExamples, clockWords, dayBoundaryWords, dayPeriods, dates, everyDay, hours, minutes, months, relativeDays, relativeMornings, relativeNights, weekdays } from './time';
+import { buildSampleCalendar, clockExamples, clockWords, dayBoundaryWords, dayPeriods, dates, everyDay, everyMonth, everyWeek, everyYear, hours, minutes, months, relativeDays, relativeMornings, relativeMonths, relativeNights, relativeWeeks, relativeYears, weekdays, years } from './time';
 
 test('teaching calendar aligns October 2026 and anchors relative days regardless of device time', () => {
   vi.useFakeTimers();
@@ -47,7 +47,8 @@ test('daily period vocabulary includes noon and matching every-period readings',
 
 test('sound segmentation retains every complete pronunciation, including alternatives', () => {
   const words = [...weekdays, ...months, ...dates, ...hours, ...minutes, ...clockExamples, ...clockWords,
-    ...relativeDays, ...relativeMornings, ...relativeNights, everyDay, ...dayPeriods.flatMap((period) => [period.word, period.repeat])];
+    ...relativeDays, ...relativeMornings, ...relativeNights, ...relativeWeeks, ...relativeMonths, ...relativeYears,
+    everyDay, everyWeek, everyMonth, everyYear, ...years, ...dayPeriods.flatMap((period) => [period.word, period.repeat])];
   for (const entry of words) {
     for (const reading of [entry, entry.alternative].filter((value) => value !== undefined)) {
       if (!reading.parts) continue;
