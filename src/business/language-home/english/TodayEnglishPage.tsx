@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {
   getTodayEnglishContextApi,
   getContentVersionApi,
@@ -8,84 +8,19 @@ import {
 import type { EnglishTopic, TodayEnglishContext } from './content/todayEnglish';
 import {
   readProgress,
-  writeProgress,
   getTopicProgress,
-  updateVocabularyScore,
-  isOverallComplete,
-  VOCAB_THRESHOLD,
 } from './progress/englishProgress';
 import './todayEnglish.css';
 
-type SpeechRecognitionResult = { transcript: string };
-type SpeechRecognitionEventLike = { results: ArrayLike<ArrayLike<SpeechRecognitionResult>> };
-type SpeechRecognitionLike = {
-  lang: string;
-  continuous: boolean;
-  interimResults: boolean;
-  onresult: ((event: SpeechRecognitionEventLike) => void) | null;
-  onerror: ((event: unknown) => void) | null;
-  onend: (() => void) | null;
-  start: () => void;
-  stop: () => void;
-};
-
-function getSpeechRecognitionConstructor(): (new () => SpeechRecognitionLike) | null {
-  const w = window as Window & {
-    SpeechRecognition?: new () => SpeechRecognitionLike;
-    webkitSpeechRecognition?: new () => SpeechRecognitionLike;
-  };
-  return w.SpeechRecognition ?? w.webkitSpeechRecognition ?? null;
-}
-
-function normalizeText(value: string): string[] {
-  return value
-    .toLowerCase()
-    .replace(/[^a-z0-9\s']/g, ' ')
-    .split(/\s+/)
-    .filter(Boolean);
-}
-
-function scoreText(spoken: string, expected: string): number {
-  const spokenWords = normalizeText(spoken);
-  const expectedWords = normalizeText(expected);
-  if (expectedWords.length === 0) return 0;
-  let matches = 0;
-  const used = new Set<number>();
-  for (const word of spokenWords) {
-    const index = expectedWords.findIndex((candidate, i) => candidate === word && !used.has(i));
-    if (index >= 0) {
-      used.add(index);
-      matches += 1;
-    }
-  }
-  return Math.round((matches / expectedWords.length) * 100);
-}
-
-function scoreClass(score: number): string {
-  if (score >= 80) return 'score-high';
-  if (score >= 50) return 'score-mid';
-  return 'score-low';
-}
-
-function simulatedReadScore(): number {
-  return Math.round(70 + Math.random() * 25);
-}
 export function TodayEnglishPage() {
+  const navigate = useNavigate();
   const [context, setContext] = useState<TodayEnglishContext | null>(null);
-  const [selectedTopicId, setSelectedTopicId] = useState<string | null>(null);
-  const [progress, setProgress] = useState(readProgress);
-  const [quizAnswer, setQuizAnswer] = useState<number | null>(null);
-  const [readScore, setReadScore] = useState<number | null>(null);
-  const [isListening, setIsListening] = useState(false);
+  const [progress] = useState(readProgress);
   const [remoteVersion, setRemoteVersion] = useState<string | null>(null);
   const [versionChecked, setVersionChecked] = useState(false);
 
   useEffect(() => {
-    void getTodayEnglishContextApi().then((loadedContext) => {
-      setContext(loadedContext);
-      const firstAvailable = loadedContext.topics.find((topic) => isTopicAvailableApi(topic));
-      if (firstAvailable) setSelectedTopicId(firstAvailable.id);
-    });
+    void getTodayEnglishContextApi().then(setContext);
     void getContentVersionApi().then((version) => {
       setRemoteVersion(version.version);
       setVersionChecked(true);
@@ -95,21 +30,6 @@ export function TodayEnglishPage() {
   const availableTopicIds = useMemo(
     () => context?.topics.filter((topic) => isTopicAvailableApi(topic)).map((topic) => topic.id) ?? [],
     [context],
-  );
-
-  const selectedTopic = useMemo(
-    () => context?.topics.find((topic) => topic.id === selectedTopicId) ?? null,
-    [context, selectedTopicId],
-  );
-
-  const selectedProgress = useMemo(() => {
-    if (!selectedTopic) return null;
-    return getTopicProgress(progress, selectedTopic.id, selectedTopic.vocab.map((item) => item.term));
-  }, [progress, selectedTopic]);
-
-  const overallComplete = useMemo(
-    () => isOverallComplete(progress, availableTopicIds),
-    [progress, availableTopicIds],
   );
 
   const overallProgress = useMemo(() => {
@@ -123,60 +43,7 @@ export function TodayEnglishPage() {
       window.alert('Chủ đề này đang Coming soon và sẽ mở từ ' + topic.availableFrom + '.');
       return;
     }
-    setSelectedTopicId(topic.id);
-    setQuizAnswer(null);
-    setReadScore(null);
-  }
-
-  function handleQuizAnswer(index: number) {
-    setQuizAnswer(index);
-  }
-
-  function handleReadAloud(term?: string) {
-    const target = term ?? selectedTopic?.readExpected;
-    if (!target) return;
-    const Constructor = getSpeechRecognitionConstructor();
-    if (!Constructor) {
-      const simulated = simulatedReadScore();
-      applyReadScore(simulated, term);
-      return;
-    }
-    const recognition = new Constructor();
-    recognition.lang = 'en-US';
-    recognition.continuous = false;
-    recognition.interimResults = false;
-    setIsListening(true);
-    recognition.onresult = (event) => {
-      const transcript = Array.from(event.results)
-        .map((result) => result[0]?.transcript ?? '')
-        .join(' ');
-      const score = scoreText(transcript, target);
-      applyReadScore(score, term);
-    };
-    recognition.onerror = () => {
-      setIsListening(false);
-    };
-    recognition.onend = () => {
-      setIsListening(false);
-    };
-    recognition.start();
-  }
-
-  function applyReadScore(score: number, term?: string) {
-    setReadScore(score);
-    if (!selectedTopic) return;
-    const topicId = selectedTopic.id;
-    const vocabTerms = selectedTopic.vocab.map((item) => item.term);
-    let nextState = progress;
-    if (term) {
-      nextState = updateVocabularyScore(nextState, topicId, term, score, vocabTerms);
-    } else {
-      // Score the first incomplete vocabulary item as a lightweight MVP fallback.
-      const incomplete = vocabTerms.find((item) => !getTopicProgress(nextState, topicId, vocabTerms).vocabulary[item]?.completed);
-      if (incomplete) nextState = updateVocabularyScore(nextState, topicId, incomplete, score, vocabTerms);
-    }
-    setProgress(nextState);
-    writeProgress(nextState);
+    navigate(`/english/${topic.id}`);
   }
 
   function handleRefresh() {
@@ -186,10 +53,6 @@ export function TodayEnglishPage() {
   if (!context) {
     return <main className="english-today-page"><p>Đang tải English hôm nay…</p></main>;
   }
-
-  const topicProgress = selectedProgress;
-  const quiz = selectedTopic?.quiz;
-  const quizCorrect = quizAnswer !== null && quiz !== undefined && quizAnswer === quiz.answerIndex;
 
   return (
     <main className="english-today-page">
@@ -240,7 +103,7 @@ export function TodayEnglishPage() {
               <button
                 key={topic.id}
                 type="button"
-                className={`english-today-topic${selectedTopicId === topic.id ? ' selected' : ''}${available ? '' : ' coming'}`}
+                className={`english-today-topic${available ? '' : ' coming'}`}
                 onClick={() => handleSelectTopic(topic)}
                 disabled={!available}
               >
@@ -257,129 +120,12 @@ export function TodayEnglishPage() {
           })}
         </div>
       </section>
-
-      {selectedTopic && topicProgress && (
-        <section className="english-today-card english-today-detail">
-          <div className="english-today-detail-head">
-            <div>
-              <h3>{selectedTopic.title}</h3>
-              <p>{selectedTopic.description}</p>
-            </div>
-            <Link className="english-today-button ghost" to="/nihongo-o-benkyuo">Về Nihongo</Link>
-          </div>
-
-          <div className="english-today-block">
-            <h4>Tiến độ chủ đề</h4>
-            <div className="english-today-score">
-              <div>
-                <strong className={scoreClass(topicProgress.progress)}>{topicProgress.progress}%</strong> hoàn thành · Cần đạt 100%. Tổng thể chỉ đạt 100% khi tất cả chủ đề đạt 100%.
-              </div>
-              <div className="english-today-score-bar">
-                <i style={{ width: `${topicProgress.progress}%` }} />
-              </div>
-            </div>
-          </div>
-
-          <div className="english-today-block">
-            <h4>Từ vựng hôm nay</h4>
-            <div className="english-today-list">
-              {selectedTopic.vocab.map((item) => {
-                const vp = topicProgress.vocabulary[item.term] ?? { score: 0, completed: false };
-                return (
-                  <div className="english-today-item" key={item.term}>
-                    <strong>{item.term}</strong>
-                    <span>
-                      {item.meaning} · {item.pronunciation} · Phát âm: <span className={scoreClass(vp.score)}>{vp.score}%</span>
-                      {vp.completed ? ' (đạt ngưỡng)' : ' (chưa đạt)'}
-                    </span>
-                    <div style={{ marginTop: 8 }}>
-                      <button className="english-today-button secondary" type="button" onClick={() => handleReadAloud(item.term)}>
-                        {isListening ? 'Đang nghe…' : 'Đọc từ này'}
-                      </button>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          <div className="english-today-block">
-            <h4>Grammar tương ứng</h4>
-            <div className="english-today-list">
-              {selectedTopic.grammar.map((item) => (
-                <div className="english-today-item" key={item.title}>
-                  <strong>{item.title}</strong>
-                  <span>{item.example}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="english-today-block">
-            <h4>Câu ví dụ để áp dụng</h4>
-            <div className="english-today-list">
-              {selectedTopic.examples.map((example) => (
-                <div className="english-today-example english-today-item" key={example}>
-                  {example}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="english-today-practice">
-            <section className="english-today-card" style={{ padding: 18 }}>
-              <h4 style={{ margin: '0 0 10px', fontSize: 13, color: '#394eaa', textTransform: 'uppercase' }}>Trắc nghiệm củng cố</h4>
-              <p className="english-today-quiz-question">{quiz?.question}</p>
-              <div className="english-today-options">
-                {quiz?.options.map((option, index) => (
-                  <button
-                    key={option}
-                    type="button"
-                    className={`english-today-option${quizAnswer === index ? (index === quiz.answerIndex ? ' correct' : ' wrong') : ''}`}
-                    onClick={() => handleQuizAnswer(index)}
-                  >
-                    {option}
-                  </button>
-                ))}
-              </div>
-              <div className="english-today-feedback">
-                {quizAnswer === null
-                  ? 'Chọn một đáp án.'
-                  : quizCorrect
-                    ? quiz?.explanation
-                    : 'Chưa đúng. Hãy xem lại giải thích và thử lại.'}
-              </div>
-            </section>
-
-            <section className="english-today-card" style={{ padding: 18 }}>
-              <h4 style={{ margin: '0 0 10px', fontSize: 13, color: '#394eaa', textTransform: 'uppercase' }}>Đọc to và chấm điểm</h4>
-              <div className="english-today-read-expected">{selectedTopic.readExpected}</div>
-              <div className="english-today-read-controls">
-                <button className="english-today-button secondary" type="button" onClick={() => handleReadAloud()} disabled={isListening}>
-                  {isListening ? 'Đang nghe…' : 'Bắt đầu đọc'}
-                </button>
-              </div>
-              <div className="english-today-score">
-                <div>
-                  <strong className={readScore === null ? 'score-mid' : scoreClass(readScore)}>{readScore === null ? '—' : readScore}</strong> % khớp
-                </div>
-                <div className="english-today-score-bar">
-                  <i style={{ width: `${readScore ?? 0}%` }} />
-                </div>
-                <p style={{ margin: '8px 0 0', color: '#697382', fontSize: 11 }}>
-                  Nếu browser hỗ trợ SpeechRecognition, app so sánh từ đã nói. Nếu không, dùng điểm mô phỏng. Ngưỡng đạt: {VOCAB_THRESHOLD}%.
-                </p>
-              </div>
-            </section>
-          </div>
-
-          {overallComplete && (
-            <p style={{ marginTop: 16, color: '#2f7a55', fontWeight: 700 }}>
-              Bạn đã đạt 100% cho tất cả chủ đề hôm nay.
-            </p>
-          )}
-        </section>
-      )}
     </main>
   );
+}
+
+function scoreClass(score: number): string {
+  if (score >= 80) return 'score-high';
+  if (score >= 50) return 'score-mid';
+  return 'score-low';
 }
