@@ -69,6 +69,26 @@ function simulatedReadScore(): number {
   return Math.round(70 + Math.random() * 25);
 }
 
+function playFeedbackSound(correct: boolean) {
+  try {
+    const audioContext = new AudioContext();
+    const oscillator = audioContext.createOscillator();
+    const gain = audioContext.createGain();
+    oscillator.type = 'sine';
+    oscillator.frequency.value = correct ? 660 : 220;
+    gain.gain.value = 0.08;
+    oscillator.connect(gain);
+    gain.connect(audioContext.destination);
+    oscillator.start();
+    oscillator.stop(audioContext.currentTime + (correct ? 0.18 : 0.25));
+    oscillator.onended = () => {
+      void audioContext.close();
+    };
+  } catch {
+    // Ignore browsers that block audio.
+  }
+}
+
 function speakText(text: string) {
   if (!('speechSynthesis' in window)) return;
   window.speechSynthesis.cancel();
@@ -111,6 +131,7 @@ export function EnglishTopicPage() {
 
   function handleQuizAnswer(index: number) {
     setQuizAnswer(index);
+    playFeedbackSound(index === quiz.answerIndex);
   }
 
   function applyReadScore(score: number, term?: string) {
@@ -128,6 +149,7 @@ export function EnglishTopicPage() {
     setProgress(nextState);
     writeProgress(nextState);
     setReadScore(score);
+    playFeedbackSound(score >= VOCAB_THRESHOLD);
   }
 
   function handleReadAloud(term?: string) {
