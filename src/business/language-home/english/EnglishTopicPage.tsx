@@ -179,8 +179,16 @@ function playFeedbackSound(correct: boolean) {
       playTone(880, 0.13, 0.16, 0.08);
       playTone(1046, 0.3, 0.2, 0.07);
     } else {
-      playTone(220, 0, 0.12, 0.08);
-      playTone(220, 0.18, 0.12, 0.08);
+      const oscillator = audioContext.createOscillator();
+      const gain = audioContext.createGain();
+      oscillator.type = 'sawtooth';
+      oscillator.frequency.value = 150;
+      gain.gain.setValueAtTime(0.1, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.5);
+      oscillator.connect(gain);
+      gain.connect(audioContext.destination);
+      oscillator.start(now);
+      oscillator.stop(now + 0.5);
     }
     window.setTimeout(() => {
       void audioContext.close();
