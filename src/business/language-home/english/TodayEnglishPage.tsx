@@ -193,9 +193,6 @@ export function TodayEnglishPage() {
 
   return (
     <main className="english-today-page">
-      <div className="english-today-overall-banner">
-        Tổng thể: <span className={scoreClass(overallProgress)}>{overallProgress}%</span>
-      </div>
       <div className="english-today-topbar">
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
           <div className="english-today-crumb">English <span aria-hidden="true">/</span> <b>Today’s English</b></div>
@@ -209,7 +206,12 @@ export function TodayEnglishPage() {
       <section className="english-today-hero">
         <article className="english-today-card english-today-context">
           <p className="english-today-eyebrow">Hôm nay · Today</p>
-          <h1 className="english-today-title">{context.date}</h1>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
+            <h1 className="english-today-title" style={{ margin: 0 }}>{context.date}</h1>
+            <span className="english-today-overall">
+              Tổng thể: <span className={scoreClass(overallProgress)}>{overallProgress}%</span>
+            </span>
+          </div>
           <p className="english-today-copy">
             {context.season}. {context.holiday}. Các chủ đề ưu tiên giao tiếp thực tế và IELTS 6.5–8.0.
           </p>
