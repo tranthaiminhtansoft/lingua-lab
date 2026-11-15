@@ -31,9 +31,9 @@ export const dates = Array.from({ length: 31 }, (_, i) => {
   const n = i + 1, reading = specialDates[n] ?? numberReading(n).map((r, tier) => r + (tier === 0 ? 'にち' : 'nichi'));
   return word(`${n}日`, reading[0], reading[1], `Day ${n} of the month`, n in specialDates);
 });
-dates[13].alternative = { kana: 'じゅうよんにち', romaji: 'jūyonnichi' };
-dates[16].alternative = { kana: 'じゅうななにち', romaji: 'jūnananichi' };
-dates[18].alternative = { kana: 'じゅうきゅうにち', romaji: 'jūkyūnichi' };
+dates[13].alternative = { kana: 'じゅうよんにち', romaji: 'jū yon nichi', parts: [{ kana: 'じゅう', romaji: 'jū', role: 'base' }, { kana: 'よん', romaji: 'yon', role: 'base' }, { kana: 'にち', romaji: 'nichi', role: 'shared' }] };
+dates[16].alternative = { kana: 'じゅうななにち', romaji: 'jū nana nichi', parts: [{ kana: 'じゅう', romaji: 'jū', role: 'base' }, { kana: 'なな', romaji: 'nana', role: 'base' }, { kana: 'にち', romaji: 'nichi', role: 'shared' }] };
+dates[18].alternative = { kana: 'じゅうきゅうにち', romaji: 'jū kyū nichi', parts: [{ kana: 'じゅう', romaji: 'jū', role: 'base' }, { kana: 'きゅう', romaji: 'kyū', role: 'base' }, { kana: 'にち', romaji: 'nichi', role: 'shared' }] };
 export const relativeDays = [
   word('一昨日', 'おととい', 'ototoi', 'The day before yesterday'), word('昨日', 'きのう', 'kinō', 'Yesterday'),
   word('今日', 'きょう', 'kyō', 'Today'), word('明日', 'あした', 'ashita', 'Tomorrow'), word('明後日', 'あさって', 'asatte', 'The day after tomorrow'),

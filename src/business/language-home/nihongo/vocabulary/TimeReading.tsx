@@ -23,7 +23,7 @@ export function Reading({ entry, meaning = true, alignKanaRomaji = true }: { ent
     {alignKanaRomaji
       ? <AlignedReading reading={entry} special={entry.special} />
       : <><Pronunciation reading={entry} tier="kana" special={entry.special} /><Pronunciation reading={entry} tier="romaji" special={entry.special} /></>}
-    {entry.alternative && <span className="time-alternative">Also: {alignKanaRomaji
+    {entry.alternative && <span className="time-alternative">Sometimes: {alignKanaRomaji
       ? <AlignedReading reading={entry.alternative} />
       : <><Pronunciation reading={entry.alternative} tier="kana" /> · <Pronunciation reading={entry.alternative} tier="romaji" /></>}</span>}
   </span>;
