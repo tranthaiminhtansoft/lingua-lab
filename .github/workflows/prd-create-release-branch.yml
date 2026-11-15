@@ -10,9 +10,20 @@ jobs:
     name: Verify workflow runs from master
     uses: ./.github/workflows/wc-check-guard.yml
 
+  approve_create_release_branch:
+    name: 🛡️ Approve release branch creation
+    needs: master_guard
+    runs-on: ubuntu-24.04
+    environment:
+      name: prod
+      deployment: false
+    steps:
+      - name: Confirm release branch creation approval
+        run: echo 'Production approval passed; the release branch may be created.'
+
   create_release_branch:
     name: 🌿 Create release branch from master
-    needs: master_guard
+    needs: [master_guard, approve_create_release_branch]
     runs-on: ubuntu-24.04
     permissions:
       contents: write
