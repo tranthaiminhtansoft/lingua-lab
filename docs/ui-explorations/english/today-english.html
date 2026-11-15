@@ -98,7 +98,9 @@
     .score-box strong { font-size: 18px; }
     .score-bar { height: 8px; border-radius: 99px; background: #eeede8; overflow: hidden; margin-top: 8px; }
     .score-bar i { display: block; height: 100%; border-radius: inherit; background: #89c5a3; width: 0%; transition: width .25s ease; }
-
+    .score-low { color: #c0392b; font-weight: 800; }
+    .score-mid { color: #b7791f; font-weight: 800; }
+    .score-high { color: #2f7a55; font-weight: 800; }
     @media (max-width: 820px) {
       .hero { grid-template-columns: minmax(0, 1fr); }
       .practice-grid { grid-template-columns: minmax(0, 1fr); }
@@ -181,7 +183,7 @@
       <div class="block">
         <h4>Tiến độ chủ đề</h4>
         <div class="score-box">
-          <div><strong id="topic-progress-value">40%</strong> hoàn thành · Cần đạt 100% để hoàn thành ngày hôm nay. Tổng thể chỉ đạt 100% khi tất cả chủ đề đạt 100%.</div>
+          <div><strong id="topic-progress-value" class="score-mid">40%</strong> hoàn thành · Cần đạt 100% để hoàn thành ngày hôm nay. Tổng thể chỉ đạt 100% khi tất cả chủ đề đạt 100%.</div>
           <div class="score-bar"><i id="topic-progress-bar" style="width:40%"></i></div>
         </div>
       </div>
@@ -189,9 +191,9 @@
       <div class="block">
         <h4>Từ vựng hôm nay</h4>
         <div class="vocab-list">
-          <div class="vocab-item"><strong>energy level</strong><span>mức năng lượng · /ˈen.ə.dʒi ˌlev.əl/ · Phát âm: 92% (đạt ngưỡng)</span></div>
-          <div class="vocab-item"><strong>get back into routine</strong><span>trở lại thói quen · /ɡet bæk ˈɪn.tuː ruːˈtiːn/ · Phát âm: 78%</span></div>
-          <div class="vocab-item"><strong>wrap up warm</strong><span>mặc ấm · /ræp ʌp wɔːm/ · Phát âm: 0% (chưa luyện)</span></div>
+          <div class="vocab-item"><strong>energy level</strong><span>mức năng lượng · /ˈen.ə.dʒi ˌlev.əl/ · Phát âm: <span class="score-high">92%</span> (đạt ngưỡng)</span></div>
+          <div class="vocab-item"><strong>get back into routine</strong><span>trở lại thói quen · /ɡet bæk ˈɪn.tuː ruːˈtiːn/ · Phát âm: <span class="score-mid">78%</span></span></div>
+          <div class="vocab-item"><strong>wrap up warm</strong><span>mặc ấm · /ræp ʌp wɔːm/ · Phát âm: <span class="score-low">0%</span> (chưa luyện)</span></div>
         </div>
       </div>
 
@@ -231,7 +233,7 @@
             <button class="button ghost" id="simulate-read" type="button">Mô phỏng kết quả</button>
           </div>
           <div class="score-box">
-            <div><strong id="score-value">—</strong> % khớp</div>
+            <div><strong id="score-value" class="score-mid">—</strong> % khớp</div>
             <div class="score-bar"><i id="score-bar"></i></div>
             <p style="margin:8px 0 0;color:var(--muted);font-size:11px;">Nếu browser hỗ trợ SpeechRecognition, app so sánh từ đã nói với câu mẫu. Nếu không, dùng ghi âm/text fallback.</p>
           </div>

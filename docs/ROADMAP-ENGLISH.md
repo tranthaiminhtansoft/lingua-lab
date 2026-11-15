@@ -241,7 +241,6 @@ Instead of forcing a strictly linear path, offer a **date-aware suggestion** bas
 - [ ] `ENG-031` Filter and rank suggestions by common usage and IELTS 6.5–8.0 level, with a way to browse other topics.- [ ] `ENG-032` Add reinforcement multiple-choice practice with local answer keys and immediate feedback for contextual daily topics.
 - [ ] `ENG-033` Add read-aloud detection where supported, comparing spoken input to expected text with percentage match and score, plus recording/text fallback when speech recognition is unavailable.
 - [ ] `ENG-034` Support remote JSON content with version check, throttled update detection, refresh action, and bundled fallback for offline or failed fetches.
-- [ ] `ENG-035` Track per-topic completion percentage and per-vocabulary pronunciation/read-aloud scores; a vocabulary item counts as complete only after its read-aloud evaluation reaches the threshold, and every topic must reach 100% before overall progress can be 100%.
-
+- [ ] `ENG-035` Track per-topic completion percentage and per-vocabulary pronunciation/read-aloud scores with clear red-to-green color coding; a vocabulary item counts as complete only after its read-aloud evaluation reaches the threshold, and every topic must reach 100% before overall progress can be 100%.
 Keep the later groups as the proposed sequence; break them into implementation tasks after the first release boundary is reviewed. Do not assign dates until they are agreed.
 > Move an item to **Completed** when the feature is usable in the application. Add a target date only after it has been agreed.
