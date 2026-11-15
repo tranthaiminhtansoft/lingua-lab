@@ -100,6 +100,12 @@ function simulatedReadScore(): number {
 
 type WordFeedback = 'good' | 'near' | 'missed';
 
+function simulateTranscript(expected: string, score: number): string {
+  const words = expected.split(/\s+/).filter(Boolean);
+  const keep = Math.max(0, Math.min(words.length, Math.round((score / 100) * words.length)));
+  return words.slice(0, keep).join(' ');
+}
+
 function getWordFeedback(expected: string, spoken: string): WordFeedback[] {
   const expectedWords = expected.split(/\\s+/).filter(Boolean);
   const spokenWords = normalizeText(spoken);
@@ -255,7 +261,9 @@ export function EnglishTopicPage() {
     setSpokenTranscript('');
     const Constructor = getSpeechRecognitionConstructor();
     if (!Constructor) {
-      applyReadScore(simulatedReadScore(), key, kind);
+      const simulated = simulatedReadScore();
+      setSpokenTranscript(simulateTranscript(expected, simulated));
+      applyReadScore(simulated, key, kind);
       return;
     }
     const recognition = new Constructor();
@@ -266,8 +274,9 @@ export function EnglishTopicPage() {
     recognition.onresult = (event) => {
       const transcript = Array.from(event.results)
         .map((result) => result[0]?.transcript ?? '')
-        .join(' ');
-      setSpokenTranscript(transcript);
+        .join(' ')
+        .trim();
+      setSpokenTranscript(transcript || simulateTranscript(expected, 0));
       applyReadScore(scoreText(transcript, expected), key, kind);
     };
     recognition.onerror = () => setIsListening(false);
@@ -337,8 +346,13 @@ export function EnglishTopicPage() {
                     {vp.completed ? ' (đạt ngưỡng)' : ' (chưa đạt)'}
                   </span>
                   <div style={{ marginTop: 8, display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-                    <button className={`english-today-button secondary${isListening ? ' listening' : ''}`} type="button" onClick={() => handleReadAloud(item.term, item.term, 'vocab')} disabled={isListening}>
-                      {isListening ? 'Đang nghe…' : 'Đọc từ này'}
+                    <button
+                      className={`english-today-button secondary${isListening ? ' listening' : ''}`}
+                      type="button"
+                      onClick={() => handleReadAloud(item.term, item.term, 'vocab')}
+                      disabled={isListening || vp.completed}
+                    >
+                      {vp.completed ? 'Đã đạt' : isListening ? 'Đang nghe…' : vp.score > 0 ? 'Đọc lại' : 'Đọc từ này'}
                     </button>
                     <button className="english-today-button ghost" type="button" onClick={() => speakText(item.term)}>
                       🔊 Nghe mẫu
@@ -389,8 +403,13 @@ export function EnglishTopicPage() {
                     {record.completed ? ' (đạt)' : ' (chưa đạt)'}
                   </span>
                   <div style={{ marginTop: 8, display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-                    <button className={`english-today-button secondary${isListening ? ' listening' : ''}`} type="button" onClick={() => handleReadAloud(sentence, sentence, 'dialogue')} disabled={isListening}>
-                      {isListening ? 'Đang nghe…' : 'Đọc câu này'}
+                    <button
+                      className={`english-today-button secondary${isListening ? ' listening' : ''}`}
+                      type="button"
+                      onClick={() => handleReadAloud(sentence, sentence, 'dialogue')}
+                      disabled={isListening || record.completed}
+                    >
+                      {record.completed ? 'Đã đạt' : isListening ? 'Đang nghe…' : record.score > 0 ? 'Đọc lại' : 'Đọc câu này'}
                     </button>
                     <button className="english-today-button ghost" type="button" onClick={() => speakText(cleanSentence(sentence))}>
                       🔊 Nghe mẫu
@@ -431,8 +450,13 @@ export function EnglishTopicPage() {
             <h4 style={{ margin: '0 0 10px', fontSize: 13, color: '#394eaa', textTransform: 'uppercase' }}>Đọc to và chấm điểm</h4>
             <div className="english-today-read-expected">{topic.readExpected}</div>
             <div className="english-today-read-controls">
-              <button className={`english-today-button secondary${isListening ? ' listening' : ''}`} type="button" onClick={() => handleReadAloud(topic.readExpected)} disabled={isListening}>
-                {isListening ? 'Đang nghe…' : 'Bắt đầu đọc'}
+              <button
+                className={`english-today-button secondary${isListening ? ' listening' : ''}`}
+                type="button"
+                onClick={() => handleReadAloud(topic.readExpected)}
+                disabled={isListening || topicProgress?.completed === true}
+              >
+                {topicProgress?.completed ? 'Đã đạt' : isListening ? 'Đang nghe…' : 'Bắt đầu đọc'}
               </button>
               <button className="english-today-button ghost" type="button" onClick={() => speakText(topic.readExpected)}>
                 🔊 Nghe mẫu
