@@ -4,6 +4,21 @@
   padding: 24px clamp(16px, 4vw, 40px) 48px;
 }
 
+.english-today-overall-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  background: #fffefa;
+  border: 1px solid #e7e5de;
+  box-shadow: 0 12px 34px rgba(32, 42, 56, .07);
+  font-size: 15px;
+  font-weight: 750;
+  color: #243550;
+}
+
 .english-today-topbar {
   display: flex;
   align-items: center;
