@@ -146,13 +146,13 @@
           <span class="topic-badge badge-available">Có sẵn</span>
           <h3 class="topic-title">Autumn routine & energy</h3>
           <p class="topic-desc">Nói về thói quen mùa thu, năng lượng, và kế hoạch tuần.</p>
-          <div class="topic-meta">Từ vựng · Grammar · Ví dụ · Quiz · Đọc to</div>
+          <div class="topic-meta">Từ vựng · Grammar · Ví dụ · Quiz · Đọc to · Tiến độ: 40%</div>
         </article>
         <article class="topic-card" data-topic="work-update" tabindex="0">
           <span class="topic-badge badge-available">Có sẵn</span>
           <h3 class="topic-title">Work update in English</h3>
           <p class="topic-desc">Cập nhật công việc, tiến độ, và blocker trong meeting.</p>
-          <div class="topic-meta">Từ vựng · Grammar · Ví dụ · Quiz · Đọc to</div>
+          <div class="topic-meta">Từ vựng · Grammar · Ví dụ · Quiz · Đọc to · Tiến độ: 0%</div>
         </article>
         <article class="topic-card coming" data-topic="black-friday" tabindex="0" aria-disabled="true">
           <span class="topic-badge badge-coming">Coming soon · 28/11</span>
@@ -179,11 +179,19 @@
       </div>
 
       <div class="block">
+        <h4>Tiến độ chủ đề</h4>
+        <div class="score-box">
+          <div><strong id="topic-progress-value">40%</strong> hoàn thành · Cần đạt 100% để hoàn thành ngày hôm nay</div>
+          <div class="score-bar"><i id="topic-progress-bar" style="width:40%"></i></div>
+        </div>
+      </div>
+
+      <div class="block">
         <h4>Từ vựng hôm nay</h4>
         <div class="vocab-list">
-          <div class="vocab-item"><strong>energy level</strong><span>mức năng lượng · /ˈen.ə.dʒi ˌlev.əl/</span></div>
-          <div class="vocab-item"><strong>get back into routine</strong><span>trở lại thói quen · /ɡet bæk ˈɪn.tuː ruːˈtiːn/</span></div>
-          <div class="vocab-item"><strong>wrap up warm</strong><span>mặc ấm · /ræp ʌp wɔːm/</span></div>
+          <div class="vocab-item"><strong>energy level</strong><span>mức năng lượng · /ˈen.ə.dʒi ˌlev.əl/ · Phát âm: 92%</span></div>
+          <div class="vocab-item"><strong>get back into routine</strong><span>trở lại thói quen · /ɡet bæk ˈɪn.tuː ruːˈtiːn/ · Phát âm: 78%</span></div>
+          <div class="vocab-item"><strong>wrap up warm</strong><span>mặc ấm · /ræp ʌp wɔːm/ · Phát âm: 0% (chưa luyện)</span></div>
         </div>
       </div>
 
@@ -298,8 +306,7 @@
       if (!topic) return;
       detailTitle.textContent = topic.title;
       detailDesc.textContent = topic.desc;
-      vocabList.innerHTML = topic.vocab.map(([word, meaning]) => `<div class="vocab-item"><strong>${word}</strong><span>${meaning}</span></div>`).join('');
-      grammarList.innerHTML = topic.grammar.map(([name, example]) => `<div class="grammar-item"><strong>${name}</strong><span>${example}</span></div>`).join('');
+      vocabList.innerHTML = topic.vocab.map(([word, meaning]) => `<div class="vocab-item"><strong>${word}</strong><span>${meaning} · Phát âm: —</span></div>`).join('');      grammarList.innerHTML = topic.grammar.map(([name, example]) => `<div class="grammar-item"><strong>${name}</strong><span>${example}</span></div>`).join('');
       exampleList.innerHTML = topic.examples.map((example) => `<div class="example-item">${example}</div>`).join('');
       readExpected.textContent = topic.expected;
       scoreValue.textContent = '—';
