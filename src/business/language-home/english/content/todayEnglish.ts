@@ -27,6 +27,7 @@ export type EnglishTopic = {
   examples: string[];
   quiz: EnglishQuiz;
   readExpected: string;
+  dialogue: string[];
 };
 
 export type TodayEnglishContext = {
@@ -102,6 +103,12 @@ const TOPICS: EnglishTopic[] = [
       explanation: 'Use present simple for habits: subject + base verb.',
     },
     readExpected: 'I usually walk in the park in autumn.',
+    dialogue: [
+      'A: In autumn, I usually feel more focused.',
+      'B: So I plan heavier tasks in the morning.',
+      'A: This week I’m getting back into a routine.',
+      'B: That sounds like a good plan.',
+    ],
   },
   {
     id: 'work-update',
@@ -132,6 +139,12 @@ const TOPICS: EnglishTopic[] = [
       explanation: 'Use “have” with “we” and keep the full verb phrase.',
     },
     readExpected: 'We are on track, but we still have one blocker.',
+    dialogue: [
+      'A: We’re on track with the release.',
+      'B: Do we still have any blockers?',
+      'A: Yes, one API issue.',
+      'B: I’ll hand off the logs after this meeting.',
+    ],
   },
   {
     id: 'black-friday',
@@ -162,6 +175,12 @@ const TOPICS: EnglishTopic[] = [
       explanation: '“Worth it” is a common chunk; avoid forcing a comparative.',
     },
     readExpected: 'This deal looks good, but I am not sure whether it is worth it.',
+    dialogue: [
+      'A: This deal looks good.',
+      'B: Is it worth it?',
+      'A: The discount is bigger online.',
+      'B: I’ll buy it now.',
+    ],
   },
 ];
 

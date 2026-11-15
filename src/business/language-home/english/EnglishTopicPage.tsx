@@ -10,6 +10,7 @@ import {
   writeProgress,
   getTopicProgress,
   updateVocabularyScore,
+  updateDialogueScore,
   VOCAB_THRESHOLD,
 } from './progress/englishProgress';
 import './todayEnglish.css';
@@ -97,6 +98,38 @@ function simulatedReadScore(): number {
   return Math.round(70 + Math.random() * 25);
 }
 
+type WordFeedback = 'good' | 'near' | 'missed';
+
+function getWordFeedback(expected: string, spoken: string): WordFeedback[] {
+  const expectedWords = expected.split(/\\s+/).filter(Boolean);
+  const spokenWords = normalizeText(spoken);
+  const used = new Set<number>();
+  return expectedWords.map((rawWord) => {
+    const word = rawWord.toLowerCase().replace(/[^a-z0-9']/g, '');
+    if (!word) return 'missed';
+    let bestIndex = -1;
+    let bestSimilarity = 0;
+    spokenWords.forEach((candidate, index) => {
+      if (used.has(index)) return;
+      if (candidate === word) {
+        bestSimilarity = 1;
+        bestIndex = index;
+        return;
+      }
+      const distance = levenshtein(candidate, word);
+      const maxLength = Math.max(candidate.length, word.length);
+      const similarity = maxLength === 0 ? 1 : 1 - distance / maxLength;
+      if (similarity > bestSimilarity) {
+        bestSimilarity = similarity;
+        bestIndex = index;
+      }
+    });
+    if (bestIndex < 0 || bestSimilarity < 0.55) return 'missed';
+    used.add(bestIndex);
+    return bestSimilarity >= 0.9 ? 'good' : 'near';
+  });
+}
+
 function playFeedbackSound(correct: boolean) {
   try {
     const audioContext = new AudioContext();
@@ -134,6 +167,8 @@ export function EnglishTopicPage() {
   const [quizAnswer, setQuizAnswer] = useState<number | null>(null);
   const [readScore, setReadScore] = useState<number | null>(null);
   const [isListening, setIsListening] = useState(false);
+  const [lastExpected, setLastExpected] = useState('');
+  const [spokenTranscript, setSpokenTranscript] = useState('');
 
   useEffect(() => {
     void getTodayEnglishContextApi().then(setContext);
@@ -146,7 +181,7 @@ export function EnglishTopicPage() {
 
   const topicProgress = useMemo(() => {
     if (!topic) return null;
-    return getTopicProgress(progress, topic.id, topic.vocab.map((item) => item.term));
+    return getTopicProgress(progress, topic.id, topic.vocab.map((item) => item.term), topic.dialogue);
   }, [progress, topic]);
 
   useEffect(() => {
@@ -162,17 +197,29 @@ export function EnglishTopicPage() {
     playFeedbackSound(index === quiz.answerIndex);
   }
 
-  function applyReadScore(score: number, term?: string) {
+  function cleanSentence(value: string): string {
+    return value.replace(/^[A-Z]:\s*/, '');
+  }
+
+  function applyReadScore(score: number, key?: string, kind: 'vocab' | 'dialogue' = 'vocab') {
     if (!topic) return;
     const topicIdValue = topic.id;
     const vocabTerms = topic.vocab.map((item) => item.term);
+    const dialogueSentences = topic.dialogue;
     let nextState = progress;
-    if (term) {
-      nextState = updateVocabularyScore(nextState, topicIdValue, term, score, vocabTerms);
+    if (key && kind === 'vocab') {
+      nextState = updateVocabularyScore(nextState, topicIdValue, key, score, vocabTerms, dialogueSentences);
+    } else if (key && kind === 'dialogue') {
+      nextState = updateDialogueScore(nextState, topicIdValue, key, score, vocabTerms, dialogueSentences);
     } else {
-      const current = getTopicProgress(nextState, topicIdValue, vocabTerms);
-      const incomplete = vocabTerms.find((item) => !current.vocabulary[item]?.completed);
-      if (incomplete) nextState = updateVocabularyScore(nextState, topicIdValue, incomplete, score, vocabTerms);
+      const current = getTopicProgress(nextState, topicIdValue, vocabTerms, dialogueSentences);
+      const incomplete = vocabTerms.find((item) => !current.vocabulary[item]?.completed)
+        ?? dialogueSentences.find((item) => !current.dialogue[item]?.completed);
+      if (incomplete) {
+        const isDialogue = dialogueSentences.includes(incomplete);
+        if (isDialogue) nextState = updateDialogueScore(nextState, topicIdValue, incomplete, score, vocabTerms, dialogueSentences);
+        else nextState = updateVocabularyScore(nextState, topicIdValue, incomplete, score, vocabTerms, dialogueSentences);
+      }
     }
     setProgress(nextState);
     writeProgress(nextState);
@@ -180,12 +227,14 @@ export function EnglishTopicPage() {
     playFeedbackSound(score >= VOCAB_THRESHOLD);
   }
 
-  function handleReadAloud(term?: string) {
-    const target = term ?? topic?.readExpected;
-    if (!target) return;
+  function handleReadAloud(target: string, key?: string, kind: 'vocab' | 'dialogue' = 'vocab') {
+    const expected = cleanSentence(target);
+    if (!expected) return;
+    setLastExpected(expected);
+    setSpokenTranscript('');
     const Constructor = getSpeechRecognitionConstructor();
     if (!Constructor) {
-      applyReadScore(simulatedReadScore(), term);
+      applyReadScore(simulatedReadScore(), key, kind);
       return;
     }
     const recognition = new Constructor();
@@ -197,7 +246,8 @@ export function EnglishTopicPage() {
       const transcript = Array.from(event.results)
         .map((result) => result[0]?.transcript ?? '')
         .join(' ');
-      applyReadScore(scoreText(transcript, target), term);
+      setSpokenTranscript(transcript);
+      applyReadScore(scoreText(transcript, expected), key, kind);
     };
     recognition.onerror = () => setIsListening(false);
     recognition.onend = () => setIsListening(false);
@@ -265,7 +315,7 @@ export function EnglishTopicPage() {
                     {vp.completed ? ' (đạt ngưỡng)' : ' (chưa đạt)'}
                   </span>
                   <div style={{ marginTop: 8, display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-                    <button className="english-today-button secondary" type="button" onClick={() => handleReadAloud(item.term)} disabled={isListening}>
+                    <button className="english-today-button secondary" type="button" onClick={() => handleReadAloud(item.term, item.term, 'vocab')} disabled={isListening}>
                       {isListening ? 'Đang nghe…' : 'Đọc từ này'}
                     </button>
                     <button className="english-today-button ghost" type="button" onClick={() => speakText(item.term)}>
@@ -301,6 +351,35 @@ export function EnglishTopicPage() {
           </div>
         </div>
 
+        <div className="english-today-block">
+          <h4>Đoạn hội thoại dài (đọc to)</h4>
+          <p style={{ margin: '0 0 10px', color: '#697382', fontSize: 12 }}>
+            Mỗi câu cần đạt ít nhất {VOCAB_THRESHOLD}% để hoàn thành chủ đề.
+          </p>
+          <div className="english-today-list">
+            {topic.dialogue.map((sentence) => {
+              const record = topicProgress?.dialogue[sentence] ?? { score: 0, completed: false };
+              return (
+                <div className="english-today-item" key={sentence}>
+                  <strong>{sentence}</strong>
+                  <span>
+                    Phát âm/đọc: <span className={scoreClass(record.score)}>{record.score}%</span>
+                    {record.completed ? ' (đạt)' : ' (chưa đạt)'}
+                  </span>
+                  <div style={{ marginTop: 8, display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                    <button className="english-today-button secondary" type="button" onClick={() => handleReadAloud(sentence, sentence, 'dialogue')} disabled={isListening}>
+                      {isListening ? 'Đang nghe…' : 'Đọc câu này'}
+                    </button>
+                    <button className="english-today-button ghost" type="button" onClick={() => speakText(cleanSentence(sentence))}>
+                      🔊 Nghe mẫu
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
         <div className="english-today-practice">
           <section className="english-today-card" style={{ padding: 18 }}>
             <h4 style={{ margin: '0 0 10px', fontSize: 13, color: '#394eaa', textTransform: 'uppercase' }}>Trắc nghiệm củng cố</h4>
@@ -330,7 +409,7 @@ export function EnglishTopicPage() {
             <h4 style={{ margin: '0 0 10px', fontSize: 13, color: '#394eaa', textTransform: 'uppercase' }}>Đọc to và chấm điểm</h4>
             <div className="english-today-read-expected">{topic.readExpected}</div>
             <div className="english-today-read-controls">
-              <button className="english-today-button secondary" type="button" onClick={() => handleReadAloud()} disabled={isListening}>
+              <button className="english-today-button secondary" type="button" onClick={() => handleReadAloud(topic.readExpected)} disabled={isListening}>
                 {isListening ? 'Đang nghe…' : 'Bắt đầu đọc'}
               </button>
               <button className="english-today-button ghost" type="button" onClick={() => speakText(topic.readExpected)}>
@@ -349,8 +428,21 @@ export function EnglishTopicPage() {
               <div className="english-today-score-bar">
                 <i style={{ width: `${readScore ?? 0}%` }} />
               </div>
+              {spokenTranscript && lastExpected && (
+                <div style={{ marginTop: 10, lineHeight: 1.8 }}>
+                  {getWordFeedback(lastExpected, spokenTranscript).map((status, index) => (
+                    <span
+                      key={`${lastExpected}-${index}`}
+                      className={status === 'good' ? 'score-high' : status === 'near' ? 'score-mid' : 'score-low'}
+                      style={{ marginRight: 6 }}
+                    >
+                      {lastExpected.split(/\\s+/)[index]}
+                    </span>
+                  ))}
+                </div>
+              )}
               <p style={{ margin: '8px 0 0', color: '#697382', fontSize: 11 }}>
-                Nếu browser hỗ trợ SpeechRecognition, app so sánh từ đã nói. Nếu không, dùng điểm mô phỏng. Ngưỡng đạt: {VOCAB_THRESHOLD}%.
+                Xanh: đọc đúng, vàng: gần đúng, đỏ: sai hoặc bị miss. Ngưỡng đạt: {VOCAB_THRESHOLD}%.
               </p>
             </div>
           </section>

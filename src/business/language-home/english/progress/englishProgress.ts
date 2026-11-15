@@ -7,6 +7,7 @@ export type TopicProgress = {
   progress: number;
   completed: boolean;
   vocabulary: Record<string, VocabularyProgress>;
+  dialogue: Record<string, VocabularyProgress>;
 };
 
 export type EnglishProgressState = {
@@ -15,7 +16,7 @@ export type EnglishProgressState = {
 };
 
 const STORAGE_KEY = 'lingua-english-today-progress';
-const VOCAB_THRESHOLD = 80;
+const VOCAB_THRESHOLD = 90;
 
 export function createEmptyProgress(version = '2026.11.15'): EnglishProgressState {
   return { version, topics: {} };
@@ -41,17 +42,44 @@ export function writeProgress(state: EnglishProgressState): void {
   }
 }
 
-export function getTopicProgress(state: EnglishProgressState, topicId: string, vocabTerms: string[]): TopicProgress {
+export function getTopicProgress(
+  state: EnglishProgressState,
+  topicId: string,
+  vocabTerms: string[],
+  dialogueSentences: string[] = [],
+): TopicProgress {
   const existing = state.topics[topicId];
   if (existing) {
+    if (!existing.dialogue) existing.dialogue = {};
     for (const term of vocabTerms) {
       if (!existing.vocabulary[term]) existing.vocabulary[term] = { score: 0, completed: false };
+    }
+    for (const sentence of dialogueSentences) {
+      if (!existing.dialogue[sentence]) existing.dialogue[sentence] = { score: 0, completed: false };
     }
     return existing;
   }
   const vocabulary: Record<string, VocabularyProgress> = {};
   for (const term of vocabTerms) vocabulary[term] = { score: 0, completed: false };
-  return { progress: 0, completed: false, vocabulary };
+  const dialogue: Record<string, VocabularyProgress> = {};
+  for (const sentence of dialogueSentences) dialogue[sentence] = { score: 0, completed: false };
+  return { progress: 0, completed: false, vocabulary, dialogue };
+}
+
+function recalculateTopic(topic: TopicProgress, vocabTerms: string[], dialogueSentences: string[]) {
+  const vocabCompleted = vocabTerms.filter((item) => topic.vocabulary[item]?.completed).length;
+  const dialogueCompleted = dialogueSentences.filter((item) => topic.dialogue[item]?.completed).length;
+  const allItems = [...vocabTerms, ...dialogueSentences];
+  const averageScore = allItems.length === 0
+    ? 0
+    : Math.round(allItems.reduce((sum, item) => {
+        const record = vocabTerms.includes(item) ? topic.vocabulary[item] : topic.dialogue[item];
+        return sum + (record?.score ?? 0);
+      }, 0) / allItems.length);
+  topic.progress = averageScore;
+  topic.completed = allItems.length > 0
+    && vocabCompleted === vocabTerms.length
+    && dialogueCompleted === dialogueSentences.length;
 }
 
 export function updateVocabularyScore(
@@ -60,16 +88,28 @@ export function updateVocabularyScore(
   term: string,
   score: number,
   vocabTerms: string[],
+  dialogueSentences: string[] = [],
 ): EnglishProgressState {
-  const topic = getTopicProgress(state, topicId, vocabTerms);
-  const completed = score >= VOCAB_THRESHOLD;
-  topic.vocabulary[term] = { score, completed };
-  const completedCount = vocabTerms.filter((item) => topic.vocabulary[item]?.completed).length;
-  const averageScore = vocabTerms.length === 0
-    ? 0
-    : Math.round(vocabTerms.reduce((sum, item) => sum + (topic.vocabulary[item]?.score ?? 0), 0) / vocabTerms.length);
-  topic.progress = averageScore;
-  topic.completed = vocabTerms.length > 0 && completedCount === vocabTerms.length;
+  const topic = getTopicProgress(state, topicId, vocabTerms, dialogueSentences);
+  topic.vocabulary[term] = { score, completed: score >= VOCAB_THRESHOLD };
+  recalculateTopic(topic, vocabTerms, dialogueSentences);
+  return {
+    ...state,
+    topics: { ...state.topics, [topicId]: topic },
+  };
+}
+
+export function updateDialogueScore(
+  state: EnglishProgressState,
+  topicId: string,
+  sentence: string,
+  score: number,
+  vocabTerms: string[],
+  dialogueSentences: string[],
+): EnglishProgressState {
+  const topic = getTopicProgress(state, topicId, vocabTerms, dialogueSentences);
+  topic.dialogue[sentence] = { score, completed: score >= VOCAB_THRESHOLD };
+  recalculateTopic(topic, vocabTerms, dialogueSentences);
   return {
     ...state,
     topics: { ...state.topics, [topicId]: topic },
