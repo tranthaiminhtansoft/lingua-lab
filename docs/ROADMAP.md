@@ -14,7 +14,7 @@ This file is the starting point for understanding what Lingua Lab contains, what
 | Area | Status | Details |
 |---|---|---|
 | Japanese learning | **In progress** | Core Kana, Grammar, Numbers, and Time learning experiences are available. The next planned work is the supplemental Grammar sequence, followed by expanded time questions. See [Japanese Roadmap](ROADMAP-JAPANESE.md). |
-| English learning | **Proposed** | The concept and learning scope are documented; implementation has not started. First release: hub, sentence foundations, and everyday introductions. See [English Roadmap](ROADMAP-ENGLISH.md). |
+| English learning | **Implemented (MVP)** | Contextual daily English with topics, vocabulary, grammar, quizzes, dialogues, read-aloud scoring, progress tracking, timer, and navigation. See [English Roadmap](ROADMAP-ENGLISH.md). |
 | Shared local learning progress | **Proposed** | A versioned browser-local progress model for Japanese and English is planned; no backend or database is required. See [shared progress plan](#shared-local-learning-progress). |
 | CI/CD | **Established; improvement plan proposed** | PR validation, gated GitHub Pages releases, production verification, and rollback are in place. Trigger coverage and governance controls are the first review targets. See [CI/CD Roadmap](ROADMAP-CICD.md). |
 
@@ -29,7 +29,7 @@ Start with `GR-VERB-001` in [Japanese Roadmap](ROADMAP-JAPANESE.md): create the 
 These are documented directions, not the immediate work queue:
 
 - **CI/CD:** review CI trigger coverage first, then workflow/release-script validation and live repository protections. See [CI/CD Roadmap](ROADMAP-CICD.md).
-- **English:** confirm the audience and lesson conventions, then build the hub, **Sentence foundations**, and **Introductions and everyday conversation**. Proposed follow-on: contextual daily English based on device date, season, and holidays (`ENG-026` to `ENG-031`). See [English Roadmap](ROADMAP-ENGLISH.md).- **Shared progress:** define browser-local progress scoped by language, starting with Japanese Kana and English foundations practice. See the shared progress plan below.
+- **English:** contextual daily English based on device date, season, and holidays is implemented (`ENG-026` to `ENG-036` and follow-ups). See [English Roadmap](ROADMAP-ENGLISH.md).- **Shared progress:** define browser-local progress scoped by language, starting with Japanese Kana and English foundations practice. See the shared progress plan below.
 
 ## Completed work at a glance
 
@@ -43,7 +43,7 @@ These are documented directions, not the immediate work queue:
 | **Vocabulary: Numbers** | A Number ladder organized by place value, with Kanji, Kana, Romaji, reading notes, and combined-number examples. |
 | **Vocabulary: Time** | A fixed sample calendar, dates and months, day/night references, parts of the day, frequency, and hour/minute readings. |
 | **Vocabulary: First introductions** | Words and expressions for names, people, occupations, origins, and meeting someone for the first time. |
-| **English learning entry point** | English appears on the language selection page with a “Coming soon” status. |
+| **English learning entry point** | English is available on the language selection page and opens Today’s English. |
 
 ### Engineering and delivery
 
