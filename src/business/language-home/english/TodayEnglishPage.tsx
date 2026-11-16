@@ -102,8 +102,22 @@ export function TodayEnglishPage() {
 
       <section className="english-today-hero">
         <article className="english-today-card english-today-context">
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
-            <h1 className="english-today-title" style={{ margin: 0 }}>Today’s English</h1>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
+            <div className="english-donut" aria-label={`Tổng thể ${overallProgress}%`}>
+              <svg viewBox="0 0 42 42" width="72" height="72">
+                <circle cx="21" cy="21" r="18" fill="none" stroke="#e7e5de" strokeWidth="4" />
+                <circle
+                  cx="21" cy="21" r="18" fill="none"
+                  stroke={overallProgress >= 80 ? '#2f7a55' : overallProgress >= 50 ? '#b7791f' : '#c0392b'}
+                  strokeWidth="4" strokeLinecap="round"
+                  strokeDasharray={`${(overallProgress / 100) * 113.1} 113.1`}
+                  transform="rotate(-90 21 21)"
+                />
+                <text x="21" y="24" textAnchor="middle" fontSize="11" fontWeight="700" fill="#18253a">
+                  {overallProgress}%
+                </text>
+              </svg>
+            </div>
             <span className="english-today-overall">
               Tổng thể: <span className={scoreClass(overallProgress)}>{overallProgress}%</span>
             </span>
