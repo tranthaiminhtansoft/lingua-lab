@@ -6,6 +6,7 @@ import {
   isTopicAvailableApi,
 } from './services/englishContentApi';
 import type { EnglishTopic, TodayEnglishContext } from './content/todayEnglish';
+import { isTopicVisible } from './content/todayEnglish';
 import { getTopicTimeLimit } from './content/todayEnglish';
 import {
   readProgress,
@@ -134,7 +135,7 @@ export function TodayEnglishPage() {
           <h2>Hôm nay có các chủ đề này. Bạn muốn chọn chủ đề nào để học?</h2>
         </div>
         <div className="english-today-topic-grid">
-          {context.topics.map((topic) => {
+          {context.topics.filter((topic) => isTopicVisible(topic, today)).map((topic) => {
             const available = isTopicAvailableApi(topic, today);
             const tp = getTopicProgress(progress, topic.id, topic.vocab.map((item) => item.term), topic.grammar.map((item) => item.example));
             return (

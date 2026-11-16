@@ -3,7 +3,7 @@ import { Link, Outlet, useLocation } from 'react-router-dom';
 import { lessons } from '../business/language-home/nihongo/lessonRegistry';
 import {
   getTodayEnglishContext,
-  isTopicAvailable,
+  isTopicVisible,
 } from '../business/language-home/english/content/todayEnglish';
 
 export function AppShell() {
@@ -12,7 +12,7 @@ export function AppShell() {
   const isEnglishHome = pathname === '/english';
   const isEnglishTopic = pathname.startsWith('/english/');
   const englishTopics = isEnglishTopic
-    ? getTodayEnglishContext().topics.filter((topic) => isTopicAvailable(topic))
+    ? getTodayEnglishContext().topics.filter((topic) => isTopicVisible(topic))
     : [];
   const headerClass = [
     'site-header',

@@ -1574,6 +1574,22 @@ export function isTopicAvailable(topic: EnglishTopic, date = new Date()): boolea
   return topic.availableFrom <= dateKey(date);
 }
 
+/** A coming-soon topic is only shown when it is within this many days. */
+export const COMING_SOON_WINDOW_DAYS = 60;
+
+export function isTopicVisible(topic: EnglishTopic, date = new Date(), windowDays = COMING_SOON_WINDOW_DAYS): boolean {
+  if (isTopicAvailable(topic, date)) return true;
+  const today = dateKey(date);
+  const available = topic.availableFrom;
+  // Both are ISO YYYY-MM-DD strings, so compare by day count.
+  const [ay, am, ad] = available.split('-').map(Number);
+  const [ty, tm, td] = today.split('-').map(Number);
+  const availableDate = new Date(ay, am - 1, ad);
+  const todayDate = new Date(ty, tm - 1, td);
+  const diff = Math.round((availableDate.getTime() - todayDate.getTime()) / 86_400_000);
+  return diff >= 0 && diff <= windowDays;
+}
+
 export function getTopicTimeLimit(topic: EnglishTopic): number {
   if (typeof topic.timeLimit === 'number' && topic.timeLimit > 0) return topic.timeLimit;
   const minutes = Math.ceil(topic.vocab.length * 0.4 + topic.grammar.length * 1 + topic.dialogue.length * 0.5);
