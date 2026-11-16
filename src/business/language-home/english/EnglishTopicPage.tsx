@@ -191,16 +191,8 @@ function playFeedbackSound(correct: boolean) {
       playTone(880, 0.13, 0.16, 1.0);
       playTone(1046, 0.3, 0.2, 1.0);
     } else {
-      const oscillator = audioContext.createOscillator();
-      const gain = audioContext.createGain();
-      oscillator.type = 'sawtooth';
-      oscillator.frequency.value = 150;
-      gain.gain.setValueAtTime(1.0, now);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.5);
-      oscillator.connect(gain);
-      gain.connect(audioContext.destination);
-      oscillator.start(now);
-      oscillator.stop(now + 0.5);
+      playTone(392, 0, 0.16, 1.0);
+      playTone(294, 0.18, 0.2, 1.0);
     }
     window.setTimeout(() => {
       void audioContext.close();
