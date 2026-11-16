@@ -448,7 +448,16 @@ export function EnglishTopicPage() {
           <div className="english-today-list">
             {topic.grammar.map((item) => (
               <div className="english-today-item" key={item.title}>
-                <strong>{item.title}</strong>
+                <div className="english-today-grammar-head">
+                  <strong>{item.title}</strong>
+                  <span className="english-today-grammar-tag">{item.category}</span>
+                </div>
+                <span className="english-today-formula">
+                  <span className="formula-label">Công thức</span>
+                  {item.formula.split(' · ').map((part) => (
+                    <code key={part}>{part}</code>
+                  ))}
+                </span>
                 <span>{item.example}</span>
               </div>
             ))}

@@ -26,3 +26,49 @@ test('future holiday topics stay unavailable until their date', () => {
   expect(isTopicAvailable(blackFriday!, new Date(2026, 10, 15))).toBe(false);
   expect(isTopicAvailable(blackFriday!, new Date(2026, 10, 28))).toBe(true);
 });
+
+test('daily vocabulary sets rotate instead of repeating', () => {
+  const vocabByTopic = new Map<string, Set<string>>();
+  for (let day = 1; day <= 8; day += 1) {
+    for (const topic of getTodayEnglishContext(new Date(2026, 10, day)).topics.filter((item) => item.daily)) {
+      expect(topic.vocab).toHaveLength(9);
+      const set = vocabByTopic.get(topic.id) ?? new Set<string>();
+      set.add(topic.vocab.map((item) => item.term).join('|'));
+      vocabByTopic.set(topic.id, set);
+    }
+  }
+  expect([...vocabByTopic.values()].some((sets) => sets.size > 1)).toBe(true);
+});
+
+test('daily quizzes mix curated and vocabulary questions with valid answers', () => {
+  for (const topic of getTodayEnglishContext(new Date(2026, 10, 15)).topics) {
+    expect(topic.quizzes).toHaveLength(4);
+    for (const quiz of topic.quizzes) {
+      expect(quiz.options[quiz.answerIndex]).toBeTruthy();
+      expect(quiz.options.length).toBe(3);
+    }
+  }
+});
+
+test('dialogue variants rotate by date', () => {
+  const dialoguesByTopic = new Map<string, Set<string>>();
+  for (let day = 1; day <= 8; day += 1) {
+    for (const topic of getTodayEnglishContext(new Date(2026, 10, day)).topics.filter((item) => item.daily)) {
+      const set = dialoguesByTopic.get(topic.id) ?? new Set<string>();
+      set.add(topic.dialogue.join('|'));
+      dialoguesByTopic.set(topic.id, set);
+    }
+  }
+  expect([...dialoguesByTopic.values()].some((sets) => sets.size > 1)).toBe(true);
+});
+
+test('every grammar point has a category, a formula, and an example', () => {
+  for (const topic of getTodayEnglishContext(new Date(2026, 10, 15)).topics) {
+    expect(topic.grammar.length).toBeGreaterThanOrEqual(4);
+    for (const item of topic.grammar) {
+      expect(item.category.length).toBeGreaterThan(0);
+      expect(item.formula.length).toBeGreaterThan(0);
+      expect(item.example.length).toBeGreaterThan(0);
+    }
+  }
+});

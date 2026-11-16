@@ -7,6 +7,10 @@ export type EnglishVocabularyItem = {
 
 export type EnglishGrammarItem = {
   title: string;
+  /** Grammar group such as Tense, Modal, Conditional, Passive… */
+  category: string;
+  /** Pattern to memorise, e.g. S + have/has + V3. */
+  formula: string;
   example: string;
 };
 
@@ -34,6 +38,8 @@ export type EnglishTopic = {
   quizzes: EnglishQuiz[];
   readExpected: string;
   dialogue: string[];
+  /** Extra dialogue variants that rotate by date. */
+  dialogueVariants?: string[][];
 };
 
 export type TodayEnglishContext = {
@@ -97,10 +103,15 @@ const TOPICS: EnglishTopic[] = [
       { term: 'monitoring', meaning: 'giám sát', pronunciation: '/ˈmɒnɪtərɪŋ/', score: 0 },
       { term: 'runbook', meaning: 'tài liệu xử lý', pronunciation: '/ˈrʌnbʊk/', score: 0 },
       { term: 'postmortem', meaning: 'đánh giá sau sự cố', pronunciation: '/ˌpəʊstˈmɔːtəm/', score: 0 },
+      { term: 'escalation', meaning: 'leo thang sự cố', pronunciation: '/ˌeskəˈleɪʃən/', score: 0 },
+      { term: 'on-call', meaning: 'trực sự cố', pronunciation: '/ˌɒn ˈkɔːl/', score: 0 },
+      { term: 'mitigation', meaning: 'biện pháp giảm thiểu', pronunciation: '/ˌmɪtɪˈɡeɪʃən/', score: 0 },
     ],
     grammar: [
-      { title: 'Present perfect for updates', example: 'We have deployed the fix to staging.' },
-      { title: 'Present perfect continuous for ongoing work', example: 'We have been monitoring the cluster since the incident.' },
+      { title: 'Present perfect for updates', category: 'Tense', formula: 'S + have/has + V3 + O · (-) S + haven’t/hasn’t + V3 + O · (?) Have/Has + S + V3 + O?', example: 'We have deployed the fix to staging.' },
+      { title: 'Present perfect continuous for ongoing work', category: 'Tense', formula: 'S + have/has + been + V-ing + (for/since + time)', example: 'We have been monitoring the cluster since the incident.' },
+      { title: 'First conditional for risk', category: 'Conditional', formula: 'If + S + V(present), S + will/can + V + O', example: 'If the error rate spikes, we roll back.' },
+      { title: 'Passive for incident reports', category: 'Passive', formula: 'S + was/were + V3 (+ by + agent)', example: 'The service was restored at 9:15.' },
     ],
     examples: [
       'We rolled back the last deployment because the error rate spiked.',
@@ -149,6 +160,16 @@ const TOPICS: EnglishTopic[] = [
       'A: Not yet, but we’re checking the timeout configuration.',
       'B: Great. Let’s write the postmortem and update the runbook today.',
     ],
+    dialogueVariants: [
+      [
+        'A: Can we go over yesterday’s incident?',
+        'B: Sure. The API latency went up around noon.',
+        'A: Did the rollback fix it?',
+        'B: Yes, but we still don’t know the root cause.',
+        'A: Let’s add more monitoring and check again tomorrow.',
+        'B: I’ll open a ticket and assign an owner.',
+      ],
+    ],
   },
   {
     id: 'neighbor-morning',
@@ -167,10 +188,15 @@ const TOPICS: EnglishTopic[] = [
       { term: 'neighbor', meaning: 'hàng xóm', pronunciation: '/ˈneɪbə/', score: 0 },
       { term: 'small talk', meaning: 'chuyện xã giao ngắn', pronunciation: '/smɔːl tɔːk/', score: 0 },
       { term: 'take care', meaning: 'giữ gìn sức khoẻ', pronunciation: '/teɪk keə/', score: 0 },
+      { term: 'elevator', meaning: 'thang máy', pronunciation: '/ˈelɪveɪtə/', score: 0 },
+      { term: 'front door', meaning: 'cửa chính', pronunciation: '/ˌfrʌnt ˈdɔː/', score: 0 },
+      { term: 'have a nice day', meaning: 'chúc ngày tốt lành', pronunciation: '/hæv ə naɪs deɪ/', score: 0 },
     ],
     grammar: [
-      { title: 'Present continuous for now', example: 'I’m just heading to the station.' },
-      { title: 'Question tags for small talk', example: 'Lovely morning, isn’t it?' },
+      { title: 'Present continuous for now', category: 'Tense', formula: 'S + am/is/are + V-ing + O (+ now/right now)', example: 'I’m just heading to the station.' },
+      { title: 'Question tags for small talk', category: 'Question tag', formula: 'Positive statement, + negative tag? / Negative statement, + positive tag?', example: 'Lovely morning, isn’t it?' },
+      { title: 'Adverbs of frequency', category: 'Adverb', formula: 'S + adverb + V + O (before main verb, after “be”)', example: 'I usually leave around seven.' },
+      { title: 'Present simple for facts', category: 'Tense', formula: 'S + V(s/es) + O · (-) S + don’t/doesn’t + V + O · (?) Do/Does + S + V + O?', example: 'She works near my building.' },
     ],
     examples: [
       'Morning! Lovely weather today, isn’t it?',
@@ -219,6 +245,16 @@ const TOPICS: EnglishTopic[] = [
       'A: It really is. Let’s catch up this weekend.',
       'B: Sounds good. Have a good one!',
     ],
+    dialogueVariants: [
+      [
+        'A: Good morning! You’re out early.',
+        'B: Yeah, I’m heading to the gym before work.',
+        'A: Nice. How’s the family?',
+        'B: Everyone’s good, thanks. How about yours?',
+        'A: All fine. I’ll see you around.',
+        'B: Take care!',
+      ],
+    ],
   },
   {
     id: 'daily-meals',
@@ -237,10 +273,15 @@ const TOPICS: EnglishTopic[] = [
       { term: 'home-cooked', meaning: 'nấu tại nhà', pronunciation: '/ˌhəʊm ˈkʊkt/', score: 0 },
       { term: 'leftovers', meaning: 'đồ ăn thừa', pronunciation: '/ˈleftəʊvəz/', score: 0 },
       { term: 'balanced meal', meaning: 'bữa ăn cân đối', pronunciation: '/ˈbælənst miːl/', score: 0 },
+      { term: 'snack', meaning: 'bữa phụ', pronunciation: '/snæk/', score: 0 },
+      { term: 'bowl', meaning: 'cái bát', pronunciation: '/bəʊl/', score: 0 },
+      { term: 'grilled', meaning: 'món nướng', pronunciation: '/ɡrɪld/', score: 0 },
     ],
     grammar: [
-      { title: 'Adverbs of frequency', example: 'I usually have rice for lunch.' },
-      { title: 'Portions with countable and uncountable nouns', example: 'I’d like a bowl of soup and some rice.' },
+      { title: 'Adverbs of frequency', category: 'Adverb', formula: 'S + adverb + V + O · (-) S + don’t/doesn’t usually + V + O · (?) Do/Does + S + usually + V + O?', example: 'I usually have rice for lunch.' },
+      { title: 'Portions with countable and uncountable nouns', category: 'Quantifier', formula: 'a/an + N (countable) · some + N (uncountable/plural) · a bowl of + N', example: 'I’d like a bowl of soup and some rice.' },
+      { title: 'Present simple for habits', category: 'Tense', formula: 'S + V(s/es) + O + time · (-) S + don’t/doesn’t + V + O · (?) Do/Does + S + V + O?', example: 'I have breakfast at seven every day.' },
+      { title: '‘would like’ for ordering', category: 'Modal', formula: 'S + would like + N / to + V + O · (-) S + wouldn’t like + N · (?) Would + S + like + N?', example: 'I’d like some tea, please.' },
     ],
     examples: [
       'I usually grab a quick breakfast, but I cook dinner at home.',
@@ -285,6 +326,16 @@ const TOPICS: EnglishTopic[] = [
       'A: Yeah, my team is going out. Do you want to join?',
       'B: I’d love to, but I brought leftovers.',
     ],
+    dialogueVariants: [
+      [
+        'A: What are you having for lunch?',
+        'B: Rice, grilled fish, and soup. What about you?',
+        'A: I’m skipping lunch today because I had a late breakfast.',
+        'B: That’s not great. Grab something small later.',
+        'A: Yeah, maybe a banana and some yogurt.',
+        'B: Good. And don’t skip dinner.',
+      ],
+    ],
   },
   {
     id: 'autumn-routine',
@@ -303,8 +354,10 @@ const TOPICS: EnglishTopic[] = [
       { term: 'balanced', meaning: 'cân bằng', pronunciation: '/ˈbælənst/', score: 0 },
     ],
     grammar: [
-      { title: 'Present simple for routines', example: 'I usually walk in the park in autumn.' },
-      { title: 'Present continuous for temporary changes', example: 'I’m trying to sleep earlier this week.' },
+      { title: 'Present simple for routines', category: 'Tense', formula: 'S + V(s/es) + O + (usually/every day) · (-) S + don’t/doesn’t + V + O · (?) Do/Does + S + V + O?', example: 'I usually walk in the park in autumn.' },
+      { title: 'Present continuous for temporary changes', category: 'Tense', formula: 'S + am/is/are + V-ing + O + (this week/now)', example: 'I’m trying to sleep earlier this week.' },
+      { title: 'Comparatives for seasons', category: 'Comparison', formula: 'N1 + be + adj-er / more adj + than + N2', example: 'The days are shorter than in summer.' },
+      { title: '‘going to’ for intentions', category: 'Future', formula: 'S + am/is/are + going to + V + O', example: 'I’m going to cycle to work more often.' },
     ],
     examples: [
       'In autumn, I usually feel more focused, so I plan heavier tasks in the morning.',
@@ -369,8 +422,10 @@ const TOPICS: EnglishTopic[] = [
       { term: 'workload', meaning: 'khối lượng công việc', pronunciation: '/ˈwɜːkləʊd/', score: 0 },
     ],
     grammar: [
-      { title: 'Present perfect for progress', example: 'We have finished the first review.' },
-      { title: 'Passive for status', example: 'The deployment was rolled back.' },
+      { title: 'Present perfect for progress', category: 'Tense', formula: 'S + have/has + V3 + O · (-) S + haven’t/hasn’t + V3 + O · (?) Have/Has + S + V3 + O?', example: 'We have finished the first review.' },
+      { title: 'Passive for status', category: 'Passive', formula: 'S + was/were + V3 (+ by + agent)', example: 'The deployment was rolled back.' },
+      { title: '‘will’ for commitments', category: 'Modal', formula: 'S + will + V + O · (-) S + won’t + V + O · (?) Will + S + V + O?', example: 'I’ll hand off the logs after this meeting.' },
+      { title: 'Modals of possibility', category: 'Modal', formula: 'S + may/might/could + V + O', example: 'We might miss the deadline.' },
     ],
     examples: [
       'We’re on track, but we still have one blocker with the API.',
@@ -439,8 +494,10 @@ const TOPICS: EnglishTopic[] = [
       { term: 'sold out', meaning: 'hết hàng', pronunciation: '/səʊld aʊt/', score: 0 },
     ],
     grammar: [
-      { title: 'Comparatives', example: 'This laptop is cheaper than that one.' },
-      { title: 'Whether for choices', example: 'We need to decide whether to buy now or wait.' },
+      { title: 'Comparatives', category: 'Comparison', formula: 'N1 + be + adj-er / more adj + than + N2', example: 'This laptop is cheaper than that one.' },
+      { title: 'Superlatives', category: 'Comparison', formula: 'S + be + the + adj-est / most adj + N', example: 'This is the cheapest option.' },
+      { title: '‘whether’ for choices', category: 'Clause', formula: 'S + decide + whether + to + V + O', example: 'We need to decide whether to buy now or wait.' },
+      { title: 'Imperatives for advice', category: 'Imperative', formula: 'V + O · (-) Don’t + V + O', example: 'Check the price before you buy.' },
     ],
     examples: [
       'This deal looks good, but I’m not sure whether it is worth it.',
@@ -505,10 +562,15 @@ const TOPICS: EnglishTopic[] = [
       { term: 'go/no-go', meaning: 'quyết định triển khai hay không', pronunciation: '/ɡəʊ nəʊ ɡəʊ/', score: 0 },
       { term: 'capacity', meaning: 'năng lực hệ thống', pronunciation: '/kəˈpæsəti/', score: 0 },
       { term: 'smoke test', meaning: 'kiểm tra nhanh', pronunciation: '/sməʊk test/', score: 0 },
+      { term: 'changelog', meaning: 'nhật ký thay đổi', pronunciation: '/ˈtʃeɪndʒlɒɡ/', score: 0 },
+      { term: 'feature flag', meaning: 'cờ tính năng', pronunciation: '/ˈfiːtʃə flæɡ/', score: 0 },
+      { term: 'hotfix', meaning: 'bản vá nóng', pronunciation: '/ˈhɒtfɪks/', score: 0 },
     ],
     grammar: [
-      { title: 'Present continuous for future arrangements', example: 'We’re releasing on Thursday.' },
-      { title: 'Modals for obligation', example: 'We need to freeze the code by Wednesday.' },
+      { title: 'Present continuous for future arrangements', category: 'Future', formula: 'S + am/is/are + V-ing + O + future time', example: 'We’re releasing on Thursday.' },
+      { title: 'Modals for obligation', category: 'Modal', formula: 'S + need to / must / have to + V + O · (-) S + don’t need to + V + O · (?) Do + S + need to + V + O?', example: 'We need to freeze the code by Wednesday.' },
+      { title: 'First conditional for rollout', category: 'Conditional', formula: 'If + S + V(present) + O, S + will + V + O', example: 'If the canary looks healthy, we’ll roll out.' },
+      { title: 'Passive with modals', category: 'Passive', formula: 'S + modal + be + V3 (+ by + agent)', example: 'The code must be frozen by Wednesday.' },
     ],
     examples: [
       'We’re releasing on Thursday, so the code freeze starts tonight.',
@@ -557,6 +619,16 @@ const TOPICS: EnglishTopic[] = [
       'A: What about the canary?',
       'B: We’ll check it at nine and make the go/no-go call.',
     ],
+    dialogueVariants: [
+      [
+        'A: Is the release still on for Thursday?',
+        'B: Yes, but we need approval from security.',
+        'A: Any risks in the rollback plan?',
+        'B: The database migration is the main one.',
+        'A: Then let’s run a smoke test in staging tonight.',
+        'B: Agreed. I’ll post the go/no-go decision tomorrow morning.',
+      ],
+    ],
   },
   {
     id: 'neighbor-weekend',
@@ -575,10 +647,15 @@ const TOPICS: EnglishTopic[] = [
       { term: 'catch up', meaning: 'trò chuyện', pronunciation: '/kætʃ ʌp/', score: 0 },
       { term: 'take care of', meaning: 'chăm sóc', pronunciation: '/teɪk keə əv/', score: 0 },
       { term: 'have a good weekend', meaning: 'chúc cuối tuần vui vẻ', pronunciation: '/hæv ə ɡʊd ˌwiːkˈend/', score: 0 },
+      { term: 'fence', meaning: 'hàng rào', pronunciation: '/fens/', score: 0 },
+      { term: 'ladder', meaning: 'cái thang', pronunciation: '/ˈlædə/', score: 0 },
+      { term: 'herbs', meaning: 'rau thơm', pronunciation: '/hɜːbz/', score: 0 },
     ],
     grammar: [
-      { title: '‘going to’ for plans', example: 'I’m going to fix the fence this weekend.' },
-      { title: 'Polite requests with ‘could’', example: 'Could you lend me a ladder?' },
+      { title: '‘going to’ for plans', category: 'Future', formula: 'S + am/is/are + going to + V + O · (-) S + am/is/are + not + going to + V + O · (?) Am/Is/Are + S + going to + V + O?', example: 'I’m going to fix the fence this weekend.' },
+      { title: 'Polite requests with ‘could’', category: 'Request', formula: 'Could + you + V + O, please?', example: 'Could you lend me a ladder?' },
+      { title: 'Zero conditional for facts', category: 'Conditional', formula: 'If + S + V(present), S + V(present)', example: 'If it rains, I stay home.' },
+      { title: '‘like/enjoy’ + V-ing', category: 'Gerund', formula: 'S + like/love/enjoy + V-ing + O', example: 'I enjoy walking in the park at weekends.' },
     ],
     examples: [
       'Are you doing anything fun this weekend?',
@@ -627,6 +704,16 @@ const TOPICS: EnglishTopic[] = [
       'A: Sure, no problem. I’ll drop them off in the afternoon.',
       'B: Thanks! Have a good weekend.',
     ],
+    dialogueVariants: [
+      [
+        'A: Any plans for Saturday?',
+        'B: I’m going to the local market with my kids.',
+        'A: That sounds fun. Is the forecast good?',
+        'B: Sunny, finally. Do you need anything?',
+        'A: Could you get me some herbs if you see them?',
+        'B: Of course. I’ll drop them off later.',
+      ],
+    ],
   },
   {
     id: 'eating-out',
@@ -645,10 +732,15 @@ const TOPICS: EnglishTopic[] = [
       { term: 'takeaway', meaning: 'đồ mang về', pronunciation: '/ˈteɪkəweɪ/', score: 0 },
       { term: 'tip', meaning: 'tiền boa', pronunciation: '/tɪp/', score: 0 },
       { term: 'reservation', meaning: 'đặt bàn', pronunciation: '/ˌrezəˈveɪʃən/', score: 0 },
+      { term: 'vegetarian', meaning: 'món chay', pronunciation: '/ˌvedʒəˈteəriən/', score: 0 },
+      { term: 'table for two', meaning: 'bàn hai người', pronunciation: '/ˌteɪbl fə ˈtuː/', score: 0 },
+      { term: 'lemonade', meaning: 'nước chanh', pronunciation: '/ˌleməˈneɪd/', score: 0 },
     ],
     grammar: [
-      { title: 'Polite requests with ‘could’', example: 'Could we have the bill, please?' },
-      { title: 'Quantifiers with food', example: 'Could I have a little more rice?' },
+      { title: 'Polite requests with ‘could’', category: 'Request', formula: 'Could + we/I + V + O, please?', example: 'Could we have the bill, please?' },
+      { title: 'Quantifiers with food', category: 'Quantifier', formula: 'a little + N (uncountable) · a few + N (countable) · O', example: 'Could I have a little more rice?' },
+      { title: '‘Would you like …?’ offers', category: 'Modal', formula: 'Would + you + like + N / to + V + O?', example: 'Would you like some dessert?' },
+      { title: '‘too / enough’', category: 'Adverb', formula: 'S + be + too + adj (+ for + O) · S + be + adj + enough + to + V', example: 'This soup is too spicy for me.' },
     ],
     examples: [
       'Could we have the bill, please?',
@@ -697,6 +789,16 @@ const TOPICS: EnglishTopic[] = [
       'A: The grilled chicken is popular, and it isn’t too spicy.',
       'B: Great. We’ll take that, and could we split the bill later?',
     ],
+    dialogueVariants: [
+      [
+        'A: Do you have a table for two?',
+        'B: Sure, right this way. Here are the menus.',
+        'A: Thanks. Do you have any vegetarian options?',
+        'B: Yes, the mushroom pasta is very good.',
+        'A: We’ll order that and two lemonades.',
+        'B: Great. Would you like to keep the bill together?',
+      ],
+    ],
   },
   {
     id: 'meal-prep',
@@ -715,10 +817,15 @@ const TOPICS: EnglishTopic[] = [
       { term: 'stay hydrated', meaning: 'uống đủ nước', pronunciation: '/steɪ ˈhaɪdreɪtɪd/', score: 0 },
       { term: 'junk food', meaning: 'đồ ăn vặt', pronunciation: '/dʒʌŋk fuːd/', score: 0 },
       { term: 'meal prep', meaning: 'chuẩn bị bữa ăn', pronunciation: '/miːl prep/', score: 0 },
+      { term: 'yogurt', meaning: 'sữa chua', pronunciation: '/ˈjɒɡət/', score: 0 },
+      { term: 'vegetables', meaning: 'rau củ', pronunciation: '/ˈvedʒtəblz/', score: 0 },
+      { term: 'whole grains', meaning: 'ngũ cốc nguyên hạt', pronunciation: '/həʊl ɡreɪnz/', score: 0 },
     ],
     grammar: [
-      { title: '‘should’ for advice', example: 'You should prep meals on Sunday.' },
-      { title: 'Adverbs of frequency', example: 'I rarely order junk food during the week.' },
+      { title: '‘should’ for advice', category: 'Modal', formula: 'S + should/shouldn’t + V + O · (?) Should + S + V + O?', example: 'You should prep meals on Sunday.' },
+      { title: 'Adverbs of frequency', category: 'Adverb', formula: 'S + adverb + V + O · (-) S + rarely/never + V + O', example: 'I rarely order junk food during the week.' },
+      { title: 'Gerunds as subjects', category: 'Gerund', formula: 'V-ing + V(singular) + O', example: 'Prepping meals saves time.' },
+      { title: 'Purpose with ‘to’ and ‘so that’', category: 'Purpose', formula: 'S + V + O + to + V / so that + S + can + V', example: 'I prep meals to save time.' },
     ],
     examples: [
       'I do meal prep on Sunday so I eat better during the week.',
@@ -763,6 +870,16 @@ const TOPICS: EnglishTopic[] = [
       'A: Do you ever order junk food?',
       'B: Rarely. I keep fruit at home and stay hydrated.',
     ],
+    dialogueVariants: [
+      [
+        'A: Your lunch looks healthy.',
+        'B: Thanks. I did meal prep on Sunday.',
+        'A: What’s in it?',
+        'B: Rice, chicken, and a lot of vegetables.',
+        'A: I should try that. Any tips?',
+        'B: Start with two recipes and don’t skip breakfast.',
+      ],
+    ],
   },
 ];
 
@@ -770,6 +887,67 @@ const DAILY_THEMES: EnglishTheme[] = ['devops', 'neighbor', 'meals'];
 
 function dayNumber(date: Date): number {
   return Math.floor(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) / 86_400_000);
+}
+
+function hashText(value: string): number {
+  let hash = 7;
+  for (let i = 0; i < value.length; i += 1) hash = (hash * 31 + value.charCodeAt(i)) % 1_000_003;
+  return hash;
+}
+
+function seededShuffle<T>(items: T[], seed: number): T[] {
+  const result = [...items];
+  let value = Math.abs(seed) + 1;
+  for (let i = result.length - 1; i > 0; i -= 1) {
+    value = (value * 1_103_515_245 + 12_345) % 2_147_483_648;
+    const j = value % (i + 1);
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+}
+
+function rotate<T>(items: T[], offset: number): T[] {
+  if (items.length === 0) return items;
+  const start = ((offset % items.length) + items.length) % items.length;
+  return [...items.slice(start), ...items.slice(0, start)];
+}
+
+function pickDailyVocab(topic: EnglishTopic, seed: number, size = 9): EnglishVocabularyItem[] {
+  const ordered = rotate(topic.vocab, seed);
+  return ordered.slice(0, Math.min(size, ordered.length));
+}
+
+function pickDailyDialogue(topic: EnglishTopic, seed: number): string[] {
+  const variants = [topic.dialogue, ...(topic.dialogueVariants ?? [])];
+  return [...variants[Math.abs(seed) % variants.length]];
+}
+
+function shuffleQuizOptions(quiz: EnglishQuiz, seed: number): EnglishQuiz {
+  const correct = quiz.options[quiz.answerIndex];
+  const options = seededShuffle(quiz.options, seed);
+  return { ...quiz, options, answerIndex: Math.max(0, options.indexOf(correct)) };
+}
+
+function buildDailyQuizzes(
+  topic: EnglishTopic,
+  vocab: EnglishVocabularyItem[],
+  seed: number,
+): EnglishQuiz[] {
+  const target = vocab[Math.abs(seed) % vocab.length];
+  const distractors = seededShuffle(
+    vocab.filter((item) => item.term !== target.term),
+    seed + 13,
+  ).slice(0, 2).map((item) => item.term);
+  const options = seededShuffle([target.term, ...distractors], seed + 29);
+  const vocabularyQuiz: EnglishQuiz = {
+    question: `Which word means “${target.meaning}”?`,
+    options,
+    answerIndex: Math.max(0, options.indexOf(target.term)),
+    explanation: `${target.term} means ${target.meaning}.`,
+  };
+  const curated = seededShuffle(topic.quizzes, seed + 41).slice(0, 3);
+  return seededShuffle([...curated, vocabularyQuiz], seed + 53)
+    .map((quiz, index) => shuffleQuizOptions(quiz, seed + index));
 }
 
 export function getDailyTopics(date = new Date()): EnglishTopic[] {
@@ -783,15 +961,26 @@ export function getDailyTopics(date = new Date()): EnglishTopic[] {
 
 export function getTodayEnglishContext(date = new Date()): TodayEnglishContext {
   const todayKey = dateKey(date);
+  const day = dayNumber(date);
   // Daily themes rotate by date so the same three topics do not repeat every day.
   const ordered = [
     ...getDailyTopics(date),
     ...TOPICS.filter((topic) => !topic.daily),
   ];
-  const topics = ordered.map((topic) => ({
-    ...topic,
-    vocab: topic.vocab.map((item) => ({ ...item })),
-  }));
+  const topics = ordered.map((topic) => {
+    if (!topic.daily) {
+      return { ...topic, vocab: topic.vocab.map((item) => ({ ...item })) };
+    }
+    // Inside a daily topic, vocabulary, quizzes, and dialogue also rotate by date.
+    const seed = day * 97 + hashText(topic.id);
+    const vocab = pickDailyVocab(topic, seed);
+    return {
+      ...topic,
+      vocab: vocab.map((item) => ({ ...item })),
+      dialogue: pickDailyDialogue(topic, seed),
+      quizzes: buildDailyQuizzes(topic, vocab, seed),
+    };
+  });
   // Keep future topics visible as coming soon, but mark them by availableFrom.
   return {
     date: todayKey,
