@@ -225,6 +225,16 @@ function speakText(text: string) {
   window.speechSynthesis.speak(utterance);
 }
 
+function speakSlowly(text: string) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = 'en-US';
+  utterance.rate = 0.55;
+  utterance.pitch = 0.9;
+  window.speechSynthesis.speak(utterance);
+}
+
 export function EnglishTopicPage() {
   const { topicId } = useParams();
   const navigate = useNavigate();
@@ -572,6 +582,9 @@ export function EnglishTopicPage() {
                     <button className="english-today-button ghost" type="button" onClick={() => speakText(item.term)} disabled={isListening}>
                       🔊 Nghe mẫu
                     </button>
+                    <button className="english-today-button ghost" type="button" onClick={() => speakSlowly(item.term)} disabled={isListening}>
+                      🐢 Chậm
+                    </button>
                   </div>
                   {readNotice?.target === item.term && (
                     <div style={{ marginTop: 8, fontSize: 11, color: '#c0392b', lineHeight: 1.5 }}>
@@ -629,6 +642,9 @@ export function EnglishTopicPage() {
                     </button>
                     <button className="english-today-button ghost" type="button" onClick={() => speakText(item.example)} disabled={isListening}>
                       🔊 Nghe mẫu
+                    </button>
+                    <button className="english-today-button ghost" type="button" onClick={() => speakSlowly(item.example)} disabled={isListening}>
+                      🐢 Chậm
                     </button>
                   </div>
                 </div>
@@ -734,6 +750,9 @@ export function EnglishTopicPage() {
                             </button>
                             <button className="english-today-button ghost" type="button" onClick={() => speakText(cleanSentence(sentence))} disabled={isListening}>
                               🔊 Nghe mẫu
+                            </button>
+                            <button className="english-today-button ghost" type="button" onClick={() => speakSlowly(cleanSentence(sentence))} disabled={isListening}>
+                              🐢 Chậm
                             </button>
                           </div>
                           {readNotice?.target === messageText && (
