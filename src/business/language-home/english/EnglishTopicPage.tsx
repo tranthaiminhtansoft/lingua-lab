@@ -144,6 +144,31 @@ function getWordFeedback(expected: string, spoken: string): WordFeedback[] {
   });
 }
 
+function playListeningSound() {
+  try {
+    const audioContext = new AudioContext();
+    const now = audioContext.currentTime;
+    const playTone = (frequency: number, start: number, duration: number, volume: number) => {
+      const oscillator = audioContext.createOscillator();
+      const gain = audioContext.createGain();
+      oscillator.type = 'sine';
+      oscillator.frequency.value = frequency;
+      gain.gain.setValueAtTime(0, now + start);
+      gain.gain.linearRampToValueAtTime(volume, now + start + 0.01);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + start + duration);
+      oscillator.connect(gain);
+      gain.connect(audioContext.destination);
+      oscillator.start(now + start);
+      oscillator.stop(now + start + duration);
+    };
+    playTone(520, 0, 0.1, 0.16);
+    playTone(780, 0.11, 0.14, 0.16);
+    window.setTimeout(() => { void audioContext.close(); }, 320);
+  } catch {
+    // Ignore browsers that block audio.
+  }
+}
+
 function playFeedbackSound(correct: boolean) {
   try {
     const audioContext = new AudioContext();
@@ -162,15 +187,15 @@ function playFeedbackSound(correct: boolean) {
       oscillator.stop(now + start + duration);
     };
     if (correct) {
-      playTone(660, 0, 0.12, 0.08);
-      playTone(880, 0.13, 0.16, 0.08);
-      playTone(1046, 0.3, 0.2, 0.07);
+      playTone(660, 0, 0.12, 0.16);
+      playTone(880, 0.13, 0.16, 0.16);
+      playTone(1046, 0.3, 0.2, 0.14);
     } else {
       const oscillator = audioContext.createOscillator();
       const gain = audioContext.createGain();
       oscillator.type = 'sawtooth';
       oscillator.frequency.value = 150;
-      gain.gain.setValueAtTime(0.1, now);
+      gain.gain.setValueAtTime(0.18, now);
       gain.gain.exponentialRampToValueAtTime(0.001, now + 0.5);
       oscillator.connect(gain);
       gain.connect(audioContext.destination);
@@ -440,12 +465,15 @@ export function EnglishTopicPage() {
         message: 'Không nghe thấy giọng nói. Hãy thử lại và nói to, rõ hơn.',
       });
     };
-    try {
-      recognition.start();
-    } catch {
-      setIsListening(false);
-      setReadNotice({ target: expected, message: 'Không bắt đầu được micro. Hãy thử lại.' });
-    }
+    playListeningSound();
+    window.setTimeout(() => {
+      try {
+        recognition.start();
+      } catch {
+        setIsListening(false);
+        setReadNotice({ target: expected, message: 'Không bắt đầu được micro. Hãy thử lại.' });
+      }
+    }, 180);
   }
 
   if (!context) {
