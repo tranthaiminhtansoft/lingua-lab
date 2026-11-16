@@ -6,6 +6,7 @@ import {
   isTopicAvailableApi,
 } from './services/englishContentApi';
 import type { EnglishTopic, TodayEnglishContext } from './content/todayEnglish';
+import { getTopicTimeLimit } from './content/todayEnglish';
 import {
   readProgress,
   getTopicProgress,
@@ -19,6 +20,7 @@ export function TodayEnglishPage() {
   const [remoteVersion, setRemoteVersion] = useState<string | null>(null);
   const [versionChecked, setVersionChecked] = useState(false);
   const [today, setToday] = useState(() => new Date());
+  const [selectedTopic, setSelectedTopic] = useState<EnglishTopic | null>(null);
 
   useEffect(() => {
     void getContentVersionApi().then((version) => {
@@ -70,7 +72,16 @@ export function TodayEnglishPage() {
       window.alert('Chủ đề này đang Coming soon và sẽ mở từ ' + topic.availableFrom + '.');
       return;
     }
-    navigate(`/english/${topic.id}`);
+    setSelectedTopic(topic);
+  }
+
+  function startSelectedTopic() {
+    if (!selectedTopic) return;
+    const limitMinutes = getTopicTimeLimit(selectedTopic);
+    sessionStorage.setItem(`english-timer-${selectedTopic.id}`, String(Date.now() + limitMinutes * 60 * 1000));
+    const target = selectedTopic;
+    setSelectedTopic(null);
+    navigate(`/english/${target.id}`);
   }
 
   function handleRefresh() {
@@ -147,6 +158,29 @@ export function TodayEnglishPage() {
           })}
         </div>
       </section>
+
+      {selectedTopic && (
+        <div className="english-timer-modal-backdrop">
+          <div className="english-timer-modal" role="dialog" aria-modal="true">
+            <h2>{selectedTopic.title}</h2>
+            <p>{selectedTopic.description}</p>
+            <div className="english-timer-modal-time">
+              ⏱ Thời gian làm bài: <strong>{getTopicTimeLimit(selectedTopic)} phút</strong>
+            </div>
+            <p style={{ fontSize: 12, color: '#697382' }}>
+              Hoàn thành tất cả từ vựng, ngữ pháp và hội thoại trước khi hết giờ.
+            </p>
+            <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end', marginTop: 12 }}>
+              <button className="english-today-button ghost" type="button" onClick={() => setSelectedTopic(null)}>
+                Huỷ
+              </button>
+              <button className="english-today-button" type="button" onClick={startSelectedTopic}>
+                Bắt đầu làm bài
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }

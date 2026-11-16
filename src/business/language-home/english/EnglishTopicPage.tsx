@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import {
   getTodayEnglishContextApi,
@@ -210,10 +210,33 @@ export function EnglishTopicPage() {
   const [isListening, setIsListening] = useState(false);
   const [readFeedback, setReadFeedback] = useState<Record<string, string>>({});
   const [readNotice, setReadNotice] = useState<{ target: string; message: string } | null>(null);
+  const [timerDeadline, setTimerDeadline] = useState<number | null>(null);
+  const [timerRemaining, setTimerRemaining] = useState(0);
+  const [showFailModal, setShowFailModal] = useState(false);
+  const [showFloatingClock, setShowFloatingClock] = useState(false);
+  const timerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     void getTodayEnglishContextApi().then(setContext);
   }, []);
+
+  useEffect(() => {
+    const id = window.setTimeout(() => {
+      const stored = sessionStorage.getItem(`english-timer-${topicId}`);
+      if (stored) {
+        const deadline = Number(stored);
+        if (Number.isFinite(deadline)) {
+          setTimerDeadline(deadline);
+          setTimerRemaining(Math.max(0, Math.ceil((deadline - Date.now()) / 1000)));
+        }
+      } else {
+        setTimerDeadline(null);
+        setTimerRemaining(0);
+      }
+      setShowFailModal(false);
+    }, 0);
+    return () => window.clearTimeout(id);
+  }, [topicId]);
 
   useEffect(() => {
     // Keep progress in sync with the current day.
@@ -226,6 +249,7 @@ export function EnglishTopicPage() {
     };
   }, []);
 
+
   const topic = useMemo(
     () => context?.topics.find((item) => item.id === topicId) ?? null,
     [context, topicId],
@@ -235,6 +259,42 @@ export function EnglishTopicPage() {
     if (!topic) return null;
     return getTopicProgress(progress, topic.id, topic.vocab.map((item) => item.term), topic.grammar.map((item) => item.example), topic.dialogue);
   }, [progress, topic]);
+
+  useEffect(() => {
+    if (!timerDeadline) return;
+    const tick = () => {
+      const remaining = Math.max(0, Math.ceil((timerDeadline - Date.now()) / 1000));
+      setTimerRemaining(remaining);
+      if (remaining <= 0) {
+        const tp = topicProgress;
+        if (!tp?.completed) setShowFailModal(true);
+        sessionStorage.removeItem(`english-timer-${topicId}`);
+        setTimerDeadline(null);
+      }
+    };
+    tick();
+    const id = window.setInterval(tick, 1000);
+    return () => window.clearInterval(id);
+  }, [timerDeadline, topicProgress, topicId]);
+
+  useEffect(() => {
+    if (!timerDeadline || !timerRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setShowFloatingClock(!entry.isIntersecting),
+      { threshold: 0 },
+    );
+    observer.observe(timerRef.current);
+    return () => observer.disconnect();
+  }, [timerDeadline]);
+
+  useEffect(() => {
+    if (topicProgress?.completed && timerDeadline) {
+      sessionStorage.removeItem(`english-timer-${topicId}`);
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setTimerDeadline(null);
+      setShowFailModal(false);
+    }
+  }, [topicProgress?.completed, timerDeadline, topicId]);
 
   useEffect(() => {
     if (!context || !topic) return;
@@ -264,6 +324,37 @@ export function EnglishTopicPage() {
 
   function cleanSentence(value: string): string {
     return value.replace(/^[A-Z]:\s*/, '');
+  }
+
+  function formatTime(seconds: number): string {
+    const minutes = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+  }
+
+  function retryTopic() {
+    if (!topic) return;
+    const limit = Math.ceil(topic.vocab.length * 0.4 + topic.grammar.length * 1 + topic.dialogue.length * 0.5);
+    const minutes = Math.max(5, limit);
+    sessionStorage.setItem(`english-timer-${topic.id}`, String(Date.now() + minutes * 60 * 1000));
+    setReadFeedback({});
+    setReadNotice(null);
+    setDialogueIndex(0);
+    setQuizAnswers({});
+    const nextState = resetTopicProgress(progress, topic.id);
+    setProgress(nextState);
+    writeProgress(nextState);
+    setShowFailModal(false);
+    const deadline = Number(sessionStorage.getItem(`english-timer-${topic.id}`));
+    setTimerDeadline(deadline);
+    setTimerRemaining(Math.max(0, Math.ceil((deadline - Date.now()) / 1000)));
+  }
+
+  function exitToHome() {
+    if (topic) sessionStorage.removeItem(`english-timer-${topic.id}`);
+    setTimerDeadline(null);
+    setShowFailModal(false);
+    navigate('/english');
   }
 
   function applyReadScore(score: number, key?: string, kind: 'vocab' | 'grammar' | 'dialogue' = 'vocab') {
@@ -388,6 +479,11 @@ export function EnglishTopicPage() {
           </div>
           <Link className="english-today-button ghost" to="/english">Danh sách chủ đề</Link>
         </div>
+        {timerDeadline && (
+          <div ref={timerRef} className="english-topic-timer">
+            ⏱ {formatTime(timerRemaining)}
+          </div>
+        )}
 
         {topicProgress && (
           <div className="english-today-block">
@@ -635,6 +731,31 @@ export function EnglishTopicPage() {
           </section>
         </div>
       </section>
+      {showFloatingClock && timerDeadline && (
+        <div className="english-floating-clock">⏱ {formatTime(timerRemaining)}</div>
+      )}
+      {showFailModal && (
+        <div className="english-timer-modal-backdrop" role="dialog" aria-modal="true">
+          <div className="english-timer-modal">
+            <h2>Hết giờ!</h2>
+            <p>Bạn chưa hoàn thành chủ đề này.</p>
+            <div className="english-timer-modal-time">
+              Tiến độ hiện tại: <strong>{topicProgress?.progress ?? 0}%</strong>
+            </div>
+            <p style={{ fontSize: 12, color: '#697382' }}>
+              Chọn làm lại để thử lại từ đầu, hoặc thoát về trang chủ.
+            </p>
+            <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end', marginTop: 12 }}>
+              <button className="english-today-button ghost" type="button" onClick={exitToHome}>
+                Về trang chủ
+              </button>
+              <button className="english-today-button" type="button" onClick={retryTopic}>
+                Làm lại
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }

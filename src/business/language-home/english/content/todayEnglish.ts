@@ -32,6 +32,8 @@ export type EnglishTopic = {
   daily?: boolean;
   /** Only shown on Mondays. */
   mondayOnly?: boolean;
+  /** Suggested time limit in minutes for this topic. */
+  timeLimit?: number;
   /** Daily topics rotate within their theme. */
   theme?: EnglishTheme;
   vocab: EnglishVocabularyItem[];
@@ -1359,4 +1361,10 @@ export function getTodayEnglishContext(date = new Date()): TodayEnglishContext {
 
 export function isTopicAvailable(topic: EnglishTopic, date = new Date()): boolean {
   return topic.availableFrom <= dateKey(date);
+}
+
+export function getTopicTimeLimit(topic: EnglishTopic): number {
+  if (typeof topic.timeLimit === 'number' && topic.timeLimit > 0) return topic.timeLimit;
+  const minutes = Math.ceil(topic.vocab.length * 0.4 + topic.grammar.length * 1 + topic.dialogue.length * 0.5);
+  return Math.max(5, minutes);
 }
