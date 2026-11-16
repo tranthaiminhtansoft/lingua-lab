@@ -102,9 +102,8 @@ export function TodayEnglishPage() {
 
       <section className="english-today-hero">
         <article className="english-today-card english-today-context">
-          <p className="english-today-eyebrow">Hôm nay · Today</p>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
-            <h1 className="english-today-title" style={{ margin: 0 }}>{context.date}</h1>
+            <h1 className="english-today-title" style={{ margin: 0 }}>Today’s English</h1>
             <span className="english-today-overall">
               Tổng thể: <span className={scoreClass(overallProgress)}>{overallProgress}%</span>
             </span>
