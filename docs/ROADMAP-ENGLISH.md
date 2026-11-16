@@ -248,3 +248,17 @@ Daily English should merge the original learning scope with the daily model. Inc
 - [ ] `ENG-035` Track per-topic completion percentage and per-vocabulary pronunciation/read-aloud scores with clear red-to-green color coding; a vocabulary item counts as complete only after its read-aloud evaluation reaches the threshold, and every topic must reach 100% before overall progress can be 100%.
 - [ ] `ENG-036` Merge daily English with the original learning scope, including practical communication, story-extending connectors, and advanced adverb/adverbial usage.Keep the later groups as the proposed sequence; break them into implementation tasks after the first release boundary is reviewed. Do not assign dates until they are agreed.
 > Move an item to **Completed** when the feature is usable in the application. Add a target date only after it has been agreed.
+
+## Implemented features (2026-11)
+
+- `/english` hub and `/english/:topicId` topic pages with burger navigation.
+- Device-local date/season/holiday context; coming-soon markers with day countdown.
+- 20+ topics: 3 daily themes rotating by date (DevOps, neighbor, meals), weekend leisure/household, Monday psychology, seasonal and holiday topics.
+- 9 vocabulary items per topic in a 3-column grid; read-aloud scoring with 90% threshold; per-word red/yellow/green feedback.
+- Grammar with category, formula (S+V+O incl. negation/question), example, IPA pronunciation; read-aloud required.
+- Long dialogue with progressive reveal; each sentence must reach threshold.
+- Quizzes (4 per topic) with sound feedback; rotating daily quiz sets.
+- Per-topic progress and reset; overall progress as donut chart.
+- Per-topic countdown timer with fail popup and retry/home actions.
+- Speaker buttons (normal + slow) and correct/incorrect sound feedback.
+- Daily progress reset at midnight.
