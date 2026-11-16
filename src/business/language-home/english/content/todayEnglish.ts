@@ -30,6 +30,8 @@ export type EnglishTopic = {
   availableFrom: string;
   /** Daily essentials stay available every day. */
   daily?: boolean;
+  /** Only shown on Mondays. */
+  mondayOnly?: boolean;
   /** Daily topics rotate within their theme. */
   theme?: EnglishTheme;
   vocab: EnglishVocabularyItem[];
@@ -86,6 +88,60 @@ function dateKey(date: Date): string {
 }
 
 const TOPICS: EnglishTopic[] = [
+
+  {
+    id: 'psychology-mind',
+    title: 'Psychology and the mind',
+    description: 'Talk about emotions, habits, and how the mind works.',
+    availableFrom: '2020-01-01',
+    mondayOnly: true,
+    vocab: [
+      { term: 'emotion', meaning: 'cảm xúc', pronunciation: '/ɪˈməʊʃən/', score: 0 },
+      { term: 'anxiety', meaning: 'lo âu', pronunciation: '/æŋˈzaɪəti/', score: 0 },
+      { term: 'habit', meaning: 'thói quen', pronunciation: '/ˈhæbɪt/', score: 0 },
+      { term: 'motivation', meaning: 'động lực', pronunciation: '/ˌməʊtɪˈveɪʃən/', score: 0 },
+      { term: 'mindset', meaning: 'tư duy', pronunciation: '/ˈmaɪndset/', score: 0 },
+      { term: 'trigger', meaning: 'kích hoạt', pronunciation: '/ˈtrɪɡə/', score: 0 },
+      { term: 'coping', meaning: 'đối phó', pronunciation: '/ˈkəʊpɪŋ/', score: 0 },
+      { term: 'resilience', meaning: 'khả năng phục hồi', pronunciation: '/rɪˈzɪliəns/', score: 0 },
+      { term: 'empathy', meaning: 'đồng cảm', pronunciation: '/ˈempəθi/', score: 0 },
+    ],
+    grammar: [
+      { title: 'Present simple for mental states', category: 'Tense', formula: 'S + V(s/es) + O (think, feel, know, believe)', example: 'I think habits shape our mindset.' },
+      { title: '‘used to’ for past habits', category: 'Tense', formula: 'S + used to + V + O', example: 'I used to worry a lot.' },
+      { title: '‘if’ + mental state', category: 'Conditional', formula: 'If + S + V(present), S + will/can + V + O', example: 'If you feel anxious, take a deep breath.' },
+      { title: '‘make’ + someone + feel', category: 'Causative', formula: 'S + make + O + feel + adj', example: 'Good sleep makes me feel calmer.' },
+    ],
+    examples: [
+      'I think habits shape our mindset more than talent does.',
+      'If you feel anxious, take a deep breath.',
+    ],
+    quizzes: [
+      { question: 'Which word means “động lực”?', options: ['motivation', 'anxiety', 'habit'], answerIndex: 0, explanation: 'Motivation is the reason for acting.' },
+      { question: 'Which word means “đồng cảm”?', options: ['empathy', 'trigger', 'coping'], answerIndex: 0, explanation: 'Empathy is understanding others’ feelings.' },
+      { question: 'Complete: “I ___ to worry a lot.”', options: ['used', 'use', 'using'], answerIndex: 0, explanation: '“Used to” describes a past habit.' },
+      { question: 'Which sentence gives advice?', options: ['If you feel anxious, take a deep breath.', 'I am anxious.', 'Anxiety exists.'], answerIndex: 0, explanation: 'First conditional gives advice for a situation.' },
+    ],
+    readExpected: 'I think habits shape our mindset more than talent does.',
+    dialogue: [
+      'A: Why do I keep procrastinating?',
+      'B: It might be a habit, not laziness.',
+      'A: How do I change it?',
+      'B: Start small and track your motivation.',
+      'A: That sounds manageable.',
+      'B: Yes. Be kind to yourself and keep going.',
+    ],
+    dialogueVariants: [
+      [
+        'A: I feel anxious before presentations.',
+        'B: That’s normal. Try deep breathing.',
+        'A: Does it really help?',
+        'B: Yes, it calms the body and mind.',
+        'A: I’ll try it next time.',
+        'B: You’ve got this.',
+      ],
+    ],
+  },
 
   {
     id: 'sunday-mass',
@@ -1268,10 +1324,12 @@ export function getTodayEnglishContext(date = new Date()): TodayEnglishContext {
   const day = dayNumber(date);
   // Daily themes rotate by date so the same three topics do not repeat every day.
   const weekend = isWeekend(date);
+  const monday = date.getDay() === 1;
   const ordered = [
     ...getDailyTopics(date),
     ...TOPICS.filter((topic) => {
       if (topic.daily) return false;
+      if (topic.mondayOnly && !monday) return false;
       if (weekend && topic.id === 'work-update') return false;
       return true;
     }),
