@@ -5,10 +5,19 @@ test('daily topics are deterministic for the same date', () => {
   expect(getDailyTopics(date).map((topic) => topic.id)).toEqual(getDailyTopics(date).map((topic) => topic.id));
 });
 
-test('each daily theme contributes exactly one topic', () => {
-  const topics = getDailyTopics(new Date(2026, 10, 15));
+test('each weekday contributes three daily topics', () => {
+  const topics = getDailyTopics(new Date(2026, 10, 16));
   expect(topics).toHaveLength(3);
   expect(topics.map((topic) => topic.theme).sort()).toEqual(['devops', 'meals', 'neighbor']);
+});
+
+test('weekend replaces work topics with leisure topics', () => {
+  const topics = getDailyTopics(new Date(2026, 10, 15));
+  expect(topics).toHaveLength(4);
+  expect(topics.map((topic) => topic.theme).sort()).toEqual(['meals', 'neighbor', 'weekend', 'weekend']);
+  const ids = topics.map((topic) => topic.id);
+  expect(ids).not.toContain('devops-meeting');
+  expect(ids).not.toContain('devops-release-planning');
 });
 
 test('daily selection rotates across the week', () => {

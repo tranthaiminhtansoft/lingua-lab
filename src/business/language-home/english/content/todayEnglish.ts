@@ -21,7 +21,7 @@ export type EnglishQuiz = {
   explanation: string;
 };
 
-export type EnglishTheme = 'devops' | 'neighbor' | 'meals';
+export type EnglishTheme = 'devops' | 'neighbor' | 'meals' | 'weekend';
 
 export type EnglishTopic = {
   id: string;
@@ -86,6 +86,223 @@ function dateKey(date: Date): string {
 }
 
 const TOPICS: EnglishTopic[] = [
+
+  {
+    id: 'weekend-market',
+    title: 'Weekend market shopping',
+    description: 'Buy fresh food at the market and chat with vendors.',
+    availableFrom: '2020-01-01',
+    daily: true,
+    theme: 'weekend',
+    vocab: [
+      { term: 'market', meaning: 'chợ', pronunciation: '/ˈmɑːkɪt/', score: 0 },
+      { term: 'fresh', meaning: 'tươi', pronunciation: '/freʃ/', score: 0 },
+      { term: 'bargain', meaning: 'món hời', pronunciation: '/ˈbɑːɡɪn/', score: 0 },
+      { term: 'vendor', meaning: 'người bán hàng', pronunciation: '/ˈvendə/', score: 0 },
+      { term: 'weigh', meaning: 'cân', pronunciation: '/weɪ/', score: 0 },
+      { term: 'bag', meaning: 'túi', pronunciation: '/bæɡ/', score: 0 },
+      { term: 'receipt', meaning: 'hoá đơn', pronunciation: '/rɪˈsiːt/', score: 0 },
+      { term: 'cash', meaning: 'tiền mặt', pronunciation: '/kæʃ/', score: 0 },
+      { term: 'loose change', meaning: 'tiền lẻ', pronunciation: '/luːs tʃeɪndʒ/', score: 0 },
+    ],
+    grammar: [
+      { title: 'Present simple for market routines', category: 'Tense', formula: 'S + V(s/es) + O + every Saturday / usually', example: 'I usually buy fresh vegetables at the market on Sunday.' },
+      { title: 'Polite requests with ‘could’', category: 'Request', formula: 'Could + you + V + O, please?', example: 'Could you weigh these tomatoes, please?' },
+      { title: '‘how much’ for price', category: 'Question', formula: 'How much + be + N / How much + do/does + S + V?', example: 'How much are these oranges?' },
+      { title: 'Imperatives for advice', category: 'Imperative', formula: 'V + O · (-) Don’t + V + O', example: 'Check the price before you buy.' },
+    ],
+    examples: [
+      'I usually buy fresh vegetables at the market on Sunday.',
+      'Could you weigh these tomatoes, please?',
+    ],
+    quizzes: [
+      { question: 'Which word means “tươi”?', options: ['fresh', 'cash', 'bag'], answerIndex: 0, explanation: 'Fresh means newly picked or made.' },
+      { question: 'Complete: “Could you ___ these tomatoes, please?”', options: ['weigh', 'weighs', 'weighing'], answerIndex: 0, explanation: 'Could you + base verb: weigh.' },
+      { question: 'Which question asks about price?', options: ['How much are these oranges?', 'What is your name?', 'Where is the exit?'], answerIndex: 0, explanation: 'How much + be + noun asks about price.' },
+      { question: 'Which sentence is polite when buying?', options: ['Could you weigh these, please?', 'Weigh these now.', 'Give me these.'], answerIndex: 0, explanation: '“Could you …, please?” is polite.' },
+    ],
+    readExpected: 'I usually buy fresh vegetables at the market on Sunday.',
+    dialogue: [
+      'A: What are you buying today?',
+      'B: Fresh tomatoes and some herbs.',
+      'A: Could you weigh these, please?',
+      'B: Sure. That’s half a kilo.',
+      'A: How much is it?',
+      'B: Two dollars. Do you need a bag?',
+    ],
+    dialogueVariants: [
+      [
+        'A: Morning! What’s fresh today?',
+        'B: The spinach and carrots just arrived.',
+        'A: Could you give me a kilo of carrots?',
+        'B: Of course. Anything else?',
+        'A: Just these. How much in total?',
+        'B: Five dollars. Have a good weekend!',
+      ],
+    ],
+  },
+  {
+    id: 'weekend-outing',
+    title: 'Going out with friends',
+    description: 'Plan a fun weekend with friends and handle small details.',
+    availableFrom: '2020-01-01',
+    daily: true,
+    theme: 'weekend',
+    vocab: [
+      { term: 'hang out', meaning: 'đi chơi', pronunciation: '/hæŋ aʊt/', score: 0 },
+      { term: 'café', meaning: 'quán cà phê', pronunciation: '/ˈkæfeɪ/', score: 0 },
+      { term: 'cinema', meaning: 'rạp chiếu phim', pronunciation: '/ˈsɪnəmə/', score: 0 },
+      { term: 'meet up', meaning: 'gặp nhau', pronunciation: '/miːt ʌp/', score: 0 },
+      { term: 'reservation', meaning: 'đặt chỗ', pronunciation: '/ˌrezəˈveɪʃən/', score: 0 },
+      { term: 'traffic', meaning: 'giao thông', pronunciation: '/ˈtræfɪk/', score: 0 },
+      { term: 'late', meaning: 'muộn', pronunciation: '/leɪt/', score: 0 },
+      { term: 'split', meaning: 'chia', pronunciation: '/splɪt/', score: 0 },
+      { term: 'taxi', meaning: 'taxi', pronunciation: '/ˈtæksi/', score: 0 },
+    ],
+    grammar: [
+      { title: '‘Let’s’ for suggestions', category: 'Modal', formula: 'Let’s + V + O / Why don’t we + V + O?', example: 'Let’s meet up at seven.' },
+      { title: '‘going to’ for plans', category: 'Future', formula: 'S + am/is/are + going to + V + O', example: 'We’re going to watch a movie.' },
+      { title: 'Present continuous for future arrangements', category: 'Future', formula: 'S + am/is/are + V-ing + O + future time', example: 'I’m meeting friends at six.' },
+      { title: '‘Would you like …?’ offers', category: 'Modal', formula: 'Would + you + like + N / to + V + O?', example: 'Would you like to grab a coffee?' },
+    ],
+    examples: [
+      'Let’s meet up at seven and grab a coffee.',
+      'I’m meeting friends at six, so I might be late.',
+    ],
+    quizzes: [
+      { question: 'Which phrase suggests an activity?', options: ['Let’s meet up at seven.', 'I am sleeping.', 'The door is closed.'], answerIndex: 0, explanation: '“Let’s …” is a suggestion.' },
+      { question: 'Which word means “gặp nhau”?', options: ['meet up', 'traffic', 'late'], answerIndex: 0, explanation: 'Meet up means to gather with someone.' },
+      { question: 'Complete: “We’re ___ watch a movie.”', options: ['going to', 'go to', 'gone to'], answerIndex: 0, explanation: '“Be going to” needs the verb be.' },
+      { question: 'Which sentence apologises for being late?', options: ['Sorry, traffic was bad.', 'I am never late.', 'Traffic is good.'], answerIndex: 0, explanation: 'Sorry + reason is a polite apology.' },
+    ],
+    readExpected: 'Let’s meet up at seven and grab a coffee.',
+    dialogue: [
+      'A: Are you free this Saturday?',
+      'B: Yes! What do you want to do?',
+      'A: Let’s meet up at seven and grab a coffee.',
+      'B: Sounds good. Should we book a table?',
+      'A: Yes, just in case it’s busy.',
+      'B: Great. I’ll be there at seven sharp.',
+    ],
+    dialogueVariants: [
+      [
+        'A: Do you want to go to the cinema?',
+        'B: Sure. What time does the movie start?',
+        'A: Seven-thirty. Shall we meet at seven?',
+        'B: Perfect. I’ll bring some snacks.',
+        'A: Great. I’ll buy the tickets online.',
+        'B: See you there!',
+      ],
+    ],
+  },
+  {
+    id: 'weekend-rest',
+    title: 'Rest and recharge at home',
+    description: 'Talk about sleeping in, relaxing, and doing nothing.',
+    availableFrom: '2020-01-01',
+    daily: true,
+    theme: 'weekend',
+    vocab: [
+      { term: 'sleep in', meaning: 'ngủ nướng', pronunciation: '/sliːp ɪn/', score: 0 },
+      { term: 'unwind', meaning: 'thư giãn', pronunciation: '/ʌnˈwaɪnd/', score: 0 },
+      { term: 'nap', meaning: 'ngủ trưa', pronunciation: '/næp/', score: 0 },
+      { term: 'recharge', meaning: 'nạp năng lượng', pronunciation: '/ˌriːˈtʃɑːdʒ/', score: 0 },
+      { term: 'pajamas', meaning: 'đồ ngủ', pronunciation: '/pəˈdʒɑːməz/', score: 0 },
+      { term: 'cozy', meaning: 'ấm cúng', pronunciation: '/ˈkəʊzi/', score: 0 },
+      { term: 'no alarm', meaning: 'không đặt báo thức', pronunciation: '/nəʊ əˈlɑːm/', score: 0 },
+      { term: 'binge', meaning: 'xem/liên tục', pronunciation: '/bɪndʒ/', score: 0 },
+      { term: 'lazy', meaning: 'lười', pronunciation: '/ˈleɪzi/', score: 0 },
+    ],
+    grammar: [
+      { title: 'Present continuous for current rest', category: 'Tense', formula: 'S + am/is/are + V-ing + O (+ now/right now)', example: 'I’m just relaxing on the sofa.' },
+      { title: 'Adverbs of frequency', category: 'Adverb', formula: 'S + adverb + V + O', example: 'I rarely set an alarm on Sunday.' },
+      { title: '‘feel like’ + V-ing', category: 'Modal', formula: 'S + feel like + V-ing + O', example: 'I feel like staying in bed.' },
+      { title: '‘not … at all’ for emphasis', category: 'Adverb', formula: 'S + don’t/doesn’t + V + O + at all', example: 'I’m not doing anything at all today.' },
+    ],
+    examples: [
+      'I feel like staying in bed all morning.',
+      'I’m not doing anything at all today.',
+    ],
+    quizzes: [
+      { question: 'Which word means “ngủ nướng”?', options: ['sleep in', 'nap', 'recharge'], answerIndex: 0, explanation: 'Sleep in means to stay in bed longer than usual.' },
+      { question: 'Which sentence means “thư giãn”?', options: ['I’m unwinding with a book.', 'I’m working hard.', 'I’m running fast.'], answerIndex: 0, explanation: 'Unwind means to relax after stress.' },
+      { question: 'Complete: “I ___ staying in bed.”', options: ['feel like', 'feels like', 'felt like to'], answerIndex: 0, explanation: 'Feel like + V-ing expresses a desire.' },
+      { question: 'Which phrase means “không đặt báo thức”?', options: ['no alarm', 'alarm clock', 'wake up'], answerIndex: 0, explanation: 'No alarm means not setting an alarm.' },
+    ],
+    readExpected: 'I feel like staying in bed all morning.',
+    dialogue: [
+      'A: How was your weekend?',
+      'B: So relaxing. I slept in both days.',
+      'A: Nice. Did you do anything?',
+      'B: Just a nap and some reading.',
+      'A: That sounds perfect.',
+      'B: It was. I feel recharged for Monday.',
+    ],
+    dialogueVariants: [
+      [
+        'A: Are you doing anything today?',
+        'B: Nothing at all. I’m in my pajamas.',
+        'A: Lucky you! I have chores.',
+        'B: Take a nap later. You deserve it.',
+        'A: Maybe I will.',
+        'B: Enjoy your rest!',
+      ],
+    ],
+  },
+  {
+    id: 'household-chores',
+    title: 'Household chores and cleaning',
+    description: 'Talk about chores, sharing tasks, and keeping home tidy.',
+    availableFrom: '2020-01-01',
+    daily: true,
+    theme: 'weekend',
+    vocab: [
+      { term: 'chore', meaning: 'việc nhà', pronunciation: '/tʃɔː/', score: 0 },
+      { term: 'laundry', meaning: 'giặt đồ', pronunciation: '/ˈlɔːndri/', score: 0 },
+      { term: 'dishes', meaning: 'rửa bát', pronunciation: '/ˈdɪʃɪz/', score: 0 },
+      { term: 'vacuum', meaning: 'hút bụi', pronunciation: '/ˈvækjuːm/', score: 0 },
+      { term: 'tidy up', meaning: 'dọn dẹp', pronunciation: '/ˈtaɪdi ʌp/', score: 0 },
+      { term: 'take out the trash', meaning: 'đổ rác', pronunciation: '/teɪk aʊt ðə træʃ/', score: 0 },
+      { term: 'dust', meaning: 'lau bụi', pronunciation: '/dʌst/', score: 0 },
+      { term: 'mop', meaning: 'lau nhà', pronunciation: '/mɒp/', score: 0 },
+      { term: 'clean', meaning: 'dọn sạch', pronunciation: '/kliːn/', score: 0 },
+    ],
+    grammar: [
+      { title: 'Imperatives for chores', category: 'Imperative', formula: 'V + O · (-) Don’t + V + O', example: 'Tidy up the living room.' },
+      { title: '‘have to’ for obligation', category: 'Modal', formula: 'S + have to / has to + V + O', example: 'I have to do the laundry today.' },
+      { title: '‘who’ questions for tasks', category: 'Question', formula: 'Who + V + O?', example: 'Who is doing the dishes?' },
+      { title: '‘already’ for completed tasks', category: 'Adverb', formula: 'S + have/has + already + V3 + O', example: 'I’ve already taken out the trash.' },
+    ],
+    examples: [
+      'I have to do the laundry today.',
+      'I’ve already taken out the trash.',
+    ],
+    quizzes: [
+      { question: 'Which word means “việc nhà”?', options: ['chore', 'laundry', 'dust'], answerIndex: 0, explanation: 'A chore is a household task.' },
+      { question: 'Complete: “I ___ do the laundry today.”', options: ['have to', 'has to', 'having to'], answerIndex: 0, explanation: 'I have to + base verb.' },
+      { question: 'Which question asks who does a task?', options: ['Who is doing the dishes?', 'What is the dish?', 'Where is the kitchen?'], answerIndex: 0, explanation: 'Who + be + V-ing asks about the person.' },
+      { question: 'Which sentence means “đổ rác”?', options: ['take out the trash', 'take in the trash', 'make the trash'], answerIndex: 0, explanation: 'Take out the trash means to remove garbage.' },
+    ],
+    readExpected: 'I have to do the laundry today.',
+    dialogue: [
+      'A: Can you help with the chores today?',
+      'B: Sure. What do you need?',
+      'A: Could you vacuum the living room?',
+      'B: Okay. I’ll do that after lunch.',
+      'A: And I’ll take out the trash.',
+      'B: Great. Then we’re done.',
+    ],
+    dialogueVariants: [
+      [
+        'A: The house is a mess.',
+        'B: Let’s tidy up together.',
+        'A: I’ll do the dishes, you mop.',
+        'B: Deal. Who’s doing the laundry?',
+        'A: I already did it this morning.',
+        'B: Nice. Teamwork!',
+      ],
+    ],
+  },
   {
     id: 'devops-meeting',
     title: 'DevOps team meeting',
@@ -883,7 +1100,13 @@ const TOPICS: EnglishTopic[] = [
   },
 ];
 
-const DAILY_THEMES: EnglishTheme[] = ['devops', 'neighbor', 'meals'];
+const WEEKDAY_DAILY_THEMES: EnglishTheme[] = ['devops', 'neighbor', 'meals'];
+const WEEKEND_EXTRA_COUNT = 2;
+
+function isWeekend(date: Date): boolean {
+  const day = date.getDay();
+  return day === 0 || day === 6;
+}
 
 function dayNumber(date: Date): number {
   return Math.floor(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) / 86_400_000);
@@ -952,7 +1175,18 @@ function buildDailyQuizzes(
 
 export function getDailyTopics(date = new Date()): EnglishTopic[] {
   const seed = dayNumber(date);
-  return DAILY_THEMES.flatMap((theme, index) => {
+  if (isWeekend(date)) {
+    const weekendPool = TOPICS.filter((topic) => topic.daily && topic.theme === 'weekend');
+    const neighborPool = TOPICS.filter((topic) => topic.daily && topic.theme === 'neighbor');
+    const mealsPool = TOPICS.filter((topic) => topic.daily && topic.theme === 'meals');
+    const weekendPicks = rotate(weekendPool, seed).slice(0, WEEKEND_EXTRA_COUNT);
+    return [
+      neighborPool.length ? neighborPool[seed % neighborPool.length] : null,
+      mealsPool.length ? mealsPool[seed % mealsPool.length] : null,
+      ...weekendPicks,
+    ].filter(Boolean) as EnglishTopic[];
+  }
+  return WEEKDAY_DAILY_THEMES.flatMap((theme, index) => {
     const pool = TOPICS.filter((topic) => topic.daily && topic.theme === theme);
     if (pool.length === 0) return [];
     return [pool[(seed + index) % pool.length]];
@@ -963,9 +1197,14 @@ export function getTodayEnglishContext(date = new Date()): TodayEnglishContext {
   const todayKey = dateKey(date);
   const day = dayNumber(date);
   // Daily themes rotate by date so the same three topics do not repeat every day.
+  const weekend = isWeekend(date);
   const ordered = [
     ...getDailyTopics(date),
-    ...TOPICS.filter((topic) => !topic.daily),
+    ...TOPICS.filter((topic) => {
+      if (topic.daily) return false;
+      if (weekend && topic.id === 'work-update') return false;
+      return true;
+    }),
   ];
   const topics = ordered.map((topic) => {
     if (!topic.daily) {
