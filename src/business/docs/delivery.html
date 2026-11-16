@@ -205,9 +205,10 @@
         <thead><tr><th>Included path groups</th><th>Path-filter behavior</th></tr></thead>
         <tbody>
           <tr><td><ul class="path-list"><li><code>src/app/**</code></li><li><code>src/business/language-home/**</code></li><li><code>src/shared/**</code></li><li><code>src/test/**</code></li></ul></td><td>Application and learning-product changes trigger application CI.</td></tr>
-          <tr><td><ul class="path-list"><li><code>public/**</code></li><li><code>e2e/**</code></li><li><code>index.html</code></li><li><code>package.json</code></li><li><code>package-lock.json</code></li><li><code>.nvmrc</code></li><li><code>eslint.config.js</code></li><li><code>tsconfig*.json</code></li><li><code>vite.config.ts</code></li><li><code>vitest.config.ts</code></li><li><code>playwright.config.ts</code></li></ul></td><td>Static assets, browser tests, and build/test configuration trigger application CI.</td></tr>
+          <tr><td><ul class="path-list"><li><code>public/**</code></li><li><code>e2e/**</code></li><li><code>index.html</code></li><li><code>package.json</code></li><li><code>package-lock.json</code></li><li><code>.nvmrc</code></li><li><code>eslint.config.js</code></li><li><code>tsconfig*.json</code></li><li><code>vite.config.ts</code></li><li><code>vitest.config.ts</code></li><li><code>playwright.config.ts</code></li><li><code>.github/workflows/**</code></li></ul></td><td>Static assets, browser tests, build/test configuration, and workflow changes trigger application CI.</td></tr>
           <tr><td><ul class="path-list"><li><code>src/business/docs/**</code></li></ul></td><td>Standalone documentation changes trigger application CI.</td></tr>
-          <tr><td><ul class="path-list"><li><code>.github/**</code></li><li><code>scripts/**</code></li></ul></td><td>Changes limited to these paths do not match the application allowlist. The separate required Release Gate still evaluates the PR and skips its CI wait when no changed path matches.</td></tr>
+          <tr><td><ul class="path-list"><li><code>.github/workflows/**</code></li></ul></td><td>Workflow changes trigger application CI.</td></tr>
+          <tr><td><ul class="path-list"><li><code>scripts/**</code></li><li><code>.github/**</code> (other)</li></ul></td><td>Changes limited to these paths do not match the application allowlist. The separate required Release Gate still evaluates the PR and skips its CI wait when no changed path matches.</td></tr>
         </tbody>
       </table></div>
 
@@ -217,9 +218,9 @@
         <li><span class="status pass" role="img" aria-label="Pass">✓</span><code>npm ci</code> completes.</li>
         <li><span class="status pass" role="img" aria-label="Pass">✓</span>Lint passes.</li>
         <li><span class="status pass" role="img" aria-label="Pass">✓</span>Type checking passes.</li>
-        <li><span class="status pass" role="img" aria-label="Pass">✓</span>Unit tests pass.</li>
+        <li><span class="status pass" role="img" aria-label="Pass">✓</span>Unit tests pass (changed files only).</li>
         <li><span class="status pass" role="img" aria-label="Pass">✓</span>Pages-base build succeeds.</li>
-        <li><span class="status pass" role="img" aria-label="Pass">✓</span>Chromium, Firefox, and WebKit browser smoke checks pass.</li>
+        <li><span class="status pass" role="img" aria-label="Pass">✓</span>Chromium browser smoke checks pass.</li>
       </ul>
       <h5>Release Gate pass</h5>
       <ul class="condition-list pass-list">

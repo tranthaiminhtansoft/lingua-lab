@@ -47,7 +47,7 @@
 npm run typecheck
 npm run test:unit -- --run
 npm run build</code></pre><ul><li><code>lint</code> runs ESLint.</li><li><code>typecheck</code> runs <code>tsc -b --pretty false</code>.</li><li>The unit-test command runs Vitest once; its configuration uses jsdom and excludes <code>e2e/**</code>.</li><li><code>build</code> type-checks, builds the Vite app, then exports these documentation pages to <code>dist/docs</code>. A build is not a deployment.</li></ul></section>
-<section><h2>Browser checks</h2><p>The configured end-to-end suite uses Chromium, Firefox, and WebKit, and starts its own server after building with <code>GITHUB_ACTIONS=true</code>.</p><pre><code>npx playwright install chromium firefox webkit
+<section><h2>Browser checks</h2><p>The configured end-to-end suite uses Chromium and starts its own server after building with <code>GITHUB_ACTIONS=true</code>.</p><pre><code>npx playwright install chromium firefox webkit
 npm run test:e2e</code></pre><p>The test harness serves the Pages-style artifact under <code>http://127.0.0.1:4176/lingua-lab/</code> and covers navigation, lessons, narrow screens, and a Kana deep-link refresh. Port 4176 must be available; outside CI, Playwright may reuse an existing server there.</p></section>
 <section><h2>Pages-style local preview</h2><pre><code>GITHUB_ACTIONS=true npm run build
 GITHUB_ACTIONS=true npm exec -- vite preview</code></pre><p>Open the printed preview URL with <code>/lingua-lab/</code>. A local preview does not establish live Pages behavior or production deployment. The site's <code>public/404.html</code> provides the configured deep-link fallback; use the E2E server for its local model.</p></section>
