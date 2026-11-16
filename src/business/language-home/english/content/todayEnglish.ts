@@ -12,6 +12,8 @@ export type EnglishGrammarItem = {
   /** Pattern to memorise, e.g. S + have/has + V3. */
   formula: string;
   example: string;
+  /** IPA pronunciation of the example sentence. */
+  pronunciation?: string;
 };
 
 export type EnglishQuiz = {
@@ -109,10 +111,10 @@ const TOPICS: EnglishTopic[] = [
       { term: 'empathy', meaning: 'đồng cảm', pronunciation: '/ˈempəθi/', score: 0 },
     ],
     grammar: [
-      { title: 'Present simple for mental states', category: 'Tense', formula: 'S + V(s/es) + O (think, feel, know, believe)', example: 'I think habits shape our mindset.' },
-      { title: '‘used to’ for past habits', category: 'Tense', formula: 'S + used to + V + O', example: 'I used to worry a lot.' },
-      { title: '‘if’ + mental state', category: 'Conditional', formula: 'If + S + V(present), S + will/can + V + O', example: 'If you feel anxious, take a deep breath.' },
-      { title: '‘make’ + someone + feel', category: 'Causative', formula: 'S + make + O + feel + adj', example: 'Good sleep makes me feel calmer.' },
+      { title: 'Present simple for mental states', category: 'Tense', formula: 'S + V(s/es) + O (think, feel, know, believe)', example: 'I think habits shape our mindset.', pronunciation: 'aɪ θɪŋk ˈhæbɪts ʃeɪp ˈaʊə ˈmaɪndset' },
+      { title: '‘used to’ for past habits', category: 'Tense', formula: 'S + used to + V + O', example: 'I used to worry a lot.', pronunciation: 'aɪ juːst tə ˈwʌri ə lɒt' },
+      { title: '‘if’ + mental state', category: 'Conditional', formula: 'If + S + V(present), S + will/can + V + O', example: 'If you feel anxious, take a deep breath.', pronunciation: 'ɪf juː fiːl ˈæŋkʃəs, teɪk ə diːp breθ' },
+      { title: '‘make’ + someone + feel', category: 'Causative', formula: 'S + make + O + feel + adj', example: 'Good sleep makes me feel calmer.', pronunciation: 'ɡʊd sliːp meɪks miː fiːl ˈkɑːmə' },
     ],
     examples: [
       'I think habits shape our mindset more than talent does.',
@@ -164,10 +166,10 @@ const TOPICS: EnglishTopic[] = [
       { term: 'choir', meaning: 'ca đoàn', pronunciation: '/ˈkwaɪə/', score: 0 },
     ],
     grammar: [
-      { title: 'Present simple for weekly worship', category: 'Tense', formula: 'S + V(s/es) + O + every Sunday / usually', example: 'I go to church every Sunday morning.' },
-      { title: 'Present perfect for experience', category: 'Tense', formula: 'S + have/has + been to + place', example: 'I have been to that parish before.' },
-      { title: '‘go to’ + church', category: 'Preposition', formula: 'go to + church (no article)', example: 'We go to church at nine.' },
-      { title: 'Polite invitations', category: 'Modal', formula: 'Would + you + like + to + V + O?', example: 'Would you like to come to mass with us?' },
+      { title: 'Present simple for weekly worship', category: 'Tense', formula: 'S + V(s/es) + O + every Sunday / usually', example: 'I go to church every Sunday morning.', pronunciation: 'aɪ ɡəʊ tə tʃɜːtʃ ˈevri ˈsʌndeɪ ˈmɔːnɪŋ' },
+      { title: 'Present perfect for experience', category: 'Tense', formula: 'S + have/has + been to + place', example: 'I have been to that parish before.', pronunciation: 'aɪ hæv biːn tə ðæt ˈpærɪʃ bɪˈfɔː' },
+      { title: '‘go to’ + church', category: 'Preposition', formula: 'go to + church (no article)', example: 'We go to church at nine.', pronunciation: 'wi ɡəʊ tə tʃɜːtʃ æt naɪn' },
+      { title: 'Polite invitations', category: 'Modal', formula: 'Would + you + like + to + V + O?', example: 'Would you like to come to mass with us?', pronunciation: 'wʊd ju laɪk tə kʌm tə mæs wɪð ʌs' },
     ],
     examples: [
       'I go to church every Sunday morning.',
@@ -219,10 +221,10 @@ const TOPICS: EnglishTopic[] = [
       { term: 'loose change', meaning: 'tiền lẻ', pronunciation: '/luːs tʃeɪndʒ/', score: 0 },
     ],
     grammar: [
-      { title: 'Present simple for market routines', category: 'Tense', formula: 'S + V(s/es) + O + every Saturday / usually', example: 'I usually buy fresh vegetables at the market on Sunday.' },
-      { title: 'Polite requests with ‘could’', category: 'Request', formula: 'Could + you + V + O, please?', example: 'Could you weigh these tomatoes, please?' },
-      { title: '‘how much’ for price', category: 'Question', formula: 'How much + be + N / How much + do/does + S + V?', example: 'How much are these oranges?' },
-      { title: 'Imperatives for advice', category: 'Imperative', formula: 'V + O · (-) Don’t + V + O', example: 'Check the price before you buy.' },
+      { title: 'Present simple for market routines', category: 'Tense', formula: 'S + V(s/es) + O + every Saturday / usually', example: 'I usually buy fresh vegetables at the market on Sunday.', pronunciation: 'aɪ ˈjuːʒəli baɪ freʃ ˈvedʒtəblz æt ðə ˈmɑːkɪt ɒn ˈsʌndeɪ' },
+      { title: 'Polite requests with ‘could’', category: 'Request', formula: 'Could + you + V + O, please?', example: 'Could you weigh these tomatoes, please?', pronunciation: 'kʊd ju weɪ ðiːz təˈmɑːtəʊz pliːz' },
+      { title: '‘how much’ for price', category: 'Question', formula: 'How much + be + N / How much + do/does + S + V?', example: 'How much are these oranges?', pronunciation: 'haʊ mʌtʃ ɑː ðiːz ˈɒrɪndʒɪz' },
+      { title: 'Imperatives for advice', category: 'Imperative', formula: 'V + O · (-) Don’t + V + O', example: 'Check the price before you buy.', pronunciation: 'tʃek ðə praɪs bɪˈfɔː ju baɪ' },
     ],
     examples: [
       'I usually buy fresh vegetables at the market on Sunday.',
@@ -273,10 +275,10 @@ const TOPICS: EnglishTopic[] = [
       { term: 'taxi', meaning: 'taxi', pronunciation: '/ˈtæksi/', score: 0 },
     ],
     grammar: [
-      { title: '‘Let’s’ for suggestions', category: 'Modal', formula: 'Let’s + V + O / Why don’t we + V + O?', example: 'Let’s meet up at seven.' },
-      { title: '‘going to’ for plans', category: 'Future', formula: 'S + am/is/are + going to + V + O', example: 'We’re going to watch a movie.' },
-      { title: 'Present continuous for future arrangements', category: 'Future', formula: 'S + am/is/are + V-ing + O + future time', example: 'I’m meeting friends at six.' },
-      { title: '‘Would you like …?’ offers', category: 'Modal', formula: 'Would + you + like + N / to + V + O?', example: 'Would you like to grab a coffee?' },
+      { title: '‘Let’s’ for suggestions', category: 'Modal', formula: 'Let’s + V + O / Why don’t we + V + O?', example: 'Let’s meet up at seven.', pronunciation: 'lets miːt ʌp æt ˈsevən' },
+      { title: '‘going to’ for plans', category: 'Future', formula: 'S + am/is/are + going to + V + O', example: 'We’re going to watch a movie.', pronunciation: 'wɪə ˈɡəʊɪŋ tə wɒtʃ ə ˈmuːvi' },
+      { title: 'Present continuous for future arrangements', category: 'Future', formula: 'S + am/is/are + V-ing + O + future time', example: 'I’m meeting friends at six.', pronunciation: 'aɪm ˈmiːtɪŋ frendz æt sɪks' },
+      { title: '‘Would you like …?’ offers', category: 'Modal', formula: 'Would + you + like + N / to + V + O?', example: 'Would you like to grab a coffee?', pronunciation: 'wʊd ju laɪk tə ɡræb ə ˈkɒfi' },
     ],
     examples: [
       'Let’s meet up at seven and grab a coffee.',
@@ -327,10 +329,10 @@ const TOPICS: EnglishTopic[] = [
       { term: 'lazy', meaning: 'lười', pronunciation: '/ˈleɪzi/', score: 0 },
     ],
     grammar: [
-      { title: 'Present continuous for current rest', category: 'Tense', formula: 'S + am/is/are + V-ing + O (+ now/right now)', example: 'I’m just relaxing on the sofa.' },
-      { title: 'Adverbs of frequency', category: 'Adverb', formula: 'S + adverb + V + O', example: 'I rarely set an alarm on Sunday.' },
-      { title: '‘feel like’ + V-ing', category: 'Modal', formula: 'S + feel like + V-ing + O', example: 'I feel like staying in bed.' },
-      { title: '‘not … at all’ for emphasis', category: 'Adverb', formula: 'S + don’t/doesn’t + V + O + at all', example: 'I’m not doing anything at all today.' },
+      { title: 'Present continuous for current rest', category: 'Tense', formula: 'S + am/is/are + V-ing + O (+ now/right now)', example: 'I’m just relaxing on the sofa.', pronunciation: 'aɪm dʒʌst rɪˈlæksɪŋ ɒn ðə ˈsəʊfə' },
+      { title: 'Adverbs of frequency', category: 'Adverb', formula: 'S + adverb + V + O', example: 'I rarely set an alarm on Sunday.', pronunciation: 'aɪ ˈreəli set ən əˈlɑːm ɒn ˈsʌndeɪ' },
+      { title: '‘feel like’ + V-ing', category: 'Modal', formula: 'S + feel like + V-ing + O', example: 'I feel like staying in bed.', pronunciation: 'aɪ fiːl laɪk ˈsteɪɪŋ ɪn bed' },
+      { title: '‘not … at all’ for emphasis', category: 'Adverb', formula: 'S + don’t/doesn’t + V + O + at all', example: 'I’m not doing anything at all today.', pronunciation: 'aɪm nɒt ˈduːɪŋ ˈeniθɪŋ æt ɔːl təˈdeɪ' },
     ],
     examples: [
       'I feel like staying in bed all morning.',
@@ -381,10 +383,10 @@ const TOPICS: EnglishTopic[] = [
       { term: 'clean', meaning: 'dọn sạch', pronunciation: '/kliːn/', score: 0 },
     ],
     grammar: [
-      { title: 'Imperatives for chores', category: 'Imperative', formula: 'V + O · (-) Don’t + V + O', example: 'Tidy up the living room.' },
-      { title: '‘have to’ for obligation', category: 'Modal', formula: 'S + have to / has to + V + O', example: 'I have to do the laundry today.' },
-      { title: '‘who’ questions for tasks', category: 'Question', formula: 'Who + V + O?', example: 'Who is doing the dishes?' },
-      { title: '‘already’ for completed tasks', category: 'Adverb', formula: 'S + have/has + already + V3 + O', example: 'I’ve already taken out the trash.' },
+      { title: 'Imperatives for chores', category: 'Imperative', formula: 'V + O · (-) Don’t + V + O', example: 'Tidy up the living room.', pronunciation: 'ˈtaɪdi ʌp ðə ˈlɪvɪŋ ruːm' },
+      { title: '‘have to’ for obligation', category: 'Modal', formula: 'S + have to / has to + V + O', example: 'I have to do the laundry today.', pronunciation: 'aɪ hæv tə duː ðə ˈlɔːndri təˈdeɪ' },
+      { title: '‘who’ questions for tasks', category: 'Question', formula: 'Who + V + O?', example: 'Who is doing the dishes?', pronunciation: 'huː ɪz ˈduːɪŋ ðə ˈdɪʃɪz' },
+      { title: '‘already’ for completed tasks', category: 'Adverb', formula: 'S + have/has + already + V3 + O', example: 'I’ve already taken out the trash.', pronunciation: 'aɪv ɔːlˈredi ˈteɪkən aʊt ðə træʃ' },
     ],
     examples: [
       'I have to do the laundry today.',
@@ -438,10 +440,10 @@ const TOPICS: EnglishTopic[] = [
       { term: 'mitigation', meaning: 'biện pháp giảm thiểu', pronunciation: '/ˌmɪtɪˈɡeɪʃən/', score: 0 },
     ],
     grammar: [
-      { title: 'Present perfect for updates', category: 'Tense', formula: 'S + have/has + V3 + O · (-) S + haven’t/hasn’t + V3 + O · (?) Have/Has + S + V3 + O?', example: 'We have deployed the fix to staging.' },
-      { title: 'Present perfect continuous for ongoing work', category: 'Tense', formula: 'S + have/has + been + V-ing + (for/since + time)', example: 'We have been monitoring the cluster since the incident.' },
-      { title: 'First conditional for risk', category: 'Conditional', formula: 'If + S + V(present), S + will/can + V + O', example: 'If the error rate spikes, we roll back.' },
-      { title: 'Passive for incident reports', category: 'Passive', formula: 'S + was/were + V3 (+ by + agent)', example: 'The service was restored at 9:15.' },
+      { title: 'Present perfect for updates', category: 'Tense', formula: 'S + have/has + V3 + O · (-) S + haven’t/hasn’t + V3 + O · (?) Have/Has + S + V3 + O?', example: 'We have deployed the fix to staging.', pronunciation: 'wi hæv dɪˈplɔɪd ðə fɪks tə ˈsteɪdʒɪŋ' },
+      { title: 'Present perfect continuous for ongoing work', category: 'Tense', formula: 'S + have/has + been + V-ing + (for/since + time)', example: 'We have been monitoring the cluster since the incident.', pronunciation: 'wi hæv biːn ˈmɒnɪtərɪŋ ðə ˈklʌstə sɪns ðə ˈɪnsɪdənt' },
+      { title: 'First conditional for risk', category: 'Conditional', formula: 'If + S + V(present), S + will/can + V + O', example: 'If the error rate spikes, we roll back.', pronunciation: 'ɪf ðə ˈerə reɪt spaɪks, wi rəʊl bæk' },
+      { title: 'Passive for incident reports', category: 'Passive', formula: 'S + was/were + V3 (+ by + agent)', example: 'The service was restored at 9:15.', pronunciation: 'ðə ˈsɜːvɪs wɒz rɪˈstɔːd æt naɪn ˈfɪfˈtiːn' },
     ],
     examples: [
       'We rolled back the last deployment because the error rate spiked.',
@@ -523,10 +525,10 @@ const TOPICS: EnglishTopic[] = [
       { term: 'have a nice day', meaning: 'chúc ngày tốt lành', pronunciation: '/hæv ə naɪs deɪ/', score: 0 },
     ],
     grammar: [
-      { title: 'Present continuous for now', category: 'Tense', formula: 'S + am/is/are + V-ing + O (+ now/right now)', example: 'I’m just heading to the station.' },
-      { title: 'Question tags for small talk', category: 'Question tag', formula: 'Positive statement, + negative tag? / Negative statement, + positive tag?', example: 'Lovely morning, isn’t it?' },
-      { title: 'Adverbs of frequency', category: 'Adverb', formula: 'S + adverb + V + O (before main verb, after “be”)', example: 'I usually leave around seven.' },
-      { title: 'Present simple for facts', category: 'Tense', formula: 'S + V(s/es) + O · (-) S + don’t/doesn’t + V + O · (?) Do/Does + S + V + O?', example: 'She works near my building.' },
+      { title: 'Present continuous for now', category: 'Tense', formula: 'S + am/is/are + V-ing + O (+ now/right now)', example: 'I’m just heading to the station.', pronunciation: 'aɪm dʒʌst ˈhedɪŋ tə ðə ˈsteɪʃən' },
+      { title: 'Question tags for small talk', category: 'Question tag', formula: 'Positive statement, + negative tag? / Negative statement, + positive tag?', example: 'Lovely morning, isn’t it?', pronunciation: 'ˈlʌvli ˈmɔːnɪŋ, ˈɪznt ɪt' },
+      { title: 'Adverbs of frequency', category: 'Adverb', formula: 'S + adverb + V + O (before main verb, after “be”)', example: 'I usually leave around seven.', pronunciation: 'aɪ ˈjuːʒəli liːv əˈraʊnd ˈsevən' },
+      { title: 'Present simple for facts', category: 'Tense', formula: 'S + V(s/es) + O · (-) S + don’t/doesn’t + V + O · (?) Do/Does + S + V + O?', example: 'She works near my building.', pronunciation: 'ʃi wɜːks nɪə maɪ ˈbɪldɪŋ' },
     ],
     examples: [
       'Morning! Lovely weather today, isn’t it?',
@@ -608,10 +610,10 @@ const TOPICS: EnglishTopic[] = [
       { term: 'grilled', meaning: 'món nướng', pronunciation: '/ɡrɪld/', score: 0 },
     ],
     grammar: [
-      { title: 'Adverbs of frequency', category: 'Adverb', formula: 'S + adverb + V + O · (-) S + don’t/doesn’t usually + V + O · (?) Do/Does + S + usually + V + O?', example: 'I usually have rice for lunch.' },
-      { title: 'Portions with countable and uncountable nouns', category: 'Quantifier', formula: 'a/an + N (countable) · some + N (uncountable/plural) · a bowl of + N', example: 'I’d like a bowl of soup and some rice.' },
-      { title: 'Present simple for habits', category: 'Tense', formula: 'S + V(s/es) + O + time · (-) S + don’t/doesn’t + V + O · (?) Do/Does + S + V + O?', example: 'I have breakfast at seven every day.' },
-      { title: '‘would like’ for ordering', category: 'Modal', formula: 'S + would like + N / to + V + O · (-) S + wouldn’t like + N · (?) Would + S + like + N?', example: 'I’d like some tea, please.' },
+      { title: 'Adverbs of frequency', category: 'Adverb', formula: 'S + adverb + V + O · (-) S + don’t/doesn’t usually + V + O · (?) Do/Does + S + usually + V + O?', example: 'I usually have rice for lunch.', pronunciation: 'aɪ ˈjuːʒəli hæv raɪs fə lʌntʃ' },
+      { title: 'Portions with countable and uncountable nouns', category: 'Quantifier', formula: 'a/an + N (countable) · some + N (uncountable/plural) · a bowl of + N', example: 'I’d like a bowl of soup and some rice.', pronunciation: 'aɪd laɪk ə bəʊl əv suːp ænd sʌm raɪs' },
+      { title: 'Present simple for habits', category: 'Tense', formula: 'S + V(s/es) + O + time · (-) S + don’t/doesn’t + V + O · (?) Do/Does + S + V + O?', example: 'I have breakfast at seven every day.', pronunciation: 'aɪ hæv ˈbrekfəst æt ˈsevən ˈevri deɪ' },
+      { title: '‘would like’ for ordering', category: 'Modal', formula: 'S + would like + N / to + V + O · (-) S + wouldn’t like + N · (?) Would + S + like + N?', example: 'I’d like some tea, please.', pronunciation: 'aɪd laɪk sʌm tiː pliːz' },
     ],
     examples: [
       'I usually grab a quick breakfast, but I cook dinner at home.',
@@ -684,10 +686,10 @@ const TOPICS: EnglishTopic[] = [
       { term: 'balanced', meaning: 'cân bằng', pronunciation: '/ˈbælənst/', score: 0 },
     ],
     grammar: [
-      { title: 'Present simple for routines', category: 'Tense', formula: 'S + V(s/es) + O + (usually/every day) · (-) S + don’t/doesn’t + V + O · (?) Do/Does + S + V + O?', example: 'I usually walk in the park in autumn.' },
-      { title: 'Present continuous for temporary changes', category: 'Tense', formula: 'S + am/is/are + V-ing + O + (this week/now)', example: 'I’m trying to sleep earlier this week.' },
-      { title: 'Comparatives for seasons', category: 'Comparison', formula: 'N1 + be + adj-er / more adj + than + N2', example: 'The days are shorter than in summer.' },
-      { title: '‘going to’ for intentions', category: 'Future', formula: 'S + am/is/are + going to + V + O', example: 'I’m going to cycle to work more often.' },
+      { title: 'Present simple for routines', category: 'Tense', formula: 'S + V(s/es) + O + (usually/every day) · (-) S + don’t/doesn’t + V + O · (?) Do/Does + S + V + O?', example: 'I usually walk in the park in autumn.', pronunciation: 'aɪ ˈjuːʒəli wɔːk ɪn ðə pɑːk ɪn ˈɔːtəm' },
+      { title: 'Present continuous for temporary changes', category: 'Tense', formula: 'S + am/is/are + V-ing + O + (this week/now)', example: 'I’m trying to sleep earlier this week.', pronunciation: 'aɪm ˈtraɪɪŋ tə sliːp ˈɜːliə ðɪs wiːk' },
+      { title: 'Comparatives for seasons', category: 'Comparison', formula: 'N1 + be + adj-er / more adj + than + N2', example: 'The days are shorter than in summer.', pronunciation: 'ðə deɪz ɑː ˈʃɔːtə ðæn ɪn ˈsʌmə' },
+      { title: '‘going to’ for intentions', category: 'Future', formula: 'S + am/is/are + going to + V + O', example: 'I’m going to cycle to work more often.', pronunciation: 'aɪm ˈɡəʊɪŋ tə ˈsaɪkl tə wɜːk mɔː ˈɒfən' },
     ],
     examples: [
       'In autumn, I usually feel more focused, so I plan heavier tasks in the morning.',
@@ -752,10 +754,10 @@ const TOPICS: EnglishTopic[] = [
       { term: 'workload', meaning: 'khối lượng công việc', pronunciation: '/ˈwɜːkləʊd/', score: 0 },
     ],
     grammar: [
-      { title: 'Present perfect for progress', category: 'Tense', formula: 'S + have/has + V3 + O · (-) S + haven’t/hasn’t + V3 + O · (?) Have/Has + S + V3 + O?', example: 'We have finished the first review.' },
-      { title: 'Passive for status', category: 'Passive', formula: 'S + was/were + V3 (+ by + agent)', example: 'The deployment was rolled back.' },
-      { title: '‘will’ for commitments', category: 'Modal', formula: 'S + will + V + O · (-) S + won’t + V + O · (?) Will + S + V + O?', example: 'I’ll hand off the logs after this meeting.' },
-      { title: 'Modals of possibility', category: 'Modal', formula: 'S + may/might/could + V + O', example: 'We might miss the deadline.' },
+      { title: 'Present perfect for progress', category: 'Tense', formula: 'S + have/has + V3 + O · (-) S + haven’t/hasn’t + V3 + O · (?) Have/Has + S + V3 + O?', example: 'We have finished the first review.', pronunciation: 'wi hæv ˈfɪnɪʃt ðə fɜːst rɪˈvjuː' },
+      { title: 'Passive for status', category: 'Passive', formula: 'S + was/were + V3 (+ by + agent)', example: 'The deployment was rolled back.', pronunciation: 'ðə dɪˈplɔɪmənt wɒz rəʊld bæk' },
+      { title: '‘will’ for commitments', category: 'Modal', formula: 'S + will + V + O · (-) S + won’t + V + O · (?) Will + S + V + O?', example: 'I’ll hand off the logs after this meeting.', pronunciation: 'aɪl hænd ɒf ðə lɒɡz ˈɑːftə ðɪs ˈmiːtɪŋ' },
+      { title: 'Modals of possibility', category: 'Modal', formula: 'S + may/might/could + V + O', example: 'We might miss the deadline.', pronunciation: 'wi maɪt mɪs ðə ˈdedlaɪn' },
     ],
     examples: [
       'We’re on track, but we still have one blocker with the API.',
@@ -824,9 +826,9 @@ const TOPICS: EnglishTopic[] = [
       { term: 'sold out', meaning: 'hết hàng', pronunciation: '/səʊld aʊt/', score: 0 },
     ],
     grammar: [
-      { title: 'Comparatives', category: 'Comparison', formula: 'N1 + be + adj-er / more adj + than + N2', example: 'This laptop is cheaper than that one.' },
-      { title: 'Superlatives', category: 'Comparison', formula: 'S + be + the + adj-est / most adj + N', example: 'This is the cheapest option.' },
-      { title: '‘whether’ for choices', category: 'Clause', formula: 'S + decide + whether + to + V + O', example: 'We need to decide whether to buy now or wait.' },
+      { title: 'Comparatives', category: 'Comparison', formula: 'N1 + be + adj-er / more adj + than + N2', example: 'This laptop is cheaper than that one.', pronunciation: 'ðɪs ˈlæptɒp ɪz ˈtʃiːpə ðæn ðæt wʌn' },
+      { title: 'Superlatives', category: 'Comparison', formula: 'S + be + the + adj-est / most adj + N', example: 'This is the cheapest option.', pronunciation: 'ðɪs ɪz ðə ˈtʃiːpɪst ˈɒpʃən' },
+      { title: '‘whether’ for choices', category: 'Clause', formula: 'S + decide + whether + to + V + O', example: 'We need to decide whether to buy now or wait.', pronunciation: 'wi niːd tə dɪˈsaɪd ˈweðə tə baɪ naʊ ɔː weɪt' },
       { title: 'Imperatives for advice', category: 'Imperative', formula: 'V + O · (-) Don’t + V + O', example: 'Check the price before you buy.' },
     ],
     examples: [
@@ -897,10 +899,10 @@ const TOPICS: EnglishTopic[] = [
       { term: 'hotfix', meaning: 'bản vá nóng', pronunciation: '/ˈhɒtfɪks/', score: 0 },
     ],
     grammar: [
-      { title: 'Present continuous for future arrangements', category: 'Future', formula: 'S + am/is/are + V-ing + O + future time', example: 'We’re releasing on Thursday.' },
-      { title: 'Modals for obligation', category: 'Modal', formula: 'S + need to / must / have to + V + O · (-) S + don’t need to + V + O · (?) Do + S + need to + V + O?', example: 'We need to freeze the code by Wednesday.' },
-      { title: 'First conditional for rollout', category: 'Conditional', formula: 'If + S + V(present) + O, S + will + V + O', example: 'If the canary looks healthy, we’ll roll out.' },
-      { title: 'Passive with modals', category: 'Passive', formula: 'S + modal + be + V3 (+ by + agent)', example: 'The code must be frozen by Wednesday.' },
+      { title: 'Present continuous for future arrangements', category: 'Future', formula: 'S + am/is/are + V-ing + O + future time', example: 'We’re releasing on Thursday.', pronunciation: 'wɪə rɪˈliːsɪŋ ɒn ˈθɜːzdeɪ' },
+      { title: 'Modals for obligation', category: 'Modal', formula: 'S + need to / must / have to + V + O · (-) S + don’t need to + V + O · (?) Do + S + need to + V + O?', example: 'We need to freeze the code by Wednesday.', pronunciation: 'wi niːd tə friːz ðə kəʊd baɪ ˈwenzdeɪ' },
+      { title: 'First conditional for rollout', category: 'Conditional', formula: 'If + S + V(present) + O, S + will + V + O', example: 'If the canary looks healthy, we’ll roll out.', pronunciation: 'ɪf ðə kəˈneəri lʊks ˈhelθi, wiːl rəʊl aʊt' },
+      { title: 'Passive with modals', category: 'Passive', formula: 'S + modal + be + V3 (+ by + agent)', example: 'The code must be frozen by Wednesday.', pronunciation: 'ðə kəʊd mʌst bi ˈfrəʊzən baɪ ˈwenzdeɪ' },
     ],
     examples: [
       'We’re releasing on Thursday, so the code freeze starts tonight.',
@@ -982,10 +984,10 @@ const TOPICS: EnglishTopic[] = [
       { term: 'herbs', meaning: 'rau thơm', pronunciation: '/hɜːbz/', score: 0 },
     ],
     grammar: [
-      { title: '‘going to’ for plans', category: 'Future', formula: 'S + am/is/are + going to + V + O · (-) S + am/is/are + not + going to + V + O · (?) Am/Is/Are + S + going to + V + O?', example: 'I’m going to fix the fence this weekend.' },
-      { title: 'Polite requests with ‘could’', category: 'Request', formula: 'Could + you + V + O, please?', example: 'Could you lend me a ladder?' },
-      { title: 'Zero conditional for facts', category: 'Conditional', formula: 'If + S + V(present), S + V(present)', example: 'If it rains, I stay home.' },
-      { title: '‘like/enjoy’ + V-ing', category: 'Gerund', formula: 'S + like/love/enjoy + V-ing + O', example: 'I enjoy walking in the park at weekends.' },
+      { title: '‘going to’ for plans', category: 'Future', formula: 'S + am/is/are + going to + V + O · (-) S + am/is/are + not + going to + V + O · (?) Am/Is/Are + S + going to + V + O?', example: 'I’m going to fix the fence this weekend.', pronunciation: 'aɪm ˈɡəʊɪŋ tə fɪks ðə fens ðɪs ˌwiːkˈend' },
+      { title: 'Polite requests with ‘could’', category: 'Request', formula: 'Could + you + V + O, please?', example: 'Could you lend me a ladder?', pronunciation: 'kʊd ju lend mi ə ˈlædə' },
+      { title: 'Zero conditional for facts', category: 'Conditional', formula: 'If + S + V(present), S + V(present)', example: 'If it rains, I stay home.', pronunciation: 'ɪf ɪt reɪnz, aɪ steɪ həʊm' },
+      { title: '‘like/enjoy’ + V-ing', category: 'Gerund', formula: 'S + like/love/enjoy + V-ing + O', example: 'I enjoy walking in the park at weekends.', pronunciation: 'aɪ ɪnˈdʒɔɪ ˈwɔːkɪŋ ɪn ðə pɑːk æt ˌwiːkˈendz' },
     ],
     examples: [
       'Are you doing anything fun this weekend?',
@@ -1067,10 +1069,10 @@ const TOPICS: EnglishTopic[] = [
       { term: 'lemonade', meaning: 'nước chanh', pronunciation: '/ˌleməˈneɪd/', score: 0 },
     ],
     grammar: [
-      { title: 'Polite requests with ‘could’', category: 'Request', formula: 'Could + we/I + V + O, please?', example: 'Could we have the bill, please?' },
-      { title: 'Quantifiers with food', category: 'Quantifier', formula: 'a little + N (uncountable) · a few + N (countable) · O', example: 'Could I have a little more rice?' },
-      { title: '‘Would you like …?’ offers', category: 'Modal', formula: 'Would + you + like + N / to + V + O?', example: 'Would you like some dessert?' },
-      { title: '‘too / enough’', category: 'Adverb', formula: 'S + be + too + adj (+ for + O) · S + be + adj + enough + to + V', example: 'This soup is too spicy for me.' },
+      { title: 'Polite requests with ‘could’', category: 'Request', formula: 'Could + we/I + V + O, please?', example: 'Could we have the bill, please?', pronunciation: 'kʊd wi hæv ðə bɪl pliːz' },
+      { title: 'Quantifiers with food', category: 'Quantifier', formula: 'a little + N (uncountable) · a few + N (countable) · O', example: 'Could I have a little more rice?', pronunciation: 'kʊd aɪ hæv ə ˈlɪtl mɔː raɪs' },
+      { title: '‘Would you like …?’ offers', category: 'Modal', formula: 'Would + you + like + N / to + V + O?', example: 'Would you like some dessert?', pronunciation: 'wʊd ju laɪk sʌm dɪˈzɜːt' },
+      { title: '‘too / enough’', category: 'Adverb', formula: 'S + be + too + adj (+ for + O) · S + be + adj + enough + to + V', example: 'This soup is too spicy for me.', pronunciation: 'ðɪs suːp ɪz tuː ˈspaɪsi fə miː' },
     ],
     examples: [
       'Could we have the bill, please?',
@@ -1152,10 +1154,10 @@ const TOPICS: EnglishTopic[] = [
       { term: 'whole grains', meaning: 'ngũ cốc nguyên hạt', pronunciation: '/həʊl ɡreɪnz/', score: 0 },
     ],
     grammar: [
-      { title: '‘should’ for advice', category: 'Modal', formula: 'S + should/shouldn’t + V + O · (?) Should + S + V + O?', example: 'You should prep meals on Sunday.' },
-      { title: 'Adverbs of frequency', category: 'Adverb', formula: 'S + adverb + V + O · (-) S + rarely/never + V + O', example: 'I rarely order junk food during the week.' },
-      { title: 'Gerunds as subjects', category: 'Gerund', formula: 'V-ing + V(singular) + O', example: 'Prepping meals saves time.' },
-      { title: 'Purpose with ‘to’ and ‘so that’', category: 'Purpose', formula: 'S + V + O + to + V / so that + S + can + V', example: 'I prep meals to save time.' },
+      { title: '‘should’ for advice', category: 'Modal', formula: 'S + should/shouldn’t + V + O · (?) Should + S + V + O?', example: 'You should prep meals on Sunday.', pronunciation: 'ju ʃʊd prep miːlz ɒn ˈsʌndeɪ' },
+      { title: 'Adverbs of frequency', category: 'Adverb', formula: 'S + adverb + V + O · (-) S + rarely/never + V + O', example: 'I rarely order junk food during the week.', pronunciation: 'aɪ ˈreəli ˈɔːdə dʒʌŋk fuːd ˈdjʊərɪŋ ðə wiːk' },
+      { title: 'Gerunds as subjects', category: 'Gerund', formula: 'V-ing + V(singular) + O', example: 'Prepping meals saves time.', pronunciation: 'ˈprepɪŋ miːlz seɪvz taɪm' },
+      { title: 'Purpose with ‘to’ and ‘so that’', category: 'Purpose', formula: 'S + V + O + to + V / so that + S + can + V', example: 'I prep meals to save time.', pronunciation: 'aɪ prep miːlz tə seɪv taɪm' },
     ],
     examples: [
       'I do meal prep on Sunday so I eat better during the week.',
