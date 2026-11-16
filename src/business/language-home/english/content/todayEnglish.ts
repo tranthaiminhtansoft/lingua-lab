@@ -1590,6 +1590,13 @@ export function isTopicVisible(topic: EnglishTopic, date = new Date(), windowDay
   return diff >= 0 && diff <= windowDays;
 }
 
+export function daysUntilAvailable(topic: EnglishTopic, date = new Date()): number {
+  const [ay, am, ad] = topic.availableFrom.split('-').map(Number);
+  const availableDate = new Date(ay, am - 1, ad);
+  const todayDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+  return Math.max(0, Math.round((availableDate.getTime() - todayDate.getTime()) / 86_400_000));
+}
+
 export function getTopicTimeLimit(topic: EnglishTopic): number {
   if (typeof topic.timeLimit === 'number' && topic.timeLimit > 0) return topic.timeLimit;
   const minutes = Math.ceil(topic.vocab.length * 0.4 + topic.grammar.length * 1 + topic.dialogue.length * 0.5);

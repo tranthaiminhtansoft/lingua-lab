@@ -6,7 +6,7 @@ import {
   isTopicAvailableApi,
 } from './services/englishContentApi';
 import type { EnglishTopic, TodayEnglishContext } from './content/todayEnglish';
-import { isTopicVisible } from './content/todayEnglish';
+import { isTopicVisible, daysUntilAvailable } from './content/todayEnglish';
 import { getTopicTimeLimit } from './content/todayEnglish';
 import {
   readProgress,
@@ -147,7 +147,7 @@ export function TodayEnglishPage() {
                 disabled={!available}
               >
                 <span className={`english-today-badge ${available ? 'available' : 'coming'}`}>
-                  {available ? (topic.daily ? 'Hàng ngày' : 'Có sẵn') : `Coming soon · ${topic.availableFrom}`}
+                  {available ? (topic.daily ? 'Hàng ngày' : 'Có sẵn') : `Coming soon · còn ${daysUntilAvailable(topic, today)} ngày`}
                 </span>
                 <h3 className="english-today-topic-title">{topic.title}</h3>
                 <p className="english-today-topic-desc">{topic.description}</p>
