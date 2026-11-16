@@ -608,8 +608,14 @@ export function EnglishTopicPage() {
                       <code key={part}>{part}</code>
                     ))}
                   </span>
-                  <span style={{ display: 'block', marginTop: 6 }}>
-                    {item.example.split(/\s+/).map((word, wi) => (
+                  <button
+                    type="button"
+                    onClick={() => speakText(item.example)}
+                    disabled={isListening}
+                    style={{ display: 'block', marginTop: 6, background: 'none', border: 'none', padding: 0, textAlign: 'left', cursor: 'pointer', font: 'inherit', color: 'inherit' }}
+                    title="Bấm để nghe phát âm"
+                  >
+                    🔊 {item.example.split(/\s+/).map((word, wi) => (
                       <span
                         key={`${item.example}-${wi}`}
                         className={feedback ? (feedback[wi] === 'good' ? 'score-high' : feedback[wi] === 'near' ? 'score-mid' : 'score-low') : undefined}
@@ -618,7 +624,7 @@ export function EnglishTopicPage() {
                         {word}{' '}
                       </span>
                     ))}
-                  </span>
+                  </button>
                   <span style={{ display: 'block', marginTop: 4, color: '#697382', fontSize: 12 }}>
                     Phát âm: <span className={scoreClass(gp.score)}>{gp.score}%</span>
                     {gp.completed ? ' (đạt ngưỡng)' : ' (chưa đạt)'}
