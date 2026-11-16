@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
 import { GrammarTopicNavigation } from '../grammar/components/GrammarTopicNavigation';
-import { buildSampleCalendar, clockWords, dayBoundaryWords, dayPeriods, everyDay, hours, minutes, months, sampleDate, weekdays } from './content/time';
+import { buildSampleCalendar, clockWords, dayBoundaryWords, dayPeriods, everyDay, everyMonth, everyWeek, everyYear, hours, minutes, months, relativeMonths, relativeWeeks, relativeYears, sampleDate, weekdays, years } from './content/time';
 import { Reading } from './TimeReading';
 import { InteractiveTimeClock } from './InteractiveTimeClock';
 import './time.css';
 
 const timeSections = [
+  ['time-years', 'Years'],
   ['time-months', 'Months'],
   ['time-dates', 'Days & nights'],
   ['time-dayparts', 'Parts of the day'],
@@ -18,6 +19,7 @@ const timeSections = [
 export function TimeVocabularyPage() {
   const calendar = buildSampleCalendar();
   const relativeDates = calendar.flatMap((cell) => cell?.relative ? [{ day: cell.day, relative: cell.relative }] : []);
+  const specialDateDays = new Set([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 14, 17, 19, 20, 24, 27]);
   return <main className="grammar-page vocabulary-topic-page time-page">
     <header className="grammar-topic-hero">
       <Link className="grammar-back-link" to="/nihongo-o-benkyuo/vocabulary">← Vocabulary topics</Link>
@@ -39,6 +41,12 @@ export function TimeVocabularyPage() {
         <div><span className="time-sound time-sound-shared">Shared ending</span><span className="time-sound time-sound-fun">ふん · fun</span><span className="time-sound time-sound-pun">ぷん · pun</span><span className="time-sound time-sound-repeat">まい · mai · every</span><span className="time-sound time-sound-changed">Special / changed sound</span></div>
         <p>For example, <span lang="ja-Latn">ip + pun</span> joins into <span lang="ja-Latn">ippun</span>: the doubled p reflects the small <span lang="ja">っ</span>. Whole irregular words such as <span lang="ja">ついたち</span> (<span lang="ja-Latn">tsuitachi</span>) stay together.</p>
       </aside>
+      <section id="time-years" className="time-frame-section" aria-labelledby="years-title">
+        <h3 id="years-title">Years</h3>
+        <p>Read years as <span lang="ja">ねん</span> (<span lang="ja-Latn">nen</span>) when counting and <span lang="ja">とし</span> (<span lang="ja-Latn">toshi</span>) for a year or age. Then use the words for this, last, next, and every year.</p>
+        <div className="time-clock-words">{years.map((entry, index) => <Reading entry={entry} key={`${entry.japanese}-${entry.kana}-${index}`} />)}</div>
+      </section>
+
       <section id="time-months" className="time-frame-section" aria-labelledby="months-title">
         <h3 id="months-title">The twelve months</h3><p>Number + <span lang="ja">月（がつ）</span> <span lang="ja-Latn">gatsu</span>. Shared endings are teal; red marks special number readings.</p>
         <div className="time-months">{months.map((entry) => <div key={entry.japanese}><Reading entry={entry} /></div>)}</div>
@@ -48,7 +56,7 @@ export function TimeVocabularyPage() {
         <div className="time-calendar-scroll" tabIndex={0} role="region" aria-label="October 2026 calendar, scroll horizontally">
           <table className="time-calendar"><caption>October 2026 · sample today is Thursday the 15th</caption>
             <thead><tr>{weekdays.map((entry) => <th scope="col" key={entry.japanese}><Reading entry={entry} /></th>)}</tr></thead>
-            <tbody>{Array.from({ length: 5 }, (_, week) => <tr key={week}>{calendar.slice(week * 7, week * 7 + 7).map((cell, column) => <td key={column} className={cell?.day === sampleDate.day ? 'time-sample-today' : undefined} data-day={cell?.day}>
+            <tbody>{Array.from({ length: 5 }, (_, week) => <tr key={week}>{calendar.slice(week * 7, week * 7 + 7).map((cell, column) => <td key={column} className={[cell?.day === sampleDate.day ? 'time-sample-today' : '', cell?.day !== undefined && specialDateDays.has(cell.day) ? 'time-special-date' : ''].filter(Boolean).join(' ') || undefined} data-day={cell?.day}>
               {cell && <><b className="time-date-number">{cell.day}</b><Reading entry={cell.date} meaning={false} alignKanaRomaji /></>}
             </td>)}</tr>)}</tbody>
           </table>
@@ -72,13 +80,24 @@ export function TimeVocabularyPage() {
           <div className="time-relative-timeline-row" role="group" aria-label="Morning readings">{relativeDates.map(({ day, relative }) => <article key={day}><Reading entry={relative.morning} /></article>)}</div>
           <div className="time-relative-timeline-row" role="group" aria-label="Relative day readings">{relativeDates.map(({ day, relative }) => <article key={day}><Reading entry={relative.day} /></article>)}</div>
           <div className="time-relative-timeline-row" role="group" aria-label="Night readings">{relativeDates.map(({ day, relative }) => <article key={day}><Reading entry={relative.night} /></article>)}</div>
+        <div className="time-relative-timeline-row" role="group" aria-label="Week readings">{relativeWeeks.map((entry, index) => <article key={`${entry.japanese}-${index}`}><Reading entry={entry} /></article>)}</div>
+        <div className="time-relative-timeline-row" role="group" aria-label="Month readings">{relativeMonths.map((entry, index) => <article key={`${entry.japanese}-${index}`}><Reading entry={entry} /></article>)}</div>
+        <div className="time-relative-timeline-row" role="group" aria-label="Year readings">{relativeYears.map((entry, index) => <article key={`${entry.japanese}-${entry.kana}-${index}`}><Reading entry={entry} /></article>)}</div>
         </section>
         <section id="time-rhythm" className="time-daily-rhythm" aria-labelledby="daily-rhythm-title">
           <h3 id="daily-rhythm-title">Every day & recurring words</h3>
           <p>These “every…” expressions are grouped separately from the calendar.</p>
           <div className="time-rhythm-grid">
-            <article className="time-rhythm-card"><Reading entry={everyDay} /></article>
-            {dayPeriods.map((period, index) => <article className={`time-rhythm-card time-period-${index}`} key={period.repeat.japanese}>
+            {dayPeriods.slice(0, 2).map((period, index) => <article className={`time-rhythm-card time-period-${index}`} key={period.repeat.japanese}>
+              <span className="time-period-icon" aria-hidden="true">{period.icon}</span><Reading entry={period.repeat} />
+            </article>)}
+            <div className="time-rhythm-column">
+              <article className="time-rhythm-card"><Reading entry={everyDay} /></article>
+              <div className="time-rhythm-stack">
+                {[everyWeek, everyMonth, everyYear].map((entry, index) => <article className="time-rhythm-card" key={`${entry.japanese}-${entry.kana}-${index}`}><Reading entry={entry} /></article>)}
+              </div>
+            </div>
+            {dayPeriods.slice(2).map((period, index) => <article className={`time-rhythm-card time-period-${index + 2}`} key={period.repeat.japanese}>
               <span className="time-period-icon" aria-hidden="true">{period.icon}</span><Reading entry={period.repeat} />
             </article>)}
           </div>

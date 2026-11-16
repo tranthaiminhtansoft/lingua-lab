@@ -31,6 +31,9 @@ export const dates = Array.from({ length: 31 }, (_, i) => {
   const n = i + 1, reading = specialDates[n] ?? numberReading(n).map((r, tier) => r + (tier === 0 ? 'にち' : 'nichi'));
   return word(`${n}日`, reading[0], reading[1], `Day ${n} of the month`, n in specialDates);
 });
+dates[13].alternative = { kana: 'じゅうよんにち', romaji: 'jū yon nichi', parts: [{ kana: 'じゅう', romaji: 'jū', role: 'base' }, { kana: 'よん', romaji: 'yon', role: 'base' }, { kana: 'にち', romaji: 'nichi', role: 'shared' }] };
+dates[16].alternative = { kana: 'じゅうななにち', romaji: 'jū nana nichi', parts: [{ kana: 'じゅう', romaji: 'jū', role: 'base' }, { kana: 'なな', romaji: 'nana', role: 'base' }, { kana: 'にち', romaji: 'nichi', role: 'shared' }] };
+dates[18].alternative = { kana: 'じゅうきゅうにち', romaji: 'jū kyū nichi', parts: [{ kana: 'じゅう', romaji: 'jū', role: 'base' }, { kana: 'きゅう', romaji: 'kyū', role: 'base' }, { kana: 'にち', romaji: 'nichi', role: 'shared' }] };
 export const relativeDays = [
   word('一昨日', 'おととい', 'ototoi', 'The day before yesterday'), word('昨日', 'きのう', 'kinō', 'Yesterday'),
   word('今日', 'きょう', 'kyō', 'Today'), word('明日', 'あした', 'ashita', 'Tomorrow'), word('明後日', 'あさって', 'asatte', 'The day after tomorrow'),
@@ -60,6 +63,23 @@ export const dayBoundaryWords = [
   word('日の入り', 'ひのいり', 'hinoiri', 'Sunset'),
 ];
 export const everyDay = word('毎日', 'まいにち', 'mainichi', 'Every day');
+export const everyWeek = word('毎週', 'まいしゅう', 'maishū', 'Every week');
+everyWeek.parts = [{ kana: 'まい', romaji: 'mai', role: 'repeat' }, { kana: 'しゅう', romaji: 'shū', role: 'shared' }];
+export const everyMonth = word('毎月', 'まいつき', 'maitsuki', 'Every month');
+everyMonth.parts = [{ kana: 'まい', romaji: 'mai', role: 'repeat' }, { kana: 'つき', romaji: 'tsuki', role: 'shared' }];
+export const everyYear = word('毎年', 'まいとし', 'maitoshi', 'Every year');
+everyYear.parts = [{ kana: 'まい', romaji: 'mai', role: 'repeat' }, { kana: 'とし', romaji: 'toshi', role: 'shared' }];
+everyYear.alternative = { kana: 'まいねん', romaji: 'mai nen', parts: [{ kana: 'まい', romaji: 'mai', role: 'repeat' }, { kana: 'ねん', romaji: 'nen', role: 'shared' }] };
+export const years = [
+  word('年', 'ねん', 'nen', 'year (counter)'),
+  word('年', 'とし', 'toshi', 'year; age'),
+  word('今年', 'ことし', 'kotoshi', 'this year'),
+  word('去年', 'きょねん', 'kyonen', 'last year'),
+  word('来年', 'らいねん', 'rainen', 'next year'),
+  word('毎年', 'まいとし', 'maitoshi', 'every year'),
+  word('〜年前', '〜ねんまえ', '~nemmae', 'years ago'),
+  word('〜年後', '〜ねんご', '~nengo', 'years later'),
+];
 export const hours = monthKana.map((reading, i) => word(`${i + 1}時`, `${i === 3 ? 'よ' : reading}じ`, `${i === 3 ? 'yo' : monthRomaji[i]}ji`, `${i + 1} o’clock`, [3, 6, 8].includes(i)));
 hours[6].alternative = { kana: 'ななじ', romaji: 'nanaji' };
 const minuteUnits = [['', ''], ['いっぷん', 'ippun'], ['にふん', 'nifun'], ['さんぷん', 'sanpun'], ['よんぷん', 'yonpun'], ['ごふん', 'gofun'], ['ろっぷん', 'roppun'], ['ななふん', 'nanafun'], ['はっぷん', 'happun'], ['きゅうふん', 'kyūfun']];
@@ -137,6 +157,47 @@ relativeMornings.forEach((entry) => {
 relativeNights[2].parts = [part('こん', 'kon'), part('や', 'ya', 'shared')];
 relativeNights[1].alternative!.parts = [part('さく', 'saku'), part('や', 'ya', 'shared')];
 everyDay.parts = [part('まい', 'mai', 'repeat'), part('にち', 'nichi', 'shared')];
+export const relativeWeeks = [
+  word('一昨週', 'いっさくしゅう', 'issakushū', 'The week before last'),
+  word('先週', 'せんしゅう', 'senshū', 'Last week'),
+  word('今週', 'こんしゅう', 'konshū', 'This week'),
+  word('来週', 'らいしゅう', 'raishū', 'Next week'),
+  word('再来週', 'さらいしゅう', 'saraishū', 'The week after next'),
+];
+export const relativeMonths = [
+  word('一昨月', 'いっさくげつ', 'issakugatsu', 'The month before last'),
+  word('先月', 'せんげつ', 'sengetsu', 'Last month'),
+  word('今月', 'こんげつ', 'kongetsu', 'This month'),
+  word('来月', 'らいげつ', 'raigetsu', 'Next month'),
+  word('再来月', 'さらいげつ', 'saraigetsu', 'The month after next'),
+];
+export const relativeYears = [
+  word('一昨年', 'いっさくねん', 'issakunen', 'The year before last'),
+  years[3],
+  years[2],
+  years[4],
+  word('再来年', 'さらいねん', 'sarainen', 'The year after next'),
+];
+years[0].parts = [{ kana: 'ねん', romaji: 'nen', role: 'shared' }];
+years[1].parts = [{ kana: 'とし', romaji: 'toshi', role: 'base' }];
+years[2].parts = [{ kana: 'ことし', romaji: 'kotoshi', role: 'base' }];
+years[3].parts = [{ kana: 'きょ', romaji: 'kyo', role: 'base' }, { kana: 'ねん', romaji: 'nen', role: 'shared' }];
+years[4].parts = [{ kana: 'らい', romaji: 'rai', role: 'base' }, { kana: 'ねん', romaji: 'nen', role: 'shared' }];
+years[5].parts = [{ kana: 'まい', romaji: 'mai', role: 'repeat' }, { kana: 'とし', romaji: 'toshi', role: 'shared' }];
+years[6].parts = [{ kana: '〜ねん', romaji: '~nem', role: 'shared' }, { kana: 'まえ', romaji: 'mae', role: 'base' }];
+years[7].parts = [{ kana: '〜ねん', romaji: '~nen', role: 'shared' }, { kana: 'ご', romaji: 'go', role: 'base' }];
+relativeWeeks[0].parts = [{ kana: 'いっさ', romaji: 'issa', role: 'base' }, { kana: 'くしゅう', romaji: 'kushū', role: 'shared' }];
+relativeWeeks[1].parts = [{ kana: 'せん', romaji: 'sen', role: 'base' }, { kana: 'しゅう', romaji: 'shū', role: 'shared' }];
+relativeWeeks[2].parts = [{ kana: 'こん', romaji: 'kon', role: 'base' }, { kana: 'しゅう', romaji: 'shū', role: 'shared' }];
+relativeWeeks[3].parts = [{ kana: 'らい', romaji: 'rai', role: 'base' }, { kana: 'しゅう', romaji: 'shū', role: 'shared' }];
+relativeWeeks[4].parts = [{ kana: 'さらい', romaji: 'sarai', role: 'base' }, { kana: 'しゅう', romaji: 'shū', role: 'shared' }];
+relativeMonths[0].parts = [{ kana: 'いっさ', romaji: 'issa', role: 'base' }, { kana: 'くげつ', romaji: 'kugatsu', role: 'shared' }];
+relativeMonths[1].parts = [{ kana: 'せん', romaji: 'sen', role: 'base' }, { kana: 'げつ', romaji: 'getsu', role: 'shared' }];
+relativeMonths[2].parts = [{ kana: 'こん', romaji: 'kon', role: 'base' }, { kana: 'げつ', romaji: 'getsu', role: 'shared' }];
+relativeMonths[3].parts = [{ kana: 'らい', romaji: 'rai', role: 'base' }, { kana: 'げつ', romaji: 'getsu', role: 'shared' }];
+relativeMonths[4].parts = [{ kana: 'さらい', romaji: 'sarai', role: 'base' }, { kana: 'げつ', romaji: 'getsu', role: 'shared' }];
+relativeYears[0].parts = [{ kana: 'いっさ', romaji: 'issa', role: 'base' }, { kana: 'くねん', romaji: 'kunen', role: 'shared' }];
+relativeYears[4].parts = [{ kana: 'さらい', romaji: 'sarai', role: 'base' }, { kana: 'ねん', romaji: 'nen', role: 'shared' }];
 dayPeriods[0].repeat.parts = [part('まい', 'mai', 'repeat'), part('あさ', 'asa', 'shared')];
 dayPeriods[1].word.parts = [part('しょう', 'shō'), part('ご', 'go')];
 dayPeriods[1].repeat.parts = [part('まい', 'mai', 'repeat'), part('にち', 'nichi', 'shared'), part('しょう', 'shō'), part('ご', 'go')];
