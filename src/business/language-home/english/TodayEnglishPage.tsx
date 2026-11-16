@@ -125,7 +125,7 @@ export function TodayEnglishPage() {
         <div className="english-today-topic-grid">
           {context.topics.map((topic) => {
             const available = isTopicAvailableApi(topic, today);
-            const tp = getTopicProgress(progress, topic.id, topic.vocab.map((item) => item.term));
+            const tp = getTopicProgress(progress, topic.id, topic.vocab.map((item) => item.term), topic.grammar.map((item) => item.example));
             return (
               <button
                 key={topic.id}

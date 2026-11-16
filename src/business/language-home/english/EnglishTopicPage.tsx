@@ -10,6 +10,7 @@ import {
   writeProgress,
   getTopicProgress,
   updateVocabularyScore,
+  updateGrammarScore,
   updateDialogueScore,
   resetTopicProgress,
   VOCAB_THRESHOLD,
@@ -232,7 +233,7 @@ export function EnglishTopicPage() {
 
   const topicProgress = useMemo(() => {
     if (!topic) return null;
-    return getTopicProgress(progress, topic.id, topic.vocab.map((item) => item.term), topic.dialogue);
+    return getTopicProgress(progress, topic.id, topic.vocab.map((item) => item.term), topic.grammar.map((item) => item.example), topic.dialogue);
   }, [progress, topic]);
 
   useEffect(() => {
@@ -265,24 +266,29 @@ export function EnglishTopicPage() {
     return value.replace(/^[A-Z]:\s*/, '');
   }
 
-  function applyReadScore(score: number, key?: string, kind: 'vocab' | 'dialogue' = 'vocab') {
+  function applyReadScore(score: number, key?: string, kind: 'vocab' | 'grammar' | 'dialogue' = 'vocab') {
     if (!topic) return;
     const topicIdValue = topic.id;
     const vocabTerms = topic.vocab.map((item) => item.term);
+    const grammarExamples = topic.grammar.map((item) => item.example);
     const dialogueSentences = topic.dialogue;
     let nextState = progress;
     if (key && kind === 'vocab') {
-      nextState = updateVocabularyScore(nextState, topicIdValue, key, score, vocabTerms, dialogueSentences);
+      nextState = updateVocabularyScore(nextState, topicIdValue, key, score, vocabTerms, grammarExamples, dialogueSentences);
+    } else if (key && kind === 'grammar') {
+      nextState = updateGrammarScore(nextState, topicIdValue, key, score, vocabTerms, grammarExamples, dialogueSentences);
     } else if (key && kind === 'dialogue') {
-      nextState = updateDialogueScore(nextState, topicIdValue, key, score, vocabTerms, dialogueSentences);
+      nextState = updateDialogueScore(nextState, topicIdValue, key, score, vocabTerms, grammarExamples, dialogueSentences);
     } else {
       const current = getTopicProgress(nextState, topicIdValue, vocabTerms, dialogueSentences);
       const incomplete = vocabTerms.find((item) => !current.vocabulary[item]?.completed)
         ?? dialogueSentences.find((item) => !current.dialogue[item]?.completed);
       if (incomplete) {
+        const isGrammar = grammarExamples.includes(incomplete);
         const isDialogue = dialogueSentences.includes(incomplete);
-        if (isDialogue) nextState = updateDialogueScore(nextState, topicIdValue, incomplete, score, vocabTerms, dialogueSentences);
-        else nextState = updateVocabularyScore(nextState, topicIdValue, incomplete, score, vocabTerms, dialogueSentences);
+        if (isDialogue) nextState = updateDialogueScore(nextState, topicIdValue, incomplete, score, vocabTerms, grammarExamples, dialogueSentences);
+        else if (isGrammar) nextState = updateGrammarScore(nextState, topicIdValue, incomplete, score, vocabTerms, grammarExamples, dialogueSentences);
+        else nextState = updateVocabularyScore(nextState, topicIdValue, incomplete, score, vocabTerms, grammarExamples, dialogueSentences);
       }
     }
     setProgress(nextState);
@@ -300,7 +306,7 @@ export function EnglishTopicPage() {
     setReadFeedback((current) => ({ ...current, [expected]: transcript }));
   }
 
-  function handleReadAloud(target: string, key?: string, kind: 'vocab' | 'dialogue' = 'vocab') {
+  function handleReadAloud(target: string, key?: string, kind: 'vocab' | 'grammar' | 'dialogue' = 'vocab') {
     const expected = cleanSentence(target);
     if (!expected) return;
     setReadNotice(null);
@@ -457,21 +463,53 @@ export function EnglishTopicPage() {
         <div className="english-today-block">
           <h4>Grammar tương ứng</h4>
           <div className="english-today-list">
-            {topic.grammar.map((item) => (
-              <div className="english-today-item" key={item.title}>
-                <div className="english-today-grammar-head">
-                  <strong>{item.title}</strong>
-                  <span className="english-today-grammar-tag">{item.category}</span>
+            {topic.grammar.map((item) => {
+              const gp = topicProgress?.grammar[item.example] ?? { score: 0, completed: false };
+              const spoken = readFeedback[item.example];
+              const feedback = spoken ? getWordFeedback(item.example, spoken) : null;
+              return (
+                <div className="english-today-item" key={item.title}>
+                  <div className="english-today-grammar-head">
+                    <strong>{item.title}</strong>
+                    <span className="english-today-grammar-tag">{item.category}</span>
+                  </div>
+                  <span className="english-today-formula">
+                    <span className="formula-label">Công thức</span>
+                    {item.formula.split(' · ').map((part) => (
+                      <code key={part}>{part}</code>
+                    ))}
+                  </span>
+                  <span style={{ display: 'block', marginTop: 6 }}>
+                    {item.example.split(/\s+/).map((word, wi) => (
+                      <span
+                        key={`${item.example}-${wi}`}
+                        className={feedback ? (feedback[wi] === 'good' ? 'score-high' : feedback[wi] === 'near' ? 'score-mid' : 'score-low') : undefined}
+                        style={{ marginRight: 4 }}
+                      >
+                        {word}{' '}
+                      </span>
+                    ))}
+                  </span>
+                  <span style={{ display: 'block', marginTop: 4, color: '#697382', fontSize: 12 }}>
+                    Phát âm: <span className={scoreClass(gp.score)}>{gp.score}%</span>
+                    {gp.completed ? ' (đạt ngưỡng)' : ' (chưa đạt)'}
+                  </span>
+                  <div style={{ marginTop: 8, display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                    <button
+                      className={`english-today-button secondary${isListening ? ' listening' : ''}`}
+                      type="button"
+                      onClick={() => handleReadAloud(item.example, item.example, 'grammar')}
+                      disabled={isListening || gp.completed}
+                    >
+                      {gp.completed ? 'Đã đạt' : isListening ? 'Đang nghe…' : gp.score > 0 ? 'Đọc lại ví dụ' : 'Đọc ví dụ'}
+                    </button>
+                    <button className="english-today-button ghost" type="button" onClick={() => speakText(item.example)} disabled={isListening}>
+                      🔊 Nghe mẫu
+                    </button>
+                  </div>
                 </div>
-                <span className="english-today-formula">
-                  <span className="formula-label">Công thức</span>
-                  {item.formula.split(' · ').map((part) => (
-                    <code key={part}>{part}</code>
-                  ))}
-                </span>
-                <span>{item.example}</span>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
