@@ -4,7 +4,7 @@ Proposed scope and implementation checklist for adding a broad English learning 
 
 ## Current status
 
-**Proposed; implementation has not started.** The initial release is limited to the English hub and the first two learning groups. The standalone concept file is linked in the interface section below.
+**Implemented (MVP).** The English hub, daily contextual topics, vocabulary/grammar/quiz/dialogue practice, read-aloud scoring, progress tracking, timer, and navigation are live. Remaining follow-ups: real backend, authentication, and E2E coverage.
 
 ## Next work
 
