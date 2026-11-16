@@ -85,7 +85,7 @@ export function TodayEnglishPage() {
   }
 
   function handleRefresh() {
-    window.alert('Đã kiểm tra version. Nếu có bản mới, nội dung sẽ được tải về (MVP dùng bundle local).');
+    window.alert('Đã kiểm tra version. Nội dung hiện tại dùng bundle local.');
   }
 
   if (!context) {
@@ -96,7 +96,7 @@ export function TodayEnglishPage() {
     <main className="english-today-page">
       <div className="english-today-topbar">
         <div className="english-today-crumb">English <span aria-hidden="true">/</span> <b>Today’s English</b></div>
-        <div className="english-today-tag">MVP PREVIEW</div>
+        <div className="english-today-tag">Daily English</div>
       </div>
 
       <section className="english-today-hero">

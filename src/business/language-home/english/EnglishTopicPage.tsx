@@ -498,7 +498,7 @@ export function EnglishTopicPage() {
         <div className="english-today-crumb">
           English <span aria-hidden="true">/</span> <Link to="/english">Today’s English</Link> <span aria-hidden="true">/</span> <b>{topic.title}</b>
         </div>
-        <div className="english-today-tag">MVP PREVIEW</div>
+        <div className="english-today-tag">Daily English</div>
       </div>
 
       <section className="english-today-card english-today-detail" style={{ marginTop: 0 }}>
