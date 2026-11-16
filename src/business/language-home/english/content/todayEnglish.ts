@@ -88,6 +88,61 @@ function dateKey(date: Date): string {
 const TOPICS: EnglishTopic[] = [
 
   {
+    id: 'sunday-mass',
+    title: 'Sunday Mass and going to church',
+    description: 'Talk about going to church, mass, and Sunday worship.',
+    availableFrom: '2020-01-01',
+    daily: true,
+    theme: 'weekend',
+    vocab: [
+      { term: 'mass', meaning: 'thánh lễ', pronunciation: '/mæs/', score: 0 },
+      { term: 'church', meaning: 'nhà thờ', pronunciation: '/tʃɜːtʃ/', score: 0 },
+      { term: 'parish', meaning: 'giáo xứ', pronunciation: '/ˈpærɪʃ/', score: 0 },
+      { term: 'prayer', meaning: 'lời cầu nguyện', pronunciation: '/preə/', score: 0 },
+      { term: 'hymn', meaning: 'bài thánh ca', pronunciation: '/hɪm/', score: 0 },
+      { term: 'sermon', meaning: 'bài giảng', pronunciation: '/ˈsɜːmən/', score: 0 },
+      { term: 'communion', meaning: 'rước lễ', pronunciation: '/kəˈmjuːniən/', score: 0 },
+      { term: 'blessing', meaning: 'phép lành', pronunciation: '/ˈblesɪŋ/', score: 0 },
+      { term: 'choir', meaning: 'ca đoàn', pronunciation: '/ˈkwaɪə/', score: 0 },
+    ],
+    grammar: [
+      { title: 'Present simple for weekly worship', category: 'Tense', formula: 'S + V(s/es) + O + every Sunday / usually', example: 'I go to church every Sunday morning.' },
+      { title: 'Present perfect for experience', category: 'Tense', formula: 'S + have/has + been to + place', example: 'I have been to that parish before.' },
+      { title: '‘go to’ + church', category: 'Preposition', formula: 'go to + church (no article)', example: 'We go to church at nine.' },
+      { title: 'Polite invitations', category: 'Modal', formula: 'Would + you + like + to + V + O?', example: 'Would you like to come to mass with us?' },
+    ],
+    examples: [
+      'I go to church every Sunday morning.',
+      'Would you like to come to mass with us?',
+    ],
+    quizzes: [
+      { question: 'Which word means “thánh lễ”?', options: ['mass', 'church', 'parish'], answerIndex: 0, explanation: 'Mass is the main Sunday worship service.' },
+      { question: 'Complete: “I ___ to church every Sunday.”', options: ['go', 'goes', 'going'], answerIndex: 0, explanation: 'With “I”, use the base form: go.' },
+      { question: 'Which sentence is polite when inviting?', options: ['Would you like to come to mass with us?', 'Come to mass now.', 'You must come.'], answerIndex: 0, explanation: '“Would you like …?” is a polite invitation.' },
+      { question: 'Which word means “ca đoàn”?', options: ['choir', 'sermon', 'hymn'], answerIndex: 0, explanation: 'A choir is the group that sings in church.' },
+    ],
+    readExpected: 'I go to church every Sunday morning.',
+    dialogue: [
+      'A: Are you going to church this Sunday?',
+      'B: Yes, at nine. Would you like to come?',
+      'A: I’d love to. Is the choir singing?',
+      'B: Yes, and the sermon is about forgiveness.',
+      'A: That sounds meaningful.',
+      'B: Great. Let’s meet at the parish gate at eight forty-five.',
+    ],
+    dialogueVariants: [
+      [
+        'A: What time is mass today?',
+        'B: Nine o’clock, as usual.',
+        'A: I’m bringing my children.',
+        'B: Wonderful. There’s a children’s blessing.',
+        'A: That’s lovely. See you there.',
+        'B: See you. Have a blessed Sunday.',
+      ],
+    ],
+  },
+
+  {
     id: 'weekend-market',
     title: 'Weekend market shopping',
     description: 'Buy fresh food at the market and chat with vendors.',
@@ -1101,7 +1156,6 @@ const TOPICS: EnglishTopic[] = [
 ];
 
 const WEEKDAY_DAILY_THEMES: EnglishTheme[] = ['devops', 'neighbor', 'meals'];
-const WEEKEND_EXTRA_COUNT = 2;
 
 function isWeekend(date: Date): boolean {
   const day = date.getDay();
@@ -1176,10 +1230,26 @@ function buildDailyQuizzes(
 export function getDailyTopics(date = new Date()): EnglishTopic[] {
   const seed = dayNumber(date);
   if (isWeekend(date)) {
-    const weekendPool = TOPICS.filter((topic) => topic.daily && topic.theme === 'weekend');
+    const sunday = date.getDay() === 0;
+    const weekendPool = TOPICS.filter((topic) => {
+      if (!(topic.daily && topic.theme === 'weekend')) return false;
+      if (sunday && topic.id === 'weekend-outing') return false;
+      if (!sunday && topic.id === 'sunday-mass') return false;
+      return true;
+    });
     const neighborPool = TOPICS.filter((topic) => topic.daily && topic.theme === 'neighbor');
     const mealsPool = TOPICS.filter((topic) => topic.daily && topic.theme === 'meals');
-    const weekendPicks = rotate(weekendPool, seed).slice(0, WEEKEND_EXTRA_COUNT);
+    let weekendPicks: EnglishTopic[];
+    if (sunday) {
+      weekendPicks = [
+        TOPICS.find((topic) => topic.id === 'weekend-rest'),
+        TOPICS.find((topic) => topic.id === 'sunday-mass'),
+      ].filter(Boolean) as EnglishTopic[];
+    } else {
+      const outing = TOPICS.find((topic) => topic.id === 'weekend-outing');
+      const otherPool = weekendPool.filter((topic) => topic.id !== 'weekend-outing');
+      weekendPicks = [outing, rotate(otherPool, seed)[0]].filter(Boolean) as EnglishTopic[];
+    }
     return [
       neighborPool.length ? neighborPool[seed % neighborPool.length] : null,
       mealsPool.length ? mealsPool[seed % mealsPool.length] : null,
