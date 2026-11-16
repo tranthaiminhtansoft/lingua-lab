@@ -12,30 +12,41 @@ export type TopicProgress = {
 
 export type EnglishProgressState = {
   version: string;
+  /** Progress is scoped to this local date; a new day starts fresh. */
+  date: string;
   topics: Record<string, TopicProgress>;
 };
 
 const STORAGE_KEY = 'lingua-english-today-progress';
 const VOCAB_THRESHOLD = 90;
 
-export function createEmptyProgress(version = '2026.11.15'): EnglishProgressState {
-  return { version, topics: {} };
+export function createEmptyProgress(version = '2026.11.15', date = dateKey(new Date())): EnglishProgressState {
+  return { version, date, topics: {} };
+}
+
+function dateKey(date: Date): string {
+  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
 }
 
 export function readProgress(): EnglishProgressState {
+  const today = dateKey(new Date());
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return createEmptyProgress();
+    if (!raw) return createEmptyProgress('2026.11.15', today);
     const parsed = JSON.parse(raw) as EnglishProgressState;
-    if (!parsed || typeof parsed !== 'object' || !parsed.topics) return createEmptyProgress();
+    if (!parsed || typeof parsed !== 'object' || !parsed.topics) return createEmptyProgress('2026.11.15', today);
+    // A new day starts with a fresh progress slate.
+    if (parsed.date !== today) return createEmptyProgress(parsed.version ?? '2026.11.15', today);
+    if (!parsed.date) parsed.date = today;
     return parsed;
   } catch {
-    return createEmptyProgress();
+    return createEmptyProgress('2026.11.15', today);
   }
 }
 
 export function writeProgress(state: EnglishProgressState): void {
   try {
+    if (!state.date) state.date = dateKey(new Date());
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   } catch {
     // Keep the page usable when storage is unavailable.

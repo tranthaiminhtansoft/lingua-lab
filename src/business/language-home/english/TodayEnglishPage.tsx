@@ -15,7 +15,7 @@ import './todayEnglish.css';
 export function TodayEnglishPage() {
   const navigate = useNavigate();
   const [context, setContext] = useState<TodayEnglishContext | null>(null);
-  const [progress] = useState(readProgress);
+  const [progress, setProgress] = useState(readProgress);
   const [remoteVersion, setRemoteVersion] = useState<string | null>(null);
   const [versionChecked, setVersionChecked] = useState(false);
   const [today, setToday] = useState(() => new Date());
@@ -46,6 +46,12 @@ export function TodayEnglishPage() {
 
   useEffect(() => {
     void getTodayEnglishContextApi(today).then(setContext);
+  }, [today]);
+
+  // A new day starts with a fresh progress slate.
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setProgress(readProgress());
   }, [today]);
 
   const availableTopicIds = useMemo(

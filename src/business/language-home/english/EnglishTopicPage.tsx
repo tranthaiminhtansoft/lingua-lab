@@ -214,6 +214,17 @@ export function EnglishTopicPage() {
     void getTodayEnglishContextApi().then(setContext);
   }, []);
 
+  useEffect(() => {
+    // Keep progress in sync with the current day.
+    const refresh = () => setProgress(readProgress());
+    const interval = window.setInterval(refresh, 30_000);
+    document.addEventListener('visibilitychange', refresh);
+    return () => {
+      window.clearInterval(interval);
+      document.removeEventListener('visibilitychange', refresh);
+    };
+  }, []);
+
   const topic = useMemo(
     () => context?.topics.find((item) => item.id === topicId) ?? null,
     [context, topicId],
