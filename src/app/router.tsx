@@ -10,6 +10,8 @@ import { QuestionTypesPage } from '../business/language-home/nihongo/grammar/Que
 import { VocabularyPage } from '../business/language-home/nihongo/vocabulary/VocabularyPage';
 import { FirstIntroductionsVocabularyPage } from '../business/language-home/nihongo/vocabulary/FirstIntroductionsVocabularyPage';
 import { NumbersPage } from '../business/language-home/nihongo/numbers/NumbersPage';
+import { TodayEnglishPage } from '../business/language-home/english/TodayEnglishPage';
+import { EnglishTopicPage } from '../business/language-home/english/EnglishTopicPage';
 
 export function restorePagesPath(basePath = import.meta.env.BASE_URL) {
   const fallbackPath = new URLSearchParams(window.location.search).get('p');
@@ -31,6 +33,8 @@ export const router = createBrowserRouter([
     element: <AppShell />,
     children: [
       { path: 'nihongo-o-benkyuo', element: <NihongoPage /> },
+      { path: 'english', element: <TodayEnglishPage /> },
+      { path: 'english/:topicId', element: <EnglishTopicPage /> },
       { path: 'nihongo-o-benkyuo/kana', element: <KanaPage /> },
       { path: 'nihongo-o-benkyuo/grammar', element: <GrammarPage /> },
       { path: 'nihongo-o-benkyuo/grammar/first-introductions', element: <FirstIntroductionsPage /> },

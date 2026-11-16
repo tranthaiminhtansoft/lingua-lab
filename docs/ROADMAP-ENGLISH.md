@@ -4,16 +4,15 @@ Proposed scope and implementation checklist for adding a broad English learning 
 
 ## Current status
 
-**Proposed; implementation has not started.** The initial release is limited to the English hub and the first two learning groups. The standalone concept file is linked in the interface section below.
+**Implemented (MVP).** The English hub, daily contextual topics, vocabulary/grammar/quiz/dialogue practice, read-aloud scoring, progress tracking, timer, and navigation are live. Remaining follow-ups: real backend, authentication, and E2E coverage.
 
 ## Next work
 
 1. Confirm the beginner-to-intermediate audience, Vietnamese explanation language, and practical communication goal (`ENG-001`).
 2. Define the lesson and accessibility conventions (`ENG-002`), then build the hub and first two lessons (`ENG-003` to `ENG-006`).
 3. Review those lessons before expanding the course (`ENG-007`). Keep later groups in the proposed order and adapt examples to learner goals.
-
+4. (Proposed follow-on) Add contextual daily English based on the device date, season, Catholic feasts, and Vietnamese holidays, with coming-soon markers and IELTS 6.5–8.0/common-usage prioritization (`ENG-026` to `ENG-036`).
 ## Planning conventions
-
 - Keep checklist IDs stable when items move or change status; assign new tasks the next available number.
 - Do not assign target dates until they are agreed.
 - Treat the course order as adaptable: move a structure earlier when a learner’s immediate goal calls for it.
@@ -198,6 +197,19 @@ Use the **English Learning Studio** concept as the visual direction for the Engl
 - Provide practice that asks learners to retrieve or make a choice, not only reread explanations. Give a short explanation with feedback after an answer.
 - Keep lesson pages usable on small screens and link related lessons in a clear next-step path.
 
+### Contextual daily English (proposed)
+
+Instead of forcing a strictly linear path, offer a **date-aware suggestion** based on the device’s local date. On each day, show the current season, any Catholic feast, and any Vietnamese holiday, then propose matching sentence structures and vocabulary. Special-day topics (for example Black Friday) use a flexible **coming soon** marker in the content bank and only become available from **00:00** on their date. Prioritize phrases and grammar that people commonly use for real communication, at IELTS 6.5–8.0 level. Daily topics should also include conversation-extending sentences and advanced adverb/adverbial usage.- Store English content in a static content bank (JSON/TS) with tags such as `frequency`, `level`, `topic`, `season`, `holiday`, and `availableFrom`. Selecting a topic shows its vocabulary, matching grammar structures, and example sentences for application.
+- Provide a simulated backend service (`englishContentApi`) that reads the bundled bank and returns today’s context and suggestions; keep the API shape swappable for a real backend later.- Include Catholic feasts (fixed plus movable feasts such as Easter) and Vietnamese holidays for a 5-year range, using the device time zone.
+- Show a **Coming soon** state for not-yet-available special-day topics.
+
+### Merged communication focus
+
+Daily English should merge the original learning scope with the daily model. Include:
+- Practical communication and turn-taking: clarify, agree/disagree, follow-up questions, repair phrases.
+- Story-extending connectors: *because/so/that’s why, although/even though/though, despite/in spite of, before/after/while/as soon as, if/whether, not only…but also*.
+- Advanced adverb and adverbial usage: time, frequency, manner, degree, viewpoint, and sentence-position guidance, with natural spoken forms.
+- Keep examples conversational and useful for real life, study, travel, and work.
 ### Checklist
 
 - [ ] `ENG-001` Confirm broad beginner-to-intermediate audience, Vietnamese explanation language, and practical communication goal.
@@ -225,8 +237,28 @@ Use the **English Learning Studio** concept as the visual direction for the Engl
 - [ ] `ENG-023` Add practical interaction skills for taking turns, interrupting politely, clarifying, and agreeing/disagreeing across social and work scenarios.
 - [ ] `ENG-024` Define a pronunciation/listening progression covering sound contrasts, syllables, stress, intonation, connected speech, gist/detail listening, and a declared reference accent.
 - [ ] `ENG-025` Provide self-check rubrics and model responses for open speaking/writing tasks; only auto-score activities with reliable local answer keys and make recording opt-in.
-
-Keep the later groups as the proposed sequence; break them into implementation tasks after the first release boundary is reviewed. Do not assign dates until they are agreed.
-
-
+- [ ] `ENG-026` Define contextual daily English: device-date-aware suggestions for season, Catholic feasts, and Vietnamese holidays, with coming-soon markers and IELTS 6.5–8.0/common-usage prioritization.
+- [ ] `ENG-027` Create a static English content bank (JSON/TS) with tags for frequency, IELTS level, topic, season, holiday, and `availableFrom`.
+- [ ] `ENG-028` Implement a simulated backend service (`englishContentApi`) with `getTodayContext` and `getSuggestions`, including 00:00 date gating in the device time zone.
+- [ ] `ENG-029` Add calendar data for seasons, Catholic feasts (fixed and movable, including Easter), and Vietnamese holidays for a 5-year range.
+- [ ] `ENG-030` Add a “Today’s English” card to the English hub that shows today’s available topics and asks the learner which one to study, with a Coming soon state for future special-day topics.
+- [ ] `ENG-031` Filter and rank suggestions by common usage, communication value, and IELTS 6.5–8.0 level, with a way to browse other topics.
+- [ ] `ENG-032` Add reinforcement multiple-choice practice with local answer keys and immediate feedback for contextual daily topics.- [ ] `ENG-033` Add read-aloud detection where supported, comparing spoken input to expected text with percentage match and score, plus recording/text fallback when speech recognition is unavailable.
+- [ ] `ENG-034` Support remote JSON content with version check, throttled update detection, refresh action, and bundled fallback for offline or failed fetches.
+- [ ] `ENG-035` Track per-topic completion percentage and per-vocabulary pronunciation/read-aloud scores with clear red-to-green color coding; a vocabulary item counts as complete only after its read-aloud evaluation reaches the threshold, and every topic must reach 100% before overall progress can be 100%.
+- [ ] `ENG-036` Merge daily English with the original learning scope, including practical communication, story-extending connectors, and advanced adverb/adverbial usage.Keep the later groups as the proposed sequence; break them into implementation tasks after the first release boundary is reviewed. Do not assign dates until they are agreed.
 > Move an item to **Completed** when the feature is usable in the application. Add a target date only after it has been agreed.
+
+## Implemented features (2026-11)
+
+- `/english` hub and `/english/:topicId` topic pages with burger navigation.
+- Device-local date/season/holiday context; coming-soon markers with day countdown.
+- 20+ topics: 3 daily themes rotating by date (DevOps, neighbor, meals), weekend leisure/household, Monday psychology, seasonal and holiday topics.
+- 9 vocabulary items per topic in a 3-column grid; read-aloud scoring with 90% threshold; per-word red/yellow/green feedback.
+- Grammar with category, formula (S+V+O incl. negation/question), example, IPA pronunciation; read-aloud required.
+- Long dialogue with progressive reveal; each sentence must reach threshold.
+- Quizzes (4 per topic) with sound feedback; rotating daily quiz sets.
+- Per-topic progress and reset; overall progress as donut chart.
+- Per-topic countdown timer with fail popup and retry/home actions.
+- Speaker buttons (normal + slow) and correct/incorrect sound feedback.
+- Daily progress reset at midnight.

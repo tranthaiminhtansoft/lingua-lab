@@ -1,6 +1,6 @@
 # Lingua Lab
 
-Lingua Lab is a multi-language learning workspace. Its live Japanese learning path includes Kana, Grammar, and Vocabulary; English is marked as coming soon.
+Lingua Lab is a multi-language learning workspace. Its live Japanese learning path includes Kana, Grammar, and Vocabulary; English is now available with contextual daily topics.
 
 ## Live site
 

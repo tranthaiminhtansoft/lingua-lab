@@ -7,7 +7,7 @@ test('uses the language constellation as the default home and links Nihongo to i
 
   expect(screen.getByRole('heading', { level: 1, name: 'Find your language.' })).toBeInTheDocument();
   expect(screen.getByRole('link', { name: 'Explore Nihongo learning path' })).toHaveAttribute('href', '/nihongo-o-benkyuo');
-  expect(screen.getByRole('img', { name: 'English learning path coming soon' })).toBeInTheDocument();
+  expect(screen.getByRole('link', { name: 'Explore English learning path' })).toHaveAttribute('href', '/english');
   expect(screen.queryByRole('navigation', { name: 'Primary' })).not.toBeInTheDocument();
 });
 
