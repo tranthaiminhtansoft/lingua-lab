@@ -102,8 +102,9 @@ export function TodayEnglishPage() {
 
       <section className="english-today-hero">
         <article className="english-today-card english-today-context">
-          <div style={{ display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
-            <div className="english-donut" aria-label={`Tổng thể ${overallProgress}%`}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
+            <span style={{ fontWeight: 700, fontSize: 14, color: '#18253a' }}>Tiến độ</span>
+            <div className="english-donut" aria-label={`Tiến độ ${overallProgress}%`}>
               <svg viewBox="0 0 42 42" width="72" height="72">
                 <circle cx="21" cy="21" r="18" fill="none" stroke="#e7e5de" strokeWidth="4" />
                 <circle
@@ -118,9 +119,6 @@ export function TodayEnglishPage() {
                 </text>
               </svg>
             </div>
-            <span className="english-today-overall">
-              Tổng thể: <span className={scoreClass(overallProgress)}>{overallProgress}%</span>
-            </span>
           </div>
           <p className="english-today-copy">
             {context.season}. {context.holiday}. Các chủ đề ưu tiên giao tiếp thực tế và IELTS 6.5–8.0.
