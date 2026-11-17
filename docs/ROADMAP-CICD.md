@@ -6,7 +6,7 @@ Current state, known gaps, and a prioritized improvement path for Lingua Lab’s
 
 | Area | Status | Evidence in the repository |
 |---|---|---|
-| Pull request validation | **Established** | `ci.yml` runs lint, type check, unit tests, build, and Playwright smoke checks in Chromium, Firefox, and WebKit on Node 22. Dependencies install with `npm ci`. |
+| Pull request validation | **Established** | `ci.yml` runs lint, type check, unit tests, build, and Playwright smoke checks (Chromium) in parallel jobs on Node 22, with path-based job gating and `vitest --changed`. Dependencies install with `npm ci`. |
 | Required PR gate | **Established with a manual review limitation** | `release-gate.yml` checks the current PR head and requires application CI when changed paths match the trusted CI allowlist. Its workflow summary says independent reviewer-profile checks are still an operator-verified release precondition. |
 | Production release | **Established** | A manually started workflow creates a dated release branch, validates and pins its commit, gates candidate deployment and stable publication with the `prod` environment, builds one Pages artifact, verifies production, then publishes a stable GitHub Release. |
 | Release evidence | **Established** | The release records source identity and a site manifest, retains the site archive and SHA-256 checksum for 30 days, and stores production verification evidence. |

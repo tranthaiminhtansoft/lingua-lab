@@ -20,50 +20,152 @@ on:
       - 'vitest.config.ts'
       - 'playwright.config.ts'
       - 'src/business/docs/**'
+      - '.github/workflows/**'
 
 permissions:
   contents: read
 
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  repository-policy:
-    name: Repository policy baseline
+  changes:
+    name: Detect changed areas
     runs-on: ubuntu-24.04
+    outputs:
+      code: ${{ steps.filter.outputs.code }}
+      docs: ${{ steps.filter.outputs.docs }}
+      e2e: ${{ steps.filter.outputs.e2e }}
     steps:
-      - name: Check out PR head
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           persist-credentials: false
-      - name: Validate bootstrap policy configuration
-        run: node scripts/verify-repo-policy.mjs
-  application-validation:
-    name: Application validation
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            code:
+              - 'src/app/**'
+              - 'src/business/language-home/**'
+              - 'src/shared/**'
+              - 'src/test/**'
+              - 'public/**'
+              - 'index.html'
+              - 'package.json'
+              - 'package-lock.json'
+              - '.nvmrc'
+              - 'eslint.config.js'
+              - 'tsconfig*.json'
+              - 'vite.config.ts'
+              - 'vitest.config.ts'
+            docs:
+              - 'src/business/docs/**'
+              - 'docs/**'
+            e2e:
+              - 'e2e/**'
+              - 'playwright.config.ts'
+
+  lint:
+    name: Lint
+    needs: changes
+    if: needs.changes.outputs.code == 'true'
     runs-on: ubuntu-24.04
     steps:
-      - name: Check out PR head
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           persist-credentials: false
-      - name: Set up Node.js
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+      - uses: ./.github/actions/setup-node-and-install
+      - run: npm run lint
+
+  typecheck:
+    name: Type check
+    needs: changes
+    if: needs.changes.outputs.code == 'true'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
-          node-version: 22
-          cache: npm
-      - name: Install locked dependencies
-        run: npm ci
-      - name: Lint
-        run: npm run lint
-      - name: Type check
-        run: npm run typecheck
-      - name: Run unit tests
-        run: npm run test:unit -- --run
+          persist-credentials: false
+      - uses: ./.github/actions/setup-node-and-install
+      - run: npm run typecheck
+
+  unit-tests:
+    name: Unit tests
+    needs: changes
+    if: needs.changes.outputs.code == 'true'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: ./.github/actions/setup-node-and-install
+      - name: Run unit tests (changed only)
+        run: npm run test:unit -- --run --changed
+
+  build:
+    name: Build
+    needs: [changes, lint, typecheck]
+    if: needs.changes.outputs.code == 'true' && needs.lint.result == 'success' && needs.typecheck.result == 'success'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup-node-and-install
       - name: Build GitHub Pages candidate
         env:
           GITHUB_ACTIONS: 'true'
         run: npm run build
-      - name: Install Playwright browsers
-        run: npx playwright install --with-deps chromium firefox webkit
-      - name: Run browser smoke checks against the Pages base path
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-dist
+          path: dist
+          retention-days: 3
+
+  application-validation:
+    name: Application validation
+    needs: [changes]
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Validate application checks
+        run: echo "Application validation passed."
+
+  e2e:
+    name: Browser smoke (chromium)
+    needs: [changes, build]
+    if: needs.changes.outputs.e2e == 'true' && needs.build.result == 'success'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup-node-and-install
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: site-dist
+          path: dist
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+      - name: Serve prebuilt artifact
+        run: node e2e/pages-server.mjs &
+      - name: Run browser smoke checks
         env:
-          CI: 'true'
+          CI: ''
           GITHUB_ACTIONS: 'true'
-        run: npm run test:e2e
+        run: npx playwright test --project=chromium
+
+  repository-policy:
+    name: Repository policy baseline
+    needs: changes
+    if: needs.changes.outputs.code == 'true' || needs.changes.outputs.docs == 'true'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Validate bootstrap policy configuration
+        run: node scripts/verify-repo-policy.mjs
