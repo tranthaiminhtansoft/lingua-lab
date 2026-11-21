@@ -1,18 +1,30 @@
-## 🧩 WHAT CHANGED
+## WHAT CHANGED
 
+- Change type:
+  - [ ] New Added
+  - [ ] New Removed
+  - [ ] New Edited
 - Describe the change and its scope.
-- Confirm the source branch follows `feature/homelab/<slug>` for feature work or `release/homelab/<slug>` for release work.
+- Source branch: `feature/homelab/<slug>` or `release/homelab/<slug>`.
 
-## 🚀 BENEFIT
+## BENEFIT
 
 - Describe the user, reliability, security, or maintainability benefit.
 
-## ✅ EVIDENCE
+## Testing
 
-- Commands run and their results:
+- Tests/checks run and their results:
 - GitHub Actions run URL(s):
 - Current head SHA reviewed:
-- Required public profile-review evidence URL(s), when the release gate applies:
+
+## Risk & Rollback
+
+- Risk/blast radius:
+- Rollback plan (or `None`):
+
+## Review checklist
+
 - [ ] All actionable review comments and conversations are resolved.
 - [ ] No secrets, credentials, or production configuration were added.
 - [ ] I understand this pull request is not merged automatically.
+- Required public profile-review evidence URL(s), when the release gate applies:

@@ -1,0 +1,14 @@
+name: check-prs-description
+
+on:
+  pull_request:
+    branches: [master]
+    types: [opened, edited, reopened, synchronize]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  check-prs-description:
+    uses: folk-games-brothers/.github/.github/workflows/check-prs-description.yml@068999bdfa73518b19d6cc41e167cc8a80e15d05
