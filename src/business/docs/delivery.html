@@ -194,7 +194,7 @@
       <h3>Pull-request CI</h3>
       <h4>PR template</h4>
       <ul>
-        <li>Use the repository template: <a href="https://github.com/tranthaiminhtansoft/lingua-lab/blob/master/.github/pull_request_template.md"><strong class="path"><code>.github/pull_request_template.md</code></strong></a>.</li>
+        <li>Use the repository template: <a href="https://github.com/tranthaiminhtansoft/lingua-lab/blob/master/.github/PULL_REQUEST_TEMPLATE.md"><strong class="path"><code>.github/PULL_REQUEST_TEMPLATE.md</code></strong></a>.</li>
         <li>It asks for scope and source branch, user/reliability/security/maintainability benefit, evidence and run URLs, reviewed head SHA, applicable profile-review evidence, and the required safety/resolution checkboxes.</li>
         <li>The linked file is the source of truth; this page does not duplicate its text.</li>
       </ul>
@@ -224,8 +224,9 @@
       <h5>Release Gate pass</h5>
       <ul class="condition-list pass-list">
         <li><span class="status pass" role="img" aria-label="Pass">✓</span>Trusted policy configuration is valid.</li>
-        <li><span class="status pass" role="img" aria-label="Pass">✓</span>When changed paths match the trusted allowlist, current-head policy validation and the result-aggregating Application validation succeed within 25 minutes.</li>
-        <li><span class="status pass" role="img" aria-label="Pass">✓</span>When no changed path matches, the application CI wait is skipped.</li>
+        <li><span class="status pass" role="img" aria-label="Pass">✓</span>The current-head <code>check-prs-description / check-prs-description</code> succeeds for every PR.</li>
+        <li><span class="status pass" role="img" aria-label="Pass">✓</span>When changed paths match the trusted allowlist, policy validation and result-aggregating Application validation also succeed within 25 minutes.</li>
+        <li><span class="status pass" role="img" aria-label="Pass">✓</span>When no changed path matches, only the applicable application CI wait is skipped; PR description validation remains required.</li>
       </ul>
       <ul class="gate-fail"><li><strong>Release Gate fail</strong><ul class="condition-list"><li>Policy configuration is invalid.</li><li>PR head is stale.</li><li>Changed-file list is incomplete.</li><li>A required CI check fails.</li><li>The 25-minute wait expires.</li></ul></li></ul>
       <p>The required status is <code>Release Gate</code> with strict up-to-date checking.</p>
@@ -276,7 +277,8 @@
       <div class="table-wrap"><table>
         <thead><tr><th>Gate</th><th>Workflow point</th><th>When it is requested</th></tr></thead>
         <tbody>
-          <tr><th scope="row">PR Release Gate</th><td><strong class="path"><code>.github/workflows/release-gate.yml</code></strong></td><td>On PR create/reopen/synchronize/ready-for-review to <code>master</code>; requires trusted policy and applicable current-head CI.</td></tr>
+          <tr><th scope="row">PR Release Gate</th><td><strong class="path"><code>.github/workflows/release-gate.yml</code></strong></td><td>On PR create/edit/reopen/synchronize/ready-for-review to <code>master</code>; always requires a valid current-head description and applicable current-head CI.</td></tr>
+          <tr><th scope="row">PR description check</th><td><strong class="path"><code>.github/workflows/check-prs-description.yml</code></strong></td><td>Calls the pinned shared validator on PR open/edit/reopen/synchronize; the Release Gate requires its result.</td></tr>
           <tr class="approval-row"><th scope="row"><span class="approval-required">Releaser approval required</span><br>Candidate deployment</th><td><strong class="path"><code>.github/workflows/prd-release.yml</code></strong> · <code>prod</code></td><td>After source validation and before candidate build/deploy.</td></tr>
           <tr class="approval-row"><th scope="row"><span class="approval-required">Releaser approval required</span><br>Stable publication</th><td><strong class="path"><code>.github/workflows/prd-release.yml</code></strong> · <code>prod</code></td><td>After successful production verification and before the dated GitHub Release is published.</td></tr>
           <tr class="approval-row"><th scope="row"><span class="approval-required">Releaser approval required</span><br>Rollback</th><td><strong class="path"><code>.github/workflows/prd-rollback.yml</code></strong> · <code>prod</code></td><td>After the requested stable target is resolved and before it is redeployed.</td></tr>

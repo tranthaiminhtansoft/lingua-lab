@@ -3,7 +3,7 @@ name: Release Gate
 on:
   pull_request:
     branches: [master]
-    types: [opened, reopened, synchronize, ready_for_review]
+    types: [opened, edited, reopened, synchronize, ready_for_review]
 
 permissions:
   contents: read
@@ -31,6 +31,7 @@ jobs:
             const head = context.payload.pull_request.head.sha;
             const pull = (await github.rest.pulls.get({ owner, repo, pull_number })).data;
             if (pull.head.sha !== head) throw new Error('The PR head changed; use the latest gate run.');
+            const pullUpdatedAt = pull.updated_at;
 
             // Read the CI allowlist from the trusted base, not from PR code.
             const { data: config } = await github.rest.repos.getContent({
@@ -56,24 +57,23 @@ jobs:
             const needsCI = files.some(file => matches(file.filename) ||
               (file.previous_filename && matches(file.previous_filename)));
 
-            if (!needsCI) {
-              core.info('No changed paths require application CI; Release Gate is sufficient.');
-              await core.summary.addHeading('Required PR checks')
-                .addRaw('No changed paths match the trusted CI allowlist. Application CI is not required.\n')
-                .write();
-              return;
-            }
-
-            const required = ['Repository policy baseline', 'Application validation'];
+            const required = ['check-prs-description / check-prs-description'];
+            if (needsCI) required.push('Repository policy baseline', 'Application validation');
+            const requireDescriptionAfterUpdate = true;
             const deadline = Date.now() + 25 * 60 * 1000;
             while (Date.now() < deadline) {
               const current = (await github.rest.pulls.get({ owner, repo, pull_number })).data;
               if (current.head.sha !== head) throw new Error('The PR head changed; use the latest gate run.');
+              if (current.updated_at !== pullUpdatedAt) {
+                throw new Error('The PR changed during validation; use the latest gate run.');
+              }
               const checks = await github.paginate(github.rest.checks.listForRef, {
                 owner, repo, ref: head, filter: 'all', per_page: 100,
               });
-              const latest = required.map(name => checks
+              const latest = required.map((name, index) => checks
                 .filter(check => check.name === name && check.head_sha === head && check.app?.id === 15368)
+                .filter(check => index !== 0 || !requireDescriptionAfterUpdate
+                  || Date.parse(check.started_at ?? check.created_at) >= Date.parse(pullUpdatedAt))
                 .sort((a, b) => b.id - a.id)[0]);
               const failed = latest.find(check => check?.status === 'completed' && check.conclusion !== 'success');
               if (failed) throw new Error(`${failed.name} concluded ${failed.conclusion}: ${failed.html_url}`);
@@ -84,7 +84,7 @@ jobs:
                   .write();
                 return;
               }
-              core.info(`Waiting for required CI on ${head}: ${latest.map((check, index) =>
+              core.info(`Waiting for required PR checks on ${head}: ${latest.map((check, index) =>
                 `${required[index]}=${check?.status ?? 'missing'}`).join(', ')}`);
               await new Promise(resolve => setTimeout(resolve, 15000));
             }
@@ -92,5 +92,5 @@ jobs:
       - name: Record bootstrap limitation
         run: |
           echo 'Independent human profile review remains an operator-verified release precondition until trusted identity mappings are configured.'
-          echo 'Release Gate requires successful current-head CI only when changed paths match the trusted CI allowlist.'
+          echo 'Release Gate requires a successful current-head PR description check, and applicable CI when changed paths match the trusted allowlist.'
           echo 'This workflow does not deploy, release, merge, or execute PR code.'
