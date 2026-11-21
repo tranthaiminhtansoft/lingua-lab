@@ -19,7 +19,11 @@ export type EnglishProgressState = {
 };
 
 const STORAGE_KEY = 'lingua-english-today-progress';
-const VOCAB_THRESHOLD = 90;
+const VOCAB_THRESHOLD = 85;
+
+function meetsPronunciationThreshold(score: number): boolean {
+  return score > VOCAB_THRESHOLD;
+}
 
 export function createEmptyProgress(version = '2026.11.15', date = dateKey(new Date())): EnglishProgressState {
   return { version, date, topics: {} };
@@ -78,6 +82,14 @@ export function getTopicProgress(
     for (const sentence of dialogueSentences) {
       if (!existing.dialogue[sentence]) existing.dialogue[sentence] = { score: 0, completed: false };
     }
+    for (const record of [
+      ...Object.values(existing.vocabulary),
+      ...Object.values(existing.grammar),
+      ...Object.values(existing.dialogue),
+    ]) {
+      record.completed = record.score > VOCAB_THRESHOLD;
+    }
+    recalculateTopic(existing, vocabTerms, grammarExamples, dialogueSentences);
     return existing;
   }
   const vocabulary: Record<string, VocabularyProgress> = {};
@@ -126,7 +138,7 @@ export function updateVocabularyScore(
   dialogueSentences: string[] = [],
 ): EnglishProgressState {
   const topic = getTopicProgress(state, topicId, vocabTerms, grammarExamples, dialogueSentences);
-  topic.vocabulary[term] = { score, completed: score >= VOCAB_THRESHOLD };
+  topic.vocabulary[term] = { score, completed: meetsPronunciationThreshold(score) };
   recalculateTopic(topic, vocabTerms, grammarExamples, dialogueSentences);
   return {
     ...state,
@@ -144,7 +156,7 @@ export function updateGrammarScore(
   dialogueSentences: string[] = [],
 ): EnglishProgressState {
   const topic = getTopicProgress(state, topicId, vocabTerms, grammarExamples, dialogueSentences);
-  topic.grammar[example] = { score, completed: score >= VOCAB_THRESHOLD };
+  topic.grammar[example] = { score, completed: meetsPronunciationThreshold(score) };
   recalculateTopic(topic, vocabTerms, grammarExamples, dialogueSentences);
   return {
     ...state,
@@ -162,7 +174,7 @@ export function updateDialogueScore(
   dialogueSentences: string[] = [],
 ): EnglishProgressState {
   const topic = getTopicProgress(state, topicId, vocabTerms, grammarExamples, dialogueSentences);
-  topic.dialogue[sentence] = { score, completed: score >= VOCAB_THRESHOLD };
+  topic.dialogue[sentence] = { score, completed: meetsPronunciationThreshold(score) };
   recalculateTopic(topic, vocabTerms, grammarExamples, dialogueSentences);
   return {
     ...state,

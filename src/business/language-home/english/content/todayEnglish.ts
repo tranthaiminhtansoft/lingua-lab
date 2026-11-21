@@ -46,6 +46,8 @@ export type EnglishTopic = {
   dialogue: string[];
   /** Extra dialogue variants that rotate by date. */
   dialogueVariants?: string[][];
+  /** Pronunciation and Vietnamese translation for dialogue messages, keyed by the full message. */
+  dialogueGuides?: Record<string, { pronunciation: string; meaning: string }>;
 };
 
 export type TodayEnglishContext = {
@@ -151,15 +153,15 @@ const TOPICS: EnglishTopic[] = [
     description: 'Talk about Tết traditions, family visits, and lucky money.',
     availableFrom: '2027-02-06',
     vocab: [
-      { term: 'Tết', meaning: 'Tết', pronunciation: '/tet/', score: 0 },
+      { term: 'Tết', meaning: 'Tết', pronunciation: '/tɛt/', score: 0 },
       { term: 'lucky money', meaning: 'lì xì', pronunciation: '/ˈlʌki ˈmʌni/', score: 0 },
-      { term: 'family reunion', meaning: 'đoàn viên', pronunciation: '/ˈfæməli riˈjuːniən/', score: 0 },
+      { term: 'family reunion', meaning: 'đoàn viên', pronunciation: '/ˌfæməli riːˈjuːniən/', score: 0 },
       { term: 'ancestors', meaning: 'tổ tiên', pronunciation: '/ˈænsestəz/', score: 0 },
       { term: 'incense', meaning: 'hương', pronunciation: '/ˈɪnsens/', score: 0 },
       { term: 'traditional food', meaning: 'đồ ăn truyền thống', pronunciation: '/trəˈdɪʃənl fuːd/', score: 0 },
-      { term: 'bánh chưng', meaning: 'bánh chưng', pronunciation: '/bæn tʃʊŋ/', score: 0 },
+      { term: 'bánh chưng', meaning: 'bánh chưng', pronunciation: '/bæŋ tʃʊŋ/', score: 0 },
       { term: 'visit relatives', meaning: 'thăm họ hàng', pronunciation: '/ˈvɪzɪt ˈrelətɪvz/', score: 0 },
-      { term: 'new year wish', meaning: 'lời chúc năm mới', pronunciation: '/njuː jɪə wɪʃ/', score: 0 },
+      { term: 'new year wish', meaning: 'lời chúc năm mới', pronunciation: '/ˌnjuː jɪə ˈwɪʃ/', score: 0 },
     ],
     grammar: [
       { title: 'Present simple for traditions', category: 'Tense', formula: 'S + V(s/es) + O + every Tết / usually', example: 'We always visit our grandparents on the first day of Tết.', pronunciation: '/wi ˈɔːlweɪz ˈvɪzɪt ˈaʊə ˈɡrænpeərənts ɒn ðə fɜːst deɪ əv tet/' },
@@ -205,7 +207,7 @@ const TOPICS: EnglishTopic[] = [
     vocab: [
       { term: 'Valentine’s Day', meaning: 'Ngày Valentine', pronunciation: '/ˈvæləntaɪnz deɪ/', score: 0 },
       { term: 'romantic', meaning: 'lãng mạn', pronunciation: '/rəʊˈmæntɪk/', score: 0 },
-      { term: 'bouquet', meaning: 'bó hoa', pronunciation: '/buˈkeɪ/', score: 0 },
+      { term: 'bouquet', meaning: 'bó hoa', pronunciation: '/bʊˈkeɪ/', score: 0 },
       { term: 'chocolate', meaning: 'sô cô la', pronunciation: '/ˈtʃɒklət/', score: 0 },
       { term: 'date', meaning: 'cuộc hẹn', pronunciation: '/deɪt/', score: 0 },
       { term: 'surprise', meaning: 'bất ngờ', pronunciation: '/səˈpraɪz/', score: 0 },
@@ -884,8 +886,8 @@ const TOPICS: EnglishTopic[] = [
     description: 'Talk about autumn routines, energy, and weekly plans.',
     availableFrom: '2020-01-01',
     vocab: [
-      { term: 'energy level', meaning: 'mức năng lượng', pronunciation: '/ˈen.ə.dʒi ˌlev.əl/', score: 0 },
-      { term: 'get back into routine', meaning: 'trở lại thói quen', pronunciation: '/ɡet bæk ˈɪn.tuː ruːˈtiːn/', score: 0 },
+      { term: 'energy level', meaning: 'mức năng lượng', pronunciation: '/ˈenədʒi ˌlevəl/', score: 0 },
+      { term: 'get back into routine', meaning: 'trở lại thói quen', pronunciation: '/ɡet bæk ˈɪntuː ruːˈtiːn/', score: 0 },
       { term: 'wrap up warm', meaning: 'mặc ấm', pronunciation: '/ræp ʌp wɔːm/', score: 0 },
       { term: 'cozy', meaning: 'ấm cúng', pronunciation: '/ˈkəʊzi/', score: 0 },
       { term: 'daylight', meaning: 'ánh sáng ban ngày', pronunciation: '/ˈdeɪlaɪt/', score: 0 },
@@ -953,7 +955,7 @@ const TOPICS: EnglishTopic[] = [
     availableFrom: '2020-01-01',
     vocab: [
       { term: 'on track', meaning: 'đúng tiến độ', pronunciation: '/ɒn træk/', score: 0 },
-      { term: 'blocker', meaning: 'điểm chặn', pronunciation: '/ˈblɒk.ər/', score: 0 },
+      { term: 'blocker', meaning: 'điểm chặn', pronunciation: '/ˈblɒkə/', score: 0 },
       { term: 'hand off', meaning: 'bàn giao', pronunciation: '/hænd ɒf/', score: 0 },
       { term: 'deadline', meaning: 'hạn chót', pronunciation: '/ˈdedlaɪn/', score: 0 },
       { term: 'progress update', meaning: 'cập nhật tiến độ', pronunciation: '/ˈprəʊɡres ˈʌpdeɪt/', score: 0 },
@@ -1029,7 +1031,7 @@ const TOPICS: EnglishTopic[] = [
       { term: 'worth it', meaning: 'đáng giá', pronunciation: '/wɜːθ ɪt/', score: 0 },
       { term: 'bargain', meaning: 'món hời', pronunciation: '/ˈbɑːɡɪn/', score: 0 },
       { term: 'checkout', meaning: 'thanh toán', pronunciation: '/ˈtʃekaʊt/', score: 0 },
-      { term: 'limited offer', meaning: 'ưu đãi giới hạn', pronunciation: '/ˈlɪmɪtɪd ˈɒfər/', score: 0 },
+      { term: 'limited offer', meaning: 'ưu đãi giới hạn', pronunciation: '/ˈlɪmɪtɪd ˈɒfə/', score: 0 },
       { term: 'compare prices', meaning: 'so sánh giá', pronunciation: '/kəmˈpeər ˈpraɪsɪz/', score: 0 },
       { term: 'in stock', meaning: 'còn hàng', pronunciation: '/ɪn stɒk/', score: 0 },
       { term: 'sold out', meaning: 'hết hàng', pronunciation: '/səʊld aʊt/', score: 0 },
