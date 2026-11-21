@@ -51,6 +51,7 @@ jobs:
               - 'src/shared/**'
               - 'src/test/**'
               - 'public/**'
+              - 'e2e/**'
               - 'index.html'
               - 'package.json'
               - 'package-lock.json'
@@ -59,6 +60,8 @@ jobs:
               - 'tsconfig*.json'
               - 'vite.config.ts'
               - 'vitest.config.ts'
+              - 'playwright.config.ts'
+              - '.github/workflows/**'
             docs:
               - 'src/business/docs/**'
               - 'docs/**'
@@ -127,11 +130,52 @@ jobs:
 
   application-validation:
     name: Application validation
-    needs: [changes]
+    needs: [changes, lint, typecheck, unit-tests, build, e2e, repository-policy]
+    if: always()
     runs-on: ubuntu-24.04
     steps:
-      - name: Validate application checks
-        run: echo "Application validation passed."
+      - name: Require all applicable checks to pass
+        env:
+          CHANGES_RESULT: ${{ needs.changes.result }}
+          CODE_CHANGED: ${{ needs.changes.outputs.code }}
+          DOCS_CHANGED: ${{ needs.changes.outputs.docs }}
+          E2E_CHANGED: ${{ needs.changes.outputs.e2e }}
+          LINT_RESULT: ${{ needs.lint.result }}
+          TYPECHECK_RESULT: ${{ needs.typecheck.result }}
+          UNIT_TESTS_RESULT: ${{ needs.unit-tests.result }}
+          BUILD_RESULT: ${{ needs.build.result }}
+          E2E_RESULT: ${{ needs.e2e.result }}
+          REPOSITORY_POLICY_RESULT: ${{ needs.repository-policy.result }}
+        run: |
+          set -euo pipefail
+
+          require_success() {
+            local check_name="$1"
+            local result="$2"
+            if [[ "$result" != "success" ]]; then
+              echo "::error::$check_name did not succeed (result: $result)."
+              exit 1
+            fi
+          }
+
+          require_success "Change detection" "$CHANGES_RESULT"
+
+          if [[ "$CODE_CHANGED" == "true" ]]; then
+            require_success "Lint" "$LINT_RESULT"
+            require_success "Type check" "$TYPECHECK_RESULT"
+            require_success "Unit tests" "$UNIT_TESTS_RESULT"
+            require_success "Build" "$BUILD_RESULT"
+          fi
+
+          if [[ "$E2E_CHANGED" == "true" ]]; then
+            require_success "Chromium browser smoke" "$E2E_RESULT"
+          fi
+
+          if [[ "$CODE_CHANGED" == "true" || "$DOCS_CHANGED" == "true" ]]; then
+            require_success "Repository policy baseline" "$REPOSITORY_POLICY_RESULT"
+          fi
+
+          echo "All applicable CI checks succeeded."
 
   e2e:
     name: Browser smoke (chromium)
