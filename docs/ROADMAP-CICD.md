@@ -6,8 +6,8 @@ Current state, known gaps, and a prioritized improvement path for Lingua Lab’s
 
 | Area | Status | Evidence in the repository |
 |---|---|---|
-| Pull request validation | **Established** | `ci.yml` runs lint, type check, unit tests, build, and Playwright smoke checks (Chromium) in parallel jobs on Node 22, with path-based job gating and `vitest --changed`. Dependencies install with `npm ci`. |
-| Required PR gate | **Established with a manual review limitation** | `release-gate.yml` checks the current PR head and requires application CI when changed paths match the trusted CI allowlist. Its workflow summary says independent reviewer-profile checks are still an operator-verified release precondition. |
+| Pull request validation | **Established** | `ci.yml` runs lint, type check, unit tests, and build in parallel for code, E2E, and workflow changes; Chromium smoke runs for E2E changes. `Application validation` aggregates the applicable job results and fails if any required check fails or is skipped. Dependencies install with `npm ci`; unit tests use `vitest --changed`. |
+| Required PR gate | **Established with a manual review limitation** | `release-gate.yml` checks the current PR head and waits for both `Repository policy baseline` and the result-aggregating `Application validation` when changed paths match the trusted CI allowlist. Its workflow summary says independent reviewer-profile checks are still an operator-verified release precondition. |
 | Production release | **Established** | A manually started workflow creates a dated release branch, validates and pins its commit, gates candidate deployment and stable publication with the `prod` environment, builds one Pages artifact, verifies production, then publishes a stable GitHub Release. |
 | Release evidence | **Established** | The release records source identity and a site manifest, retains the site archive and SHA-256 checksum for 30 days, and stores production verification evidence. |
 | Recovery | **Established** | A failed post-deploy verification dispatches a rollback workflow. An operator can also request a rollback manually; the workflow validates a retained stable release, requires approval, redeploys it, and verifies the result. |
@@ -19,9 +19,9 @@ Current state, known gaps, and a prioritized improvement path for Lingua Lab’s
 
 ### 1. Close CI trigger coverage gaps
 
-The current path-filter regression script explicitly expects workflow-only changes and `scripts/build-docs.mjs` changes to skip application CI. That script is not listed in `package.json` scripts or called from `ci.yml`. Other release/build scripts and configuration files also need an explicit trigger decision. A skipped check should mean the changed files cannot affect the application, build, policy, or production delivery.
+Workflow-only changes now trigger the application checks, and E2E-only changes trigger build plus Chromium smoke. The `scripts/build-docs.mjs` path and other release/build tooling still need an explicit trigger decision. A skipped check should mean the changed files cannot affect the application, build, policy, or production delivery.
 
-Start with `CICD-001`: inventory every file that can affect CI, build output, release validation, deployment, or recovery. Then adjust the trusted allowlist and path-filter tests so workflow and relevant tooling changes receive appropriate validation. Keep unrelated prose-only changes lightweight where safe.
+Continue `CICD-001`: inventory every file that can affect CI, build output, release validation, deployment, or recovery. Adjust the trusted allowlist and path-filter tests so relevant tooling changes receive appropriate validation. Keep unrelated prose-only changes lightweight where safe.
 
 ### 2. Validate workflow and release tooling changes
 
@@ -35,7 +35,7 @@ Then select dependency and code security checks appropriate to this small static
 
 ### 4. Improve production confidence and operating feedback
 
-The release verifier currently launches Chromium and validates the deployed build identity, route content, assets, and extended site behavior. PR CI covers three browser engines. Decide whether release-time verification needs the full browser matrix or whether Chromium production checks plus cross-browser PR checks are sufficient. Review production verification failures and recovery runs to find recurring blind spots before adding more checks.
+The release verifier currently launches Chromium and validates the deployed build identity, route content, assets, and extended site behavior. PR CI currently covers Chromium. Decide whether release-time verification needs a broader browser matrix. Review production verification failures and recovery runs to find recurring blind spots before adding more checks.
 
 Measure workflow duration and failure causes before adding browser caching or splitting jobs. Add periodic production availability checks only if someone will review and act on their results; GitHub Actions by itself is not a continuous monitoring service.
 

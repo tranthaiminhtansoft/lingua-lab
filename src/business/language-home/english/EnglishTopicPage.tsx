@@ -96,6 +96,10 @@ function scoreClass(score: number): string {
   return 'score-low';
 }
 
+function formatIpa(pronunciation: string): string {
+  return `/${pronunciation.replace(/^\/|\/$/g, '')}/`;
+}
+
 type WordFeedback = 'good' | 'near' | 'missed';
 
 function describeSpeechError(code?: string): string {
@@ -411,8 +415,8 @@ export function EnglishTopicPage() {
     }
     setProgress(nextState);
     writeProgress(nextState);
-    playFeedbackSound(score >= VOCAB_THRESHOLD);
-    if (key && kind === 'dialogue' && score >= VOCAB_THRESHOLD) {
+    playFeedbackSound(score > VOCAB_THRESHOLD);
+    if (key && kind === 'dialogue' && score > VOCAB_THRESHOLD) {
       const completedIndex = topic.dialogue.indexOf(key);
       if (completedIndex >= 0) {
         setDialogueIndex((current) => Math.max(current, Math.min(completedIndex + 1, topic.dialogue.length - 1)));
@@ -559,7 +563,7 @@ export function EnglishTopicPage() {
                     ))}
                   </strong>
                   <span>
-                    {item.meaning} · {item.pronunciation} · Phát âm: <span className={scoreClass(vp.score)}>{vp.score}%</span>
+                    {item.meaning} · {formatIpa(item.pronunciation)} · Phát âm: <span className={scoreClass(vp.score)}>{vp.score}%</span>
                     {vp.completed ? ' (đạt ngưỡng)' : ' (chưa đạt)'}
                   </span>
                   <div style={{ marginTop: 8, display: 'flex', gap: 8, flexWrap: 'wrap' }}>
@@ -621,7 +625,7 @@ export function EnglishTopicPage() {
                   </span>
                   {item.pronunciation && (
                     <span style={{ display: 'block', marginTop: 2, color: '#697382', fontSize: 12, fontStyle: 'italic' }}>
-                      /{item.pronunciation}/
+                      {formatIpa(item.pronunciation)}
                     </span>
                   )}
                   <span style={{ display: 'block', marginTop: 4, color: '#697382', fontSize: 12 }}>
@@ -647,17 +651,6 @@ export function EnglishTopicPage() {
                 </div>
               );
             })}
-          </div>
-        </div>
-
-        <div className="english-today-block">
-          <h4>Câu ví dụ để áp dụng</h4>
-          <div className="english-today-list">
-            {topic.examples.map((example) => (
-              <div className="english-today-example english-today-item" key={example}>
-                {example}
-              </div>
-            ))}
           </div>
         </div>
 
@@ -699,7 +692,7 @@ export function EnglishTopicPage() {
           <section className="english-today-card" style={{ padding: 18 }}>
             <h4 style={{ margin: '0 0 10px', fontSize: 13, color: '#394eaa', textTransform: 'uppercase' }}>Kiểm tra đoạn hội thoại</h4>
             <p style={{ margin: '0 0 12px', color: '#697382', fontSize: 12 }}>
-              Đọc từng tin nhắn. Đạt {VOCAB_THRESHOLD}% mới mở tin nhắn tiếp theo.
+              Đọc từng tin nhắn. Trên {VOCAB_THRESHOLD}% mới đạt và mở tin nhắn tiếp theo.
             </p>
             <div style={{ display: 'grid', gap: 10 }}>
               {topic.dialogue.slice(0, dialogueIndex + 1).map((sentence, index) => {
@@ -731,6 +724,14 @@ export function EnglishTopicPage() {
                           </span>
                         ))}
                       </div>
+                      {topic.dialogueGuides?.[sentence] && (
+                        <div style={{ marginTop: 6, fontSize: 11, lineHeight: 1.5, color: '#697382' }}>
+                          <div>{topic.dialogueGuides[sentence].pronunciation}</div>
+                          {record.completed && (
+                            <div style={{ color: '#2f7a55' }}>{topic.dialogueGuides[sentence].meaning}</div>
+                          )}
+                        </div>
+                      )}
                       {record.completed && (
                         <div className="score-high" style={{ marginTop: 6, fontSize: 11 }}>Đã đạt {record.score}%</div>
                       )}
