@@ -14,6 +14,13 @@ test('English Today shows daily topics and a start timer popup', async ({ page }
   await expect(page.locator('.english-topic-timer')).toBeVisible();
 });
 
+test('English Today refreshes content from the JSON bank', async ({ page }) => {
+  await page.goto('english');
+  await expect(page.getByText(/Bản đang dùng:/)).toBeVisible();
+  await page.getByRole('button', { name: 'Kiểm tra bản mới' }).click();
+  await expect(page.getByText(/Bạn đang dùng bản nội dung mới nhất|Đã cập nhật nội dung/)).toBeVisible();
+});
+
 test('English Today grammar section shows formula and pronunciation', async ({ page }) => {
   await page.goto('english');
   await page.locator('.english-today-topic').first().click();

@@ -1,19 +1,24 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { lessons } from '../business/language-home/nihongo/lessonRegistry';
 import {
   getTodayEnglishContext,
   isTopicVisible,
 } from '../business/language-home/english/content/todayEnglish';
+import { useEnglishContent } from '../business/language-home/english/content/englishContentStore';
 
 export function AppShell() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { pathname } = useLocation();
+  const content = useEnglishContent();
   const isEnglishHome = pathname === '/english';
   const isEnglishTopic = pathname.startsWith('/english/');
-  const englishTopics = isEnglishTopic
-    ? getTodayEnglishContext().topics.filter((topic) => isTopicVisible(topic))
-    : [];
+  const englishTopics = useMemo(
+    () => isEnglishTopic
+      ? getTodayEnglishContext(new Date(), content).topics.filter((topic) => isTopicVisible(topic))
+      : [],
+    [content, isEnglishTopic],
+  );
   const headerClass = [
     'site-header',
     isEnglishHome ? 'english-home-header' : '',

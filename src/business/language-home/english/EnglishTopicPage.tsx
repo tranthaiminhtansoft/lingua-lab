@@ -1,10 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import {
+  checkEnglishContentApi,
   getTodayEnglishContextApi,
   isTopicAvailableApi,
 } from './services/englishContentApi';
 import type { TodayEnglishContext } from './content/todayEnglish';
+import { useEnglishContent } from './content/englishContentStore';
 import {
   readProgress,
   writeProgress,
@@ -234,6 +236,7 @@ function speakSlowly(text: string) {
 export function EnglishTopicPage() {
   const { topicId } = useParams();
   const navigate = useNavigate();
+  const content = useEnglishContent();
   const [context, setContext] = useState<TodayEnglishContext | null>(null);
   const [progress, setProgress] = useState(readProgress);
   const [quizAnswers, setQuizAnswers] = useState<Record<number, number>>({});
@@ -248,8 +251,12 @@ export function EnglishTopicPage() {
   const timerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    void getTodayEnglishContextApi().then(setContext);
+    void checkEnglishContentApi();
   }, []);
+
+  useEffect(() => {
+    void getTodayEnglishContextApi(new Date(), content).then(setContext);
+  }, [content]);
 
   useEffect(() => {
     const id = window.setTimeout(() => {
