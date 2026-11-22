@@ -6,6 +6,7 @@
   "scripts": {
     "content:export": "node scripts/export-english-content-csv.mjs",
     "content:import": "node scripts/import-english-content-csv.mjs",
+    "content:xlsx": "python3 scripts/export-english-content-xlsx.py",
     "dev": "vite",
     "build": "tsc -b && vite build && node scripts/build-docs.mjs",
     "lint": "eslint .",
