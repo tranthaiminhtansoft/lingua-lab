@@ -1,0 +1,217 @@
+﻿topicId,variantIndex,sentenceIndex,sentence
+christmas-celebration,0,0,A: What are your plans for Christmas?
+christmas-celebration,0,1,B: We’re gathering at my parents’ house.
+christmas-celebration,0,2,A: That sounds lovely. Are you cooking?
+christmas-celebration,0,3,"B: Yes, a big family dinner. What about you?"
+christmas-celebration,0,4,A: I’m staying home and watching Christmas carols.
+christmas-celebration,0,5,B: Merry Christmas in advance!
+christmas-celebration,1,0,A: Have you bought gifts yet?
+christmas-celebration,1,1,"B: Yes, I finished shopping last week."
+christmas-celebration,1,2,A: I still need one for my sister.
+christmas-celebration,1,3,B: Try the market downtown.
+christmas-celebration,1,4,A: Good idea. Merry Christmas!
+christmas-celebration,1,5,B: Merry Christmas to you too!
+tet-lunar-new-year,0,0,A: What are your plans for Tết?
+tet-lunar-new-year,0,1,B: We’re having a big family reunion.
+tet-lunar-new-year,0,2,A: That sounds lovely. Are you cooking bánh chưng?
+tet-lunar-new-year,0,3,"B: Yes, and we’ll visit relatives too."
+tet-lunar-new-year,0,4,A: Don’t forget the lucky money!
+tet-lunar-new-year,0,5,B: Of course. Happy New Year in advance!
+tet-lunar-new-year,1,0,A: Have you cleaned the house for Tết?
+tet-lunar-new-year,1,1,"B: Yes, and we’ve put up decorations."
+tet-lunar-new-year,1,2,A: I still need to buy gifts.
+tet-lunar-new-year,1,3,B: Try the market downtown.
+tet-lunar-new-year,1,4,A: Good idea. Happy Tết!
+tet-lunar-new-year,1,5,B: Happy Tết to you too!
+valentines-day,0,0,A: What are your plans for Valentine’s Day?
+valentines-day,0,1,B: I’m taking her out for dinner.
+valentines-day,0,2,A: That sounds romantic. Did you buy a gift?
+valentines-day,0,3,"B: Yes, a bouquet and some chocolate."
+valentines-day,0,4,A: She’ll love it. Surprise her!
+valentines-day,0,5,B: I hope so. Happy Valentine’s Day!
+valentines-day,1,0,A: Have you written a love letter?
+valentines-day,1,1,"B: Yes, I finished it last night."
+valentines-day,1,2,A: That’s sweet. Are you proposing?
+valentines-day,1,3,B: Maybe. I’m nervous.
+valentines-day,1,4,A: You’ll do great. Good luck!
+valentines-day,1,5,B: Thanks! Wish me luck.
+new-years-day,0,0,A: Do you have any New Year’s resolutions?
+new-years-day,0,1,"B: Yes, I want to exercise more."
+new-years-day,0,2,A: That’s a great goal. How often?
+new-years-day,0,3,B: Three times a week. What about you?
+new-years-day,0,4,A: I’m going to save more money.
+new-years-day,0,5,B: Good luck! Happy New Year!
+new-years-day,1,0,A: Did you stay up for the countdown?
+new-years-day,1,1,"B: Yes, until midnight."
+new-years-day,1,2,A: Was it fun?
+new-years-day,1,3,B: Very. I made a fresh start this year.
+new-years-day,1,4,A: Me too. Let’s achieve our goals.
+new-years-day,1,5,B: Agreed. Happy New Year!
+psychology-mind,0,0,A: Why do I keep procrastinating?
+psychology-mind,0,1,"B: It might be a habit, not laziness."
+psychology-mind,0,2,A: How do I change it?
+psychology-mind,0,3,B: Start small and track your motivation.
+psychology-mind,0,4,A: That sounds manageable.
+psychology-mind,0,5,B: Yes. Be kind to yourself and keep going.
+psychology-mind,1,0,A: I feel anxious before presentations.
+psychology-mind,1,1,B: That’s normal. Try deep breathing.
+psychology-mind,1,2,A: Does it really help?
+psychology-mind,1,3,"B: Yes, it calms the body and mind."
+psychology-mind,1,4,A: I’ll try it next time.
+psychology-mind,1,5,B: You’ve got this.
+sunday-mass,0,0,A: Are you going to church this Sunday?
+sunday-mass,0,1,"B: Yes, at nine. Would you like to come?"
+sunday-mass,0,2,A: I’d love to. Is the choir singing?
+sunday-mass,0,3,"B: Yes, and the sermon is about forgiveness."
+sunday-mass,0,4,A: That sounds meaningful.
+sunday-mass,0,5,B: Great. Let’s meet at the parish gate at eight forty-five.
+sunday-mass,1,0,A: What time is mass today?
+sunday-mass,1,1,"B: Nine o’clock, as usual."
+sunday-mass,1,2,A: I’m bringing my children.
+sunday-mass,1,3,B: Wonderful. There’s a children’s blessing.
+sunday-mass,1,4,A: That’s lovely. See you there.
+sunday-mass,1,5,B: See you. Have a blessed Sunday.
+weekend-market,0,0,A: What are you buying today?
+weekend-market,0,1,B: Fresh tomatoes and some herbs.
+weekend-market,0,2,"A: Could you weigh these, please?"
+weekend-market,0,3,B: Sure. That’s half a kilo.
+weekend-market,0,4,A: How much is it?
+weekend-market,0,5,B: Two dollars. Do you need a bag?
+weekend-market,1,0,A: Morning! What’s fresh today?
+weekend-market,1,1,B: The spinach and carrots just arrived.
+weekend-market,1,2,A: Could you give me a kilo of carrots?
+weekend-market,1,3,B: Of course. Anything else?
+weekend-market,1,4,A: Just these. How much in total?
+weekend-market,1,5,B: Five dollars. Have a good weekend!
+weekend-outing,0,0,A: Are you free this Saturday?
+weekend-outing,0,1,B: Yes! What do you want to do?
+weekend-outing,0,2,A: Let’s meet up at seven and grab a coffee.
+weekend-outing,0,3,B: Sounds good. Should we book a table?
+weekend-outing,0,4,"A: Yes, just in case it’s busy."
+weekend-outing,0,5,B: Great. I’ll be there at seven sharp.
+weekend-outing,1,0,A: Do you want to go to the cinema?
+weekend-outing,1,1,B: Sure. What time does the movie start?
+weekend-outing,1,2,A: Seven-thirty. Shall we meet at seven?
+weekend-outing,1,3,B: Perfect. I’ll bring some snacks.
+weekend-outing,1,4,A: Great. I’ll buy the tickets online.
+weekend-outing,1,5,B: See you there!
+weekend-rest,0,0,A: How was your weekend?
+weekend-rest,0,1,B: So relaxing. I slept in both days.
+weekend-rest,0,2,A: Nice. Did you do anything?
+weekend-rest,0,3,B: Just a nap and some reading.
+weekend-rest,0,4,A: That sounds perfect.
+weekend-rest,0,5,B: It was. I feel recharged for Monday.
+weekend-rest,1,0,A: Are you doing anything today?
+weekend-rest,1,1,B: Nothing at all. I’m in my pajamas.
+weekend-rest,1,2,A: Lucky you! I have chores.
+weekend-rest,1,3,B: Take a nap later. You deserve it.
+weekend-rest,1,4,A: Maybe I will.
+weekend-rest,1,5,B: Enjoy your rest!
+household-chores,0,0,A: Can you help with the chores today?
+household-chores,0,1,B: Sure. What do you need?
+household-chores,0,2,A: Could you vacuum the living room?
+household-chores,0,3,B: Okay. I’ll do that after lunch.
+household-chores,0,4,A: And I’ll take out the trash.
+household-chores,0,5,B: Great. Then we’re done.
+household-chores,1,0,A: The house is a mess.
+household-chores,1,1,B: Let’s tidy up together.
+household-chores,1,2,"A: I’ll do the dishes, you mop."
+household-chores,1,3,B: Deal. Who’s doing the laundry?
+household-chores,1,4,A: I already did it this morning.
+household-chores,1,5,B: Nice. Teamwork!
+devops-meeting,0,0,"A: Morning, everyone. Can we start with the incident?"
+devops-meeting,0,1,B: Sure. The checkout service went down at 8:40.
+devops-meeting,0,2,"A: We rolled back the last deployment, and the error rate is normal now."
+devops-meeting,0,3,B: Do we know the root cause yet?
+devops-meeting,0,4,"A: Not yet, but we’re checking the timeout configuration."
+devops-meeting,0,5,B: Great. Let’s write the postmortem and update the runbook today.
+devops-meeting,1,0,A: Can we go over yesterday’s incident?
+devops-meeting,1,1,B: Sure. The API latency went up around noon.
+devops-meeting,1,2,A: Did the rollback fix it?
+devops-meeting,1,3,"B: Yes, but we still don’t know the root cause."
+devops-meeting,1,4,A: Let’s add more monitoring and check again tomorrow.
+devops-meeting,1,5,B: I’ll open a ticket and assign an owner.
+neighbor-morning,0,0,"A: Morning, Mrs. Lan! How’s it going?"
+neighbor-morning,0,1,"B: Morning! Pretty good, thanks. Off to work?"
+neighbor-morning,0,2,"A: Yeah, I’m just heading to the station."
+neighbor-morning,0,3,"B: Lovely weather today, isn’t it?"
+neighbor-morning,0,4,A: It really is. Let’s catch up this weekend.
+neighbor-morning,0,5,B: Sounds good. Have a good one!
+neighbor-morning,1,0,A: Good morning! You’re out early.
+neighbor-morning,1,1,"B: Yeah, I’m heading to the gym before work."
+neighbor-morning,1,2,A: Nice. How’s the family?
+neighbor-morning,1,3,"B: Everyone’s good, thanks. How about yours?"
+neighbor-morning,1,4,A: All fine. I’ll see you around.
+neighbor-morning,1,5,B: Take care!
+daily-meals,0,0,A: What did you have for breakfast?
+daily-meals,0,1,"B: Just coffee and a banana, because I was in a hurry."
+daily-meals,0,2,"A: I usually have pho, but I’m trying to eat a balanced meal."
+daily-meals,0,3,B: Nice. Are you eating out for lunch today?
+daily-meals,0,4,"A: Yeah, my team is going out. Do you want to join?"
+daily-meals,0,5,"B: I’d love to, but I brought leftovers."
+daily-meals,1,0,A: What are you having for lunch?
+daily-meals,1,1,"B: Rice, grilled fish, and soup. What about you?"
+daily-meals,1,2,A: I’m skipping lunch today because I had a late breakfast.
+daily-meals,1,3,B: That’s not great. Grab something small later.
+daily-meals,1,4,"A: Yeah, maybe a banana and some yogurt."
+daily-meals,1,5,B: Good. And don’t skip dinner.
+autumn-routine,0,0,"A: In autumn, I usually feel more focused."
+autumn-routine,0,1,B: So I plan heavier tasks in the morning.
+autumn-routine,0,2,A: This week I’m getting back into a routine.
+autumn-routine,0,3,B: That sounds like a good plan.
+work-update,0,0,A: We’re on track with the release.
+work-update,0,1,B: Do we still have any blockers?
+work-update,0,2,"A: Yes, one API issue."
+work-update,0,3,B: I’ll hand off the logs after this meeting.
+black-friday,0,0,A: This deal looks good.
+black-friday,0,1,B: Is it worth it?
+black-friday,0,2,A: The discount is bigger online.
+black-friday,0,3,B: I’ll buy it now.
+devops-release-planning,0,0,A: Quick sync on Thursday’s release?
+devops-release-planning,0,1,B: Sure. The code freeze starts tonight at eight.
+devops-release-planning,0,2,A: Do we have approval from product?
+devops-release-planning,0,3,"B: Yes, and the rollback plan is ready."
+devops-release-planning,0,4,A: What about the canary?
+devops-release-planning,0,5,B: We’ll check it at nine and make the go/no-go call.
+devops-release-planning,1,0,A: Is the release still on for Thursday?
+devops-release-planning,1,1,"B: Yes, but we need approval from security."
+devops-release-planning,1,2,A: Any risks in the rollback plan?
+devops-release-planning,1,3,B: The database migration is the main one.
+devops-release-planning,1,4,A: Then let’s run a smoke test in staging tonight.
+devops-release-planning,1,5,B: Agreed. I’ll post the go/no-go decision tomorrow morning.
+neighbor-weekend,0,0,A: Morning! Are you doing anything fun this weekend?
+neighbor-weekend,0,1,B: I’m going to fix the fence if the forecast is good.
+neighbor-weekend,0,2,A: Nice. I’m heading to the local market on Saturday.
+neighbor-weekend,0,3,B: Could you grab some tomatoes for me?
+neighbor-weekend,0,4,"A: Sure, no problem. I’ll drop them off in the afternoon."
+neighbor-weekend,0,5,B: Thanks! Have a good weekend.
+neighbor-weekend,1,0,A: Any plans for Saturday?
+neighbor-weekend,1,1,B: I’m going to the local market with my kids.
+neighbor-weekend,1,2,A: That sounds fun. Is the forecast good?
+neighbor-weekend,1,3,"B: Sunny, finally. Do you need anything?"
+neighbor-weekend,1,4,A: Could you get me some herbs if you see them?
+neighbor-weekend,1,5,B: Of course. I’ll drop them off later.
+eating-out,0,0,A: Good evening. Do you have a reservation?
+eating-out,0,1,"B: Yes, under Minh, for two."
+eating-out,0,2,A: Here’s the menu. Can I get you something to drink?
+eating-out,0,3,"B: Just water, please. What do you recommend?"
+eating-out,0,4,"A: The grilled chicken is popular, and it isn’t too spicy."
+eating-out,0,5,"B: Great. We’ll take that, and could we split the bill later?"
+eating-out,1,0,A: Do you have a table for two?
+eating-out,1,1,"B: Sure, right this way. Here are the menus."
+eating-out,1,2,A: Thanks. Do you have any vegetarian options?
+eating-out,1,3,"B: Yes, the mushroom pasta is very good."
+eating-out,1,4,A: We’ll order that and two lemonades.
+eating-out,1,5,B: Great. Would you like to keep the bill together?
+meal-prep,0,0,A: How do you eat healthy on busy days?
+meal-prep,0,1,B: I do meal prep on Sunday and portion everything.
+meal-prep,0,2,A: Sounds smart. What do you usually cook?
+meal-prep,0,3,"B: Chicken, rice, and vegetables. I add protein to every meal."
+meal-prep,0,4,A: Do you ever order junk food?
+meal-prep,0,5,B: Rarely. I keep fruit at home and stay hydrated.
+meal-prep,1,0,A: Your lunch looks healthy.
+meal-prep,1,1,B: Thanks. I did meal prep on Sunday.
+meal-prep,1,2,A: What’s in it?
+meal-prep,1,3,"B: Rice, chicken, and a lot of vegetables."
+meal-prep,1,4,A: I should try that. Any tips?
+meal-prep,1,5,B: Start with two recipes and don’t skip breakfast.

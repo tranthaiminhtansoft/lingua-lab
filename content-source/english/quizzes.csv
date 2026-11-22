@@ -1,0 +1,81 @@
+﻿topicId,question,options,answerIndex,explanation
+christmas-celebration,Which word means “quà tặng”?,gift | carol | decoration,0,A gift is something you give to someone.
+christmas-celebration,Complete: “We’re ___ visit my parents on Christmas Eve.”,going to | go to | gone to,0,“Be going to” needs the verb be.
+christmas-celebration,Which sentence wishes someone well?,I wish you a Merry Christmas! | I am Christmas. | Christmas is here.,0,“I wish you …” is a standard greeting.
+christmas-celebration,Which word means “tụ họp”?,gather | wish | carol,0,Gather means to come together.
+tet-lunar-new-year,Which word means “lì xì”?,lucky money | incense | ancestors,0,Lucky money is given in red envelopes.
+tet-lunar-new-year,Which word means “đoàn viên”?,family reunion | traditional food | visit relatives,0,Family reunion means gathering with family.
+tet-lunar-new-year,Complete: “We’re ___ cook bánh chưng this year.”,going to | go to | gone to,0,“Be going to” needs the verb be.
+tet-lunar-new-year,Which sentence wishes someone well?,I wish you a Happy New Year! | I am Tết. | Tết is here.,0,“I wish you …” is a standard greeting.
+valentines-day,Which word means “bó hoa”?,bouquet | chocolate | surprise,0,A bouquet is a bunch of flowers.
+valentines-day,Which word means “cầu hôn”?,propose | date | couple,0,To propose is to ask someone to marry you.
+valentines-day,Complete: “I’m ___ cook a romantic dinner.”,going to | go to | gone to,0,“Be going to” needs the verb be.
+valentines-day,Which sentence wishes someone well?,I wish you a Happy Valentine’s Day! | I am Valentine. | Valentine is here.,0,“I wish you …” is a standard greeting.
+new-years-day,Which word means “quyết tâm”?,resolution | goal | habit,0,A resolution is a firm decision to do something.
+new-years-day,Which word means “khởi đầu mới”?,fresh start | countdown | achieve,0,A fresh start means a new beginning.
+new-years-day,Complete: “I’m ___ save more money.”,going to | go to | gone to,0,“Be going to” needs the verb be.
+new-years-day,Which sentence wishes someone well?,I wish you a Happy New Year! | I am New Year. | New Year is here.,0,“I wish you …” is a standard greeting.
+psychology-mind,Which word means “động lực”?,motivation | anxiety | habit,0,Motivation is the reason for acting.
+psychology-mind,Which word means “đồng cảm”?,empathy | trigger | coping,0,Empathy is understanding others’ feelings.
+psychology-mind,Complete: “I ___ to worry a lot.”,used | use | using,0,“Used to” describes a past habit.
+psychology-mind,Which sentence gives advice?,"If you feel anxious, take a deep breath. | I am anxious. | Anxiety exists.",0,First conditional gives advice for a situation.
+sunday-mass,Which word means “thánh lễ”?,mass | church | parish,0,Mass is the main Sunday worship service.
+sunday-mass,Complete: “I ___ to church every Sunday.”,go | goes | going,0,"With “I”, use the base form: go."
+sunday-mass,Which sentence is polite when inviting?,Would you like to come to mass with us? | Come to mass now. | You must come.,0,“Would you like …?” is a polite invitation.
+sunday-mass,Which word means “ca đoàn”?,choir | sermon | hymn,0,A choir is the group that sings in church.
+weekend-market,Which word means “tươi”?,fresh | cash | bag,0,Fresh means newly picked or made.
+weekend-market,"Complete: “Could you ___ these tomatoes, please?”",weigh | weighs | weighing,0,Could you + base verb: weigh.
+weekend-market,Which question asks about price?,How much are these oranges? | What is your name? | Where is the exit?,0,How much + be + noun asks about price.
+weekend-market,Which sentence is polite when buying?,"Could you weigh these, please? | Weigh these now. | Give me these.",0,"“Could you …, please?” is polite."
+weekend-outing,Which phrase suggests an activity?,Let’s meet up at seven. | I am sleeping. | The door is closed.,0,“Let’s …” is a suggestion.
+weekend-outing,Which word means “gặp nhau”?,meet up | traffic | late,0,Meet up means to gather with someone.
+weekend-outing,Complete: “We’re ___ watch a movie.”,going to | go to | gone to,0,“Be going to” needs the verb be.
+weekend-outing,Which sentence apologises for being late?,"Sorry, traffic was bad. | I am never late. | Traffic is good.",0,Sorry + reason is a polite apology.
+weekend-rest,Which word means “ngủ nướng”?,sleep in | nap | recharge,0,Sleep in means to stay in bed longer than usual.
+weekend-rest,Which sentence means “thư giãn”?,I’m unwinding with a book. | I’m working hard. | I’m running fast.,0,Unwind means to relax after stress.
+weekend-rest,Complete: “I ___ staying in bed.”,feel like | feels like | felt like to,0,Feel like + V-ing expresses a desire.
+weekend-rest,Which phrase means “không đặt báo thức”?,no alarm | alarm clock | wake up,0,No alarm means not setting an alarm.
+household-chores,Which word means “việc nhà”?,chore | laundry | dust,0,A chore is a household task.
+household-chores,Complete: “I ___ do the laundry today.”,have to | has to | having to,0,I have to + base verb.
+household-chores,Which question asks who does a task?,Who is doing the dishes? | What is the dish? | Where is the kitchen?,0,Who + be + V-ing asks about the person.
+household-chores,Which sentence means “đổ rác”?,take out the trash | take in the trash | make the trash,0,Take out the trash means to remove garbage.
+devops-meeting,Choose the correct stand-up update:,We have deployed the patch to staging. | We have deploy the patch to staging. | We has deployed the patch to staging.,0,Present perfect is have/has + past participle: have deployed.
+devops-meeting,Which word means “sự cố nghiêm trọng”?,incident | insight | instance,0,An incident is an unplanned event that disrupts a service.
+devops-meeting,Complete the sentence: “The error rate ___ after the rollback.”,dropped | drop | dropping,0,Use past simple for a finished action: the error rate dropped.
+devops-meeting,Which sentence proposes next steps in a meeting?,Let’s assign an owner and set a deadline. | That is not my job. | Someone should do it eventually.,0,A clear owner plus a deadline keeps the meeting actionable.
+neighbor-morning,Which is the most natural morning greeting to a neighbor?,"Morning! How’s it going? | Good morning, citizen. State your purpose. | Hello. What do you want?",0,"A short, friendly greeting with a light question fits small talk."
+neighbor-morning,Which phrase ends a short chat politely?,Have a good one! | Go away now. | Stop talking.,0,"“Have a good one!” is a casual, friendly sign-off."
+neighbor-morning,"Complete the question tag: “Lovely morning, ___?”",isn’t it | is it | doesn’t it,0,A positive statement takes a negative tag: isn’t it?
+neighbor-morning,Which sentence is typical small talk?,"I’m just heading to the station. | I need to see your ID. | Move out of my way, please.",0,"Small talk shares a light, everyday detail."
+daily-meals,Which meal do you usually eat in the evening?,dinner | breakfast | lunch,0,Dinner is the main meal in the evening.
+daily-meals,Complete the sentence: “I usually ___ breakfast at 7 a.m.”,have | has | having,0,"With “I”, use the base form: I have breakfast."
+daily-meals,Which phrase means “ăn ngoài”?,eat out | eat up | eat in,0,“Eat out” means to eat at a restaurant instead of at home.
+daily-meals,Which sentence is polite when ordering food?,"Could I have a bowl of soup, please? | Give me soup. | I want soup now.",0,"“Could I have …, please?” is the standard polite request."
+autumn-routine,Choose the correct sentence about an autumn routine:,I am usually walk in the park in autumn. | I usually walk in the park in autumn. | I usually walks in the park in autumn.,1,Use present simple for habits: subject + base verb.
+autumn-routine,Which phrase means “trở lại thói quen”?,wrap up warm | get back into routine | energy level,1,“Get back into routine” means to return to a usual habit.
+autumn-routine,Complete the sentence: “This week I’m ___ to sleep earlier.”,try | trying | tried,1,Present continuous uses am/is/are + -ing for temporary changes.
+autumn-routine,Which sentence keeps a conversation going?,That sounds like a good plan. How about you? | I usually walk in the park. | Wrap up warm.,0,A reaction plus a follow-up question extends the conversation.
+work-update,Choose the correct work update:,"We are on track, but we still has one blocker. | We are on track, but we still have one blocker. | We on track, but we still have one blocker.",1,Use “have” with “we” and keep the full verb phrase.
+work-update,Which word means “điểm chặn”?,hand off | blocker | on track,1,A blocker is something that stops progress.
+work-update,Which sentence reports progress with present perfect?,We finished the first review. | We have finished the first review. | We are finish the first review.,1,Present perfect is have/has + past participle.
+work-update,Which reply shows polite turn-taking in a meeting?,"Can I add something? | You are wrong. | No, listen to me.",0,“Can I add something?” is a polite way to take a turn.
+black-friday,Choose the correct shopping sentence:,This deal is worth than the other one. | This deal is more worth than the other one. | This deal is worth it.,2,“Worth it” is a common chunk; avoid forcing a comparative.
+black-friday,Which word means “giảm giá”?,deal | discount | worth it,1,A discount is a reduction in price.
+black-friday,Complete the comparison: “The discount is bigger ___.”,than online | online than | more online,1,Use comparative + than: bigger than …
+black-friday,Which sentence asks about a choice?,I’m not sure whether to buy now or wait. | I’m not sure if to buy now or wait. | I’m not sure buy now or wait.,0,Use whether + to-infinitive when presenting a choice.
+devops-release-planning,Choose the correct future arrangement:,We’re releasing on Thursday. | We release on Thursday tomorrow. | We are release on Thursday.,0,Present continuous describes a fixed future arrangement.
+devops-release-planning,Which term means “đóng băng mã nguồn”?,code freeze | canary | capacity,0,A code freeze stops code changes before a release.
+devops-release-planning,Complete the sentence: “We ___ freeze the code by Wednesday.”,need to | need | needing,0,Use need + to-infinitive to express obligation.
+devops-release-planning,Which sentence gives a condition for rollout?,"If the canary looks healthy, we’ll roll out. | The canary looks healthy. | We roll out maybe.",0,"First conditional: if + present simple, will + verb."
+neighbor-weekend,Complete the sentence: “I ___ fix the fence this weekend.”,am going to | going to | go to,0,‘Be going to’ needs the verb be: I am going to fix …
+neighbor-weekend,Which word means “mượn”?,borrow | lend | bring,0,You borrow something from someone; they lend it to you.
+neighbor-weekend,Which sentence is a polite request?,"Could you lend me a ladder? | Give me your ladder. | Ladder, now.",0,“Could you …?” is a polite way to ask for help.
+neighbor-weekend,Which question asks about weekend plans?,Are you doing anything fun this weekend? | What is your address? | Do you have a receipt?,0,This question invites the other person to share plans.
+eating-out,Which sentence is polite when asking for the bill?,"Could we have the bill, please? | Bill now. | Give bill.",0,"“Could we … , please?” is the standard polite form."
+eating-out,Which phrase means “chia hoá đơn”?,split the bill | takeaway | tip,0,To split the bill is to share the cost between people.
+eating-out,Complete the sentence: “Could I have ___ more rice?”,a little | a few | many,0,"Rice is uncountable, so use a little."
+eating-out,Which question asks for a recommendation?,What do you recommend? | What is your name? | Where is the exit?,0,“What do you recommend?” asks for a suggestion.
+meal-prep,Which word means “nguyên liệu”?,ingredients | groceries | recipe,0,Ingredients are the items you use to cook a dish.
+meal-prep,Complete the sentence: “You ___ prep meals on Sunday.”,should | should to | shoulds,0,"Use should + base verb, without to."
+meal-prep,Which sentence gives advice?,You should drink more water. | You drink more water. | Drinking water yesterday.,0,Should expresses advice or a recommendation.
+meal-prep,Which phrase means “đồ ăn vặt”?,junk food | meal prep | protein,0,Junk food is food with little nutritional value.
