@@ -39,7 +39,7 @@ test('future holiday topics stay unavailable until their date', () => {
 test('daily vocabulary sets rotate instead of repeating', () => {
   const vocabByTopic = new Map<string, Set<string>>();
   for (let day = 1; day <= 8; day += 1) {
-    for (const topic of getTodayEnglishContext(new Date(2026, 10, day)).topics.filter((item) => item.daily)) {
+    for (const topic of getTodayEnglishContext(new Date(2026, 10, day)).topics.filter((item) => item.theme !== undefined && item.frequency !== 'limitedTime')) {
       expect(topic.vocab).toHaveLength(9);
       const set = vocabByTopic.get(topic.id) ?? new Set<string>();
       set.add(topic.vocab.map((item) => item.term).join('|'));
@@ -62,7 +62,7 @@ test('daily quizzes mix curated and vocabulary questions with valid answers', ()
 test('dialogue variants rotate by date', () => {
   const dialoguesByTopic = new Map<string, Set<string>>();
   for (let day = 1; day <= 8; day += 1) {
-    for (const topic of getTodayEnglishContext(new Date(2026, 10, day)).topics.filter((item) => item.daily)) {
+    for (const topic of getTodayEnglishContext(new Date(2026, 10, day)).topics.filter((item) => item.theme !== undefined && item.frequency !== 'limitedTime')) {
       const set = dialoguesByTopic.get(topic.id) ?? new Set<string>();
       set.add(topic.dialogue.join('|'));
       dialoguesByTopic.set(topic.id, set);

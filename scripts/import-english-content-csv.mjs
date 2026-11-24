@@ -147,17 +147,15 @@ const topics = topicRows.map((row) => {
       .map((item) => [item.message, { pronunciation: item.pronunciation, meaning: item.meaning }]),
   );
 
-  const daily = toBoolean(row.daily);
-  const mondayOnly = toBoolean(row.mondayOnly);
   const timeLimit = toNumber(row.timeLimit);
 
   return {
     id,
     title: row.title,
     description: row.description,
-    availableFrom: row.availableFrom,
-    ...(daily === undefined ? {} : { daily }),
-    ...(mondayOnly === undefined ? {} : { mondayOnly }),
+    frequency: row.frequency,
+    startDate: row.startDate,
+    endDate: row.endDate,
     ...(timeLimit === undefined ? {} : { timeLimit }),
     ...(row.theme ? { theme: row.theme } : {}),
     vocab,

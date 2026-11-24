@@ -7,7 +7,7 @@ They can be opened in Excel or Google Sheets, edited, then converted back to
 ## Files
 
 - `meta.csv` — `version`, `updatedAt`
-- `topics.csv` — one row per topic (includes `examples` as ` | `-separated)
+- `topics.csv` — one row per topic: `frequency` (daily/everyWeekend/limitedTime/everyMon..everySun), `startDate` (required), `endDate` (none or > startDate), `timeLimit`
 - `vocabulary.csv` — `topicId, term, meaning, pronunciation, score`
 - `grammar.csv` — `topicId, title, category, formula, example, pronunciation`
 - `quizzes.csv` — `topicId, question, options (pipe-separated), answerIndex, explanation`

@@ -6,7 +6,9 @@
       "id": "christmas-celebration",
       "title": "Christmas celebration",
       "description": "Talk about Christmas plans, gifts, and festive traditions.",
-      "availableFrom": "2026-12-25",
+      "frequency": "limitedTime",
+      "startDate": "2026-12-25",
+      "endDate": "2026-12-31",
       "vocab": [
         {
           "term": "Christmas",
@@ -163,7 +165,9 @@
       "id": "tet-lunar-new-year",
       "title": "Tết Nguyên Đán (Lunar New Year)",
       "description": "Talk about Tết traditions, family visits, and lucky money.",
-      "availableFrom": "2027-02-06",
+      "frequency": "limitedTime",
+      "startDate": "2027-02-06",
+      "endDate": "2027-02-20",
       "vocab": [
         {
           "term": "Tết",
@@ -320,7 +324,9 @@
       "id": "valentines-day",
       "title": "Valentine’s Day",
       "description": "Talk about Valentine’s plans, gifts, and expressing love.",
-      "availableFrom": "2027-02-14",
+      "frequency": "limitedTime",
+      "startDate": "2027-02-14",
+      "endDate": "2027-02-16",
       "vocab": [
         {
           "term": "Valentine’s Day",
@@ -477,7 +483,9 @@
       "id": "new-years-day",
       "title": "New Year’s Day",
       "description": "Talk about New Year’s resolutions and fresh starts.",
-      "availableFrom": "2027-01-01",
+      "frequency": "limitedTime",
+      "startDate": "2027-01-01",
+      "endDate": "2027-01-03",
       "vocab": [
         {
           "term": "New Year’s Day",
@@ -634,8 +642,9 @@
       "id": "psychology-mind",
       "title": "Psychology and the mind",
       "description": "Talk about emotions, habits, and how the mind works.",
-      "availableFrom": "2020-01-01",
-      "mondayOnly": true,
+      "frequency": "everyMon",
+      "startDate": "2020-01-01",
+      "endDate": "none",
       "vocab": [
         {
           "term": "emotion",
@@ -792,8 +801,9 @@
       "id": "sunday-mass",
       "title": "Sunday Mass and going to church",
       "description": "Talk about going to church, mass, and Sunday worship.",
-      "availableFrom": "2020-01-01",
-      "daily": true,
+      "frequency": "everyWeekend",
+      "startDate": "2020-01-01",
+      "endDate": "none",
       "theme": "weekend",
       "vocab": [
         {
@@ -951,8 +961,9 @@
       "id": "weekend-market",
       "title": "Weekend market shopping",
       "description": "Buy fresh food at the market and chat with vendors.",
-      "availableFrom": "2020-01-01",
-      "daily": true,
+      "frequency": "everyWeekend",
+      "startDate": "2020-01-01",
+      "endDate": "none",
       "theme": "weekend",
       "vocab": [
         {
@@ -1110,8 +1121,9 @@
       "id": "weekend-outing",
       "title": "Going out with friends",
       "description": "Plan a fun weekend with friends and handle small details.",
-      "availableFrom": "2020-01-01",
-      "daily": true,
+      "frequency": "everyWeekend",
+      "startDate": "2020-01-01",
+      "endDate": "none",
       "theme": "weekend",
       "vocab": [
         {
@@ -1269,8 +1281,9 @@
       "id": "weekend-rest",
       "title": "Rest and recharge at home",
       "description": "Talk about sleeping in, relaxing, and doing nothing.",
-      "availableFrom": "2020-01-01",
-      "daily": true,
+      "frequency": "everyWeekend",
+      "startDate": "2020-01-01",
+      "endDate": "none",
       "theme": "weekend",
       "vocab": [
         {
@@ -1428,8 +1441,9 @@
       "id": "household-chores",
       "title": "Household chores and cleaning",
       "description": "Talk about chores, sharing tasks, and keeping home tidy.",
-      "availableFrom": "2020-01-01",
-      "daily": true,
+      "frequency": "everyWeekend",
+      "startDate": "2020-01-01",
+      "endDate": "none",
       "theme": "weekend",
       "vocab": [
         {
@@ -1587,8 +1601,9 @@
       "id": "devops-meeting",
       "title": "DevOps team meeting",
       "description": "Give a stand-up update, raise incidents, and agree next steps.",
-      "availableFrom": "2020-01-01",
-      "daily": true,
+      "frequency": "daily",
+      "startDate": "2020-01-01",
+      "endDate": "none",
       "theme": "devops",
       "vocab": [
         {
@@ -1764,8 +1779,9 @@
       "id": "neighbor-morning",
       "title": "Morning greetings with neighbors",
       "description": "Say good morning, make small talk, and keep it friendly.",
-      "availableFrom": "2020-01-01",
-      "daily": true,
+      "frequency": "daily",
+      "startDate": "2020-01-01",
+      "endDate": "none",
       "theme": "neighbor",
       "vocab": [
         {
@@ -1941,8 +1957,9 @@
       "id": "daily-meals",
       "title": "Breakfast, lunch, and dinner",
       "description": "Talk about meals, portions, and eating out during the day.",
-      "availableFrom": "2020-01-01",
-      "daily": true,
+      "frequency": "daily",
+      "startDate": "2020-01-01",
+      "endDate": "none",
       "theme": "meals",
       "vocab": [
         {
@@ -2118,7 +2135,9 @@
       "id": "autumn-routine",
       "title": "Autumn routine & energy",
       "description": "Talk about autumn routines, energy, and weekly plans.",
-      "availableFrom": "2020-01-01",
+      "frequency": "daily",
+      "startDate": "2020-01-01",
+      "endDate": "none",
       "vocab": [
         {
           "term": "energy level",
@@ -2263,7 +2282,9 @@
       "id": "work-update",
       "title": "Work update in English",
       "description": "Give work updates, progress, and blockers in a meeting.",
-      "availableFrom": "2020-01-01",
+      "frequency": "daily",
+      "startDate": "2020-01-01",
+      "endDate": "none",
       "vocab": [
         {
           "term": "on track",
@@ -2408,7 +2429,9 @@
       "id": "black-friday",
       "title": "Black Friday shopping",
       "description": "Talk about shopping, prices, and comparing choices.",
-      "availableFrom": "2026-11-28",
+      "frequency": "limitedTime",
+      "startDate": "2026-11-28",
+      "endDate": "2026-11-30",
       "vocab": [
         {
           "term": "deal",
@@ -2552,8 +2575,9 @@
       "id": "devops-release-planning",
       "title": "DevOps release planning",
       "description": "Plan a release window, freeze code, and agree on go/no-go.",
-      "availableFrom": "2020-01-01",
-      "daily": true,
+      "frequency": "daily",
+      "startDate": "2020-01-01",
+      "endDate": "none",
       "theme": "devops",
       "vocab": [
         {
@@ -2729,8 +2753,9 @@
       "id": "neighbor-weekend",
       "title": "Weekend catch-up with neighbors",
       "description": "Talk about weekend plans, weather, and helping each other out.",
-      "availableFrom": "2020-01-01",
-      "daily": true,
+      "frequency": "daily",
+      "startDate": "2020-01-01",
+      "endDate": "none",
       "theme": "neighbor",
       "vocab": [
         {
@@ -2906,8 +2931,9 @@
       "id": "eating-out",
       "title": "Eating out and ordering food",
       "description": "Book a table, ask for recommendations, and pay politely.",
-      "availableFrom": "2020-01-01",
-      "daily": true,
+      "frequency": "daily",
+      "startDate": "2020-01-01",
+      "endDate": "none",
       "theme": "meals",
       "vocab": [
         {
@@ -3083,8 +3109,9 @@
       "id": "meal-prep",
       "title": "Meal prep and healthy eating",
       "description": "Talk about groceries, recipes, and staying healthy during the week.",
-      "availableFrom": "2020-01-01",
-      "daily": true,
+      "frequency": "daily",
+      "startDate": "2020-01-01",
+      "endDate": "none",
       "theme": "meals",
       "vocab": [
         {

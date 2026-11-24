@@ -31,9 +31,9 @@ const topicRows = bank.topics.map((topic) => ({
   id: topic.id,
   title: topic.title,
   description: topic.description,
-  availableFrom: topic.availableFrom,
-  daily: topic.daily === true ? 'TRUE' : topic.daily === false ? 'FALSE' : '',
-  mondayOnly: topic.mondayOnly === true ? 'TRUE' : topic.mondayOnly === false ? 'FALSE' : '',
+  frequency: topic.frequency,
+  startDate: topic.startDate,
+  endDate: topic.endDate,
   timeLimit: topic.timeLimit ?? '',
   theme: topic.theme ?? '',
   examples: topic.examples.join(' | '),
@@ -42,7 +42,7 @@ const topicRows = bank.topics.map((topic) => ({
 
 await writeFile(
   new URL('topics.csv', outputDirectory),
-  toCsv(['id', 'title', 'description', 'availableFrom', 'daily', 'mondayOnly', 'timeLimit', 'theme', 'examples', 'readExpected'], topicRows),
+  toCsv(['id', 'title', 'description', 'frequency', 'startDate', 'endDate', 'timeLimit', 'theme', 'examples', 'readExpected'], topicRows),
 );
 
 const vocabRows = [];

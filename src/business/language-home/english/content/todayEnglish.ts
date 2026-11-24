@@ -125,6 +125,21 @@ function buildDailyQuizzes(
     .map((quiz, index) => shuffleQuizOptions(quiz, seed + index));
 }
 
+function isRotatingTopic(topic: EnglishTopic): boolean {
+  return topic.frequency !== 'limitedTime' && topic.theme !== undefined;
+}
+
+function isAvailableOnDay(topic: EnglishTopic, date: Date): boolean {
+  const day = date.getDay(); // 0=Sun..6=Sat
+  const dayNames = ['everySun', 'everyMon', 'everyTue', 'everyWed', 'everyThu', 'everyFri', 'everySat'];
+  const flag = topic.frequency;
+  if (flag === 'daily') return true;
+  if (flag === 'everyWeekend') return day === 0 || day === 6;
+  if (flag.startsWith('every')) return flag === dayNames[day];
+  // limitedTime: available every day within the window
+  return true;
+}
+
 export function getDailyTopics(
   date = new Date(),
   content: EnglishContentBank = getActiveEnglishContent(),
@@ -134,13 +149,14 @@ export function getDailyTopics(
   if (isWeekend(date)) {
     const sunday = date.getDay() === 0;
     const weekendPool = allTopics.filter((topic) => {
-      if (!(topic.daily && topic.theme === 'weekend')) return false;
+      if (!isRotatingTopic(topic) || topic.theme !== 'weekend') return false;
+      if (!isAvailableOnDay(topic, date)) return false;
       if (sunday && topic.id === 'weekend-outing') return false;
       if (!sunday && topic.id === 'sunday-mass') return false;
       return true;
     });
-    const neighborPool = allTopics.filter((topic) => topic.daily && topic.theme === 'neighbor');
-    const mealsPool = allTopics.filter((topic) => topic.daily && topic.theme === 'meals');
+    const neighborPool = allTopics.filter((topic) => isRotatingTopic(topic) && topic.theme === 'neighbor' && isAvailableOnDay(topic, date));
+    const mealsPool = allTopics.filter((topic) => isRotatingTopic(topic) && topic.theme === 'meals' && isAvailableOnDay(topic, date));
     let weekendPicks: EnglishTopic[];
     if (sunday) {
       weekendPicks = [
@@ -159,7 +175,7 @@ export function getDailyTopics(
     ].filter(Boolean) as EnglishTopic[];
   }
   return WEEKDAY_DAILY_THEMES.flatMap((theme, index) => {
-    const pool = allTopics.filter((topic) => topic.daily && topic.theme === theme);
+    const pool = allTopics.filter((topic) => isRotatingTopic(topic) && topic.theme === theme && isAvailableOnDay(topic, date));
     if (pool.length === 0) return [];
     return [pool[(seed + index) % pool.length]];
   });
@@ -172,19 +188,17 @@ export function getTodayEnglishContext(
   const todayKey = dateKey(date);
   const day = dayNumber(date);
   // Daily themes rotate by date so the same three topics do not repeat every day.
-  const weekend = isWeekend(date);
-  const monday = date.getDay() === 1;
   const ordered = [
     ...getDailyTopics(date, content),
     ...content.topics.filter((topic) => {
-      if (topic.daily) return false;
-      if (topic.mondayOnly && !monday) return false;
-      if (weekend && topic.id === 'work-update') return false;
-      return true;
+      if (isRotatingTopic(topic)) return false;
+      if (!isAvailableOnDay(topic, date)) return false;
+      if (isTopicExpired(topic, date)) return false;
+      return isTopicVisible(topic, date);
     }),
   ];
   const topics = ordered.map((topic) => {
-    if (!topic.daily) {
+    if (!isRotatingTopic(topic)) {
       return { ...topic, vocab: topic.vocab.map((item) => ({ ...item })) };
     }
     // Inside a daily topic, vocabulary, quizzes, and dialogue also rotate by date.
@@ -206,31 +220,37 @@ export function getTodayEnglishContext(
   };
 }
 
+function parseDate(value: string): Date {
+  const [y, m, d] = value.split('-').map(Number);
+  return new Date(y, m - 1, d);
+}
+
 export function isTopicAvailable(topic: EnglishTopic, date = new Date()): boolean {
-  return topic.availableFrom <= dateKey(date);
+  const today = dateKey(date);
+  if (topic.startDate > today) return false;
+  if (topic.endDate !== 'none' && topic.endDate < today) return false;
+  return true;
+}
+
+function isTopicExpired(topic: EnglishTopic, date = new Date()): boolean {
+  return topic.endDate !== 'none' && topic.endDate < dateKey(date);
 }
 
 /** A coming-soon topic is only shown when it is within this many days. */
 export const COMING_SOON_WINDOW_DAYS = 60;
 
 export function isTopicVisible(topic: EnglishTopic, date = new Date(), windowDays = COMING_SOON_WINDOW_DAYS): boolean {
+  if (isTopicExpired(topic, date)) return false;
   if (isTopicAvailable(topic, date)) return true;
   const today = dateKey(date);
-  const available = topic.availableFrom;
-  // Both are ISO YYYY-MM-DD strings, so compare by day count.
-  const [ay, am, ad] = available.split('-').map(Number);
-  const [ty, tm, td] = today.split('-').map(Number);
-  const availableDate = new Date(ay, am - 1, ad);
-  const todayDate = new Date(ty, tm - 1, td);
-  const diff = Math.round((availableDate.getTime() - todayDate.getTime()) / 86_400_000);
+  const diff = Math.round((parseDate(topic.startDate).getTime() - parseDate(today).getTime()) / 86_400_000);
   return diff >= 0 && diff <= windowDays;
 }
 
 export function daysUntilAvailable(topic: EnglishTopic, date = new Date()): number {
-  const [ay, am, ad] = topic.availableFrom.split('-').map(Number);
-  const availableDate = new Date(ay, am - 1, ad);
+  if (isTopicAvailable(topic, date)) return 0;
   const todayDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-  return Math.max(0, Math.round((availableDate.getTime() - todayDate.getTime()) / 86_400_000));
+  return Math.max(0, Math.round((parseDate(topic.startDate).getTime() - todayDate.getTime()) / 86_400_000));
 }
 
 export function getTopicTimeLimit(topic: EnglishTopic): number {

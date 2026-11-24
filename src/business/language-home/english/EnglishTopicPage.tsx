@@ -337,7 +337,7 @@ export function EnglishTopicPage() {
   useEffect(() => {
     if (!context || !topic) return;
     if (!isTopicAvailableApi(topic)) {
-      window.alert('Chủ đề này đang Coming soon và sẽ mở từ ' + topic.availableFrom + '.');
+      window.alert('Chủ đề này đang Coming soon và sẽ mở từ ' + topic.startDate + '.');
       navigate('/english');
     }
   }, [context, topic, navigate]);

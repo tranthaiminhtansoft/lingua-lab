@@ -1,5 +1,6 @@
 import type {
   EnglishContentBank,
+  EnglishFrequency,
   EnglishGrammarItem,
   EnglishQuiz,
   EnglishTheme,
@@ -92,9 +93,9 @@ function parseTopic(value: unknown): EnglishTopic | null {
     id,
     title,
     description,
-    availableFrom,
-    daily,
-    mondayOnly,
+    startDate,
+    endDate,
+    frequency,
     timeLimit,
     theme,
     vocab,
@@ -107,10 +108,21 @@ function parseTopic(value: unknown): EnglishTopic | null {
     dialogueGuides,
   } = value;
 
-  if (!isText(id) || !isText(title) || !isText(description) || !isIsoDate(availableFrom)) return null;
+  const FREQUENCIES: EnglishFrequency[] = [
+    'daily', 'everyWeekend', 'limitedTime',
+    'everyMon', 'everyTue', 'everyWed', 'everyThu', 'everyFri', 'everySat', 'everySun',
+  ];
+
+  if (!isText(id) || !isText(title) || !isText(description)) return null;
+  if (!isIsoDate(startDate)) return null;
+  if (endDate !== 'none' && !isIsoDate(endDate)) return null;
+  if (!FREQUENCIES.includes(frequency as EnglishFrequency)) return null;
+  if (frequency === 'limitedTime') {
+    if (endDate === 'none' || (endDate as string) <= (startDate as string)) return null;
+  } else {
+    if (endDate !== 'none') return null;
+  }
   if (!isText(readExpected)) return null;
-  if (daily !== undefined && typeof daily !== 'boolean') return null;
-  if (mondayOnly !== undefined && typeof mondayOnly !== 'boolean') return null;
   if (timeLimit !== undefined && (typeof timeLimit !== 'number' || !Number.isFinite(timeLimit) || timeLimit <= 0)) return null;
   if (theme !== undefined && !THEMES.includes(theme as EnglishTheme)) return null;
 
@@ -143,10 +155,10 @@ function parseTopic(value: unknown): EnglishTopic | null {
     id,
     title,
     description,
-    availableFrom,
-    ...(daily === undefined ? {} : { daily }),
-    ...(mondayOnly === undefined ? {} : { mondayOnly }),
-    ...(timeLimit === undefined ? {} : { timeLimit }),
+    startDate: startDate as string,
+    endDate: endDate as string,
+    frequency: frequency as EnglishFrequency,
+    ...(timeLimit === undefined ? {} : { timeLimit: timeLimit as number }),
     ...(theme === undefined ? {} : { theme: theme as EnglishTheme }),
     vocab: parsedVocab,
     grammar: parsedGrammar,

@@ -25,15 +25,36 @@ export type EnglishQuiz = {
 
 export type EnglishTheme = 'devops' | 'neighbor' | 'meals' | 'weekend';
 
+/**
+ * How often a topic is featured in the daily rotation, or whether it is a
+ * one-off event with a fixed availability window.
+ * - `daily`: available every day.
+ * - `everyWeekend`: available on Saturday and Sunday.
+ * - `everyMon`..`everySun`: available on that weekday only.
+ * - `limitedTime`: available only between `startDate` and `endDate`.
+ */
+export type EnglishFrequency =
+  | 'daily'
+  | 'everyWeekend'
+  | 'limitedTime'
+  | 'everyMon'
+  | 'everyTue'
+  | 'everyWed'
+  | 'everyThu'
+  | 'everyFri'
+  | 'everySat'
+  | 'everySun';
+
 export type EnglishTopic = {
   id: string;
   title: string;
   description: string;
-  availableFrom: string;
-  /** Daily essentials stay available every day. */
-  daily?: boolean;
-  /** Only shown on Mondays. */
-  mondayOnly?: boolean;
+  /** When the topic first becomes available (ISO YYYY-MM-DD). */
+  startDate: string;
+  /** Last day the topic is available, or "none" for recurring topics. */
+  endDate: string;
+  /** Recurrence pattern for the topic. */
+  frequency: EnglishFrequency;
   /** Suggested time limit in minutes for this topic. */
   timeLimit?: number;
   /** Daily topics rotate within their theme. */

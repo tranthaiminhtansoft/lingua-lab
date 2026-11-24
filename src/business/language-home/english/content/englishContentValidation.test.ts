@@ -7,7 +7,9 @@ function makeTopic(overrides: Partial<EnglishTopic> = {}): EnglishTopic {
     id: 'test-topic',
     title: 'Test topic',
     description: 'A topic used by unit tests.',
-    availableFrom: '2026-01-01',
+    startDate: '2026-01-01',
+    endDate: 'none',
+    frequency: 'daily',
     vocab: [
       { term: 'hello', meaning: 'xin chào', pronunciation: '/həˈləʊ/', score: 0 },
     ],
@@ -53,7 +55,7 @@ test('rejects a quiz answer index outside the options', () => {
 });
 
 test('rejects an impossible availability date', () => {
-  expect(parseEnglishContent(makeBank(makeTopic({ availableFrom: '2026-02-30' })))).toBeNull();
+  expect(parseEnglishContent(makeBank(makeTopic({ startDate: '2026-02-30' })))).toBeNull();
 });
 
 test('rejects malformed vocabulary scores', () => {

@@ -76,7 +76,7 @@ export function TodayEnglishPage() {
 
   function handleSelectTopic(topic: EnglishTopic) {
     if (!isTopicAvailableApi(topic, today)) {
-      window.alert('Chủ đề này đang Coming soon và sẽ mở từ ' + topic.availableFrom + '.');
+      window.alert('Chủ đề này đang Coming soon và sẽ mở từ ' + topic.startDate + '.');
       return;
     }
     setSelectedTopic(topic);
@@ -173,7 +173,7 @@ export function TodayEnglishPage() {
                 disabled={!available}
               >
                 <span className={`english-today-badge ${available ? 'available' : 'coming'}`}>
-                  {available ? (topic.daily ? 'Hàng ngày' : 'Có sẵn') : `Coming soon · còn ${daysUntilAvailable(topic, today)} ngày`}
+                  {available ? (topic.frequency === 'daily' || topic.frequency === 'everyWeekend' || topic.frequency.startsWith('every') ? 'Hàng ngày' : 'Có sẵn') : `Coming soon · còn ${daysUntilAvailable(topic, today)} ngày`}
                 </span>
                 <h3 className="english-today-topic-title">{topic.title}</h3>
                 <p className="english-today-topic-desc">{topic.description}</p>
