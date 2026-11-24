@@ -123,7 +123,7 @@ function parseTopic(value: unknown): EnglishTopic | null {
     if (endDate !== 'none') return null;
   }
   if (!isText(readExpected)) return null;
-  if (timeLimit !== undefined && (typeof timeLimit !== 'number' || !Number.isFinite(timeLimit) || timeLimit <= 0)) return null;
+  if (timeLimit !== undefined && (typeof timeLimit !== 'number' || !Number.isFinite(timeLimit) || timeLimit < 0)) return null;
   if (theme !== undefined && !THEMES.includes(theme as EnglishTheme)) return null;
 
   const parsedVocab = parseArray(vocab, parseVocabularyItem);

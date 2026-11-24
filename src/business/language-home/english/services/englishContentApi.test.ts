@@ -22,7 +22,7 @@ function jsonResponse(payload: unknown): Response {
 
 beforeEach(() => {
   localStorage.clear();
-  setActiveEnglishContent(BUNDLED_ENGLISH_CONTENT);
+  setActiveEnglishContent(BUNDLED_ENGLISH_CONTENT, true);
 });
 
 afterEach(() => {
@@ -50,14 +50,14 @@ test('activates a newer remote bank and serves its topics', async () => {
     .toBe('Updated topic title');
 });
 
-test('keeps the current bank when the remote version is unchanged', async () => {
+test('force refresh activates content even when the remote version is unchanged', async () => {
   const fetchMock = vi.fn().mockResolvedValue(jsonResponse(cloneBundled()));
   vi.stubGlobal('fetch', fetchMock);
 
   const result = await checkEnglishContentApi({ force: true });
 
-  expect(result.status).toBe('current');
-  expect(getActiveEnglishContent()).toBe(BUNDLED_ENGLISH_CONTENT);
+  expect(result.status).toBe('updated');
+  expect(getActiveEnglishContent().version).toBe(BUNDLED_ENGLISH_CONTENT.version);
 });
 
 test('falls back to the bundled bank when the network fails', async () => {

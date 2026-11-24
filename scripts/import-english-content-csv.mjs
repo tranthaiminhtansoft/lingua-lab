@@ -123,24 +123,34 @@ const topics = topicRows.map((row) => {
     .filter((item) => item.topicId === id)
     .map((item) => ({
       question: item.question,
-      options: item.options.split(' | ').map((value) => value.trim()),
+      options: (item.options.includes('\n') ? item.options.split(/\r?\n/) : item.options.split(' | ')).map((value) => value.trim()).filter(Boolean),
       answerIndex: Number(item.answerIndex),
       explanation: item.explanation,
     }));
-  const mainDialogue = dialogueRows
-    .filter((item) => item.topicId === id && item.variantIndex === '0')
-    .sort((a, b) => Number(a.sentenceIndex) - Number(b.sentenceIndex))
-    .map((item) => item.sentence);
-  const variants = [...new Set(
-    dialogueRows
-      .filter((item) => item.topicId === id && item.variantIndex !== '0')
-      .map((item) => item.variantIndex),
-  )]
-    .sort((a, b) => Number(a) - Number(b))
-    .map((variant) => dialogueRows
-      .filter((item) => item.topicId === id && item.variantIndex === variant)
+  const splitSentences = (value) => value.split(/\r?\n/).map((s) => s.trim()).filter(Boolean);
+  const topicDialogueRows = dialogueRows.filter((item) => item.topicId === id);
+  const isNewFormat = topicDialogueRows.some((item) => item.sentences !== undefined);
+  let mainDialogue = [];
+  let variants = [];
+  if (isNewFormat) {
+    const sorted = topicDialogueRows.sort((a, b) => Number(a.variantIndex) - Number(b.variantIndex));
+    const mainRow = sorted.find((item) => item.variantIndex === '0');
+    mainDialogue = mainRow ? splitSentences(mainRow.sentences ?? '') : [];
+    variants = sorted
+      .filter((item) => item.variantIndex !== '0')
+      .map((item) => splitSentences(item.sentences ?? ''));
+  } else {
+    mainDialogue = topicDialogueRows
+      .filter((item) => item.variantIndex === '0')
       .sort((a, b) => Number(a.sentenceIndex) - Number(b.sentenceIndex))
-      .map((item) => item.sentence));
+      .map((item) => item.sentence);
+    variants = [...new Set(topicDialogueRows.filter((item) => item.variantIndex !== '0').map((item) => item.variantIndex))]
+      .sort((a, b) => Number(a) - Number(b))
+      .map((variant) => topicDialogueRows
+        .filter((item) => item.variantIndex === variant)
+        .sort((a, b) => Number(a.sentenceIndex) - Number(b.sentenceIndex))
+        .map((item) => item.sentence));
+  }
   const guides = Object.fromEntries(
     guideRows
       .filter((item) => item.topicId === id)

@@ -6,7 +6,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "src/business/language-home/english/content/englishContent.json"
-OUT = ROOT / "content-source/english-content.xlsx"
+OUT = ROOT / "english-content.xlsx"
 
 with SRC.open(encoding="utf-8") as f:
     bank = json.load(f)
@@ -20,7 +20,7 @@ def esc(value):
         .replace('"', "&quot;")
     )
 
-def sheet_xml(headers, rows):
+def sheet_xml(headers, rows, validations=None):
     lines = [
         '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>',
         '<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">',
@@ -47,6 +47,17 @@ def sheet_xml(headers, rows):
                 cells.append(f'<c r="{col}{r_idx}" t="inlineStr"><is><t xml:space="preserve">{esc(value)}</t></is></c>')
         lines.append(f'    <row r="{r_idx}">{"".join(cells)}</row>')
     lines.append("  </sheetData>")
+    if validations:
+        lines.append(f'  <dataValidations count="{len(validations)}">')
+        for v in validations:
+            attrs = ' '.join(f'{k}="{esc(str(val))}"' for k, val in v["attrs"].items())
+            lines.append(f'    <dataValidation {attrs}>')
+            if v.get("formula1"):
+                lines.append(f'      <formula1>{esc(v["formula1"])}</formula1>')
+            if v.get("formula2"):
+                lines.append(f'      <formula2>{esc(v["formula2"])}</formula2>')
+            lines.append('    </dataValidation>')
+        lines.append('  </dataValidations>')
     lines.append("</worksheet>")
     return "\n".join(lines)
 
@@ -87,18 +98,16 @@ sheets["grammar"] = (["topicId", "title", "category", "formula", "example", "pro
 quiz_rows = []
 for t in bank["topics"]:
     for q in t["quizzes"]:
-        quiz_rows.append([t["id"], q["question"], " | ".join(q["options"]), q["answerIndex"], q["explanation"]])
+        quiz_rows.append([t["id"], q["question"], "\n".join(q["options"]), q["answerIndex"], q["explanation"]])
 sheets["quizzes"] = (["topicId", "question", "options", "answerIndex", "explanation"], quiz_rows)
 
 # dialogue
 dialogue_rows = []
 for t in bank["topics"]:
-    for i, s in enumerate(t["dialogue"]):
-        dialogue_rows.append([t["id"], 0, i, s])
+    dialogue_rows.append([t["id"], 0, "\n".join(t["dialogue"])])
     for vi, variant in enumerate(t.get("dialogueVariants", []), start=1):
-        for i, s in enumerate(variant):
-            dialogue_rows.append([t["id"], vi, i, s])
-sheets["dialogue"] = (["topicId", "variantIndex", "sentenceIndex", "sentence"], dialogue_rows)
+        dialogue_rows.append([t["id"], vi, "\n".join(variant)])
+sheets["dialogue"] = (["topicId", "variantIndex", "sentences"], dialogue_rows)
 
 # dialogue-guides
 guide_rows = []
@@ -145,6 +154,23 @@ for i, name in enumerate(sheet_names, start=1):
 workbook.append("  </sheets>")
 workbook.append("</workbook>")
 
+# Validations
+topic_count = len(bank["topics"])
+topic_id_range = f"topics!$A$2:$A${max(200, topic_count + 50)}"
+freq_list = '"daily,everyWeekend,limitedTime,everyMon,everyTue,everyWed,everyThu,everyFri,everySat,everySun"'
+enddate_formula = 'OR(AND($D2<>"limitedTime",$F2="none"),AND($D2="limitedTime",$F2<>"none",$F2>$E2))'
+
+validations = {
+    "topics": [
+        {"attrs": {"type":"list","allowBlank":"1","showErrorMessage":"1","sqref":"D2:D1000"}, "formula1": freq_list},
+        {"attrs": {"type":"custom","allowBlank":"1","showErrorMessage":"1","sqref":"F2:F1000"}, "formula1": enddate_formula},
+    ],
+}
+for name in ["vocabulary","grammar","quizzes","dialogue","dialogue-guides"]:
+    validations[name] = [
+        {"attrs": {"type":"list","allowBlank":"1","showErrorMessage":"1","sqref":"A2:A5000"}, "formula1": topic_id_range},
+    ]
+
 # Build zip
 OUT.parent.mkdir(parents=True, exist_ok=True)
 with zipfile.ZipFile(OUT, "w", zipfile.ZIP_DEFLATED) as zf:
@@ -154,6 +180,6 @@ with zipfile.ZipFile(OUT, "w", zipfile.ZIP_DEFLATED) as zf:
     zf.writestr("xl/_rels/workbook.xml.rels", "\n".join(workbook_rels))
     for i, name in enumerate(sheet_names, start=1):
         headers, rows = sheets[name]
-        zf.writestr(f"xl/worksheets/sheet{i}.xml", sheet_xml(headers, rows))
+        zf.writestr(f"xl/worksheets/sheet{i}.xml", sheet_xml(headers, rows, validations.get(name)))
 
 print(f"Created {OUT} with sheets: {', '.join(sheet_names)}")

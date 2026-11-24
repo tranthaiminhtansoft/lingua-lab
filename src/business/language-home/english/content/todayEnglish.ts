@@ -254,6 +254,7 @@ export function daysUntilAvailable(topic: EnglishTopic, date = new Date()): numb
 }
 
 export function getTopicTimeLimit(topic: EnglishTopic): number {
+  if (typeof topic.timeLimit === 'number' && topic.timeLimit === 0) return 0;
   if (typeof topic.timeLimit === 'number' && topic.timeLimit > 0) return topic.timeLimit;
   const minutes = Math.ceil(topic.vocab.length * 0.4 + topic.grammar.length * 1 + topic.dialogue.length * 0.5);
   return Math.max(5, minutes);

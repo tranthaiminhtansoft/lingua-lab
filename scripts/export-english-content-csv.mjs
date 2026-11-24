@@ -86,7 +86,7 @@ for (const topic of bank.topics) {
     quizRows.push({
       topicId: topic.id,
       question: quiz.question,
-      options: quiz.options.join(' | '),
+      options: quiz.options.join('\n'),
       answerIndex: quiz.answerIndex,
       explanation: quiz.explanation,
     });
@@ -99,18 +99,14 @@ await writeFile(
 
 const dialogueRows = [];
 for (const topic of bank.topics) {
-  topic.dialogue.forEach((sentence, index) => {
-    dialogueRows.push({ topicId: topic.id, variantIndex: 0, sentenceIndex: index, sentence });
-  });
+  dialogueRows.push({ topicId: topic.id, variantIndex: 0, sentences: topic.dialogue.join('\n') });
   (topic.dialogueVariants ?? []).forEach((variant, variantOffset) => {
-    variant.forEach((sentence, index) => {
-      dialogueRows.push({ topicId: topic.id, variantIndex: variantOffset + 1, sentenceIndex: index, sentence });
-    });
+    dialogueRows.push({ topicId: topic.id, variantIndex: variantOffset + 1, sentences: variant.join('\n') });
   });
 }
 await writeFile(
   new URL('dialogue.csv', outputDirectory),
-  toCsv(['topicId', 'variantIndex', 'sentenceIndex', 'sentence'], dialogueRows),
+  toCsv(['topicId', 'variantIndex', 'sentences'], dialogueRows),
 );
 
 const guideRows = [];

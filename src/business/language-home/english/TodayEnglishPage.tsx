@@ -85,7 +85,11 @@ export function TodayEnglishPage() {
   function startSelectedTopic() {
     if (!selectedTopic) return;
     const limitMinutes = getTopicTimeLimit(selectedTopic);
-    sessionStorage.setItem(`english-timer-${selectedTopic.id}`, String(Date.now() + limitMinutes * 60 * 1000));
+    if (limitMinutes > 0) {
+      sessionStorage.setItem(`english-timer-${selectedTopic.id}`, String(Date.now() + limitMinutes * 60 * 1000));
+    } else {
+      sessionStorage.removeItem(`english-timer-${selectedTopic.id}`);
+    }
     const target = selectedTopic;
     setSelectedTopic(null);
     navigate(`/english/${target.id}`);
@@ -93,6 +97,11 @@ export function TodayEnglishPage() {
 
   async function handleRefresh() {
     setIsChecking(true);
+    try {
+      Object.keys(sessionStorage)
+        .filter((k) => k.startsWith('english-timer-') || k.startsWith('english-dialogue-session-'))
+        .forEach((k) => sessionStorage.removeItem(k));
+    } catch { /* ignore */ }
     const result = await checkEnglishContentApi({ force: true });
     setCheckResult(result);
     setIsChecking(false);
@@ -192,7 +201,7 @@ export function TodayEnglishPage() {
             <h2>{selectedTopic.title}</h2>
             <p>{selectedTopic.description}</p>
             <div className="english-timer-modal-time">
-              ⏱ Thời gian làm bài: <strong>{getTopicTimeLimit(selectedTopic)} phút</strong>
+              ⏱ Thời gian làm bài: <strong>{getTopicTimeLimit(selectedTopic) === 0 ? 'Không giới hạn' : `${getTopicTimeLimit(selectedTopic)} phút`}</strong>
             </div>
             <p style={{ fontSize: 12, color: '#697382' }}>
               Hoàn thành tất cả từ vựng, ngữ pháp và hội thoại trước khi hết giờ.

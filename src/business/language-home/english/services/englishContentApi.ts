@@ -3,6 +3,7 @@ import type { EnglishContentBank } from '../content/englishContentTypes';
 import { getTodayEnglishContext, isTopicAvailable } from '../content/todayEnglish';
 import { getActiveEnglishContent, setActiveEnglishContent } from '../content/englishContentStore';
 import { parseEnglishContent } from '../content/englishContentValidation';
+import { fetchEnglishContentFromSheet, isGoogleSheetUrl } from './englishContentSheet';
 
 export type EnglishContentVersion = {
   version: string;
@@ -17,11 +18,12 @@ export type EnglishContentCheckResult = EnglishContentVersion & {
 
 const DEFAULT_CONTENT_PATH = 'content/english-content.json';
 const CONTENT_CHECK_STORAGE_KEY = 'lingua-english-content-check';
-/** Automatic checks are throttled; the Refresh button bypasses this interval. */
-export const CONTENT_CHECK_INTERVAL_MS = 5 * 60 * 1000;
+/** Automatic checks run once per local day; Refresh bypasses this. */
+export const CONTENT_CHECK_INTERVAL_MS = 24 * 60 * 60 * 1000;
 const CONTENT_FETCH_TIMEOUT_MS = 8_000;
 /** Guards against unexpectedly large or malicious responses. */
 const MAX_CONTENT_LENGTH = 2 * 1024 * 1024;
+const CACHED_CONTENT_KEY = 'lingua-english-content-cache';
 
 function contentUrl(): string {
   const configured = import.meta.env.VITE_ENGLISH_CONTENT_URL;
@@ -51,8 +53,14 @@ function markChecked(time: number): void {
   }
 }
 
-function isCheckDue(now: number): boolean {
-  return now - readLastCheck() >= CONTENT_CHECK_INTERVAL_MS;
+function checkedToday(now: number): boolean {
+  const last = readLastCheck();
+  if (!last) return false;
+  const lastDate = new Date(last);
+  const current = new Date(now);
+  return lastDate.getFullYear() === current.getFullYear()
+    && lastDate.getMonth() === current.getMonth()
+    && lastDate.getDate() === current.getDate();
 }
 
 function resultFor(status: EnglishContentCheckStatus): EnglishContentCheckResult {
@@ -68,33 +76,46 @@ export async function checkEnglishContentApi(
   options: { force?: boolean } = {},
 ): Promise<EnglishContentCheckResult> {
   const now = Date.now();
-  if (!options.force && !isCheckDue(now)) return resultFor('skipped');
-  // Throttle failures too; a manual refresh can bypass the interval.
+  if (options.force) {
+    try {
+      localStorage.removeItem(CONTENT_CHECK_STORAGE_KEY);
+      localStorage.removeItem(CACHED_CONTENT_KEY);
+    } catch { /* ignore */ }
+  } else if (checkedToday(now)) {
+    return resultFor('skipped');
+  }
   markChecked(now);
 
   const controller = new AbortController();
   const timeout = globalThis.setTimeout(() => controller.abort(), CONTENT_FETCH_TIMEOUT_MS);
   try {
-    const response = await fetch(withCacheBuster(contentUrl()), {
-      cache: 'no-store',
-      headers: { Accept: 'application/json' },
-      signal: controller.signal,
-    });
-    if (!response.ok) return resultFor('fallback');
+    const url = contentUrl();
+    let content: EnglishContentBank | null = null;
 
-    const text = await response.text();
-    if (text.length > MAX_CONTENT_LENGTH) return resultFor('fallback');
+    if (isGoogleSheetUrl(url)) {
+      content = await fetchEnglishContentFromSheet(url, controller.signal);
+    } else {
+      const response = await fetch(withCacheBuster(url), {
+        cache: 'no-store',
+        headers: { Accept: 'application/json' },
+        signal: controller.signal,
+      });
+      if (!response.ok) return resultFor('fallback');
 
-    let payload: unknown;
-    try {
-      payload = JSON.parse(text);
-    } catch {
-      return resultFor('fallback');
+      const text = await response.text();
+      if (text.length > MAX_CONTENT_LENGTH) return resultFor('fallback');
+
+      let payload: unknown;
+      try {
+        payload = JSON.parse(text);
+      } catch {
+        return resultFor('fallback');
+      }
+      content = parseEnglishContent(payload);
     }
 
-    const content = parseEnglishContent(payload);
     if (!content) return resultFor('fallback');
-    if (!setActiveEnglishContent(content)) return resultFor('current');
+    if (!setActiveEnglishContent(content, options.force)) return resultFor('current');
     return { status: 'updated', version: content.version, updatedAt: content.updatedAt };
   } catch {
     return resultFor('fallback');

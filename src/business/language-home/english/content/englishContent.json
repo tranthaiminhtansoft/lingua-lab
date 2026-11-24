@@ -63,6 +63,114 @@
           "meaning": "kỷ niệm",
           "pronunciation": "/ˈselɪbreɪt/",
           "score": 0
+        },
+        {
+          "term": "reindeer",
+          "meaning": "con tuần lộc",
+          "pronunciation": "/ˈreɪndɪə/",
+          "score": 0
+        },
+        {
+          "term": "Rudolph",
+          "meaning": "tuần lộc mũi đỏ",
+          "pronunciation": "/ˈruːdɒlf/",
+          "score": 0
+        },
+        {
+          "term": "Santa sack",
+          "meaning": "túi quà của ông già Noel",
+          "pronunciation": "/ˈsæntə sæk/",
+          "score": 0
+        },
+        {
+          "term": "sled/sleigh",
+          "meaning": "xe trượt tuyết",
+          "pronunciation": "/sled / sleɪ/",
+          "score": 0
+        },
+        {
+          "term": "elf",
+          "meaning": "chú lùn",
+          "pronunciation": "/elf/",
+          "score": 0
+        },
+        {
+          "term": "snowman",
+          "meaning": "người tuyết",
+          "pronunciation": "/ˈsnəʊmæn/",
+          "score": 0
+        },
+        {
+          "term": "church",
+          "meaning": "nhà thờ",
+          "pronunciation": "/tʃɜːtʃ/",
+          "score": 0
+        },
+        {
+          "term": "feast",
+          "meaning": "bữa tiệc",
+          "pronunciation": "/fiːst/",
+          "score": 0
+        },
+        {
+          "term": "ritual",
+          "meaning": "nghi thức",
+          "pronunciation": "/ˈrɪtʃuəl/",
+          "score": 0
+        },
+        {
+          "term": "wassail",
+          "meaning": "uống rượu và mừng Giáng sinh",
+          "pronunciation": "/ˈwɒseɪl/",
+          "score": 0
+        },
+        {
+          "term": "chimney",
+          "meaning": "ống khói",
+          "pronunciation": "/ˈtʃɪmni/",
+          "score": 0
+        },
+        {
+          "term": "snowflakes",
+          "meaning": "bông tuyết",
+          "pronunciation": "/ˈsnəʊfleɪks/",
+          "score": 0
+        },
+        {
+          "term": "fireplace",
+          "meaning": "lò sưởi",
+          "pronunciation": "/ˈfaɪəpleɪs/",
+          "score": 0
+        },
+        {
+          "term": "scarf",
+          "meaning": "khăn quàng",
+          "pronunciation": "/skɑːf/",
+          "score": 0
+        },
+        {
+          "term": "turkey",
+          "meaning": "gà tây",
+          "pronunciation": "/ˈtɜːki/",
+          "score": 0
+        },
+        {
+          "term": "mince pie",
+          "meaning": "bánh nhân thịt băm",
+          "pronunciation": "/ˌmɪns ˈpaɪ/",
+          "score": 0
+        },
+        {
+          "term": "gingerbread man",
+          "meaning": "bánh quy gừng hình người",
+          "pronunciation": "/ˈdʒɪndʒəbred mæn/",
+          "score": 0
+        },
+        {
+          "term": "yule log cake",
+          "meaning": "bánh hình khúc gỗ",
+          "pronunciation": "/ˌjuːl ˈlɒɡ keɪk/",
+          "score": 0
         }
       ],
       "grammar": [
@@ -93,6 +201,20 @@
           "formula": "S + wish + O + Merry Christmas / Happy New Year",
           "example": "I wish you a Merry Christmas!",
           "pronunciation": "/aɪ wɪʃ ju ə ˈmeri ˈkrɪsməs/"
+        },
+        {
+          "title": "Past simple for Christmas stories",
+          "category": "Tense",
+          "formula": "S + V2/V-ed + O",
+          "example": "Rudolph guided Santa’s sleigh through the snow.",
+          "pronunciation": "/ˈruːdɒlf ˈɡaɪdɪd ˈsæntəz sleɪ θruː ðə snəʊ/"
+        },
+        {
+          "title": "There is/are for describing scenes",
+          "category": "Sentence pattern",
+          "formula": "There is/are + noun + place",
+          "example": "There are snowflakes on the chimney and a snowman in the garden.",
+          "pronunciation": "/ðeər ə ˈsnəʊfleɪks ɒn ðə ˈtʃɪmni ənd ə ˈsnəʊmæn ɪn ðə ˈɡɑːdn/"
         }
       ],
       "examples": [
@@ -139,6 +261,36 @@
           ],
           "answerIndex": 0,
           "explanation": "Gather means to come together."
+        },
+        {
+          "question": "Which word means “con tuần lộc”?",
+          "options": [
+            "reindeer",
+            "elf",
+            "snowman"
+          ],
+          "answerIndex": 0,
+          "explanation": "A reindeer is an animal that pulls Santa’s sleigh."
+        },
+        {
+          "question": "Where does Santa come down in stories?",
+          "options": [
+            "the chimney",
+            "the fireplace",
+            "the scarf"
+          ],
+          "answerIndex": 0,
+          "explanation": "In stories, Santa comes down the chimney."
+        },
+        {
+          "question": "Which food is a traditional Christmas dessert?",
+          "options": [
+            "yule log cake",
+            "turkey",
+            "scarf"
+          ],
+          "answerIndex": 0,
+          "explanation": "A yule log cake is a traditional Christmas dessert."
         }
       ],
       "readExpected": "We always have turkey for Christmas dinner.",
@@ -158,6 +310,14 @@
           "B: Try the market downtown.",
           "A: Good idea. Merry Christmas!",
           "B: Merry Christmas to you too!"
+        ],
+        [
+          "A: Look at the snowflakes! Shall we build a snowman?",
+          "B: Great idea. I’ll grab my scarf and meet you outside.",
+          "A: After that, let’s warm up by the fireplace.",
+          "B: Perfect. I’m also baking gingerbread men and mince pies.",
+          "A: Yum! Will Rudolph and the reindeer visit tonight?",
+          "B: Maybe! Don’t forget to hang Santa’s sack by the chimney."
         ]
       ]
     },

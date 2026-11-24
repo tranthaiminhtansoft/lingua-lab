@@ -192,4 +192,18 @@ export function resetTopicProgress(state: EnglishProgressState, topicId: string)
   return { ...state, topics };
 }
 
+export function resetDialogueProgress(
+  state: EnglishProgressState,
+  topicId: string,
+  vocabTerms: string[],
+  grammarExamples: string[] = [],
+  dialogueSentences: string[] = [],
+): EnglishProgressState {
+  const topic = getTopicProgress(state, topicId, vocabTerms, grammarExamples, dialogueSentences);
+  topic.dialogue = {};
+  for (const sentence of dialogueSentences) topic.dialogue[sentence] = { score: 0, completed: false };
+  recalculateTopic(topic, vocabTerms, grammarExamples, dialogueSentences);
+  return { ...state, topics: { ...state.topics, [topicId]: topic } };
+}
+
 export { VOCAB_THRESHOLD };
