@@ -253,8 +253,7 @@ export function EnglishTopicPage() {
   const [showExitConfirm, setShowExitConfirm] = useState(false);
   const timerRef = useRef<HTMLDivElement | null>(null);
   const dialogueInitRef = useRef<string | null>(null);
-  const allowExitRef = useRef(false);
-  const blocker = useBlocker(timerDeadline !== null && !showFailModal && !allowExitRef.current);
+  const blocker = useBlocker(timerDeadline !== null && !showFailModal);
 
   useEffect(() => {
     void checkEnglishContentApi();
@@ -310,7 +309,6 @@ export function EnglishTopicPage() {
     if (!topic) return;
     if (dialogueInitRef.current === topic.id) return;
     dialogueInitRef.current = topic.id;
-    allowExitRef.current = false;
 
     const sessionKey = `english-dialogue-session-${topic.id}`;
     const vocabTerms = topic.vocab.map((item) => item.term);
@@ -321,18 +319,22 @@ export function EnglishTopicPage() {
     const dialogueDone = dialogueSentences.length > 0 && dialogueSentences.every((s) => current.dialogue[s]?.completed);
 
     let hasSession = false;
-    try { hasSession = sessionStorage.getItem(sessionKey) === '1'; } catch { hasSession = false; }
+    try { hasSession = sessionStorage.getItem(sessionKey) === '1'; } catch { /* ignore */ }
 
     if (!hasSession && !dialogueDone && dialogueSentences.length > 0) {
       nextState = resetDialogueProgress(nextState, topic.id, vocabTerms, grammarExamples, dialogueSentences);
-      setProgress(nextState);
-      writeProgress(nextState);
+      queueMicrotask(() => {
+        setProgress(nextState);
+        writeProgress(nextState);
+      });
     }
     try { sessionStorage.setItem(sessionKey, '1'); } catch { /* ignore */ }
 
     const finalProgress = getTopicProgress(nextState, topic.id, vocabTerms, grammarExamples, dialogueSentences);
     const firstIncomplete = dialogueSentences.findIndex((s) => !finalProgress.dialogue[s]?.completed);
-    setDialogueIndex(firstIncomplete === -1 ? Math.max(0, dialogueSentences.length - 1) : firstIncomplete);
+    queueMicrotask(() => {
+      setDialogueIndex(firstIncomplete === -1 ? Math.max(0, dialogueSentences.length - 1) : firstIncomplete);
+    });
   }, [topic]);
 
   useEffect(() => {
@@ -472,7 +474,6 @@ export function EnglishTopicPage() {
   }
 
   function confirmExitPractice() {
-    allowExitRef.current = true;
     if (topic) {
       sessionStorage.removeItem(`english-timer-${topic.id}`);
       try { sessionStorage.removeItem(`english-dialogue-session-${topic.id}`); } catch { /* ignore */ }
@@ -489,10 +490,10 @@ export function EnglishTopicPage() {
     setShowFailModal(false);
     setShowExitConfirm(false);
     if (blocker.state === 'blocked') {
-      setTimeout(() => { allowExitRef.current = false; blocker.proceed(); }, 0);
+      setTimeout(() => blocker.proceed(), 0);
       return;
     }
-    setTimeout(() => { allowExitRef.current = false; navigate('/english'); }, 0);
+    setTimeout(() => navigate('/english'), 0);
   }
 
   function applyReadScore(score: number, key?: string, kind: 'vocab' | 'grammar' | 'dialogue' = 'vocab') {
