@@ -1,10 +1,13 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import { Link, useParams, useNavigate, useBlocker } from 'react-router-dom';
 import {
+  checkEnglishContentApi,
   getTodayEnglishContextApi,
   isTopicAvailableApi,
 } from './services/englishContentApi';
 import type { TodayEnglishContext } from './content/todayEnglish';
+import { getTopicTimeLimit } from './content/todayEnglish';
+import { useEnglishContent } from './content/englishContentStore';
 import {
   readProgress,
   writeProgress,
@@ -12,6 +15,7 @@ import {
   updateVocabularyScore,
   updateGrammarScore,
   updateDialogueScore,
+  resetDialogueProgress,
   resetTopicProgress,
   VOCAB_THRESHOLD,
 } from './progress/englishProgress';
@@ -234,6 +238,7 @@ function speakSlowly(text: string) {
 export function EnglishTopicPage() {
   const { topicId } = useParams();
   const navigate = useNavigate();
+  const content = useEnglishContent();
   const [context, setContext] = useState<TodayEnglishContext | null>(null);
   const [progress, setProgress] = useState(readProgress);
   const [quizAnswers, setQuizAnswers] = useState<Record<number, number>>({});
@@ -245,11 +250,18 @@ export function EnglishTopicPage() {
   const [timerRemaining, setTimerRemaining] = useState(0);
   const [showFailModal, setShowFailModal] = useState(false);
   const [showFloatingClock, setShowFloatingClock] = useState(false);
+  const [showExitConfirm, setShowExitConfirm] = useState(false);
   const timerRef = useRef<HTMLDivElement | null>(null);
+  const dialogueInitRef = useRef<string | null>(null);
+  const blocker = useBlocker(timerDeadline !== null && !showFailModal);
 
   useEffect(() => {
-    void getTodayEnglishContextApi().then(setContext);
+    void checkEnglishContentApi();
   }, []);
+
+  useEffect(() => {
+    void getTodayEnglishContextApi(new Date(), content).then(setContext);
+  }, [content]);
 
   useEffect(() => {
     const id = window.setTimeout(() => {
@@ -291,6 +303,47 @@ export function EnglishTopicPage() {
     return getTopicProgress(progress, topic.id, topic.vocab.map((item) => item.term), topic.grammar.map((item) => item.example), topic.dialogue);
   }, [progress, topic]);
 
+  const allDialogueDone = !!topic && topic.dialogue.length > 0 && topic.dialogue.every((s) => topicProgress?.dialogue[s]?.completed);
+
+  useEffect(() => {
+    if (!topic) return;
+    if (dialogueInitRef.current === topic.id) return;
+    dialogueInitRef.current = topic.id;
+
+    const sessionKey = `english-dialogue-session-${topic.id}`;
+    const vocabTerms = topic.vocab.map((item) => item.term);
+    const grammarExamples = topic.grammar.map((item) => item.example);
+    const dialogueSentences = topic.dialogue;
+    let nextState = readProgress();
+    const current = getTopicProgress(nextState, topic.id, vocabTerms, grammarExamples, dialogueSentences);
+    const dialogueDone = dialogueSentences.length > 0 && dialogueSentences.every((s) => current.dialogue[s]?.completed);
+
+    let hasSession = false;
+    try { hasSession = sessionStorage.getItem(sessionKey) === '1'; } catch { /* ignore */ }
+
+    if (!hasSession && !dialogueDone && dialogueSentences.length > 0) {
+      nextState = resetDialogueProgress(nextState, topic.id, vocabTerms, grammarExamples, dialogueSentences);
+      queueMicrotask(() => {
+        setProgress(nextState);
+        writeProgress(nextState);
+      });
+    }
+    try { sessionStorage.setItem(sessionKey, '1'); } catch { /* ignore */ }
+
+    const finalProgress = getTopicProgress(nextState, topic.id, vocabTerms, grammarExamples, dialogueSentences);
+    const firstIncomplete = dialogueSentences.findIndex((s) => !finalProgress.dialogue[s]?.completed);
+    queueMicrotask(() => {
+      setDialogueIndex(firstIncomplete === -1 ? Math.max(0, dialogueSentences.length - 1) : firstIncomplete);
+    });
+  }, [topic]);
+
+  useEffect(() => {
+    if (!timerDeadline) return;
+    const handler = (e: BeforeUnloadEvent) => { e.preventDefault(); e.returnValue = ''; };
+    window.addEventListener('beforeunload', handler);
+    return () => window.removeEventListener('beforeunload', handler);
+  }, [timerDeadline]);
+
   useEffect(() => {
     if (!timerDeadline) return;
     const tick = () => {
@@ -330,7 +383,7 @@ export function EnglishTopicPage() {
   useEffect(() => {
     if (!context || !topic) return;
     if (!isTopicAvailableApi(topic)) {
-      window.alert('Chủ đề này đang Coming soon và sẽ mở từ ' + topic.availableFrom + '.');
+      window.alert('Chủ đề này đang Coming soon và sẽ mở từ ' + topic.startDate + '.');
       navigate('/english');
     }
   }, [context, topic, navigate]);
@@ -346,6 +399,8 @@ export function EnglishTopicPage() {
     setReadNotice(null);
     setDialogueIndex(0);
     setQuizAnswers({});
+    try { sessionStorage.removeItem(`english-dialogue-session-${topic.id}`); } catch { /* ignore */ }
+    dialogueInitRef.current = null;
   }
 
   function handleQuizAnswer(questionIndex: number, optionIndex: number) {
@@ -365,9 +420,12 @@ export function EnglishTopicPage() {
 
   function retryTopic() {
     if (!topic) return;
-    const limit = Math.ceil(topic.vocab.length * 0.4 + topic.grammar.length * 1 + topic.dialogue.length * 0.5);
-    const minutes = Math.max(5, limit);
-    sessionStorage.setItem(`english-timer-${topic.id}`, String(Date.now() + minutes * 60 * 1000));
+    const minutes = getTopicTimeLimit(topic);
+    if (minutes > 0) {
+      sessionStorage.setItem(`english-timer-${topic.id}`, String(Date.now() + minutes * 60 * 1000));
+    } else {
+      sessionStorage.removeItem(`english-timer-${topic.id}`);
+    }
     setReadFeedback({});
     setReadNotice(null);
     setDialogueIndex(0);
@@ -376,16 +434,66 @@ export function EnglishTopicPage() {
     setProgress(nextState);
     writeProgress(nextState);
     setShowFailModal(false);
-    const deadline = Number(sessionStorage.getItem(`english-timer-${topic.id}`));
-    setTimerDeadline(deadline);
-    setTimerRemaining(Math.max(0, Math.ceil((deadline - Date.now()) / 1000)));
+    try { sessionStorage.removeItem(`english-dialogue-session-${topic.id}`); } catch { /* ignore */ }
+    dialogueInitRef.current = null;
+    if (minutes > 0) {
+      const deadline = Number(sessionStorage.getItem(`english-timer-${topic.id}`));
+      setTimerDeadline(deadline);
+      setTimerRemaining(Math.max(0, Math.ceil((deadline - Date.now()) / 1000)));
+    } else {
+      setTimerDeadline(null);
+      setTimerRemaining(0);
+    }
   }
 
   function exitToHome() {
-    if (topic) sessionStorage.removeItem(`english-timer-${topic.id}`);
+    if (topic) {
+      sessionStorage.removeItem(`english-timer-${topic.id}`);
+      try { sessionStorage.removeItem(`english-dialogue-session-${topic.id}`); } catch { /* ignore */ }
+      const nextState = resetTopicProgress(progress, topic.id);
+      setProgress(nextState);
+      writeProgress(nextState);
+    }
+    setReadFeedback({});
+    setReadNotice(null);
+    setDialogueIndex(0);
+    setQuizAnswers({});
+    dialogueInitRef.current = null;
     setTimerDeadline(null);
     setShowFailModal(false);
     navigate('/english');
+  }
+
+  function requestStopPractice() {
+    setShowExitConfirm(true);
+  }
+
+  function cancelExitPractice() {
+    setShowExitConfirm(false);
+    if (blocker.state === 'blocked') blocker.reset();
+  }
+
+  function confirmExitPractice() {
+    if (topic) {
+      sessionStorage.removeItem(`english-timer-${topic.id}`);
+      try { sessionStorage.removeItem(`english-dialogue-session-${topic.id}`); } catch { /* ignore */ }
+      const nextState = resetTopicProgress(progress, topic.id);
+      setProgress(nextState);
+      writeProgress(nextState);
+    }
+    setReadFeedback({});
+    setReadNotice(null);
+    setDialogueIndex(0);
+    setQuizAnswers({});
+    dialogueInitRef.current = null;
+    setTimerDeadline(null);
+    setShowFailModal(false);
+    setShowExitConfirm(false);
+    if (blocker.state === 'blocked') {
+      setTimeout(() => blocker.proceed(), 0);
+      return;
+    }
+    setTimeout(() => navigate('/english'), 0);
   }
 
   function applyReadScore(score: number, key?: string, kind: 'vocab' | 'grammar' | 'dialogue' = 'vocab') {
@@ -510,6 +618,9 @@ export function EnglishTopicPage() {
           <div>
             <h1 className="english-today-title" style={{ fontSize: 28 }}>{topic.title}</h1>
             <p>{topic.description}</p>
+            <p style={{ margin: '6px 0 0', fontSize: 12, color: '#697382' }}>
+              ⏱ {getTopicTimeLimit(topic) === 0 ? 'Không giới hạn thời gian' : `Thời gian: ${getTopicTimeLimit(topic)} phút`}
+            </p>
           </div>
           <Link className="english-today-button ghost" to="/english">Danh sách chủ đề</Link>
         </div>
@@ -529,9 +640,16 @@ export function EnglishTopicPage() {
               <div className="english-today-score-bar">
                 <i style={{ width: `${topicProgress.progress}%` }} />
               </div>
-              <button className="english-today-button ghost" type="button" onClick={handleResetTopic} style={{ marginTop: 10 }}>
-                Luyện tập lại chủ đề
-              </button>
+              <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 10 }}>
+                <button className="english-today-button ghost" type="button" onClick={handleResetTopic}>
+                  Luyện tập lại chủ đề
+                </button>
+                {timerDeadline && (
+                  <button className="english-today-button ghost" type="button" onClick={requestStopPractice}>
+                    Dừng luyện tập
+                  </button>
+                )}
+              </div>
             </div>
           </div>
         )}
@@ -657,6 +775,11 @@ export function EnglishTopicPage() {
         <div className="english-today-practice">
           <section className="english-today-card" style={{ padding: 18 }}>
             <h4 style={{ margin: '0 0 10px', fontSize: 13, color: '#394eaa', textTransform: 'uppercase' }}>Trắc nghiệm củng cố</h4>
+            {!allDialogueDone ? (
+              <p style={{ margin: 0, color: '#697382', fontSize: 13, lineHeight: 1.6 }}>
+                Hoàn thành toàn bộ đoạn hội thoại trước khi làm trắc nghiệm.
+              </p>
+            ) : (
             <div style={{ display: 'grid', gap: 18 }}>
               {topic.quizzes.map((quizItem, questionIndex) => {
                 const answer = quizAnswers[questionIndex];
@@ -687,6 +810,7 @@ export function EnglishTopicPage() {
                 );
               })}
             </div>
+            )}
           </section>
 
           <section className="english-today-card" style={{ padding: 18 }}>
@@ -796,6 +920,22 @@ export function EnglishTopicPage() {
               </button>
               <button className="english-today-button" type="button" onClick={retryTopic}>
                 Làm lại
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+      {(showExitConfirm || blocker.state === 'blocked') && !showFailModal && (
+        <div className="english-timer-modal-backdrop" role="dialog" aria-modal="true">
+          <div className="english-timer-modal">
+            <h2>Thoát luyện tập?</h2>
+            <p>Hành động này sẽ thoát luyện tập hiện tại. Tiến độ đã lưu vẫn giữ nguyên, nhưng timer sẽ dừng.</p>
+            <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end', marginTop: 12 }}>
+              <button className="english-today-button ghost" type="button" onClick={cancelExitPractice}>
+                Ở lại
+              </button>
+              <button className="english-today-button" type="button" onClick={confirmExitPractice}>
+                Thoát luyện tập
               </button>
             </div>
           </div>

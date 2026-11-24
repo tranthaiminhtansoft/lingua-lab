@@ -1,13 +1,15 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
+  checkEnglishContentApi,
   getTodayEnglishContextApi,
-  getContentVersionApi,
   isTopicAvailableApi,
 } from './services/englishContentApi';
+import type { EnglishContentCheckResult } from './services/englishContentApi';
 import type { EnglishTopic, TodayEnglishContext } from './content/todayEnglish';
 import { isTopicVisible, daysUntilAvailable } from './content/todayEnglish';
 import { getTopicTimeLimit } from './content/todayEnglish';
+import { useEnglishContent } from './content/englishContentStore';
 import {
   readProgress,
   getTopicProgress,
@@ -16,18 +18,22 @@ import './todayEnglish.css';
 
 export function TodayEnglishPage() {
   const navigate = useNavigate();
+  const content = useEnglishContent();
   const [context, setContext] = useState<TodayEnglishContext | null>(null);
   const [progress, setProgress] = useState(readProgress);
-  const [remoteVersion, setRemoteVersion] = useState<string | null>(null);
-  const [versionChecked, setVersionChecked] = useState(false);
+  const [checkResult, setCheckResult] = useState<EnglishContentCheckResult | null>(null);
+  const [isChecking, setIsChecking] = useState(false);
   const [today, setToday] = useState(() => new Date());
   const [selectedTopic, setSelectedTopic] = useState<EnglishTopic | null>(null);
 
   useEffect(() => {
-    void getContentVersionApi().then((version) => {
-      setRemoteVersion(version.version);
-      setVersionChecked(true);
+    let active = true;
+    void checkEnglishContentApi().then((result) => {
+      if (active) setCheckResult(result);
     });
+    return () => {
+      active = false;
+    };
   }, []);
 
   useEffect(() => {
@@ -48,8 +54,8 @@ export function TodayEnglishPage() {
   }, []);
 
   useEffect(() => {
-    void getTodayEnglishContextApi(today).then(setContext);
-  }, [today]);
+    void getTodayEnglishContextApi(today, content).then(setContext);
+  }, [today, content]);
 
   // A new day starts with a fresh progress slate.
   useEffect(() => {
@@ -70,7 +76,7 @@ export function TodayEnglishPage() {
 
   function handleSelectTopic(topic: EnglishTopic) {
     if (!isTopicAvailableApi(topic, today)) {
-      window.alert('Chủ đề này đang Coming soon và sẽ mở từ ' + topic.availableFrom + '.');
+      window.alert('Chủ đề này đang Coming soon và sẽ mở từ ' + topic.startDate + '.');
       return;
     }
     setSelectedTopic(topic);
@@ -79,14 +85,26 @@ export function TodayEnglishPage() {
   function startSelectedTopic() {
     if (!selectedTopic) return;
     const limitMinutes = getTopicTimeLimit(selectedTopic);
-    sessionStorage.setItem(`english-timer-${selectedTopic.id}`, String(Date.now() + limitMinutes * 60 * 1000));
+    if (limitMinutes > 0) {
+      sessionStorage.setItem(`english-timer-${selectedTopic.id}`, String(Date.now() + limitMinutes * 60 * 1000));
+    } else {
+      sessionStorage.removeItem(`english-timer-${selectedTopic.id}`);
+    }
     const target = selectedTopic;
     setSelectedTopic(null);
     navigate(`/english/${target.id}`);
   }
 
-  function handleRefresh() {
-    window.alert('Đã kiểm tra version. Nội dung hiện tại dùng bundle local.');
+  async function handleRefresh() {
+    setIsChecking(true);
+    try {
+      Object.keys(sessionStorage)
+        .filter((k) => k.startsWith('english-timer-') || k.startsWith('english-dialogue-session-'))
+        .forEach((k) => sessionStorage.removeItem(k));
+    } catch { /* ignore */ }
+    const result = await checkEnglishContentApi({ force: true });
+    setCheckResult(result);
+    setIsChecking(false);
   }
 
   if (!context) {
@@ -132,11 +150,17 @@ export function TodayEnglishPage() {
         </article>
         <aside className="english-today-card english-today-refresh">
           <h2>Dữ liệu nội dung</h2>
-          <p>Remote version: {remoteVersion ?? '…'} · Local version: {progress.version}</p>
-          <p>{versionChecked ? 'Đã kiểm tra version khi mở trang.' : 'Đang kiểm tra version…'}</p>
-          <button className="english-today-button secondary" type="button" onClick={handleRefresh}>
-            Kiểm tra / Refresh
+          <p>Bản đang dùng: {content.version} · cập nhật {content.updatedAt}</p>
+          <p aria-live="polite">{describeCheckResult(checkResult, isChecking)}</p>
+          <button
+            className="english-today-button secondary"
+            type="button"
+            disabled={isChecking}
+            onClick={() => void handleRefresh()}
+          >
+            {isChecking ? 'Đang kiểm tra…' : 'Kiểm tra bản mới'}
           </button>
+          <p>Nội dung tải dạng JSON; nếu lỗi mạng, ứng dụng dùng bản đóng gói sẵn.</p>
           <p>Tổng thể chỉ đạt 100% khi tất cả chủ đề đạt 100%.</p>
         </aside>
       </section>
@@ -158,7 +182,7 @@ export function TodayEnglishPage() {
                 disabled={!available}
               >
                 <span className={`english-today-badge ${available ? 'available' : 'coming'}`}>
-                  {available ? (topic.daily ? 'Hàng ngày' : 'Có sẵn') : `Coming soon · còn ${daysUntilAvailable(topic, today)} ngày`}
+                  {available ? (topic.frequency === 'daily' || topic.frequency === 'everyWeekend' || topic.frequency.startsWith('every') ? 'Hàng ngày' : 'Có sẵn') : `Coming soon · còn ${daysUntilAvailable(topic, today)} ngày`}
                 </span>
                 <h3 className="english-today-topic-title">{topic.title}</h3>
                 <p className="english-today-topic-desc">{topic.description}</p>
@@ -177,7 +201,7 @@ export function TodayEnglishPage() {
             <h2>{selectedTopic.title}</h2>
             <p>{selectedTopic.description}</p>
             <div className="english-timer-modal-time">
-              ⏱ Thời gian làm bài: <strong>{getTopicTimeLimit(selectedTopic)} phút</strong>
+              ⏱ Thời gian làm bài: <strong>{getTopicTimeLimit(selectedTopic) === 0 ? 'Không giới hạn' : `${getTopicTimeLimit(selectedTopic)} phút`}</strong>
             </div>
             <p style={{ fontSize: 12, color: '#697382' }}>
               Hoàn thành tất cả từ vựng, ngữ pháp và hội thoại trước khi hết giờ.
@@ -195,6 +219,23 @@ export function TodayEnglishPage() {
       )}
     </main>
   );
+}
+
+function describeCheckResult(
+  result: EnglishContentCheckResult | null,
+  isChecking: boolean,
+): string {
+  if (isChecking || result === null) return 'Đang kiểm tra bản mới…';
+  switch (result.status) {
+    case 'updated':
+      return `Đã cập nhật nội dung lên bản ${result.version}.`;
+    case 'current':
+      return 'Bạn đang dùng bản nội dung mới nhất.';
+    case 'fallback':
+      return 'Không tải được bản mới. Đang dùng bản đóng gói sẵn.';
+    case 'skipped':
+      return 'Vừa kiểm tra gần đây. Bấm để kiểm tra lại ngay.';
+  }
 }
 
 function scoreClass(score: number): string {

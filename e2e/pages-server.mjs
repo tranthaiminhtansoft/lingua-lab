@@ -9,6 +9,7 @@ const contentTypes = {
   '.css': 'text/css',
   '.html': 'text/html',
   '.js': 'text/javascript',
+  '.json': 'application/json',
   '.svg': 'image/svg+xml',
 };
 

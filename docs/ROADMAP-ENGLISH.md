@@ -199,7 +199,7 @@ Use the **English Learning Studio** concept as the visual direction for the Engl
 
 ### Contextual daily English (proposed)
 
-Instead of forcing a strictly linear path, offer a **date-aware suggestion** based on the device’s local date. On each day, show the current season, any Catholic feast, and any Vietnamese holiday, then propose matching sentence structures and vocabulary. Special-day topics (for example Black Friday) use a flexible **coming soon** marker in the content bank and only become available from **00:00** on their date. Prioritize phrases and grammar that people commonly use for real communication, at IELTS 6.5–8.0 level. Daily topics should also include conversation-extending sentences and advanced adverb/adverbial usage.- Store English content in a static content bank (JSON/TS) with tags such as `frequency`, `level`, `topic`, `season`, `holiday`, and `availableFrom`. Selecting a topic shows its vocabulary, matching grammar structures, and example sentences for application.
+Instead of forcing a strictly linear path, offer a **date-aware suggestion** based on the device’s local date. On each day, show the current season, any Catholic feast, and any Vietnamese holiday, then propose matching sentence structures and vocabulary. Special-day topics (for example Black Friday) use a flexible **coming soon** marker in the content bank and only become available from **00:00** on their date. Prioritize phrases and grammar that people commonly use for real communication, at IELTS 6.5–8.0 level. Daily topics should also include conversation-extending sentences and advanced adverb/adverbial usage.- Store English content in a static content bank (JSON/TS) with tags such as `frequency`, `level`, `topic`, `season`, `holiday`, `startDate`, and `endDate`. Selecting a topic shows its vocabulary, matching grammar structures, and example sentences for application.
 - Provide a simulated backend service (`englishContentApi`) that reads the bundled bank and returns today’s context and suggestions; keep the API shape swappable for a real backend later.- Include Catholic feasts (fixed plus movable feasts such as Easter) and Vietnamese holidays for a 5-year range, using the device time zone.
 - Show a **Coming soon** state for not-yet-available special-day topics.
 
@@ -244,7 +244,7 @@ Daily English should merge the original learning scope with the daily model. Inc
 - [ ] `ENG-030` Add a “Today’s English” card to the English hub that shows today’s available topics and asks the learner which one to study, with a Coming soon state for future special-day topics.
 - [ ] `ENG-031` Filter and rank suggestions by common usage, communication value, and IELTS 6.5–8.0 level, with a way to browse other topics.
 - [ ] `ENG-032` Add reinforcement multiple-choice practice with local answer keys and immediate feedback for contextual daily topics.- [ ] `ENG-033` Add read-aloud detection where supported, comparing spoken input to expected text with percentage match and score, plus recording/text fallback when speech recognition is unavailable.
-- [ ] `ENG-034` Support remote JSON content with version check, throttled update detection, refresh action, and bundled fallback for offline or failed fetches.
+- [x] `ENG-034` Support remote JSON content with version check, throttled update detection, refresh action, and bundled fallback for offline or failed fetches.
 - [ ] `ENG-035` Track per-topic completion percentage and per-vocabulary pronunciation/read-aloud scores with clear red-to-green color coding; a vocabulary item counts as complete only after its read-aloud evaluation reaches the threshold, and every topic must reach 100% before overall progress can be 100%.
 - [ ] `ENG-036` Merge daily English with the original learning scope, including practical communication, story-extending connectors, and advanced adverb/adverbial usage.Keep the later groups as the proposed sequence; break them into implementation tasks after the first release boundary is reviewed. Do not assign dates until they are agreed.
 > Move an item to **Completed** when the feature is usable in the application. Add a target date only after it has been agreed.
@@ -254,7 +254,7 @@ Daily English should merge the original learning scope with the daily model. Inc
 - `/english` hub and `/english/:topicId` topic pages with burger navigation.
 - Device-local date/season/holiday context; coming-soon markers with day countdown.
 - 20+ topics: 3 daily themes rotating by date (DevOps, neighbor, meals), weekend leisure/household, Monday psychology, seasonal and holiday topics.
-- 9 vocabulary items per topic in a 3-column grid; read-aloud scoring with 90% threshold; per-word red/yellow/green feedback.
+- 9 vocabulary items per topic in a 3-column grid; read-aloud scoring with an above-85% threshold; per-word red/yellow/green feedback.
 - Grammar with category, formula (S+V+O incl. negation/question), example, IPA pronunciation; read-aloud required.
 - Long dialogue with progressive reveal; each sentence must reach threshold.
 - Quizzes (4 per topic) with sound feedback; rotating daily quiz sets.
@@ -262,3 +262,4 @@ Daily English should merge the original learning scope with the daily model. Inc
 - Per-topic countdown timer with fail popup and retry/home actions.
 - Speaker buttons (normal + slow) and correct/incorrect sound feedback.
 - Daily progress reset at midnight.
+- Remote JSON content bank with version check, 5-minute throttled detection, manual refresh, and bundled offline fallback.
