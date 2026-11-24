@@ -68,6 +68,7 @@ jobs:
       - name: Build application with Vite
         env:
           GITHUB_ACTIONS: 'true'
+          VITE_ENGLISH_CONTENT_URL: ${{ vars.VITE_ENGLISH_CONTENT_URL || 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSDJlOFNoysAgrM9hRRHzPvqHEnz3tjEm9XMVEeASsN-TRyfKy__Zy20Py67yqW4nyc3NGlP3T3K46J/pubhtml' }}
         run: npx vite build
       - name: Copy standalone documentation into the Pages artifact
         run: node scripts/build-docs.mjs
