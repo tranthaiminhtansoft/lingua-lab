@@ -69,9 +69,18 @@ async function fetchText(url: string, signal: AbortSignal): Promise<string | nul
   }
 }
 
+const FALLBACK_GIDS: Record<string, string> = {
+  meta: '337341217',
+  topics: '202384027',
+  vocabulary: '93934149',
+  grammar: '915515135',
+  quizzes: '1070773186',
+  dialogue: '139617548',
+};
+
 async function discoverGids(pubhtmlUrl: string, signal: AbortSignal): Promise<Record<string, string> | null> {
   const html = await fetchText(pubhtmlUrl, signal);
-  if (!html) return null;
+  if (!html) return FALLBACK_GIDS;
   const gids: Record<string, string> = {};
   const re = /name:\s*"([^"]+)"[^}]*?gid=(\d+)|gid=(\d+)[^}]*?name:\s*"([^"]+)"/g;
   let m: RegExpExecArray | null;
@@ -80,19 +89,12 @@ async function discoverGids(pubhtmlUrl: string, signal: AbortSignal): Promise<Re
     const gid = (m[2] || m[3] || '').trim();
     if (name && gid) gids[name] = gid;
   }
-  // fallback: simple pairs in order seen in earlier grep
   if (Object.keys(gids).length === 0) {
     const names = [...html.matchAll(/name:\s*"([^"]+)"/g)].map((x) => x[1]);
     const gidMatches = [...html.matchAll(/gid=(\d+)/g)].map((x) => x[1]);
-    const used = new Set<string>();
-    for (const gid of gidMatches) {
-      if (used.has(gid)) continue;
-      used.add(gid);
-      // try to find name near gid - rough fallback
-    }
     for (let i = 0; i < names.length && i < gidMatches.length; i += 1) gids[names[i]] = gidMatches[i];
   }
-  return Object.keys(gids).length > 0 ? gids : null;
+  return Object.keys(gids).length > 0 ? gids : FALLBACK_GIDS;
 }
 
 function toNumber(value: string, fallback = 0): number {
