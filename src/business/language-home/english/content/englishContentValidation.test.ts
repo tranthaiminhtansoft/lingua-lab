@@ -31,40 +31,40 @@ function makeBank(topic: EnglishTopic = makeTopic()) {
 }
 
 test('bundled content is a valid content bank', () => {
-  const parsed = parseEnglishContent(BUNDLED_ENGLISH_CONTENT);
+  const parsed = parseEnglishContent(BUNDLED_ENGLISH_CONTENT).content;
   expect(parsed).not.toBeNull();
   expect(parsed?.topics).toHaveLength(20);
 });
 
 test('accepts a minimal valid bank', () => {
-  const parsed = parseEnglishContent(makeBank());
+  const parsed = parseEnglishContent(makeBank()).content;
   expect(parsed?.topics[0]?.id).toBe('test-topic');
 });
 
 test('rejects duplicate topic ids', () => {
   const bank = makeBank();
   bank.topics.push(makeTopic({ id: 'test-topic' }));
-  expect(parseEnglishContent(bank)).toBeNull();
+  expect(parseEnglishContent(bank).content).toBeNull();
 });
 
 test('rejects a quiz answer index outside the options', () => {
   const topic = makeTopic({
     quizzes: [{ question: 'Pick one', options: ['a', 'b'], answerIndex: 2, explanation: 'none' }],
   });
-  expect(parseEnglishContent(makeBank(topic))).toBeNull();
+  expect(parseEnglishContent(makeBank(topic)).content).toBeNull();
 });
 
 test('rejects an impossible availability date', () => {
-  expect(parseEnglishContent(makeBank(makeTopic({ startDate: '2026-02-30' })))).toBeNull();
+  expect(parseEnglishContent(makeBank(makeTopic({ startDate: '2026-02-30' }))).content).toBeNull();
 });
 
 test('rejects malformed vocabulary scores', () => {
   const topic = makeTopic({
     vocab: [{ term: 'hello', meaning: 'xin chào', pronunciation: '/həˈləʊ/', score: Number.NaN }],
   });
-  expect(parseEnglishContent(makeBank(topic))).toBeNull();
+  expect(parseEnglishContent(makeBank(topic)).content).toBeNull();
 });
 
 test('rejects banks without topics', () => {
-  expect(parseEnglishContent({ ...makeBank(), topics: [] })).toBeNull();
+  expect(parseEnglishContent({ ...makeBank(), topics: [] }).content).toBeNull();
 });

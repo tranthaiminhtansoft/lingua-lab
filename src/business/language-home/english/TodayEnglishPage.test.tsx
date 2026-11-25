@@ -45,7 +45,7 @@ test('refresh applies a newer content version fetched as JSON', async () => {
     </MemoryRouter>,
   );
 
-  expect(await screen.findByText(/Không tải được bản mới/)).toBeInTheDocument();
+  expect(await screen.findByText(/Lỗi dữ liệu|Không tải được bản mới/)).toBeInTheDocument();
   fireEvent.click(screen.getByRole('button', { name: 'Kiểm tra bản mới' }));
 
   expect(await screen.findByText(/Đã cập nhật nội dung lên bản 2026.11.22/)).toBeInTheDocument();

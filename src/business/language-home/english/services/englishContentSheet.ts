@@ -105,22 +105,36 @@ function toNumber(value: string, fallback = 0): number {
 export async function fetchEnglishContentFromSheet(
   url: string,
   signal: AbortSignal,
-): Promise<EnglishContentBank | null> {
+): Promise<{ content: EnglishContentBank | null; errors: string[] }> {
+  const errors: string[] = [];
   const gids = await discoverGids(url, signal);
-  if (!gids) return null;
+  if (!gids) {
+    errors.push("Không tìm thấy các tab (meta, topics, vocabulary, grammar, quizzes, dialogue) trong Google Sheet. Vui lòng kiểm tra link Publish-to-web.");
+    return { content: null, errors };
+  }
 
   const tabEntries = await Promise.all(SHEET_TABS.map(async (tab) => {
     const gid = gids[tab];
-    if (!gid) return [tab, null] as const;
+    if (!gid) {
+      errors.push(`Tab '${tab}' không tồn tại trong Google Sheet.`);
+      return [tab, null] as const;
+    }
     const text = await fetchText(sheetCsvUrl(url, gid), signal);
-    if (!text) return [tab, null] as const;
+    if (!text) {
+      errors.push(`Tab '${tab}': Không tải được dữ liệu (lỗi mạng hoặc quyền truy cập).`);
+      return [tab, null] as const;
+    }
     return [tab, rowsToObjects(parseCsv(text))] as const;
   }));
 
   const tabs = Object.fromEntries(tabEntries) as Record<SheetTab, Record<string, string>[] | null>;
   const meta = tabs.meta?.[0];
   const topicRows = tabs.topics;
-  if (!meta || !topicRows) return null;
+  if (!meta || !topicRows) {
+    if (!meta) errors.push("Tab 'meta' bị trống hoặc không tồn tại.");
+    if (!topicRows) errors.push("Tab 'topics' bị trống hoặc không tồn tại.");
+    return { content: null, errors };
+  }
 
   const bundledById = new Map(BUNDLED_ENGLISH_CONTENT.topics.map((t) => [t.id, t]));
 
@@ -195,5 +209,9 @@ export async function fetchEnglishContentFromSheet(
     topics,
   };
 
-  return parseEnglishContent(bank);
+  const result = parseEnglishContent(bank, "Google Sheet");
+  if (!result.content) {
+    return { content: null, errors: [...errors, ...result.errors] };
+  }
+  return { content: result.content, errors: [] };
 }

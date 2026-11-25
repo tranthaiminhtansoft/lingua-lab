@@ -151,7 +151,9 @@ export function TodayEnglishPage() {
         <aside className="english-today-card english-today-refresh">
           <h2>Dữ liệu nội dung</h2>
           <p>Bản đang dùng: {content.version} · cập nhật {content.updatedAt}</p>
-          <p aria-live="polite">{describeCheckResult(checkResult, isChecking)}</p>
+          <p aria-live="polite" style={{ color: checkResult?.status === 'fallback' ? '#d32f2f' : 'inherit' }}>
+            {describeCheckResult(checkResult, isChecking)}
+          </p>
           <button
             className="english-today-button secondary"
             type="button"
@@ -232,6 +234,9 @@ function describeCheckResult(
     case 'current':
       return 'Bạn đang dùng bản nội dung mới nhất.';
     case 'fallback':
+      if (result.errors && result.errors.length > 0) {
+        return `Lỗi dữ liệu: ${result.errors.join(' | ')}`;
+      }
       return 'Không tải được bản mới. Đang dùng bản đóng gói sẵn.';
     case 'skipped':
       return 'Vừa kiểm tra gần đây. Bấm để kiểm tra lại ngay.';

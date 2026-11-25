@@ -11,10 +11,10 @@ function readCachedContent(): EnglishContentBank | null {
   try {
     const raw = localStorage.getItem(CACHED_CONTENT_KEY);
     if (!raw) return null;
-    const parsed = parseEnglishContent(JSON.parse(raw));
-    if (!parsed) return null;
-    if (parsed.version === BUNDLED_ENGLISH_CONTENT.version) return null;
-    return parsed;
+    const result = parseEnglishContent(JSON.parse(raw));
+    if (!result.content) return null;
+    if (result.content.version === BUNDLED_ENGLISH_CONTENT.version) return null;
+    return result.content;
   } catch {
     return null;
   }
