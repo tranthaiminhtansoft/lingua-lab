@@ -227,5 +227,5 @@ export function parseEnglishContent(value: unknown, baseContext = 'Dữ liệu')
   }
 
   if (hasError) return { content: null, errors };
-  return { content: { version, updatedAt, topics: parsedTopics }, errors: [] };
+  return { content: { version: version as string, updatedAt: updatedAt as string, topics: parsedTopics }, errors: [] };
 }
