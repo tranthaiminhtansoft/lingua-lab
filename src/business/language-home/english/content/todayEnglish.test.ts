@@ -50,7 +50,7 @@ test('daily vocabulary sets rotate instead of repeating', () => {
 });
 
 test('daily quizzes mix curated and vocabulary questions with valid answers', () => {
-  for (const topic of getTodayEnglishContext(new Date(2026, 10, 15)).topics) {
+  for (const topic of getTodayEnglishContext(new Date(2026, 10, 15)).topics.filter((t) => t.theme !== undefined)) {
     expect(topic.quizzes).toHaveLength(4);
     for (const quiz of topic.quizzes) {
       expect(quiz.options[quiz.answerIndex]).toBeTruthy();

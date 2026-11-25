@@ -78,9 +78,9 @@ const FALLBACK_GIDS: Record<string, string> = {
   dialogue: '139617548',
 };
 
-async function discoverGids(pubhtmlUrl: string, signal: AbortSignal): Promise<Record<string, string> | null> {
+async function discoverGids(pubhtmlUrl: string, signal: AbortSignal): Promise<{ gids: Record<string, string>; usedFallback: boolean }> {
   const html = await fetchText(pubhtmlUrl, signal);
-  if (!html) return FALLBACK_GIDS;
+  if (!html) return { gids: FALLBACK_GIDS, usedFallback: true };
   const gids: Record<string, string> = {};
   const re = /name:\s*"([^"]+)"[^}]*?gid=(\d+)|gid=(\d+)[^}]*?name:\s*"([^"]+)"/g;
   let m: RegExpExecArray | null;
@@ -94,7 +94,8 @@ async function discoverGids(pubhtmlUrl: string, signal: AbortSignal): Promise<Re
     const gidMatches = [...html.matchAll(/gid=(\d+)/g)].map((x) => x[1]);
     for (let i = 0; i < names.length && i < gidMatches.length; i += 1) gids[names[i]] = gidMatches[i];
   }
-  return Object.keys(gids).length > 0 ? gids : FALLBACK_GIDS;
+  if (Object.keys(gids).length > 0) return { gids, usedFallback: false };
+  return { gids: FALLBACK_GIDS, usedFallback: true };
 }
 
 function toNumber(value: string, fallback = 0): number {
@@ -105,22 +106,70 @@ function toNumber(value: string, fallback = 0): number {
 export async function fetchEnglishContentFromSheet(
   url: string,
   signal: AbortSignal,
-): Promise<EnglishContentBank | null> {
-  const gids = await discoverGids(url, signal);
-  if (!gids) return null;
+): Promise<{ content: EnglishContentBank | null; errors: string[] }> {
+  const errors: string[] = [];
+  const discovery = await discoverGids(url, signal);
+  const { gids, usedFallback } = discovery;
+  if (usedFallback) {
+    errors.push("⚠️ Không tải được trang Google Sheet (có thể do CORS hoặc link sai). Đang dùng danh sách tab mặc định.");
+  }
 
   const tabEntries = await Promise.all(SHEET_TABS.map(async (tab) => {
     const gid = gids[tab];
-    if (!gid) return [tab, null] as const;
+    if (!gid) {
+      errors.push(`Tab '${tab}' không tồn tại trong Google Sheet.`);
+      return [tab, null] as const;
+    }
     const text = await fetchText(sheetCsvUrl(url, gid), signal);
-    if (!text) return [tab, null] as const;
+    if (!text) {
+      errors.push(`Tab '${tab}': Không tải được dữ liệu (lỗi mạng hoặc quyền truy cập).`);
+      return [tab, null] as const;
+    }
     return [tab, rowsToObjects(parseCsv(text))] as const;
   }));
 
   const tabs = Object.fromEntries(tabEntries) as Record<SheetTab, Record<string, string>[] | null>;
+
+  // Detect completely unreachable sheet
+  const fetchedTabs = SHEET_TABS.filter((tab) => tabs[tab] !== null);
+  if (fetchedTabs.length === 0) {
+    errors.push("❌ Không thể kết nối đến Google Sheet. Vui lòng kiểm tra link Publish-to-web và quyền truy cập.");
+    return { content: null, errors };
+  }
+
+  // Header validation
+  const REQUIRED_HEADERS: Record<SheetTab, string[]> = {
+    meta: ['version', 'updatedAt'],
+    topics: ['id', 'title', 'description', 'frequency', 'startDate', 'endDate'],
+    vocabulary: ['topicId', 'term', 'meaning', 'pronunciation', 'score'],
+    grammar: ['topicId', 'title', 'category', 'formula', 'example'],
+    quizzes: ['topicId', 'question', 'options', 'answerIndex', 'explanation'],
+    dialogue: ['topicId', 'variantIndex', 'sentences'],
+  };
+
+  for (const tab of SHEET_TABS) {
+    const data = tabs[tab];
+    if (!data) continue;
+    if (data.length === 0) {
+      errors.push(`Tab '${tab}': Tab bị trống (không có dữ liệu).`);
+      tabs[tab] = null;
+      continue;
+    }
+    const headers = Object.keys(data[0]);
+    const missing = REQUIRED_HEADERS[tab].filter((h) => !headers.includes(h));
+    if (missing.length > 0) {
+      errors.push(`Tab '${tab}': Thiếu cột bắt buộc: ${missing.join(', ')}.`);
+      tabs[tab] = null;
+    }
+  }
+
   const meta = tabs.meta?.[0];
   const topicRows = tabs.topics;
-  if (!meta || !topicRows) return null;
+  if (!meta || !topicRows) {
+    if (!meta) errors.push("Tab 'meta' bị trống hoặc không tồn tại.");
+    if (!topicRows) errors.push("Tab 'topics' bị trống hoặc không tồn tại.");
+    return { content: null, errors };
+  }
 
   const bundledById = new Map(BUNDLED_ENGLISH_CONTENT.topics.map((t) => [t.id, t]));
 
@@ -195,5 +244,9 @@ export async function fetchEnglishContentFromSheet(
     topics,
   };
 
-  return parseEnglishContent(bank);
+  const result = parseEnglishContent(bank, "Google Sheet");
+  if (!result.content) {
+    return { content: null, errors: [...errors, ...result.errors] };
+  }
+  return { content: result.content, errors: [] };
 }

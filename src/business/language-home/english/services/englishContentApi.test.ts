@@ -43,6 +43,7 @@ test('activates a newer remote bank and serves its topics', async () => {
     status: 'updated',
     version: '2026.11.22',
     updatedAt: '2026-11-22',
+    errors: [],
   });
   expect(getActiveEnglishContent().version).toBe('2026.11.22');
   const context = await getTodayEnglishContextApi(new Date(2026, 10, 22));

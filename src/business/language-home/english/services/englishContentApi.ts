@@ -14,6 +14,7 @@ export type EnglishContentCheckStatus = 'updated' | 'current' | 'fallback' | 'sk
 
 export type EnglishContentCheckResult = EnglishContentVersion & {
   status: EnglishContentCheckStatus;
+  errors?: string[];
 };
 
 const DEFAULT_CONTENT_PATH = 'content/english-content.json';
@@ -63,9 +64,9 @@ function checkedToday(now: number): boolean {
     && lastDate.getDate() === current.getDate();
 }
 
-function resultFor(status: EnglishContentCheckStatus): EnglishContentCheckResult {
+function resultFor(status: EnglishContentCheckStatus, errors?: string[]): EnglishContentCheckResult {
   const active = getActiveEnglishContent();
-  return { status, version: active.version, updatedAt: active.updatedAt };
+  return { status, version: active.version, updatedAt: active.updatedAt, errors };
 }
 
 /**
@@ -91,34 +92,40 @@ export async function checkEnglishContentApi(
   try {
     const url = contentUrl();
     let content: EnglishContentBank | null = null;
+    let errors: string[] = [];
 
     if (isGoogleSheetUrl(url)) {
-      content = await fetchEnglishContentFromSheet(url, controller.signal);
+      const result = await fetchEnglishContentFromSheet(url, controller.signal);
+      content = result.content;
+      errors = result.errors;
     } else {
       const response = await fetch(withCacheBuster(url), {
         cache: 'no-store',
         headers: { Accept: 'application/json' },
         signal: controller.signal,
       });
-      if (!response.ok) return resultFor('fallback');
+      if (!response.ok) return resultFor('fallback', [`Không tải được file JSON (HTTP ${response.status}).`]);
 
       const text = await response.text();
-      if (text.length > MAX_CONTENT_LENGTH) return resultFor('fallback');
+      if (text.length > MAX_CONTENT_LENGTH) return resultFor('fallback', [`File JSON quá lớn (>${MAX_CONTENT_LENGTH} bytes).`]);
 
       let payload: unknown;
       try {
         payload = JSON.parse(text);
       } catch {
-        return resultFor('fallback');
+        return resultFor('fallback', [`File JSON không hợp lệ (lỗi cú pháp).`]);
       }
-      content = parseEnglishContent(payload);
+      const result = parseEnglishContent(payload, "File JSON");
+      content = result.content;
+      errors = result.errors;
     }
 
-    if (!content) return resultFor('fallback');
+    if (!content) return resultFor('fallback', errors.length > 0 ? errors : ['Dữ liệu không hợp lệ.']);
     if (!setActiveEnglishContent(content, options.force)) return resultFor('current');
-    return { status: 'updated', version: content.version, updatedAt: content.updatedAt };
-  } catch {
-    return resultFor('fallback');
+    return { status: 'updated', version: content.version, updatedAt: content.updatedAt, errors: [] };
+  } catch (err) {
+    const msg = err instanceof Error ? err.message : "Lỗi không xác định.";
+    return resultFor('fallback', [`Lỗi mạng: ${msg}`]);
   } finally {
     globalThis.clearTimeout(timeout);
   }
