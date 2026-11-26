@@ -1,6 +1,7 @@
 import type {
   EnglishContentBank,
   EnglishFrequency,
+  EnglishGrammarAlternative,
   EnglishGrammarItem,
   EnglishQuiz,
   EnglishTheme,
@@ -60,17 +61,45 @@ function parseVocabularyItem(value: unknown, context: string, errors: string[]):
   return { term, meaning, pronunciation, score };
 }
 
+function parseGrammarAlternative(value: unknown, context: string, errors: string[]): EnglishGrammarAlternative | null {
+  if (!isRecord(value)) { errors.push(`${context}: Dữ liệu công thức thay thế không hợp lệ.`); return null; }
+  const { formula, context: usageContext, example } = value;
+  if (!isText(formula)) { errors.push(`${context}: Thiếu công thức (cột 'formula').`); return null; }
+  if (!isText(usageContext)) { errors.push(`${context}: Thiếu ngữ cảnh sử dụng (cột 'context').`); return null; }
+  if (!isText(example)) { errors.push(`${context}: Thiếu câu ví dụ (cột 'example').`); return null; }
+  return { formula, context: usageContext, example };
+}
+
 function parseGrammarItem(value: unknown, context: string, errors: string[]): EnglishGrammarItem | null {
   if (!isRecord(value)) { errors.push(`${context}: Dữ liệu ngữ pháp không hợp lệ.`); return null; }
-  const { title, category, formula, example, pronunciation } = value;
-  if (!isText(title)) { errors.push(`${context}: Thiếu tiêu đề (cột 'title').`); return null; }
-  if (!isText(category)) { errors.push(`${context}: Thiếu loại (cột 'category').`); return null; }
+  const { title, category, formula, example, pronunciation, usage, alternatives } = value;
+  if (title !== undefined && !isText(title)) { errors.push(`${context}: Cột 'title' (tiêu đề) không hợp lệ.`); return null; }
+  if (category !== undefined && !isText(category)) { errors.push(`${context}: Cột 'category' (loại) không hợp lệ.`); return null; }
   if (!isText(formula)) { errors.push(`${context}: Thiếu công thức (cột 'formula').`); return null; }
   if (!isText(example)) { errors.push(`${context}: Thiếu ví dụ (cột 'example').`); return null; }
   if (pronunciation !== undefined && !isText(pronunciation)) { errors.push(`${context}: Cột 'pronunciation' (phiên âm) không hợp lệ.`); return null; }
-  return pronunciation === undefined
-    ? { title, category, formula, example }
-    : { title, category, formula, example, pronunciation };
+  if (usage !== undefined && !isText(usage)) { errors.push(`${context}: Cột 'usage' (khi nào dùng) không được để trống.`); return null; }
+
+  let parsedAlternatives: EnglishGrammarAlternative[] | undefined;
+  if (alternatives !== undefined) {
+    if (!Array.isArray(alternatives) || alternatives.length !== 3) {
+      errors.push(`${context}: Cột 'alternatives' phải có đúng 3 công thức cùng nghĩa.`);
+      return null;
+    }
+    const parsed = parseArray(alternatives, parseGrammarAlternative, `${context}, công thức thay thế`, errors);
+    if (!parsed) return null;
+    parsedAlternatives = parsed;
+  }
+
+  return {
+    title,
+    category,
+    formula,
+    example,
+    ...(pronunciation === undefined ? {} : { pronunciation }),
+    ...(usage === undefined ? {} : { usage }),
+    ...(parsedAlternatives === undefined ? {} : { alternatives: parsedAlternatives }),
+  };
 }
 
 function parseQuiz(value: unknown, context: string, errors: string[]): EnglishQuiz | null {

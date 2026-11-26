@@ -1,6 +1,6 @@
 {
-  "version": "2026.11.15",
-  "updatedAt": "2026-11-15",
+  "version": "2026.11.26",
+  "updatedAt": "2026-11-26",
   "topics": [
     {
       "id": "christmas-celebration",
@@ -30,20 +30,20 @@
         },
         {
           "term": "festive",
-          "meaning": "lễ hội",
+          "meaning": "mang không khí lễ hội",
           "pronunciation": "/ˈfestɪv/",
           "score": 0
         },
         {
           "term": "gather",
           "meaning": "tụ họp",
-          "pronunciation": "/ˈɡæðə/",
+          "pronunciation": "/ˈɡæðər/",
           "score": 0
         },
         {
           "term": "family dinner",
           "meaning": "bữa tối gia đình",
-          "pronunciation": "/ˈfæməli ˈdɪnə/",
+          "pronunciation": "/ˈfæməli ˈdɪnər/",
           "score": 0
         },
         {
@@ -53,27 +53,21 @@
           "score": 0
         },
         {
-          "term": "wish",
-          "meaning": "chúc",
-          "pronunciation": "/wɪʃ/",
-          "score": 0
-        },
-        {
           "term": "celebrate",
-          "meaning": "kỷ niệm",
-          "pronunciation": "/ˈselɪbreɪt/",
+          "meaning": "ăn mừng, tổ chức",
+          "pronunciation": "/ˈseləbreɪt/",
           "score": 0
         },
         {
           "term": "reindeer",
-          "meaning": "con tuần lộc",
-          "pronunciation": "/ˈreɪndɪə/",
+          "meaning": "tuần lộc",
+          "pronunciation": "/ˈreɪndɪr/",
           "score": 0
         },
         {
-          "term": "Rudolph",
-          "meaning": "tuần lộc mũi đỏ",
-          "pronunciation": "/ˈruːdɒlf/",
+          "term": "ornament",
+          "meaning": "đồ trang trí",
+          "pronunciation": "/ˈɔːrnəmənt/",
           "score": 0
         },
         {
@@ -83,45 +77,27 @@
           "score": 0
         },
         {
-          "term": "sled/sleigh",
+          "term": "sleigh",
           "meaning": "xe trượt tuyết",
-          "pronunciation": "/sled / sleɪ/",
+          "pronunciation": "/sleɪ/",
           "score": 0
         },
         {
           "term": "elf",
-          "meaning": "chú lùn",
+          "meaning": "chú lùn giúp việc",
           "pronunciation": "/elf/",
           "score": 0
         },
         {
           "term": "snowman",
           "meaning": "người tuyết",
-          "pronunciation": "/ˈsnəʊmæn/",
-          "score": 0
-        },
-        {
-          "term": "church",
-          "meaning": "nhà thờ",
-          "pronunciation": "/tʃɜːtʃ/",
+          "pronunciation": "/ˈsnoʊmæn/",
           "score": 0
         },
         {
           "term": "feast",
-          "meaning": "bữa tiệc",
+          "meaning": "bữa tiệc thịnh soạn",
           "pronunciation": "/fiːst/",
-          "score": 0
-        },
-        {
-          "term": "ritual",
-          "meaning": "nghi thức",
-          "pronunciation": "/ˈrɪtʃuəl/",
-          "score": 0
-        },
-        {
-          "term": "wassail",
-          "meaning": "uống rượu và mừng Giáng sinh",
-          "pronunciation": "/ˈwɒseɪl/",
           "score": 0
         },
         {
@@ -131,90 +107,154 @@
           "score": 0
         },
         {
-          "term": "snowflakes",
-          "meaning": "bông tuyết",
-          "pronunciation": "/ˈsnəʊfleɪks/",
-          "score": 0
-        },
-        {
           "term": "fireplace",
           "meaning": "lò sưởi",
-          "pronunciation": "/ˈfaɪəpleɪs/",
+          "pronunciation": "/ˈfaɪərpleɪs/",
           "score": 0
         },
         {
           "term": "scarf",
           "meaning": "khăn quàng",
-          "pronunciation": "/skɑːf/",
+          "pronunciation": "/skɑːrf/",
           "score": 0
         },
         {
           "term": "turkey",
           "meaning": "gà tây",
-          "pronunciation": "/ˈtɜːki/",
+          "pronunciation": "/ˈtɜːrki/",
           "score": 0
         },
         {
           "term": "mince pie",
-          "meaning": "bánh nhân thịt băm",
+          "meaning": "bánh nhân mứt",
           "pronunciation": "/ˌmɪns ˈpaɪ/",
           "score": 0
         },
         {
           "term": "gingerbread man",
           "meaning": "bánh quy gừng hình người",
-          "pronunciation": "/ˈdʒɪndʒəbred mæn/",
+          "pronunciation": "/ˈdʒɪndʒərbred mæn/",
           "score": 0
         },
         {
           "term": "yule log cake",
-          "meaning": "bánh hình khúc gỗ",
-          "pronunciation": "/ˌjuːl ˈlɒɡ keɪk/",
+          "meaning": "bánh khúc gỗ",
+          "pronunciation": "/juːl lɔːɡ keɪk/",
+          "score": 0
+        },
+        {
+          "term": "mulled wine",
+          "meaning": "rượu vang nóng",
+          "pronunciation": "/məld waɪn/",
+          "score": 0
+        },
+        {
+          "term": "Secret Santa",
+          "meaning": "trò bốc thăm tặng quà",
+          "pronunciation": "/ˌsiːkrət ˈsæntə/",
           "score": 0
         }
       ],
       "grammar": [
         {
-          "title": "Present simple for traditions",
-          "category": "Tense",
-          "formula": "S + V(s/es) + O + every Christmas / usually",
-          "example": "We always have turkey for Christmas dinner.",
-          "pronunciation": "/wi ˈɔːlweɪz hæv ˈtɜːki fə ˈkrɪsməs ˈdɪnə/"
-        },
-        {
-          "title": "‘going to’ for plans",
+          "formula": "S + am/is/are + V-ing + future time",
+          "example": "We're having dinner at my aunt's house on Christmas Eve. (Chúng tôi sẽ ăn tối ở nhà dì vào đêm Giáng sinh.)",
+          "pronunciation": "/wɪr ˈhævɪŋ ˈdɪnər æt maɪ ɔnts haʊs ɔn ˈkrɪsməs iv/",
+          "usage": "Dùng khi nói về một kế hoạch cụ thể đã sắp xếp trong dịp lễ, thường có thời gian rõ ràng.",
+          "title": "Present continuous for festive arrangements",
           "category": "Future",
-          "formula": "S + am/is/are + going to + V + O",
-          "example": "We’re going to visit my parents on Christmas Eve.",
-          "pronunciation": "/wɪə ˈɡəʊɪŋ tə ˈvɪzɪt maɪ ˈpeərənts ɒn ˈkrɪsməs iːv/"
+          "alternatives": [
+            {
+              "formula": "S + am/is/are + V-ing + future time",
+              "context": "Kế hoạch đã chốt trong dịp lễ",
+              "example": "We're having dinner at my aunt's house on Christmas Eve. (Chúng tôi sẽ ăn tối ở nhà dì vào đêm Giáng sinh.)"
+            },
+            {
+              "formula": "S + am/is/are + going to + V",
+              "context": "Dự định đã quyết nhưng chưa chốt giờ",
+              "example": "We're going to visit my parents some time next week. (Chúng tôi sẽ đến thăm bố mẹ vào tuần sau.)"
+            },
+            {
+              "formula": "S + will + V",
+              "context": "Quyết định ngay lúc nói hoặc lời hứa",
+              "example": "Don't worry — I'll bring the mince pies. (Đừng lo — tôi sẽ mang bánh mince pie.)"
+            }
+          ]
         },
         {
-          "title": "Comparatives for gifts",
-          "category": "Comparison",
-          "formula": "N1 + be + adj-er / more adj + than + N2",
-          "example": "This gift is more thoughtful than last year’s.",
-          "pronunciation": "/ðɪs ɡɪft ɪz mɔː ˈθɔːtfəl ðæn lɑːst jɪəz/"
-        },
-        {
-          "title": "‘wish’ + someone + Merry Christmas",
-          "category": "Verb pattern",
-          "formula": "S + wish + O + Merry Christmas / Happy New Year",
-          "example": "I wish you a Merry Christmas!",
-          "pronunciation": "/aɪ wɪʃ ju ə ˈmeri ˈkrɪsməs/"
-        },
-        {
-          "title": "Past simple for Christmas stories",
+          "formula": "S + have/has + already/just + V3",
+          "example": "I've already wrapped all the gifts. (Tôi đã gói xong tất cả quà.)",
+          "pronunciation": "/aɪv ɔˈrɛdi ræpt ɔl ðə gɪfts/",
+          "usage": "Dùng khi việc chuẩn bị đã hoàn thành và kết quả còn liên quan đến hiện tại; thường đi với already, just, yet.",
+          "title": "Present perfect for holiday preparations",
           "category": "Tense",
-          "formula": "S + V2/V-ed + O",
-          "example": "Rudolph guided Santa’s sleigh through the snow.",
-          "pronunciation": "/ˈruːdɒlf ˈɡaɪdɪd ˈsæntəz sleɪ θruː ðə snəʊ/"
+          "alternatives": [
+            {
+              "formula": "S + have/has + already/just + V3",
+              "context": "Việc đã xong trước thời điểm hiện tại",
+              "example": "I've already wrapped all the gifts. (Tôi đã gói xong tất cả quà.)"
+            },
+            {
+              "formula": "S + V2 + past time",
+              "context": "Nói thời điểm cụ thể trong quá khứ",
+              "example": "I wrapped all the gifts last night. (Tôi đã gói tất cả quà tối qua.)"
+            },
+            {
+              "formula": "S + haven't/hasn't + V3 + yet",
+              "context": "Việc chưa hoàn thành tính đến bây giờ",
+              "example": "We haven't bought the turkey yet. (Chúng tôi vẫn chưa mua gà tây.)"
+            }
+          ]
         },
         {
-          "title": "There is/are for describing scenes",
-          "category": "Sentence pattern",
-          "formula": "There is/are + noun + place",
-          "example": "There are snowflakes on the chimney and a snowman in the garden.",
-          "pronunciation": "/ðeər ə ˈsnəʊfleɪks ɒn ðə ˈtʃɪmni ənd ə ˈsnəʊmæn ɪn ðə ˈɡɑːdn/"
+          "formula": "N1 + be + adj-er/more adj + than + N2",
+          "example": "This year feels cozier than last year. (Năm nay ấm cúng hơn năm ngoái.)",
+          "pronunciation": "/ðɪs jɪr filz ˈkoʊziər ðən læst jɪr/",
+          "usage": "Dùng để so sánh hai người, vật hoặc trải nghiệm trong dịp lễ.",
+          "title": "Comparatives for festive comparisons",
+          "category": "Comparison",
+          "alternatives": [
+            {
+              "formula": "N1 + be + adj-er/more adj + than + N2",
+              "context": "So sánh trực tiếp hai đối tượng",
+              "example": "This year feels cozier than last year. (Năm nay ấm cúng hơn năm ngoái.)"
+            },
+            {
+              "formula": "N1 + be + as + adj + as + N2",
+              "context": "Hai đối tượng ngang bằng nhau",
+              "example": "This market is as busy as the one downtown. (Khu chợ này đông như chợ trung tâm.)"
+            },
+            {
+              "formula": "N1 + be + not as + adj + as + N2",
+              "context": "Một đối tượng kém hơn đối tượng kia",
+              "example": "The train is not as crowded as the bus today. (Hôm nay tàu không đông như xe buýt.)"
+            }
+          ]
+        },
+        {
+          "formula": "S + wish + O + Merry Christmas / Happy New Year",
+          "example": "I wish you a Merry Christmas! (Chúc bạn Giáng sinh vui vẻ!)",
+          "pronunciation": "/aɪ wɪʃ ju ə ˈmɛri ˈkrɪsməs/",
+          "usage": "Dùng để gửi lời chúc tốt đẹp; 'wish + someone + noun' thân mật, 'hope + clause' lịch sự và linh hoạt hơn.",
+          "title": "Wishes and hopes for greetings",
+          "category": "Verb pattern",
+          "alternatives": [
+            {
+              "formula": "S + wish + O + Merry Christmas / Happy New Year",
+              "context": "Lời chúc ngắn, thân mật",
+              "example": "I wish you a Merry Christmas! (Chúc bạn Giáng sinh vui vẻ!)"
+            },
+            {
+              "formula": "S + hope + S + V",
+              "context": "Lời chúc lịch sự với một mệnh đề",
+              "example": "I hope you have a wonderful Christmas. (Tôi hy vọng bạn có một Giáng sinh tuyệt vời.)"
+            },
+            {
+              "formula": "May + S + V",
+              "context": "Lời chúc trang trọng, thường dùng trong thiệp",
+              "example": "May your holidays be full of joy and laughter. (Chúc kỳ nghỉ của bạn tràn đầy niềm vui và tiếng cười.)"
+            }
+          ]
         }
       ],
       "examples": [
@@ -332,7 +372,7 @@
         {
           "term": "Tết",
           "meaning": "Tết",
-          "pronunciation": "/tɛt/",
+          "pronunciation": "/tet/",
           "score": 0
         },
         {
@@ -344,13 +384,13 @@
         {
           "term": "family reunion",
           "meaning": "đoàn viên",
-          "pronunciation": "/ˌfæməli riːˈjuːniən/",
+          "pronunciation": "/ˌfæməli riˈjuːniən/",
           "score": 0
         },
         {
           "term": "ancestors",
           "meaning": "tổ tiên",
-          "pronunciation": "/ˈænsestəz/",
+          "pronunciation": "/ˈænsestərz/",
           "score": 0
         },
         {
@@ -362,56 +402,146 @@
         {
           "term": "traditional food",
           "meaning": "đồ ăn truyền thống",
-          "pronunciation": "/trəˈdɪʃənl fuːd/",
+          "pronunciation": "/trəˈdɪʃənəl fuːd/",
           "score": 0
         },
         {
-          "term": "bánh chưng",
+          "term": "sticky rice cake",
           "meaning": "bánh chưng",
-          "pronunciation": "/bæŋ tʃʊŋ/",
+          "pronunciation": "/ˌstɪki ˈraɪs keɪk/",
           "score": 0
         },
         {
           "term": "visit relatives",
           "meaning": "thăm họ hàng",
-          "pronunciation": "/ˈvɪzɪt ˈrelətɪvz/",
+          "pronunciation": "/ˌvɪzɪt ˈrelətɪvz/",
           "score": 0
         },
         {
-          "term": "new year wish",
+          "term": "New Year wish",
           "meaning": "lời chúc năm mới",
-          "pronunciation": "/ˌnjuː jɪə ˈwɪʃ/",
+          "pronunciation": "/ˌnuː jɪr wɪʃ/",
+          "score": 0
+        },
+        {
+          "term": "peach blossom",
+          "meaning": "hoa đào",
+          "pronunciation": "/piːtʃ ˈblɑːsəm/",
+          "score": 0
+        },
+        {
+          "term": "first visitor",
+          "meaning": "người đến thăm đầu năm",
+          "pronunciation": "/ˌfɜːrst ˈvɪzɪtər/",
+          "score": 0
+        },
+        {
+          "term": "red envelope",
+          "meaning": "phong bao lì xì",
+          "pronunciation": "/ˌred ˈenvəloʊp/",
           "score": 0
         }
       ],
       "grammar": [
         {
-          "title": "Present simple for traditions",
+          "formula": "S + have/has + already + V3",
+          "example": "We've already cleaned the house for Tết. (Chúng tôi đã dọn nhà xong cho Tết.)",
+          "pronunciation": "/wiv ɔˈrɛdi klind ðə haʊs fər tết*/",
+          "usage": "Dùng khi việc chuẩn bị Tết đã xong và kết quả ảnh hưởng đến hiện tại.",
+          "title": "Present perfect for Tet preparations",
           "category": "Tense",
-          "formula": "S + V(s/es) + O + every Tết / usually",
-          "example": "We always visit our grandparents on the first day of Tết.",
-          "pronunciation": "/wi ˈɔːlweɪz ˈvɪzɪt ˈaʊə ˈɡrænpeərənts ɒn ðə fɜːst deɪ əv tet/"
+          "alternatives": [
+            {
+              "formula": "S + have/has + already + V3",
+              "context": "Việc đã hoàn tất trước Tết",
+              "example": "We've already cleaned the house for Tết. (Chúng tôi đã dọn nhà xong cho Tết.)"
+            },
+            {
+              "formula": "S + V2 + past time",
+              "context": "Nói rõ thời điểm đã làm",
+              "example": "We cleaned the house yesterday. (Chúng tôi đã dọn nhà hôm qua.)"
+            },
+            {
+              "formula": "S + haven't/hasn't + V3 + yet",
+              "context": "Việc còn dang dở",
+              "example": "I haven't bought the peach blossoms yet. (Tôi vẫn chưa mua hoa đào.)"
+            }
+          ]
         },
         {
-          "title": "‘going to’ for plans",
+          "formula": "S + am/is/are + going to + V",
+          "example": "We're going to cook sticky rice cake this year. (Năm nay chúng tôi sẽ nấu bánh chưng.)",
+          "pronunciation": "/wɪr goʊɪŋ tɪ kʊk ˈstɪki raɪs keɪk ðɪs jɪr/",
+          "usage": "Dùng khi đã có dự định cho Tết nhưng chưa phải lịch cố định.",
+          "title": "'Be going to' for Tet plans",
           "category": "Future",
-          "formula": "S + am/is/are + going to + V + O",
-          "example": "We’re going to cook bánh chưng this year.",
-          "pronunciation": "/wɪə ˈɡəʊɪŋ tə kʊk bæn tʃʊŋ ðɪs jɪə/"
+          "alternatives": [
+            {
+              "formula": "S + am/is/are + going to + V",
+              "context": "Dự định cá nhân đã quyết",
+              "example": "We're going to cook sticky rice cake this year. (Năm nay chúng tôi sẽ nấu bánh chưng.)"
+            },
+            {
+              "formula": "S + will + V",
+              "context": "Quyết định ngay khi nói",
+              "example": "I'll help you decorate the house. (Tôi sẽ giúp bạn trang trí nhà.)"
+            },
+            {
+              "formula": "S + am/is/are + V-ing + future time",
+              "context": "Kế hoạch đã có lịch cụ thể",
+              "example": "We're visiting our grandparents on the first day. (Chúng tôi sẽ thăm ông bà vào ngày đầu năm.)"
+            }
+          ]
         },
         {
-          "title": "‘have to’ for obligation",
+          "formula": "S + have/has to + V",
+          "example": "I have to visit my relatives during Tết. (Tôi phải thăm họ hàng trong dịp Tết.)",
+          "pronunciation": "/aɪ hæv tɪ ˈvɪzɪt maɪ ˈrɛlətɪvz ˈdʊrɪŋ tết*/",
+          "usage": "Dùng khi có nghĩa vụ bên ngoài như phong tục, luật lệ hoặc yêu cầu của người khác.",
+          "title": "'Have to' for Tet obligations",
           "category": "Modal",
-          "formula": "S + have to / has to + V + O",
-          "example": "I have to visit my relatives during Tết.",
-          "pronunciation": "/aɪ hæv tə ˈvɪzɪt maɪ ˈrelətɪvz ˈdjʊərɪŋ tet/"
+          "alternatives": [
+            {
+              "formula": "S + have/has to + V",
+              "context": "Nghĩa vụ do hoàn cảnh hoặc phong tục",
+              "example": "I have to visit my relatives during Tết. (Tôi phải thăm họ hàng trong dịp Tết.)"
+            },
+            {
+              "formula": "S + need to + V",
+              "context": "Nghĩa vụ cần thiết, nhấn mạnh mục đích",
+              "example": "We need to buy gifts before the shops close. (Chúng tôi cần mua quà trước khi cửa hàng đóng.)"
+            },
+            {
+              "formula": "S + must + V",
+              "context": "Quy định mạnh, trang trọng",
+              "example": "You must remove your shoes before entering the temple. (Bạn phải cởi giày trước khi vào chùa.)"
+            }
+          ]
         },
         {
-          "title": "‘wish’ + someone + Happy New Year",
-          "category": "Verb pattern",
           "formula": "S + wish + O + Happy New Year",
-          "example": "I wish you a Happy New Year!",
-          "pronunciation": "/aɪ wɪʃ ju ə ˈhæpi njuː jɪə/"
+          "example": "I wish you a Happy New Year! (Chúc bạn năm mới vui vẻ!)",
+          "pronunciation": "/aɪ wɪʃ ju ə ˈhæpi nu jɪr/",
+          "usage": "Dùng để gửi lời chúc năm mới; có thể dùng wish, hope hoặc may tùy mức độ trang trọng.",
+          "title": "New Year wishes",
+          "category": "Verb pattern",
+          "alternatives": [
+            {
+              "formula": "S + wish + O + Happy New Year",
+              "context": "Lời chúc ngắn, thân mật",
+              "example": "I wish you a Happy New Year! (Chúc bạn năm mới vui vẻ!)"
+            },
+            {
+              "formula": "S + hope + S + V",
+              "context": "Lời chúc lịch sự, tự nhiên",
+              "example": "I hope the new year brings you good health. (Tôi hy vọng năm mới mang đến cho bạn sức khỏe.)"
+            },
+            {
+              "formula": "May + S + V",
+              "context": "Lời chúc trang trọng, giàu cảm xúc",
+              "example": "May all your wishes come true. (Chúc mọi điều ước của bạn thành hiện thực.)"
+            }
+          ]
         }
       ],
       "examples": [
@@ -497,19 +627,19 @@
         {
           "term": "romantic",
           "meaning": "lãng mạn",
-          "pronunciation": "/rəʊˈmæntɪk/",
+          "pronunciation": "/roʊˈmæntɪk/",
           "score": 0
         },
         {
           "term": "bouquet",
           "meaning": "bó hoa",
-          "pronunciation": "/bʊˈkeɪ/",
+          "pronunciation": "/buˈkeɪ/",
           "score": 0
         },
         {
           "term": "chocolate",
           "meaning": "sô cô la",
-          "pronunciation": "/ˈtʃɒklət/",
+          "pronunciation": "/ˈtʃɑːklət/",
           "score": 0
         },
         {
@@ -521,56 +651,146 @@
         {
           "term": "surprise",
           "meaning": "bất ngờ",
-          "pronunciation": "/səˈpraɪz/",
+          "pronunciation": "/sərˈpraɪz/",
           "score": 0
         },
         {
           "term": "love letter",
           "meaning": "thư tình",
-          "pronunciation": "/lʌv ˈletə/",
+          "pronunciation": "/ˈlʌv ˌletər/",
           "score": 0
         },
         {
           "term": "propose",
           "meaning": "cầu hôn",
-          "pronunciation": "/prəˈpəʊz/",
+          "pronunciation": "/prəˈpoʊz/",
           "score": 0
         },
         {
           "term": "couple",
           "meaning": "cặp đôi",
-          "pronunciation": "/ˈkʌpl/",
+          "pronunciation": "/ˈkʌpəl/",
+          "score": 0
+        },
+        {
+          "term": "candlelit dinner",
+          "meaning": "bữa tối dưới ánh nến",
+          "pronunciation": "/ˈkændəllɪt ˈdɪnər/",
+          "score": 0
+        },
+        {
+          "term": "anniversary",
+          "meaning": "kỷ niệm",
+          "pronunciation": "/ˌænɪˈvɜːrsəri/",
+          "score": 0
+        },
+        {
+          "term": "affection",
+          "meaning": "sự trìu mến",
+          "pronunciation": "/əˈfekʃən/",
           "score": 0
         }
       ],
       "grammar": [
         {
-          "title": "Present simple for habits",
+          "formula": "S + have/has + already + V3",
+          "example": "I've already booked a table for two. (Tôi đã đặt bàn cho hai người.)",
+          "pronunciation": "/aɪv ɔˈrɛdi bʊkt ə ˈteɪbəl fər tu/",
+          "usage": "Dùng khi việc chuẩn bị cho Valentine đã xong hoặc chưa xong tính đến hiện tại.",
+          "title": "Present perfect for Valentine preparations",
           "category": "Tense",
-          "formula": "S + V(s/es) + O + every year / usually",
-          "example": "We always exchange gifts on Valentine’s Day.",
-          "pronunciation": "/wi ˈɔːlweɪz ɪksˈtʃeɪndʒ ɡɪfts ɒn ˈvæləntaɪnz deɪ/"
+          "alternatives": [
+            {
+              "formula": "S + have/has + already + V3",
+              "context": "Việc đã hoàn tất trước ngày hẹn",
+              "example": "I've already booked a table for two. (Tôi đã đặt bàn cho hai người.)"
+            },
+            {
+              "formula": "S + V2 + past time",
+              "context": "Nói thời điểm cụ thể",
+              "example": "I booked the table yesterday. (Tôi đã đặt bàn hôm qua.)"
+            },
+            {
+              "formula": "S + haven't/hasn't + V3 + yet",
+              "context": "Việc chưa hoàn thành",
+              "example": "I haven't bought the flowers yet. (Tôi vẫn chưa mua hoa.)"
+            }
+          ]
         },
         {
-          "title": "‘going to’ for plans",
+          "formula": "S + am/is/are + going to + V",
+          "example": "I'm going to cook a romantic dinner. (Tôi sẽ nấu một bữa tối lãng mạn.)",
+          "pronunciation": "/əm goʊɪŋ tɪ kʊk ə roʊˈmæntɪk ˈdɪnər/",
+          "usage": "Dùng để nói về dự định cho ngày Valentine; phân biệt với quyết định tức thời và lịch đã đặt.",
+          "title": "'Be going to' for Valentine plans",
           "category": "Future",
-          "formula": "S + am/is/are + going to + V + O",
-          "example": "I’m going to cook a romantic dinner.",
-          "pronunciation": "/aɪm ˈɡəʊɪŋ tə kʊk ə rəʊˈmæntɪk ˈdɪnə/"
+          "alternatives": [
+            {
+              "formula": "S + am/is/are + going to + V",
+              "context": "Dự định đã quyết trước",
+              "example": "I'm going to cook a romantic dinner. (Tôi sẽ nấu một bữa tối lãng mạn.)"
+            },
+            {
+              "formula": "S + will + V",
+              "context": "Lời hứa hoặc quyết định ngay lúc nói",
+              "example": "I'll pick you up at seven. (Tôi sẽ đón bạn lúc bảy giờ.)"
+            },
+            {
+              "formula": "S + am/is/are + V-ing + future time",
+              "context": "Lịch đã đặt, chắc chắn",
+              "example": "We're having dinner at that new restaurant. (Chúng tôi sẽ ăn tối ở nhà hàng mới đó.)"
+            }
+          ]
         },
         {
-          "title": "Comparatives for gifts",
+          "formula": "N1 + be + more adj + than + N2",
+          "example": "Roses are more romantic than chocolates. (Hoa hồng lãng mạn hơn sô-cô-la.)",
+          "pronunciation": "/ˈroʊzɪz ər mɔr roʊˈmæntɪk ðən ˈʧɔkləts/",
+          "usage": "Dùng để so sánh mức độ lãng mạn, ý nghĩa hoặc giá trị của quà tặng và hành động.",
+          "title": "Comparatives for gifts and gestures",
           "category": "Comparison",
-          "formula": "N1 + be + adj-er / more adj + than + N2",
-          "example": "Roses are more romantic than chocolates.",
-          "pronunciation": "/ˈrəʊzɪz ɑː mɔː rəʊˈmæntɪk ðæn ˈtʃɒkləts/"
+          "alternatives": [
+            {
+              "formula": "N1 + be + more adj + than + N2",
+              "context": "So sánh trực tiếp hai món quà hoặc hành động",
+              "example": "Roses are more romantic than chocolates. (Hoa hồng lãng mạn hơn sô-cô-la.)"
+            },
+            {
+              "formula": "N1 + be + as + adj + as + N2",
+              "context": "Hai lựa chọn ngang bằng nhau",
+              "example": "A handwritten letter is as meaningful as an expensive gift. (Một lá thư viết tay ý nghĩa như một món quà đắt tiền.)"
+            },
+            {
+              "formula": "N1 + be + not as + adj + as + N2",
+              "context": "Một lựa chọn kém hơn lựa chọn kia",
+              "example": "A text message is not as personal as a phone call. (Tin nhắn không riêng tư bằng cuộc gọi.)"
+            }
+          ]
         },
         {
-          "title": "‘wish’ + someone + Happy Valentine’s Day",
-          "category": "Verb pattern",
-          "formula": "S + wish + O + Happy Valentine’s Day",
-          "example": "I wish you a Happy Valentine’s Day!",
-          "pronunciation": "/aɪ wɪʃ ju ə ˈhæpi ˈvæləntaɪnz deɪ/"
+          "formula": "Would + you + like + to + V?",
+          "example": "Would you like to watch a movie with me? (Bạn có muốn đi xem phim với tôi không?)",
+          "pronunciation": "/wʊd ju laɪk tɪ wɔʧ ə ˈmuvi wɪθ mi/",
+          "usage": "Dùng để mời hoặc gợi ý một hoạt động cho ngày Valentine mà không gây áp lực.",
+          "title": "Polite offers and suggestions",
+          "category": "Modal",
+          "alternatives": [
+            {
+              "formula": "Would + you + like + to + V?",
+              "context": "Lời mời lịch sự, trang trọng",
+              "example": "Would you like to watch a movie with me? (Bạn có muốn đi xem phim với tôi không?)"
+            },
+            {
+              "formula": "How about + V-ing?",
+              "context": "Gợi ý thân mật, mở",
+              "example": "How about taking a walk after dinner? (Hay là đi dạo sau bữa tối nhé?)"
+            },
+            {
+              "formula": "Shall we + V?",
+              "context": "Đề nghị cùng làm, lịch sự",
+              "example": "Shall we meet at the café at six? (Chúng ta gặp ở quán cà phê lúc sáu giờ nhé?)"
+            }
+          ]
         }
       ],
       "examples": [
@@ -650,7 +870,7 @@
         {
           "term": "New Year’s Day",
           "meaning": "Ngày đầu năm mới",
-          "pronunciation": "/njuː jɪəz deɪ/",
+          "pronunciation": "/ˌnuː jɪrz ˈdeɪ/",
           "score": 0
         },
         {
@@ -662,13 +882,13 @@
         {
           "term": "fresh start",
           "meaning": "khởi đầu mới",
-          "pronunciation": "/freʃ stɑːt/",
+          "pronunciation": "/ˌfreʃ ˈstɑːrt/",
           "score": 0
         },
         {
           "term": "goal",
           "meaning": "mục tiêu",
-          "pronunciation": "/ɡəʊl/",
+          "pronunciation": "/ɡoʊl/",
           "score": 0
         },
         {
@@ -686,13 +906,13 @@
         {
           "term": "exercise",
           "meaning": "tập thể dục",
-          "pronunciation": "/ˈeksəsaɪz/",
+          "pronunciation": "/ˈeksərsaɪz/",
           "score": 0
         },
         {
           "term": "save money",
           "meaning": "tiết kiệm",
-          "pronunciation": "/seɪv ˈmʌni/",
+          "pronunciation": "/ˌseɪv ˈmʌni/",
           "score": 0
         },
         {
@@ -700,36 +920,126 @@
           "meaning": "đếm ngược",
           "pronunciation": "/ˈkaʊntdaʊn/",
           "score": 0
+        },
+        {
+          "term": "fireworks",
+          "meaning": "pháo hoa",
+          "pronunciation": "/ˈfaɪərwɜːrks/",
+          "score": 0
+        },
+        {
+          "term": "toast",
+          "meaning": "chúc mừng",
+          "pronunciation": "/toʊst/",
+          "score": 0
+        },
+        {
+          "term": "stick to",
+          "meaning": "kiên trì",
+          "pronunciation": "/ˌstɪk ˈtuː/",
+          "score": 0
         }
       ],
       "grammar": [
         {
-          "title": "Present simple for resolutions",
-          "category": "Tense",
-          "formula": "S + V(s/es) + O + this year / from now on",
-          "example": "I exercise three times a week this year.",
-          "pronunciation": "/aɪ ˈeksəsaɪz θriː taɪmz ə wiːk ðɪs jɪə/"
-        },
-        {
-          "title": "‘going to’ for plans",
+          "formula": "S + am/is/are + going to + V",
+          "example": "I'm going to save more money this year. (Năm nay tôi sẽ tiết kiệm nhiều tiền hơn.)",
+          "pronunciation": "/əm goʊɪŋ tɪ seɪv mɔr ˈməni ðɪs jɪr/",
+          "usage": "Dùng để nói về dự định hoặc quyết tâm cho năm mới.",
+          "title": "'Be going to' for New Year intentions",
           "category": "Future",
-          "formula": "S + am/is/are + going to + V + O",
-          "example": "I’m going to save more money.",
-          "pronunciation": "/aɪm ˈɡəʊɪŋ tə seɪv mɔː ˈmʌni/"
+          "alternatives": [
+            {
+              "formula": "S + am/is/are + going to + V",
+              "context": "Dự định đã quyết trước",
+              "example": "I'm going to save more money this year. (Năm nay tôi sẽ tiết kiệm nhiều tiền hơn.)"
+            },
+            {
+              "formula": "S + will + V",
+              "context": "Quyết định tại thời điểm nói",
+              "example": "I'll start tomorrow — I promise! (Tôi sẽ bắt đầu từ mai — tôi hứa!)"
+            },
+            {
+              "formula": "S + plan to + V",
+              "context": "Kế hoạch có chủ đích, rõ ràng",
+              "example": "I plan to run three times a week. (Tôi dự định chạy ba lần một tuần.)"
+            }
+          ]
         },
         {
-          "title": "‘want to’ for goals",
+          "formula": "S + have/has + V3 + this year",
+          "example": "I've learned a lot this year. (Năm nay tôi đã học được nhiều điều.)",
+          "pronunciation": "/aɪv ˈlərnɪd ə lɔt ðɪs jɪr/",
+          "usage": "Dùng khi nhìn lại trải nghiệm hoặc thành quả trong năm tính đến thời điểm hiện tại.",
+          "title": "Present perfect for year reflections",
+          "category": "Tense",
+          "alternatives": [
+            {
+              "formula": "S + have/has + V3 + this year",
+              "context": "Trải nghiệm tích lũy đến hiện tại",
+              "example": "I've learned a lot this year. (Năm nay tôi đã học được nhiều điều.)"
+            },
+            {
+              "formula": "S + V2 + last year",
+              "context": "Khoảng thời gian đã kết thúc",
+              "example": "I learned a lot last year. (Năm ngoái tôi đã học được nhiều điều.)"
+            },
+            {
+              "formula": "S + have/has + been + V-ing",
+              "context": "Hành động kéo dài đến hiện tại",
+              "example": "I've been trying to be kinder to myself. (Tôi đã và đang cố gắng tử tế với bản thân hơn.)"
+            }
+          ]
+        },
+        {
+          "formula": "S + used to + V",
+          "example": "I used to stay up late every night. (Tôi từng thức khuya mỗi đêm.)",
+          "pronunciation": "/aɪ juzd tɪ steɪ əp leɪt ˈɛvəri naɪt/",
+          "usage": "Dùng để so sánh thói quen trong quá khứ với hiện tại.",
+          "title": "'Used to' for past habits",
+          "category": "Tense",
+          "alternatives": [
+            {
+              "formula": "S + used to + V",
+              "context": "Thói quen đã chấm dứt",
+              "example": "I used to stay up late every night. (Tôi từng thức khuya mỗi đêm.)"
+            },
+            {
+              "formula": "S + would + V",
+              "context": "Kể lại thói quen trong quá khứ, văn kể chuyện",
+              "example": "Every New Year, we would watch the fireworks together. (Mỗi năm mới, chúng tôi thường cùng xem pháo hoa.)"
+            },
+            {
+              "formula": "S + no longer + V",
+              "context": "Thói quen đã chấm dứt, nhấn mạnh hiện tại",
+              "example": "I no longer make unrealistic resolutions. (Tôi không còn đặt ra những quyết tâm phi thực tế nữa.)"
+            }
+          ]
+        },
+        {
+          "formula": "S + want to + V",
+          "example": "I want to learn a new language. (Tôi muốn học một ngôn ngữ mới.)",
+          "pronunciation": "/aɪ wɔnt tɪ lərn ə nu ˈlæŋgwɪʤ/",
+          "usage": "Dùng để nói về mong muốn hoặc mục tiêu cá nhân trong năm mới.",
+          "title": "'Want to' for goals",
           "category": "Modal",
-          "formula": "S + want to + V + O",
-          "example": "I want to learn a new language.",
-          "pronunciation": "/aɪ wɒnt tə lɜːn ə njuː ˈlæŋɡwɪdʒ/"
-        },
-        {
-          "title": "‘wish’ + someone + Happy New Year",
-          "category": "Verb pattern",
-          "formula": "S + wish + O + Happy New Year",
-          "example": "I wish you a Happy New Year!",
-          "pronunciation": "/aɪ wɪʃ ju ə ˈhæpi njuː jɪə/"
+          "alternatives": [
+            {
+              "formula": "S + want to + V",
+              "context": "Mong muốn trực tiếp, thân mật",
+              "example": "I want to learn a new language. (Tôi muốn học một ngôn ngữ mới.)"
+            },
+            {
+              "formula": "S + would like to + V",
+              "context": "Mong muốn lịch sự, trang trọng hơn",
+              "example": "I would like to spend more time with my family. (Tôi muốn dành nhiều thời gian hơn cho gia đình.)"
+            },
+            {
+              "formula": "S + hope to + V",
+              "context": "Mong muốn có thể thành hiện thực",
+              "example": "I hope to travel to Japan next year. (Tôi hy vọng sẽ đi Nhật vào năm sau.)"
+            }
+          ]
         }
       ],
       "examples": [
@@ -809,7 +1119,7 @@
         {
           "term": "emotion",
           "meaning": "cảm xúc",
-          "pronunciation": "/ɪˈməʊʃən/",
+          "pronunciation": "/ɪˈmoʊʃən/",
           "score": 0
         },
         {
@@ -827,7 +1137,7 @@
         {
           "term": "motivation",
           "meaning": "động lực",
-          "pronunciation": "/ˌməʊtɪˈveɪʃən/",
+          "pronunciation": "/ˌmoʊtəˈveɪʃən/",
           "score": 0
         },
         {
@@ -839,13 +1149,13 @@
         {
           "term": "trigger",
           "meaning": "kích hoạt",
-          "pronunciation": "/ˈtrɪɡə/",
+          "pronunciation": "/ˈtrɪɡər/",
           "score": 0
         },
         {
-          "term": "coping",
-          "meaning": "đối phó",
-          "pronunciation": "/ˈkəʊpɪŋ/",
+          "term": "coping mechanism",
+          "meaning": "cơ chế đối phó",
+          "pronunciation": "/ˈkoʊpɪŋ ˈmekəˌnɪzəm/",
           "score": 0
         },
         {
@@ -859,36 +1169,126 @@
           "meaning": "đồng cảm",
           "pronunciation": "/ˈempəθi/",
           "score": 0
+        },
+        {
+          "term": "burnout",
+          "meaning": "kiệt sức",
+          "pronunciation": "/ˈbɜːrnaʊt/",
+          "score": 0
+        },
+        {
+          "term": "self-talk",
+          "meaning": "đối thoại với bản thân",
+          "pronunciation": "/ˌself ˈtɔːk/",
+          "score": 0
+        },
+        {
+          "term": "mindfulness",
+          "meaning": "chánh niệm",
+          "pronunciation": "/ˈmaɪndfəlnəs/",
+          "score": 0
         }
       ],
       "grammar": [
         {
+          "formula": "S + think/feel/believe + clause",
+          "example": "I think habits shape our mindset. (Tôi nghĩ thói quen hình thành tư duy.)",
+          "pronunciation": "/aɪ θɪŋk ˈhæbəts ʃeɪp ɑr ˈmaɪndˌsɛt/",
+          "usage": "Dùng với động từ chỉ trạng thái như think, feel, know, believe — không chia tiếp diễn.",
           "title": "Present simple for mental states",
           "category": "Tense",
-          "formula": "S + V(s/es) + O (think, feel, know, believe)",
-          "example": "I think habits shape our mindset.",
-          "pronunciation": "aɪ θɪŋk ˈhæbɪts ʃeɪp ˈaʊə ˈmaɪndset"
+          "alternatives": [
+            {
+              "formula": "S + think/feel/believe + clause",
+              "context": "Ý kiến hoặc cảm nhận hiện tại",
+              "example": "I think habits shape our mindset. (Tôi nghĩ thói quen hình thành tư duy.)"
+            },
+            {
+              "formula": "S + tend to + V",
+              "context": "Xu hướng chung, có tính quy luật",
+              "example": "I tend to overthink before presentations. (Tôi có xu hướng suy nghĩ quá nhiều trước khi thuyết trình.)"
+            },
+            {
+              "formula": "It seems to me + clause",
+              "context": "Ý kiến cá nhân nhẹ nhàng, ít khẳng định",
+              "example": "It seems to me that sleep affects my mood. (Theo tôi, giấc ngủ ảnh hưởng đến tâm trạng của tôi.)"
+            }
+          ]
         },
         {
-          "title": "‘used to’ for past habits",
+          "formula": "S + used to + V",
+          "example": "I used to worry a lot. (Tôi từng lo lắng rất nhiều.)",
+          "pronunciation": "/aɪ juzd tɪ ˈwəri ə lɔt/",
+          "usage": "Dùng để nói về thói quen suy nghĩ hoặc cảm xúc trong quá khứ mà nay đã thay đổi.",
+          "title": "'Used to' for past mental habits",
           "category": "Tense",
-          "formula": "S + used to + V + O",
-          "example": "I used to worry a lot.",
-          "pronunciation": "aɪ juːst tə ˈwʌri ə lɒt"
+          "alternatives": [
+            {
+              "formula": "S + used to + V",
+              "context": "Thói quen cũ đã thay đổi",
+              "example": "I used to worry a lot. (Tôi từng lo lắng rất nhiều.)"
+            },
+            {
+              "formula": "In the past, S + V2",
+              "context": "Nhấn mạnh mốc thời gian quá khứ",
+              "example": "In the past, I worried about things I couldn't control. (Trước đây, tôi lo về những thứ mình không kiểm soát được.)"
+            },
+            {
+              "formula": "S + no longer + V",
+              "context": "Đã thay đổi và không còn như trước",
+              "example": "I no longer panic when plans change. (Tôi không còn hoảng khi kế hoạch thay đổi.)"
+            }
+          ]
         },
         {
-          "title": "‘if’ + mental state",
+          "formula": "If + S + V(present), S + will/can + V",
+          "example": "If you feel anxious, you can take a deep breath. (Nếu bạn cảm thấy lo lắng, bạn có thể hít thở sâu.)",
+          "pronunciation": "/ɪf ju fil ˈæŋʃəs, ju kən teɪk ə dip brɛθ/",
+          "usage": "Dùng để nói về kết quả có thể xảy ra khi một tình huống cảm xúc xảy ra.",
+          "title": "First conditional for coping",
           "category": "Conditional",
-          "formula": "If + S + V(present), S + will/can + V + O",
-          "example": "If you feel anxious, take a deep breath.",
-          "pronunciation": "ɪf juː fiːl ˈæŋkʃəs, teɪk ə diːp breθ"
+          "alternatives": [
+            {
+              "formula": "If + S + V(present), S + will/can + V",
+              "context": "Điều kiện có thể xảy ra ở hiện tại hoặc tương lai",
+              "example": "If you feel anxious, you can take a deep breath. (Nếu bạn cảm thấy lo lắng, bạn có thể hít thở sâu.)"
+            },
+            {
+              "formula": "Unless + S + V(present), S + will + V",
+              "context": "Điều kiện phủ định",
+              "example": "Unless you rest, you will burn out. (Nếu bạn không nghỉ ngơi, bạn sẽ kiệt sức.)"
+            },
+            {
+              "formula": "When + S + V(present), S + V(present)",
+              "context": "Quy luật tự nhiên, luôn đúng",
+              "example": "When I feel stressed, I go for a short walk. (Khi tôi căng thẳng, tôi đi bộ một chút.)"
+            }
+          ]
         },
         {
-          "title": "‘make’ + someone + feel",
-          "category": "Causative",
           "formula": "S + make + O + feel + adj",
-          "example": "Good sleep makes me feel calmer.",
-          "pronunciation": "ɡʊd sliːp meɪks miː fiːl ˈkɑːmə"
+          "example": "Good sleep makes me feel calmer. (Giấc ngủ tốt khiến tôi bình tĩnh hơn.)",
+          "pronunciation": "/gʊd slip meɪks mi fil ˈkɑmər/",
+          "usage": "Dùng để nói một việc hoặc người gây ra cảm giác nào đó cho ai.",
+          "title": "'Make' + someone + feel",
+          "category": "Causative",
+          "alternatives": [
+            {
+              "formula": "S + make + O + feel + adj",
+              "context": "Tác động trực tiếp đến cảm xúc",
+              "example": "Good sleep makes me feel calmer. (Giấc ngủ tốt khiến tôi bình tĩnh hơn.)"
+            },
+            {
+              "formula": "S + help + O + feel + adj",
+              "context": "Tác động tích cực, nhẹ hơn make",
+              "example": "Talking to a friend helps me feel less alone. (Nói chuyện với bạn giúp tôi bớt cô đơn.)"
+            },
+            {
+              "formula": "S + leave + O + feeling + adj",
+              "context": "Để lại cảm giác sau một sự việc",
+              "example": "The news left me feeling hopeful. (Tin đó khiến tôi cảm thấy hy vọng.)"
+            }
+          ]
         }
       ],
       "examples": [
@@ -975,7 +1375,7 @@
         {
           "term": "church",
           "meaning": "nhà thờ",
-          "pronunciation": "/tʃɜːtʃ/",
+          "pronunciation": "/tʃɜːrtʃ/",
           "score": 0
         },
         {
@@ -987,7 +1387,7 @@
         {
           "term": "prayer",
           "meaning": "lời cầu nguyện",
-          "pronunciation": "/preə/",
+          "pronunciation": "/prer/",
           "score": 0
         },
         {
@@ -999,7 +1399,7 @@
         {
           "term": "sermon",
           "meaning": "bài giảng",
-          "pronunciation": "/ˈsɜːmən/",
+          "pronunciation": "/ˈsɜːrmən/",
           "score": 0
         },
         {
@@ -1017,38 +1417,128 @@
         {
           "term": "choir",
           "meaning": "ca đoàn",
-          "pronunciation": "/ˈkwaɪə/",
+          "pronunciation": "/ˈkwaɪər/",
+          "score": 0
+        },
+        {
+          "term": "congregation",
+          "meaning": "cộng đoàn",
+          "pronunciation": "/ˌkɑːŋɡrəˈɡeɪʃən/",
+          "score": 0
+        },
+        {
+          "term": "pew",
+          "meaning": "ghế ngồi trong nhà thờ",
+          "pronunciation": "/pjuː/",
+          "score": 0
+        },
+        {
+          "term": "worship",
+          "meaning": "thờ phượng",
+          "pronunciation": "/ˈwɜːrʃɪp/",
           "score": 0
         }
       ],
       "grammar": [
         {
+          "formula": "S + V(s/es) + every Sunday",
+          "example": "I go to church every Sunday morning. (Tôi đi nhà thờ mỗi sáng Chủ nhật.)",
+          "pronunciation": "/aɪ goʊ tɪ ʧərʧ ˈɛvəri ˈsənˌdi ˈmɔrnɪŋ/",
+          "usage": "Dùng cho thói quen tôn giáo lặp lại hằng tuần.",
           "title": "Present simple for weekly worship",
           "category": "Tense",
-          "formula": "S + V(s/es) + O + every Sunday / usually",
-          "example": "I go to church every Sunday morning.",
-          "pronunciation": "aɪ ɡəʊ tə tʃɜːtʃ ˈevri ˈsʌndeɪ ˈmɔːnɪŋ"
+          "alternatives": [
+            {
+              "formula": "S + V(s/es) + every Sunday",
+              "context": "Thói quen cố định hằng tuần",
+              "example": "I go to church every Sunday morning. (Tôi đi nhà thờ mỗi sáng Chủ nhật.)"
+            },
+            {
+              "formula": "S + usually + V",
+              "context": "Tần suất không tuyệt đối",
+              "example": "I usually attend the nine o'clock mass. (Tôi thường dự lễ lúc chín giờ.)"
+            },
+            {
+              "formula": "On Sundays, S + V",
+              "context": "Nhấn mạnh ngày cố định",
+              "example": "On Sundays, we sing in the choir. (Vào Chủ nhật, chúng tôi hát trong ca đoàn.)"
+            }
+          ]
         },
         {
-          "title": "Present perfect for experience",
-          "category": "Tense",
           "formula": "S + have/has + been to + place",
-          "example": "I have been to that parish before.",
-          "pronunciation": "aɪ hæv biːn tə ðæt ˈpærɪʃ bɪˈfɔː"
+          "example": "I have been to that parish before. (Tôi đã từng đến giáo xứ đó.)",
+          "pronunciation": "/aɪ hæv bɪn tɪ ðət ˈpɛrɪʃ ˌbiˈfɔr/",
+          "usage": "Dùng khi nói về trải nghiệm đã từng có, không quan trọng thời điểm cụ thể.",
+          "title": "Present perfect for worship experiences",
+          "category": "Tense",
+          "alternatives": [
+            {
+              "formula": "S + have/has + been to + place",
+              "context": "Trải nghiệm đã từng có",
+              "example": "I have been to that parish before. (Tôi đã từng đến giáo xứ đó.)"
+            },
+            {
+              "formula": "S + V2 + past time",
+              "context": "Nói lần đầu hoặc lần cuối cụ thể",
+              "example": "I visited that parish last Christmas. (Tôi đã đến giáo xứ đó Giáng sinh năm ngoái.)"
+            },
+            {
+              "formula": "S + have/has never + V3",
+              "context": "Chưa từng có trải nghiệm",
+              "example": "I have never been to a midnight mass. (Tôi chưa từng dự lễ nửa đêm.)"
+            }
+          ]
         },
         {
-          "title": "‘go to’ + church",
-          "category": "Preposition",
-          "formula": "go to + church (no article)",
-          "example": "We go to church at nine.",
-          "pronunciation": "wi ɡəʊ tə tʃɜːtʃ æt naɪn"
+          "formula": "go to + church / bed / hospital (no article)",
+          "example": "We go to church at nine. (Chúng tôi đi nhà thờ lúc chín giờ.)",
+          "pronunciation": "/wi goʊ tɪ ʧərʧ æt naɪn/",
+          "usage": "Dùng 'go to church/bed/hospital' khi nói đến mục đích chính của nơi đó; thêm 'the' khi nói đến tòa nhà cụ thể.",
+          "title": "Zero article with institutions",
+          "category": "Article",
+          "alternatives": [
+            {
+              "formula": "go to + church / bed / hospital (no article)",
+              "context": "Đi đến nơi để thực hiện mục đích chính",
+              "example": "We go to church at nine. (Chúng tôi đi nhà thờ lúc chín giờ.)"
+            },
+            {
+              "formula": "attend + mass/service",
+              "context": "Tham dự nghi lễ, trang trọng",
+              "example": "We attend mass every Sunday. (Chúng tôi dự lễ mỗi Chủ nhật.)"
+            },
+            {
+              "formula": "go to the + church building",
+              "context": "Đi đến tòa nhà cụ thể, không nhấn mục đích tôn giáo",
+              "example": "The workers went to the church to repair the roof. (Những người thợ đến nhà thờ để sửa mái.)"
+            }
+          ]
         },
         {
-          "title": "Polite invitations",
+          "formula": "Would + you + like + to + V?",
+          "example": "Would you like to come to mass with us? (Bạn có muốn đi lễ với chúng tôi không?)",
+          "pronunciation": "/wʊd ju laɪk tɪ kəm tɪ mæs wɪθ ˈjuˈɛs/",
+          "usage": "Dùng để mời ai đó tham dự lễ hoặc sinh hoạt cộng đoàn một cách lịch sự.",
+          "title": "Polite invitations to mass",
           "category": "Modal",
-          "formula": "Would + you + like + to + V + O?",
-          "example": "Would you like to come to mass with us?",
-          "pronunciation": "wʊd ju laɪk tə kʌm tə mæs wɪð ʌs"
+          "alternatives": [
+            {
+              "formula": "Would + you + like + to + V?",
+              "context": "Lời mời lịch sự, trang trọng",
+              "example": "Would you like to come to mass with us? (Bạn có muốn đi lễ với chúng tôi không?)"
+            },
+            {
+              "formula": "Do you want to + V?",
+              "context": "Thân mật, ít trang trọng",
+              "example": "Do you want to join us for lunch after mass? (Bạn có muốn ăn trưa với chúng tôi sau lễ không?)"
+            },
+            {
+              "formula": "How about + V-ing?",
+              "context": "Gợi ý nhẹ nhàng",
+              "example": "How about sitting together in the front row? (Hay là chúng ta ngồi cùng nhau ở hàng ghế đầu?)"
+            }
+          ]
         }
       ],
       "examples": [
@@ -1129,7 +1619,7 @@
         {
           "term": "market",
           "meaning": "chợ",
-          "pronunciation": "/ˈmɑːkɪt/",
+          "pronunciation": "/ˈmɑːrkɪt/",
           "score": 0
         },
         {
@@ -1141,13 +1631,13 @@
         {
           "term": "bargain",
           "meaning": "món hời",
-          "pronunciation": "/ˈbɑːɡɪn/",
+          "pronunciation": "/ˈbɑːrɡən/",
           "score": 0
         },
         {
           "term": "vendor",
           "meaning": "người bán hàng",
-          "pronunciation": "/ˈvendə/",
+          "pronunciation": "/ˈvendər/",
           "score": 0
         },
         {
@@ -1160,6 +1650,12 @@
           "term": "bag",
           "meaning": "túi",
           "pronunciation": "/bæɡ/",
+          "score": 0
+        },
+        {
+          "term": "reusable bag",
+          "meaning": "túi tái sử dụng",
+          "pronunciation": "/riˈjuːzəbəl bæɡ/",
           "score": 0
         },
         {
@@ -1177,38 +1673,122 @@
         {
           "term": "loose change",
           "meaning": "tiền lẻ",
-          "pronunciation": "/luːs tʃeɪndʒ/",
+          "pronunciation": "/ˌluːs ˈtʃeɪndʒ/",
+          "score": 0
+        },
+        {
+          "term": "stall",
+          "meaning": "sạp hàng",
+          "pronunciation": "/stɔːl/",
+          "score": 0
+        },
+        {
+          "term": "ripe",
+          "meaning": "chín",
+          "pronunciation": "/raɪp/",
           "score": 0
         }
       ],
       "grammar": [
         {
+          "formula": "S + usually + V + at the market",
+          "example": "I usually buy fresh vegetables at the market on Sunday. (Tôi thường mua rau tươi ở chợ vào Chủ nhật.)",
+          "pronunciation": "/aɪ ˈjuʒəwəli baɪ frɛʃ ˈvɛʤtəbəlz æt ðə ˈmɑrkɪt ɔn ˈsənˌdi/",
+          "usage": "Dùng cho thói quen mua sắm lặp lại ở chợ.",
           "title": "Present simple for market routines",
           "category": "Tense",
-          "formula": "S + V(s/es) + O + every Saturday / usually",
-          "example": "I usually buy fresh vegetables at the market on Sunday.",
-          "pronunciation": "aɪ ˈjuːʒəli baɪ freʃ ˈvedʒtəblz æt ðə ˈmɑːkɪt ɒn ˈsʌndeɪ"
+          "alternatives": [
+            {
+              "formula": "S + usually + V + at the market",
+              "context": "Thói quen lặp lại vào cuối tuần",
+              "example": "I usually buy fresh vegetables at the market on Sunday. (Tôi thường mua rau tươi ở chợ vào Chủ nhật.)"
+            },
+            {
+              "formula": "S + tend to + V",
+              "context": "Xu hướng thường làm",
+              "example": "I tend to arrive early before the market gets crowded. (Tôi thường đến sớm trước khi chợ đông.)"
+            },
+            {
+              "formula": "This month, S + am/is/are + V-ing",
+              "context": "Thói quen tạm thời",
+              "example": "This month, I'm shopping at the farmers' market. (Tháng này tôi mua sắm ở chợ nông sản.)"
+            }
+          ]
         },
         {
-          "title": "Polite requests with ‘could’",
-          "category": "Request",
           "formula": "Could + you + V + O, please?",
-          "example": "Could you weigh these tomatoes, please?",
-          "pronunciation": "kʊd ju weɪ ðiːz təˈmɑːtəʊz pliːz"
+          "example": "Could you weigh these tomatoes, please? (Bạn có thể cân những quả cà chua này không?)",
+          "pronunciation": "/kʊd ju weɪ ðiz təˈmɑtoʊz, pliz/",
+          "usage": "Dùng để nhờ người bán giúp một việc nhỏ một cách lịch sự.",
+          "title": "Polite requests with 'could'",
+          "category": "Request",
+          "alternatives": [
+            {
+              "formula": "Could + you + V + O, please?",
+              "context": "Nhờ vả lịch sự với người lạ",
+              "example": "Could you weigh these tomatoes, please? (Bạn có thể cân những quả cà chua này không?)"
+            },
+            {
+              "formula": "Can I have + N, please?",
+              "context": "Yêu cầu trực tiếp, thân mật",
+              "example": "Can I have a kilo of carrots, please? (Cho tôi một ký cà rốt nhé?)"
+            },
+            {
+              "formula": "Would you mind + V-ing?",
+              "context": "Yêu cầu lịch sự, trang trọng",
+              "example": "Would you mind checking the price for me? (Bạn có phiền kiểm tra giá giúp tôi không?)"
+            }
+          ]
         },
         {
-          "title": "‘how much’ for price",
+          "formula": "How much + be + N?",
+          "example": "How much are these oranges? (Những quả cam này giá bao nhiêu?)",
+          "pronunciation": "/haʊ məʧ ər ðiz ˈɔrɪnʤɪz/",
+          "usage": "Dùng 'how much' với giá hoặc danh từ không đếm được, 'how many' với số lượng đếm được.",
+          "title": "'How much' and 'how many' for shopping",
           "category": "Question",
-          "formula": "How much + be + N / How much + do/does + S + V?",
-          "example": "How much are these oranges?",
-          "pronunciation": "haʊ mʌtʃ ɑː ðiːz ˈɒrɪndʒɪz"
+          "alternatives": [
+            {
+              "formula": "How much + be + N?",
+              "context": "Hỏi giá của món hàng",
+              "example": "How much are these oranges? (Những quả cam này giá bao nhiêu?)"
+            },
+            {
+              "formula": "What's the price of + N?",
+              "context": "Hỏi giá lịch sự, rõ ràng",
+              "example": "What's the price of this bag of rice? (Túi gạo này giá bao nhiêu?)"
+            },
+            {
+              "formula": "How many + plural N + do you need?",
+              "context": "Hỏi số lượng cần mua",
+              "example": "How many eggs do you need? (Bạn cần bao nhiêu quả trứng?)"
+            }
+          ]
         },
         {
-          "title": "Imperatives for advice",
+          "formula": "V + O; Don't + V + O",
+          "example": "Check the price before you buy. (Kiểm tra giá trước khi mua.)",
+          "pronunciation": "/ʧɛk ðə praɪs ˌbiˈfɔr ju baɪ/",
+          "usage": "Dùng để đưa lời khuyên nhanh, trực tiếp khi mua sắm.",
+          "title": "Imperatives for shopping advice",
           "category": "Imperative",
-          "formula": "V + O · (-) Don’t + V + O",
-          "example": "Check the price before you buy.",
-          "pronunciation": "tʃek ðə praɪs bɪˈfɔː ju baɪ"
+          "alternatives": [
+            {
+              "formula": "V + O; Don't + V + O",
+              "context": "Lời khuyên trực tiếp, ngắn gọn",
+              "example": "Check the price before you buy. (Kiểm tra giá trước khi mua.)"
+            },
+            {
+              "formula": "You should + V",
+              "context": "Lời khuyên lịch sự hơn",
+              "example": "You should bring a reusable bag. (Bạn nên mang túi tái sử dụng.)"
+            },
+            {
+              "formula": "It's better to + V",
+              "context": "Khuyến nghị nhẹ nhàng",
+              "example": "It's better to pay in cash at small stalls. (Tốt hơn là trả tiền mặt ở các sạp nhỏ.)"
+            }
+          ]
         }
       ],
       "examples": [
@@ -1289,13 +1869,13 @@
         {
           "term": "hang out",
           "meaning": "đi chơi",
-          "pronunciation": "/hæŋ aʊt/",
+          "pronunciation": "/ˌhæŋ ˈaʊt/",
           "score": 0
         },
         {
           "term": "café",
           "meaning": "quán cà phê",
-          "pronunciation": "/ˈkæfeɪ/",
+          "pronunciation": "/kæˈfeɪ/",
           "score": 0
         },
         {
@@ -1307,13 +1887,13 @@
         {
           "term": "meet up",
           "meaning": "gặp nhau",
-          "pronunciation": "/miːt ʌp/",
+          "pronunciation": "/ˌmiːt ˈʌp/",
           "score": 0
         },
         {
           "term": "reservation",
           "meaning": "đặt chỗ",
-          "pronunciation": "/ˌrezəˈveɪʃən/",
+          "pronunciation": "/ˌrezərˈveɪʃən/",
           "score": 0
         },
         {
@@ -1323,15 +1903,15 @@
           "score": 0
         },
         {
-          "term": "late",
-          "meaning": "muộn",
-          "pronunciation": "/leɪt/",
+          "term": "running late",
+          "meaning": "đang trễ giờ",
+          "pronunciation": "/ˌrʌnɪŋ ˈleɪt/",
           "score": 0
         },
         {
-          "term": "split",
-          "meaning": "chia",
-          "pronunciation": "/splɪt/",
+          "term": "split the tab",
+          "meaning": "chia hoá đơn",
+          "pronunciation": "/ˌsplɪt ðə ˈtæb/",
           "score": 0
         },
         {
@@ -1339,36 +1919,126 @@
           "meaning": "taxi",
           "pronunciation": "/ˈtæksi/",
           "score": 0
+        },
+        {
+          "term": "catch a movie",
+          "meaning": "xem phim",
+          "pronunciation": "/ˌkætʃ ə ˈmuːvi/",
+          "score": 0
+        },
+        {
+          "term": "rain check",
+          "meaning": "dời lịch",
+          "pronunciation": "/ˈreɪn tʃek/",
+          "score": 0
+        },
+        {
+          "term": "turn up",
+          "meaning": "đến",
+          "pronunciation": "/ˌtɜːrn ˈʌp/",
+          "score": 0
         }
       ],
       "grammar": [
         {
-          "title": "‘Let’s’ for suggestions",
+          "formula": "Let's + V",
+          "example": "Let's meet up at seven. (Hãy gặp nhau lúc bảy giờ.)",
+          "pronunciation": "/lɛts mit əp æt ˈsɛvən/",
+          "usage": "Dùng để đưa ra gợi ý về hoạt động chung trong cuối tuần.",
+          "title": "'Let's' for outing suggestions",
           "category": "Modal",
-          "formula": "Let’s + V + O / Why don’t we + V + O?",
-          "example": "Let’s meet up at seven.",
-          "pronunciation": "lets miːt ʌp æt ˈsevən"
+          "alternatives": [
+            {
+              "formula": "Let's + V",
+              "context": "Gợi ý trực tiếp, thân mật",
+              "example": "Let's meet up at seven. (Hãy gặp nhau lúc bảy giờ.)"
+            },
+            {
+              "formula": "How about + V-ing?",
+              "context": "Gợi ý thân mật, mở",
+              "example": "How about grabbing a coffee first? (Hay là uống cà phê trước nhé?)"
+            },
+            {
+              "formula": "Shall we + V?",
+              "context": "Đề nghị lịch sự, cùng quyết",
+              "example": "Shall we take the train instead? (Chúng ta đi tàu thay vì xe nhé?)"
+            }
+          ]
         },
         {
-          "title": "‘going to’ for plans",
-          "category": "Future",
-          "formula": "S + am/is/are + going to + V + O",
-          "example": "We’re going to watch a movie.",
-          "pronunciation": "wɪə ˈɡəʊɪŋ tə wɒtʃ ə ˈmuːvi"
-        },
-        {
+          "formula": "S + am/is/are + V-ing + future time",
+          "example": "I'm meeting friends at six. (Tôi gặp bạn bè lúc sáu giờ.)",
+          "pronunciation": "/əm ˈmitɪŋ frɛndz æt sɪks/",
+          "usage": "Dùng khi cuộc hẹn đã được sắp xếp cụ thể về thời gian hoặc địa điểm.",
           "title": "Present continuous for future arrangements",
           "category": "Future",
-          "formula": "S + am/is/are + V-ing + O + future time",
-          "example": "I’m meeting friends at six.",
-          "pronunciation": "aɪm ˈmiːtɪŋ frendz æt sɪks"
+          "alternatives": [
+            {
+              "formula": "S + am/is/are + V-ing + future time",
+              "context": "Lịch hẹn đã chốt",
+              "example": "I'm meeting friends at six. (Tôi gặp bạn bè lúc sáu giờ.)"
+            },
+            {
+              "formula": "S + am/is/are + going to + V",
+              "context": "Dự định đã quyết nhưng chưa chốt lịch",
+              "example": "We're going to watch a movie after dinner. (Chúng tôi sẽ xem phim sau bữa tối.)"
+            },
+            {
+              "formula": "S + will + V",
+              "context": "Quyết định ngay lúc nói",
+              "example": "I'll call you when I arrive. (Tôi sẽ gọi cho bạn khi đến.)"
+            }
+          ]
         },
         {
-          "title": "‘Would you like …?’ offers",
+          "formula": "at + clock time · on + day/date · in + part of day",
+          "example": "The movie starts at seven on Saturday. (Phim bắt đầu lúc bảy giờ thứ Bảy.)",
+          "pronunciation": "/ðə ˈmuvi stɑrts æt ˈsɛvən ɔn ˈsæˌtɪˌdeɪ/",
+          "usage": "Dùng để nói thời gian của cuộc hẹn: at cho giờ, on cho ngày, in cho buổi.",
+          "title": "Prepositions of time for outings",
+          "category": "Preposition",
+          "alternatives": [
+            {
+              "formula": "at + clock time · on + day/date · in + part of day",
+              "context": "Nói giờ và ngày của cuộc hẹn",
+              "example": "The movie starts at seven on Saturday. (Phim bắt đầu lúc bảy giờ thứ Bảy.)"
+            },
+            {
+              "formula": "by + time",
+              "context": "Hạn chót, không muộn hơn",
+              "example": "Let's be there by six thirty. (Hãy có mặt trước sáu giờ ba mươi.)"
+            },
+            {
+              "formula": "until + time",
+              "context": "Kéo dài đến một mốc thời gian",
+              "example": "The café is open until eleven. (Quán mở đến mười một giờ.)"
+            }
+          ]
+        },
+        {
+          "formula": "Would + you + like + to + V?",
+          "example": "Would you like to grab a coffee? (Bạn có muốn đi uống cà phê không?)",
+          "pronunciation": "/wʊd ju laɪk tɪ græb ə ˈkɔfi/",
+          "usage": "Dùng để mời ai đó tham gia một hoạt động một cách tự nhiên, không gây áp lực.",
+          "title": "Polite offers for outings",
           "category": "Modal",
-          "formula": "Would + you + like + N / to + V + O?",
-          "example": "Would you like to grab a coffee?",
-          "pronunciation": "wʊd ju laɪk tə ɡræb ə ˈkɒfi"
+          "alternatives": [
+            {
+              "formula": "Would + you + like + to + V?",
+              "context": "Lời mời lịch sự",
+              "example": "Would you like to grab a coffee? (Bạn có muốn đi uống cà phê không?)"
+            },
+            {
+              "formula": "Do you want to + V?",
+              "context": "Thân mật, nhanh",
+              "example": "Do you want to join us for a walk? (Bạn có muốn đi dạo với chúng tôi không?)"
+            },
+            {
+              "formula": "Fancy + V-ing?",
+              "context": "Khẩu ngữ Anh-Anh, rất thân mật",
+              "example": "Fancy seeing a film tonight? (Có muốn xem phim tối nay không?)"
+            }
+          ]
         }
       ],
       "examples": [
@@ -1449,7 +2119,7 @@
         {
           "term": "sleep in",
           "meaning": "ngủ nướng",
-          "pronunciation": "/sliːp ɪn/",
+          "pronunciation": "/ˌsliːp ˈɪn/",
           "score": 0
         },
         {
@@ -1467,7 +2137,7 @@
         {
           "term": "recharge",
           "meaning": "nạp năng lượng",
-          "pronunciation": "/ˌriːˈtʃɑːdʒ/",
+          "pronunciation": "/ˌriːˈtʃɑːrdʒ/",
           "score": 0
         },
         {
@@ -1479,19 +2149,19 @@
         {
           "term": "cozy",
           "meaning": "ấm cúng",
-          "pronunciation": "/ˈkəʊzi/",
+          "pronunciation": "/ˈkoʊzi/",
           "score": 0
         },
         {
           "term": "no alarm",
           "meaning": "không đặt báo thức",
-          "pronunciation": "/nəʊ əˈlɑːm/",
+          "pronunciation": "/ˌnoʊ əˈlɑːrm/",
           "score": 0
         },
         {
-          "term": "binge",
-          "meaning": "xem/liên tục",
-          "pronunciation": "/bɪndʒ/",
+          "term": "binge-watch",
+          "meaning": "xem liên tục",
+          "pronunciation": "/ˈbɪndʒ wɑːtʃ/",
           "score": 0
         },
         {
@@ -1499,36 +2169,126 @@
           "meaning": "lười",
           "pronunciation": "/ˈleɪzi/",
           "score": 0
+        },
+        {
+          "term": "downtime",
+          "meaning": "thời gian nghỉ",
+          "pronunciation": "/ˈdaʊntaɪm/",
+          "score": 0
+        },
+        {
+          "term": "take a break",
+          "meaning": "nghỉ ngơi",
+          "pronunciation": "/ˌteɪk ə ˈbreɪk/",
+          "score": 0
+        },
+        {
+          "term": "screen time",
+          "meaning": "thời gian dùng màn hình",
+          "pronunciation": "/ˈskriːn taɪm/",
+          "score": 0
         }
       ],
       "grammar": [
         {
+          "formula": "S + am/is/are + V-ing + now",
+          "example": "I'm just relaxing on the sofa. (Tôi đang thư giãn trên ghế sofa.)",
+          "pronunciation": "/əm ʤɪst rɪˈlæksɪŋ ɔn ðə ˈsoʊfə/",
+          "usage": "Dùng để nói về hành động thư giãn đang diễn ra ngay lúc nói.",
           "title": "Present continuous for current rest",
           "category": "Tense",
-          "formula": "S + am/is/are + V-ing + O (+ now/right now)",
-          "example": "I’m just relaxing on the sofa.",
-          "pronunciation": "aɪm dʒʌst rɪˈlæksɪŋ ɒn ðə ˈsəʊfə"
+          "alternatives": [
+            {
+              "formula": "S + am/is/are + V-ing + now",
+              "context": "Hành động đang diễn ra",
+              "example": "I'm just relaxing on the sofa. (Tôi đang thư giãn trên ghế sofa.)"
+            },
+            {
+              "formula": "S + usually + V",
+              "context": "Thói quen thay vì hành động hiện tại",
+              "example": "I usually relax at home on Sundays. (Tôi thường thư giãn ở nhà vào Chủ nhật.)"
+            },
+            {
+              "formula": "Right now, S + am/is/are + V-ing",
+              "context": "Nhấn mạnh thời điểm hiện tại",
+              "example": "Right now, I'm watching my favourite series. (Ngay lúc này, tôi đang xem bộ phim yêu thích.)"
+            }
+          ]
         },
         {
-          "title": "Adverbs of frequency",
+          "formula": "S + adverb + V",
+          "example": "I rarely set an alarm on Sunday. (Tôi hiếm khi đặt báo thức vào Chủ nhật.)",
+          "pronunciation": "/aɪ ˈrɛrli sɛt ən əˈlɑrm ɔn ˈsənˌdi/",
+          "usage": "Dùng để nói mức độ thường xuyên của thói quen nghỉ ngơi.",
+          "title": "Adverbs of frequency for rest",
           "category": "Adverb",
-          "formula": "S + adverb + V + O",
-          "example": "I rarely set an alarm on Sunday.",
-          "pronunciation": "aɪ ˈreəli set ən əˈlɑːm ɒn ˈsʌndeɪ"
+          "alternatives": [
+            {
+              "formula": "S + adverb + V",
+              "context": "Tần suất trung bình hoặc thấp",
+              "example": "I rarely set an alarm on Sunday. (Tôi hiếm khi đặt báo thức vào Chủ nhật.)"
+            },
+            {
+              "formula": "S + hardly ever + V",
+              "context": "Gần như không bao giờ, mạnh hơn rarely",
+              "example": "I hardly ever check work emails at weekends. (Tôi gần như không kiểm tra email công việc vào cuối tuần.)"
+            },
+            {
+              "formula": "S + tend to + V",
+              "context": "Xu hướng chung, không nói tần suất chính xác",
+              "example": "I tend to sleep in on Saturdays. (Tôi có xu hướng ngủ nướng vào thứ Bảy.)"
+            }
+          ]
         },
         {
-          "title": "‘feel like’ + V-ing",
+          "formula": "S + feel like + V-ing",
+          "example": "I feel like staying in bed. (Tôi muốn ở trên giường.)",
+          "pronunciation": "/aɪ fil laɪk steɪɪŋ ɪn bɛd/",
+          "usage": "Dùng để nói mong muốn tạm thời tại thời điểm nói.",
+          "title": "'Feel like' + V-ing",
           "category": "Modal",
-          "formula": "S + feel like + V-ing + O",
-          "example": "I feel like staying in bed.",
-          "pronunciation": "aɪ fiːl laɪk ˈsteɪɪŋ ɪn bed"
+          "alternatives": [
+            {
+              "formula": "S + feel like + V-ing",
+              "context": "Mong muốn nhẹ, tạm thời",
+              "example": "I feel like staying in bed. (Tôi muốn ở trên giường.)"
+            },
+            {
+              "formula": "S + be in the mood for + N/V-ing",
+              "context": "Hứng thú tạm thời",
+              "example": "I'm in the mood for a light comedy. (Tôi đang muốn xem một bộ phim hài nhẹ nhàng.)"
+            },
+            {
+              "formula": "S + would rather + V",
+              "context": "Thích lựa chọn này hơn lựa chọn khác",
+              "example": "I'd rather stay home than go out tonight. (Tối nay tôi thích ở nhà hơn là ra ngoài.)"
+            }
+          ]
         },
         {
-          "title": "‘not … at all’ for emphasis",
+          "formula": "S + don't/doesn't + V + at all",
+          "example": "I'm not doing anything at all today. (Hôm nay tôi không làm gì cả.)",
+          "pronunciation": "/əm nɑt duɪŋ ˈɛniˌθɪŋ æt ɔl təˈdeɪ/",
+          "usage": "Dùng để nhấn mạnh hoàn toàn không làm gì hoặc không có gì.",
+          "title": "'Not ... at all' for emphasis",
           "category": "Adverb",
-          "formula": "S + don’t/doesn’t + V + O + at all",
-          "example": "I’m not doing anything at all today.",
-          "pronunciation": "aɪm nɒt ˈduːɪŋ ˈeniθɪŋ æt ɔːl təˈdeɪ"
+          "alternatives": [
+            {
+              "formula": "S + don't/doesn't + V + at all",
+              "context": "Phủ định hoàn toàn",
+              "example": "I'm not doing anything at all today. (Hôm nay tôi không làm gì cả.)"
+            },
+            {
+              "formula": "S + be + completely + adj",
+              "context": "Nhấn mạnh trạng thái hoàn toàn",
+              "example": "I'm completely free this afternoon. (Chiều nay tôi hoàn toàn rảnh.)"
+            },
+            {
+              "formula": "S + never + V",
+              "context": "Phủ định mạnh về thói quen",
+              "example": "I never schedule meetings on Sundays. (Tôi không bao giờ xếp họp vào Chủ nhật.)"
+            }
+          ]
         }
       ],
       "examples": [
@@ -1609,7 +2369,7 @@
         {
           "term": "chore",
           "meaning": "việc nhà",
-          "pronunciation": "/tʃɔː/",
+          "pronunciation": "/tʃɔːr/",
           "score": 0
         },
         {
@@ -1633,13 +2393,13 @@
         {
           "term": "tidy up",
           "meaning": "dọn dẹp",
-          "pronunciation": "/ˈtaɪdi ʌp/",
+          "pronunciation": "/ˌtaɪdi ˈʌp/",
           "score": 0
         },
         {
           "term": "take out the trash",
           "meaning": "đổ rác",
-          "pronunciation": "/teɪk aʊt ðə træʃ/",
+          "pronunciation": "/ˌteɪk aʊt ðə ˈtræʃ/",
           "score": 0
         },
         {
@@ -1651,7 +2411,7 @@
         {
           "term": "mop",
           "meaning": "lau nhà",
-          "pronunciation": "/mɒp/",
+          "pronunciation": "/mɑːp/",
           "score": 0
         },
         {
@@ -1659,36 +2419,126 @@
           "meaning": "dọn sạch",
           "pronunciation": "/kliːn/",
           "score": 0
+        },
+        {
+          "term": "declutter",
+          "meaning": "dọn đồ thừa",
+          "pronunciation": "/diːˈklʌtər/",
+          "score": 0
+        },
+        {
+          "term": "fold the laundry",
+          "meaning": "gấp đồ giặt",
+          "pronunciation": "/ˌfoʊld ðə ˈlɔːndri/",
+          "score": 0
+        },
+        {
+          "term": "sweep the floor",
+          "meaning": "quét nhà",
+          "pronunciation": "/ˌswiːp ðə ˈflɔːr/",
+          "score": 0
         }
       ],
       "grammar": [
         {
+          "formula": "V + O; Don't + V + O",
+          "example": "Tidy up the living room. (Dọn dẹp phòng khách.)",
+          "pronunciation": "/ˈtaɪdi əp ðə ˈlɪvɪŋ rum/",
+          "usage": "Dùng để yêu cầu hoặc nhắc ai làm việc nhà một cách ngắn gọn.",
           "title": "Imperatives for chores",
           "category": "Imperative",
-          "formula": "V + O · (-) Don’t + V + O",
-          "example": "Tidy up the living room.",
-          "pronunciation": "ˈtaɪdi ʌp ðə ˈlɪvɪŋ ruːm"
+          "alternatives": [
+            {
+              "formula": "V + O; Don't + V + O",
+              "context": "Yêu cầu trực tiếp trong nhà",
+              "example": "Tidy up the living room. (Dọn dẹp phòng khách.)"
+            },
+            {
+              "formula": "Could you + V?",
+              "context": "Nhờ vả lịch sự",
+              "example": "Could you take out the trash? (Bạn có thể đổ rác không?)"
+            },
+            {
+              "formula": "Let's + V",
+              "context": "Cùng làm, thân mật",
+              "example": "Let's clean the kitchen together. (Chúng ta cùng dọn bếp nhé.)"
+            }
+          ]
         },
         {
-          "title": "‘have to’ for obligation",
+          "formula": "S + have/has to + V",
+          "example": "I have to do the laundry today. (Hôm nay tôi phải giặt đồ.)",
+          "pronunciation": "/aɪ hæv tɪ du ðə ˈlɔndri təˈdeɪ/",
+          "usage": "Dùng khi có việc nhà bắt buộc phải hoàn thành.",
+          "title": "'Have to' for household obligations",
           "category": "Modal",
-          "formula": "S + have to / has to + V + O",
-          "example": "I have to do the laundry today.",
-          "pronunciation": "aɪ hæv tə duː ðə ˈlɔːndri təˈdeɪ"
+          "alternatives": [
+            {
+              "formula": "S + have/has to + V",
+              "context": "Nghĩa vụ bắt buộc",
+              "example": "I have to do the laundry today. (Hôm nay tôi phải giặt đồ.)"
+            },
+            {
+              "formula": "S + need to + V",
+              "context": "Cần thiết vì mục đích cụ thể",
+              "example": "We need to buy more detergent. (Chúng ta cần mua thêm nước giặt.)"
+            },
+            {
+              "formula": "S + be supposed to + V",
+              "context": "Nghĩa vụ theo phân công, có thể không muốn",
+              "example": "I'm supposed to vacuum the stairs. (Tôi được phân công hút bụi cầu thang.)"
+            }
+          ]
         },
         {
-          "title": "‘who’ questions for tasks",
+          "formula": "Who + be + V-ing + O?",
+          "example": "Who is doing the dishes? (Ai đang rửa bát?)",
+          "pronunciation": "/hu ɪz duɪŋ ðə ˈdɪʃɪz/",
+          "usage": "Dùng để hỏi ai đang làm hoặc chịu trách nhiệm một việc nhà.",
+          "title": "'Who' questions for chores",
           "category": "Question",
-          "formula": "Who + V + O?",
-          "example": "Who is doing the dishes?",
-          "pronunciation": "huː ɪz ˈduːɪŋ ðə ˈdɪʃɪz"
+          "alternatives": [
+            {
+              "formula": "Who + be + V-ing + O?",
+              "context": "Hỏi ai đang làm việc gì",
+              "example": "Who is doing the dishes? (Ai đang rửa bát?)"
+            },
+            {
+              "formula": "Whose turn is it to + V?",
+              "context": "Hỏi lượt trực nhật",
+              "example": "Whose turn is it to mop the floor? (Đến lượt ai lau nhà?)"
+            },
+            {
+              "formula": "Who's responsible for + N?",
+              "context": "Hỏi trách nhiệm chính thức",
+              "example": "Who's responsible for taking out the recycling? (Ai chịu trách nhiệm đổ rác tái chế?)"
+            }
+          ]
         },
         {
-          "title": "‘already’ for completed tasks",
+          "formula": "S + have/has + already + V3",
+          "example": "I've already taken out the trash. (Tôi đã đổ rác rồi.)",
+          "pronunciation": "/aɪv ɔˈrɛdi ˈteɪkən aʊt ðə træʃ/",
+          "usage": "Dùng để nói việc nhà đã xong, vừa xong hoặc chưa xong.",
+          "title": "'Already', 'just', and 'yet' for tasks",
           "category": "Adverb",
-          "formula": "S + have/has + already + V3 + O",
-          "example": "I’ve already taken out the trash.",
-          "pronunciation": "aɪv ɔːlˈredi ˈteɪkən aʊt ðə træʃ"
+          "alternatives": [
+            {
+              "formula": "S + have/has + already + V3",
+              "context": "Việc đã hoàn thành trước thời điểm hiện tại",
+              "example": "I've already taken out the trash. (Tôi đã đổ rác rồi.)"
+            },
+            {
+              "formula": "S + have/has + just + V3",
+              "context": "Vừa mới xong",
+              "example": "I've just finished the dishes. (Tôi vừa rửa xong bát.)"
+            },
+            {
+              "formula": "Have/Has + S + V3 + yet?",
+              "context": "Hỏi việc đã xong chưa",
+              "example": "Have you cleaned the bathroom yet? (Bạn đã dọn phòng tắm chưa?)"
+            }
+          ]
         }
       ],
       "examples": [
@@ -1775,7 +2625,7 @@
         {
           "term": "rollback",
           "meaning": "khôi phục phiên bản cũ",
-          "pronunciation": "/ˈrəʊlbæk/",
+          "pronunciation": "/ˈroʊlbæk/",
           "score": 0
         },
         {
@@ -1799,13 +2649,13 @@
         {
           "term": "root cause",
           "meaning": "nguyên nhân gốc",
-          "pronunciation": "/ruːt kɔːz/",
+          "pronunciation": "/ˌruːt ˈkɔːz/",
           "score": 0
         },
         {
           "term": "monitoring",
           "meaning": "giám sát",
-          "pronunciation": "/ˈmɒnɪtərɪŋ/",
+          "pronunciation": "/ˈmɑːnɪtərɪŋ/",
           "score": 0
         },
         {
@@ -1817,7 +2667,7 @@
         {
           "term": "postmortem",
           "meaning": "đánh giá sau sự cố",
-          "pronunciation": "/ˌpəʊstˈmɔːtəm/",
+          "pronunciation": "/ˌpoʊstˈmɔːrtəm/",
           "score": 0
         },
         {
@@ -1829,7 +2679,7 @@
         {
           "term": "on-call",
           "meaning": "trực sự cố",
-          "pronunciation": "/ˌɒn ˈkɔːl/",
+          "pronunciation": "/ˌɑːn ˈkɔːl/",
           "score": 0
         },
         {
@@ -1841,32 +2691,104 @@
       ],
       "grammar": [
         {
+          "formula": "S + have/has + V3",
+          "example": "We have deployed the fix to staging. (Chúng tôi đã triển khai bản sửa lên staging.)",
+          "pronunciation": "/wi hæv dɪˈplɔɪd ðə fɪks tɪ ˈsteɪʤɪŋ/",
+          "usage": "Dùng để báo cáo việc đã làm và kết quả còn liên quan đến cuộc họp hiện tại.",
           "title": "Present perfect for updates",
           "category": "Tense",
-          "formula": "S + have/has + V3 + O · (-) S + haven’t/hasn’t + V3 + O · (?) Have/Has + S + V3 + O?",
-          "example": "We have deployed the fix to staging.",
-          "pronunciation": "wi hæv dɪˈplɔɪd ðə fɪks tə ˈsteɪdʒɪŋ"
+          "alternatives": [
+            {
+              "formula": "S + have/has + V3",
+              "context": "Cập nhật kết quả đã hoàn thành",
+              "example": "We have deployed the fix to staging. (Chúng tôi đã triển khai bản sửa lên staging.)"
+            },
+            {
+              "formula": "S + V2 + past time",
+              "context": "Nói thời điểm cụ thể",
+              "example": "We deployed the fix at 10 a.m. (Chúng tôi triển khai bản sửa lúc 10 giờ.)"
+            },
+            {
+              "formula": "S + have/has + just + V3",
+              "context": "Vừa mới xong, nhấn tính thời sự",
+              "example": "We've just deployed the fix to staging. (Chúng tôi vừa triển khai bản sửa lên staging.)"
+            }
+          ]
         },
         {
+          "formula": "S + have/has + been + V-ing + since/for",
+          "example": "We have been monitoring the cluster since the incident. (Chúng tôi đã giám sát cụm máy từ khi xảy ra sự cố.)",
+          "pronunciation": "/wi hæv bɪn ˈmɑnətərɪŋ ðə ˈkləstər sɪns ðə ˈɪnsədənt/",
+          "usage": "Dùng khi hành động bắt đầu trong quá khứ và vẫn đang tiếp diễn, thường có since/for.",
           "title": "Present perfect continuous for ongoing work",
           "category": "Tense",
-          "formula": "S + have/has + been + V-ing + (for/since + time)",
-          "example": "We have been monitoring the cluster since the incident.",
-          "pronunciation": "wi hæv biːn ˈmɒnɪtərɪŋ ðə ˈklʌstə sɪns ðə ˈɪnsɪdənt"
+          "alternatives": [
+            {
+              "formula": "S + have/has + been + V-ing + since/for",
+              "context": "Hành động kéo dài đến hiện tại",
+              "example": "We have been monitoring the cluster since the incident. (Chúng tôi đã giám sát cụm máy từ khi xảy ra sự cố.)"
+            },
+            {
+              "formula": "S + have/has + V3 + for + time",
+              "context": "Nhấn kết quả hoặc khối lượng đã làm",
+              "example": "We have monitored the cluster for two days. (Chúng tôi đã giám sát cụm máy được hai ngày.)"
+            },
+            {
+              "formula": "S + was/were + V-ing + past time",
+              "context": "Hành động kéo dài trong một khoảng quá khứ",
+              "example": "We were monitoring the cluster all morning. (Chúng tôi đã giám sát cụm máy suốt buổi sáng.)"
+            }
+          ]
         },
         {
+          "formula": "If + S + V(present), S + will/can + V",
+          "example": "If the error rate spikes, we'll roll back immediately. (Nếu tỷ lệ lỗi tăng, chúng tôi sẽ rollback ngay.)",
+          "pronunciation": "/ɪf ðə ˈɛrər reɪt spaɪks, wɪl roʊl bæk ˌɪˈmiˌdiətli/",
+          "usage": "Dùng để nói rủi ro có thể xảy ra và hành động ứng phó tương ứng.",
           "title": "First conditional for risk",
           "category": "Conditional",
-          "formula": "If + S + V(present), S + will/can + V + O",
-          "example": "If the error rate spikes, we roll back.",
-          "pronunciation": "ɪf ðə ˈerə reɪt spaɪks, wi rəʊl bæk"
+          "alternatives": [
+            {
+              "formula": "If + S + V(present), S + will/can + V",
+              "context": "Điều kiện rủi ro có thể xảy ra",
+              "example": "If the error rate spikes, we'll roll back immediately. (Nếu tỷ lệ lỗi tăng, chúng tôi sẽ rollback ngay.)"
+            },
+            {
+              "formula": "Unless + S + V(present), S + will + V",
+              "context": "Điều kiện phủ định",
+              "example": "Unless the error rate drops, we'll roll back. (Trừ khi tỷ lệ lỗi giảm, chúng tôi sẽ rollback.)"
+            },
+            {
+              "formula": "As long as + S + V(present), S + will + V",
+              "context": "Điều kiện duy trì",
+              "example": "As long as the error rate stays low, we'll keep the release. (Miễn là tỷ lệ lỗi thấp, chúng tôi sẽ giữ bản release.)"
+            }
+          ]
         },
         {
+          "formula": "S + was/were + V3",
+          "example": "The service was restored at 9:15. (Dịch vụ đã được khôi phục lúc 9:15.)",
+          "pronunciation": "/ðə ˈsərvɪs wɑz rɪˈstɔrd æt 9:15*/",
+          "usage": "Dùng khi người thực hiện không quan trọng hoặc không cần nêu trong báo cáo sự cố.",
           "title": "Passive for incident reports",
           "category": "Passive",
-          "formula": "S + was/were + V3 (+ by + agent)",
-          "example": "The service was restored at 9:15.",
-          "pronunciation": "ðə ˈsɜːvɪs wɒz rɪˈstɔːd æt naɪn ˈfɪfˈtiːn"
+          "alternatives": [
+            {
+              "formula": "S + was/were + V3",
+              "context": "Nhấn sự việc, không nhấn người làm",
+              "example": "The service was restored at 9:15. (Dịch vụ đã được khôi phục lúc 9:15.)"
+            },
+            {
+              "formula": "S + V2 + O",
+              "context": "Nhấn người thực hiện",
+              "example": "The on-call engineer restored the service at 9:15. (Kỹ sư trực đã khôi phục dịch vụ lúc 9:15.)"
+            },
+            {
+              "formula": "S + got + V3",
+              "context": "Văn nói, nhấn sự việc xảy ra",
+              "example": "The service got restored after the rollback. (Dịch vụ đã được khôi phục sau rollback.)"
+            }
+          ]
         }
       ],
       "examples": [
@@ -1947,19 +2869,19 @@
         {
           "term": "good morning",
           "meaning": "chào buổi sáng",
-          "pronunciation": "/ɡʊd ˈmɔːnɪŋ/",
+          "pronunciation": "/ɡʊd ˈmɔːrnɪŋ/",
           "score": 0
         },
         {
           "term": "how’s it going",
           "meaning": "dạo này thế nào",
-          "pronunciation": "/haʊz ɪt ˈɡəʊɪŋ/",
+          "pronunciation": "/ˌhaʊz ɪt ˈɡoʊɪŋ/",
           "score": 0
         },
         {
           "term": "lovely weather",
           "meaning": "thời tiết đẹp",
-          "pronunciation": "/ˈlʌvli ˈweðə/",
+          "pronunciation": "/ˈlʌvli ˈweðər/",
           "score": 0
         },
         {
@@ -1971,80 +2893,152 @@
         {
           "term": "catch up",
           "meaning": "trò chuyện cập nhật",
-          "pronunciation": "/kætʃ ʌp/",
+          "pronunciation": "/ˌkætʃ ˈʌp/",
           "score": 0
         },
         {
           "term": "have a good one",
           "meaning": "chúc một ngày tốt lành",
-          "pronunciation": "/hæv ə ɡʊd wʌn/",
+          "pronunciation": "/ˌhæv ə ˈɡʊd wʌn/",
           "score": 0
         },
         {
           "term": "neighbor",
           "meaning": "hàng xóm",
-          "pronunciation": "/ˈneɪbə/",
+          "pronunciation": "/ˈneɪbər/",
           "score": 0
         },
         {
           "term": "small talk",
           "meaning": "chuyện xã giao ngắn",
-          "pronunciation": "/smɔːl tɔːk/",
+          "pronunciation": "/ˈsmɔːl tɔːk/",
           "score": 0
         },
         {
           "term": "take care",
           "meaning": "giữ gìn sức khoẻ",
-          "pronunciation": "/teɪk keə/",
+          "pronunciation": "/ˌteɪk ˈker/",
           "score": 0
         },
         {
           "term": "elevator",
           "meaning": "thang máy",
-          "pronunciation": "/ˈelɪveɪtə/",
+          "pronunciation": "/ˈeləveɪtər/",
           "score": 0
         },
         {
           "term": "front door",
           "meaning": "cửa chính",
-          "pronunciation": "/ˌfrʌnt ˈdɔː/",
+          "pronunciation": "/ˌfrʌnt ˈdɔːr/",
           "score": 0
         },
         {
           "term": "have a nice day",
           "meaning": "chúc ngày tốt lành",
-          "pronunciation": "/hæv ə naɪs deɪ/",
+          "pronunciation": "/ˌhæv ə ˈnaɪs ˈdeɪ/",
           "score": 0
         }
       ],
       "grammar": [
         {
+          "formula": "S + am/is/are + V-ing + now",
+          "example": "I'm just heading to the station. (Tôi đang đi ra ga.)",
+          "pronunciation": "/əm ʤɪst ˈhɛdɪŋ tɪ ðə ˈsteɪʃən/",
+          "usage": "Dùng khi gặp hàng xóm và nói về việc đang làm ngay lúc đó.",
           "title": "Present continuous for now",
           "category": "Tense",
-          "formula": "S + am/is/are + V-ing + O (+ now/right now)",
-          "example": "I’m just heading to the station.",
-          "pronunciation": "aɪm dʒʌst ˈhedɪŋ tə ðə ˈsteɪʃən"
+          "alternatives": [
+            {
+              "formula": "S + am/is/are + V-ing + now",
+              "context": "Hành động đang diễn ra khi nói",
+              "example": "I'm just heading to the station. (Tôi đang đi ra ga.)"
+            },
+            {
+              "formula": "S + be about to + V",
+              "context": "Hành động sắp xảy ra ngay",
+              "example": "I'm about to leave — can we talk later? (Tôi sắp đi rồi — nói chuyện sau nhé?)"
+            },
+            {
+              "formula": "S + usually + V",
+              "context": "Thói quen, không phải lúc này",
+              "example": "I usually leave at seven. (Tôi thường đi lúc bảy giờ.)"
+            }
+          ]
         },
         {
+          "formula": "Positive statement, + negative tag?",
+          "example": "Lovely morning, isn't it? (Buổi sáng đẹp quá, phải không?)",
+          "pronunciation": "/ˈləvli ˈmɔrnɪŋ, ˈɪzənt ɪt/",
+          "usage": "Dùng để xác nhận hoặc mở đầu câu chuyện xã giao một cách thân thiện.",
           "title": "Question tags for small talk",
           "category": "Question tag",
-          "formula": "Positive statement, + negative tag? / Negative statement, + positive tag?",
-          "example": "Lovely morning, isn’t it?",
-          "pronunciation": "ˈlʌvli ˈmɔːnɪŋ, ˈɪznt ɪt"
+          "alternatives": [
+            {
+              "formula": "Positive statement, + negative tag?",
+              "context": "Xác nhận lịch sự, thân thiện",
+              "example": "Lovely morning, isn't it? (Buổi sáng đẹp quá, phải không?)"
+            },
+            {
+              "formula": "Statement, + right?",
+              "context": "Khẩu ngữ, xác nhận nhanh",
+              "example": "You're new here, right? (Bạn mới đến đây phải không?)"
+            },
+            {
+              "formula": "Short response / echo",
+              "context": "Đồng tình, không cần tag",
+              "example": "Beautiful day! (Một ngày đẹp trời!)"
+            }
+          ]
         },
         {
-          "title": "Adverbs of frequency",
+          "formula": "S + adverb + V",
+          "example": "I usually leave around seven. (Tôi thường đi lúc bảy giờ.)",
+          "pronunciation": "/aɪ ˈjuʒəwəli liv əraʊnd ˈsɛvən/",
+          "usage": "Dùng để nói mức độ thường xuyên khi trò chuyện với hàng xóm.",
+          "title": "Adverbs of frequency in small talk",
           "category": "Adverb",
-          "formula": "S + adverb + V + O (before main verb, after “be”)",
-          "example": "I usually leave around seven.",
-          "pronunciation": "aɪ ˈjuːʒəli liːv əˈraʊnd ˈsevən"
+          "alternatives": [
+            {
+              "formula": "S + adverb + V",
+              "context": "Tần suất trung bình",
+              "example": "I usually leave around seven. (Tôi thường đi lúc bảy giờ.)"
+            },
+            {
+              "formula": "S + tend to + V",
+              "context": "Xu hướng chung",
+              "example": "I tend to take the bus when it rains. (Tôi có xu hướng đi xe buýt khi trời mưa.)"
+            },
+            {
+              "formula": "S + hardly ever + V",
+              "context": "Tần suất rất thấp",
+              "example": "I hardly ever see you in the morning. (Tôi hiếm khi gặp bạn vào buổi sáng.)"
+            }
+          ]
         },
         {
+          "formula": "S + V(s/es)",
+          "example": "She works near my building. (Cô ấy làm việc gần tòa nhà của tôi.)",
+          "pronunciation": "/ʃi wərks nɪr maɪ ˈbɪldɪŋ/",
+          "usage": "Dùng để nói thông tin cố định về người hoặc nơi chốn.",
           "title": "Present simple for facts",
           "category": "Tense",
-          "formula": "S + V(s/es) + O · (-) S + don’t/doesn’t + V + O · (?) Do/Does + S + V + O?",
-          "example": "She works near my building.",
-          "pronunciation": "ʃi wɜːks nɪə maɪ ˈbɪldɪŋ"
+          "alternatives": [
+            {
+              "formula": "S + V(s/es)",
+              "context": "Thông tin cố định, đúng ở hiện tại",
+              "example": "She works near my building. (Cô ấy làm việc gần tòa nhà của tôi.)"
+            },
+            {
+              "formula": "S + live + place",
+              "context": "Nơi sinh sống",
+              "example": "She lives two streets away. (Cô ấy sống cách hai con phố.)"
+            },
+            {
+              "formula": "S + be + noun",
+              "context": "Nghề nghiệp, danh tính",
+              "example": "She's a nurse at the local clinic. (Cô ấy là y tá ở phòng khám địa phương.)"
+            }
+          ]
         }
       ],
       "examples": [
@@ -2137,43 +3131,43 @@
         {
           "term": "dinner",
           "meaning": "bữa tối",
-          "pronunciation": "/ˈdɪnə/",
+          "pronunciation": "/ˈdɪnər/",
           "score": 0
         },
         {
           "term": "portion",
           "meaning": "khẩu phần",
-          "pronunciation": "/ˈpɔːʃən/",
+          "pronunciation": "/ˈpɔːrʃən/",
           "score": 0
         },
         {
           "term": "skip a meal",
           "meaning": "bỏ bữa",
-          "pronunciation": "/skɪp ə miːl/",
+          "pronunciation": "/ˌskɪp ə ˈmiːl/",
           "score": 0
         },
         {
           "term": "eat out",
           "meaning": "ăn ngoài",
-          "pronunciation": "/iːt aʊt/",
+          "pronunciation": "/ˌiːt ˈaʊt/",
           "score": 0
         },
         {
           "term": "home-cooked",
           "meaning": "nấu tại nhà",
-          "pronunciation": "/ˌhəʊm ˈkʊkt/",
+          "pronunciation": "/ˌhoʊm ˈkʊkt/",
           "score": 0
         },
         {
           "term": "leftovers",
           "meaning": "đồ ăn thừa",
-          "pronunciation": "/ˈleftəʊvəz/",
+          "pronunciation": "/ˈleftoʊvərz/",
           "score": 0
         },
         {
           "term": "balanced meal",
           "meaning": "bữa ăn cân đối",
-          "pronunciation": "/ˈbælənst miːl/",
+          "pronunciation": "/ˌbælənst ˈmiːl/",
           "score": 0
         },
         {
@@ -2185,7 +3179,7 @@
         {
           "term": "bowl",
           "meaning": "cái bát",
-          "pronunciation": "/bəʊl/",
+          "pronunciation": "/boʊl/",
           "score": 0
         },
         {
@@ -2197,32 +3191,104 @@
       ],
       "grammar": [
         {
-          "title": "Adverbs of frequency",
+          "formula": "S + adverb + V",
+          "example": "I usually have rice for lunch. (Tôi thường ăn cơm trưa.)",
+          "pronunciation": "/aɪ ˈjuʒəwəli hæv raɪs fər lənʧ/",
+          "usage": "Dùng để nói mức độ thường xuyên của thói quen ăn uống.",
+          "title": "Adverbs of frequency for meals",
           "category": "Adverb",
-          "formula": "S + adverb + V + O · (-) S + don’t/doesn’t usually + V + O · (?) Do/Does + S + usually + V + O?",
-          "example": "I usually have rice for lunch.",
-          "pronunciation": "aɪ ˈjuːʒəli hæv raɪs fə lʌntʃ"
+          "alternatives": [
+            {
+              "formula": "S + adverb + V",
+              "context": "Tần suất trung bình",
+              "example": "I usually have rice for lunch. (Tôi thường ăn cơm trưa.)"
+            },
+            {
+              "formula": "S + tend to + V",
+              "context": "Xu hướng chung",
+              "example": "I tend to eat a light dinner. (Tôi có xu hướng ăn tối nhẹ.)"
+            },
+            {
+              "formula": "S + hardly ever + V",
+              "context": "Tần suất rất thấp",
+              "example": "I hardly ever skip breakfast. (Tôi hiếm khi bỏ bữa sáng.)"
+            }
+          ]
         },
         {
-          "title": "Portions with countable and uncountable nouns",
-          "category": "Quantifier",
           "formula": "a/an + N (countable) · some + N (uncountable/plural) · a bowl of + N",
-          "example": "I’d like a bowl of soup and some rice.",
-          "pronunciation": "aɪd laɪk ə bəʊl əv suːp ænd sʌm raɪs"
+          "example": "I'd like a bowl of soup and some rice. (Tôi muốn một bát súp và cơm.)",
+          "pronunciation": "/aɪd laɪk ə boʊl əv sup ənd səm raɪs/",
+          "usage": "Dùng để nói số lượng món ăn: a/an cho danh từ đếm được, some/a little cho không đếm được, a few cho số nhiều.",
+          "title": "Quantifiers for portions",
+          "category": "Quantifier",
+          "alternatives": [
+            {
+              "formula": "a/an + N (countable) · some + N (uncountable/plural) · a bowl of + N",
+              "context": "Gọi một phần ăn cụ thể",
+              "example": "I'd like a bowl of soup and some rice. (Tôi muốn một bát súp và cơm.)"
+            },
+            {
+              "formula": "a few + plural N",
+              "context": "Số lượng nhỏ, đếm được",
+              "example": "I'll have a few slices of bread. (Tôi sẽ ăn vài lát bánh mì.)"
+            },
+            {
+              "formula": "a little + uncountable N",
+              "context": "Số lượng nhỏ, không đếm được",
+              "example": "Could I have a little more soup? (Cho tôi thêm một chút súp?)"
+            }
+          ]
         },
         {
-          "title": "Present simple for habits",
+          "formula": "S + V(s/es) + time",
+          "example": "I have breakfast at seven every day. (Tôi ăn sáng lúc bảy giờ mỗi ngày.)",
+          "pronunciation": "/aɪ hæv ˈbrɛkfəst æt ˈsɛvən ˈɛvəri deɪ/",
+          "usage": "Dùng để nói giờ ăn hoặc thói quen ăn uống lặp lại.",
+          "title": "Present simple for meal habits",
           "category": "Tense",
-          "formula": "S + V(s/es) + O + time · (-) S + don’t/doesn’t + V + O · (?) Do/Does + S + V + O?",
-          "example": "I have breakfast at seven every day.",
-          "pronunciation": "aɪ hæv ˈbrekfəst æt ˈsevən ˈevri deɪ"
+          "alternatives": [
+            {
+              "formula": "S + V(s/es) + time",
+              "context": "Thói quen hằng ngày",
+              "example": "I have breakfast at seven every day. (Tôi ăn sáng lúc bảy giờ mỗi ngày.)"
+            },
+            {
+              "formula": "S + usually + V",
+              "context": "Không tuyệt đối mỗi ngày",
+              "example": "I usually have breakfast at seven. (Tôi thường ăn sáng lúc bảy giờ.)"
+            },
+            {
+              "formula": "S + never + V",
+              "context": "Thói quen phủ định mạnh",
+              "example": "I never skip lunch. (Tôi không bao giờ bỏ bữa trưa.)"
+            }
+          ]
         },
         {
-          "title": "‘would like’ for ordering",
+          "formula": "S + would like + N / to + V",
+          "example": "I'd like some tea, please. (Cho tôi xin ít trà.)",
+          "pronunciation": "/aɪd laɪk səm ti, pliz/",
+          "usage": "Dùng để gọi món hoặc yêu cầu đồ ăn một cách lịch sự.",
+          "title": "'Would like' for ordering",
           "category": "Modal",
-          "formula": "S + would like + N / to + V + O · (-) S + wouldn’t like + N · (?) Would + S + like + N?",
-          "example": "I’d like some tea, please.",
-          "pronunciation": "aɪd laɪk sʌm tiː pliːz"
+          "alternatives": [
+            {
+              "formula": "S + would like + N / to + V",
+              "context": "Gọi món lịch sự",
+              "example": "I'd like some tea, please. (Cho tôi xin ít trà.)"
+            },
+            {
+              "formula": "I'll have + N",
+              "context": "Gọi món trực tiếp, thân mật",
+              "example": "I'll have the grilled fish, please. (Cho tôi món cá nướng.)"
+            },
+            {
+              "formula": "Can I get + N?",
+              "context": "Khẩu ngữ, quán cà phê",
+              "example": "Can I get a glass of water? (Cho tôi một ly nước được không?)"
+            }
+          ]
         }
       ],
       "examples": [
@@ -2302,25 +3368,25 @@
         {
           "term": "energy level",
           "meaning": "mức năng lượng",
-          "pronunciation": "/ˈenədʒi ˌlevəl/",
+          "pronunciation": "/ˈenərdʒi ˌlevəl/",
           "score": 0
         },
         {
-          "term": "get back into routine",
+          "term": "get back into a routine",
           "meaning": "trở lại thói quen",
-          "pronunciation": "/ɡet bæk ˈɪntuː ruːˈtiːn/",
+          "pronunciation": "/ɡet bæk ˈɪntu ə ruːˈtiːn/",
           "score": 0
         },
         {
           "term": "wrap up warm",
           "meaning": "mặc ấm",
-          "pronunciation": "/ræp ʌp wɔːm/",
+          "pronunciation": "/ˌræp ʌp ˈwɔːrm/",
           "score": 0
         },
         {
           "term": "cozy",
           "meaning": "ấm cúng",
-          "pronunciation": "/ˈkəʊzi/",
+          "pronunciation": "/ˈkoʊzi/",
           "score": 0
         },
         {
@@ -2332,13 +3398,13 @@
         {
           "term": "schedule",
           "meaning": "lịch trình",
-          "pronunciation": "/ˈʃedjuːl/",
+          "pronunciation": "/ˈskedʒuːl/",
           "score": 0
         },
         {
           "term": "stay active",
           "meaning": "duy trì vận động",
-          "pronunciation": "/steɪ ˈæktɪv/",
+          "pronunciation": "/ˌsteɪ ˈæktɪv/",
           "score": 0
         },
         {
@@ -2352,36 +3418,126 @@
           "meaning": "cân bằng",
           "pronunciation": "/ˈbælənst/",
           "score": 0
+        },
+        {
+          "term": "sunlight",
+          "meaning": "ánh sáng mặt trời",
+          "pronunciation": "/ˈsʌnlaɪt/",
+          "score": 0
+        },
+        {
+          "term": "layer up",
+          "meaning": "mặc nhiều lớp",
+          "pronunciation": "/ˌleɪər ˈʌp/",
+          "score": 0
+        },
+        {
+          "term": "seasonal",
+          "meaning": "theo mùa",
+          "pronunciation": "/ˈsiːzənəl/",
+          "score": 0
         }
       ],
       "grammar": [
         {
-          "title": "Present simple for routines",
+          "formula": "S + V(s/es) + frequency",
+          "example": "I usually walk in the park in autumn. (Tôi thường đi bộ trong công viên vào mùa thu.)",
+          "pronunciation": "/aɪ ˈjuʒəwəli wɔk ɪn ðə pɑrk ɪn ˈɔtəm/",
+          "usage": "Dùng để nói thói quen lặp lại vào mùa thu.",
+          "title": "Present simple for seasonal routines",
           "category": "Tense",
-          "formula": "S + V(s/es) + O + (usually/every day) · (-) S + don’t/doesn’t + V + O · (?) Do/Does + S + V + O?",
-          "example": "I usually walk in the park in autumn.",
-          "pronunciation": "aɪ ˈjuːʒəli wɔːk ɪn ðə pɑːk ɪn ˈɔːtəm"
+          "alternatives": [
+            {
+              "formula": "S + V(s/es) + frequency",
+              "context": "Thói quen theo mùa",
+              "example": "I usually walk in the park in autumn. (Tôi thường đi bộ trong công viên vào mùa thu.)"
+            },
+            {
+              "formula": "S + tend to + V",
+              "context": "Xu hướng theo mùa",
+              "example": "I tend to sleep earlier when the days get shorter. (Tôi có xu hướng ngủ sớm hơn khi ngày ngắn lại.)"
+            },
+            {
+              "formula": "S + V + every + time",
+              "context": "Tần suất đều đặn",
+              "example": "I go for a walk every evening after work. (Tôi đi bộ mỗi tối sau giờ làm.)"
+            }
+          ]
         },
         {
+          "formula": "S + am/is/are + V-ing + this week/now",
+          "example": "I'm trying to sleep earlier this week. (Tuần này tôi đang cố ngủ sớm hơn.)",
+          "pronunciation": "/əm traɪɪŋ tɪ slip ˈərliər ðɪs wik/",
+          "usage": "Dùng khi thói quen hoặc tình trạng chỉ tạm thời trong một khoảng ngắn.",
           "title": "Present continuous for temporary changes",
           "category": "Tense",
-          "formula": "S + am/is/are + V-ing + O + (this week/now)",
-          "example": "I’m trying to sleep earlier this week.",
-          "pronunciation": "aɪm ˈtraɪɪŋ tə sliːp ˈɜːliə ðɪs wiːk"
+          "alternatives": [
+            {
+              "formula": "S + am/is/are + V-ing + this week/now",
+              "context": "Thay đổi tạm thời trong tuần",
+              "example": "I'm trying to sleep earlier this week. (Tuần này tôi đang cố ngủ sớm hơn.)"
+            },
+            {
+              "formula": "These days, S + am/is/are + V-ing",
+              "context": "Thay đổi gần đây",
+              "example": "These days, I'm drinking more herbal tea. (Dạo này tôi uống nhiều trà thảo mộc hơn.)"
+            },
+            {
+              "formula": "At the moment, S + am/is/are + V-ing",
+              "context": "Tình trạng ngay lúc này",
+              "example": "At the moment, I'm working from home. (Hiện tại tôi đang làm việc ở nhà.)"
+            }
+          ]
         },
         {
+          "formula": "N1 + be + adj-er/more adj + than + N2",
+          "example": "The days are shorter than in summer. (Những ngày ngắn hơn mùa hè.)",
+          "pronunciation": "/ðə deɪz ər ˈʃɔrtər ðən ɪn ˈsəmər/",
+          "usage": "Dùng để so sánh thời tiết hoặc đặc điểm giữa các mùa.",
           "title": "Comparatives for seasons",
           "category": "Comparison",
-          "formula": "N1 + be + adj-er / more adj + than + N2",
-          "example": "The days are shorter than in summer.",
-          "pronunciation": "ðə deɪz ɑː ˈʃɔːtə ðæn ɪn ˈsʌmə"
+          "alternatives": [
+            {
+              "formula": "N1 + be + adj-er/more adj + than + N2",
+              "context": "So sánh hai mùa",
+              "example": "The days are shorter than in summer. (Những ngày ngắn hơn mùa hè.)"
+            },
+            {
+              "formula": "N1 + be + as + adj + as + N2",
+              "context": "So sánh ngang bằng",
+              "example": "Autumn is as colourful as spring here. (Mùa thu ở đây rực rỡ như mùa xuân.)"
+            },
+            {
+              "formula": "N1 + be + the + superlative",
+              "context": "So sánh nhất trong nhóm",
+              "example": "Winter is the coldest season in my city. (Mùa đông là mùa lạnh nhất ở thành phố tôi.)"
+            }
+          ]
         },
         {
-          "title": "‘going to’ for intentions",
+          "formula": "S + am/is/are + going to + V",
+          "example": "I'm going to cycle to work more often. (Tôi sẽ đạp xe đi làm thường xuyên hơn.)",
+          "pronunciation": "/əm goʊɪŋ tɪ ˈsaɪkəl tɪ wərk mɔr ˈɔfən/",
+          "usage": "Dùng để nói dự định chuẩn bị cho mùa đông hoặc thay đổi thói quen.",
+          "title": "'Be going to' for winter intentions",
           "category": "Future",
-          "formula": "S + am/is/are + going to + V + O",
-          "example": "I’m going to cycle to work more often.",
-          "pronunciation": "aɪm ˈɡəʊɪŋ tə ˈsaɪkl tə wɜːk mɔː ˈɒfən"
+          "alternatives": [
+            {
+              "formula": "S + am/is/are + going to + V",
+              "context": "Dự định đã quyết",
+              "example": "I'm going to cycle to work more often. (Tôi sẽ đạp xe đi làm thường xuyên hơn.)"
+            },
+            {
+              "formula": "S + plan to + V",
+              "context": "Kế hoạch có chủ đích",
+              "example": "I plan to join a gym this winter. (Tôi dự định tham gia phòng gym mùa đông này.)"
+            },
+            {
+              "formula": "S + will + V",
+              "context": "Quyết định ngay lúc nói",
+              "example": "I'll buy a warmer coat this weekend. (Cuối tuần này tôi sẽ mua một chiếc áo ấm hơn.)"
+            }
+          ]
         }
       ],
       "examples": [
@@ -2449,19 +3605,19 @@
         {
           "term": "on track",
           "meaning": "đúng tiến độ",
-          "pronunciation": "/ɒn træk/",
+          "pronunciation": "/ˌɑːn ˈtræk/",
           "score": 0
         },
         {
           "term": "blocker",
           "meaning": "điểm chặn",
-          "pronunciation": "/ˈblɒkə/",
+          "pronunciation": "/ˈblɑːkər/",
           "score": 0
         },
         {
           "term": "hand off",
           "meaning": "bàn giao",
-          "pronunciation": "/hænd ɒf/",
+          "pronunciation": "/ˌhænd ˈɔːf/",
           "score": 0
         },
         {
@@ -2473,7 +3629,7 @@
         {
           "term": "progress update",
           "meaning": "cập nhật tiến độ",
-          "pronunciation": "/ˈprəʊɡres ˈʌpdeɪt/",
+          "pronunciation": "/ˈprɑːɡres ˈʌpdeɪt/",
           "score": 0
         },
         {
@@ -2485,50 +3641,140 @@
         {
           "term": "prioritize",
           "meaning": "ưu tiên",
-          "pronunciation": "/praɪˈɒrətaɪz/",
+          "pronunciation": "/praɪˈɔːrətaɪz/",
           "score": 0
         },
         {
           "term": "follow up",
           "meaning": "theo dõi tiếp",
-          "pronunciation": "/ˈfɒləʊ ʌp/",
+          "pronunciation": "/ˌfɑːloʊ ˈʌp/",
           "score": 0
         },
         {
           "term": "workload",
           "meaning": "khối lượng công việc",
-          "pronunciation": "/ˈwɜːkləʊd/",
+          "pronunciation": "/ˈwɜːrkloʊd/",
+          "score": 0
+        },
+        {
+          "term": "scope creep",
+          "meaning": "phình phạm vi",
+          "pronunciation": "/ˈskoʊp kriːp/",
+          "score": 0
+        },
+        {
+          "term": "milestone",
+          "meaning": "cột mốc",
+          "pronunciation": "/ˈmaɪlstoʊn/",
+          "score": 0
+        },
+        {
+          "term": "bandwidth",
+          "meaning": "khả năng xử lý",
+          "pronunciation": "/ˈbændwɪdθ/",
           "score": 0
         }
       ],
       "grammar": [
         {
+          "formula": "S + have/has + V3",
+          "example": "We have finished the first review. (Chúng tôi đã hoàn thành buổi review đầu tiên.)",
+          "pronunciation": "/wi hæv ˈfɪnɪʃt ðə fərst ˌrivˈju/",
+          "usage": "Dùng để báo cáo tiến độ đã đạt được tính đến hiện tại.",
           "title": "Present perfect for progress",
           "category": "Tense",
-          "formula": "S + have/has + V3 + O · (-) S + haven’t/hasn’t + V3 + O · (?) Have/Has + S + V3 + O?",
-          "example": "We have finished the first review.",
-          "pronunciation": "wi hæv ˈfɪnɪʃt ðə fɜːst rɪˈvjuː"
+          "alternatives": [
+            {
+              "formula": "S + have/has + V3",
+              "context": "Kết quả đã hoàn thành",
+              "example": "We have finished the first review. (Chúng tôi đã hoàn thành buổi review đầu tiên.)"
+            },
+            {
+              "formula": "S + V2 + past time",
+              "context": "Thời điểm cụ thể",
+              "example": "We finished the first review yesterday. (Chúng tôi đã hoàn thành buổi review đầu tiên hôm qua.)"
+            },
+            {
+              "formula": "So far, S + have/has + V3",
+              "context": "Tiến độ tính đến hiện tại",
+              "example": "So far, we've completed three of five tasks. (Tính đến nay, chúng tôi đã hoàn thành ba trong năm nhiệm vụ.)"
+            }
+          ]
         },
         {
-          "title": "Passive for status",
+          "formula": "S + was/were + V3",
+          "example": "The deployment was rolled back. (Bản triển khai đã bị rollback.)",
+          "pronunciation": "/ðə dɪˈplɔɪmənt wɑz roʊld bæk/",
+          "usage": "Dùng khi báo cáo trạng thái công việc mà không cần nêu ai làm.",
+          "title": "Passive for project status",
           "category": "Passive",
-          "formula": "S + was/were + V3 (+ by + agent)",
-          "example": "The deployment was rolled back.",
-          "pronunciation": "ðə dɪˈplɔɪmənt wɒz rəʊld bæk"
+          "alternatives": [
+            {
+              "formula": "S + was/were + V3",
+              "context": "Trạng thái đã xảy ra trong quá khứ",
+              "example": "The deployment was rolled back. (Bản triển khai đã bị rollback.)"
+            },
+            {
+              "formula": "S + V2 + O",
+              "context": "Nhấn người thực hiện",
+              "example": "The team rolled back the deployment. (Nhóm đã rollback bản triển khai.)"
+            },
+            {
+              "formula": "S + have/has been + V3",
+              "context": "Kết quả còn ảnh hưởng hiện tại",
+              "example": "The deployment has been rolled back. (Bản triển khai đã được rollback.)"
+            }
+          ]
         },
         {
-          "title": "‘will’ for commitments",
+          "formula": "S + will + V",
+          "example": "I'll hand off the logs after this meeting. (Tôi sẽ chuyển log sau cuộc họp này.)",
+          "pronunciation": "/aɪl hænd ɔf ðə lɔgz ˈæftər ðɪs ˈmitɪŋ/",
+          "usage": "Dùng để cam kết hành động tiếp theo trong cuộc họp.",
+          "title": "'Will' for commitments",
           "category": "Modal",
-          "formula": "S + will + V + O · (-) S + won’t + V + O · (?) Will + S + V + O?",
-          "example": "I’ll hand off the logs after this meeting.",
-          "pronunciation": "aɪl hænd ɒf ðə lɒɡz ˈɑːftə ðɪs ˈmiːtɪŋ"
+          "alternatives": [
+            {
+              "formula": "S + will + V",
+              "context": "Cam kết ngay tại cuộc họp",
+              "example": "I'll hand off the logs after this meeting. (Tôi sẽ chuyển log sau cuộc họp này.)"
+            },
+            {
+              "formula": "S + promise to + V",
+              "context": "Cam kết mạnh, nhấn trách nhiệm",
+              "example": "I promise to send the summary today. (Tôi hứa sẽ gửi bản tóm tắt hôm nay.)"
+            },
+            {
+              "formula": "S + be about to + V",
+              "context": "Hành động sắp diễn ra ngay",
+              "example": "I'm about to update the ticket now. (Tôi sắp cập nhật ticket ngay bây giờ.)"
+            }
+          ]
         },
         {
+          "formula": "S + may/might/could + V",
+          "example": "We might miss the deadline. (Chúng tôi có thể trễ deadline.)",
+          "pronunciation": "/wi maɪt mɪs ðə ˈdɛˌdlaɪn/",
+          "usage": "Dùng để dự đoán khả năng xảy ra của một rủi ro hoặc thay đổi.",
           "title": "Modals of possibility",
           "category": "Modal",
-          "formula": "S + may/might/could + V + O",
-          "example": "We might miss the deadline.",
-          "pronunciation": "wi maɪt mɪs ðə ˈdedlaɪn"
+          "alternatives": [
+            {
+              "formula": "S + may/might/could + V",
+              "context": "Khả năng không chắc chắn",
+              "example": "We might miss the deadline. (Chúng tôi có thể trễ deadline.)"
+            },
+            {
+              "formula": "S + will probably + V",
+              "context": "Dự đoán khả năng cao",
+              "example": "We'll probably need another day. (Có lẽ chúng tôi sẽ cần thêm một ngày.)"
+            },
+            {
+              "formula": "There's a chance + S + will + V",
+              "context": "Khả năng xảy ra nhưng không chắc",
+              "example": "There's a chance the vendor will deliver late. (Có khả năng nhà cung cấp giao hàng muộn.)"
+            }
+          ]
         }
       ],
       "examples": [
@@ -2608,13 +3854,13 @@
         {
           "term": "worth it",
           "meaning": "đáng giá",
-          "pronunciation": "/wɜːθ ɪt/",
+          "pronunciation": "/ˌwɜːrθ ˈɪt/",
           "score": 0
         },
         {
           "term": "bargain",
           "meaning": "món hời",
-          "pronunciation": "/ˈbɑːɡɪn/",
+          "pronunciation": "/ˈbɑːrɡən/",
           "score": 0
         },
         {
@@ -2626,55 +3872,146 @@
         {
           "term": "limited offer",
           "meaning": "ưu đãi giới hạn",
-          "pronunciation": "/ˈlɪmɪtɪd ˈɒfə/",
+          "pronunciation": "/ˌlɪmɪtɪd ˈɔːfər/",
           "score": 0
         },
         {
           "term": "compare prices",
           "meaning": "so sánh giá",
-          "pronunciation": "/kəmˈpeər ˈpraɪsɪz/",
+          "pronunciation": "/kəmˌper ˈpraɪsɪz/",
           "score": 0
         },
         {
           "term": "in stock",
           "meaning": "còn hàng",
-          "pronunciation": "/ɪn stɒk/",
+          "pronunciation": "/ˌɪn ˈstɑːk/",
           "score": 0
         },
         {
           "term": "sold out",
           "meaning": "hết hàng",
-          "pronunciation": "/səʊld aʊt/",
+          "pronunciation": "/ˌsoʊld ˈaʊt/",
+          "score": 0
+        },
+        {
+          "term": "flash sale",
+          "meaning": "ưu đãi chớp nhoáng",
+          "pronunciation": "/ˈflæʃ seɪl/",
+          "score": 0
+        },
+        {
+          "term": "impulse buy",
+          "meaning": "mua bốc đồng",
+          "pronunciation": "/ˈɪmpʌls baɪ/",
+          "score": 0
+        },
+        {
+          "term": "return policy",
+          "meaning": "chính sách đổi trả",
+          "pronunciation": "/rɪˈtɜːrn ˌpɑːləsi/",
           "score": 0
         }
       ],
       "grammar": [
         {
-          "title": "Comparatives",
+          "formula": "N1 + be + adj-er/more adj + than + N2",
+          "example": "This laptop is cheaper than that one. (Chiếc laptop này rẻ hơn chiếc kia.)",
+          "pronunciation": "/ðɪs ˈlæpˌtɑp ɪz ˈʧipər ðən ðət wən/",
+          "usage": "Dùng để so sánh giá và chất lượng giữa hai sản phẩm hoặc ưu đãi.",
+          "title": "Comparatives for shopping",
           "category": "Comparison",
-          "formula": "N1 + be + adj-er / more adj + than + N2",
-          "example": "This laptop is cheaper than that one.",
-          "pronunciation": "ðɪs ˈlæptɒp ɪz ˈtʃiːpə ðæn ðæt wʌn"
+          "alternatives": [
+            {
+              "formula": "N1 + be + adj-er/more adj + than + N2",
+              "context": "So sánh trực tiếp hai sản phẩm",
+              "example": "This laptop is cheaper than that one. (Chiếc laptop này rẻ hơn chiếc kia.)"
+            },
+            {
+              "formula": "N1 + be + as + adj + as + N2",
+              "context": "Hai ưu đãi ngang bằng",
+              "example": "This deal is as good as the one online. (Ưu đãi này tốt như ưu đãi online.)"
+            },
+            {
+              "formula": "N1 + be + not as + adj + as + N2",
+              "context": "Một sản phẩm kém hơn sản phẩm kia",
+              "example": "The red model is not as popular as the black one. (Mẫu màu đỏ không phổ biến bằng mẫu màu đen.)"
+            }
+          ]
         },
         {
-          "title": "Superlatives",
-          "category": "Comparison",
           "formula": "S + be + the + adj-est / most adj + N",
-          "example": "This is the cheapest option.",
-          "pronunciation": "ðɪs ɪz ðə ˈtʃiːpɪst ˈɒpʃən"
+          "example": "This is the cheapest option. (Đây là lựa chọn rẻ nhất.)",
+          "pronunciation": "/ðɪs ɪz ðə ˈʧipəst ˈɔpʃən/",
+          "usage": "Dùng để chọn ra sản phẩm hoặc ưu đãi nổi bật nhất trong một nhóm.",
+          "title": "Superlatives for best deals",
+          "category": "Comparison",
+          "alternatives": [
+            {
+              "formula": "S + be + the + adj-est / most adj + N",
+              "context": "So sánh nhất trong nhóm",
+              "example": "This is the cheapest option. (Đây là lựa chọn rẻ nhất.)"
+            },
+            {
+              "formula": "S + be + one of the + superlative + N",
+              "context": "Nằm trong nhóm tốt nhất",
+              "example": "This is one of the best deals this year. (Đây là một trong những ưu đãi tốt nhất năm nay.)"
+            },
+            {
+              "formula": "S + have/has + the most + adj + N",
+              "context": "Nhấn đặc điểm vượt trội",
+              "example": "That store has the most reliable warranty. (Cửa hàng đó có bảo hành đáng tin cậy nhất.)"
+            }
+          ]
         },
         {
-          "title": "‘whether’ for choices",
-          "category": "Clause",
           "formula": "S + decide + whether + to + V + O",
-          "example": "We need to decide whether to buy now or wait.",
-          "pronunciation": "wi niːd tə dɪˈsaɪd ˈweðə tə baɪ naʊ ɔː weɪt"
+          "example": "We need to decide whether to buy now or wait. (Chúng tôi cần quyết định mua ngay hay chờ.)",
+          "pronunciation": "/wi nid tɪ ˌdɪˈsaɪd ˈwɛðər tɪ baɪ naʊ ər weɪt/",
+          "usage": "Dùng khi trình bày hai lựa chọn và cần quyết định.",
+          "title": "'Whether' for choices",
+          "category": "Clause",
+          "alternatives": [
+            {
+              "formula": "S + decide + whether + to + V + O",
+              "context": "Cân nhắc giữa hai lựa chọn",
+              "example": "We need to decide whether to buy now or wait. (Chúng tôi cần quyết định mua ngay hay chờ.)"
+            },
+            {
+              "formula": "S + decide between + N and + N",
+              "context": "Chọn giữa hai vật cụ thể",
+              "example": "We're deciding between the two models. (Chúng tôi đang phân vân giữa hai mẫu.)"
+            },
+            {
+              "formula": "S + can't decide if + clause",
+              "context": "Chưa chắc chắn, phân vân",
+              "example": "I can't decide if the discount is worth it. (Tôi không biết ưu đãi này có đáng không.)"
+            }
+          ]
         },
         {
-          "title": "Imperatives for advice",
+          "formula": "V + O; Don't + V + O",
+          "example": "Compare prices across stores before you buy. (Hãy so sánh giá giữa các cửa hàng trước khi mua.)",
+          "pronunciation": "/kəmˈpɛr ˈpraɪsɪz əˈkrɔs stɔrz ˌbiˈfɔr ju baɪ/",
+          "usage": "Dùng để đưa lời khuyên nhanh, trực tiếp trước khi mua hàng.",
+          "title": "Imperatives for shopping advice",
           "category": "Imperative",
-          "formula": "V + O · (-) Don’t + V + O",
-          "example": "Check the price before you buy."
+          "alternatives": [
+            {
+              "formula": "V + O; Don't + V + O",
+              "context": "Lời khuyên trực tiếp",
+              "example": "Compare prices across stores before you buy. (Hãy so sánh giá giữa các cửa hàng trước khi mua.)"
+            },
+            {
+              "formula": "You should + V",
+              "context": "Lời khuyên lịch sự",
+              "example": "You should check the return policy first. (Bạn nên kiểm tra chính sách đổi trả trước.)"
+            },
+            {
+              "formula": "It's worth + V-ing",
+              "context": "Gợi ý đáng làm",
+              "example": "It's worth waiting for the flash sale. (Đáng để chờ đợt flash sale.)"
+            }
+          ]
         }
       ],
       "examples": [
@@ -2743,13 +4080,13 @@
         {
           "term": "release window",
           "meaning": "cửa sổ phát hành",
-          "pronunciation": "/rɪˈliːs ˈwɪndəʊ/",
+          "pronunciation": "/rɪˈliːs ˈwɪndoʊ/",
           "score": 0
         },
         {
           "term": "code freeze",
           "meaning": "đóng băng mã nguồn",
-          "pronunciation": "/kəʊd friːz/",
+          "pronunciation": "/ˌkoʊd ˈfriːz/",
           "score": 0
         },
         {
@@ -2761,7 +4098,7 @@
         {
           "term": "canary",
           "meaning": "phát hành thử",
-          "pronunciation": "/kəˈneəri/",
+          "pronunciation": "/kəˈneri/",
           "score": 0
         },
         {
@@ -2773,13 +4110,13 @@
         {
           "term": "rollback plan",
           "meaning": "phương án khôi phục",
-          "pronunciation": "/ˈrəʊlbæk plæn/",
+          "pronunciation": "/ˈroʊlbæk plæn/",
           "score": 0
         },
         {
           "term": "go/no-go",
           "meaning": "quyết định triển khai hay không",
-          "pronunciation": "/ɡəʊ nəʊ ɡəʊ/",
+          "pronunciation": "/ˌɡoʊ noʊ ˈɡoʊ/",
           "score": 0
         },
         {
@@ -2791,56 +4128,128 @@
         {
           "term": "smoke test",
           "meaning": "kiểm tra nhanh",
-          "pronunciation": "/sməʊk test/",
+          "pronunciation": "/ˈsmoʊk test/",
           "score": 0
         },
         {
           "term": "changelog",
           "meaning": "nhật ký thay đổi",
-          "pronunciation": "/ˈtʃeɪndʒlɒɡ/",
+          "pronunciation": "/ˈtʃeɪndʒlɔːɡ/",
           "score": 0
         },
         {
           "term": "feature flag",
           "meaning": "cờ tính năng",
-          "pronunciation": "/ˈfiːtʃə flæɡ/",
+          "pronunciation": "/ˈfiːtʃər flæɡ/",
           "score": 0
         },
         {
           "term": "hotfix",
           "meaning": "bản vá nóng",
-          "pronunciation": "/ˈhɒtfɪks/",
+          "pronunciation": "/ˈhɑːtfɪks/",
           "score": 0
         }
       ],
       "grammar": [
         {
-          "title": "Present continuous for future arrangements",
+          "formula": "S + am/is/are + V-ing + future time",
+          "example": "We're releasing on Thursday. (Chúng tôi release vào thứ Năm.)",
+          "pronunciation": "/wɪr riˈlisɪŋ ɔn ˈθərzˌdeɪ/",
+          "usage": "Dùng khi lịch release đã được sắp xếp và thống nhất trong nhóm.",
+          "title": "Present continuous for release arrangements",
           "category": "Future",
-          "formula": "S + am/is/are + V-ing + O + future time",
-          "example": "We’re releasing on Thursday.",
-          "pronunciation": "wɪə rɪˈliːsɪŋ ɒn ˈθɜːzdeɪ"
+          "alternatives": [
+            {
+              "formula": "S + am/is/are + V-ing + future time",
+              "context": "Lịch release đã chốt",
+              "example": "We're releasing on Thursday. (Chúng tôi release vào thứ Năm.)"
+            },
+            {
+              "formula": "S + am/is/are + going to + V",
+              "context": "Dự định đã quyết",
+              "example": "We're going to release after the code freeze. (Chúng tôi sẽ release sau đợt freeze code.)"
+            },
+            {
+              "formula": "S + be scheduled to + V",
+              "context": "Lịch chính thức, trang trọng",
+              "example": "The release is scheduled to start at 10 p.m. (Bản release dự kiến bắt đầu lúc 10 giờ đêm.)"
+            }
+          ]
         },
         {
-          "title": "Modals for obligation",
+          "formula": "S + need to + V",
+          "example": "We need to freeze the code by Wednesday. (Chúng tôi cần freeze code trước thứ Tư.)",
+          "pronunciation": "/wi nid tɪ friz ðə koʊd baɪ ˈwɛnzˌdeɪ/",
+          "usage": "Dùng để nói các bước bắt buộc phải hoàn thành trước khi release.",
+          "title": "Modals of obligation for releases",
           "category": "Modal",
-          "formula": "S + need to / must / have to + V + O · (-) S + don’t need to + V + O · (?) Do + S + need to + V + O?",
-          "example": "We need to freeze the code by Wednesday.",
-          "pronunciation": "wi niːd tə friːz ðə kəʊd baɪ ˈwenzdeɪ"
+          "alternatives": [
+            {
+              "formula": "S + need to + V",
+              "context": "Nghĩa vụ cần thiết",
+              "example": "We need to freeze the code by Wednesday. (Chúng tôi cần freeze code trước thứ Tư.)"
+            },
+            {
+              "formula": "S + have to + V",
+              "context": "Nghĩa vụ bắt buộc",
+              "example": "We have to get security approval first. (Chúng tôi phải được security phê duyệt trước.)"
+            },
+            {
+              "formula": "S + be required to + V",
+              "context": "Quy định chính thức, trang trọng",
+              "example": "All changes are required to pass the smoke test. (Mọi thay đổi đều phải vượt qua smoke test.)"
+            }
+          ]
         },
         {
+          "formula": "If + S + V(present), S + will + V",
+          "example": "If the canary looks healthy, we'll roll out. (Nếu canary ổn, chúng tôi sẽ rollout.)",
+          "pronunciation": "/ɪf ðə kəˈnɛri lʊks ˈhɛlθi, wɪl roʊl aʊt/",
+          "usage": "Dùng để nói điều kiện cần có trước khi rollout.",
           "title": "First conditional for rollout",
           "category": "Conditional",
-          "formula": "If + S + V(present) + O, S + will + V + O",
-          "example": "If the canary looks healthy, we’ll roll out.",
-          "pronunciation": "ɪf ðə kəˈneəri lʊks ˈhelθi, wiːl rəʊl aʊt"
+          "alternatives": [
+            {
+              "formula": "If + S + V(present), S + will + V",
+              "context": "Điều kiện thuận lợi để rollout",
+              "example": "If the canary looks healthy, we'll roll out. (Nếu canary ổn, chúng tôi sẽ rollout.)"
+            },
+            {
+              "formula": "Unless + S + V(present), S + will + V",
+              "context": "Điều kiện phủ định",
+              "example": "Unless the canary fails, we'll roll out at noon. (Trừ khi canary lỗi, chúng tôi sẽ rollout lúc trưa.)"
+            },
+            {
+              "formula": "Once + S + V(present), S + will + V",
+              "context": "Ngay sau khi điều kiện hoàn tất",
+              "example": "Once the checks pass, we'll promote the release. (Khi các bước kiểm tra qua, chúng tôi sẽ promote bản release.)"
+            }
+          ]
         },
         {
+          "formula": "S + modal + be + V3",
+          "example": "The code must be frozen by Wednesday. (Code phải được freeze trước thứ Tư.)",
+          "pronunciation": "/ðə koʊd məst bi ˈfroʊzən baɪ ˈwɛnzˌdeɪ/",
+          "usage": "Dùng khi nhấn quy trình hoặc yêu cầu hơn là người thực hiện.",
           "title": "Passive with modals",
           "category": "Passive",
-          "formula": "S + modal + be + V3 (+ by + agent)",
-          "example": "The code must be frozen by Wednesday.",
-          "pronunciation": "ðə kəʊd mʌst bi ˈfrəʊzən baɪ ˈwenzdeɪ"
+          "alternatives": [
+            {
+              "formula": "S + modal + be + V3",
+              "context": "Nhấn quy trình bắt buộc",
+              "example": "The code must be frozen by Wednesday. (Code phải được freeze trước thứ Tư.)"
+            },
+            {
+              "formula": "S + must + V + O",
+              "context": "Nhấn người thực hiện",
+              "example": "The team must freeze the code by Wednesday. (Nhóm phải freeze code trước thứ Tư.)"
+            },
+            {
+              "formula": "S + have to be + V3",
+              "context": "Nghĩa vụ bắt buộc với quy trình",
+              "example": "The migration has to be tested in staging. (Bản migration phải được kiểm thử ở staging.)"
+            }
+          ]
         }
       ],
       "examples": [
@@ -2927,19 +4336,19 @@
         {
           "term": "forecast",
           "meaning": "dự báo thời tiết",
-          "pronunciation": "/ˈfɔːkɑːst/",
+          "pronunciation": "/ˈfɔːrkæst/",
           "score": 0
         },
         {
           "term": "garden",
           "meaning": "khu vườn",
-          "pronunciation": "/ˈɡɑːdn/",
+          "pronunciation": "/ˈɡɑːrdən/",
           "score": 0
         },
         {
           "term": "local market",
           "meaning": "chợ địa phương",
-          "pronunciation": "/ˌləʊkl ˈmɑːkɪt/",
+          "pronunciation": "/ˌloʊkəl ˈmɑːrkɪt/",
           "score": 0
         },
         {
@@ -2951,25 +4360,25 @@
         {
           "term": "borrow",
           "meaning": "mượn",
-          "pronunciation": "/ˈbɒrəʊ/",
+          "pronunciation": "/ˈbɑːroʊ/",
           "score": 0
         },
         {
           "term": "catch up",
           "meaning": "trò chuyện",
-          "pronunciation": "/kætʃ ʌp/",
+          "pronunciation": "/ˌkætʃ ˈʌp/",
           "score": 0
         },
         {
           "term": "take care of",
           "meaning": "chăm sóc",
-          "pronunciation": "/teɪk keə əv/",
+          "pronunciation": "/ˌteɪk ˈker əv/",
           "score": 0
         },
         {
           "term": "have a good weekend",
           "meaning": "chúc cuối tuần vui vẻ",
-          "pronunciation": "/hæv ə ɡʊd ˌwiːkˈend/",
+          "pronunciation": "/ˌhæv ə ɡʊd ˌwiːkˈend/",
           "score": 0
         },
         {
@@ -2981,44 +4390,116 @@
         {
           "term": "ladder",
           "meaning": "cái thang",
-          "pronunciation": "/ˈlædə/",
+          "pronunciation": "/ˈlædər/",
           "score": 0
         },
         {
           "term": "herbs",
           "meaning": "rau thơm",
-          "pronunciation": "/hɜːbz/",
+          "pronunciation": "/ɜːrbz/",
           "score": 0
         }
       ],
       "grammar": [
         {
-          "title": "‘going to’ for plans",
+          "formula": "S + am/is/are + going to + V",
+          "example": "I'm going to fix the fence this weekend. (Cuối tuần tôi sẽ sửa hàng rào.)",
+          "pronunciation": "/əm goʊɪŋ tɪ fɪks ðə fɛns ðɪs ˈwiˌkɪnd/",
+          "usage": "Dùng để nói dự định cụ thể cho cuối tuần với hàng xóm.",
+          "title": "'Be going to' for weekend plans",
           "category": "Future",
-          "formula": "S + am/is/are + going to + V + O · (-) S + am/is/are + not + going to + V + O · (?) Am/Is/Are + S + going to + V + O?",
-          "example": "I’m going to fix the fence this weekend.",
-          "pronunciation": "aɪm ˈɡəʊɪŋ tə fɪks ðə fens ðɪs ˌwiːkˈend"
+          "alternatives": [
+            {
+              "formula": "S + am/is/are + going to + V",
+              "context": "Dự định đã quyết",
+              "example": "I'm going to fix the fence this weekend. (Cuối tuần tôi sẽ sửa hàng rào.)"
+            },
+            {
+              "formula": "S + will + V",
+              "context": "Lời hứa hoặc quyết định ngay",
+              "example": "I'll lend you my tools if you need them. (Tôi sẽ cho bạn mượn dụng cụ nếu cần.)"
+            },
+            {
+              "formula": "S + am/is/are + V-ing + future time",
+              "context": "Lịch đã chốt",
+              "example": "I'm painting the gate on Saturday. (Tôi sẽ sơn cổng vào thứ Bảy.)"
+            }
+          ]
         },
         {
-          "title": "Polite requests with ‘could’",
+          "formula": "Could + you + V + O?",
+          "example": "Could you lend me a ladder? (Bạn có thể cho tôi mượn thang không?)",
+          "pronunciation": "/kʊd ju lɛnd mi ə ˈlædər/",
+          "usage": "Dùng để nhờ hàng xóm giúp một việc nhỏ một cách lịch sự.",
+          "title": "Polite requests with neighbours",
           "category": "Request",
-          "formula": "Could + you + V + O, please?",
-          "example": "Could you lend me a ladder?",
-          "pronunciation": "kʊd ju lend mi ə ˈlædə"
+          "alternatives": [
+            {
+              "formula": "Could + you + V + O?",
+              "context": "Nhờ vả lịch sự, thân thiện",
+              "example": "Could you lend me a ladder? (Bạn có thể cho tôi mượn thang không?)"
+            },
+            {
+              "formula": "Can you + V?",
+              "context": "Thân mật, trực tiếp",
+              "example": "Can you help me move this table? (Bạn giúp tôi kê cái bàn này được không?)"
+            },
+            {
+              "formula": "I was wondering if you could + V",
+              "context": "Rất lịch sự, gián tiếp",
+              "example": "I was wondering if you could water my plants. (Tôi không biết bạn có thể tưới cây giúp tôi không.)"
+            }
+          ]
         },
         {
+          "formula": "If + S + V(present), S + V(present)",
+          "example": "If it rains, I stay home. (Nếu trời mưa, tôi ở nhà.)",
+          "pronunciation": "/ɪf ɪt reɪnz, aɪ steɪ hoʊm/",
+          "usage": "Dùng để nói quy luật hoặc thói quen luôn đúng khi điều kiện xảy ra.",
           "title": "Zero conditional for facts",
           "category": "Conditional",
-          "formula": "If + S + V(present), S + V(present)",
-          "example": "If it rains, I stay home.",
-          "pronunciation": "ɪf ɪt reɪnz, aɪ steɪ həʊm"
+          "alternatives": [
+            {
+              "formula": "If + S + V(present), S + V(present)",
+              "context": "Quy luật luôn đúng",
+              "example": "If it rains, I stay home. (Nếu trời mưa, tôi ở nhà.)"
+            },
+            {
+              "formula": "When + S + V(present), S + V(present)",
+              "context": "Khi điều kiện xảy ra thường xuyên",
+              "example": "When the weather is nice, we eat outside. (Khi thời tiết đẹp, chúng tôi ăn ngoài trời.)"
+            },
+            {
+              "formula": "Unless + S + V(present), S + will + V",
+              "context": "Ngoại lệ của một kế hoạch",
+              "example": "Unless it rains, we'll walk to the market. (Trừ khi trời mưa, chúng tôi sẽ đi bộ ra chợ.)"
+            }
+          ]
         },
         {
-          "title": "‘like/enjoy’ + V-ing",
-          "category": "Gerund",
           "formula": "S + like/love/enjoy + V-ing + O",
-          "example": "I enjoy walking in the park at weekends.",
-          "pronunciation": "aɪ ɪnˈdʒɔɪ ˈwɔːkɪŋ ɪn ðə pɑːk æt ˌwiːkˈendz"
+          "example": "I enjoy walking in the park at weekends. (Tôi thích đi bộ trong công viên vào cuối tuần.)",
+          "pronunciation": "/aɪ ˌɛnˈʤɔɪ ˈwɔkɪŋ ɪn ðə pɑrk æt ˈwiˌkɛndz/",
+          "usage": "Dùng để nói sở thích cá nhân trong sinh hoạt cuối tuần.",
+          "title": "'Like/enjoy' + V-ing",
+          "category": "Gerund",
+          "alternatives": [
+            {
+              "formula": "S + like/love/enjoy + V-ing + O",
+              "context": "Sở thích ổn định",
+              "example": "I enjoy walking in the park at weekends. (Tôi thích đi bộ trong công viên vào cuối tuần.)"
+            },
+            {
+              "formula": "S + be into + N/V-ing",
+              "context": "Khẩu ngữ, sở thích hiện tại",
+              "example": "I'm into gardening these days. (Dạo này tôi thích làm vườn.)"
+            },
+            {
+              "formula": "S + be fond of + N/V-ing",
+              "context": "Yêu thích nhẹ nhàng, trang trọng hơn",
+              "example": "She's fond of growing herbs on the balcony. (Cô ấy thích trồng rau thơm trên ban công.)"
+            }
+          ]
         }
       ],
       "examples": [
@@ -3111,7 +4592,7 @@
         {
           "term": "order",
           "meaning": "gọi món",
-          "pronunciation": "/ˈɔːdə/",
+          "pronunciation": "/ˈɔːrdər/",
           "score": 0
         },
         {
@@ -3129,7 +4610,7 @@
         {
           "term": "split the bill",
           "meaning": "chia hoá đơn",
-          "pronunciation": "/splɪt ðə bɪl/",
+          "pronunciation": "/ˌsplɪt ðə ˈbɪl/",
           "score": 0
         },
         {
@@ -3147,19 +4628,19 @@
         {
           "term": "reservation",
           "meaning": "đặt bàn",
-          "pronunciation": "/ˌrezəˈveɪʃən/",
+          "pronunciation": "/ˌrezərˈveɪʃən/",
           "score": 0
         },
         {
           "term": "vegetarian",
           "meaning": "món chay",
-          "pronunciation": "/ˌvedʒəˈteəriən/",
+          "pronunciation": "/ˌvedʒəˈteriən/",
           "score": 0
         },
         {
           "term": "table for two",
           "meaning": "bàn hai người",
-          "pronunciation": "/ˌteɪbl fə ˈtuː/",
+          "pronunciation": "/ˌteɪbəl fər ˈtuː/",
           "score": 0
         },
         {
@@ -3171,32 +4652,104 @@
       ],
       "grammar": [
         {
-          "title": "Polite requests with ‘could’",
-          "category": "Request",
           "formula": "Could + we/I + V + O, please?",
-          "example": "Could we have the bill, please?",
-          "pronunciation": "kʊd wi hæv ðə bɪl pliːz"
+          "example": "Could we have the bill, please? (Cho chúng tôi xin hóa đơn.)",
+          "pronunciation": "/kʊd wi hæv ðə bɪl, pliz/",
+          "usage": "Dùng để yêu cầu món ăn hoặc dịch vụ trong nhà hàng một cách lịch sự.",
+          "title": "Polite requests at a restaurant",
+          "category": "Request",
+          "alternatives": [
+            {
+              "formula": "Could + we/I + V + O, please?",
+              "context": "Yêu cầu lịch sự với nhân viên",
+              "example": "Could we have the bill, please? (Cho chúng tôi xin hóa đơn.)"
+            },
+            {
+              "formula": "Can we + V?",
+              "context": "Thân mật, trực tiếp",
+              "example": "Can we get some more water? (Cho chúng tôi thêm nước được không?)"
+            },
+            {
+              "formula": "Would you mind + V-ing?",
+              "context": "Rất lịch sự, gián tiếp",
+              "example": "Would you mind bringing us some napkins? (Bạn có phiền mang cho chúng tôi ít khăn giấy không?)"
+            }
+          ]
         },
         {
+          "formula": "a little + uncountable N · a few + countable N",
+          "example": "Could I have a little more rice? (Cho tôi thêm ít cơm.)",
+          "pronunciation": "/kʊd aɪ hæv ə ˈlɪtəl mɔr raɪs/",
+          "usage": "Dùng để xin thêm một lượng nhỏ đồ ăn hoặc đồ uống.",
           "title": "Quantifiers with food",
           "category": "Quantifier",
-          "formula": "a little + N (uncountable) · a few + N (countable) · O",
-          "example": "Could I have a little more rice?",
-          "pronunciation": "kʊd aɪ hæv ə ˈlɪtl mɔː raɪs"
+          "alternatives": [
+            {
+              "formula": "a little + uncountable N · a few + countable N",
+              "context": "Xin thêm một lượng nhỏ không đếm được",
+              "example": "Could I have a little more rice? (Cho tôi thêm ít cơm.)"
+            },
+            {
+              "formula": "a few + plural N",
+              "context": "Xin thêm một vài món đếm được",
+              "example": "We'd like a few more napkins. (Chúng tôi muốn thêm vài chiếc khăn giấy.)"
+            },
+            {
+              "formula": "another + singular N",
+              "context": "Xin thêm một phần nữa",
+              "example": "Could I have another glass of water? (Cho tôi thêm một ly nước nữa?)"
+            }
+          ]
         },
         {
-          "title": "‘Would you like …?’ offers",
+          "formula": "Would + you + like + N / to + V?",
+          "example": "Would you like some dessert? (Bạn có muốn ăn tráng miệng không?)",
+          "pronunciation": "/wʊd ju laɪk səm dɪˈzərt/",
+          "usage": "Dùng để mời người khác dùng món ăn hoặc thử món mới.",
+          "title": "Offers with 'would you like'",
           "category": "Modal",
-          "formula": "Would + you + like + N / to + V + O?",
-          "example": "Would you like some dessert?",
-          "pronunciation": "wʊd ju laɪk sʌm dɪˈzɜːt"
+          "alternatives": [
+            {
+              "formula": "Would + you + like + N / to + V?",
+              "context": "Lời mời lịch sự",
+              "example": "Would you like some dessert? (Bạn có muốn ăn tráng miệng không?)"
+            },
+            {
+              "formula": "Do you want + N / to + V?",
+              "context": "Thân mật, nhanh",
+              "example": "Do you want to share a starter? (Bạn có muốn chia sẻ món khai vị không?)"
+            },
+            {
+              "formula": "How about + N/V-ing?",
+              "context": "Gợi ý nhẹ nhàng",
+              "example": "How about trying the mushroom pasta? (Hay là thử mì nấm nhé?)"
+            }
+          ]
         },
         {
-          "title": "‘too / enough’",
+          "formula": "S + be + too + adj (+ for + O)",
+          "example": "This soup is too spicy for me. (Món súp này quá cay đối với tôi.)",
+          "pronunciation": "/ðɪs sup ɪz tu ˈspaɪsi fər mi/",
+          "usage": "Dùng để nói món ăn quá mức nào đó hoặc không đủ tiêu chuẩn.",
+          "title": "'Too' and 'enough'",
           "category": "Adverb",
-          "formula": "S + be + too + adj (+ for + O) · S + be + adj + enough + to + V",
-          "example": "This soup is too spicy for me.",
-          "pronunciation": "ðɪs suːp ɪz tuː ˈspaɪsi fə miː"
+          "alternatives": [
+            {
+              "formula": "S + be + too + adj (+ for + O)",
+              "context": "Mức độ vượt quá mong muốn",
+              "example": "This soup is too spicy for me. (Món súp này quá cay đối với tôi.)"
+            },
+            {
+              "formula": "S + be + so + adj + that + clause",
+              "context": "Nhấn mạnh kết quả",
+              "example": "The soup is so spicy that I need more water. (Súp cay đến mức tôi cần thêm nước.)"
+            },
+            {
+              "formula": "S + be + not + adj + enough",
+              "context": "Không đủ tiêu chuẩn",
+              "example": "The portion isn't big enough for two people. (Khẩu phần không đủ lớn cho hai người.)"
+            }
+          ]
         }
       ],
       "examples": [
@@ -3277,7 +4830,7 @@
         {
           "term": "groceries",
           "meaning": "thực phẩm mua về",
-          "pronunciation": "/ˈɡrəʊsəriz/",
+          "pronunciation": "/ˈɡroʊsəriz/",
           "score": 0
         },
         {
@@ -3288,20 +4841,20 @@
         },
         {
           "term": "recipe",
-          "meaning": "công thức",
+          "meaning": "công thức nấu ăn",
           "pronunciation": "/ˈresəpi/",
           "score": 0
         },
         {
           "term": "portion",
           "meaning": "khẩu phần",
-          "pronunciation": "/ˈpɔːʃən/",
+          "pronunciation": "/ˈpɔːrʃən/",
           "score": 0
         },
         {
           "term": "protein",
           "meaning": "chất đạm",
-          "pronunciation": "/ˈprəʊtiːn/",
+          "pronunciation": "/ˈproʊtiːn/",
           "score": 0
         },
         {
@@ -3313,68 +4866,140 @@
         {
           "term": "stay hydrated",
           "meaning": "uống đủ nước",
-          "pronunciation": "/steɪ ˈhaɪdreɪtɪd/",
+          "pronunciation": "/ˌsteɪ ˈhaɪdreɪtɪd/",
           "score": 0
         },
         {
           "term": "junk food",
-          "meaning": "đồ ăn vặt",
-          "pronunciation": "/dʒʌŋk fuːd/",
+          "meaning": "đồ ăn vặt không lành mạnh",
+          "pronunciation": "/ˈdʒʌŋk fuːd/",
           "score": 0
         },
         {
           "term": "meal prep",
           "meaning": "chuẩn bị bữa ăn",
-          "pronunciation": "/miːl prep/",
+          "pronunciation": "/ˈmiːl prep/",
           "score": 0
         },
         {
           "term": "yogurt",
           "meaning": "sữa chua",
-          "pronunciation": "/ˈjɒɡət/",
+          "pronunciation": "/ˈjoʊɡərt/",
           "score": 0
         },
         {
           "term": "vegetables",
           "meaning": "rau củ",
-          "pronunciation": "/ˈvedʒtəblz/",
+          "pronunciation": "/ˈvedʒtəbəlz/",
           "score": 0
         },
         {
           "term": "whole grains",
           "meaning": "ngũ cốc nguyên hạt",
-          "pronunciation": "/həʊl ɡreɪnz/",
+          "pronunciation": "/ˌhoʊl ˈɡreɪnz/",
           "score": 0
         }
       ],
       "grammar": [
         {
-          "title": "‘should’ for advice",
+          "formula": "S + should/shouldn't + V",
+          "example": "You should prep meals on Sunday. (Bạn nên chuẩn bị bữa ăn vào Chủ nhật.)",
+          "pronunciation": "/ju ʃʊd prɛp milz ɔn ˈsənˌdi/",
+          "usage": "Dùng để đưa lời khuyên về chuẩn bị bữa ăn.",
+          "title": "'Should' for meal-prep advice",
           "category": "Modal",
-          "formula": "S + should/shouldn’t + V + O · (?) Should + S + V + O?",
-          "example": "You should prep meals on Sunday.",
-          "pronunciation": "ju ʃʊd prep miːlz ɒn ˈsʌndeɪ"
+          "alternatives": [
+            {
+              "formula": "S + should/shouldn't + V",
+              "context": "Lời khuyên trực tiếp",
+              "example": "You should prep meals on Sunday. (Bạn nên chuẩn bị bữa ăn vào Chủ nhật.)"
+            },
+            {
+              "formula": "S + ought to + V",
+              "context": "Lời khuyên trang trọng hơn",
+              "example": "You ought to plan your groceries first. (Bạn nên lên kế hoạch mua thực phẩm trước.)"
+            },
+            {
+              "formula": "Why don't you + V?",
+              "context": "Gợi ý thân mật",
+              "example": "Why don't you start with two recipes? (Sao bạn không bắt đầu với hai công thức?)"
+            }
+          ]
         },
         {
-          "title": "Adverbs of frequency",
+          "formula": "S + adverb + V",
+          "example": "I rarely order junk food during the week. (Tôi hiếm khi đặt đồ ăn nhanh trong tuần.)",
+          "pronunciation": "/aɪ ˈrɛrli ˈɔrdər ʤəŋk fud ˈdʊrɪŋ ðə wik/",
+          "usage": "Dùng để nói tần suất ăn uống hoặc đặt đồ ăn ngoài.",
+          "title": "Adverbs of frequency for eating habits",
           "category": "Adverb",
-          "formula": "S + adverb + V + O · (-) S + rarely/never + V + O",
-          "example": "I rarely order junk food during the week.",
-          "pronunciation": "aɪ ˈreəli ˈɔːdə dʒʌŋk fuːd ˈdjʊərɪŋ ðə wiːk"
+          "alternatives": [
+            {
+              "formula": "S + adverb + V",
+              "context": "Tần suất thấp",
+              "example": "I rarely order junk food during the week. (Tôi hiếm khi đặt đồ ăn nhanh trong tuần.)"
+            },
+            {
+              "formula": "S + hardly ever + V",
+              "context": "Gần như không bao giờ",
+              "example": "I hardly ever skip breakfast now. (Bây giờ tôi hiếm khi bỏ bữa sáng.)"
+            },
+            {
+              "formula": "S + V + every now and then",
+              "context": "Thỉnh thoảng",
+              "example": "I order takeaway every now and then. (Thỉnh thoảng tôi đặt đồ ăn mang về.)"
+            }
+          ]
         },
         {
+          "formula": "V-ing + V(singular) + O",
+          "example": "Prepping meals saves time. (Chuẩn bị bữa ăn tiết kiệm thời gian.)",
+          "pronunciation": "/ˈprɛpɪŋ milz seɪvz taɪm/",
+          "usage": "Dùng khi biến một hành động thành chủ ngữ để nói về lợi ích.",
           "title": "Gerunds as subjects",
           "category": "Gerund",
-          "formula": "V-ing + V(singular) + O",
-          "example": "Prepping meals saves time.",
-          "pronunciation": "ˈprepɪŋ miːlz seɪvz taɪm"
+          "alternatives": [
+            {
+              "formula": "V-ing + V(singular) + O",
+              "context": "Hành động làm chủ ngữ",
+              "example": "Prepping meals saves time. (Chuẩn bị bữa ăn tiết kiệm thời gian.)"
+            },
+            {
+              "formula": "It's + adj + to + V",
+              "context": "Nhận xét chung, dùng chủ ngữ giả",
+              "example": "It's easier to eat well when you plan ahead. (Ăn uống lành mạnh dễ hơn khi bạn lên kế hoạch trước.)"
+            },
+            {
+              "formula": "V-ing helps + V",
+              "context": "Nhấn lợi ích của hành động",
+              "example": "Cooking at home helps you control portions. (Nấu ăn ở nhà giúp bạn kiểm soát khẩu phần.)"
+            }
+          ]
         },
         {
-          "title": "Purpose with ‘to’ and ‘so that’",
+          "formula": "S + V + O + to + V",
+          "example": "I prep meals to save time. (Tôi chuẩn bị bữa ăn để tiết kiệm thời gian.)",
+          "pronunciation": "/aɪ prɛp milz tɪ seɪv taɪm/",
+          "usage": "Dùng để giải thích mục đích của việc chuẩn bị bữa ăn.",
+          "title": "Purpose with 'to' and 'so that'",
           "category": "Purpose",
-          "formula": "S + V + O + to + V / so that + S + can + V",
-          "example": "I prep meals to save time.",
-          "pronunciation": "aɪ prep miːlz tə seɪv taɪm"
+          "alternatives": [
+            {
+              "formula": "S + V + O + to + V",
+              "context": "Mục đích ngắn gọn",
+              "example": "I prep meals to save time. (Tôi chuẩn bị bữa ăn để tiết kiệm thời gian.)"
+            },
+            {
+              "formula": "S + V + O + so that + S + can + V",
+              "context": "Mục đích với chủ ngữ khác",
+              "example": "I prep meals so that I don't order takeaway. (Tôi chuẩn bị bữa ăn để không phải đặt đồ mang về.)"
+            },
+            {
+              "formula": "S + V + O + in order to + V",
+              "context": "Mục đích trang trọng, rõ ràng",
+              "example": "I cook in batches in order to save money. (Tôi nấu nhiều phần để tiết kiệm tiền.)"
+            }
+          ]
         }
       ],
       "examples": [

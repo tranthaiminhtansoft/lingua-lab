@@ -351,6 +351,105 @@
   text-transform: uppercase;
 }
 
+.english-today-grammar-usage {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  margin-top: 8px;
+  padding: 8px 10px;
+  border-left: 3px solid #394eaa;
+  border-radius: 6px;
+  background: #f3f5ff;
+  color: #35405a;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.english-today-grammar-usage .usage-label {
+  flex: none;
+  color: #394eaa;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  padding-top: 2px;
+}
+
+.english-today-grammar-alts {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed #d9dce8;
+}
+
+.english-today-grammar-alts .alts-title {
+  display: block;
+  margin-bottom: 8px;
+  color: #394eaa;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+}
+
+.english-today-grammar-alt-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.english-today-grammar-alt {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+  border: 1px solid #e3e6f0;
+  border-radius: 10px;
+  background: #fcfcff;
+}
+
+.english-today-grammar-alt .alt-context {
+  color: #6b5b1f;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.english-today-grammar-alt .alt-main-badge {
+  margin-left: 6px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: #e9edff;
+  color: #394eaa;
+  font-size: 9px;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+.english-today-grammar-alt .alt-example {
+  color: #263042;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.english-today-grammar-alt .alt-translation {
+  color: #2f7a55;
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.english-today-grammar-alt .alt-listen {
+  align-self: flex-start;
+  margin-top: 2px;
+  padding: 4px 8px;
+  font-size: 11px;
+}
+
+@media (max-width: 900px) {
+  .english-today-grammar-alt-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 .english-today-item .english-today-formula {
   display: flex;
   align-items: center;

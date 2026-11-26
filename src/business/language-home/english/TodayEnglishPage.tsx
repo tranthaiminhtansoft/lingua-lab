@@ -14,6 +14,7 @@ import {
   readProgress,
   getTopicProgress,
 } from './progress/englishProgress';
+import { getTopicProgressKeys } from './content/englishProgressKeys';
 import './todayEnglish.css';
 
 export function TodayEnglishPage() {
@@ -174,7 +175,8 @@ export function TodayEnglishPage() {
         <div className="english-today-topic-grid">
           {context.topics.filter((topic) => isTopicVisible(topic, today)).map((topic) => {
             const available = isTopicAvailableApi(topic, today);
-            const tp = getTopicProgress(progress, topic.id, topic.vocab.map((item) => item.term), topic.grammar.map((item) => item.example));
+            const keys = getTopicProgressKeys(topic);
+            const tp = getTopicProgress(progress, topic.id, keys.vocabTerms, keys.grammarExamples, keys.dialogueSentences);
             return (
               <button
                 key={topic.id}
