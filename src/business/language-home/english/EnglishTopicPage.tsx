@@ -1,5 +1,10 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useParams, useNavigate, useBlocker } from 'react-router-dom';
+
+/** Strip trailing Vietnamese translation in parentheses, e.g. "Hello. (Xin chào.)" -> "Hello." */
+function stripTranslation(text: string): string {
+  return text.replace(/\s*\([^)]*\)\s*$/, '').trim();
+}
 import {
   checkEnglishContentApi,
   getTodayEnglishContextApi,
@@ -312,8 +317,8 @@ export function EnglishTopicPage() {
 
     const sessionKey = `english-dialogue-session-${topic.id}`;
     const vocabTerms = topic.vocab.map((item) => item.term);
-    const grammarExamples = topic.grammar.map((item) => item.example);
-    const dialogueSentences = topic.dialogue;
+    const grammarExamples = topic.grammar.map((item) => stripTranslation(item.example));
+    const dialogueSentences = topic.dialogue.map(stripTranslation);
     let nextState = readProgress();
     const current = getTopicProgress(nextState, topic.id, vocabTerms, grammarExamples, dialogueSentences);
     const dialogueDone = dialogueSentences.length > 0 && dialogueSentences.every((s) => current.dialogue[s]?.completed);
@@ -500,8 +505,8 @@ export function EnglishTopicPage() {
     if (!topic) return;
     const topicIdValue = topic.id;
     const vocabTerms = topic.vocab.map((item) => item.term);
-    const grammarExamples = topic.grammar.map((item) => item.example);
-    const dialogueSentences = topic.dialogue;
+    const grammarExamples = topic.grammar.map((item) => stripTranslation(item.example));
+    const dialogueSentences = topic.dialogue.map(stripTranslation);
     let nextState = progress;
     if (key && kind === 'vocab') {
       nextState = updateVocabularyScore(nextState, topicIdValue, key, score, vocabTerms, grammarExamples, dialogueSentences);
@@ -715,9 +720,10 @@ export function EnglishTopicPage() {
           <h4>Grammar tương ứng</h4>
           <div className="english-today-list">
             {topic.grammar.map((item) => {
-              const gp = topicProgress?.grammar[item.example] ?? { score: 0, completed: false };
-              const spoken = readFeedback[item.example];
-              const feedback = spoken ? getWordFeedback(item.example, spoken) : null;
+              const englishExample = stripTranslation(item.example);
+              const gp = topicProgress?.grammar[englishExample] ?? { score: 0, completed: false };
+              const spoken = readFeedback[englishExample];
+              const feedback = spoken ? getWordFeedback(englishExample, spoken) : null;
               return (
                 <div className="english-today-item" key={item.title}>
                   <div className="english-today-grammar-head">
@@ -731,9 +737,9 @@ export function EnglishTopicPage() {
                     ))}
                   </span>
                   <span style={{ display: 'block', marginTop: 6 }}>
-                    {item.example.split(/\s+/).map((word, wi) => (
+                    {englishExample.split(/\s+/).map((word, wi) => (
                       <span
-                        key={`${item.example}-${wi}`}
+                        key={`${englishExample}-${wi}`}
                         className={feedback ? (feedback[wi] === 'good' ? 'score-high' : feedback[wi] === 'near' ? 'score-mid' : 'score-low') : undefined}
                         style={{ marginRight: 4 }}
                       >
@@ -741,6 +747,11 @@ export function EnglishTopicPage() {
                       </span>
                     ))}
                   </span>
+                  {item.example !== englishExample && (
+                    <span style={{ display: 'block', marginTop: 2, color: '#2f7a55', fontSize: 13 }}>
+                      {item.example.slice(englishExample.length).trim()}
+                    </span>
+                  )}
                   {item.pronunciation && (
                     <span style={{ display: 'block', marginTop: 2, color: '#697382', fontSize: 12, fontStyle: 'italic' }}>
                       {formatIpa(item.pronunciation)}
@@ -754,15 +765,15 @@ export function EnglishTopicPage() {
                     <button
                       className={`english-today-button secondary${isListening ? ' listening' : ''}`}
                       type="button"
-                      onClick={() => handleReadAloud(item.example, item.example, 'grammar')}
+                      onClick={() => handleReadAloud(englishExample, englishExample, 'grammar')}
                       disabled={isListening || gp.completed}
                     >
                       {gp.completed ? 'Đã đạt' : isListening ? 'Đang nghe…' : gp.score > 0 ? 'Đọc lại ví dụ' : 'Đọc ví dụ'}
                     </button>
-                    <button className="english-today-button ghost" type="button" onClick={() => speakText(item.example)} disabled={isListening}>
+                    <button className="english-today-button ghost" type="button" onClick={() => speakText(englishExample)} disabled={isListening}>
                       🔊 Nghe mẫu
                     </button>
-                    <button className="english-today-button ghost" type="button" onClick={() => speakSlowly(item.example)} disabled={isListening}>
+                    <button className="english-today-button ghost" type="button" onClick={() => speakSlowly(englishExample)} disabled={isListening}>
                       🐢 Chậm
                     </button>
                   </div>
@@ -824,7 +835,8 @@ export function EnglishTopicPage() {
                 const isCurrent = index === dialogueIndex;
                 const isRight = sentence.startsWith('B:');
                 const isLast = index === topic.dialogue.length - 1;
-                const messageText = cleanSentence(sentence);
+                const englishSentence = stripTranslation(sentence);
+                const messageText = cleanSentence(englishSentence);
                 const spoken = readFeedback[messageText];
                 const messageFeedback = spoken ? getWordFeedback(messageText, spoken) : null;
                 return (
@@ -848,6 +860,11 @@ export function EnglishTopicPage() {
                           </span>
                         ))}
                       </div>
+                      {sentence !== englishSentence && (
+                        <div style={{ marginTop: 4, color: '#2f7a55', fontSize: 12 }}>
+                          {sentence.slice(englishSentence.length).trim()}
+                        </div>
+                      )}
                       {topic.dialogueGuides?.[sentence] && (
                         <div style={{ marginTop: 6, fontSize: 11, lineHeight: 1.5, color: '#697382' }}>
                           <div>{topic.dialogueGuides[sentence].pronunciation}</div>
@@ -865,7 +882,7 @@ export function EnglishTopicPage() {
                             <button
                               className={`english-today-button secondary${isListening ? ' listening' : ''}`}
                               type="button"
-                              onClick={() => handleReadAloud(sentence, sentence, 'dialogue')}
+                              onClick={() => handleReadAloud(englishSentence, englishSentence, 'dialogue')}
                               disabled={isListening}
                             >
                               {isListening ? 'Đang nghe…' : record.score > 0 ? 'Đọc lại' : 'Đọc tin nhắn'}
