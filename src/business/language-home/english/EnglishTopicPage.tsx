@@ -1,10 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useParams, useNavigate, useBlocker } from 'react-router-dom';
-
-/** Strip trailing Vietnamese translation in parentheses, e.g. "Hello. (Xin chào.)" -> "Hello." */
-function stripTranslation(text: string): string {
-  return text.replace(/\s*\([^)]*\)\s*$/, '').trim();
-}
+import { getTopicProgressKeys, stripTranslation } from './content/englishProgressKeys';
 import {
   checkEnglishContentApi,
   getTodayEnglishContextApi,
@@ -305,10 +301,13 @@ export function EnglishTopicPage() {
 
   const topicProgress = useMemo(() => {
     if (!topic) return null;
-    return getTopicProgress(progress, topic.id, topic.vocab.map((item) => item.term), topic.grammar.map((item) => item.example), topic.dialogue);
+    const keys = getTopicProgressKeys(topic);
+    return getTopicProgress(progress, topic.id, keys.vocabTerms, keys.grammarExamples, keys.dialogueSentences);
   }, [progress, topic]);
 
-  const allDialogueDone = !!topic && topic.dialogue.length > 0 && topic.dialogue.every((s) => topicProgress?.dialogue[s]?.completed);
+  const allDialogueDone = !!topic
+    && topic.dialogue.length > 0
+    && getTopicProgressKeys(topic).dialogueSentences.every((s) => topicProgress?.dialogue[s]?.completed);
 
   useEffect(() => {
     if (!topic) return;
@@ -316,9 +315,7 @@ export function EnglishTopicPage() {
     dialogueInitRef.current = topic.id;
 
     const sessionKey = `english-dialogue-session-${topic.id}`;
-    const vocabTerms = topic.vocab.map((item) => item.term);
-    const grammarExamples = topic.grammar.map((item) => stripTranslation(item.example));
-    const dialogueSentences = topic.dialogue.map(stripTranslation);
+    const { vocabTerms, grammarExamples, dialogueSentences } = getTopicProgressKeys(topic);
     let nextState = readProgress();
     const current = getTopicProgress(nextState, topic.id, vocabTerms, grammarExamples, dialogueSentences);
     const dialogueDone = dialogueSentences.length > 0 && dialogueSentences.every((s) => current.dialogue[s]?.completed);
@@ -504,9 +501,7 @@ export function EnglishTopicPage() {
   function applyReadScore(score: number, key?: string, kind: 'vocab' | 'grammar' | 'dialogue' = 'vocab') {
     if (!topic) return;
     const topicIdValue = topic.id;
-    const vocabTerms = topic.vocab.map((item) => item.term);
-    const grammarExamples = topic.grammar.map((item) => stripTranslation(item.example));
-    const dialogueSentences = topic.dialogue.map(stripTranslation);
+    const { vocabTerms, grammarExamples, dialogueSentences } = getTopicProgressKeys(topic);
     let nextState = progress;
     if (key && kind === 'vocab') {
       nextState = updateVocabularyScore(nextState, topicIdValue, key, score, vocabTerms, grammarExamples, dialogueSentences);
@@ -515,8 +510,9 @@ export function EnglishTopicPage() {
     } else if (key && kind === 'dialogue') {
       nextState = updateDialogueScore(nextState, topicIdValue, key, score, vocabTerms, grammarExamples, dialogueSentences);
     } else {
-      const current = getTopicProgress(nextState, topicIdValue, vocabTerms, dialogueSentences);
+      const current = getTopicProgress(nextState, topicIdValue, vocabTerms, grammarExamples, dialogueSentences);
       const incomplete = vocabTerms.find((item) => !current.vocabulary[item]?.completed)
+        ?? grammarExamples.find((item) => !current.grammar[item]?.completed)
         ?? dialogueSentences.find((item) => !current.dialogue[item]?.completed);
       if (incomplete) {
         const isGrammar = grammarExamples.includes(incomplete);
@@ -530,7 +526,7 @@ export function EnglishTopicPage() {
     writeProgress(nextState);
     playFeedbackSound(score > VOCAB_THRESHOLD);
     if (key && kind === 'dialogue' && score > VOCAB_THRESHOLD) {
-      const completedIndex = topic.dialogue.indexOf(key);
+      const completedIndex = dialogueSentences.indexOf(key);
       if (completedIndex >= 0) {
         setDialogueIndex((current) => Math.max(current, Math.min(completedIndex + 1, topic.dialogue.length - 1)));
       }
@@ -719,17 +715,23 @@ export function EnglishTopicPage() {
         <div className="english-today-block">
           <h4>Grammar tương ứng</h4>
           <div className="english-today-list">
-            {topic.grammar.map((item) => {
+            {topic.grammar.map((item, grammarIndex) => {
               const englishExample = stripTranslation(item.example);
               const gp = topicProgress?.grammar[englishExample] ?? { score: 0, completed: false };
               const spoken = readFeedback[englishExample];
               const feedback = spoken ? getWordFeedback(englishExample, spoken) : null;
               return (
-                <div className="english-today-item" key={item.title}>
+                <div className="english-today-item" key={`${item.title ?? 'grammar'}-${grammarIndex}`}>
                   <div className="english-today-grammar-head">
-                    <strong>{item.title}</strong>
-                    <span className="english-today-grammar-tag">{item.category}</span>
+                    <strong>{item.title ?? `Ngữ pháp ${grammarIndex + 1}`}</strong>
+                    {item.category && <span className="english-today-grammar-tag">{item.category}</span>}
                   </div>
+                  {item.usage && (
+                    <div className="english-today-grammar-usage">
+                      <span className="usage-label">Khi nào dùng</span>
+                      <span>{item.usage}</span>
+                    </div>
+                  )}
                   <span className="english-today-formula">
                     <span className="formula-label">Công thức</span>
                     {item.formula.split(' · ').map((part) => (
@@ -777,6 +779,42 @@ export function EnglishTopicPage() {
                       🐢 Chậm
                     </button>
                   </div>
+                  {item.alternatives && item.alternatives.length > 0 && (
+                    <div className="english-today-grammar-alts">
+                      <span className="alts-title">3 công thức cùng nghĩa, khác trường hợp</span>
+                      <div className="english-today-grammar-alt-grid">
+                        {item.alternatives.map((alternative, alternativeIndex) => {
+                          const alternativeEnglish = stripTranslation(alternative.example);
+                          const alternativeTranslation = alternative.example.slice(alternativeEnglish.length).trim();
+                          return (
+                            <div className="english-today-grammar-alt" key={`${item.title}-alt-${alternativeIndex}`}>
+                              <span className="alt-context">
+                                {alternativeIndex + 1}. {alternative.context}
+                                {alternativeIndex === 0 && <em className="alt-main-badge">Chính</em>}
+                              </span>
+                              <span className="english-today-formula">
+                                <span className="formula-label">Công thức</span>
+                                <code>{alternative.formula}</code>
+                              </span>
+                              <span className="alt-example">{alternativeEnglish}</span>
+                              {alternativeTranslation && (
+                                <span className="alt-translation">{alternativeTranslation}</span>
+                              )}
+                              <button
+                                className="english-today-button ghost alt-listen"
+                                type="button"
+                                onClick={() => speakText(alternativeEnglish)}
+                                disabled={isListening}
+                                aria-label={`Nghe ví dụ: ${alternativeEnglish}`}
+                              >
+                                🔊 Nghe
+                              </button>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
                 </div>
               );
             })}
@@ -831,11 +869,11 @@ export function EnglishTopicPage() {
             </p>
             <div style={{ display: 'grid', gap: 10 }}>
               {topic.dialogue.slice(0, dialogueIndex + 1).map((sentence, index) => {
-                const record = topicProgress?.dialogue[sentence] ?? { score: 0, completed: false };
+                const englishSentence = stripTranslation(sentence);
+                const record = topicProgress?.dialogue[englishSentence] ?? { score: 0, completed: false };
                 const isCurrent = index === dialogueIndex;
                 const isRight = sentence.startsWith('B:');
                 const isLast = index === topic.dialogue.length - 1;
-                const englishSentence = stripTranslation(sentence);
                 const messageText = cleanSentence(englishSentence);
                 const spoken = readFeedback[messageText];
                 const messageFeedback = spoken ? getWordFeedback(messageText, spoken) : null;

@@ -64,20 +64,16 @@ await writeFile(
 
 const grammarRows = [];
 for (const topic of bank.topics) {
-  for (const item of topic.grammar) {
-    grammarRows.push({
-      topicId: topic.id,
-      title: item.title,
-      category: item.category,
-      formula: item.formula,
-      example: item.example,
-      pronunciation: item.pronunciation ?? '',
-    });
-  }
+  const formulaField = topic.grammar.map((item) =>
+    item.usage ? `${item.formula}\n(${item.usage})` : item.formula,
+  ).join('\n\n');
+  const exampleField = topic.grammar.map((item) => item.example).join('\n\n');
+  const pronunciationField = topic.grammar.map((item) => item.pronunciation ?? '').join('\n\n');
+  grammarRows.push({ topicId: topic.id, formula: formulaField, example: exampleField, pronunciation: pronunciationField });
 }
 await writeFile(
   new URL('grammar.csv', outputDirectory),
-  toCsv(['topicId', 'title', 'category', 'formula', 'example', 'pronunciation'], grammarRows),
+  toCsv(['topicId', 'formula', 'example', 'pronunciation'], grammarRows),
 );
 
 const quizRows = [];

@@ -5,15 +5,33 @@ export type EnglishVocabularyItem = {
   score: number;
 };
 
+export type EnglishGrammarAlternative = {
+  /** Pattern for this alternative, e.g. S + tend to + V. */
+  formula: string;
+  /** Vietnamese description of when this alternative is used. */
+  context: string;
+  /** English example with the Vietnamese translation in parentheses. */
+  example: string;
+};
+
 export type EnglishGrammarItem = {
-  title: string;
+  /** Optional heading; derived from the formula when missing. */
+  title?: string;
   /** Grammar group such as Tense, Modal, Conditional, Passive… */
-  category: string;
+  category?: string;
   /** Pattern to memorise, e.g. S + have/has + V3. */
   formula: string;
   example: string;
   /** IPA pronunciation of the example sentence. */
   pronunciation?: string;
+  /** Vietnamese explanation of when and where to use this grammar point. */
+  usage?: string;
+  /**
+   * Three formulas with the same communicative purpose but different
+   * situations, formality, or nuance. The first entry mirrors `formula` and
+   * `example` and adds its usage context.
+   */
+  alternatives?: EnglishGrammarAlternative[];
 };
 
 export type EnglishQuiz = {

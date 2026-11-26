@@ -88,11 +88,24 @@ for t in bank["topics"]:
 sheets["vocabulary"] = (["topicId", "term", "meaning", "pronunciation", "score"], vocab_rows)
 
 # grammar
+grammar_headers = ["topicId", "formula", "example", "pronunciation"]
 grammar_rows = []
 for t in bank["topics"]:
+    formula_parts = []
+    example_parts = []
+    pronunciation_parts = []
     for g in t["grammar"]:
-        grammar_rows.append([t["id"], g["title"], g["category"], g["formula"], g["example"], g.get("pronunciation")])
-sheets["grammar"] = (["topicId", "title", "category", "formula", "example", "pronunciation"], grammar_rows)
+        f = g["formula"]
+        if g.get("usage"):
+            f = f + "\n(" + g["usage"] + ")"
+        formula_parts.append(f)
+        example_parts.append(g["example"])
+        pronunciation_parts.append(g.get("pronunciation") or "")
+    formula_field = "\n\n".join(formula_parts)
+    example_field = "\n\n".join(example_parts)
+    pronunciation_field = "\n\n".join(pronunciation_parts)
+    grammar_rows.append([t["id"], formula_field, example_field, pronunciation_field])
+sheets["grammar"] = (grammar_headers, grammar_rows)
 
 # quizzes
 quiz_rows = []

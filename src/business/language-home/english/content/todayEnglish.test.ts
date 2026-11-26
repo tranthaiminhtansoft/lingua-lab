@@ -75,7 +75,7 @@ test('every grammar point has a category, a formula, and an example', () => {
   for (const topic of getTodayEnglishContext(new Date(2026, 10, 15)).topics) {
     expect(topic.grammar.length).toBeGreaterThanOrEqual(4);
     for (const item of topic.grammar) {
-      expect(item.category.length).toBeGreaterThan(0);
+      if (item.category) expect(item.category.length).toBeGreaterThan(0);
       expect(item.formula.length).toBeGreaterThan(0);
       expect(item.example.length).toBeGreaterThan(0);
     }
