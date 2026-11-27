@@ -2,6 +2,8 @@ export type EnglishVocabularyItem = {
   term: string;
   meaning: string;
   pronunciation: string;
+  /** Synonyms or usage cases, multiline text. */
+  synonyms?: string;
   score: number;
 };
 

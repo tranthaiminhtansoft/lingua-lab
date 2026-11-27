@@ -53,12 +53,19 @@ function parseStringArray(value: unknown): string[] | null {
 
 function parseVocabularyItem(value: unknown, context: string, errors: string[]): EnglishVocabularyItem | null {
   if (!isRecord(value)) { errors.push(`${context}: Dữ liệu từ vựng không hợp lệ.`); return null; }
-  const { term, meaning, pronunciation, score } = value;
+  const { term, meaning, pronunciation, synonyms, score } = value;
   if (!isText(term)) { errors.push(`${context}: Thiếu từ vựng (cột 'term').`); return null; }
   if (!isText(meaning)) { errors.push(`${context}: Thiếu nghĩa (cột 'meaning').`); return null; }
   if (!isText(pronunciation)) { errors.push(`${context}: Thiếu phiên âm (cột 'pronunciation').`); return null; }
+  if (synonyms !== undefined && typeof synonyms !== 'string') { errors.push(`${context}: Cột 'synonyms' (từ đồng nghĩa) không hợp lệ.`); return null; }
   if (typeof score !== 'number' || !Number.isFinite(score)) { errors.push(`${context}: Cột 'score' (điểm) phải là số.`); return null; }
-  return { term, meaning, pronunciation, score };
+  return {
+    term,
+    meaning,
+    pronunciation,
+    ...(synonyms !== undefined && synonyms.trim() ? { synonyms } : {}),
+    score,
+  };
 }
 
 function parseGrammarAlternative(value: unknown, context: string, errors: string[]): EnglishGrammarAlternative | null {

@@ -84,8 +84,8 @@ sheets["topics"] = (
 vocab_rows = []
 for t in bank["topics"]:
     for v in t["vocab"]:
-        vocab_rows.append([t["id"], v["term"], v["meaning"], v["pronunciation"], v["score"]])
-sheets["vocabulary"] = (["topicId", "term", "meaning", "pronunciation", "score"], vocab_rows)
+        vocab_rows.append([t["id"], v["term"], v["meaning"], v["pronunciation"], v.get("synonyms", ""), v["score"]])
+sheets["vocabulary"] = (["topicId", "term", "meaning", "pronunciation", "synonyms", "score"], vocab_rows)
 
 # grammar
 grammar_headers = ["topicId", "formula", "example", "pronunciation"]

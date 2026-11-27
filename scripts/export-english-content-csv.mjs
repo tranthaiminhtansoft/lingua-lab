@@ -53,13 +53,14 @@ for (const topic of bank.topics) {
       term: item.term,
       meaning: item.meaning,
       pronunciation: item.pronunciation,
+      synonyms: item.synonyms ?? '',
       score: item.score,
     });
   }
 }
 await writeFile(
   new URL('vocabulary.csv', outputDirectory),
-  toCsv(['topicId', 'term', 'meaning', 'pronunciation', 'score'], vocabRows),
+  toCsv(['topicId', 'term', 'meaning', 'pronunciation', 'synonyms', 'score'], vocabRows),
 );
 
 const grammarRows = [];
