@@ -685,6 +685,11 @@ export function EnglishTopicPage() {
                     {item.meaning} · {formatIpa(item.pronunciation)} · Phát âm: <span className={scoreClass(vp.score)}>{vp.score}%</span>
                     {vp.completed ? ' (đạt ngưỡng)' : ' (chưa đạt)'}
                   </span>
+                  {item.synonyms && (
+                    <span style={{ display: 'block', marginTop: 6, fontSize: 12, color: '#35405a', whiteSpace: 'pre-wrap', lineHeight: 1.5 }}>
+                      <strong style={{ color: '#394eaa' }}>Từ đồng nghĩa / cách dùng:</strong>{'\n'}{item.synonyms}
+                    </span>
+                  )}
                   <div style={{ marginTop: 8, display: 'flex', gap: 8, flexWrap: 'wrap' }}>
                     <button
                       className={`english-today-button secondary${isListening ? ' listening' : ''}`}

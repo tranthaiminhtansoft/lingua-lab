@@ -200,6 +200,7 @@ export function parseEnglishSheetTabs(
         term: v.term ?? '',
         meaning: v.meaning ?? '',
         pronunciation: v.pronunciation ?? '',
+        ...((v.synonyms ?? '').trim() ? { synonyms: v.synonyms } : {}),
         score: toNumber(v.score, 0),
       }));
     const isNewGrammarFormat = grammarHeaders.includes('items');

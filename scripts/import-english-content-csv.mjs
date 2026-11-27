@@ -127,6 +127,7 @@ const topics = topicRows.map((row) => {
       term: item.term,
       meaning: item.meaning,
       pronunciation: item.pronunciation,
+      ...((item.synonyms ?? '').trim() ? { synonyms: item.synonyms } : {}),
       score: item.score === '' ? 0 : Number(item.score),
     }));
   const grammar = grammarRows
