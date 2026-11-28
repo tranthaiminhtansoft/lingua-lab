@@ -17,18 +17,6 @@ A: After that, let’s warm up by the fireplace.
 B: Perfect. I’m also baking gingerbread men and mince pies.
 A: Yum! Will Rudolph and the reindeer visit tonight?
 B: Maybe! Don’t forget to hang Santa’s sack by the chimney."
-new-years-day,0,"A: Do you have any New Year’s resolutions?
-B: Yes, I want to exercise more.
-A: That’s a great goal. How often?
-B: Three times a week. What about you?
-A: I’m going to save more money.
-B: Good luck! Happy New Year!"
-new-years-day,1,"A: Did you stay up for the countdown?
-B: Yes, until midnight.
-A: Was it fun?
-B: Very. I made a fresh start this year.
-A: Me too. Let’s achieve our goals.
-B: Agreed. Happy New Year!"
 psychology-mind,0,"A: Why do I keep procrastinating?
 B: It might be a habit, not laziness.
 A: How do I change it?
@@ -245,3 +233,19 @@ A: Classic choice. Are you nervous? (Lựa chọn kinh điển. Bạn có hồi 
 B: A little. I might propose tonight. (Hơi hơi. Tối nay mình có thể cầu hôn.)
 A: Wow, that's huge! You've got this. (Wow, lớn quá! Bạn làm được mà.)
 B: Thanks for the support, man. (Cảm ơn bạn đã ủng hộ.)"
+new-years-day,0,"A: Did you stay up for the countdown last night? (Bạn có thức đến đếm ngược tối qua không?)
+B: Yes, until midnight. The fireworks were amazing! (Có, đến nửa đêm. Pháo hoa tuyệt vời!)
+A: Did you make any resolutions? (Bạn có đặt quyết tâm nào không?)
+B: Yeah, I want to exercise three times a week. (Có, tôi muốn tập thể dục ba lần một tuần.)
+A: That's a good one. I'm going to learn a new language. (Quyết tâm hay đấy. Tôi sẽ học một ngôn ngữ mới.)
+B: Nice! Let's check in on each other's progress. (Tuyệt! Chúng ta theo dõi tiến độ của nhau nhé.)
+A: Deal. Happy New Year! (Đồng ý. Chúc năm mới!)
+B: Happy New Year! (Chúc năm mới!)"
+new-years-day,1,"A: How's the new year treating you so far? (Năm mới đối với bạn thế nào rồi?)
+B: Pretty good! I've been waking up at 6 AM every day. (Khá tốt! Tôi đã dậy lúc 6 giờ sáng mỗi ngày.)
+A: Wow, that's impressive. Is it hard to stick to? (Wow, ấn tượng. Có khó kiên trì không?)
+B: The first week was tough, but now it's becoming a habit. (Tuần đầu khó lắm, nhưng giờ đang thành thói quen.)
+A: I'm trying to cut down on screen time before bed. (Tôi đang cố giảm thời gian dùng màn hình trước khi ngủ.)
+B: That's smart. I read that blue light affects sleep quality. (Thông minh đấy. Tôi đọc rằng ánh sáng xanh ảnh hưởng chất lượng giấc ngủ.)
+A: Exactly. Let's hold each other accountable! (Chính xác. Chúng ta cùng giám sát nhau nhé!)
+B: Sounds like a plan. Here's to a productive year! (Nghe hợp lý. Chúc một năm năng suất!)"

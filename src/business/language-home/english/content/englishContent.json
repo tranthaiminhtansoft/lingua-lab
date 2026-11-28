@@ -1055,72 +1055,112 @@
           "term": "New Year’s Day",
           "meaning": "Ngày đầu năm mới",
           "pronunciation": "/ˌnuː jɪrz ˈdeɪ/",
+          "synonyms": "[Viết tắt]\nNYD - /ˌɛn waɪ ˈdiː/ - Ngày đầu năm (viết tắt)\n\n[Mô tả]\nJanuary 1 - /ˈdʒænjueri wʌn/ - ngày 1 tháng 1",
           "score": 0
         },
         {
           "term": "resolution",
           "meaning": "quyết tâm",
           "pronunciation": "/ˌrezəˈluːʃən/",
+          "synonyms": "[Đồng nghĩa]\ngoal - /ɡoʊl/ - mục tiêu\n\n[Mô tả]\nNew Year's resolution - /ˌnuː jɪrz ˌrezəˈluːʃən/ - quyết tâm năm mới\n\n[Khẩu ngữ]\nres - /rez/ - quyết tâm (viết tắt khẩu ngữ)",
           "score": 0
         },
         {
           "term": "fresh start",
           "meaning": "khởi đầu mới",
           "pronunciation": "/ˌfreʃ ˈstɑːrt/",
+          "synonyms": "[Đồng nghĩa]\nnew beginning - /nuː bɪˈɡɪnɪŋ/ - khởi đầu mới\n\n[Mô tả]\nclean slate - /kliːn sleɪt/ - bắt đầu lại từ đầu\n\n[Khẩu ngữ]\ntabula rasa - /ˈtæbjələ ˈrɑːzə/ - trang giấy trắng (Latinh)",
           "score": 0
         },
         {
           "term": "goal",
           "meaning": "mục tiêu",
           "pronunciation": "/ɡoʊl/",
+          "synonyms": "[Đồng nghĩa]\nobjective - /əbˈdʒektɪv/ - mục tiêu (trang trọng)\n\n[Mô tả]\ntarget - /ˈtɑːrɡɪt/ - mục tiêu\n\n[Khẩu ngữ]\naim - /eɪm/ - mục tiêu",
           "score": 0
         },
         {
           "term": "achieve",
           "meaning": "đạt được",
           "pronunciation": "/əˈtʃiːv/",
+          "synonyms": "[Đồng nghĩa]\naccomplish - /əˈkɑːmplɪʃ/ - hoàn thành\n\n[Mô tả]\nreach - /riːtʃ/ - đạt đến\n\n[Khẩu ngữ]\npull off - /pʊl ɔːf/ - làm được (khẩu ngữ)",
           "score": 0
         },
         {
           "term": "habit",
           "meaning": "thói quen",
           "pronunciation": "/ˈhæbɪt/",
+          "synonyms": "[Đồng nghĩa]\nroutine - /ruːˈtiːn/ - thói quen/routine\n\n[Mô tả]\npractice - /ˈpræktɪs/ - thói quen\n\n[Khẩu ngữ]\nhabits die hard - /ˈhæbɪts daɪ hɑːrd/ - thói quen khó bỏ",
           "score": 0
         },
         {
           "term": "exercise",
           "meaning": "tập thể dục",
           "pronunciation": "/ˈeksərsaɪz/",
+          "synonyms": "[Đồng nghĩa]\nworkout - /ˈwɜːrkaʊt/ - buổi tập\n\n[Mô tả]\nphysical activity - /ˈfɪzɪkl ækˈtɪvəti/ - hoạt động thể chất\n\n[Khẩu ngữ]\nhit the gym - /hɪt ðə dʒɪm/ - đi tập gym",
           "score": 0
         },
         {
           "term": "save money",
           "meaning": "tiết kiệm",
           "pronunciation": "/ˌseɪv ˈmʌni/",
+          "synonyms": "[Đồng nghĩa]\ncut back - /kʌt bæk/ - cắt giảm chi tiêu\n\n[Mô tả]\nput aside - /pʊt əˈsaɪd/ - để dành\n\n[Khẩu ngữ]\nstash cash - /stæʃ kæʃ/ - để dành tiền (khẩu ngữ)",
           "score": 0
         },
         {
           "term": "countdown",
           "meaning": "đếm ngược",
           "pronunciation": "/ˈkaʊntdaʊn/",
+          "synonyms": "[Đồng nghĩa]\ncounting down - /ˈkaʊntɪŋ daʊn/ - đếm ngược\n\n[Mô tả]\nfinal seconds - /ˈfaɪnl ˈsekəndz/ - những giây cuối",
           "score": 0
         },
         {
           "term": "fireworks",
           "meaning": "pháo hoa",
           "pronunciation": "/ˈfaɪərwɜːrks/",
+          "synonyms": "[Đồng nghĩa]\npyrotechnics - /ˌpaɪrəˈteknɪks/ - pháo hoa (trang trọng)\n\n[Mô tả]\ndisplay - /dɪˈspleɪ/ - màn trình diễn pháo hoa",
           "score": 0
         },
         {
           "term": "toast",
           "meaning": "chúc mừng",
           "pronunciation": "/toʊst/",
+          "synonyms": "[Đồng nghĩa]\nraise a glass - /reɪz ə ɡlæs/ - nâng ly chúc mừng\n\n[Mô tả]\ncheers - /tʃɪrz/ - chúc mừng (khẩu ngữ)",
           "score": 0
         },
         {
           "term": "stick to",
           "meaning": "kiên trì",
           "pronunciation": "/ˌstɪk ˈtuː/",
+          "synonyms": "[Đồng nghĩa]\ncommit to - /kəˈmɪt tuː/ - cam kết\n\n[Mô tả]\nfollow through - /ˈfɑːloʊ θruː/ - theo đuổi đến cùng",
+          "score": 0
+        },
+        {
+          "term": "self-improvement",
+          "meaning": "tự hoàn thiện",
+          "pronunciation": "/ˌself ɪmˈpruːvmənt/",
+          "synonyms": "[Đồng nghĩa]\npersonal growth - /ˈpɜːrsənl ɡroʊθ/ - phát triển bản thân\n\n[Mô tả]\nself-development - /ˌself dɪˈveləpmənt/ - tự phát triển",
+          "score": 0
+        },
+        {
+          "term": "quit smoking",
+          "meaning": "bỏ thuốc lá",
+          "pronunciation": "/kwɪt ˈsmoʊkɪŋ/",
+          "synonyms": "[Đồng nghĩa]\nstop smoking - /stɑːp ˈsmoʊkɪŋ/ - bỏ thuốc lá\n\n[Khẩu ngữ]\nkick the habit - /kɪk ðə ˈhæbɪt/ - bỏ thói quen (khẩu ngữ)",
+          "score": 0
+        },
+        {
+          "term": "wake up early",
+          "meaning": "dậy sớm",
+          "pronunciation": "/weɪk ʌp ˈɜːrli/",
+          "synonyms": "[Đồng nghĩa]\nrise early - /raɪz ˈɜːrli/ - dậy sớm\n\n[Khẩu ngữ]\nbe an early bird - /bi ən ˈɜːrli bɜːrd/ - là người dậy sớm",
+          "score": 0
+        },
+        {
+          "term": "productivity",
+          "meaning": "năng suất",
+          "pronunciation": "/ˌproʊdʌkˈtɪvəti/",
+          "synonyms": "[Đồng nghĩa]\nefficiency - /ɪˈfɪʃənsi/ - hiệu quả\n\n[Mô tả]\noutput - /ˈaʊtpʊt/ - sản lượng",
           "score": 0
         }
       ],
@@ -1128,7 +1168,7 @@
         {
           "formula": "S + am/is/are + going to + V",
           "example": "I'm going to save more money this year. (Năm nay tôi sẽ tiết kiệm nhiều tiền hơn.)",
-          "pronunciation": "/əm goʊɪŋ tɪ seɪv mɔr ˈməni ðɪs jɪr/",
+          "pronunciation": "/aɪm ˈɡoʊɪŋ tə seɪv mɔːr ˈmʌni ðɪs jɪr/",
           "usage": "Dùng để nói về dự định hoặc quyết tâm cho năm mới.",
           "title": "'Be going to' for New Year intentions",
           "category": "Future",
@@ -1153,7 +1193,7 @@
         {
           "formula": "S + have/has + V3 + this year",
           "example": "I've learned a lot this year. (Năm nay tôi đã học được nhiều điều.)",
-          "pronunciation": "/aɪv ˈlərnɪd ə lɔt ðɪs jɪr/",
+          "pronunciation": "/aɪv lɜːrnd ə lɑːt ðɪs jɪr/",
           "usage": "Dùng khi nhìn lại trải nghiệm hoặc thành quả trong năm tính đến thời điểm hiện tại.",
           "title": "Present perfect for year reflections",
           "category": "Tense",
@@ -1178,7 +1218,7 @@
         {
           "formula": "S + used to + V",
           "example": "I used to stay up late every night. (Tôi từng thức khuya mỗi đêm.)",
-          "pronunciation": "/aɪ juzd tɪ steɪ əp leɪt ˈɛvəri naɪt/",
+          "pronunciation": "/aɪ juːst tə steɪ ʌp leɪt ˈevri naɪt/",
           "usage": "Dùng để so sánh thói quen trong quá khứ với hiện tại.",
           "title": "'Used to' for past habits",
           "category": "Tense",
@@ -1203,7 +1243,7 @@
         {
           "formula": "S + want to + V",
           "example": "I want to learn a new language. (Tôi muốn học một ngôn ngữ mới.)",
-          "pronunciation": "/aɪ wɔnt tɪ lərn ə nu ˈlæŋgwɪʤ/",
+          "pronunciation": "/aɪ wɑːnt tə lɜːrn ə ˈnuː ˈlæŋɡwɪdʒ/",
           "usage": "Dùng để nói về mong muốn hoặc mục tiêu cá nhân trong năm mới.",
           "title": "'Want to' for goals",
           "category": "Modal",
@@ -1224,6 +1264,12 @@
               "example": "I hope to travel to Japan next year. (Tôi hy vọng sẽ đi Nhật vào năm sau.)"
             }
           ]
+        },
+        {
+          "formula": "If + S + V(present), S + will + V",
+          "example": "If I stick to my plan, I'll save enough for a trip. (Nếu tôi kiên trì theo kế hoạch, tôi sẽ tiết kiệm đủ cho một chuyến đi.)",
+          "pronunciation": "/ɪf aɪ stɪk tə maɪ plæn, aɪl seɪv ɪˈnʌf fər ə trɪp/",
+          "usage": "Dùng để nói về kết quả có thể xảy ra nếu một điều kiện trong năm mới được thực hiện."
         }
       ],
       "examples": [
@@ -1232,37 +1278,16 @@
       ],
       "quizzes": [
         {
-          "questionType": "Single Best Answer",
+          "questionType": "Multiple Choice",
           "question": "Which word means “quyết tâm”?",
           "options": [
             "resolution",
             "goal",
-            "habit"
+            "habit",
+            "fresh start"
           ],
           "answerIndex": 0,
-          "explanation": "A resolution is a firm decision to do something."
-        },
-        {
-          "questionType": "Single Best Answer",
-          "question": "Which word means “khởi đầu mới”?",
-          "options": [
-            "fresh start",
-            "countdown",
-            "achieve"
-          ],
-          "answerIndex": 0,
-          "explanation": "A fresh start means a new beginning."
-        },
-        {
-          "questionType": "Single Best Answer",
-          "question": "Complete: “I’m ___ save more money.”",
-          "options": [
-            "going to",
-            "go to",
-            "gone to"
-          ],
-          "answerIndex": 0,
-          "explanation": "“Be going to” needs the verb be."
+          "explanation": "Lý do đúng:\nresolution - dịch: \"quyết tâm / quyết định\", từ chính xác"
         },
         {
           "questionType": "Single Best Answer",
@@ -1273,26 +1298,86 @@
             "New Year is here."
           ],
           "answerIndex": 0,
-          "explanation": "“I wish you …” is a standard greeting."
+          "explanation": "Lý do đúng:\nI wish you a Happy New Year! - dịch: \"Chúc bạn năm mới vui vẻ!\", cách chúc tự nhiên"
+        },
+        {
+          "questionType": "Multiple Choice",
+          "question": "Complete: “I’m ___ save more money this year.”",
+          "options": [
+            "going to",
+            "go to",
+            "gone to"
+          ],
+          "answerIndex": 0,
+          "explanation": "Lý do đúng:\ngoing to - dịch: \"sẽ\", cấu trúc be going to + V diễn tả dự định"
+        },
+        {
+          "questionType": "Single Best Answer",
+          "question": "Which sentence is polite when sharing goals?",
+          "options": [
+            "I would like to spend more time with my family.",
+            "You must spend time with family.",
+            "Spend time with family."
+          ],
+          "answerIndex": 0,
+          "explanation": "Lý do đúng:\nI would like to spend more time with my family. - dịch: \"Tôi muốn dành nhiều thời gian hơn cho gia đình\", lời nói lịch sự, tự nhiên"
+        },
+        {
+          "questionType": "Multiple Choice",
+          "question": "Which word means “khởi đầu mới”?",
+          "options": [
+            "fresh start",
+            "resolution",
+            "habit",
+            "countdown"
+          ],
+          "answerIndex": 0,
+          "explanation": "Lý do đúng:\nfresh start - dịch: \"khởi đầu mới\", từ chính xác"
+        },
+        {
+          "questionType": "Single Best Answer",
+          "question": "Choose the most natural sentence for New Year plans:",
+          "options": [
+            "I'm going to learn a new language.",
+            "I learn new language this year.",
+            "I will learning new language."
+          ],
+          "answerIndex": 0,
+          "explanation": "Lý do đúng:\nI'm going to learn a new language. - dịch: \"Tôi sẽ học một ngôn ngữ mới\", dùng be going to + V cho dự định"
+        },
+        {
+          "questionType": "Multiple Choice",
+          "question": "Which sentence gives advice for New Year?",
+          "options": [
+            "You should start small and build habits gradually.",
+            "You must change everything now.",
+            "Change now."
+          ],
+          "answerIndex": 0,
+          "explanation": "Lý do đúng:\nYou should start small and build habits gradually. - dịch: \"Bạn nên bắt đầu từ nhỏ và xây dựng thói quen dần dần\", lời khuyên lịch sự"
         }
       ],
       "readExpected": "I'm going to save more money this year.",
       "dialogue": [
-        "A: Do you have any New Year’s resolutions?",
-        "B: Yes, I want to exercise more.",
-        "A: That’s a great goal. How often?",
-        "B: Three times a week. What about you?",
-        "A: I’m going to save more money.",
-        "B: Good luck! Happy New Year!"
+        "A: Did you stay up for the countdown last night? (Bạn có thức đến đếm ngược tối qua không?)",
+        "B: Yes, until midnight. The fireworks were amazing! (Có, đến nửa đêm. Pháo hoa tuyệt vời!)",
+        "A: Did you make any resolutions? (Bạn có đặt quyết tâm nào không?)",
+        "B: Yeah, I want to exercise three times a week. (Có, tôi muốn tập thể dục ba lần một tuần.)",
+        "A: That's a good one. I'm going to learn a new language. (Quyết tâm hay đấy. Tôi sẽ học một ngôn ngữ mới.)",
+        "B: Nice! Let's check in on each other's progress. (Tuyệt! Chúng ta theo dõi tiến độ của nhau nhé.)",
+        "A: Deal. Happy New Year! (Đồng ý. Chúc năm mới!)",
+        "B: Happy New Year! (Chúc năm mới!)"
       ],
       "dialogueVariants": [
         [
-          "A: Did you stay up for the countdown?",
-          "B: Yes, until midnight.",
-          "A: Was it fun?",
-          "B: Very. I made a fresh start this year.",
-          "A: Me too. Let’s achieve our goals.",
-          "B: Agreed. Happy New Year!"
+          "A: How's the new year treating you so far? (Năm mới đối với bạn thế nào rồi?)",
+          "B: Pretty good! I've been waking up at 6 AM every day. (Khá tốt! Tôi đã dậy lúc 6 giờ sáng mỗi ngày.)",
+          "A: Wow, that's impressive. Is it hard to stick to? (Wow, ấn tượng. Có khó kiên trì không?)",
+          "B: The first week was tough, but now it's becoming a habit. (Tuần đầu khó lắm, nhưng giờ đang thành thói quen.)",
+          "A: I'm trying to cut down on screen time before bed. (Tôi đang cố giảm thời gian dùng màn hình trước khi ngủ.)",
+          "B: That's smart. I read that blue light affects sleep quality. (Thông minh đấy. Tôi đọc rằng ánh sáng xanh ảnh hưởng chất lượng giấc ngủ.)",
+          "A: Exactly. Let's hold each other accountable! (Chính xác. Chúng ta cùng giám sát nhau nhé!)",
+          "B: Sounds like a plan. Here's to a productive year! (Nghe hợp lý. Chúc một năm năng suất!)"
         ]
       ]
     },
