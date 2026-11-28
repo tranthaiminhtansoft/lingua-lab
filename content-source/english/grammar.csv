@@ -45,29 +45,6 @@ Would you like to come to mass with us? (Bạn có muốn đi lễ với chúng 
 /wi goʊ tɪ ʧərʧ æt naɪn/
 
 /wʊd ju laɪk tɪ kəm tɪ mæs wɪθ ˈjuˈɛs/"
-household-chores,"V + O; Don't + V + O
-(Dùng để yêu cầu hoặc nhắc ai làm việc nhà một cách ngắn gọn.)
-
-S + have/has to + V
-(Dùng khi có việc nhà bắt buộc phải hoàn thành.)
-
-Who + be + V-ing + O?
-(Dùng để hỏi ai đang làm hoặc chịu trách nhiệm một việc nhà.)
-
-S + have/has + already + V3
-(Dùng để nói việc nhà đã xong, vừa xong hoặc chưa xong.)","Tidy up the living room. (Dọn dẹp phòng khách.)
-
-I have to do the laundry today. (Hôm nay tôi phải giặt đồ.)
-
-Who is doing the dishes? (Ai đang rửa bát?)
-
-I've already taken out the trash. (Tôi đã đổ rác rồi.)","/ˈtaɪdi əp ðə ˈlɪvɪŋ rum/
-
-/aɪ hæv tɪ du ðə ˈlɔndri təˈdeɪ/
-
-/hu ɪz duɪŋ ðə ˈdɪʃɪz/
-
-/aɪv ɔˈrɛdi ˈteɪkən aʊt ðə træʃ/"
 devops-meeting,"S + have/has + V3
 (Dùng để báo cáo việc đã làm và kết quả còn liên quan đến cuộc họp hiện tại.)
 
@@ -508,3 +485,33 @@ Today is more relaxing than yesterday. (Hôm nay thư giãn hơn hôm qua.)","/a
 /aɪm nɑːt ˈduːɪŋ ˈeniθɪŋ ət ɔːl təˈdeɪ/
 
 /təˈdeɪ ɪz mɔːr rɪˈlæksɪŋ ðən ˈjestərdeɪ/"
+household-chores,"V + O; Don't + V + O
+(Dùng để yêu cầu hoặc nhắc ai làm việc nhà một cách ngắn gọn.)
+
+S + have/has to + V
+(Dùng khi có việc nhà bắt buộc phải hoàn thành.)
+
+Who + be + V-ing + O?
+(Dùng để hỏi ai đang làm hoặc chịu trách nhiệm một việc nhà.)
+
+S + have/has + already + V3
+(Dùng để nói việc nhà đã xong, vừa xong hoặc chưa xong.)
+
+Let's + V / Could you + V?
+(Dùng để đề xuất chia sẻ công việc nhà giữa các thành viên.)","Tidy up the living room. (Dọn dẹp phòng khách.)
+
+I have to do the laundry today. (Hôm nay tôi phải giặt đồ.)
+
+Who is doing the dishes? (Ai đang rửa bát?)
+
+I've already taken out the trash. (Tôi đã đổ rác rồi.)
+
+Let's split the chores this weekend. (Chúng ta chia việc nhà cuối tuần này nhé.)","/ˈtaɪdi ʌp ðə ˈlɪvɪŋ ruːm/
+
+/aɪ hæv tə duː ðə ˈlɔːndri təˈdeɪ/
+
+/huː ɪz ˈduːɪŋ ðə ˈdɪʃɪz/
+
+/aɪv ɔlˈredi ˈteɪkən aʊt ðə træʃ/
+
+/lets splɪt ðə tʃɔːrz ðɪs ˈwiːkˌend/"

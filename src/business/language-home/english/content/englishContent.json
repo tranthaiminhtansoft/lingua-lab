@@ -3042,72 +3042,112 @@
           "term": "chore",
           "meaning": "việc nhà",
           "pronunciation": "/tʃɔːr/",
+          "synonyms": "[Đồng nghĩa]\nhousehold task - /ˈhaʊshoʊld tæsk/ - việc nhà\n\n[Mô tả]\nerrand - /ˈerənd/ - việc vặt",
           "score": 0
         },
         {
           "term": "laundry",
           "meaning": "giặt đồ",
           "pronunciation": "/ˈlɔːndri/",
+          "synonyms": "[Đồng nghĩa]\nwashing - /ˈwɑːʃɪŋ/ - giặt đồ (Anh-Anh)\n\n[Mô tả]\nlaundry load - /ˈlɔːndri loʊd/ - mẻ giặt",
           "score": 0
         },
         {
           "term": "dishes",
           "meaning": "rửa bát",
           "pronunciation": "/ˈdɪʃɪz/",
+          "synonyms": "[Đồng nghĩa]\nwashing up - /ˈwɑːʃɪŋ ʌp/ - rửa bát (Anh-Anh)\n\n[Mô tả]\ndishwashing - /ˈdɪʃˌwɑːʃɪŋ/ - rửa chén bát",
           "score": 0
         },
         {
           "term": "vacuum",
           "meaning": "hút bụi",
           "pronunciation": "/ˈvækjuːm/",
+          "synonyms": "[Đồng nghĩa]\nhoover - /ˈhuːvər/ - hút bụi (Anh-Anh)\n\n[Mô tả]\nvacuuming - /ˈvækjuːmɪŋ/ - hút bụi",
           "score": 0
         },
         {
           "term": "tidy up",
           "meaning": "dọn dẹp",
           "pronunciation": "/ˌtaɪdi ˈʌp/",
+          "synonyms": "[Đồng nghĩa]\nclean up - /kliːn ʌp/ - dọn dẹp\n\n[Mô tả]\nstraighten up - /ˈstreɪtn ʌp/ - sắp xếp gọn",
           "score": 0
         },
         {
           "term": "take out the trash",
           "meaning": "đổ rác",
           "pronunciation": "/ˌteɪk aʊt ðə ˈtræʃ/",
+          "synonyms": "[Đồng nghĩa]\ntake out the garbage - /teɪk aʊt ðə ˈɡɑːrbɪdʒ/ - đổ rác (Mỹ)\n\n[Mô tả]\nempty the bin - /ˈempti ðə bɪn/ - đổ thùng rác",
           "score": 0
         },
         {
           "term": "dust",
           "meaning": "lau bụi",
           "pronunciation": "/dʌst/",
+          "synonyms": "[Đồng nghĩa]\ndusting - /ˈdʌstɪŋ/ - lau bụi\n\n[Mô tả]\nwipe down - /waɪp daʊn/ - lau chùi",
           "score": 0
         },
         {
           "term": "mop",
           "meaning": "lau nhà",
           "pronunciation": "/mɑːp/",
+          "synonyms": "[Đồng nghĩa]\nmopping - /ˈmɑːpɪŋ/ - lau nhà\n\n[Mô tả]\nswab - /swɑːb/ - lau (trang trọng)",
           "score": 0
         },
         {
           "term": "clean",
           "meaning": "dọn sạch",
           "pronunciation": "/kliːn/",
+          "synonyms": "[Đồng nghĩa]\ntidy - /ˈtaɪdi/ - gọn gàng\n\n[Mô tả]\nsparkling - /ˈspɑːrklɪŋ/ - sạch bóng",
           "score": 0
         },
         {
           "term": "declutter",
           "meaning": "dọn đồ thừa",
           "pronunciation": "/diːˈklʌtər/",
+          "synonyms": "[Đồng nghĩa]\nde-clutter - /diː ˈklʌtər/ - dọn đồ thừa\n\n[Mô tả]\norganize - /ˈɔːrɡənaɪz/ - sắp xếp",
           "score": 0
         },
         {
           "term": "fold the laundry",
           "meaning": "gấp đồ giặt",
           "pronunciation": "/ˌfoʊld ðə ˈlɔːndri/",
+          "synonyms": "[Đồng nghĩa]\nfold clothes - /foʊld kloʊðz/ - gấp quần áo\n\n[Mô tả]\nput away laundry - /pʊt əˈweɪ ˈlɔːndri/ - cất đồ giặt",
           "score": 0
         },
         {
           "term": "sweep the floor",
           "meaning": "quét nhà",
           "pronunciation": "/ˌswiːp ðə ˈflɔːr/",
+          "synonyms": "[Đồng nghĩa]\nsweep up - /swiːp ʌp/ - quét dọn\n\n[Mô tả]\nbrush the floor - /brʌʃ ðə ˈflɔːr/ - quét sàn",
+          "score": 0
+        },
+        {
+          "term": "deep clean",
+          "meaning": "dọn sâu",
+          "pronunciation": "/diːp kliːn/",
+          "synonyms": "[Đồng nghĩa]\nthorough clean - /ˈθɜːroʊ kliːn/ - dọn kỹ\n\n[Mô tả]\nspring clean - /sprɪŋ kliːn/ - dọn nhà tổng thể",
+          "score": 0
+        },
+        {
+          "term": "chore chart",
+          "meaning": "bảng phân công",
+          "pronunciation": "/tʃɔːr tʃɑːrt/",
+          "synonyms": "[Đồng nghĩa]\ntask list - /tæsk lɪst/ - danh sách việc\n\n[Mô tả]\nchore wheel - /tʃɔːr wiːl/ - vòng phân công",
+          "score": 0
+        },
+        {
+          "term": "share the load",
+          "meaning": "chia sẻ công việc",
+          "pronunciation": "/ʃer ðə loʊd/",
+          "synonyms": "[Đồng nghĩa]\ndivide tasks - /dɪˈvaɪd tæsks/ - chia việc\n\n[Mô tả]\npitch in - /pɪtʃ ɪn/ - góp sức (khẩu ngữ)",
+          "score": 0
+        },
+        {
+          "term": "weekend chores",
+          "meaning": "việc nhà cuối tuần",
+          "pronunciation": "/ˈwiːkˌend tʃɔːrz/",
+          "synonyms": "[Đồng nghĩa]\nweekend cleaning - /ˈwiːkˌend ˈkliːnɪŋ/ - dọn dẹp cuối tuần\n\n[Mô tả]\nSaturday chores - /ˈsætərdeɪ tʃɔːrz/ - việc nhà thứ Bảy",
           "score": 0
         }
       ],
@@ -3115,7 +3155,7 @@
         {
           "formula": "V + O; Don't + V + O",
           "example": "Tidy up the living room. (Dọn dẹp phòng khách.)",
-          "pronunciation": "/ˈtaɪdi əp ðə ˈlɪvɪŋ rum/",
+          "pronunciation": "/ˈtaɪdi ʌp ðə ˈlɪvɪŋ ruːm/",
           "usage": "Dùng để yêu cầu hoặc nhắc ai làm việc nhà một cách ngắn gọn.",
           "title": "Imperatives for chores",
           "category": "Imperative",
@@ -3140,7 +3180,7 @@
         {
           "formula": "S + have/has to + V",
           "example": "I have to do the laundry today. (Hôm nay tôi phải giặt đồ.)",
-          "pronunciation": "/aɪ hæv tɪ du ðə ˈlɔndri təˈdeɪ/",
+          "pronunciation": "/aɪ hæv tə duː ðə ˈlɔːndri təˈdeɪ/",
           "usage": "Dùng khi có việc nhà bắt buộc phải hoàn thành.",
           "title": "'Have to' for household obligations",
           "category": "Modal",
@@ -3165,7 +3205,7 @@
         {
           "formula": "Who + be + V-ing + O?",
           "example": "Who is doing the dishes? (Ai đang rửa bát?)",
-          "pronunciation": "/hu ɪz duɪŋ ðə ˈdɪʃɪz/",
+          "pronunciation": "/huː ɪz ˈduːɪŋ ðə ˈdɪʃɪz/",
           "usage": "Dùng để hỏi ai đang làm hoặc chịu trách nhiệm một việc nhà.",
           "title": "'Who' questions for chores",
           "category": "Question",
@@ -3190,7 +3230,7 @@
         {
           "formula": "S + have/has + already + V3",
           "example": "I've already taken out the trash. (Tôi đã đổ rác rồi.)",
-          "pronunciation": "/aɪv ɔˈrɛdi ˈteɪkən aʊt ðə træʃ/",
+          "pronunciation": "/aɪv ɔlˈredi ˈteɪkən aʊt ðə træʃ/",
           "usage": "Dùng để nói việc nhà đã xong, vừa xong hoặc chưa xong.",
           "title": "'Already', 'just', and 'yet' for tasks",
           "category": "Adverb",
@@ -3211,6 +3251,12 @@
               "example": "Have you cleaned the bathroom yet? (Bạn đã dọn phòng tắm chưa?)"
             }
           ]
+        },
+        {
+          "formula": "Let's + V / Could you + V?",
+          "example": "Let's split the chores this weekend. (Chúng ta chia việc nhà cuối tuần này nhé.)",
+          "pronunciation": "/lets splɪt ðə tʃɔːrz ðɪs ˈwiːkˌend/",
+          "usage": "Dùng để đề xuất chia sẻ công việc nhà giữa các thành viên."
         }
       ],
       "examples": [
@@ -3219,15 +3265,16 @@
       ],
       "quizzes": [
         {
-          "questionType": "Single Best Answer",
+          "questionType": "Multiple Choice",
           "question": "Which word means “việc nhà”?",
           "options": [
             "chore",
             "laundry",
-            "dust"
+            "dishes",
+            "vacuum"
           ],
           "answerIndex": 0,
-          "explanation": "A chore is a household task."
+          "explanation": "Lý do đúng:\nchore - dịch: \"việc nhà\", từ chính xác"
         },
         {
           "questionType": "Single Best Answer",
@@ -3238,48 +3285,83 @@
             "having to"
           ],
           "answerIndex": 0,
-          "explanation": "I have to + base verb."
+          "explanation": "Lý do đúng:\nhave to - dịch: \"phải\", cấu trúc have to + V"
         },
         {
-          "questionType": "Single Best Answer",
+          "questionType": "Multiple Choice",
           "question": "Which question asks who does a task?",
           "options": [
             "Who is doing the dishes?",
             "What is the dish?",
-            "Where is the kitchen?"
+            "Where is the dish?"
           ],
           "answerIndex": 0,
-          "explanation": "Who + be + V-ing asks about the person."
+          "explanation": "Lý do đúng:\nWho is doing the dishes? - dịch: \"Ai đang rửa bát?\", câu hỏi về người làm"
         },
         {
           "questionType": "Single Best Answer",
           "question": "Which sentence means “đổ rác”?",
           "options": [
-            "take out the trash",
-            "take in the trash",
-            "make the trash"
+            "I've already taken out the trash.",
+            "I take trash.",
+            "Trash is taken."
           ],
           "answerIndex": 0,
-          "explanation": "Take out the trash means to remove garbage."
+          "explanation": "Lý do đúng:\nI've already taken out the trash. - dịch: \"Tôi đã đổ rác rồi\", câu tự nhiên"
+        },
+        {
+          "questionType": "Multiple Choice",
+          "question": "Which word means “dọn dẹp”?",
+          "options": [
+            "tidy up",
+            "chore",
+            "laundry",
+            "dishes"
+          ],
+          "answerIndex": 0,
+          "explanation": "Lý do đúng:\ntidy up - dịch: \"dọn dẹp\", cụm từ chính xác"
+        },
+        {
+          "questionType": "Single Best Answer",
+          "question": "Choose the most natural sentence for chores:",
+          "options": [
+            "Let's split the chores this weekend.",
+            "We split chores weekend.",
+            "Splitting chores weekend let's."
+          ],
+          "answerIndex": 0,
+          "explanation": "Lý do đúng:\nLet's split the chores this weekend. - dịch: \"Chúng ta chia việc nhà cuối tuần này nhé\", trật tự từ tự nhiên"
+        },
+        {
+          "questionType": "Multiple Choice",
+          "question": "Which sentence gives advice for chores?",
+          "options": [
+            "You should clean the kitchen together.",
+            "You must clean now.",
+            "Clean now."
+          ],
+          "answerIndex": 0,
+          "explanation": "Lý do đúng:\nYou should clean the kitchen together. - dịch: \"Bạn nên dọn bếp cùng nhau\", lời khuyên lịch sự"
         }
       ],
       "readExpected": "Tidy up the living room.",
       "dialogue": [
-        "A: Can you help with the chores today?",
-        "B: Sure. What do you need?",
-        "A: Could you vacuum the living room?",
-        "B: Okay. I’ll do that after lunch.",
-        "A: And I’ll take out the trash.",
-        "B: Great. Then we’re done."
+        "A: The house is a mess. (Nhà bừa bộn quá.)",
+        "B: Let's tidy up together. (Chúng ta dọn cùng nhau.)",
+        "A: I'll do the dishes, you mop. (Tôi rửa bát, bạn lau nhà.)",
+        "B: Deal. Who's doing the laundry? (Đồng ý. Ai giặt đồ?)",
+        "A: I already did it this morning. (Tôi đã giặt sáng nay rồi.)",
+        "B: Nice. Teamwork! (Tốt. Làm việc nhóm!)"
       ],
       "dialogueVariants": [
         [
-          "A: The house is a mess.",
-          "B: Let’s tidy up together.",
-          "A: I’ll do the dishes, you mop.",
-          "B: Deal. Who’s doing the laundry?",
-          "A: I already did it this morning.",
-          "B: Nice. Teamwork!"
+          "A: Hey, the chores are piling up again. (Này, việc nhà lại chất đống rồi.)",
+          "B: I know. Should we make a chore chart? (Mình biết. Chúng ta lập bảng phân công nhé?)",
+          "A: That's a great idea. I'll do laundry and vacuuming. (Ý hay. Mình giặt đồ và hút bụi.)",
+          "B: I'll handle cooking and dishes. (Mình lo nấu ăn và rửa bát.)",
+          "A: And we'll both deep clean on Sunday. (Và Chủ nhật cả hai cùng dọn sâu.)",
+          "B: Deal. Let's stick to the schedule this time. (Đồng ý. Lần này chúng ta theo lịch nhé.)",
+          "A: Agreed. Teamwork makes it easier! (Đồng ý. Làm việc nhóm thì dễ hơn!)"
         ]
       ]
     },

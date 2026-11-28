@@ -96,18 +96,6 @@ D - dịch: ""Hiện tại nơi này đóng cửa để sửa chữa, nên khôn
 
 Lý do đúng:
 B - dịch: ""Nhà thờ đang trùng tu nên họ đóng cửa với khách tham quan rồi—chỉ những ai đi dự lễ mới được vào bên trong thôi"", vừa chuẩn ngữ pháp vừa tự nhiên nhất nhờ dùng dạng rút gọn (""It's"", ""they've""), từ vựng chuẩn ngành bảo tồn (""under restoration""), cụm ""closed it to tourists"" và cách gọi thân mật ""folks"" (mọi người)"
-household-chores,Single Best Answer,Which word means “việc nhà”?,"chore
-laundry
-dust",0,A chore is a household task.
-household-chores,Single Best Answer,Complete: “I ___ do the laundry today.”,"have to
-has to
-having to",0,I have to + base verb.
-household-chores,Single Best Answer,Which question asks who does a task?,"Who is doing the dishes?
-What is the dish?
-Where is the kitchen?",0,Who + be + V-ing asks about the person.
-household-chores,Single Best Answer,Which sentence means “đổ rác”?,"take out the trash
-take in the trash
-make the trash",0,Take out the trash means to remove garbage.
 devops-meeting,Single Best Answer,Choose the correct stand-up update:,"We have deployed the patch to staging.
 We have deploy the patch to staging.
 We has deployed the patch to staging.",0,Present perfect is have/has + past participle: have deployed.
@@ -441,3 +429,33 @@ weekend-rest,Multiple Choice,Which sentence gives advice for rest?,"You should t
 You must nap now.
 Nap.",0,"Lý do đúng:
 You should take a nap later. - dịch: ""Bạn nên nghỉ trưa sau"", lời khuyên lịch sự"
+household-chores,Multiple Choice,Which word means “việc nhà”?,"chore
+laundry
+dishes
+vacuum",0,"Lý do đúng:
+chore - dịch: ""việc nhà"", từ chính xác"
+household-chores,Single Best Answer,Complete: “I ___ do the laundry today.”,"have to
+has to
+having to",0,"Lý do đúng:
+have to - dịch: ""phải"", cấu trúc have to + V"
+household-chores,Multiple Choice,Which question asks who does a task?,"Who is doing the dishes?
+What is the dish?
+Where is the dish?",0,"Lý do đúng:
+Who is doing the dishes? - dịch: ""Ai đang rửa bát?"", câu hỏi về người làm"
+household-chores,Single Best Answer,Which sentence means “đổ rác”?,"I've already taken out the trash.
+I take trash.
+Trash is taken.",0,"Lý do đúng:
+I've already taken out the trash. - dịch: ""Tôi đã đổ rác rồi"", câu tự nhiên"
+household-chores,Multiple Choice,Which word means “dọn dẹp”?,"tidy up
+chore
+laundry
+dishes",0,"Lý do đúng:
+tidy up - dịch: ""dọn dẹp"", cụm từ chính xác"
+household-chores,Single Best Answer,Choose the most natural sentence for chores:,"Let's split the chores this weekend.
+We split chores weekend.
+Splitting chores weekend let's.",0,"Lý do đúng:
+Let's split the chores this weekend. - dịch: ""Chúng ta chia việc nhà cuối tuần này nhé"", trật tự từ tự nhiên"
+household-chores,Multiple Choice,Which sentence gives advice for chores?,"You should clean the kitchen together.
+You must clean now.
+Clean now.",0,"Lý do đúng:
+You should clean the kitchen together. - dịch: ""Bạn nên dọn bếp cùng nhau"", lời khuyên lịch sự"

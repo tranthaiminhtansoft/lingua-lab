@@ -47,18 +47,6 @@ A: I’m bringing my children.
 B: Wonderful. There’s a children’s blessing.
 A: That’s lovely. See you there.
 B: See you. Have a blessed Sunday."
-household-chores,0,"A: Can you help with the chores today?
-B: Sure. What do you need?
-A: Could you vacuum the living room?
-B: Okay. I’ll do that after lunch.
-A: And I’ll take out the trash.
-B: Great. Then we’re done."
-household-chores,1,"A: The house is a mess.
-B: Let’s tidy up together.
-A: I’ll do the dishes, you mop.
-B: Deal. Who’s doing the laundry?
-A: I already did it this morning.
-B: Nice. Teamwork!"
 devops-meeting,0,"A: Morning, everyone. Can we start with the incident?
 B: Sure. The checkout service went down at 8:40.
 A: We rolled back the last deployment, and the error rate is normal now.
@@ -257,3 +245,16 @@ A: That sounds perfect. Which streaming service? (Nghe hoàn hảo. Dịch vụ 
 B: I've got a backlog on Netflix. (Mình có danh sách chờ trên Netflix.)
 A: Same. Let's not even get dressed. (Mình cũng vậy. Chúng ta thậm chí không cần mặc đồ.)
 B: Deal. Pajama day it is! (Đồng ý. Ngày đồ ngủ nào!)"
+household-chores,0,"A: The house is a mess. (Nhà bừa bộn quá.)
+B: Let's tidy up together. (Chúng ta dọn cùng nhau.)
+A: I'll do the dishes, you mop. (Tôi rửa bát, bạn lau nhà.)
+B: Deal. Who's doing the laundry? (Đồng ý. Ai giặt đồ?)
+A: I already did it this morning. (Tôi đã giặt sáng nay rồi.)
+B: Nice. Teamwork! (Tốt. Làm việc nhóm!)"
+household-chores,1,"A: Hey, the chores are piling up again. (Này, việc nhà lại chất đống rồi.)
+B: I know. Should we make a chore chart? (Mình biết. Chúng ta lập bảng phân công nhé?)
+A: That's a great idea. I'll do laundry and vacuuming. (Ý hay. Mình giặt đồ và hút bụi.)
+B: I'll handle cooking and dishes. (Mình lo nấu ăn và rửa bát.)
+A: And we'll both deep clean on Sunday. (Và Chủ nhật cả hai cùng dọn sâu.)
+B: Deal. Let's stick to the schedule this time. (Đồng ý. Lần này chúng ta theo lịch nhé.)
+A: Agreed. Teamwork makes it easier! (Đồng ý. Làm việc nhóm thì dễ hơn!)"

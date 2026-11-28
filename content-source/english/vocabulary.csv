@@ -708,18 +708,86 @@ stay under the covers - /steɪ ˈʌndər ðə ˈkʌvərz/ - ở trong chăn
 
 [Mô tả]
 lounge in bed - /laʊndʒ ɪn bed/ - nằm lười trên giường",0
-household-chores,chore,việc nhà,/tʃɔːr/,,0
-household-chores,laundry,giặt đồ,/ˈlɔːndri/,,0
-household-chores,dishes,rửa bát,/ˈdɪʃɪz/,,0
-household-chores,vacuum,hút bụi,/ˈvækjuːm/,,0
-household-chores,tidy up,dọn dẹp,/ˌtaɪdi ˈʌp/,,0
-household-chores,take out the trash,đổ rác,/ˌteɪk aʊt ðə ˈtræʃ/,,0
-household-chores,dust,lau bụi,/dʌst/,,0
-household-chores,mop,lau nhà,/mɑːp/,,0
-household-chores,clean,dọn sạch,/kliːn/,,0
-household-chores,declutter,dọn đồ thừa,/diːˈklʌtər/,,0
-household-chores,fold the laundry,gấp đồ giặt,/ˌfoʊld ðə ˈlɔːndri/,,0
-household-chores,sweep the floor,quét nhà,/ˌswiːp ðə ˈflɔːr/,,0
+household-chores,chore,việc nhà,/tʃɔːr/,"[Đồng nghĩa]
+household task - /ˈhaʊshoʊld tæsk/ - việc nhà
+
+[Mô tả]
+errand - /ˈerənd/ - việc vặt",0
+household-chores,laundry,giặt đồ,/ˈlɔːndri/,"[Đồng nghĩa]
+washing - /ˈwɑːʃɪŋ/ - giặt đồ (Anh-Anh)
+
+[Mô tả]
+laundry load - /ˈlɔːndri loʊd/ - mẻ giặt",0
+household-chores,dishes,rửa bát,/ˈdɪʃɪz/,"[Đồng nghĩa]
+washing up - /ˈwɑːʃɪŋ ʌp/ - rửa bát (Anh-Anh)
+
+[Mô tả]
+dishwashing - /ˈdɪʃˌwɑːʃɪŋ/ - rửa chén bát",0
+household-chores,vacuum,hút bụi,/ˈvækjuːm/,"[Đồng nghĩa]
+hoover - /ˈhuːvər/ - hút bụi (Anh-Anh)
+
+[Mô tả]
+vacuuming - /ˈvækjuːmɪŋ/ - hút bụi",0
+household-chores,tidy up,dọn dẹp,/ˌtaɪdi ˈʌp/,"[Đồng nghĩa]
+clean up - /kliːn ʌp/ - dọn dẹp
+
+[Mô tả]
+straighten up - /ˈstreɪtn ʌp/ - sắp xếp gọn",0
+household-chores,take out the trash,đổ rác,/ˌteɪk aʊt ðə ˈtræʃ/,"[Đồng nghĩa]
+take out the garbage - /teɪk aʊt ðə ˈɡɑːrbɪdʒ/ - đổ rác (Mỹ)
+
+[Mô tả]
+empty the bin - /ˈempti ðə bɪn/ - đổ thùng rác",0
+household-chores,dust,lau bụi,/dʌst/,"[Đồng nghĩa]
+dusting - /ˈdʌstɪŋ/ - lau bụi
+
+[Mô tả]
+wipe down - /waɪp daʊn/ - lau chùi",0
+household-chores,mop,lau nhà,/mɑːp/,"[Đồng nghĩa]
+mopping - /ˈmɑːpɪŋ/ - lau nhà
+
+[Mô tả]
+swab - /swɑːb/ - lau (trang trọng)",0
+household-chores,clean,dọn sạch,/kliːn/,"[Đồng nghĩa]
+tidy - /ˈtaɪdi/ - gọn gàng
+
+[Mô tả]
+sparkling - /ˈspɑːrklɪŋ/ - sạch bóng",0
+household-chores,declutter,dọn đồ thừa,/diːˈklʌtər/,"[Đồng nghĩa]
+de-clutter - /diː ˈklʌtər/ - dọn đồ thừa
+
+[Mô tả]
+organize - /ˈɔːrɡənaɪz/ - sắp xếp",0
+household-chores,fold the laundry,gấp đồ giặt,/ˌfoʊld ðə ˈlɔːndri/,"[Đồng nghĩa]
+fold clothes - /foʊld kloʊðz/ - gấp quần áo
+
+[Mô tả]
+put away laundry - /pʊt əˈweɪ ˈlɔːndri/ - cất đồ giặt",0
+household-chores,sweep the floor,quét nhà,/ˌswiːp ðə ˈflɔːr/,"[Đồng nghĩa]
+sweep up - /swiːp ʌp/ - quét dọn
+
+[Mô tả]
+brush the floor - /brʌʃ ðə ˈflɔːr/ - quét sàn",0
+household-chores,deep clean,dọn sâu,/diːp kliːn/,"[Đồng nghĩa]
+thorough clean - /ˈθɜːroʊ kliːn/ - dọn kỹ
+
+[Mô tả]
+spring clean - /sprɪŋ kliːn/ - dọn nhà tổng thể",0
+household-chores,chore chart,bảng phân công,/tʃɔːr tʃɑːrt/,"[Đồng nghĩa]
+task list - /tæsk lɪst/ - danh sách việc
+
+[Mô tả]
+chore wheel - /tʃɔːr wiːl/ - vòng phân công",0
+household-chores,share the load,chia sẻ công việc,/ʃer ðə loʊd/,"[Đồng nghĩa]
+divide tasks - /dɪˈvaɪd tæsks/ - chia việc
+
+[Mô tả]
+pitch in - /pɪtʃ ɪn/ - góp sức (khẩu ngữ)",0
+household-chores,weekend chores,việc nhà cuối tuần,/ˈwiːkˌend tʃɔːrz/,"[Đồng nghĩa]
+weekend cleaning - /ˈwiːkˌend ˈkliːnɪŋ/ - dọn dẹp cuối tuần
+
+[Mô tả]
+Saturday chores - /ˈsætərdeɪ tʃɔːrz/ - việc nhà thứ Bảy",0
 devops-meeting,incident,sự cố,/ˈɪnsɪdənt/,,0
 devops-meeting,rollback,khôi phục phiên bản cũ,/ˈroʊlbæk/,,0
 devops-meeting,deployment,triển khai,/dɪˈplɔɪmənt/,,0
