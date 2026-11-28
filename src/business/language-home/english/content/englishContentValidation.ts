@@ -111,14 +111,28 @@ function parseGrammarItem(value: unknown, context: string, errors: string[]): En
 
 function parseQuiz(value: unknown, context: string, errors: string[]): EnglishQuiz | null {
   if (!isRecord(value)) { errors.push(`${context}: Dữ liệu câu hỏi không hợp lệ.`); return null; }
-  const { question, options, answerIndex, explanation } = value;
+  const { questionType, question, options, answerIndex, answerIndices, explanation } = value;
   const parsedOptions = parseStringArray(options);
+  if (questionType !== undefined && !isText(questionType)) { errors.push(`${context}: Cột 'questionType' không hợp lệ.`); return null; }
   if (!isText(question)) { errors.push(`${context}: Thiếu câu hỏi (cột 'question').`); return null; }
   if (!parsedOptions || parsedOptions.length < 2) { errors.push(`${context}: Thiếu đáp án (cột 'options', cần ít nhất 2 đáp án, mỗi đáp án 1 dòng).`); return null; }
   if (typeof answerIndex !== 'number' || !Number.isInteger(answerIndex)) { errors.push(`${context}: Cột 'answerIndex' (đáp án đúng) phải là số nguyên (0, 1, 2...).`); return null; }
   if (answerIndex < 0 || answerIndex >= parsedOptions.length) { errors.push(`${context}: Cột 'answerIndex' (đáp án đúng) vượt quá số đáp án.`); return null; }
+  if (answerIndices !== undefined) {
+    if (!Array.isArray(answerIndices) || !answerIndices.every((n) => typeof n === 'number' && Number.isInteger(n) && n >= 0 && n < parsedOptions.length)) {
+      errors.push(`${context}: Cột 'answerIndices' không hợp lệ.`);
+      return null;
+    }
+  }
   if (!isText(explanation)) { errors.push(`${context}: Thiếu giải thích (cột 'explanation').`); return null; }
-  return { question, options: parsedOptions, answerIndex, explanation };
+  return {
+    ...(questionType !== undefined ? { questionType } : {}),
+    question,
+    options: parsedOptions,
+    answerIndex,
+    ...(answerIndices !== undefined ? { answerIndices } : {}),
+    explanation,
+  };
 }
 
 function parseDialogueGuides(

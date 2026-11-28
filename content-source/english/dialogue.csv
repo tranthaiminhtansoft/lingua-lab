@@ -17,18 +17,20 @@ A: After that, let’s warm up by the fireplace.
 B: Perfect. I’m also baking gingerbread men and mince pies.
 A: Yum! Will Rudolph and the reindeer visit tonight?
 B: Maybe! Don’t forget to hang Santa’s sack by the chimney."
-tet-lunar-new-year,0,"A: What are your plans for Tết?
-B: We’re having a big family reunion.
-A: That sounds lovely. Are you cooking bánh chưng?
-B: Yes, and we’ll visit relatives too.
-A: Don’t forget the lucky money!
-B: Of course. Happy New Year in advance!"
-tet-lunar-new-year,1,"A: Have you cleaned the house for Tết?
-B: Yes, and we’ve put up decorations.
-A: I still need to buy gifts.
-B: Try the market downtown.
-A: Good idea. Happy Tết!
-B: Happy Tết to you too!"
+tet-lunar-new-year,0,"A: Have you cleaned the house for Tết? (Bạn đã dọn nhà cho Tết chưa?)
+B: Yes, and we've put up decorations. (Có, và chúng tôi đã trang trí.)
+A: I still need to buy gifts. (Tôi vẫn cần mua quà.)
+B: Try the market downtown. (Thử chợ ở trung tâm.)
+A: Good idea. Happy Tết! (Ý hay. Chúc Tết vui vẻ!)
+B: Happy Tết to you too! (Chúc Tết vui vẻ nhé!)"
+tet-lunar-new-year,1,"A: Are you going back to your hometown for Tết? (Bạn có về quê ăn Tết không?)
+B: Yeah, I'm taking the train on the 28th. (Có, mình đi tàu ngày 28.)
+A: Did you already buy lucky money? (Bạn đã mua lì xì chưa?)
+B: Not yet—I need to get red envelopes first. (Chưa—mình cần mua phong bao đỏ trước.)
+A: I can grab some for you at the stationery shop. (Mình mua giúp bạn ở cửa hàng văn phòng phẩm được.)
+B: Thanks! And don't forget to bring back some peach blossoms. (Cảm ơn! Và đừng quên mang hoa đào về nhé.)
+A: Will do. Drive safe and have a great Tết! (Nhất định. Lái xe an toàn và Tết vui vẻ nhé!)
+B: You too! See you after the holiday. (Bạn cũng vậy! Hẹn gặp sau kỳ nghỉ.)"
 valentines-day,0,"A: What are your plans for Valentine’s Day?
 B: I’m taking her out for dinner.
 A: That sounds romantic. Did you buy a gift?

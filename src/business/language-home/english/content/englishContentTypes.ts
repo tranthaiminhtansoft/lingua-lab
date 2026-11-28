@@ -37,9 +37,14 @@ export type EnglishGrammarItem = {
 };
 
 export type EnglishQuiz = {
+  /** "Single Best Answer" or "Multiple Choice" (optional for backward compat). */
+  questionType?: string;
   question: string;
   options: string[];
+  /** Primary correct answer index (0-based). */
   answerIndex: number;
+  /** All correct answer indices for multiple-choice questions. */
+  answerIndices?: number[];
   explanation: string;
 };
 
