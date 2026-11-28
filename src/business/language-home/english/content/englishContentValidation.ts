@@ -9,12 +9,25 @@ import type {
   EnglishVocabularyItem,
 } from './englishContentTypes';
 
-const THEMES: EnglishTheme[] = ['devops', 'neighbor', 'meals', 'weekend'];
 const MAX_VERSION_LENGTH = 40;
+
+const FREQUENCIES: EnglishFrequency[] = [
+  'daily', 'everyWeekend', 'limitedTime',
+  'everyMon', 'everyTue', 'everyWed', 'everyThu', 'everyFri', 'everySat', 'everySun',
+];
+
+/** Accept casing differences from hand-edited sheets and normalise to canonical values. */
+export function normalizeFrequency(value: unknown): unknown {
+  if (typeof value !== 'string') return value;
+  const text = value.trim().toLowerCase();
+  const found = FREQUENCIES.find((f) => f.toLowerCase() === text);
+  return found ?? value;
+}
 
 export type ValidationResult = {
   content: EnglishContentBank | null;
   errors: string[];
+  warnings: string[];
 };
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -171,25 +184,22 @@ function parseTopic(value: unknown, context: string, errors: string[]): EnglishT
     dialogueGuides,
   } = value;
 
-  const FREQUENCIES: EnglishFrequency[] = [
-    'daily', 'everyWeekend', 'limitedTime',
-    'everyMon', 'everyTue', 'everyWed', 'everyThu', 'everyFri', 'everySat', 'everySun',
-  ];
+  const normalizedFrequency = normalizeFrequency(frequency);
 
   if (!isText(id)) { errors.push(`${context}: Thiếu mã chủ đề (cột 'id').`); return null; }
   if (!isText(title)) { errors.push(`${context} (mã: ${id}): Thiếu tiêu đề (cột 'title').`); return null; }
   if (!isText(description)) { errors.push(`${context} (mã: ${id}): Thiếu mô tả (cột 'description').`); return null; }
   if (!isIsoDate(startDate)) { errors.push(`${context} (mã: ${id}): Cột 'startDate' (ngày bắt đầu) sai định dạng (cần YYYY-MM-DD).`); return null; }
   if (endDate !== 'none' && !isIsoDate(endDate)) { errors.push(`${context} (mã: ${id}): Cột 'endDate' (ngày kết thúc) sai định dạng (cần YYYY-MM-DD hoặc 'none').`); return null; }
-  if (!FREQUENCIES.includes(frequency as EnglishFrequency)) { errors.push(`${context} (mã: ${id}): Cột 'frequency' (tần suất) giá trị '${frequency}' không hợp lệ. Chỉ được chọn: ${FREQUENCIES.join(', ')}.`); return null; }
-  if (frequency === 'limitedTime') {
+  if (!FREQUENCIES.includes(normalizedFrequency as EnglishFrequency)) { errors.push(`${context} (mã: ${id}): Cột 'frequency' (tần suất) giá trị '${frequency}' không hợp lệ. Chỉ được chọn: ${FREQUENCIES.join(', ')}.`); return null; }
+  if (normalizedFrequency === 'limitedTime') {
     if (endDate === 'none' || (endDate as string) <= (startDate as string)) { errors.push(`${context} (mã: ${id}): Chủ đề 'limitedTime' phải có 'endDate' sau 'startDate'.`); return null; }
   } else {
     if (endDate !== 'none') { errors.push(`${context} (mã: ${id}): Chủ đề không phải 'limitedTime' phải có 'endDate' = 'none'.`); return null; }
   }
   if (!isText(readExpected)) { errors.push(`${context} (mã: ${id}): Thiếu câu mẫu (cột 'readExpected').`); return null; }
   if (timeLimit !== undefined && (typeof timeLimit !== 'number' || !Number.isFinite(timeLimit) || timeLimit < 0)) { errors.push(`${context} (mã: ${id}): Cột 'timeLimit' (thời gian) phải là số >= 0.`); return null; }
-  if (theme !== undefined && !THEMES.includes(theme as EnglishTheme)) { errors.push(`${context} (mã: ${id}): Cột 'theme' (chủ đề) giá trị '${theme}' không hợp lệ. Chỉ được chọn: ${THEMES.join(', ')}.`); return null; }
+  if (theme !== undefined && !isText(theme)) { errors.push(`${context} (mã: ${id}): Cột 'theme' (chủ đề) không hợp lệ.`); return null; }
 
   const parsedVocab = parseArray(vocab, parseVocabularyItem, `${context} (mã: ${id}), từ vựng`, errors);
   const parsedGrammar = parseArray(grammar, parseGrammarItem, `${context} (mã: ${id}), ngữ pháp`, errors);
@@ -222,7 +232,7 @@ function parseTopic(value: unknown, context: string, errors: string[]): EnglishT
     description,
     startDate: startDate as string,
     endDate: endDate as string,
-    frequency: frequency as EnglishFrequency,
+    frequency: normalizedFrequency as EnglishFrequency,
     ...(timeLimit === undefined ? {} : { timeLimit: timeLimit as number }),
     ...(theme === undefined ? {} : { theme: theme as EnglishTheme }),
     vocab: parsedVocab,
@@ -239,9 +249,10 @@ function parseTopic(value: unknown, context: string, errors: string[]): EnglishT
 /** Validates and normalises a content bank fetched from JSON or bundled at build time. */
 export function parseEnglishContent(value: unknown, baseContext = 'Dữ liệu'): ValidationResult {
   const errors: string[] = [];
+  const warnings: string[] = [];
   if (!isRecord(value)) {
     errors.push(`${baseContext}: Dữ liệu không phải object hợp lệ.`);
-    return { content: null, errors };
+    return { content: null, errors, warnings };
   }
   const { version, updatedAt, topics } = value;
   let hasError = false;
@@ -256,7 +267,7 @@ export function parseEnglishContent(value: unknown, baseContext = 'Dữ liệu')
   }
   if (!Array.isArray(topics) || topics.length === 0) {
     errors.push(`${baseContext}: Thiếu danh sách 'topics' (phải có ít nhất 1 chủ đề).`);
-    return { content: null, errors };
+    return { content: null, errors, warnings };
   }
 
   const parsedTopics: EnglishTopic[] = [];
@@ -276,6 +287,6 @@ export function parseEnglishContent(value: unknown, baseContext = 'Dữ liệu')
     }
   }
 
-  if (hasError) return { content: null, errors };
-  return { content: { version: version as string, updatedAt: updatedAt as string, topics: parsedTopics }, errors: [] };
+  if (hasError) return { content: null, errors, warnings };
+  return { content: { version: version as string, updatedAt: updatedAt as string, topics: parsedTopics }, errors: [], warnings };
 }

@@ -5,27 +5,39 @@ test('daily topics are deterministic for the same date', () => {
   expect(getDailyTopics(date).map((topic) => topic.id)).toEqual(getDailyTopics(date).map((topic) => topic.id));
 });
 
-test('each weekday contributes three daily topics', () => {
-  const topics = getDailyTopics(new Date(2026, 10, 16));
-  expect(topics).toHaveLength(3);
-  expect(topics.map((topic) => topic.theme).sort()).toEqual(['devops', 'meals', 'neighbor']);
+test('topics shown match frequency and pick one per theme', () => {
+  const date = new Date(2026, 10, 16); // Monday
+  const topics = getDailyTopics(date);
+  // same theme should not appear twice
+  const themes = topics.map((t) => t.theme ?? `id:${t.id}`);
+  expect(new Set(themes).size).toBe(themes.length);
+  // a devops daily topic should appear (one per theme)
+  expect(topics.some((t) => t.theme === 'devops')).toBe(true);
 });
 
-test('weekend replaces work topics with leisure topics', () => {
-  const topics = getDailyTopics(new Date(2026, 10, 15));
-  expect(topics).toHaveLength(4);
-  expect(topics.map((topic) => topic.theme).sort()).toEqual(['meals', 'neighbor', 'weekend', 'weekend']);
-  const ids = topics.map((topic) => topic.id);
-  expect(ids).not.toContain('devops-meeting');
-  expect(ids).not.toContain('devops-release-planning');
+test('weekend frequency topics show only on weekends', () => {
+  const sat = getDailyTopics(new Date(2026, 10, 14)); // Sat
+  const mon = getDailyTopics(new Date(2026, 10, 16)); // Mon
+  const satIds = sat.map((t) => t.id);
+  const monIds = mon.map((t) => t.id);
+  expect(satIds.some((id) => id.startsWith('weekend-') || id === 'sunday-mass')).toBe(true);
+  expect(monIds.some((id) => id === 'weekend-rest' || id === 'weekend-market' || id === 'weekend-outing')).toBe(false);
 });
 
-test('daily selection rotates across the week', () => {
-  const combos = new Set<string>();
+test('daily frequency theme slot shows every day', () => {
   for (let day = 0; day < 7; day += 1) {
-    combos.add(getDailyTopics(new Date(2026, 10, 1 + day)).map((topic) => topic.id).join(','));
+    const topics = getDailyTopics(new Date(2026, 10, 16 + day));
+    expect(topics.some((t) => t.theme === 'devops')).toBe(true);
   }
-  expect(combos.size).toBeGreaterThan(1);
+});
+
+test('same theme rotates across days', () => {
+  const picks = new Set<string>();
+  for (let day = 0; day < 7; day += 1) {
+    const topic = getDailyTopics(new Date(2026, 10, 16 + day)).find((t) => t.theme === 'devops');
+    if (topic) picks.add(topic.id);
+  }
+  expect(picks.size).toBeGreaterThan(1);
 });
 
 test('future holiday topics stay unavailable until their date', () => {
@@ -71,11 +83,10 @@ test('dialogue variants rotate by date', () => {
   expect([...dialoguesByTopic.values()].some((sets) => sets.size > 1)).toBe(true);
 });
 
-test('every grammar point has a category, a formula, and an example', () => {
+test('every grammar point has a formula and an example', () => {
   for (const topic of getTodayEnglishContext(new Date(2026, 10, 15)).topics) {
     expect(topic.grammar.length).toBeGreaterThanOrEqual(4);
     for (const item of topic.grammar) {
-      if (item.category) expect(item.category.length).toBeGreaterThan(0);
       expect(item.formula.length).toBeGreaterThan(0);
       expect(item.example.length).toBeGreaterThan(0);
     }

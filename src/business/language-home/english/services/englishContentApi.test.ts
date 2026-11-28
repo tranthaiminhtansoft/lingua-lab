@@ -23,10 +23,12 @@ function jsonResponse(payload: unknown): Response {
 beforeEach(() => {
   localStorage.clear();
   setActiveEnglishContent(BUNDLED_ENGLISH_CONTENT, true);
+  vi.stubEnv('VITE_ENGLISH_CONTENT_URL', 'https://example.com/content.json');
 });
 
 afterEach(() => {
   vi.unstubAllGlobals();
+  vi.unstubAllEnvs();
 });
 
 test('activates a newer remote bank and serves its topics', async () => {
@@ -44,6 +46,7 @@ test('activates a newer remote bank and serves its topics', async () => {
     version: '2026.11.22',
     updatedAt: '2026-11-22',
     errors: [],
+    warnings: [],
   });
   expect(getActiveEnglishContent().version).toBe('2026.11.22');
   const context = await getTodayEnglishContextApi(new Date(2026, 10, 22));

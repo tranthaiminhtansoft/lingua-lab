@@ -48,7 +48,7 @@ export type EnglishQuiz = {
   explanation: string;
 };
 
-export type EnglishTheme = 'devops' | 'neighbor' | 'meals' | 'weekend';
+export type EnglishTheme = string;
 
 /**
  * How often a topic is featured in the daily rotation, or whether it is a

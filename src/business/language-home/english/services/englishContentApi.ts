@@ -15,6 +15,7 @@ export type EnglishContentCheckStatus = 'updated' | 'current' | 'fallback' | 'sk
 export type EnglishContentCheckResult = EnglishContentVersion & {
   status: EnglishContentCheckStatus;
   errors?: string[];
+  warnings?: string[];
 };
 
 const DEFAULT_CONTENT_PATH = 'content/english-content.json';
@@ -64,9 +65,9 @@ function checkedToday(now: number): boolean {
     && lastDate.getDate() === current.getDate();
 }
 
-function resultFor(status: EnglishContentCheckStatus, errors?: string[]): EnglishContentCheckResult {
+function resultFor(status: EnglishContentCheckStatus, errors?: string[], warnings?: string[]): EnglishContentCheckResult {
   const active = getActiveEnglishContent();
-  return { status, version: active.version, updatedAt: active.updatedAt, errors };
+  return { status, version: active.version, updatedAt: active.updatedAt, errors, warnings };
 }
 
 /**
@@ -93,11 +94,13 @@ export async function checkEnglishContentApi(
     const url = contentUrl();
     let content: EnglishContentBank | null = null;
     let errors: string[] = [];
+    let warnings: string[] = [];
 
     if (isGoogleSheetUrl(url)) {
       const result = await fetchEnglishContentFromSheet(url, controller.signal);
       content = result.content;
       errors = result.errors;
+      warnings = result.warnings;
     } else {
       const response = await fetch(withCacheBuster(url), {
         cache: 'no-store',
@@ -118,11 +121,12 @@ export async function checkEnglishContentApi(
       const result = parseEnglishContent(payload, "File JSON");
       content = result.content;
       errors = result.errors;
+      warnings = result.warnings;
     }
 
-    if (!content) return resultFor('fallback', errors.length > 0 ? errors : ['Dữ liệu không hợp lệ.']);
-    if (!setActiveEnglishContent(content, options.force)) return resultFor('current');
-    return { status: 'updated', version: content.version, updatedAt: content.updatedAt, errors: [] };
+    if (!content) return resultFor('fallback', errors.length > 0 ? errors : ['Dữ liệu không hợp lệ.'], warnings);
+    if (!setActiveEnglishContent(content, options.force)) return resultFor('current', undefined, warnings);
+    return { status: 'updated', version: content.version, updatedAt: content.updatedAt, errors: [], warnings };
   } catch (err) {
     const msg = err instanceof Error ? err.message : "Lỗi không xác định.";
     return resultFor('fallback', [`Lỗi mạng: ${msg}`]);

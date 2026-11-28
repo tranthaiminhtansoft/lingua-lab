@@ -1,5 +1,10 @@
 import type { EnglishContentBank, EnglishTopic } from '../content/englishContentTypes';
 import { BUNDLED_ENGLISH_CONTENT } from '../content/englishContentStore';
+import {
+  normalizeQuizQuestionType,
+  parseDialogueLines,
+  stripQuizOptionPrefix,
+} from '../content/englishContentFormat';
 import { parseEnglishContent } from '../content/englishContentValidation';
 
 const SHEET_TABS = ['meta', 'topics', 'vocabulary', 'grammar', 'quizzes', 'dialogue'] as const;
@@ -106,8 +111,9 @@ function toNumber(value: string, fallback = 0): number {
 export async function fetchEnglishContentFromSheet(
   url: string,
   signal: AbortSignal,
-): Promise<{ content: EnglishContentBank | null; errors: string[] }> {
+): Promise<{ content: EnglishContentBank | null; errors: string[]; warnings: string[] }> {
   const errors: string[] = [];
+  const warnings: string[] = [];
   const discovery = await discoverGids(url, signal);
   const { gids, usedFallback } = discovery;
   if (usedFallback) {
@@ -134,7 +140,7 @@ export async function fetchEnglishContentFromSheet(
   const fetchedTabs = SHEET_TABS.filter((tab) => tabs[tab] !== null);
   if (fetchedTabs.length === 0) {
     errors.push("❌ Không thể kết nối đến Google Sheet. Vui lòng kiểm tra link Publish-to-web và quyền truy cập.");
-    return { content: null, errors };
+    return { content: null, errors, warnings };
   }
 
   // Header validation
@@ -142,7 +148,7 @@ export async function fetchEnglishContentFromSheet(
     meta: ['version', 'updatedAt'],
     topics: ['id', 'title', 'description', 'frequency', 'startDate', 'endDate'],
     vocabulary: ['topicId', 'term', 'meaning', 'pronunciation', 'score'],
-    grammar: ['topicId', 'title', 'category', 'formula', 'example'],
+    grammar: ['topicId', 'formula', 'example'],
     quizzes: ['topicId', 'question', 'options', 'answerIndex', 'explanation'],
     dialogue: ['topicId', 'variantIndex', 'sentences'],
   };
@@ -156,12 +162,7 @@ export async function fetchEnglishContentFromSheet(
       continue;
     }
     const headers = Object.keys(data[0]);
-    let required = REQUIRED_HEADERS[tab];
-    if (tab === 'grammar') {
-      required = headers.includes('items')
-        ? ['topicId', 'items']
-        : ['topicId', 'title', 'category', 'formula', 'example'];
-    }
+    const required = REQUIRED_HEADERS[tab];
     const missing = required.filter((h) => !headers.includes(h));
     if (missing.length > 0) {
       errors.push(`Tab '${tab}': Thiếu cột bắt buộc: ${missing.join(', ')}.`);
@@ -169,28 +170,24 @@ export async function fetchEnglishContentFromSheet(
     }
   }
 
-  return parseEnglishSheetTabs(tabs, BUNDLED_ENGLISH_CONTENT, errors);
+  return parseEnglishSheetTabs(tabs, BUNDLED_ENGLISH_CONTENT, errors, warnings);
 }
 
 export function parseEnglishSheetTabs(
   tabs: Record<SheetTab, Record<string, string>[] | null>,
   bundled: EnglishContentBank = BUNDLED_ENGLISH_CONTENT,
   errors: string[] = [],
-): { content: EnglishContentBank | null; errors: string[] } {
+  warnings: string[] = [],
+): { content: EnglishContentBank | null; errors: string[]; warnings: string[] } {
   const meta = tabs.meta?.[0];
   const topicRows = tabs.topics;
   if (!meta || !topicRows) {
     if (!meta) errors.push("Tab 'meta' bị trống hoặc không tồn tại.");
     if (!topicRows) errors.push("Tab 'topics' bị trống hoặc không tồn tại.");
-    return { content: null, errors };
+    return { content: null, errors, warnings };
   }
 
   const bundledById = new Map(bundled.topics.map((t) => [t.id, t]));
-  const grammarHeaders = Object.keys(tabs.grammar?.[0] ?? {});
-  const grammarHasUsage = grammarHeaders.includes('usage');
-  const grammarHasAlternatives = grammarHeaders.includes('context1');
-  const isMultiLineGrammarFormat = grammarHeaders.includes('formula') && grammarHeaders.includes('example') && !grammarHeaders.includes('title');
-
   const topics: EnglishTopic[] = topicRows.map((row) => {
     const id = row.id?.trim();
     const bundledTopic = id ? bundledById.get(id) : undefined;
@@ -203,134 +200,81 @@ export function parseEnglishSheetTabs(
         ...((v.synonyms ?? '').trim() ? { synonyms: v.synonyms } : {}),
         score: toNumber(v.score, 0),
       }));
-    const isNewGrammarFormat = grammarHeaders.includes('items');
-    const bundledGrammarByTitle = new Map((bundledTopic?.grammar ?? []).map((g) => [g.title, g]));
-    let grammar: EnglishTopic['grammar'][number][] = [];
-    if (isNewGrammarFormat) {
-      const grammarRowsForTopic = (tabs.grammar ?? []).filter((g) => g.topicId === id);
-      for (const g of grammarRowsForTopic) {
-        const text = g.items ?? '';
-        const chunks = text.split(/\n\s*\n/).map((part) => part.trim()).filter(Boolean);
-        for (const chunk of chunks) {
-          const fields = chunk.split(/\s*\|\s*/);
-          if (fields.length < 4) {
-            errors.push(`Tab 'grammar': Chủ đề '${id}': mục ngữ pháp thiếu trường bắt buộc (title | category | formula | example).`);
-            continue;
-          }
-          const [rawTitle, rawCategory, rawFormula, rawExample, rawPronunciation] = fields;
-          const formulaLines = (rawFormula ?? '').split('\n').map((line) => line.trim()).filter(Boolean);
-          const formula = formulaLines[0] ?? '';
-          let usage: string | undefined;
+
+    // Sunday-mass format only: one row per topic, multiline formula/example/pronunciation.
+    // Each grammar point is separated by a blank line. The first line of formula is the
+    // real formula; any following line wrapped in (...) or [...] is the Vietnamese usage.
+    const grammar: EnglishTopic['grammar'][number][] = [];
+    const grammarRowsForTopic = (tabs.grammar ?? []).filter((g) => g.topicId === id);
+    for (const g of grammarRowsForTopic) {
+      const formulaChunks = (g.formula ?? '').split(/\n\s*\n/).map((part) => part.trim()).filter(Boolean);
+      const exampleChunks = (g.example ?? '').split(/\n\s*\n/).map((part) => part.trim()).filter(Boolean);
+      const pronChunks = (g.pronunciation ?? '').split(/\n\s*\n/).map((part) => part.trim()).filter(Boolean);
+      for (let i = 0; i < formulaChunks.length; i += 1) {
+        const formulaLines = formulaChunks[i].split('\n').map((line) => line.trim()).filter(Boolean);
+        let usage: string | undefined;
+        const first = formulaLines[0] ?? '';
+        let formula = first;
+        const firstBracket = first.match(/^(?:\((.*)\)|\[(.*)\])$/);
+        if (firstBracket) {
+          usage = (firstBracket[1] ?? firstBracket[2] ?? '').trim();
+          formula = formulaLines.slice(1).join('\n').trim() || first;
+        } else {
           for (const line of formulaLines.slice(1)) {
-            const match = line.match(/^\((.*)\)$/);
-            if (match) usage = match[1].trim();
+            const match = line.match(/^(?:\((.*)\)|\[(.*)\])$/);
+            if (match) usage = (match[1] ?? match[2] ?? '').trim();
           }
-          const exampleLines = (rawExample ?? '').split('\n').map((line) => line.trim()).filter(Boolean);
-          const exampleMain = exampleLines[0] ?? '';
-          const exampleTranslation = exampleLines.slice(1).filter((line) => /^\(.*\)$/.test(line)).join(' ');
-          const example = exampleTranslation ? `${exampleMain} ${exampleTranslation}` : exampleMain;
-          const item: EnglishTopic['grammar'][number] = {
-            title: (rawTitle ?? '').trim(),
-            category: (rawCategory ?? '').trim(),
-            formula,
-            example,
-          };
-          if (rawPronunciation) item.pronunciation = rawPronunciation.trim();
-          if (usage) item.usage = usage;
-          const bundledItem = bundledGrammarByTitle.get(item.title);
-          if (bundledItem) {
-            if (!item.usage && bundledItem.usage) item.usage = bundledItem.usage;
-            if (!item.alternatives && bundledItem.alternatives) item.alternatives = bundledItem.alternatives;
-          }
-          grammar.push(item);
         }
-      }
-    } else if (isMultiLineGrammarFormat) {
-      const grammarRowsForTopic = (tabs.grammar ?? []).filter((g) => g.topicId === id);
-      for (const g of grammarRowsForTopic) {
-        const formulaChunks = (g.formula ?? '').split(/\n\s*\n/).map((part) => part.trim()).filter(Boolean);
-        const exampleChunks = (g.example ?? '').split(/\n\s*\n/).map((part) => part.trim()).filter(Boolean);
-        const pronChunks = (g.pronunciation ?? '').split(/\n\s*\n/).map((part) => part.trim()).filter(Boolean);
-        for (let i = 0; i < formulaChunks.length; i += 1) {
-          const formulaLines = formulaChunks[i].split('\n').map((line) => line.trim()).filter(Boolean);
-          const formula = formulaLines[0] ?? '';
-          let usage: string | undefined;
-          for (const line of formulaLines.slice(1)) {
-            const match = line.match(/^\((.*)\)$/);
-            if (match) usage = match[1].trim();
-          }
-          const exampleLines = (exampleChunks[i] ?? '').split('\n').map((line) => line.trim()).filter(Boolean);
-          const exampleMain = exampleLines[0] ?? '';
-          const exampleTranslation = exampleLines.slice(1).filter((line) => /^\(.*\)$/.test(line)).join(' ');
-          const example = exampleTranslation ? `${exampleMain} ${exampleTranslation}` : exampleMain;
-          const item: EnglishTopic['grammar'][number] = { formula, example };
-          if (pronChunks[i]) item.pronunciation = pronChunks[i];
-          if (usage) item.usage = usage;
-          // fallback by index
-          const bundledByIndex = bundledTopic?.grammar?.[i];
-          if (bundledByIndex) {
-            if (!item.title && bundledByIndex.title) item.title = bundledByIndex.title;
-            if (!item.category && bundledByIndex.category) item.category = bundledByIndex.category;
-            if (!item.usage && bundledByIndex.usage) item.usage = bundledByIndex.usage;
-            if (!item.alternatives && bundledByIndex.alternatives) item.alternatives = bundledByIndex.alternatives;
-          }
-          grammar.push(item);
+
+        const exampleLines = (exampleChunks[i] ?? '').split('\n').map((line) => line.trim()).filter(Boolean);
+        const exampleMain = exampleLines[0] ?? '';
+        const exampleTranslation = exampleLines.slice(1).filter((line) => /^\(.*\)$/.test(line)).join(' ');
+        const example = exampleTranslation ? `${exampleMain} ${exampleTranslation}` : exampleMain;
+        const item: EnglishTopic['grammar'][number] = { formula, example };
+        if (pronChunks[i]) item.pronunciation = pronChunks[i];
+        if (usage) item.usage = usage;
+        const bundledByIndex = bundledTopic?.grammar?.[i];
+        if (bundledByIndex) {
+          if (!item.title && bundledByIndex.title) item.title = bundledByIndex.title;
+          if (!item.category && bundledByIndex.category) item.category = bundledByIndex.category;
+          if (!item.usage && bundledByIndex.usage) item.usage = bundledByIndex.usage;
+          if (!item.alternatives && bundledByIndex.alternatives) item.alternatives = bundledByIndex.alternatives;
         }
+        grammar.push(item);
       }
-    } else {
-      grammar = (tabs.grammar ?? [])
-        .filter((g) => g.topicId === id)
-        .map((g) => {
-          const item: EnglishTopic['grammar'][number] = {
-            title: g.title ?? '',
-            category: g.category ?? '',
-            formula: g.formula ?? '',
-            example: g.example ?? '',
-          };
-          if (g.pronunciation) item.pronunciation = g.pronunciation;
-          if (grammarHasUsage && g.usage) item.usage = g.usage;
-          if (grammarHasAlternatives) {
-            item.alternatives = [
-              { formula: g.formula ?? '', context: g.context1 ?? '', example: g.example ?? '' },
-              { formula: g.formula2 ?? '', context: g.context2 ?? '', example: g.example2 ?? '' },
-              { formula: g.formula3 ?? '', context: g.context3 ?? '', example: g.example3 ?? '' },
-            ];
-          }
-          const bundledItem = bundledGrammarByTitle.get(item.title);
-          if (bundledItem) {
-            if (!item.usage && bundledItem.usage) item.usage = bundledItem.usage;
-            if (!item.alternatives && bundledItem.alternatives) item.alternatives = bundledItem.alternatives;
-          }
-          return item;
-        });
     }
     const quizzes = (tabs.quizzes ?? [])
       .filter((q) => q.topicId === id)
       .map((q) => {
         const ai = q.answerIndex ?? '0';
-        const primary = Number(String(ai).split(',')[0].trim());
-        const hasMultiple = String(ai).includes(',');
+        const indices = String(ai).split(',').map((v) => Number(v.trim())).filter((n) => Number.isFinite(n));
+        const primary = indices[0] ?? 0;
+        const hasMultiple = indices.length > 1;
+        const questionType = normalizeQuizQuestionType(q.questionType);
         return {
-          ...(q.questionType ? { questionType: q.questionType } : {}),
+          ...(questionType ? { questionType } : {}),
           question: q.question ?? '',
-          options: (q.options ?? '').split(/\r?\n/).map((s) => s.trim()).filter(Boolean),
-          answerIndex: Number.isFinite(primary) ? primary : 0,
-          ...(hasMultiple ? { answerIndices: String(ai).split(',').map((v) => Number(v.trim())).filter((n) => Number.isFinite(n)) } : {}),
+          options: (q.options ?? '').split(/\r?\n/).map((s) => stripQuizOptionPrefix(s.trim())).filter(Boolean),
+          answerIndex: primary,
+          ...(hasMultiple ? { answerIndices: indices } : {}),
           explanation: q.explanation ?? '',
         };
       });
     const dialogueRows = (tabs.dialogue ?? []).filter((d) => d.topicId === id);
     const sortedDialogue = [...dialogueRows].sort((a, b) => toNumber(a.variantIndex, 0) - toNumber(b.variantIndex, 0));
     const mainDialogueRow = sortedDialogue.find((d) => toNumber(d.variantIndex, 0) === 0) ?? sortedDialogue[0];
-    const dialogue = (mainDialogueRow?.sentences ?? '').split(/\r?\n/).map((s) => s.trim()).filter(Boolean);
+    const dialogue = parseDialogueLines(mainDialogueRow?.sentences ?? '');
     const dialogueVariants = sortedDialogue
       .filter((d) => d !== mainDialogueRow)
-      .map((d) => (d.sentences ?? '').split(/\r?\n/).map((s) => s.trim()).filter(Boolean))
+      .map((d) => parseDialogueLines(d.sentences ?? ''))
       .filter((arr) => arr.length > 0);
 
     const themeValue = (row.theme ?? row.rotationGroup ?? '').trim();
     const timeLimitRaw = (row.timeLimit ?? '').trim();
     const endDate = (row.endDate ?? 'none').trim() || 'none';
+    if (!timeLimitRaw) {
+      warnings.push(`Tab 'topics': Chủ đề '${id}' thiếu timeLimit, sẽ tự tính thời gian.`);
+    }
 
     const topic: EnglishTopic = {
       id: id ?? '',
@@ -361,7 +305,7 @@ export function parseEnglishSheetTabs(
 
   const result = parseEnglishContent(bank, "Google Sheet");
   if (!result.content) {
-    return { content: null, errors: [...errors, ...result.errors] };
+    return { content: null, errors: [...errors, ...result.errors], warnings: [...warnings, ...result.warnings] };
   }
-  return { content: result.content, errors: [...errors] };
+  return { content: result.content, errors: [...errors, ...result.errors], warnings: [...warnings, ...result.warnings] };
 }
