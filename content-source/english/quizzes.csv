@@ -20,48 +20,6 @@ the scarf",0,"In stories, Santa comes down the chimney."
 christmas-celebration,Single Best Answer,Which food is a traditional Christmas dessert?,"yule log cake
 turkey
 scarf",0,A yule log cake is a traditional Christmas dessert.
-tet-lunar-new-year,Multiple Choice,Which word means “lì xì”?,"lucky money
-incense
-ancestors
-traditional food",0,"Lý do đúng:
-lucky money - dịch: ""tiền may mắn / lì xì"", từ chính xác cho tiền mừng tuổi trong dịp Tết"
-tet-lunar-new-year,Single Best Answer,Which sentence wishes someone well?,"I wish you a Happy New Year!
-I am Tết.
-Tết is here.",0,"Lý do đúng:
-I wish you a Happy New Year! - dịch: ""Chúc bạn năm mới vui vẻ!"", cách chúc Tết tự nhiên và lịch sự"
-tet-lunar-new-year,Multiple Choice,Complete: “We’re ___ cook sticky rice cake this year.”,"going to
-go to
-gone to",0,"Lý do đúng:
-going to - dịch: ""sẽ"", cấu trúc be going to + V diễn tả dự định đã quyết trước"
-tet-lunar-new-year,Single Best Answer,Which sentence is polite when visiting relatives?,"Would you like to come in for tea?
-Come in now.
-You must enter.",0,"Lý do đúng:
-Would you like to come in for tea? - dịch: ""Bạn có muốn vào uống trà không?"", lời mời lịch sự, tự nhiên"
-tet-lunar-new-year,Multiple Choice,Which word means “đoàn viên”?,"family reunion
-traditional food
-visit relatives
-incense",0,"Lý do đúng:
-family reunion - dịch: ""đoàn viên / sum họp gia đình"", từ chính xác"
-tet-lunar-new-year,Single Best Answer,Choose the most natural sentence for Tet preparations:,"I've already cleaned the house for Tết.
-I cleaned house for Tết yesterday already.
-I have cleaned house for Tết.",0,"Lý do đúng:
-I've already cleaned the house for Tết. - dịch: ""Tôi đã dọn nhà xong cho Tết rồi"", dùng present perfect với already diễn tả việc đã hoàn thành và còn liên quan hiện tại"
-tet-lunar-new-year,Multiple Choice,Which sentence gives advice for Tet?,"You should buy gifts before the shops close.
-You must buy gifts now.
-Buy gifts.",0,"Lý do đúng:
-You should buy gifts before the shops close. - dịch: ""Bạn nên mua quà trước khi cửa hàng đóng"", lời khuyên lịch sự, tự nhiên"
-valentines-day,Single Best Answer,Which word means “bó hoa”?,"bouquet
-chocolate
-surprise",0,A bouquet is a bunch of flowers.
-valentines-day,Single Best Answer,Which word means “cầu hôn”?,"propose
-date
-couple",0,To propose is to ask someone to marry you.
-valentines-day,Single Best Answer,Complete: “I’m ___ cook a romantic dinner.”,"going to
-go to
-gone to",0,“Be going to” needs the verb be.
-valentines-day,Single Best Answer,Which sentence wishes someone well?,"I wish you a Happy Valentine’s Day!
-I am Valentine.
-Valentine is here.",0,“I wish you …” is a standard greeting.
 new-years-day,Single Best Answer,Which word means “quyết tâm”?,"resolution
 goal
 habit",0,A resolution is a firm decision to do something.
@@ -330,3 +288,64 @@ Drinking water yesterday.",0,Should expresses advice or a recommendation.
 meal-prep,Single Best Answer,Which phrase means “đồ ăn vặt”?,"junk food
 meal prep
 protein",0,Junk food is food with little nutritional value.
+tet-lunar-new-year,Multiple Choice,Which word means “lì xì”?,"lucky money
+incense
+ancestors
+traditional food",0,"Lý do đúng:
+lucky money - dịch: ""tiền may mắn / lì xì"", từ chính xác cho tiền mừng tuổi trong dịp Tết"
+tet-lunar-new-year,Single Best Answer,Which sentence wishes someone well?,"I wish you a Happy New Year!
+I am Tết.
+Tết is here.",0,"Lý do đúng:
+I wish you a Happy New Year! - dịch: ""Chúc bạn năm mới vui vẻ!"", cách chúc Tết tự nhiên và lịch sự"
+tet-lunar-new-year,Multiple Choice,Complete: “We’re ___ cook sticky rice cake this year.”,"going to
+go to
+gone to",0,"Lý do đúng:
+going to - dịch: ""sẽ"", cấu trúc be going to + V diễn tả dự định đã quyết trước"
+tet-lunar-new-year,Single Best Answer,Which sentence is polite when visiting relatives?,"Would you like to come in for tea?
+Come in now.
+You must enter.",0,"Lý do đúng:
+Would you like to come in for tea? - dịch: ""Bạn có muốn vào uống trà không?"", lời mời lịch sự, tự nhiên"
+tet-lunar-new-year,Multiple Choice,Which word means “đoàn viên”?,"family reunion
+traditional food
+visit relatives
+incense",0,"Lý do đúng:
+family reunion - dịch: ""đoàn viên / sum họp gia đình"", từ chính xác"
+tet-lunar-new-year,Single Best Answer,Choose the most natural sentence for Tet preparations:,"I've already cleaned the house for Tết.
+I cleaned house for Tết yesterday already.
+I have cleaned house for Tết.",0,"Lý do đúng:
+I've already cleaned the house for Tết. - dịch: ""Tôi đã dọn nhà xong cho Tết rồi"", dùng present perfect với already diễn tả việc đã hoàn thành và còn liên quan hiện tại"
+tet-lunar-new-year,Multiple Choice,Which sentence gives advice for Tet?,"You should buy gifts before the shops close.
+You must buy gifts now.
+Buy gifts.",0,"Lý do đúng:
+You should buy gifts before the shops close. - dịch: ""Bạn nên mua quà trước khi cửa hàng đóng"", lời khuyên lịch sự, tự nhiên"
+valentines-day,Multiple Choice,Which word means “bó hoa”?,"bouquet
+chocolate
+romantic
+surprise",0,"Lý do đúng:
+bouquet - dịch: ""bó hoa"", từ chính xác"
+valentines-day,Single Best Answer,Which word means “cầu hôn”?,"propose
+couple
+date
+surprise",0,"Lý do đúng:
+propose - dịch: ""cầu hôn"", động từ chính xác"
+valentines-day,Multiple Choice,Complete: “I’m ___ cook a romantic dinner.”,"going to
+go to
+gone to",0,"Lý do đúng:
+going to - dịch: ""sẽ"", cấu trúc be going to + V"
+valentines-day,Single Best Answer,Which sentence wishes someone well?,"I wish you a Happy Valentine's Day!
+I am Valentine.
+Valentine is here.",0,"Lý do đúng:
+I wish you a Happy Valentine's Day! - dịch: ""Chúc bạn Valentine vui vẻ!"", cách chúc tự nhiên"
+valentines-day,Multiple Choice,Which word means “thư tình”?,"love letter
+bouquet
+chocolate
+couple",0,"Lý do đúng:
+love letter - dịch: ""thư tình"", từ chính xác"
+valentines-day,Single Best Answer,Choose the most natural sentence for Valentine plans:,"I'm going to cook a romantic dinner.
+I cook romantic dinner tonight.
+I will cooking romantic dinner.",0,"Lý do đúng:
+I'm going to cook a romantic dinner. - dịch: ""Tôi sẽ nấu một bữa tối lãng mạn"", dùng be going to + V cho dự định"
+valentines-day,Multiple Choice,Which sentence gives advice for Valentine?,"You should book the restaurant in advance.
+You must book now.
+Book restaurant.",0,"Lý do đúng:
+You should book the restaurant in advance. - dịch: ""Bạn nên đặt nhà hàng trước"", lời khuyên lịch sự"

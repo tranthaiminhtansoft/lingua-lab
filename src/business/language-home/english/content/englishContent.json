@@ -258,8 +258,8 @@
         }
       ],
       "examples": [
-        "We always have turkey for Christmas dinner.",
-        "I wish you a Merry Christmas and a Happy New Year!"
+        "We're having dinner at my aunt's house on Christmas Eve.",
+        "I've already wrapped all the gifts."
       ],
       "quizzes": [
         {
@@ -340,7 +340,7 @@
           "explanation": "A yule log cake is a traditional Christmas dessert."
         }
       ],
-      "readExpected": "We always have turkey for Christmas dinner.",
+      "readExpected": "We're having dinner at my aunt's house on Christmas Eve.",
       "dialogue": [
         "A: What are your plans for Christmas?",
         "B: We’re gathering at my parents’ house.",
@@ -412,31 +412,10 @@
           "score": 0
         },
         {
-          "term": "traditional food",
-          "meaning": "đồ ăn truyền thống",
-          "pronunciation": "/trəˈdɪʃənl fuːd/",
-          "synonyms": "[Đồng nghĩa]\nfestive food - /ˈfestɪv fuːd/ - đồ ăn ngày lễ\n\n[Theo dịp]\nholiday dishes - /ˈhɑːlədeɪ ˈdɪʃɪz/ - món ăn ngày lễ\n\n[Theo chủ đề]\nTet specialties - /tet ˈspeʃəltiz/ - đặc sản Tết",
-          "score": 0
-        },
-        {
           "term": "sticky rice cake",
           "meaning": "bánh chưng",
           "pronunciation": "/ˌstɪki ˈraɪs keɪk/",
           "synonyms": "[Mô tả]\nsquare sticky rice cake - /skwer ˌstɪki ˈraɪs keɪk/ - bánh chưng vuông\n\n[Tên gốc]\nbánh chưng - /bæŋ tʃʊŋ/ - giữ nguyên tên Việt\n\n[Nguyên liệu]\nglutinous rice cake - /ˈɡluːtɪnəs raɪs keɪk/ - bánh gạo nếp",
-          "score": 0
-        },
-        {
-          "term": "visit relatives",
-          "meaning": "thăm họ hàng",
-          "pronunciation": "/ˌvɪzɪt ˈrelətɪvz/",
-          "synonyms": "[Đồng nghĩa]\npay a visit - /peɪ ə ˈvɪzɪt/ - đến thăm\n\n[Khẩu ngữ]\ndrop by - /drɑːp baɪ/ - ghé qua\n\n[Trang trọng]\ncall on - /kɔːl ɑːn/ - đến thăm (trang trọng)",
-          "score": 0
-        },
-        {
-          "term": "New Year wish",
-          "meaning": "lời chúc năm mới",
-          "pronunciation": "/ˌnuː jɪr wɪʃ/",
-          "synonyms": "[Đồng nghĩa]\nNew Year greeting - /ˌnuː jɪr ˈɡriːtɪŋ/ - lời chúc năm mới\n\n[Mô tả]\nwell-wishes - /ˈwel wɪʃɪz/ - lời chúc tốt đẹp\n\n[Trang trọng]\nblessing - /ˈblesɪŋ/ - lời chúc phúc",
           "score": 0
         },
         {
@@ -447,10 +426,10 @@
           "score": 0
         },
         {
-          "term": "first visitor",
-          "meaning": "người đến thăm đầu năm",
-          "pronunciation": "/ˌfɜːrst ˈvɪzɪtər/",
-          "synonyms": "[Anh-Anh]\nfirst footer - /fɜːrst ˈfʊtər/ - người đến thăm đầu năm (Anh-Anh)\n\n[Đồng nghĩa]\nfirst guest - /fɜːrst ɡest/ - khách đầu tiên\n\n[Mô tả]\nfirst caller - /fɜːrst ˈkɔːlər/ - người gọi cửa đầu tiên",
+          "term": "kumquat tree",
+          "meaning": "cây quất",
+          "pronunciation": "/ˈkʌmkwɑːt triː/",
+          "synonyms": "[Đồng nghĩa]\nkumquat - /ˈkʌmkwɑːt/ - quả quất\n\n[Mô tả]\ngolden kumquat - /ˈɡoʊldən ˈkʌmkwɑːt/ - quất vàng (biểu tượng tài lộc)",
           "score": 0
         },
         {
@@ -468,10 +447,24 @@
           "score": 0
         },
         {
-          "term": "new clothes",
-          "meaning": "quần áo mới",
-          "pronunciation": "/nuː kloʊðz/",
-          "synonyms": "[Đồng nghĩa]\nnew outfit - /nuː ˈaʊtfɪt/ - bộ đồ mới\n\n[Trang trọng]\nnew attire - /nuː əˈtaɪər/ - trang phục mới\n\n[Mô tả]\nfresh clothes - /freʃ kloʊðz/ - quần áo mới mẻ",
+          "term": "traditional food",
+          "meaning": "đồ ăn truyền thống",
+          "pronunciation": "/trəˈdɪʃənl fuːd/",
+          "synonyms": "[Đồng nghĩa]\nfestive food - /ˈfestɪv fuːd/ - đồ ăn ngày lễ\n\n[Theo dịp]\nholiday dishes - /ˈhɑːlədeɪ ˈdɪʃɪz/ - món ăn ngày lễ\n\n[Theo chủ đề]\nTet specialties - /tet ˈspeʃəltiz/ - đặc sản Tết",
+          "score": 0
+        },
+        {
+          "term": "visit relatives",
+          "meaning": "thăm họ hàng",
+          "pronunciation": "/ˌvɪzɪt ˈrelətɪvz/",
+          "synonyms": "[Đồng nghĩa]\npay a visit - /peɪ ə ˈvɪzɪt/ - đến thăm\n\n[Khẩu ngữ]\ndrop by - /drɑːp baɪ/ - ghé qua\n\n[Trang trọng]\ncall on - /kɔːl ɑːn/ - đến thăm (trang trọng)",
+          "score": 0
+        },
+        {
+          "term": "first visitor",
+          "meaning": "người xông đất",
+          "pronunciation": "/ˌfɜːrst ˈvɪzɪtər/",
+          "synonyms": "[Anh-Anh]\nfirst footer - /fɜːrst ˈfʊtər/ - người đến thăm đầu năm (Anh-Anh)\n\n[Đồng nghĩa]\nfirst guest - /fɜːrst ɡest/ - khách đầu tiên\n\n[Mô tả]\nfirst caller - /fɜːrst ˈkɔːlər/ - người gọi cửa đầu tiên",
           "score": 0
         },
         {
@@ -486,6 +479,13 @@
           "meaning": "vận may / tài lộc",
           "pronunciation": "/ˈfɔːrtʃən/",
           "synonyms": "[Đồng nghĩa]\nluck - /lʌk/ - vận may\n\n[Trang trọng]\nprosperity - /prɑːˈsperəti/ - thịnh vượng\n\n[Mô tả]\ngood fortune - /ɡʊd ˈfɔːrtʃən/ - vận may tốt",
+          "score": 0
+        },
+        {
+          "term": "new clothes",
+          "meaning": "quần áo mới",
+          "pronunciation": "/nuː kloʊðz/",
+          "synonyms": "[Đồng nghĩa]\nnew outfit - /nuː ˈaʊtfɪt/ - bộ đồ mới\n\n[Trang trọng]\nnew attire - /nuː əˈtaɪər/ - trang phục mới\n\n[Mô tả]\nfresh clothes - /freʃ kloʊðz/ - quần áo mới mẻ",
           "score": 0
         }
       ],
@@ -598,8 +598,8 @@
         }
       ],
       "examples": [
-        "We always visit our grandparents on the first day of Tết.",
-        "I wish you a Happy New Year!"
+        "We've already cleaned the house for Tết.",
+        "We're going to cook sticky rice cake this year."
       ],
       "quizzes": [
         {
@@ -682,21 +682,23 @@
           "explanation": "Lý do đúng:\nYou should buy gifts before the shops close. - dịch: \"Bạn nên mua quà trước khi cửa hàng đóng\", lời khuyên lịch sự, tự nhiên"
         }
       ],
-      "readExpected": "We always visit our grandparents on the first day of Tết.",
+      "readExpected": "We've already cleaned the house for Tết.",
       "dialogue": [
-        "A: Have you cleaned the house for Tết? (Bạn đã dọn nhà cho Tết chưa?)",
-        "B: Yes, and we've put up decorations. (Có, và chúng tôi đã trang trí.)",
-        "A: I still need to buy gifts. (Tôi vẫn cần mua quà.)",
-        "B: Try the market downtown. (Thử chợ ở trung tâm.)",
-        "A: Good idea. Happy Tết! (Ý hay. Chúc Tết vui vẻ!)",
-        "B: Happy Tết to you too! (Chúc Tết vui vẻ nhé!)"
+        "A: Have you cleaned the house for Tết yet? (Bạn đã dọn nhà cho Tết chưa?)",
+        "B: Yes, and we've put up all the decorations. (Rồi, tụi mình cũng đã trang trí xong hết.)",
+        "A: I still need to buy gifts for the relatives. (Mình vẫn cần mua quà cho họ hàng.)",
+        "B: Try the market downtown—they've got great deals this week. (Thử chợ ở trung tâm đi—tuần này có nhiều ưu đãi lắm.)",
+        "A: Good idea. By the way, have you bought lucky money envelopes? (Ý hay đấy. À, bạn đã mua phong bao lì xì chưa?)",
+        "B: Not yet. I'm planning to get some red ones tomorrow morning. (Chưa. Mình định sáng mai đi mua mấy cái màu đỏ.)",
+        "A: Perfect. Happy Tết in advance! (Tuyệt. Chúc Tết vui vẻ trước nhé!)",
+        "B: Happy Tết to you too! Drive safe if you're heading home. (Chúc Tết vui vẻ nhé! Lái xe an toàn nếu bạn về quê.)"
       ],
       "dialogueVariants": [
         [
           "A: Are you going back to your hometown for Tết? (Bạn có về quê ăn Tết không?)",
           "B: Yeah, I'm taking the train on the 28th. (Có, mình đi tàu ngày 28.)",
-          "A: Did you already buy lucky money? (Bạn đã mua lì xì chưa?)",
-          "B: Not yet—I need to get red envelopes first. (Chưa—mình cần mua phong bao đỏ trước.)",
+          "A: Did you already get the lucky money ready? (Bạn đã chuẩn bị lì xì xong chưa?)",
+          "B: Not yet—I need to pick up red envelopes first. (Chưa—mình cần mua phong bao đỏ trước.)",
           "A: I can grab some for you at the stationery shop. (Mình mua giúp bạn ở cửa hàng văn phòng phẩm được.)",
           "B: Thanks! And don't forget to bring back some peach blossoms. (Cảm ơn! Và đừng quên mang hoa đào về nhé.)",
           "A: Will do. Drive safe and have a great Tết! (Nhất định. Lái xe an toàn và Tết vui vẻ nhé!)",
@@ -716,72 +718,112 @@
           "term": "Valentine’s Day",
           "meaning": "Ngày Valentine",
           "pronunciation": "/ˈvæləntaɪnz deɪ/",
+          "synonyms": "[Viết tắt]\nV-Day - /ˈviː deɪ/ - Ngày V (Valentine)\n\n[Mô tả]\nFebruary 14 - /ˈfebrueri fɔːrˈtiːn/ - ngày 14 tháng 2",
           "score": 0
         },
         {
           "term": "romantic",
           "meaning": "lãng mạn",
           "pronunciation": "/roʊˈmæntɪk/",
+          "synonyms": "[Đồng nghĩa]\nloving - /ˈlʌvɪŋ/ - đầy tình yêu\n\n[Trang trọng]\namorous - /ˈæmərəs/ - đa tình (trang trọng)\n\n[Khẩu ngữ]\nsweet - /swiːt/ - ngọt ngào",
           "score": 0
         },
         {
           "term": "bouquet",
           "meaning": "bó hoa",
           "pronunciation": "/buˈkeɪ/",
+          "synonyms": "[Đồng nghĩa]\nflower arrangement - /ˈflaʊər əˈreɪndʒmənt/ - hoa cắm\n\n[Mô tả]\nflower bundle - /ˈflaʊər ˈbʌndl/ - bó hoa\n\n[Khẩu ngữ]\nposy - /ˈpoʊzi/ - bó hoa nhỏ (Anh-Anh)",
           "score": 0
         },
         {
           "term": "chocolate",
           "meaning": "sô cô la",
           "pronunciation": "/ˈtʃɑːklət/",
+          "synonyms": "[Đồng nghĩa]\ncocoa - /ˈkoʊkoʊ/ - ca cao\n\n[Mô tả]\nchoc - /tʃɑːk/ - sô cô la (khẩu ngữ Anh-Anh)\n\n[Loại]\ndark chocolate - /dɑːrk ˈtʃɑːklət/ - sô cô la đen",
           "score": 0
         },
         {
           "term": "date",
           "meaning": "cuộc hẹn",
           "pronunciation": "/deɪt/",
+          "synonyms": "[Đồng nghĩa]\nappointment - /əˈpɔɪntmənt/ - cuộc hẹn (trang trọng)\n\n[Khẩu ngữ]\nhangout - /ˈhæŋaʊt/ - buổi đi chơi\n\n[Mô tả]\nrendezvous - /ˈrɑːndeɪvuː/ - cuộc hẹn (trang trọng, lãng mạn)",
           "score": 0
         },
         {
           "term": "surprise",
           "meaning": "bất ngờ",
           "pronunciation": "/sərˈpraɪz/",
+          "synonyms": "[Đồng nghĩa]\nunexpected - /ˌʌnɪkˈspektɪd/ - không ngờ\n\n[Khẩu ngữ]\nshock - /ʃɑːk/ - sốc (khẩu ngữ)\n\n[Mô tả]\npleasant surprise - /ˈpleznt sərˈpraɪz/ - bất ngờ thú vị",
           "score": 0
         },
         {
           "term": "love letter",
           "meaning": "thư tình",
           "pronunciation": "/ˈlʌv ˌletər/",
+          "synonyms": "[Đồng nghĩa]\nlove note - /ˈlʌv noʊt/ - mẩu thư tình\n\n[Mô tả]\nromantic letter - /roʊˈmæntɪk ˈletər/ - thư lãng mạn\n\n[Cổ điển]\nbillet-doux - /ˌbɪleɪ ˈduː/ - thư tình (Pháp)",
           "score": 0
         },
         {
           "term": "propose",
           "meaning": "cầu hôn",
           "pronunciation": "/prəˈpoʊz/",
+          "synonyms": "[Đồng nghĩa]\npop the question - /pɑːp ðə ˈkwestʃən/ - cầu hôn (khẩu ngữ)\n\n[Mô tả]\nask for hand - /æsk fər hænd/ - xin cưới\n\n[Trang trọng]\npropose marriage - /prəˈpoʊz ˈmærɪdʒ/ - cầu hôn",
           "score": 0
         },
         {
           "term": "couple",
           "meaning": "cặp đôi",
-          "pronunciation": "/ˈkʌpəl/",
+          "pronunciation": "/ˈkʌpl/",
+          "synonyms": "[Đồng nghĩa]\npartners - /ˈpɑːrtnərz/ - cặp đôi\n\n[Mô tả]\nduo - /ˈduːoʊ/ - cặp đôi (khẩu ngữ)\n\n[Trang trọng]\npair - /per/ - cặp đôi (trang trọng)",
           "score": 0
         },
         {
           "term": "candlelit dinner",
           "meaning": "bữa tối dưới ánh nến",
           "pronunciation": "/ˈkændəllɪt ˈdɪnər/",
+          "synonyms": "[Đồng nghĩa]\nromantic dinner - /roʊˈmæntɪk ˈdɪnər/ - bữa tối lãng mạn\n\n[Mô tả]\ndinner by candlelight - /ˈdɪnər baɪ ˈkændəllaɪt/ - bữa tối dưới ánh nến",
           "score": 0
         },
         {
           "term": "anniversary",
           "meaning": "kỷ niệm",
           "pronunciation": "/ˌænɪˈvɜːrsəri/",
+          "synonyms": "[Đồng nghĩa]\nanniversary date - /ˌænɪˈvɜːrsəri deɪt/ - ngày kỷ niệm\n\n[Mô tả]\nmilestone - /ˈmaɪlstoʊn/ - cột mốc\n\n[Khẩu ngữ]\nanniv - /ˈænɪv/ - kỷ niệm (viết tắt khẩu ngữ)",
           "score": 0
         },
         {
           "term": "affection",
           "meaning": "sự trìu mến",
           "pronunciation": "/əˈfekʃən/",
+          "synonyms": "[Đồng nghĩa]\nlove - /lʌv/ - tình yêu\n\n[Mô tả]\ntenderness - /ˈtendərnəs/ - sự dịu dàng\n\n[Khẩu ngữ]\nfondness - /ˈfɑːndnəs/ - sự trìu mến",
+          "score": 0
+        },
+        {
+          "term": "blind date",
+          "meaning": "cuộc hẹn mù",
+          "pronunciation": "/blaɪnd deɪt/",
+          "synonyms": "[Đồng nghĩa]\nsetup - /ˈsetʌp/ - cuộc hẹn do bạn bè sắp đặt\n\n[Mô tả]\nmatch - /mætʃ/ - cặp đôi (khẩu ngữ)",
+          "score": 0
+        },
+        {
+          "term": "heartbroken",
+          "meaning": "tan vỡ trái tim",
+          "pronunciation": "/ˈhɑːrtˌbroʊkən/",
+          "synonyms": "[Đồng nghĩa]\ndevastated - /ˈdevəsteɪtɪd/ - suy sụp\n\n[Mô tả]\ncrushed - /krʌʃt/ - tan nát (khẩu ngữ)",
+          "score": 0
+        },
+        {
+          "term": "proposal",
+          "meaning": "lời cầu hôn",
+          "pronunciation": "/prəˈpoʊzl/",
+          "synonyms": "[Đồng nghĩa]\nmarriage proposal - /ˈmærɪdʒ prəˈpoʊzl/ - lời cầu hôn\n\n[Mô tả]\npopping the question - /pɑːpɪŋ ðə ˈkwestʃən/ - cầu hôn (khẩu ngữ)",
+          "score": 0
+        },
+        {
+          "term": "relationship",
+          "meaning": "mối quan hệ",
+          "pronunciation": "/rɪˈleɪʃnʃɪp/",
+          "synonyms": "[Đồng nghĩa]\nromance - /roʊˈmæns/ - chuyện tình cảm\n\n[Mô tả]\npartnership - /ˈpɑːrtnərʃɪp/ - quan hệ đối tác",
           "score": 0
         }
       ],
@@ -789,7 +831,7 @@
         {
           "formula": "S + have/has + already + V3",
           "example": "I've already booked a table for two. (Tôi đã đặt bàn cho hai người.)",
-          "pronunciation": "/aɪv ɔˈrɛdi bʊkt ə ˈteɪbəl fər tu/",
+          "pronunciation": "/aɪv ɔlˈredi bʊkt ə ˈteɪbl fər tuː/",
           "usage": "Dùng khi việc chuẩn bị cho Valentine đã xong hoặc chưa xong tính đến hiện tại.",
           "title": "Present perfect for Valentine preparations",
           "category": "Tense",
@@ -814,7 +856,7 @@
         {
           "formula": "S + am/is/are + going to + V",
           "example": "I'm going to cook a romantic dinner. (Tôi sẽ nấu một bữa tối lãng mạn.)",
-          "pronunciation": "/əm goʊɪŋ tɪ kʊk ə roʊˈmæntɪk ˈdɪnər/",
+          "pronunciation": "/aɪm ˈɡoʊɪŋ tə kʊk ə roʊˈmæntɪk ˈdɪnər/",
           "usage": "Dùng để nói về dự định cho ngày Valentine; phân biệt với quyết định tức thời và lịch đã đặt.",
           "title": "'Be going to' for Valentine plans",
           "category": "Future",
@@ -839,7 +881,7 @@
         {
           "formula": "N1 + be + more adj + than + N2",
           "example": "Roses are more romantic than chocolates. (Hoa hồng lãng mạn hơn sô-cô-la.)",
-          "pronunciation": "/ˈroʊzɪz ər mɔr roʊˈmæntɪk ðən ˈʧɔkləts/",
+          "pronunciation": "/ˈroʊzɪz ɑːr mɔːr roʊˈmæntɪk ðən ˈtʃɑːkləts/",
           "usage": "Dùng để so sánh mức độ lãng mạn, ý nghĩa hoặc giá trị của quà tặng và hành động.",
           "title": "Comparatives for gifts and gestures",
           "category": "Comparison",
@@ -864,7 +906,7 @@
         {
           "formula": "Would + you + like + to + V?",
           "example": "Would you like to watch a movie with me? (Bạn có muốn đi xem phim với tôi không?)",
-          "pronunciation": "/wʊd ju laɪk tɪ wɔʧ ə ˈmuvi wɪθ mi/",
+          "pronunciation": "/wʊd ju laɪk tə wɑːtʃ ə ˈmuːvi wɪð miː/",
           "usage": "Dùng để mời hoặc gợi ý một hoạt động cho ngày Valentine mà không gây áp lực.",
           "title": "Polite offers and suggestions",
           "category": "Modal",
@@ -885,37 +927,45 @@
               "example": "Shall we meet at the café at six? (Chúng ta gặp ở quán cà phê lúc sáu giờ nhé?)"
             }
           ]
+        },
+        {
+          "formula": "S + have/has + been together + for + time",
+          "example": "We've been together for two years now. (Chúng tôi đã bên nhau được hai năm rồi.)",
+          "pronunciation": "/wiːv bɪn təˈɡeðər fər tuː jɪrz naʊ/",
+          "usage": "Dùng khi nhìn lại những cột mốc đã đạt được trong mối quan hệ tính đến hiện tại."
         }
       ],
       "examples": [
-        "We always exchange gifts on Valentine’s Day.",
-        "I wish you a Happy Valentine’s Day!"
+        "I've already booked a table for two.",
+        "I'm going to cook a romantic dinner."
       ],
       "quizzes": [
         {
-          "questionType": "Single Best Answer",
+          "questionType": "Multiple Choice",
           "question": "Which word means “bó hoa”?",
           "options": [
             "bouquet",
             "chocolate",
+            "romantic",
             "surprise"
           ],
           "answerIndex": 0,
-          "explanation": "A bouquet is a bunch of flowers."
+          "explanation": "Lý do đúng:\nbouquet - dịch: \"bó hoa\", từ chính xác"
         },
         {
           "questionType": "Single Best Answer",
           "question": "Which word means “cầu hôn”?",
           "options": [
             "propose",
+            "couple",
             "date",
-            "couple"
+            "surprise"
           ],
           "answerIndex": 0,
-          "explanation": "To propose is to ask someone to marry you."
+          "explanation": "Lý do đúng:\npropose - dịch: \"cầu hôn\", động từ chính xác"
         },
         {
-          "questionType": "Single Best Answer",
+          "questionType": "Multiple Choice",
           "question": "Complete: “I’m ___ cook a romantic dinner.”",
           "options": [
             "going to",
@@ -923,37 +973,73 @@
             "gone to"
           ],
           "answerIndex": 0,
-          "explanation": "“Be going to” needs the verb be."
+          "explanation": "Lý do đúng:\ngoing to - dịch: \"sẽ\", cấu trúc be going to + V"
         },
         {
           "questionType": "Single Best Answer",
           "question": "Which sentence wishes someone well?",
           "options": [
-            "I wish you a Happy Valentine’s Day!",
+            "I wish you a Happy Valentine's Day!",
             "I am Valentine.",
             "Valentine is here."
           ],
           "answerIndex": 0,
-          "explanation": "“I wish you …” is a standard greeting."
+          "explanation": "Lý do đúng:\nI wish you a Happy Valentine's Day! - dịch: \"Chúc bạn Valentine vui vẻ!\", cách chúc tự nhiên"
+        },
+        {
+          "questionType": "Multiple Choice",
+          "question": "Which word means “thư tình”?",
+          "options": [
+            "love letter",
+            "bouquet",
+            "chocolate",
+            "couple"
+          ],
+          "answerIndex": 0,
+          "explanation": "Lý do đúng:\nlove letter - dịch: \"thư tình\", từ chính xác"
+        },
+        {
+          "questionType": "Single Best Answer",
+          "question": "Choose the most natural sentence for Valentine plans:",
+          "options": [
+            "I'm going to cook a romantic dinner.",
+            "I cook romantic dinner tonight.",
+            "I will cooking romantic dinner."
+          ],
+          "answerIndex": 0,
+          "explanation": "Lý do đúng:\nI'm going to cook a romantic dinner. - dịch: \"Tôi sẽ nấu một bữa tối lãng mạn\", dùng be going to + V cho dự định"
+        },
+        {
+          "questionType": "Multiple Choice",
+          "question": "Which sentence gives advice for Valentine?",
+          "options": [
+            "You should book the restaurant in advance.",
+            "You must book now.",
+            "Book restaurant."
+          ],
+          "answerIndex": 0,
+          "explanation": "Lý do đúng:\nYou should book the restaurant in advance. - dịch: \"Bạn nên đặt nhà hàng trước\", lời khuyên lịch sự"
         }
       ],
-      "readExpected": "We always exchange gifts on Valentine’s Day.",
+      "readExpected": "I've already booked a table for two.",
       "dialogue": [
-        "A: What are your plans for Valentine’s Day?",
-        "B: I’m taking her out for dinner.",
-        "A: That sounds romantic. Did you buy a gift?",
-        "B: Yes, a bouquet and some chocolate.",
-        "A: She’ll love it. Surprise her!",
-        "B: I hope so. Happy Valentine’s Day!"
+        "A: Have you written a love letter? (Bạn đã viết thư tình chưa?)",
+        "B: Yes, I finished it last night. (Có, tôi viết xong tối qua.)",
+        "A: That's sweet. Are you proposing? (Ngọt ngào quá. Bạn định cầu hôn à?)",
+        "B: Maybe. I'm nervous. (Có thể. Tôi hơi hồi hộp.)",
+        "A: You'll do great. Good luck! (Bạn sẽ làm tốt. Chúc may mắn!)",
+        "B: Thanks! Wish me luck. (Cảm ơn! Chúc tôi may mắn nhé!)"
       ],
       "dialogueVariants": [
         [
-          "A: Have you written a love letter?",
-          "B: Yes, I finished it last night.",
-          "A: That’s sweet. Are you proposing?",
-          "B: Maybe. I’m nervous.",
-          "A: You’ll do great. Good luck!",
-          "B: Thanks! Wish me luck."
+          "A: What are you planning for Valentine's Day? (Bạn có kế hoạch gì cho ngày Valentine?)",
+          "B: I'm taking her to that new rooftop restaurant. (Mình sẽ đưa cô ấy đến nhà hàng rooftop mới.)",
+          "A: Nice! Did you get flowers? (Tuyệt! Bạn đã mua hoa chưa?)",
+          "B: Yeah, a bouquet of red roses. (Rồi, một bó hoa hồng đỏ.)",
+          "A: Classic choice. Are you nervous? (Lựa chọn kinh điển. Bạn có hồi hộp không?)",
+          "B: A little. I might propose tonight. (Hơi hơi. Tối nay mình có thể cầu hôn.)",
+          "A: Wow, that's huge! You've got this. (Wow, lớn quá! Bạn làm được mà.)",
+          "B: Thanks for the support, man. (Cảm ơn bạn đã ủng hộ.)"
         ]
       ]
     },
@@ -1141,8 +1227,8 @@
         }
       ],
       "examples": [
-        "I exercise three times a week this year.",
-        "I wish you a Happy New Year!"
+        "I'm going to save more money this year.",
+        "I've learned a lot this year."
       ],
       "quizzes": [
         {
@@ -1190,7 +1276,7 @@
           "explanation": "“I wish you …” is a standard greeting."
         }
       ],
-      "readExpected": "I exercise three times a week this year.",
+      "readExpected": "I'm going to save more money this year.",
       "dialogue": [
         "A: Do you have any New Year’s resolutions?",
         "B: Yes, I want to exercise more.",
@@ -1394,8 +1480,8 @@
         }
       ],
       "examples": [
-        "I think habits shape our mindset more than talent does.",
-        "If you feel anxious, take a deep breath."
+        "I think habits shape our mindset.",
+        "I used to worry a lot."
       ],
       "quizzes": [
         {
@@ -1443,7 +1529,7 @@
           "explanation": "First conditional gives advice for a situation."
         }
       ],
-      "readExpected": "I think habits shape our mindset more than talent does.",
+      "readExpected": "I think habits shape our mindset.",
       "dialogue": [
         "A: Why do I keep procrastinating?",
         "B: It might be a habit, not laziness.",
@@ -1649,7 +1735,7 @@
       ],
       "examples": [
         "I go to church every Sunday morning.",
-        "Would you like to come to mass with us?"
+        "I have been to that parish before."
       ],
       "quizzes": [
         {
@@ -2201,8 +2287,8 @@
         }
       ],
       "examples": [
-        "Let’s meet up at seven and grab a coffee.",
-        "I’m meeting friends at six, so I might be late."
+        "Let's meet up at seven.",
+        "I'm meeting friends at six."
       ],
       "quizzes": [
         {
@@ -2250,7 +2336,7 @@
           "explanation": "Sorry + reason is a polite apology."
         }
       ],
-      "readExpected": "Let’s meet up at seven and grab a coffee.",
+      "readExpected": "Let's meet up at seven.",
       "dialogue": [
         "A: Are you free this Saturday?",
         "B: Yes! What do you want to do?",
@@ -2455,8 +2541,8 @@
         }
       ],
       "examples": [
-        "I feel like staying in bed all morning.",
-        "I’m not doing anything at all today."
+        "I'm just relaxing on the sofa.",
+        "I rarely set an alarm on Sunday."
       ],
       "quizzes": [
         {
@@ -2504,7 +2590,7 @@
           "explanation": "No alarm means not setting an alarm."
         }
       ],
-      "readExpected": "I feel like staying in bed all morning.",
+      "readExpected": "I'm just relaxing on the sofa.",
       "dialogue": [
         "A: How was your weekend?",
         "B: So relaxing. I slept in both days.",
@@ -2709,8 +2795,8 @@
         }
       ],
       "examples": [
-        "I have to do the laundry today.",
-        "I’ve already taken out the trash."
+        "Tidy up the living room.",
+        "I have to do the laundry today."
       ],
       "quizzes": [
         {
@@ -2758,7 +2844,7 @@
           "explanation": "Take out the trash means to remove garbage."
         }
       ],
-      "readExpected": "I have to do the laundry today.",
+      "readExpected": "Tidy up the living room.",
       "dialogue": [
         "A: Can you help with the chores today?",
         "B: Sure. What do you need?",
@@ -2963,8 +3049,8 @@
         }
       ],
       "examples": [
-        "We rolled back the last deployment because the error rate spiked.",
-        "The root cause was a misconfigured timeout, so we added a runbook for it."
+        "We have deployed the fix to staging.",
+        "We have been monitoring the cluster since the incident."
       ],
       "quizzes": [
         {
@@ -3012,7 +3098,7 @@
           "explanation": "A clear owner plus a deadline keeps the meeting actionable."
         }
       ],
-      "readExpected": "We rolled back the deployment after the error rate spiked.",
+      "readExpected": "We have deployed the fix to staging.",
       "dialogue": [
         "A: Morning, everyone. Can we start with the incident?",
         "B: Sure. The checkout service went down at 8:40.",
@@ -3217,8 +3303,8 @@
         }
       ],
       "examples": [
-        "Morning! Lovely weather today, isn’t it?",
-        "I’m just heading to work, but let’s catch up this weekend."
+        "I'm just heading to the station.",
+        "Lovely morning, isn't it?"
       ],
       "quizzes": [
         {
@@ -3266,7 +3352,7 @@
           "explanation": "Small talk shares a light, everyday detail."
         }
       ],
-      "readExpected": "Morning! Lovely weather today, isn’t it?",
+      "readExpected": "I'm just heading to the station.",
       "dialogue": [
         "A: Morning, Mrs. Lan! How’s it going?",
         "B: Morning! Pretty good, thanks. Off to work?",
@@ -3471,8 +3557,8 @@
         }
       ],
       "examples": [
-        "I usually grab a quick breakfast, but I cook dinner at home.",
-        "I’m trying to eat a balanced meal at lunch, so I add more vegetables."
+        "I usually have rice for lunch.",
+        "I'd like a bowl of soup and some rice."
       ],
       "quizzes": [
         {
@@ -3520,7 +3606,7 @@
           "explanation": "“Could I have …, please?” is the standard polite request."
         }
       ],
-      "readExpected": "I usually have a quick breakfast and cook dinner at home.",
+      "readExpected": "I usually have rice for lunch.",
       "dialogue": [
         "A: What did you have for breakfast?",
         "B: Just coffee and a banana, because I was in a hurry.",
@@ -3724,8 +3810,8 @@
         }
       ],
       "examples": [
-        "In autumn, I usually feel more focused, so I plan heavier tasks in the morning.",
-        "This week I’m getting back into a routine after a busy period."
+        "I usually walk in the park in autumn.",
+        "I'm trying to sleep earlier this week."
       ],
       "quizzes": [
         {
@@ -3965,8 +4051,8 @@
         }
       ],
       "examples": [
-        "We’re on track, but we still have one blocker with the API.",
-        "I’ll hand off the logs after this meeting."
+        "We have finished the first review.",
+        "The deployment was rolled back."
       ],
       "quizzes": [
         {
@@ -4014,7 +4100,7 @@
           "explanation": "“Can I add something?” is a polite way to take a turn."
         }
       ],
-      "readExpected": "We are on track, but we still have one blocker.",
+      "readExpected": "We have finished the first review.",
       "dialogue": [
         "A: We’re on track with the release.",
         "B: Do we still have any blockers?",
@@ -4206,8 +4292,8 @@
         }
       ],
       "examples": [
-        "This deal looks good, but I’m not sure whether it is worth it.",
-        "The discount is bigger online than in the store."
+        "This laptop is cheaper than that one.",
+        "This is the cheapest option."
       ],
       "quizzes": [
         {
@@ -4255,7 +4341,7 @@
           "explanation": "Use whether + to-infinitive when presenting a choice."
         }
       ],
-      "readExpected": "This deal looks good, but I am not sure whether it is worth it.",
+      "readExpected": "This laptop is cheaper than that one.",
       "dialogue": [
         "A: This deal looks good.",
         "B: Is it worth it?",
@@ -4448,8 +4534,8 @@
         }
       ],
       "examples": [
-        "We’re releasing on Thursday, so the code freeze starts tonight.",
-        "If the canary looks healthy, we’ll roll out to all regions."
+        "We're releasing on Thursday.",
+        "We need to freeze the code by Wednesday."
       ],
       "quizzes": [
         {
@@ -4497,7 +4583,7 @@
           "explanation": "First conditional: if + present simple, will + verb."
         }
       ],
-      "readExpected": "We’re releasing on Thursday, so the code freeze starts tonight.",
+      "readExpected": "We're releasing on Thursday.",
       "dialogue": [
         "A: Quick sync on Thursday’s release?",
         "B: Sure. The code freeze starts tonight at eight.",
@@ -4702,8 +4788,8 @@
         }
       ],
       "examples": [
-        "Are you doing anything fun this weekend?",
-        "I’m going to the local market on Saturday morning."
+        "I'm going to fix the fence this weekend.",
+        "Could you lend me a ladder?"
       ],
       "quizzes": [
         {
@@ -4751,7 +4837,7 @@
           "explanation": "This question invites the other person to share plans."
         }
       ],
-      "readExpected": "Are you doing anything fun this weekend?",
+      "readExpected": "I'm going to fix the fence this weekend.",
       "dialogue": [
         "A: Morning! Are you doing anything fun this weekend?",
         "B: I’m going to fix the fence if the forecast is good.",
@@ -4957,7 +5043,7 @@
       ],
       "examples": [
         "Could we have the bill, please?",
-        "I’d like something spicy but not too heavy."
+        "Could I have a little more rice?"
       ],
       "quizzes": [
         {
@@ -5210,8 +5296,8 @@
         }
       ],
       "examples": [
-        "I do meal prep on Sunday so I eat better during the week.",
-        "I try to add protein to every meal and drink more water."
+        "You should prep meals on Sunday.",
+        "I rarely order junk food during the week."
       ],
       "quizzes": [
         {
@@ -5259,7 +5345,7 @@
           "explanation": "Junk food is food with little nutritional value."
         }
       ],
-      "readExpected": "I do meal prep on Sunday so I eat better during the week.",
+      "readExpected": "You should prep meals on Sunday.",
       "dialogue": [
         "A: How do you eat healthy on busy days?",
         "B: I do meal prep on Sunday and portion everything.",

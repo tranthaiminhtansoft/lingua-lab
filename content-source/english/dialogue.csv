@@ -1,28 +1,4 @@
 ﻿topicId,variantIndex,sentences
-sunday-mass,0,"A: So, what do you usually get up to on Sundays? Do you have a set routine?
-
-(Vậy Chủ Nhật cậu thường làm gì? Cậu có lịch sinh hoạt cố định nào không?)
-
-B: Pretty much, yeah. Since I'm a cradle Catholic, I usually head to morning Mass at the Cathedral downtown. Even though it's been under restoration with scaffolding all around it for years, it's still open for regular services—it's just closed to casual sightseers.
-
-(Gần như là vậy. Vì mình có đạo Công giáo từ nhỏ nên mình thường đi lễ sáng ở Nhà thờ Chánh Tòa dưới trung tâm. Dù nhà thờ đang trùng tu và quây giàn giáo mấy năm nay rồi, nhưng bên trong vẫn mở cửa cho các giờ lễ định kỳ—chỉ đóng cửa với khách tham quan vãng lai thôi.)
-
-A: Oh, I didn't realize you could still go inside! If I wanted to tag along sometime, is there anything I should keep in mind—like a strict dress code?
-
-(Ồ, mình không biết là vẫn vào bên trong được đấy! Nếu hôm nào mình muốn đi ké thì có cần lưu ý gì không—kiểu như quy định trang phục khắt khe chẳng hạn?)
-
-B: Definitely. Out of respect for the sacred space, you're expected to dress modestly—meaning no shorts or sleeveless tops. Also, we'd wanna get there a bit early 'cause parking at the bookstore right next door fills up super fast.
-
-(Chắc chắn rồi. Để tỏ lòng tôn trọng không gian tôn nghiêm, mọi người được yêu cầu ăn mặc kín đáo—nghĩa là không mặc quần ngắn hay áo sát nách. Với lại tụi mình cũng nên tới sớm một chút vì chỗ gởi xe ở nhà sách ngay kế bên mau kín chỗ lắm.)
-
-A: Good to know! And what do you normally do once Mass wraps up?
-
-(Thông tin hữu ích đấy! Thế lễ xong thì bình thường cậu làm gì?)
-
-B: There's actually an older vendor I know right outside that bookstore who sells Singaporean tofu pudding. I always make a point of buying some to support him—it's kind of become a little post-Mass ritual of mine before heading home.
-
-(Ngay bên ngoài nhà sách đó có một bác bán hàng quen bán tàu hủ Singapore. Mình luôn chủ ý mua một ít để ủng hộ bác—việc đó gần như trở thành một thói quen nho nhỏ sau giờ lễ của mình trước khi về nhà.)
-"
 christmas-celebration,0,"A: What are your plans for Christmas?
 B: We’re gathering at my parents’ house.
 A: That sounds lovely. Are you cooking?
@@ -41,32 +17,6 @@ A: After that, let’s warm up by the fireplace.
 B: Perfect. I’m also baking gingerbread men and mince pies.
 A: Yum! Will Rudolph and the reindeer visit tonight?
 B: Maybe! Don’t forget to hang Santa’s sack by the chimney."
-tet-lunar-new-year,0,"A: Have you cleaned the house for Tết? (Bạn đã dọn nhà cho Tết chưa?)
-B: Yes, and we've put up decorations. (Có, và chúng tôi đã trang trí.)
-A: I still need to buy gifts. (Tôi vẫn cần mua quà.)
-B: Try the market downtown. (Thử chợ ở trung tâm.)
-A: Good idea. Happy Tết! (Ý hay. Chúc Tết vui vẻ!)
-B: Happy Tết to you too! (Chúc Tết vui vẻ nhé!)"
-tet-lunar-new-year,1,"A: Are you going back to your hometown for Tết? (Bạn có về quê ăn Tết không?)
-B: Yeah, I'm taking the train on the 28th. (Có, mình đi tàu ngày 28.)
-A: Did you already buy lucky money? (Bạn đã mua lì xì chưa?)
-B: Not yet—I need to get red envelopes first. (Chưa—mình cần mua phong bao đỏ trước.)
-A: I can grab some for you at the stationery shop. (Mình mua giúp bạn ở cửa hàng văn phòng phẩm được.)
-B: Thanks! And don't forget to bring back some peach blossoms. (Cảm ơn! Và đừng quên mang hoa đào về nhé.)
-A: Will do. Drive safe and have a great Tết! (Nhất định. Lái xe an toàn và Tết vui vẻ nhé!)
-B: You too! See you after the holiday. (Bạn cũng vậy! Hẹn gặp sau kỳ nghỉ.)"
-valentines-day,0,"A: What are your plans for Valentine’s Day?
-B: I’m taking her out for dinner.
-A: That sounds romantic. Did you buy a gift?
-B: Yes, a bouquet and some chocolate.
-A: She’ll love it. Surprise her!
-B: I hope so. Happy Valentine’s Day!"
-valentines-day,1,"A: Have you written a love letter?
-B: Yes, I finished it last night.
-A: That’s sweet. Are you proposing?
-B: Maybe. I’m nervous.
-A: You’ll do great. Good luck!
-B: Thanks! Wish me luck."
 new-years-day,0,"A: Do you have any New Year’s resolutions?
 B: Yes, I want to exercise more.
 A: That’s a great goal. How often?
@@ -91,6 +41,30 @@ A: Does it really help?
 B: Yes, it calms the body and mind.
 A: I’ll try it next time.
 B: You’ve got this."
+sunday-mass,0,"A: So, what do you usually get up to on Sundays? Do you have a set routine?
+
+(Vậy Chủ Nhật cậu thường làm gì? Cậu có lịch sinh hoạt cố định nào không?)
+
+B: Pretty much, yeah. Since I'm a cradle Catholic, I usually head to morning Mass at the Cathedral downtown. Even though it's been under restoration with scaffolding all around it for years, it's still open for regular services—it's just closed to casual sightseers.
+
+(Gần như là vậy. Vì mình có đạo Công giáo từ nhỏ nên mình thường đi lễ sáng ở Nhà thờ Chánh Tòa dưới trung tâm. Dù nhà thờ đang trùng tu và quây giàn giáo mấy năm nay rồi, nhưng bên trong vẫn mở cửa cho các giờ lễ định kỳ—chỉ đóng cửa với khách tham quan vãng lai thôi.)
+
+A: Oh, I didn't realize you could still go inside! If I wanted to tag along sometime, is there anything I should keep in mind—like a strict dress code?
+
+(Ồ, mình không biết là vẫn vào bên trong được đấy! Nếu hôm nào mình muốn đi ké thì có cần lưu ý gì không—kiểu như quy định trang phục khắt khe chẳng hạn?)
+
+B: Definitely. Out of respect for the sacred space, you're expected to dress modestly—meaning no shorts or sleeveless tops. Also, we'd wanna get there a bit early 'cause parking at the bookstore right next door fills up super fast.
+
+(Chắc chắn rồi. Để tỏ lòng tôn trọng không gian tôn nghiêm, mọi người được yêu cầu ăn mặc kín đáo—nghĩa là không mặc quần ngắn hay áo sát nách. Với lại tụi mình cũng nên tới sớm một chút vì chỗ gởi xe ở nhà sách ngay kế bên mau kín chỗ lắm.)
+
+A: Good to know! And what do you normally do once Mass wraps up?
+
+(Thông tin hữu ích đấy! Thế lễ xong thì bình thường cậu làm gì?)
+
+B: There's actually an older vendor I know right outside that bookstore who sells Singaporean tofu pudding. I always make a point of buying some to support him—it's kind of become a little post-Mass ritual of mine before heading home.
+
+(Ngay bên ngoài nhà sách đó có một bác bán hàng quen bán tàu hủ Singapore. Mình luôn chủ ý mua một ít để ủng hộ bác—việc đó gần như trở thành một thói quen nho nhỏ sau giờ lễ của mình trước khi về nhà.)
+"
 sunday-mass,1,"A: What time is mass today?
 B: Nine o’clock, as usual.
 A: I’m bringing my children.
@@ -241,3 +215,33 @@ A: What’s in it?
 B: Rice, chicken, and a lot of vegetables.
 A: I should try that. Any tips?
 B: Start with two recipes and don’t skip breakfast."
+tet-lunar-new-year,0,"A: Have you cleaned the house for Tết yet? (Bạn đã dọn nhà cho Tết chưa?)
+B: Yes, and we've put up all the decorations. (Rồi, tụi mình cũng đã trang trí xong hết.)
+A: I still need to buy gifts for the relatives. (Mình vẫn cần mua quà cho họ hàng.)
+B: Try the market downtown—they've got great deals this week. (Thử chợ ở trung tâm đi—tuần này có nhiều ưu đãi lắm.)
+A: Good idea. By the way, have you bought lucky money envelopes? (Ý hay đấy. À, bạn đã mua phong bao lì xì chưa?)
+B: Not yet. I'm planning to get some red ones tomorrow morning. (Chưa. Mình định sáng mai đi mua mấy cái màu đỏ.)
+A: Perfect. Happy Tết in advance! (Tuyệt. Chúc Tết vui vẻ trước nhé!)
+B: Happy Tết to you too! Drive safe if you're heading home. (Chúc Tết vui vẻ nhé! Lái xe an toàn nếu bạn về quê.)"
+tet-lunar-new-year,1,"A: Are you going back to your hometown for Tết? (Bạn có về quê ăn Tết không?)
+B: Yeah, I'm taking the train on the 28th. (Có, mình đi tàu ngày 28.)
+A: Did you already get the lucky money ready? (Bạn đã chuẩn bị lì xì xong chưa?)
+B: Not yet—I need to pick up red envelopes first. (Chưa—mình cần mua phong bao đỏ trước.)
+A: I can grab some for you at the stationery shop. (Mình mua giúp bạn ở cửa hàng văn phòng phẩm được.)
+B: Thanks! And don't forget to bring back some peach blossoms. (Cảm ơn! Và đừng quên mang hoa đào về nhé.)
+A: Will do. Drive safe and have a great Tết! (Nhất định. Lái xe an toàn và Tết vui vẻ nhé!)
+B: You too! See you after the holiday. (Bạn cũng vậy! Hẹn gặp sau kỳ nghỉ.)"
+valentines-day,0,"A: Have you written a love letter? (Bạn đã viết thư tình chưa?)
+B: Yes, I finished it last night. (Có, tôi viết xong tối qua.)
+A: That's sweet. Are you proposing? (Ngọt ngào quá. Bạn định cầu hôn à?)
+B: Maybe. I'm nervous. (Có thể. Tôi hơi hồi hộp.)
+A: You'll do great. Good luck! (Bạn sẽ làm tốt. Chúc may mắn!)
+B: Thanks! Wish me luck. (Cảm ơn! Chúc tôi may mắn nhé!)"
+valentines-day,1,"A: What are you planning for Valentine's Day? (Bạn có kế hoạch gì cho ngày Valentine?)
+B: I'm taking her to that new rooftop restaurant. (Mình sẽ đưa cô ấy đến nhà hàng rooftop mới.)
+A: Nice! Did you get flowers? (Tuyệt! Bạn đã mua hoa chưa?)
+B: Yeah, a bouquet of red roses. (Rồi, một bó hoa hồng đỏ.)
+A: Classic choice. Are you nervous? (Lựa chọn kinh điển. Bạn có hồi hộp không?)
+B: A little. I might propose tonight. (Hơi hơi. Tối nay mình có thể cầu hôn.)
+A: Wow, that's huge! You've got this. (Wow, lớn quá! Bạn làm được mà.)
+B: Thanks for the support, man. (Cảm ơn bạn đã ủng hộ.)"
