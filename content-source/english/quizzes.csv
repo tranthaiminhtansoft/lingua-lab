@@ -96,18 +96,6 @@ D - dịch: ""Hiện tại nơi này đóng cửa để sửa chữa, nên khôn
 
 Lý do đúng:
 B - dịch: ""Nhà thờ đang trùng tu nên họ đóng cửa với khách tham quan rồi—chỉ những ai đi dự lễ mới được vào bên trong thôi"", vừa chuẩn ngữ pháp vừa tự nhiên nhất nhờ dùng dạng rút gọn (""It's"", ""they've""), từ vựng chuẩn ngành bảo tồn (""under restoration""), cụm ""closed it to tourists"" và cách gọi thân mật ""folks"" (mọi người)"
-weekend-market,Single Best Answer,Which word means “tươi”?,"fresh
-cash
-bag",0,Fresh means newly picked or made.
-weekend-market,Single Best Answer,"Complete: “Could you ___ these tomatoes, please?”","weigh
-weighs
-weighing",0,Could you + base verb: weigh.
-weekend-market,Single Best Answer,Which question asks about price?,"How much are these oranges?
-What is your name?
-Where is the exit?",0,How much + be + noun asks about price.
-weekend-market,Single Best Answer,Which sentence is polite when buying?,"Could you weigh these, please?
-Weigh these now.
-Give me these.",0,"“Could you …, please?” is polite."
 weekend-outing,Single Best Answer,Which phrase suggests an activity?,"Let’s meet up at seven.
 I am sleeping.
 The door is closed.",0,“Let’s …” is a suggestion.
@@ -386,3 +374,33 @@ psychology-mind,Multiple Choice,Which sentence gives advice for stress?,"You sho
 You must walk now.
 Walk.",0,"Lý do đúng:
 You should take a short walk and listen to music. - dịch: ""Bạn nên đi bộ một chút và nghe nhạc"", lời khuyên lịch sự"
+weekend-market,Multiple Choice,Which word means “tươi”?,"fresh
+cash
+bag
+bargain",0,"Lý do đúng:
+fresh - dịch: ""tươi"", từ chính xác"
+weekend-market,Single Best Answer,"Complete: “Could you ___ these tomatoes, please?”","weigh
+weighs
+weighing",0,"Lý do đúng:
+weigh - dịch: ""cân"", động từ nguyên mẫu sau could you"
+weekend-market,Multiple Choice,Which question asks about price?,"How much are these oranges?
+What is your name?
+Where is the market?",0,"Lý do đúng:
+How much are these oranges? - dịch: ""Những quả cam này giá bao nhiêu?"", câu hỏi về giá"
+weekend-market,Single Best Answer,Which sentence is polite when buying?,"Could you weigh these tomatoes, please?
+Weigh these tomatoes.
+You must weigh tomatoes.",0,"Lý do đúng:
+Could you weigh these tomatoes, please? - dịch: ""Bạn có thể cân những quả cà chua này không?"", lời nhờ vả lịch sự"
+weekend-market,Multiple Choice,Which word means “món hời”?,"bargain
+vendor
+receipt
+cash",0,"Lý do đúng:
+bargain - dịch: ""món hời"", từ chính xác"
+weekend-market,Single Best Answer,Choose the most natural sentence for market shopping:,"I usually buy fresh vegetables at the market on Sunday.
+I buy fresh vegetables usually at market Sunday.
+Usually I buy fresh vegetables market on Sunday.",0,"Lý do đúng:
+I usually buy fresh vegetables at the market on Sunday. - dịch: ""Tôi thường mua rau tươi ở chợ vào Chủ nhật"", trật tự từ tự nhiên"
+weekend-market,Multiple Choice,Which sentence gives advice for market shopping?,"You should bring a reusable bag.
+You must bring bag.
+Bring bag.",0,"Lý do đúng:
+You should bring a reusable bag. - dịch: ""Bạn nên mang túi tái sử dụng"", lời khuyên lịch sự"

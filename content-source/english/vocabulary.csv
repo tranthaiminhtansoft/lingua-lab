@@ -459,18 +459,95 @@ sunday-mass,choir,ca đoàn,/ˈkwaɪər/,,0
 sunday-mass,congregation,cộng đoàn,/ˌkɑːŋɡrəˈɡeɪʃən/,,0
 sunday-mass,pew,ghế ngồi trong nhà thờ,/pjuː/,,0
 sunday-mass,worship,thờ phượng,/ˈwɜːrʃɪp/,,0
-weekend-market,market,chợ,/ˈmɑːrkɪt/,,0
-weekend-market,fresh,tươi,/freʃ/,,0
-weekend-market,bargain,món hời,/ˈbɑːrɡən/,,0
-weekend-market,vendor,người bán hàng,/ˈvendər/,,0
-weekend-market,weigh,cân,/weɪ/,,0
-weekend-market,bag,túi,/bæɡ/,,0
-weekend-market,reusable bag,túi tái sử dụng,/riˈjuːzəbəl bæɡ/,,0
-weekend-market,receipt,hoá đơn,/rɪˈsiːt/,,0
-weekend-market,cash,tiền mặt,/kæʃ/,,0
-weekend-market,loose change,tiền lẻ,/ˌluːs ˈtʃeɪndʒ/,,0
-weekend-market,stall,sạp hàng,/stɔːl/,,0
-weekend-market,ripe,chín,/raɪp/,,0
+weekend-market,market,chợ,/ˈmɑːrkɪt/,"[Đồng nghĩa]
+marketplace - /ˈmɑːrkɪtpleɪs/ - khu chợ
+
+[Mô tả]
+bazaar - /bəˈzɑːr/ - chợ (Trung Đông/Ấn Độ)",0
+weekend-market,fresh,tươi,/freʃ/,"[Đồng nghĩa]
+newly picked - /ˈnuːli pɪkt/ - mới hái
+
+[Mô tả]
+just harvested - /dʒʌst ˈhɑːrvɪstɪd/ - vừa thu hoạch",0
+weekend-market,bargain,món hời,/ˈbɑːrɡən/,"[Đồng nghĩa]
+deal - /diːl/ - ưu đãi
+
+[Mô tả]
+steal - /stiːl/ - món hời (khẩu ngữ)
+
+[Khẩu ngữ]
+good buy - /ɡʊd baɪ/ - mua hời",0
+weekend-market,vendor,người bán hàng,/ˈvendər/,"[Đồng nghĩa]
+seller - /ˈselər/ - người bán
+
+[Mô tả]
+trader - /ˈtreɪdər/ - người buôn bán
+
+[Khẩu ngữ]
+stallholder - /ˈstɔːlˌhoʊldər/ - người bán sạp",0
+weekend-market,weigh,cân,/weɪ/,"[Đồng nghĩa]
+measure - /ˈmeʒər/ - đo lường
+
+[Mô tả]
+weigh out - /weɪ aʊt/ - cân ra",0
+weekend-market,bag,túi,/bæɡ/,"[Đồng nghĩa]
+carrier bag - /ˈkæriər bæɡ/ - túi xách
+
+[Mô tả]
+sack - /sæk/ - bao tải
+
+[Khẩu ngữ]
+tote - /toʊt/ - túi xách (khẩu ngữ)",0
+weekend-market,reusable bag,túi tái sử dụng,/riˈjuːzəbəl bæɡ/,"[Đồng nghĩa]
+eco bag - /ˈiːkoʊ bæɡ/ - túi sinh thái
+
+[Mô tả]
+shopping bag - /ˈʃɑːpɪŋ bæɡ/ - túi đi chợ",0
+weekend-market,receipt,hoá đơn,/rɪˈsiːt/,"[Đồng nghĩa]
+invoice - /ˈɪnvɔɪs/ - hóa đơn (trang trọng)
+
+[Mô tả]
+proof of purchase - /pruːf əv ˈpɜːrtʃəs/ - chứng từ mua hàng",0
+weekend-market,cash,tiền mặt,/kæʃ/,"[Đồng nghĩa]
+notes and coins - /noʊts ənd kɔɪnz/ - tiền giấy và xu
+
+[Mô tả]
+hard cash - /hɑːrd kæʃ/ - tiền mặt",0
+weekend-market,loose change,tiền lẻ,/ˌluːs ˈtʃeɪndʒ/,"[Đồng nghĩa]
+small change - /smɔːl tʃeɪndʒ/ - tiền lẻ
+
+[Mô tả]
+coins - /kɔɪnz/ - tiền xu",0
+weekend-market,stall,sạp hàng,/stɔːl/,"[Đồng nghĩa]
+booth - /buːθ/ - quầy hàng
+
+[Mô tả]
+stand - /stænd/ - quầy bán hàng",0
+weekend-market,ripe,chín,/raɪp/,"[Đồng nghĩa]
+ready to eat - /ˈredi tə iːt/ - chín tới
+
+[Mô tả]
+mature - /məˈtʃʊr/ - chín (trang trọng)",0
+weekend-market,seasonal,theo mùa,/ˈsiːzənl/,"[Đồng nghĩa]
+in season - /ɪn ˈsiːzn/ - đang mùa
+
+[Mô tả]
+seasonal produce - /ˈsiːzənl ˈprɑːduːs/ - nông sản theo mùa",0
+weekend-market,haggle,trả giá,/ˈhæɡl/,"[Đồng nghĩa]
+bargain - /ˈbɑːrɡən/ - mặc cả
+
+[Mô tả]
+negotiate - /nɪˈɡoʊʃieɪt/ - thương lượng",0
+weekend-market,organic,hữu cơ,/ɔːrˈɡænɪk/,"[Đồng nghĩa]
+natural - /ˈnætʃərəl/ - tự nhiên
+
+[Mô tả]
+pesticide-free - /ˈpestɪsaɪd friː/ - không thuốc trừ sâu",0
+weekend-market,bulk buy,mua sỉ,/bʌlk baɪ/,"[Đồng nghĩa]
+wholesale - /ˈhoʊlseɪl/ - bán sỉ
+
+[Mô tả]
+buy in bulk - /baɪ ɪn bʌlk/ - mua số lượng lớn",0
 weekend-outing,hang out,đi chơi,/ˌhæŋ ˈaʊt/,,0
 weekend-outing,café,quán cà phê,/kæˈfeɪ/,,0
 weekend-outing,cinema,rạp chiếu phim,/ˈsɪnəmə/,,0

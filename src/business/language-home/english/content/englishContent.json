@@ -2030,72 +2030,112 @@
           "term": "market",
           "meaning": "chợ",
           "pronunciation": "/ˈmɑːrkɪt/",
+          "synonyms": "[Đồng nghĩa]\nmarketplace - /ˈmɑːrkɪtpleɪs/ - khu chợ\n\n[Mô tả]\nbazaar - /bəˈzɑːr/ - chợ (Trung Đông/Ấn Độ)",
           "score": 0
         },
         {
           "term": "fresh",
           "meaning": "tươi",
           "pronunciation": "/freʃ/",
+          "synonyms": "[Đồng nghĩa]\nnewly picked - /ˈnuːli pɪkt/ - mới hái\n\n[Mô tả]\njust harvested - /dʒʌst ˈhɑːrvɪstɪd/ - vừa thu hoạch",
           "score": 0
         },
         {
           "term": "bargain",
           "meaning": "món hời",
           "pronunciation": "/ˈbɑːrɡən/",
+          "synonyms": "[Đồng nghĩa]\ndeal - /diːl/ - ưu đãi\n\n[Mô tả]\nsteal - /stiːl/ - món hời (khẩu ngữ)\n\n[Khẩu ngữ]\ngood buy - /ɡʊd baɪ/ - mua hời",
           "score": 0
         },
         {
           "term": "vendor",
           "meaning": "người bán hàng",
           "pronunciation": "/ˈvendər/",
+          "synonyms": "[Đồng nghĩa]\nseller - /ˈselər/ - người bán\n\n[Mô tả]\ntrader - /ˈtreɪdər/ - người buôn bán\n\n[Khẩu ngữ]\nstallholder - /ˈstɔːlˌhoʊldər/ - người bán sạp",
           "score": 0
         },
         {
           "term": "weigh",
           "meaning": "cân",
           "pronunciation": "/weɪ/",
+          "synonyms": "[Đồng nghĩa]\nmeasure - /ˈmeʒər/ - đo lường\n\n[Mô tả]\nweigh out - /weɪ aʊt/ - cân ra",
           "score": 0
         },
         {
           "term": "bag",
           "meaning": "túi",
           "pronunciation": "/bæɡ/",
+          "synonyms": "[Đồng nghĩa]\ncarrier bag - /ˈkæriər bæɡ/ - túi xách\n\n[Mô tả]\nsack - /sæk/ - bao tải\n\n[Khẩu ngữ]\ntote - /toʊt/ - túi xách (khẩu ngữ)",
           "score": 0
         },
         {
           "term": "reusable bag",
           "meaning": "túi tái sử dụng",
           "pronunciation": "/riˈjuːzəbəl bæɡ/",
+          "synonyms": "[Đồng nghĩa]\neco bag - /ˈiːkoʊ bæɡ/ - túi sinh thái\n\n[Mô tả]\nshopping bag - /ˈʃɑːpɪŋ bæɡ/ - túi đi chợ",
           "score": 0
         },
         {
           "term": "receipt",
           "meaning": "hoá đơn",
           "pronunciation": "/rɪˈsiːt/",
+          "synonyms": "[Đồng nghĩa]\ninvoice - /ˈɪnvɔɪs/ - hóa đơn (trang trọng)\n\n[Mô tả]\nproof of purchase - /pruːf əv ˈpɜːrtʃəs/ - chứng từ mua hàng",
           "score": 0
         },
         {
           "term": "cash",
           "meaning": "tiền mặt",
           "pronunciation": "/kæʃ/",
+          "synonyms": "[Đồng nghĩa]\nnotes and coins - /noʊts ənd kɔɪnz/ - tiền giấy và xu\n\n[Mô tả]\nhard cash - /hɑːrd kæʃ/ - tiền mặt",
           "score": 0
         },
         {
           "term": "loose change",
           "meaning": "tiền lẻ",
           "pronunciation": "/ˌluːs ˈtʃeɪndʒ/",
+          "synonyms": "[Đồng nghĩa]\nsmall change - /smɔːl tʃeɪndʒ/ - tiền lẻ\n\n[Mô tả]\ncoins - /kɔɪnz/ - tiền xu",
           "score": 0
         },
         {
           "term": "stall",
           "meaning": "sạp hàng",
           "pronunciation": "/stɔːl/",
+          "synonyms": "[Đồng nghĩa]\nbooth - /buːθ/ - quầy hàng\n\n[Mô tả]\nstand - /stænd/ - quầy bán hàng",
           "score": 0
         },
         {
           "term": "ripe",
           "meaning": "chín",
           "pronunciation": "/raɪp/",
+          "synonyms": "[Đồng nghĩa]\nready to eat - /ˈredi tə iːt/ - chín tới\n\n[Mô tả]\nmature - /məˈtʃʊr/ - chín (trang trọng)",
+          "score": 0
+        },
+        {
+          "term": "seasonal",
+          "meaning": "theo mùa",
+          "pronunciation": "/ˈsiːzənl/",
+          "synonyms": "[Đồng nghĩa]\nin season - /ɪn ˈsiːzn/ - đang mùa\n\n[Mô tả]\nseasonal produce - /ˈsiːzənl ˈprɑːduːs/ - nông sản theo mùa",
+          "score": 0
+        },
+        {
+          "term": "haggle",
+          "meaning": "trả giá",
+          "pronunciation": "/ˈhæɡl/",
+          "synonyms": "[Đồng nghĩa]\nbargain - /ˈbɑːrɡən/ - mặc cả\n\n[Mô tả]\nnegotiate - /nɪˈɡoʊʃieɪt/ - thương lượng",
+          "score": 0
+        },
+        {
+          "term": "organic",
+          "meaning": "hữu cơ",
+          "pronunciation": "/ɔːrˈɡænɪk/",
+          "synonyms": "[Đồng nghĩa]\nnatural - /ˈnætʃərəl/ - tự nhiên\n\n[Mô tả]\npesticide-free - /ˈpestɪsaɪd friː/ - không thuốc trừ sâu",
+          "score": 0
+        },
+        {
+          "term": "bulk buy",
+          "meaning": "mua sỉ",
+          "pronunciation": "/bʌlk baɪ/",
+          "synonyms": "[Đồng nghĩa]\nwholesale - /ˈhoʊlseɪl/ - bán sỉ\n\n[Mô tả]\nbuy in bulk - /baɪ ɪn bʌlk/ - mua số lượng lớn",
           "score": 0
         }
       ],
@@ -2103,7 +2143,7 @@
         {
           "formula": "S + usually + V + at the market",
           "example": "I usually buy fresh vegetables at the market on Sunday. (Tôi thường mua rau tươi ở chợ vào Chủ nhật.)",
-          "pronunciation": "/aɪ ˈjuʒəwəli baɪ frɛʃ ˈvɛʤtəbəlz æt ðə ˈmɑrkɪt ɔn ˈsənˌdi/",
+          "pronunciation": "/aɪ ˈjuːʒuəli baɪ freʃ ˈvedʒtəblz æt ðə ˈmɑːrkɪt ɑːn ˈsʌndeɪ/",
           "usage": "Dùng cho thói quen mua sắm lặp lại ở chợ.",
           "title": "Present simple for market routines",
           "category": "Tense",
@@ -2128,7 +2168,7 @@
         {
           "formula": "Could + you + V + O, please?",
           "example": "Could you weigh these tomatoes, please? (Bạn có thể cân những quả cà chua này không?)",
-          "pronunciation": "/kʊd ju weɪ ðiz təˈmɑtoʊz, pliz/",
+          "pronunciation": "/kʊd ju weɪ ðiz təˈmeɪtoʊz, pliːz/",
           "usage": "Dùng để nhờ người bán giúp một việc nhỏ một cách lịch sự.",
           "title": "Polite requests with 'could'",
           "category": "Request",
@@ -2153,7 +2193,7 @@
         {
           "formula": "How much + be + N?",
           "example": "How much are these oranges? (Những quả cam này giá bao nhiêu?)",
-          "pronunciation": "/haʊ məʧ ər ðiz ˈɔrɪnʤɪz/",
+          "pronunciation": "/haʊ mʌtʃ ɑːr ðiz ˈɔːrɪndʒɪz/",
           "usage": "Dùng 'how much' với giá hoặc danh từ không đếm được, 'how many' với số lượng đếm được.",
           "title": "'How much' and 'how many' for shopping",
           "category": "Question",
@@ -2178,7 +2218,7 @@
         {
           "formula": "V + O; Don't + V + O",
           "example": "Check the price before you buy. (Kiểm tra giá trước khi mua.)",
-          "pronunciation": "/ʧɛk ðə praɪs ˌbiˈfɔr ju baɪ/",
+          "pronunciation": "/tʃek ðə praɪs bɪˈfɔːr ju baɪ/",
           "usage": "Dùng để đưa lời khuyên nhanh, trực tiếp khi mua sắm.",
           "title": "Imperatives for shopping advice",
           "category": "Imperative",
@@ -2199,6 +2239,12 @@
               "example": "It's better to pay in cash at small stalls. (Tốt hơn là trả tiền mặt ở các sạp nhỏ.)"
             }
           ]
+        },
+        {
+          "formula": "N1 + be + adj-er/more adj + than + N2",
+          "example": "These tomatoes are fresher than the ones at the supermarket. (Những quả cà chua này tươi hơn ở siêu thị.)",
+          "pronunciation": "/ðiz təˈmeɪtoʊz ɑːr ˈfreʃər ðən ðə wʌnz æt ðə ˈsuːpərˌmɑːrkɪt/",
+          "usage": "Dùng để so sánh giá, chất lượng hoặc độ tươi giữa các sản phẩm ở chợ."
         }
       ],
       "examples": [
@@ -2207,15 +2253,16 @@
       ],
       "quizzes": [
         {
-          "questionType": "Single Best Answer",
+          "questionType": "Multiple Choice",
           "question": "Which word means “tươi”?",
           "options": [
             "fresh",
             "cash",
-            "bag"
+            "bag",
+            "bargain"
           ],
           "answerIndex": 0,
-          "explanation": "Fresh means newly picked or made."
+          "explanation": "Lý do đúng:\nfresh - dịch: \"tươi\", từ chính xác"
         },
         {
           "questionType": "Single Best Answer",
@@ -2226,48 +2273,84 @@
             "weighing"
           ],
           "answerIndex": 0,
-          "explanation": "Could you + base verb: weigh."
+          "explanation": "Lý do đúng:\nweigh - dịch: \"cân\", động từ nguyên mẫu sau could you"
         },
         {
-          "questionType": "Single Best Answer",
+          "questionType": "Multiple Choice",
           "question": "Which question asks about price?",
           "options": [
             "How much are these oranges?",
             "What is your name?",
-            "Where is the exit?"
+            "Where is the market?"
           ],
           "answerIndex": 0,
-          "explanation": "How much + be + noun asks about price."
+          "explanation": "Lý do đúng:\nHow much are these oranges? - dịch: \"Những quả cam này giá bao nhiêu?\", câu hỏi về giá"
         },
         {
           "questionType": "Single Best Answer",
           "question": "Which sentence is polite when buying?",
           "options": [
-            "Could you weigh these, please?",
-            "Weigh these now.",
-            "Give me these."
+            "Could you weigh these tomatoes, please?",
+            "Weigh these tomatoes.",
+            "You must weigh tomatoes."
           ],
           "answerIndex": 0,
-          "explanation": "“Could you …, please?” is polite."
+          "explanation": "Lý do đúng:\nCould you weigh these tomatoes, please? - dịch: \"Bạn có thể cân những quả cà chua này không?\", lời nhờ vả lịch sự"
+        },
+        {
+          "questionType": "Multiple Choice",
+          "question": "Which word means “món hời”?",
+          "options": [
+            "bargain",
+            "vendor",
+            "receipt",
+            "cash"
+          ],
+          "answerIndex": 0,
+          "explanation": "Lý do đúng:\nbargain - dịch: \"món hời\", từ chính xác"
+        },
+        {
+          "questionType": "Single Best Answer",
+          "question": "Choose the most natural sentence for market shopping:",
+          "options": [
+            "I usually buy fresh vegetables at the market on Sunday.",
+            "I buy fresh vegetables usually at market Sunday.",
+            "Usually I buy fresh vegetables market on Sunday."
+          ],
+          "answerIndex": 0,
+          "explanation": "Lý do đúng:\nI usually buy fresh vegetables at the market on Sunday. - dịch: \"Tôi thường mua rau tươi ở chợ vào Chủ nhật\", trật tự từ tự nhiên"
+        },
+        {
+          "questionType": "Multiple Choice",
+          "question": "Which sentence gives advice for market shopping?",
+          "options": [
+            "You should bring a reusable bag.",
+            "You must bring bag.",
+            "Bring bag."
+          ],
+          "answerIndex": 0,
+          "explanation": "Lý do đúng:\nYou should bring a reusable bag. - dịch: \"Bạn nên mang túi tái sử dụng\", lời khuyên lịch sự"
         }
       ],
       "readExpected": "I usually buy fresh vegetables at the market on Sunday.",
       "dialogue": [
-        "A: What are you buying today?",
-        "B: Fresh tomatoes and some herbs.",
-        "A: Could you weigh these, please?",
-        "B: Sure. That’s half a kilo.",
-        "A: How much is it?",
-        "B: Two dollars. Do you need a bag?"
+        "A: Morning! What's fresh today? (Chào buổi sáng! Hôm nay có gì tươi?)",
+        "B: The spinach and carrots just arrived. (Rau chân vịt và cà rốt vừa về.)",
+        "A: Could you give me a kilo of carrots? (Cho tôi một ký cà rốt.)",
+        "B: Of course. Anything else? (Tất nhiên. Còn gì nữa không?)",
+        "A: Just these. How much in total? (Chỉ thế này. Tổng bao nhiêu?)",
+        "B: Five dollars. Have a good weekend! (Năm đô. Cuối tuần vui vẻ!)"
       ],
       "dialogueVariants": [
         [
-          "A: Morning! What’s fresh today?",
-          "B: The spinach and carrots just arrived.",
-          "A: Could you give me a kilo of carrots?",
-          "B: Of course. Anything else?",
-          "A: Just these. How much in total?",
-          "B: Five dollars. Have a good weekend!"
+          "A: Excuse me, are these organic? (Xin lỗi, những thứ này hữu cơ không?)",
+          "B: Yes, they're from a local farm. No pesticides. (Có, chúng từ trang trại địa phương. Không thuốc trừ sâu.)",
+          "A: Great. How much for a bunch of basil? (Tuyệt. Một bó húng quế giá bao nhiêu?)",
+          "B: Two dollars. Would you like me to weigh it? (Hai đô. Bạn muốn tôi cân không?)",
+          "A: Yes, please. And do you have any ripe mangoes? (Vâng, làm ơn. Bạn có xoài chín nào không?)",
+          "B: These are perfect—ready to eat today. (Những quả này hoàn hảo—ăn được ngay hôm nay.)",
+          "A: I'll take three. What's the total? (Tôi lấy ba quả. Tổng bao nhiêu?)",
+          "B: Seven dollars. Thanks for supporting local farmers! (Bảy đô. Cảm ơn bạn đã ủng hộ nông dân địa phương!)"
         ]
       ]
     },

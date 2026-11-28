@@ -47,18 +47,6 @@ A: I’m bringing my children.
 B: Wonderful. There’s a children’s blessing.
 A: That’s lovely. See you there.
 B: See you. Have a blessed Sunday."
-weekend-market,0,"A: What are you buying today?
-B: Fresh tomatoes and some herbs.
-A: Could you weigh these, please?
-B: Sure. That’s half a kilo.
-A: How much is it?
-B: Two dollars. Do you need a bag?"
-weekend-market,1,"A: Morning! What’s fresh today?
-B: The spinach and carrots just arrived.
-A: Could you give me a kilo of carrots?
-B: Of course. Anything else?
-A: Just these. How much in total?
-B: Five dollars. Have a good weekend!"
 weekend-outing,0,"A: Are you free this Saturday?
 B: Yes! What do you want to do?
 A: Let’s meet up at seven and grab a coffee.
@@ -251,3 +239,17 @@ A: What do you mean? (Ý bạn là sao?)
 B: Like, when I notice I'm spiraling, I ask: ""Is this thought helpful?"" (Như khi mình nhận ra mình đang xoắn, mình hỏi: ""Suy nghĩ này có ích không?"")
 A: That's a great technique. (Kỹ thuật hay đấy.)
 B: It takes practice, but it works. (Cần luyện tập, nhưng có hiệu quả.)"
+weekend-market,0,"A: Morning! What's fresh today? (Chào buổi sáng! Hôm nay có gì tươi?)
+B: The spinach and carrots just arrived. (Rau chân vịt và cà rốt vừa về.)
+A: Could you give me a kilo of carrots? (Cho tôi một ký cà rốt.)
+B: Of course. Anything else? (Tất nhiên. Còn gì nữa không?)
+A: Just these. How much in total? (Chỉ thế này. Tổng bao nhiêu?)
+B: Five dollars. Have a good weekend! (Năm đô. Cuối tuần vui vẻ!)"
+weekend-market,1,"A: Excuse me, are these organic? (Xin lỗi, những thứ này hữu cơ không?)
+B: Yes, they're from a local farm. No pesticides. (Có, chúng từ trang trại địa phương. Không thuốc trừ sâu.)
+A: Great. How much for a bunch of basil? (Tuyệt. Một bó húng quế giá bao nhiêu?)
+B: Two dollars. Would you like me to weigh it? (Hai đô. Bạn muốn tôi cân không?)
+A: Yes, please. And do you have any ripe mangoes? (Vâng, làm ơn. Bạn có xoài chín nào không?)
+B: These are perfect—ready to eat today. (Những quả này hoàn hảo—ăn được ngay hôm nay.)
+A: I'll take three. What's the total? (Tôi lấy ba quả. Tổng bao nhiêu?)
+B: Seven dollars. Thanks for supporting local farmers! (Bảy đô. Cảm ơn bạn đã ủng hộ nông dân địa phương!)"
