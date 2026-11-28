@@ -1,910 +1,571 @@
 ﻿topicId,term,meaning,pronunciation,synonyms,score
-christmas-celebration,Christmas,Giáng sinh,/ˈkrɪsməs/,,0
-christmas-celebration,gift,quà tặng,/ɡɪft/,,0
-christmas-celebration,decoration,đồ trang trí,/ˌdekəˈreɪʃən/,,0
-christmas-celebration,festive,mang không khí lễ hội,/ˈfestɪv/,,0
-christmas-celebration,gather,tụ họp,/ˈɡæðər/,,0
-christmas-celebration,family dinner,bữa tối gia đình,/ˈfæməli ˈdɪnər/,,0
-christmas-celebration,carol,bài thánh ca,/ˈkærəl/,,0
-christmas-celebration,celebrate,"ăn mừng, tổ chức",/ˈseləbreɪt/,,0
-christmas-celebration,reindeer,tuần lộc,/ˈreɪndɪr/,,0
-christmas-celebration,ornament,đồ trang trí,/ˈɔːrnəmənt/,,0
-christmas-celebration,Santa sack,túi quà của ông già Noel,/ˈsæntə sæk/,,0
-christmas-celebration,sleigh,xe trượt tuyết,/sleɪ/,,0
-christmas-celebration,elf,chú lùn giúp việc,/elf/,,0
-christmas-celebration,snowman,người tuyết,/ˈsnoʊmæn/,,0
-christmas-celebration,feast,bữa tiệc thịnh soạn,/fiːst/,,0
-christmas-celebration,chimney,ống khói,/ˈtʃɪmni/,,0
-christmas-celebration,fireplace,lò sưởi,/ˈfaɪərpleɪs/,,0
-christmas-celebration,scarf,khăn quàng,/skɑːrf/,,0
-christmas-celebration,turkey,gà tây,/ˈtɜːrki/,,0
-christmas-celebration,mince pie,bánh nhân mứt,/ˌmɪns ˈpaɪ/,,0
-christmas-celebration,gingerbread man,bánh quy gừng hình người,/ˈdʒɪndʒərbred mæn/,,0
-christmas-celebration,yule log cake,bánh khúc gỗ,/juːl lɔːɡ keɪk/,,0
-christmas-celebration,mulled wine,rượu vang nóng,/məld waɪn/,,0
-christmas-celebration,Secret Santa,trò bốc thăm tặng quà,/ˌsiːkrət ˈsæntə/,,0
-tet-lunar-new-year,Tết,Tết (Lunar New Year),/tet/,"[Viết tắt / tên tiếng Anh]
-Lunar New Year - /ˌluːnər ˈnuː jɪr/ - Tết Nguyên Đán
-
-[Tên gọi theo mùa]
-Spring Festival - /sprɪŋ ˈfestɪvl/ - Tết (cách gọi quốc tế)",0
-tet-lunar-new-year,lucky money,lì xì,/ˈlʌki ˈmʌni/,"[Phong bao]
-red envelope money - /red ˈenvəloʊp ˈmʌni/ - tiền trong phong bao đỏ
-
-[Khẩu ngữ]
-lucky cash - /ˈlʌki kæʃ/ - tiền may mắn
-
-[Tên gọi theo dịp]
-Tết money - /tet ˈmʌni/ - tiền Tết",0
-tet-lunar-new-year,family reunion,đoàn viên,/ˌfæməli riːˈjuːniən/,"[Đồng nghĩa]
-family gathering - /ˈfæməli ˈɡæðərɪŋ/ - buổi tụ họp gia đình
-
-[Khẩu ngữ]
-get together - /ɡet təˈɡeðər/ - tụ họp
-
-[Theo dịp]
-reunion dinner - /riːˈjuːniən ˈdɪnər/ - bữa cơm đoàn viên",0
-tet-lunar-new-year,ancestors,tổ tiên,/ˈænsestərz/,"[Trang trọng]
-forefathers - /ˈfɔːrˌfɑːðərz/ - tổ tiên (trang trọng)
-
-[Trang trọng]
-forebears - /ˈfɔːrberz/ - tổ tiên
-
-[Mô tả]
-deceased relatives - /dɪˈsiːst ˈrelətɪvz/ - người thân đã khuất",0
-tet-lunar-new-year,incense,hương,/ˈɪnsens/,"[Đồng nghĩa]
-incense stick - /ˈɪnsens stɪk/ - nén hương
-
-[Hoa]
-joss stick - /dʒɔːs stɪk/ - hương (Hoa)
-
-[Mô tả]
-incense smoke - /ˈɪnsens smoʊk/ - khói hương",0
-tet-lunar-new-year,sticky rice cake,bánh chưng,/ˌstɪki ˈraɪs keɪk/,"[Mô tả]
-square sticky rice cake - /skwer ˌstɪki ˈraɪs keɪk/ - bánh chưng vuông
-
-[Tên gốc]
-bánh chưng - /bæŋ tʃʊŋ/ - giữ nguyên tên Việt
-
-[Nguyên liệu]
-glutinous rice cake - /ˈɡluːtɪnəs raɪs keɪk/ - bánh gạo nếp",0
-tet-lunar-new-year,peach blossom,hoa đào,/piːtʃ ˈblɑːsəm/,"[Đồng nghĩa]
-peach flower - /piːtʃ ˈflaʊər/ - hoa đào
-
-[Mô tả]
-pink blossom - /pɪŋk ˈblɑːsəm/ - hoa hồng đào",0
-tet-lunar-new-year,kumquat tree,cây quất,/ˈkʌmkwɑːt triː/,"[Đồng nghĩa]
-kumquat - /ˈkʌmkwɑːt/ - quả quất
-
-[Mô tả]
-golden kumquat - /ˈɡoʊldən ˈkʌmkwɑːt/ - quất vàng (biểu tượng tài lộc)",0
-tet-lunar-new-year,red envelope,phong bao lì xì,/ˌred ˈenvəloʊp/,"[Mô tả]
-lucky money envelope - /ˈlʌki ˈmʌni ˈenvəloʊp/ - phong bao tiền may mắn
-
-[Trung]
-hongbao - /hɔːŋ ˈbaʊ/ - bao lì xì (Trung)
-
-[Tên gọi theo dịp]
-lì xì envelope - /liː si ˈenvəloʊp/ - phong bao lì xì",0
-tet-lunar-new-year,firecracker,pháo nổ,/ˈfaɪərˌkrækər/,"[Đồng nghĩa]
-fireworks - /ˈfaɪərwɜːrks/ - pháo hoa
-
-[Mô tả]
-cracker - /ˈkrækər/ - pháo nổ nhỏ",0
-tet-lunar-new-year,traditional food,đồ ăn truyền thống,/trəˈdɪʃənl fuːd/,"[Đồng nghĩa]
-festive food - /ˈfestɪv fuːd/ - đồ ăn ngày lễ
-
-[Theo dịp]
-holiday dishes - /ˈhɑːlədeɪ ˈdɪʃɪz/ - món ăn ngày lễ
-
-[Theo chủ đề]
-Tet specialties - /tet ˈspeʃəltiz/ - đặc sản Tết",0
-tet-lunar-new-year,visit relatives,thăm họ hàng,/ˌvɪzɪt ˈrelətɪvz/,"[Đồng nghĩa]
-pay a visit - /peɪ ə ˈvɪzɪt/ - đến thăm
-
-[Khẩu ngữ]
-drop by - /drɑːp baɪ/ - ghé qua
-
-[Trang trọng]
-call on - /kɔːl ɑːn/ - đến thăm (trang trọng)",0
-tet-lunar-new-year,first visitor,người xông đất,/ˌfɜːrst ˈvɪzɪtər/,"[Anh-Anh]
-first footer - /fɜːrst ˈfʊtər/ - người đến thăm đầu năm (Anh-Anh)
-
-[Đồng nghĩa]
-first guest - /fɜːrst ɡest/ - khách đầu tiên
-
-[Mô tả]
-first caller - /fɜːrst ˈkɔːlər/ - người gọi cửa đầu tiên",0
-tet-lunar-new-year,spring cleaning,dọn nhà đầu năm,/sprɪŋ ˈkliːnɪŋ/,"[Đồng nghĩa]
-year-end cleaning - /jɪr end ˈkliːnɪŋ/ - dọn nhà cuối năm
-
-[Mô tả]
-house cleaning - /haʊs ˈkliːnɪŋ/ - dọn nhà
-
-tidying up - /ˈtaɪdiɪŋ ʌp/ - dọn dẹp",0
-tet-lunar-new-year,fortune,vận may / tài lộc,/ˈfɔːrtʃən/,"[Đồng nghĩa]
-luck - /lʌk/ - vận may
-
-[Trang trọng]
-prosperity - /prɑːˈsperəti/ - thịnh vượng
-
-[Mô tả]
-good fortune - /ɡʊd ˈfɔːrtʃən/ - vận may tốt",0
-tet-lunar-new-year,new clothes,quần áo mới,/nuː kloʊðz/,"[Đồng nghĩa]
-new outfit - /nuː ˈaʊtfɪt/ - bộ đồ mới
-
-[Trang trọng]
-new attire - /nuː əˈtaɪər/ - trang phục mới
-
-[Mô tả]
-fresh clothes - /freʃ kloʊðz/ - quần áo mới mẻ",0
-valentines-day,Valentine’s Day,Ngày Valentine,/ˈvæləntaɪnz deɪ/,"[Viết tắt]
-V-Day - /ˈviː deɪ/ - Ngày V (Valentine)
-
-[Mô tả]
-February 14 - /ˈfebrueri fɔːrˈtiːn/ - ngày 14 tháng 2",0
-valentines-day,romantic,lãng mạn,/roʊˈmæntɪk/,"[Đồng nghĩa]
-loving - /ˈlʌvɪŋ/ - đầy tình yêu
-
-[Trang trọng]
-amorous - /ˈæmərəs/ - đa tình (trang trọng)
-
-[Khẩu ngữ]
-sweet - /swiːt/ - ngọt ngào",0
-valentines-day,bouquet,bó hoa,/buˈkeɪ/,"[Đồng nghĩa]
-flower arrangement - /ˈflaʊər əˈreɪndʒmənt/ - hoa cắm
-
-[Mô tả]
-flower bundle - /ˈflaʊər ˈbʌndl/ - bó hoa
-
-[Khẩu ngữ]
-posy - /ˈpoʊzi/ - bó hoa nhỏ (Anh-Anh)",0
-valentines-day,chocolate,sô cô la,/ˈtʃɑːklət/,"[Đồng nghĩa]
-cocoa - /ˈkoʊkoʊ/ - ca cao
-
-[Mô tả]
-choc - /tʃɑːk/ - sô cô la (khẩu ngữ Anh-Anh)
-
-[Loại]
-dark chocolate - /dɑːrk ˈtʃɑːklət/ - sô cô la đen",0
-valentines-day,date,cuộc hẹn,/deɪt/,"[Đồng nghĩa]
-appointment - /əˈpɔɪntmənt/ - cuộc hẹn (trang trọng)
-
-[Khẩu ngữ]
-hangout - /ˈhæŋaʊt/ - buổi đi chơi
-
-[Mô tả]
-rendezvous - /ˈrɑːndeɪvuː/ - cuộc hẹn (trang trọng, lãng mạn)",0
-valentines-day,surprise,bất ngờ,/sərˈpraɪz/,"[Đồng nghĩa]
-unexpected - /ˌʌnɪkˈspektɪd/ - không ngờ
-
-[Khẩu ngữ]
-shock - /ʃɑːk/ - sốc (khẩu ngữ)
-
-[Mô tả]
-pleasant surprise - /ˈpleznt sərˈpraɪz/ - bất ngờ thú vị",0
-valentines-day,love letter,thư tình,/ˈlʌv ˌletər/,"[Đồng nghĩa]
-love note - /ˈlʌv noʊt/ - mẩu thư tình
-
-[Mô tả]
-romantic letter - /roʊˈmæntɪk ˈletər/ - thư lãng mạn
-
-[Cổ điển]
-billet-doux - /ˌbɪleɪ ˈduː/ - thư tình (Pháp)",0
-valentines-day,propose,cầu hôn,/prəˈpoʊz/,"[Đồng nghĩa]
-pop the question - /pɑːp ðə ˈkwestʃən/ - cầu hôn (khẩu ngữ)
-
-[Mô tả]
-ask for hand - /æsk fər hænd/ - xin cưới
-
-[Trang trọng]
-propose marriage - /prəˈpoʊz ˈmærɪdʒ/ - cầu hôn",0
-valentines-day,couple,cặp đôi,/ˈkʌpl/,"[Đồng nghĩa]
-partners - /ˈpɑːrtnərz/ - cặp đôi
-
-[Mô tả]
-duo - /ˈduːoʊ/ - cặp đôi (khẩu ngữ)
-
-[Trang trọng]
-pair - /per/ - cặp đôi (trang trọng)",0
-valentines-day,candlelit dinner,bữa tối dưới ánh nến,/ˈkændəllɪt ˈdɪnər/,"[Đồng nghĩa]
-romantic dinner - /roʊˈmæntɪk ˈdɪnər/ - bữa tối lãng mạn
-
-[Mô tả]
-dinner by candlelight - /ˈdɪnər baɪ ˈkændəllaɪt/ - bữa tối dưới ánh nến",0
-valentines-day,anniversary,kỷ niệm,/ˌænɪˈvɜːrsəri/,"[Đồng nghĩa]
-anniversary date - /ˌænɪˈvɜːrsəri deɪt/ - ngày kỷ niệm
-
-[Mô tả]
-milestone - /ˈmaɪlstoʊn/ - cột mốc
-
-[Khẩu ngữ]
-anniv - /ˈænɪv/ - kỷ niệm (viết tắt khẩu ngữ)",0
-valentines-day,affection,sự trìu mến,/əˈfekʃən/,"[Đồng nghĩa]
-love - /lʌv/ - tình yêu
-
-[Mô tả]
-tenderness - /ˈtendərnəs/ - sự dịu dàng
-
-[Khẩu ngữ]
-fondness - /ˈfɑːndnəs/ - sự trìu mến",0
-valentines-day,blind date,cuộc hẹn mù,/blaɪnd deɪt/,"[Đồng nghĩa]
-setup - /ˈsetʌp/ - cuộc hẹn do bạn bè sắp đặt
-
-[Mô tả]
-match - /mætʃ/ - cặp đôi (khẩu ngữ)",0
-valentines-day,heartbroken,tan vỡ trái tim,/ˈhɑːrtˌbroʊkən/,"[Đồng nghĩa]
-devastated - /ˈdevəsteɪtɪd/ - suy sụp
-
-[Mô tả]
-crushed - /krʌʃt/ - tan nát (khẩu ngữ)",0
-valentines-day,proposal,lời cầu hôn,/prəˈpoʊzl/,"[Đồng nghĩa]
-marriage proposal - /ˈmærɪdʒ prəˈpoʊzl/ - lời cầu hôn
-
-[Mô tả]
-popping the question - /pɑːpɪŋ ðə ˈkwestʃən/ - cầu hôn (khẩu ngữ)",0
-valentines-day,relationship,mối quan hệ,/rɪˈleɪʃnʃɪp/,"[Đồng nghĩa]
-romance - /roʊˈmæns/ - chuyện tình cảm
-
-[Mô tả]
-partnership - /ˈpɑːrtnərʃɪp/ - quan hệ đối tác",0
-new-years-day,New Year’s Day,Ngày đầu năm mới,/ˌnuː jɪrz ˈdeɪ/,"[Viết tắt]
-NYD - /ˌɛn waɪ ˈdiː/ - Ngày đầu năm (viết tắt)
-
-[Mô tả]
-January 1 - /ˈdʒænjueri wʌn/ - ngày 1 tháng 1",0
-new-years-day,resolution,quyết tâm,/ˌrezəˈluːʃən/,"[Đồng nghĩa]
-goal - /ɡoʊl/ - mục tiêu
-
-[Mô tả]
-New Year's resolution - /ˌnuː jɪrz ˌrezəˈluːʃən/ - quyết tâm năm mới
-
-[Khẩu ngữ]
-res - /rez/ - quyết tâm (viết tắt khẩu ngữ)",0
-new-years-day,fresh start,khởi đầu mới,/ˌfreʃ ˈstɑːrt/,"[Đồng nghĩa]
-new beginning - /nuː bɪˈɡɪnɪŋ/ - khởi đầu mới
-
-[Mô tả]
-clean slate - /kliːn sleɪt/ - bắt đầu lại từ đầu
-
-[Khẩu ngữ]
-tabula rasa - /ˈtæbjələ ˈrɑːzə/ - trang giấy trắng (Latinh)",0
-new-years-day,goal,mục tiêu,/ɡoʊl/,"[Đồng nghĩa]
-objective - /əbˈdʒektɪv/ - mục tiêu (trang trọng)
-
-[Mô tả]
-target - /ˈtɑːrɡɪt/ - mục tiêu
-
-[Khẩu ngữ]
-aim - /eɪm/ - mục tiêu",0
-new-years-day,achieve,đạt được,/əˈtʃiːv/,"[Đồng nghĩa]
-accomplish - /əˈkɑːmplɪʃ/ - hoàn thành
-
-[Mô tả]
-reach - /riːtʃ/ - đạt đến
-
-[Khẩu ngữ]
-pull off - /pʊl ɔːf/ - làm được (khẩu ngữ)",0
-new-years-day,habit,thói quen,/ˈhæbɪt/,"[Đồng nghĩa]
-routine - /ruːˈtiːn/ - thói quen/routine
-
-[Mô tả]
-practice - /ˈpræktɪs/ - thói quen
-
-[Khẩu ngữ]
-habits die hard - /ˈhæbɪts daɪ hɑːrd/ - thói quen khó bỏ",0
-new-years-day,exercise,tập thể dục,/ˈeksərsaɪz/,"[Đồng nghĩa]
-workout - /ˈwɜːrkaʊt/ - buổi tập
-
-[Mô tả]
-physical activity - /ˈfɪzɪkl ækˈtɪvəti/ - hoạt động thể chất
-
-[Khẩu ngữ]
-hit the gym - /hɪt ðə dʒɪm/ - đi tập gym",0
-new-years-day,save money,tiết kiệm,/ˌseɪv ˈmʌni/,"[Đồng nghĩa]
-cut back - /kʌt bæk/ - cắt giảm chi tiêu
-
-[Mô tả]
-put aside - /pʊt əˈsaɪd/ - để dành
-
-[Khẩu ngữ]
-stash cash - /stæʃ kæʃ/ - để dành tiền (khẩu ngữ)",0
-new-years-day,countdown,đếm ngược,/ˈkaʊntdaʊn/,"[Đồng nghĩa]
-counting down - /ˈkaʊntɪŋ daʊn/ - đếm ngược
-
-[Mô tả]
-final seconds - /ˈfaɪnl ˈsekəndz/ - những giây cuối",0
-new-years-day,fireworks,pháo hoa,/ˈfaɪərwɜːrks/,"[Đồng nghĩa]
-pyrotechnics - /ˌpaɪrəˈteknɪks/ - pháo hoa (trang trọng)
-
-[Mô tả]
-display - /dɪˈspleɪ/ - màn trình diễn pháo hoa",0
-new-years-day,toast,chúc mừng,/toʊst/,"[Đồng nghĩa]
-raise a glass - /reɪz ə ɡlæs/ - nâng ly chúc mừng
-
-[Mô tả]
-cheers - /tʃɪrz/ - chúc mừng (khẩu ngữ)",0
-new-years-day,stick to,kiên trì,/ˌstɪk ˈtuː/,"[Đồng nghĩa]
-commit to - /kəˈmɪt tuː/ - cam kết
-
-[Mô tả]
-follow through - /ˈfɑːloʊ θruː/ - theo đuổi đến cùng",0
-new-years-day,self-improvement,tự hoàn thiện,/ˌself ɪmˈpruːvmənt/,"[Đồng nghĩa]
-personal growth - /ˈpɜːrsənl ɡroʊθ/ - phát triển bản thân
-
-[Mô tả]
-self-development - /ˌself dɪˈveləpmənt/ - tự phát triển",0
-new-years-day,quit smoking,bỏ thuốc lá,/kwɪt ˈsmoʊkɪŋ/,"[Đồng nghĩa]
-stop smoking - /stɑːp ˈsmoʊkɪŋ/ - bỏ thuốc lá
-
-[Khẩu ngữ]
-kick the habit - /kɪk ðə ˈhæbɪt/ - bỏ thói quen (khẩu ngữ)",0
-new-years-day,wake up early,dậy sớm,/weɪk ʌp ˈɜːrli/,"[Đồng nghĩa]
-rise early - /raɪz ˈɜːrli/ - dậy sớm
-
-[Khẩu ngữ]
-be an early bird - /bi ən ˈɜːrli bɜːrd/ - là người dậy sớm",0
-new-years-day,productivity,năng suất,/ˌproʊdʌkˈtɪvəti/,"[Đồng nghĩa]
-efficiency - /ɪˈfɪʃənsi/ - hiệu quả
-
-[Mô tả]
-output - /ˈaʊtpʊt/ - sản lượng",0
-psychology-mind,emotion,cảm xúc,/ɪˈmoʊʃən/,"[Đồng nghĩa]
-feeling - /ˈfiːlɪŋ/ - cảm giác
-
-[Mô tả]
-sentiment - /ˈsentɪmənt/ - tình cảm (trang trọng)",0
-psychology-mind,anxiety,lo âu,/æŋˈzaɪəti/,"[Đồng nghĩa]
-worry - /ˈwɜːri/ - lo lắng
-
-[Mô tả]
-nervousness - /ˈnɜːrvəsnəs/ - sự hồi hộp
-
-[Khẩu ngữ]
-the jitters - /ðə ˈdʒɪtərz/ - run sợ (khẩu ngữ)",0
-psychology-mind,habit,thói quen,/ˈhæbɪt/,"[Đồng nghĩa]
-routine - /ruːˈtiːn/ - thói quen/routine
-
-[Mô tả]
-practice - /ˈpræktɪs/ - thói quen
-
-[Khẩu ngữ]
-habits die hard - /ˈhæbɪts daɪ hɑːrd/ - thói quen khó bỏ",0
-psychology-mind,motivation,động lực,/ˌmoʊtəˈveɪʃən/,"[Đồng nghĩa]
-drive - /draɪv/ - động lực
-
-[Mô tả]
-incentive - /ɪnˈsentɪv/ - động cơ
-
-[Khẩu ngữ]
-get-up-and-go - /ˌɡet ʌp ənd ˈɡoʊ/ - năng lượng (khẩu ngữ)",0
-psychology-mind,mindset,tư duy,/ˈmaɪndset/,"[Đồng nghĩa]
-mentality - /menˈtæləti/ - tư duy
-
-[Mô tả]
-outlook - /ˈaʊtlʊk/ - quan điểm
-
-[Khẩu ngữ]
-headspace - /ˈhedspeɪs/ - trạng thái tinh thần (khẩu ngữ)",0
-psychology-mind,trigger,kích hoạt,/ˈtrɪɡər/,"[Đồng nghĩa]
-catalyst - /ˈkætəlɪst/ - chất xúc tác
-
-[Mô tả]
-spark - /spɑːrk/ - ngòi lửa
-
-[Khẩu ngữ]
-set off - /set ɔːf/ - kích hoạt (khẩu ngữ)",0
-psychology-mind,coping mechanism,cơ chế đối phó,/ˈkoʊpɪŋ ˈmekəˌnɪzəm/,"[Đồng nghĩa]
-stress relief - /stres rɪˈliːf/ - giải tỏa căng thẳng
-
-[Mô tả]
-adaptive strategy - /əˈdæptɪv ˈstrætədʒi/ - chiến lược thích nghi",0
-psychology-mind,resilience,khả năng phục hồi,/rɪˈzɪliəns/,"[Đồng nghĩa]
-toughness - /ˈtʌfnəs/ - sự bền bỉ
-
-[Mô tả]
-bounce-back ability - /baʊns bæk əˈbɪləti/ - khả năng bật lại",0
-psychology-mind,empathy,đồng cảm,/ˈempəθi/,"[Đồng nghĩa]
-compassion - /kəmˈpæʃn/ - lòng trắc ẩn
-
-[Mô tả]
-understanding - /ˌʌndərˈstændɪŋ/ - sự thấu hiểu",0
-psychology-mind,burnout,kiệt sức,/ˈbɜːrnaʊt/,"[Đồng nghĩa]
-exhaustion - /ɪɡˈzɔːstʃən/ - kiệt sức
-
-[Mô tả]
-mental fatigue - /ˈmentl fəˈtiːɡ/ - mệt mỏi tinh thần
-
-[Khẩu ngữ]
-running on empty - /ˈrʌnɪŋ ɑːn ˈempti/ - cạn năng lượng (khẩu ngữ)",0
-psychology-mind,self-talk,đối thoại với bản thân,/ˌself ˈtɔːk/,"[Đồng nghĩa]
-inner dialogue - /ˈɪnər ˈdaɪəlɔːɡ/ - đối thoại nội tâm
-
-[Mô tả]
-inner voice - /ˈɪnər vɔɪs/ - tiếng nói bên trong",0
-psychology-mind,mindfulness,chánh niệm,/ˈmaɪndfəlnəs/,"[Đồng nghĩa]
-present-moment awareness - /ˈpreznt ˈmoʊmənt əˈwerneɪs/ - nhận thức hiện tại
-
-[Mô tả]
-meditation - /ˌmedɪˈteɪʃn/ - thiền",0
-psychology-mind,overthinking,suy nghĩ quá nhiều,/ˌoʊvərˈθɪŋkɪŋ/,"[Đồng nghĩa]
-rumination - /ˌruːmɪˈneɪʃn/ - suy đi nghĩ lại (trang trọng)
-
-[Mô tả]
-over-analysis - /ˌoʊvər əˈnæləsɪs/ - phân tích quá mức",0
-psychology-mind,self-esteem,lòng tự trọng,/ˌself ɪˈstiːm/,"[Đồng nghĩa]
-self-worth - /ˌself ˈwɜːrθ/ - giá trị bản thân
-
-[Mô tả]
-self-confidence - /ˌself ˈkɑːnfədəns/ - sự tự tin",0
-psychology-mind,cognitive bias,thiên kiến nhận thức,/ˈkɑːɡnətɪv ˈbaɪəs/,"[Đồng nghĩa]
-mental shortcut - /ˈmentl ˈʃɔːrtkʌt/ - lối tắt tinh thần
-
-[Mô tả]
-blind spot - /blaɪnd spɑːt/ - điểm mù",0
-psychology-mind,growth mindset,tư duy phát triển,/ɡroʊθ ˈmaɪndset/,"[Đồng nghĩa]
-learning mindset - /ˈlɜːrnɪŋ ˈmaɪndset/ - tư duy học hỏi
-
-[Mô tả]
-open mindset - /ˈoʊpən ˈmaɪndset/ - tư duy cởi mở",0
-sunday-mass,mass,thánh lễ,/mæs/,,0
-sunday-mass,church,nhà thờ,/tʃɜːrtʃ/,,0
-sunday-mass,parish,giáo xứ,/ˈpærɪʃ/,,0
-sunday-mass,prayer,lời cầu nguyện,/prer/,,0
-sunday-mass,hymn,bài thánh ca,/hɪm/,,0
-sunday-mass,sermon,bài giảng,/ˈsɜːrmən/,,0
-sunday-mass,communion,rước lễ,/kəˈmjuːniən/,,0
-sunday-mass,blessing,phép lành,/ˈblesɪŋ/,,0
+christmas-celebration,Christmas,(n) Giáng sinh,/ˈkrɪsməs/,,0
+christmas-celebration,gift,(n) quà tặng,/ɡɪft/,"[Khi nói về món quà nói chung, nhất là quà Giáng sinh]
+I bought a small gift for my sister.
+(Tôi đã mua một món quà nhỏ cho em gái.)
+
+[Khi món quà được gói cẩn thận trong hộp hoặc giấy trang trí]
+present - /ˈprezənt/ - (n) món quà (trang trọng hơn gift)",0
+christmas-celebration,decoration,(n) đồ trang trí,/ˌdekəˈreɪʃən/,,0
+christmas-celebration,festive,(adj) mang không khí lễ hội,/ˈfestɪv/,"[Khi miêu tả không khí, ánh đèn hoặc đồ trang trí mang phong cách lễ hội]
+The whole street looks festive with all the lights.
+(Cả con phố trông rực rỡ không khí lễ hội nhờ đèn trang trí.)
+
+[Khi nói về cả mùa lễ hội nói chung]
+festive season - /ˈfestɪv ˈsiːzən/ - (n) mùa lễ hội",0
+christmas-celebration,gather,(v) tụ họp,/ˈɡæðər/,"[Khi cả gia đình hoặc bạn bè tụ họp ở một nơi]
+The whole family gathers at my grandparents' house.
+(Cả gia đình tụ họp ở nhà ông bà.)
+
+[Khi muốn nói “quây quần” thân mật hơn]
+get together - /ɡet təˈɡeðər/ - (phr v) quây quần, gặp gỡ",0
+christmas-celebration,family dinner,(n) bữa tối gia đình,/ˈfæməli ˈdɪnər/,,0
+christmas-celebration,carol,(n) bài thánh ca,/ˈkærəl/,,0
+christmas-celebration,celebrate,"(v) ăn mừng, tổ chức",/ˈseləbreɪt/,,0
+christmas-celebration,reindeer,(n) tuần lộc,/ˈreɪndɪr/,,0
+christmas-celebration,ornament,(n) đồ trang trí,/ˈɔːrnəmənt/,,0
+christmas-celebration,Santa sack,(n) túi quà của ông già Noel,/ˈsæntə sæk/,,0
+christmas-celebration,sleigh,(n) xe trượt tuyết,/sleɪ/,,0
+christmas-celebration,elf,(n) chú lùn giúp việc,/elf/,,0
+christmas-celebration,snowman,(n) người tuyết,/ˈsnoʊmæn/,,0
+christmas-celebration,feast,(n) bữa tiệc thịnh soạn,/fiːst/,,0
+christmas-celebration,chimney,(n) ống khói,/ˈtʃɪmni/,,0
+christmas-celebration,fireplace,(n) lò sưởi,/ˈfaɪərpleɪs/,,0
+christmas-celebration,scarf,(n) khăn quàng,/skɑːrf/,,0
+christmas-celebration,turkey,(n) gà tây,/ˈtɜːrki/,,0
+christmas-celebration,mince pie,(n) bánh nhân mứt,/ˌmɪns ˈpaɪ/,,0
+christmas-celebration,gingerbread man,(n) bánh quy gừng hình người,/ˈdʒɪndʒərbred mæn/,,0
+christmas-celebration,yule log cake,(n) bánh khúc gỗ,/juːl lɔːɡ keɪk/,,0
+christmas-celebration,mulled wine,(n) rượu vang nóng,/məld waɪn/,,0
+christmas-celebration,Secret Santa,(n) trò bốc thăm tặng quà,/ˌsiːkrət ˈsæntə/,,0
+tet-lunar-new-year,Tết,(n) Tết,/tet/,,0
+tet-lunar-new-year,lucky money,(n) lì xì,/ˈlʌki ˈmʌni/,"[Khi nói về tiền mừng tuổi trong phong bao đỏ]
+Children receive lucky money from their elders during Tết.
+(Trẻ em nhận tiền lì xì từ người lớn trong dịp Tết.)
+
+[Khi nhấn mạnh chính chiếc phong bao đỏ]
+red envelope - /ˌred ˈenvəloʊp/ - (n) phong bao lì xì",0
+tet-lunar-new-year,family reunion,(n) đoàn viên,/ˌfæməli riˈjuːniən/,,0
+tet-lunar-new-year,ancestors,(n) tổ tiên,/ˈænsestərz/,"[Khi nói về việc thờ cúng tổ tiên trong dịp Tết]
+We light incense to honour our ancestors.
+(Chúng tôi thắp hương để tưởng nhớ tổ tiên.)
+
+[Khi nói về tổ tiên trong gia phả, văn phong trang trọng]
+forebears - /ˈfɔːrberz/ - (n) tổ tiên (ít dùng trong văn nói hằng ngày)",0
+tet-lunar-new-year,incense,(n) hương,/ˈɪnsens/,,0
+tet-lunar-new-year,traditional food,(n) đồ ăn truyền thống,/trəˈdɪʃənəl fuːd/,,0
+tet-lunar-new-year,sticky rice cake,(n) bánh chưng,/ˌstɪki ˈraɪs keɪk/,,0
+tet-lunar-new-year,visit relatives,(v) thăm họ hàng,/ˌvɪzɪt ˈrelətɪvz/,,0
+tet-lunar-new-year,New Year wish,(n) lời chúc năm mới,/ˌnuː jɪr wɪʃ/,,0
+tet-lunar-new-year,peach blossom,(n) hoa đào,/piːtʃ ˈblɑːsəm/,,0
+tet-lunar-new-year,first visitor,(n) người đến thăm đầu năm,/ˌfɜːrst ˈvɪzɪtər/,"[Khi nói về người đến thăm nhà đầu tiên trong năm mới]
+Our first visitor was my uncle, who brought a peach branch.
+(Người đến thăm nhà đầu tiên năm mới là chú tôi, người mang theo một cành đào.)
+
+[Tục xông đất ở Scotland, gần với tục first visitor của Việt Nam]
+first-foot - /ˈfɜːrst fʊt/ - (n) người xông đất",0
+tet-lunar-new-year,red envelope,(n) phong bao lì xì,/ˌred ˈenvəloʊp/,,0
+valentines-day,Valentine’s Day,(n) Ngày Valentine,/ˈvæləntaɪnz deɪ/,,0
+valentines-day,romantic,(adj) lãng mạn,/roʊˈmæntɪk/,,0
+valentines-day,bouquet,(n) bó hoa,/buˈkeɪ/,"[Khi nói về bó hoa tặng trong dịp Valentine]
+He gave her a bouquet of red roses.
+(Anh ấy tặng cô ấy một bó hồng đỏ.)
+
+[Khi chỉ một bông hoa đơn lẻ]
+single rose - /ˈsɪŋɡəl roʊz/ - (n) một bông hồng",0
+valentines-day,chocolate,(n) sô cô la,/ˈtʃɑːklət/,,0
+valentines-day,date,(n) cuộc hẹn,/deɪt/,,0
+valentines-day,surprise,(n) bất ngờ,/sərˈpraɪz/,,0
+valentines-day,love letter,(n) thư tình,/ˈlʌv ˌletər/,,0
+valentines-day,propose,(v) cầu hôn,/prəˈpoʊz/,"[Khi nói về việc cầu hôn ai đó]
+He proposed to her at the candlelit dinner.
+(Anh ấy cầu hôn cô ấy trong bữa tối dưới ánh nến.)
+
+[Khi nói về việc đính hôn sau khi được nhận lời]
+get engaged - /ɡet ɪnˈɡeɪdʒd/ - (phr v) đính hôn",0
+valentines-day,couple,(n) cặp đôi,/ˈkʌpəl/,,0
+valentines-day,candlelit dinner,(n) bữa tối dưới ánh nến,/ˈkændəllɪt ˈdɪnər/,,0
+valentines-day,anniversary,(n) kỷ niệm,/ˌænɪˈvɜːrsəri/,,0
+valentines-day,affection,(n) sự trìu mến,/əˈfekʃən/,"[Khi nói về tình cảm trìu mến, dịu dàng]
+She showed her affection with a handwritten card.
+(Cô ấy thể hiện sự trìu mến bằng một tấm thiệp viết tay.)
+
+[Khi nói về tình yêu sâu đậm hơn]
+love - /lʌv/ - (n) tình yêu",0
+new-years-day,New Year’s Day,(n) Ngày đầu năm mới,/ˌnuː jɪrz ˈdeɪ/,,0
+new-years-day,resolution,(n) quyết tâm,/ˌrezəˈluːʃən/,"[Khi nói về quyết tâm đặt ra cho năm mới]
+My New Year's resolution is to read more books.
+(Quyết tâm năm mới của tôi là đọc nhiều sách hơn.)
+
+[Khi nói về việc giữ được quyết tâm đó]
+keep a resolution - /kiːp ə ˌrezəˈluːʃən/ - (phr) giữ được quyết tâm",0
+new-years-day,fresh start,(n) khởi đầu mới,/ˌfreʃ ˈstɑːrt/,,0
+new-years-day,goal,(n) mục tiêu,/ɡoʊl/,,0
+new-years-day,achieve,(v) đạt được,/əˈtʃiːv/,,0
+new-years-day,habit,(n) thói quen,/ˈhæbɪt/,,0
+new-years-day,exercise,(v) tập thể dục,/ˈeksərsaɪz/,,0
+new-years-day,save money,(v) tiết kiệm,/ˌseɪv ˈmʌni/,,0
+new-years-day,countdown,(n) đếm ngược,/ˈkaʊntdaʊn/,"[Khi nói về màn đếm ngược đón năm mới]
+We watched the countdown on TV at midnight.
+(Chúng tôi xem màn đếm ngược trên TV lúc nửa đêm.)
+
+[Khi nói về màn bắn pháo hoa đêm giao thừa]
+fireworks display - /ˈfaɪərwɜːrks dɪˈspleɪ/ - (n) màn bắn pháo hoa",0
+new-years-day,fireworks,(n) pháo hoa,/ˈfaɪərwɜːrks/,,0
+new-years-day,toast,(n)(v) chúc mừng,/toʊst/,,0
+new-years-day,stick to,(v) kiên trì,/ˌstɪk ˈtuː/,"[Khi nói về việc kiên trì với kế hoạch hoặc thói quen đã đặt ra]
+It's hard to stick to a new habit after January.
+(Khó mà kiên trì với thói quen mới sau tháng Một.)
+
+[Khi nói về việc từ bỏ]
+give up - /ɡɪv ʌp/ - (phr v) từ bỏ",0
+psychology-mind,emotion,(n) cảm xúc,/ɪˈmoʊʃən/,,0
+psychology-mind,anxiety,(n) lo âu,/æŋˈzaɪəti/,"[Khi nói về cảm giác lo âu kéo dài, không chỉ hồi hộp nhất thời]
+She felt a wave of anxiety before the meeting.
+(Cô ấy cảm thấy một cơn lo âu trước cuộc họp.)
+
+[Khi chỉ sự hồi hộp nhẹ, thoáng qua]
+nervousness - /ˈnɜːrvəsnəs/ - (n) sự hồi hộp",0
+psychology-mind,habit,(n) thói quen,/ˈhæbɪt/,,0
+psychology-mind,motivation,(n) động lực,/ˌmoʊtəˈveɪʃən/,,0
+psychology-mind,mindset,(n) tư duy,/ˈmaɪndset/,,0
+psychology-mind,trigger,(n)(v) kích hoạt,/ˈtrɪɡər/,"[Khi nói về tác nhân kích hoạt một cảm xúc hoặc phản ứng]
+Loud noises are a common trigger for my anxiety.
+(Tiếng ồn lớn là tác nhân kích hoạt lo âu thường gặp của tôi.)
+
+[Khi dùng như động từ với nghĩa gây ra]
+set off - /set ɔːf/ - (phr v) kích hoạt, gây ra",0
+psychology-mind,coping mechanism,(n) cơ chế đối phó,/ˈkoʊpɪŋ ˈmekəˌnɪzəm/,,0
+psychology-mind,resilience,(n) khả năng phục hồi,/rɪˈzɪliəns/,"[Khi nói về khả năng đứng dậy sau khó khăn]
+Resilience helps us recover from setbacks.
+(Khả năng phục hồi giúp chúng ta vượt qua thất bại.)
+
+[Khi nói về việc phục hồi sau một cú sốc cụ thể]
+bounce back - /baʊns bæk/ - (phr v) phục hồi, đứng dậy",0
+psychology-mind,empathy,(n) đồng cảm,/ˈempəθi/,,0
+psychology-mind,burnout,(n) kiệt sức,/ˈbɜːrnaʊt/,,0
+psychology-mind,self-talk,(n) đối thoại với bản thân,/ˌself ˈtɔːk/,,0
+psychology-mind,mindfulness,(n) chánh niệm,/ˈmaɪndfəlnəs/,,0
+sunday-mass,Church,(n) Giáo hội,/tʃɜːrtʃ/,"[Mang nghĩa Giáo hội / Giáo xứ]
+She converted to the Catholic Church.
+
+[Mang nghĩa là Nhà Thờ]
+Sometimes I also go to Mass at Ben Cat Church near my house
+
+[Khi nhấn mạnh cộng đồng người dân trong xứ đạo]
+Parish - /ˈperɪʃ/ - (n) Giáo xứ (đơn vị hành chính & cộng đoàn giáo dân địa phương)
+
+[Khi nhấn mạnh là nhà thờ lớn nhất thành phố hay còn gọi là nhà thờ Chánh Toà]
+Notre-Dame Cathedral - /ˌnoʊtrə ˈdeɪm kəˈθiːdrəl/ - Nhà thờ Đức Bà",0
+sunday-mass,Catholic,(n)(a) người theo / thuộc về Công Giáo,/ˈkæθlɪk/,"[Khi không rõ nhánh đạo]
+Christian - /ˈkrɪstʃən/ - (n)(a) người theo / thuộc về đạo Chúa (có thể dùng chung cho Tin Lành)
+
+[Theo đạo từ khi còn nằm trong nôi]
+cradle Catholic - /ˈkreɪdl ˈkæθlɪk/
+
+[Tân tòng (người mới theo đạo nhưng đã hoàn tất việc học đạo)]
+converted Catholic - /kənˈvɜːrtɪd ˈkæθlɪk/",0
+sunday-mass,Catechumen,(n) Dự tòng (người đang học để theo đạo),/ˌkætəˈkjuːmən/,,0
+sunday-mass,Protestant,(n)(a) người theo / thuộc về Tin Lành,/ˈprɑːtɪstənt/,,0
+sunday-mass,Bible,sách Kinh Thánh,/ˈbaɪbl/,,0
+sunday-mass,The Body of Christ,Mình Thánh Chúa Kitô,/ðə ˈbɑːdi əv kraɪst/,,0
+sunday-mass,Rosary,Chuỗi Mân Côi,/ˈroʊzəri/,"[Lần hạt]
+pray the Rosary",0
+sunday-mass,Holy water,nước thánh,/ˈhoʊli ˈwɔːtər/,,0
 sunday-mass,choir,ca đoàn,/ˈkwaɪər/,,0
-sunday-mass,congregation,cộng đoàn,/ˌkɑːŋɡrəˈɡeɪʃən/,,0
-sunday-mass,pew,ghế ngồi trong nhà thờ,/pjuː/,,0
-sunday-mass,worship,thờ phượng,/ˈwɜːrʃɪp/,,0
-weekend-market,market,chợ,/ˈmɑːrkɪt/,"[Đồng nghĩa]
-marketplace - /ˈmɑːrkɪtpleɪs/ - khu chợ
-
-[Mô tả]
-bazaar - /bəˈzɑːr/ - chợ (Trung Đông/Ấn Độ)",0
-weekend-market,fresh,tươi,/freʃ/,"[Đồng nghĩa]
-newly picked - /ˈnuːli pɪkt/ - mới hái
-
-[Mô tả]
-just harvested - /dʒʌst ˈhɑːrvɪstɪd/ - vừa thu hoạch",0
-weekend-market,bargain,món hời,/ˈbɑːrɡən/,"[Đồng nghĩa]
-deal - /diːl/ - ưu đãi
-
-[Mô tả]
-steal - /stiːl/ - món hời (khẩu ngữ)
-
-[Khẩu ngữ]
-good buy - /ɡʊd baɪ/ - mua hời",0
-weekend-market,vendor,người bán hàng,/ˈvendər/,"[Đồng nghĩa]
-seller - /ˈselər/ - người bán
-
-[Mô tả]
-trader - /ˈtreɪdər/ - người buôn bán
-
-[Khẩu ngữ]
-stallholder - /ˈstɔːlˌhoʊldər/ - người bán sạp",0
-weekend-market,weigh,cân,/weɪ/,"[Đồng nghĩa]
-measure - /ˈmeʒər/ - đo lường
-
-[Mô tả]
-weigh out - /weɪ aʊt/ - cân ra",0
-weekend-market,bag,túi,/bæɡ/,"[Đồng nghĩa]
-carrier bag - /ˈkæriər bæɡ/ - túi xách
-
-[Mô tả]
-sack - /sæk/ - bao tải
-
-[Khẩu ngữ]
-tote - /toʊt/ - túi xách (khẩu ngữ)",0
-weekend-market,reusable bag,túi tái sử dụng,/riˈjuːzəbəl bæɡ/,"[Đồng nghĩa]
-eco bag - /ˈiːkoʊ bæɡ/ - túi sinh thái
-
-[Mô tả]
-shopping bag - /ˈʃɑːpɪŋ bæɡ/ - túi đi chợ",0
-weekend-market,receipt,hoá đơn,/rɪˈsiːt/,"[Đồng nghĩa]
-invoice - /ˈɪnvɔɪs/ - hóa đơn (trang trọng)
-
-[Mô tả]
-proof of purchase - /pruːf əv ˈpɜːrtʃəs/ - chứng từ mua hàng",0
-weekend-market,cash,tiền mặt,/kæʃ/,"[Đồng nghĩa]
-notes and coins - /noʊts ənd kɔɪnz/ - tiền giấy và xu
-
-[Mô tả]
-hard cash - /hɑːrd kæʃ/ - tiền mặt",0
-weekend-market,loose change,tiền lẻ,/ˌluːs ˈtʃeɪndʒ/,"[Đồng nghĩa]
-small change - /smɔːl tʃeɪndʒ/ - tiền lẻ
-
-[Mô tả]
-coins - /kɔɪnz/ - tiền xu",0
-weekend-market,stall,sạp hàng,/stɔːl/,"[Đồng nghĩa]
-booth - /buːθ/ - quầy hàng
-
-[Mô tả]
-stand - /stænd/ - quầy bán hàng",0
-weekend-market,ripe,chín,/raɪp/,"[Đồng nghĩa]
-ready to eat - /ˈredi tə iːt/ - chín tới
-
-[Mô tả]
-mature - /məˈtʃʊr/ - chín (trang trọng)",0
-weekend-market,seasonal,theo mùa,/ˈsiːzənl/,"[Đồng nghĩa]
-in season - /ɪn ˈsiːzn/ - đang mùa
-
-[Mô tả]
-seasonal produce - /ˈsiːzənl ˈprɑːduːs/ - nông sản theo mùa",0
-weekend-market,haggle,trả giá,/ˈhæɡl/,"[Đồng nghĩa]
-bargain - /ˈbɑːrɡən/ - mặc cả
-
-[Mô tả]
-negotiate - /nɪˈɡoʊʃieɪt/ - thương lượng",0
-weekend-market,organic,hữu cơ,/ɔːrˈɡænɪk/,"[Đồng nghĩa]
-natural - /ˈnætʃərəl/ - tự nhiên
-
-[Mô tả]
-pesticide-free - /ˈpestɪsaɪd friː/ - không thuốc trừ sâu",0
-weekend-market,bulk buy,mua sỉ,/bʌlk baɪ/,"[Đồng nghĩa]
-wholesale - /ˈhoʊlseɪl/ - bán sỉ
-
-[Mô tả]
-buy in bulk - /baɪ ɪn bʌlk/ - mua số lượng lớn",0
-weekend-outing,hang out,đi chơi,/ˌhæŋ ˈaʊt/,"[Đồng nghĩa]
-chill - /tʃɪl/ - chill (khẩu ngữ)
-
-[Mô tả]
-spend time - /spend taɪm/ - dành thời gian",0
-weekend-outing,café,quán cà phê,/kæˈfeɪ/,"[Đồng nghĩa]
-coffee shop - /ˈkɔːfi ʃɑːp/ - quán cà phê
-
-[Mô tả]
-bistro - /ˈbiːstroʊ/ - quán nhỏ (Pháp)",0
-weekend-outing,cinema,rạp chiếu phim,/ˈsɪnəmə/,"[Đồng nghĩa]
-movie theater - /ˈmuːvi ˈθiːətər/ - rạp chiếu phim (Mỹ)
-
-[Mô tả]
-picture house - /ˈpɪktʃər haʊs/ - rạp chiếu phim (Anh-Anh)",0
-weekend-outing,meet up,gặp nhau,/ˌmiːt ˈʌp/,"[Đồng nghĩa]
-get together - /ɡet təˈɡeðər/ - gặp nhau
-
-[Khẩu ngữ]
-catch up - /kætʃ ʌp/ - gặp và trò chuyện",0
-weekend-outing,reservation,đặt chỗ,/ˌrezərˈveɪʃən/,"[Đồng nghĩa]
-booking - /ˈbʊkɪŋ/ - đặt chỗ
-
-[Mô tả]
-advance booking - /ədˈvæns ˈbʊkɪŋ/ - đặt trước",0
-weekend-outing,traffic,giao thông,/ˈtræfɪk/,"[Đồng nghĩa]
-congestion - /kənˈdʒestʃən/ - tắc đường
-
-[Mô tả]
-rush hour - /rʌʃ ˈaʊər/ - giờ cao điểm",0
-weekend-outing,running late,đang trễ giờ,/ˌrʌnɪŋ ˈleɪt/,"[Đồng nghĩa]
-behind schedule - /bɪˈhaɪnd ˈskedʒuːl/ - trễ lịch
-
-[Mô tả]
-running behind - /ˈrʌnɪŋ bɪˈhaɪnd/ - đang trễ",0
-weekend-outing,split the tab,chia hoá đơn,/ˌsplɪt ðə ˈtæb/,"[Đồng nghĩa]
-split the bill - /ˌsplɪt ðə ˈbɪl/ - chia hoá đơn
-
-[Mô tả]
-go Dutch - /ɡoʊ dʌtʃ/ - mỗi người trả phần mình",0
-weekend-outing,taxi,taxi,/ˈtæksi/,"[Đồng nghĩa]
-cab - /kæb/ - taxi (khẩu ngữ)
-
-[Mô tả]
-ride-share - /ˈraɪd ʃer/ - xe chia sẻ",0
-weekend-outing,catch a movie,xem phim,/ˌkætʃ ə ˈmuːvi/,"[Đồng nghĩa]
-see a film - /siː ə fɪlm/ - xem phim
-
-[Mô tả]
-go to the pictures - /ɡoʊ tə ðə ˈpɪktʃərz/ - xem phim (Anh-Anh)",0
-weekend-outing,rain check,dời lịch,/ˈreɪn tʃek/,"[Đồng nghĩa]
-reschedule - /ˌriːˈskedʒuːl/ - dời lịch
-
-[Mô tả]
-take a rain check - /teɪk ə reɪn tʃek/ - xin dời",0
-weekend-outing,turn up,đến,/ˌtɜːrn ˈʌp/,"[Đồng nghĩa]
-show up - /ʃoʊ ʌp/ - xuất hiện
-
-[Mô tả]
-arrive - /əˈraɪv/ - đến nơi",0
-weekend-outing,venue,địa điểm,/ˈvenjuː/,"[Đồng nghĩa]
-location - /loʊˈkeɪʃn/ - vị trí
-
-[Mô tả]
-spot - /spɑːt/ - chỗ (khẩu ngữ)",0
-weekend-outing,itinerary,lịch trình,/aɪˈtɪnəreri/,"[Đồng nghĩa]
-schedule - /ˈskedʒuːl/ - lịch trình
-
-[Mô tả]
-plan - /plæn/ - kế hoạch",0
-weekend-outing,last-minute,phút chót,/ˌlæst ˈmɪnɪt/,"[Đồng nghĩa]
-last-second - /ˌlæst ˈsekənd/ - phút cuối
-
-[Mô tả]
-spur of the moment - /spɜːr əv ðə ˈmoʊmənt/ - bốc đồng",0
-weekend-outing,hangover,mệt sau nhậu,/ˈhæŋˌoʊvər/,"[Đồng nghĩa]
-aftermath - /ˈæftərmæθ/ - hậu quả
-
-[Mô tả]
-rough morning - /rʌf ˈmɔːrnɪŋ/ - buổi sáng khó khăn",0
-weekend-rest,sleep in,ngủ nướng,/ˌsliːp ˈɪn/,"[Đồng nghĩa]
-lie in - /laɪ ɪn/ - ngủ nướng (Anh-Anh)
-
-[Mô tả]
-oversleep - /ˌoʊvərˈsliːp/ - ngủ quên",0
-weekend-rest,unwind,thư giãn,/ʌnˈwaɪnd/,"[Đồng nghĩa]
-relax - /rɪˈlæks/ - thư giãn
-
-[Mô tả]
-decompress - /ˌdiːkəmˈpres/ - xả hơi (khẩu ngữ)",0
-weekend-rest,nap,ngủ trưa,/næp/,"[Đồng nghĩa]
-snooze - /snuːz/ - chợp mắt (khẩu ngữ)
-
-[Mô tả]
-catnap - /ˈkætnæp/ - chợp mắt ngắn",0
-weekend-rest,recharge,nạp năng lượng,/ˌriːˈtʃɑːrdʒ/,"[Đồng nghĩa]
-replenish energy - /rɪˈplenɪʃ ˈenərdʒi/ - bổ sung năng lượng
-
-[Mô tả]
-refuel - /ˌriːˈfjuːəl/ - nạp năng lượng (khẩu ngữ)",0
-weekend-rest,pajamas,đồ ngủ,/pəˈdʒɑːməz/,"[Đồng nghĩa]
-pyjamas - /pəˈdʒɑːməz/ - đồ ngủ (Anh-Anh)
-
-[Mô tả]
-sleepwear - /ˈsliːpwer/ - đồ ngủ",0
-weekend-rest,cozy,ấm cúng,/ˈkoʊzi/,"[Đồng nghĩa]
-snug - /snʌɡ/ - ấm áp, vừa vặn
-
-[Mô tả]
-comfy - /ˈkʌmfi/ - thoải mái (khẩu ngữ)",0
-weekend-rest,no alarm,không đặt báo thức,/ˌnoʊ əˈlɑːrm/,"[Đồng nghĩa]
-alarm-free - /əˈlɑːrm friː/ - không báo thức
-
-[Mô tả]
-sleep in naturally - /sliːp ɪn ˈnætʃərəli/ - ngủ tự nhiên",0
-weekend-rest,binge-watch,xem liên tục,/ˈbɪndʒ wɑːtʃ/,"[Đồng nghĩa]
-marathon - /ˈmærəθɑːn/ - xem liên tục
-
-[Mô tả]
-binge - /bɪndʒ/ - xem/liên tục",0
-weekend-rest,lazy,lười,/ˈleɪzi/,"[Đồng nghĩa]
-idle - /ˈaɪdl/ - rảnh rỗi
-
-[Mô tả]
-sluggish - /ˈslʌɡɪʃ/ - uể oải",0
-weekend-rest,downtime,thời gian nghỉ,/ˈdaʊntaɪm/,"[Đồng nghĩa]
-free time - /friː taɪm/ - thời gian rảnh
-
-[Mô tả]
-off time - /ɔːf taɪm/ - thời gian nghỉ",0
-weekend-rest,take a break,nghỉ ngơi,/ˌteɪk ə ˈbreɪk/,"[Đồng nghĩa]
-rest - /rest/ - nghỉ ngơi
-
-[Mô tả]
-chill out - /tʃɪl aʊt/ - thư giãn (khẩu ngữ)",0
-weekend-rest,screen time,thời gian dùng màn hình,/ˈskriːn taɪm/,"[Đồng nghĩa]
-digital time - /ˈdɪdʒɪtl taɪm/ - thời gian kỹ thuật số
-
-[Mô tả]
-device time - /dɪˈvaɪs taɪm/ - thời gian dùng thiết bị",0
-weekend-rest,do nothing,không làm gì,/duː ˈnʌθɪŋ/,"[Đồng nghĩa]
-chill - /tʃɪl/ - chill (khẩu ngữ)
-
-[Mô tả]
-veg out - /vedʒ aʊt/ - nằm ườn (khẩu ngữ)",0
-weekend-rest,sleep mask,khăn bịt mắt ngủ,/sliːp mæsk/,"[Đồng nghĩa]
-eye mask - /aɪ mæsk/ - bịt mắt
-
-[Mô tả]
-blindfold - /ˈblaɪndfoʊld/ - bịt mắt",0
-weekend-rest,weekend vibes,không khí cuối tuần,/ˈwiːkˌend vaɪbz/,"[Đồng nghĩa]
-weekend mood - /ˈwiːkˌend muːd/ - tâm trạng cuối tuần
-
-[Mô tả]
-chill vibes - /tʃɪl vaɪbz/ - không khí thư giãn",0
-weekend-rest,stay in bed,ở trên giường,/steɪ ɪn bed/,"[Đồng nghĩa]
-stay under the covers - /steɪ ˈʌndər ðə ˈkʌvərz/ - ở trong chăn
-
-[Mô tả]
-lounge in bed - /laʊndʒ ɪn bed/ - nằm lười trên giường",0
-household-chores,chore,việc nhà,/tʃɔːr/,"[Đồng nghĩa]
-household task - /ˈhaʊshoʊld tæsk/ - việc nhà
-
-[Mô tả]
-errand - /ˈerənd/ - việc vặt",0
-household-chores,laundry,giặt đồ,/ˈlɔːndri/,"[Đồng nghĩa]
-washing - /ˈwɑːʃɪŋ/ - giặt đồ (Anh-Anh)
-
-[Mô tả]
-laundry load - /ˈlɔːndri loʊd/ - mẻ giặt",0
-household-chores,dishes,rửa bát,/ˈdɪʃɪz/,"[Đồng nghĩa]
-washing up - /ˈwɑːʃɪŋ ʌp/ - rửa bát (Anh-Anh)
-
-[Mô tả]
-dishwashing - /ˈdɪʃˌwɑːʃɪŋ/ - rửa chén bát",0
-household-chores,vacuum,hút bụi,/ˈvækjuːm/,"[Đồng nghĩa]
-hoover - /ˈhuːvər/ - hút bụi (Anh-Anh)
-
-[Mô tả]
-vacuuming - /ˈvækjuːmɪŋ/ - hút bụi",0
-household-chores,tidy up,dọn dẹp,/ˌtaɪdi ˈʌp/,"[Đồng nghĩa]
-clean up - /kliːn ʌp/ - dọn dẹp
-
-[Mô tả]
-straighten up - /ˈstreɪtn ʌp/ - sắp xếp gọn",0
-household-chores,take out the trash,đổ rác,/ˌteɪk aʊt ðə ˈtræʃ/,"[Đồng nghĩa]
-take out the garbage - /teɪk aʊt ðə ˈɡɑːrbɪdʒ/ - đổ rác (Mỹ)
-
-[Mô tả]
-empty the bin - /ˈempti ðə bɪn/ - đổ thùng rác",0
-household-chores,dust,lau bụi,/dʌst/,"[Đồng nghĩa]
-dusting - /ˈdʌstɪŋ/ - lau bụi
-
-[Mô tả]
-wipe down - /waɪp daʊn/ - lau chùi",0
-household-chores,mop,lau nhà,/mɑːp/,"[Đồng nghĩa]
-mopping - /ˈmɑːpɪŋ/ - lau nhà
-
-[Mô tả]
-swab - /swɑːb/ - lau (trang trọng)",0
-household-chores,clean,dọn sạch,/kliːn/,"[Đồng nghĩa]
-tidy - /ˈtaɪdi/ - gọn gàng
-
-[Mô tả]
-sparkling - /ˈspɑːrklɪŋ/ - sạch bóng",0
-household-chores,declutter,dọn đồ thừa,/diːˈklʌtər/,"[Đồng nghĩa]
-de-clutter - /diː ˈklʌtər/ - dọn đồ thừa
-
-[Mô tả]
-organize - /ˈɔːrɡənaɪz/ - sắp xếp",0
-household-chores,fold the laundry,gấp đồ giặt,/ˌfoʊld ðə ˈlɔːndri/,"[Đồng nghĩa]
-fold clothes - /foʊld kloʊðz/ - gấp quần áo
-
-[Mô tả]
-put away laundry - /pʊt əˈweɪ ˈlɔːndri/ - cất đồ giặt",0
-household-chores,sweep the floor,quét nhà,/ˌswiːp ðə ˈflɔːr/,"[Đồng nghĩa]
-sweep up - /swiːp ʌp/ - quét dọn
-
-[Mô tả]
-brush the floor - /brʌʃ ðə ˈflɔːr/ - quét sàn",0
-household-chores,deep clean,dọn sâu,/diːp kliːn/,"[Đồng nghĩa]
-thorough clean - /ˈθɜːroʊ kliːn/ - dọn kỹ
-
-[Mô tả]
-spring clean - /sprɪŋ kliːn/ - dọn nhà tổng thể",0
-household-chores,chore chart,bảng phân công,/tʃɔːr tʃɑːrt/,"[Đồng nghĩa]
-task list - /tæsk lɪst/ - danh sách việc
-
-[Mô tả]
-chore wheel - /tʃɔːr wiːl/ - vòng phân công",0
-household-chores,share the load,chia sẻ công việc,/ʃer ðə loʊd/,"[Đồng nghĩa]
-divide tasks - /dɪˈvaɪd tæsks/ - chia việc
-
-[Mô tả]
-pitch in - /pɪtʃ ɪn/ - góp sức (khẩu ngữ)",0
-household-chores,weekend chores,việc nhà cuối tuần,/ˈwiːkˌend tʃɔːrz/,"[Đồng nghĩa]
-weekend cleaning - /ˈwiːkˌend ˈkliːnɪŋ/ - dọn dẹp cuối tuần
-
-[Mô tả]
-Saturday chores - /ˈsætərdeɪ tʃɔːrz/ - việc nhà thứ Bảy",0
-devops-meeting,incident,sự cố,/ˈɪnsɪdənt/,,0
-devops-meeting,rollback,khôi phục phiên bản cũ,/ˈroʊlbæk/,,0
-devops-meeting,deployment,triển khai,/dɪˈplɔɪmənt/,,0
-devops-meeting,pipeline,quy trình CI/CD,/ˈpaɪplaɪn/,,0
-devops-meeting,outage,gián đoạn dịch vụ,/ˈaʊtɪdʒ/,,0
-devops-meeting,root cause,nguyên nhân gốc,/ˌruːt ˈkɔːz/,,0
-devops-meeting,monitoring,giám sát,/ˈmɑːnɪtərɪŋ/,,0
-devops-meeting,runbook,tài liệu xử lý,/ˈrʌnbʊk/,,0
-devops-meeting,postmortem,đánh giá sau sự cố,/ˌpoʊstˈmɔːrtəm/,,0
-devops-meeting,escalation,leo thang sự cố,/ˌeskəˈleɪʃən/,,0
-devops-meeting,on-call,trực sự cố,/ˌɑːn ˈkɔːl/,,0
-devops-meeting,mitigation,biện pháp giảm thiểu,/ˌmɪtɪˈɡeɪʃən/,,0
-neighbor-morning,good morning,chào buổi sáng,/ɡʊd ˈmɔːrnɪŋ/,,0
-neighbor-morning,how’s it going,dạo này thế nào,/ˌhaʊz ɪt ˈɡoʊɪŋ/,,0
-neighbor-morning,lovely weather,thời tiết đẹp,/ˈlʌvli ˈweðər/,,0
-neighbor-morning,commute,đi lại hàng ngày,/kəˈmjuːt/,,0
-neighbor-morning,catch up,trò chuyện cập nhật,/ˌkætʃ ˈʌp/,,0
-neighbor-morning,have a good one,chúc một ngày tốt lành,/ˌhæv ə ˈɡʊd wʌn/,,0
-neighbor-morning,neighbor,hàng xóm,/ˈneɪbər/,,0
-neighbor-morning,small talk,chuyện xã giao ngắn,/ˈsmɔːl tɔːk/,,0
-neighbor-morning,take care,giữ gìn sức khoẻ,/ˌteɪk ˈker/,,0
-neighbor-morning,elevator,thang máy,/ˈeləveɪtər/,,0
-neighbor-morning,front door,cửa chính,/ˌfrʌnt ˈdɔːr/,,0
-neighbor-morning,have a nice day,chúc ngày tốt lành,/ˌhæv ə ˈnaɪs ˈdeɪ/,,0
-daily-meals,breakfast,bữa sáng,/ˈbrekfəst/,,0
-daily-meals,lunch,bữa trưa,/lʌntʃ/,,0
-daily-meals,dinner,bữa tối,/ˈdɪnər/,,0
-daily-meals,portion,khẩu phần,/ˈpɔːrʃən/,,0
-daily-meals,skip a meal,bỏ bữa,/ˌskɪp ə ˈmiːl/,,0
-daily-meals,eat out,ăn ngoài,/ˌiːt ˈaʊt/,,0
-daily-meals,home-cooked,nấu tại nhà,/ˌhoʊm ˈkʊkt/,,0
-daily-meals,leftovers,đồ ăn thừa,/ˈleftoʊvərz/,,0
-daily-meals,balanced meal,bữa ăn cân đối,/ˌbælənst ˈmiːl/,,0
-daily-meals,snack,bữa phụ,/snæk/,,0
-daily-meals,bowl,cái bát,/boʊl/,,0
-daily-meals,grilled,món nướng,/ɡrɪld/,,0
-autumn-routine,energy level,mức năng lượng,/ˈenərdʒi ˌlevəl/,,0
-autumn-routine,get back into a routine,trở lại thói quen,/ɡet bæk ˈɪntu ə ruːˈtiːn/,,0
-autumn-routine,wrap up warm,mặc ấm,/ˌræp ʌp ˈwɔːrm/,,0
-autumn-routine,cozy,ấm cúng,/ˈkoʊzi/,,0
-autumn-routine,daylight,ánh sáng ban ngày,/ˈdeɪlaɪt/,,0
-autumn-routine,schedule,lịch trình,/ˈskedʒuːl/,,0
-autumn-routine,stay active,duy trì vận động,/ˌsteɪ ˈæktɪv/,,0
-autumn-routine,mood,tâm trạng,/muːd/,,0
-autumn-routine,balanced,cân bằng,/ˈbælənst/,,0
-autumn-routine,sunlight,ánh sáng mặt trời,/ˈsʌnlaɪt/,,0
-autumn-routine,layer up,mặc nhiều lớp,/ˌleɪər ˈʌp/,,0
-autumn-routine,seasonal,theo mùa,/ˈsiːzənəl/,,0
-work-update,on track,đúng tiến độ,/ˌɑːn ˈtræk/,,0
-work-update,blocker,điểm chặn,/ˈblɑːkər/,,0
-work-update,hand off,bàn giao,/ˌhænd ˈɔːf/,,0
-work-update,deadline,hạn chót,/ˈdedlaɪn/,,0
-work-update,progress update,cập nhật tiến độ,/ˈprɑːɡres ˈʌpdeɪt/,,0
-work-update,dependency,phụ thuộc,/dɪˈpendənsi/,,0
-work-update,prioritize,ưu tiên,/praɪˈɔːrətaɪz/,,0
-work-update,follow up,theo dõi tiếp,/ˌfɑːloʊ ˈʌp/,,0
-work-update,workload,khối lượng công việc,/ˈwɜːrkloʊd/,,0
-work-update,scope creep,phình phạm vi,/ˈskoʊp kriːp/,,0
-work-update,milestone,cột mốc,/ˈmaɪlstoʊn/,,0
-work-update,bandwidth,khả năng xử lý,/ˈbændwɪdθ/,,0
-black-friday,deal,ưu đãi,/diːl/,,0
-black-friday,discount,giảm giá,/ˈdɪskaʊnt/,,0
-black-friday,worth it,đáng giá,/ˌwɜːrθ ˈɪt/,,0
-black-friday,bargain,món hời,/ˈbɑːrɡən/,,0
-black-friday,checkout,thanh toán,/ˈtʃekaʊt/,,0
-black-friday,limited offer,ưu đãi giới hạn,/ˌlɪmɪtɪd ˈɔːfər/,,0
-black-friday,compare prices,so sánh giá,/kəmˌper ˈpraɪsɪz/,,0
-black-friday,in stock,còn hàng,/ˌɪn ˈstɑːk/,,0
-black-friday,sold out,hết hàng,/ˌsoʊld ˈaʊt/,,0
-black-friday,flash sale,ưu đãi chớp nhoáng,/ˈflæʃ seɪl/,,0
-black-friday,impulse buy,mua bốc đồng,/ˈɪmpʌls baɪ/,,0
-black-friday,return policy,chính sách đổi trả,/rɪˈtɜːrn ˌpɑːləsi/,,0
-devops-release-planning,release window,cửa sổ phát hành,/rɪˈliːs ˈwɪndoʊ/,,0
-devops-release-planning,code freeze,đóng băng mã nguồn,/ˌkoʊd ˈfriːz/,,0
-devops-release-planning,staging,môi trường thử,/ˈsteɪdʒɪŋ/,,0
-devops-release-planning,canary,phát hành thử,/kəˈneri/,,0
-devops-release-planning,approval,phê duyệt,/əˈpruːvəl/,,0
-devops-release-planning,rollback plan,phương án khôi phục,/ˈroʊlbæk plæn/,,0
-devops-release-planning,go/no-go,quyết định triển khai hay không,/ˌɡoʊ noʊ ˈɡoʊ/,,0
-devops-release-planning,capacity,năng lực hệ thống,/kəˈpæsəti/,,0
-devops-release-planning,smoke test,kiểm tra nhanh,/ˈsmoʊk test/,,0
-devops-release-planning,changelog,nhật ký thay đổi,/ˈtʃeɪndʒlɔːɡ/,,0
-devops-release-planning,feature flag,cờ tính năng,/ˈfiːtʃər flæɡ/,,0
-devops-release-planning,hotfix,bản vá nóng,/ˈhɑːtfɪks/,,0
-neighbor-weekend,weekend plans,kế hoạch cuối tuần,/ˌwiːkˈend plænz/,,0
-neighbor-weekend,forecast,dự báo thời tiết,/ˈfɔːrkæst/,,0
-neighbor-weekend,garden,khu vườn,/ˈɡɑːrdən/,,0
-neighbor-weekend,local market,chợ địa phương,/ˌloʊkəl ˈmɑːrkɪt/,,0
-neighbor-weekend,lend,cho mượn,/lend/,,0
-neighbor-weekend,borrow,mượn,/ˈbɑːroʊ/,,0
-neighbor-weekend,catch up,trò chuyện,/ˌkætʃ ˈʌp/,,0
-neighbor-weekend,take care of,chăm sóc,/ˌteɪk ˈker əv/,,0
-neighbor-weekend,have a good weekend,chúc cuối tuần vui vẻ,/ˌhæv ə ɡʊd ˌwiːkˈend/,,0
-neighbor-weekend,fence,hàng rào,/fens/,,0
-neighbor-weekend,ladder,cái thang,/ˈlædər/,,0
-neighbor-weekend,herbs,rau thơm,/ɜːrbz/,,0
-eating-out,menu,thực đơn,/ˈmenjuː/,,0
-eating-out,recommendation,gợi ý,/ˌrekəmenˈdeɪʃən/,,0
-eating-out,order,gọi món,/ˈɔːrdər/,,0
-eating-out,spicy,cay,/ˈspaɪsi/,,0
-eating-out,bill,hoá đơn,/bɪl/,,0
-eating-out,split the bill,chia hoá đơn,/ˌsplɪt ðə ˈbɪl/,,0
-eating-out,takeaway,đồ mang về,/ˈteɪkəweɪ/,,0
-eating-out,tip,tiền boa,/tɪp/,,0
-eating-out,reservation,đặt bàn,/ˌrezərˈveɪʃən/,,0
-eating-out,vegetarian,món chay,/ˌvedʒəˈteriən/,,0
-eating-out,table for two,bàn hai người,/ˌteɪbəl fər ˈtuː/,,0
-eating-out,lemonade,nước chanh,/ˌleməˈneɪd/,,0
-meal-prep,groceries,thực phẩm mua về,/ˈɡroʊsəriz/,,0
-meal-prep,ingredients,nguyên liệu,/ɪnˈɡriːdiənts/,,0
-meal-prep,recipe,công thức nấu ăn,/ˈresəpi/,,0
-meal-prep,portion,khẩu phần,/ˈpɔːrʃən/,,0
-meal-prep,protein,chất đạm,/ˈproʊtiːn/,,0
-meal-prep,sugary,nhiều đường,/ˈʃʊɡəri/,,0
-meal-prep,stay hydrated,uống đủ nước,/ˌsteɪ ˈhaɪdreɪtɪd/,,0
-meal-prep,junk food,đồ ăn vặt không lành mạnh,/ˈdʒʌŋk fuːd/,,0
-meal-prep,meal prep,chuẩn bị bữa ăn,/ˈmiːl prep/,,0
-meal-prep,yogurt,sữa chua,/ˈjoʊɡərt/,,0
-meal-prep,vegetables,rau củ,/ˈvedʒtəbəlz/,,0
-meal-prep,whole grains,ngũ cốc nguyên hạt,/ˌhoʊl ˈɡreɪnz/,,0
+sunday-mass,altar server,Lễ Sinh,/ˈɔːltər ˈsɜːrvər/,"[Ám chỉ các bé trai Lễ Sinh]
+altar boy - /ˈɔːltər bɔɪ/ - Lễ Sinh nam",0
+sunday-mass,make the Sign of the Cross,làm dấu Thánh Giá,/meɪk ðə saɪn əv ðə krɔːs/,,0
+sunday-mass,drop my child off at catechism,chở con tôi đi học giáo lý,/drɑːp maɪ tʃaɪld ɔːf ət ˈkætəkɪzəm/,"[Kể về thói quen hằng tuần]
+I drop my kid off at catechism, and then I go to the market
+(Tôi chở con đi học giáo lý rồi sau đó tôi đi chợ)
+
+[Mới làm xong cách đây vài phút]
+I've just taken my child to catechism
+(Tôi vừa mới đưa con tôi đi học giáo lý)",0
+sunday-mass,go to church,đi lễ Công Giáo,/ɡoʊ tə tʃɜːrtʃ/,"[Dùng với người cùng Công Giáo]
+go to Mass (lưu ý phải viết hoa để tránh phân biệt với đời sống, khoa học)",0
+sunday-mass,go to Confession,đi xưng tội,/ɡoʊ tə kənˈfeʃn/,,0
+sunday-mass,go up for Communion,đi lên rước lễ,/ɡoʊ ʌp fɔːr kəˈmjuːnjən/,,0
+sunday-mass,go to Adoration,đi chầu Thánh Thể,/ɡoʊ tə ˌædəˈreɪʃn/,,0
+sunday-mass,say grace,đọc kinh trước bữa ăn,/seɪ ɡreɪs/,,0
+sunday-mass,works of mercy,việc bác ái,/wɜːrks əv ˈmɜːrsi/,"[Sử dụng chung trong xã hội]
+do charity work - /duː ˈtʃærəti wɜːrk/ - việc từ thiện",0
+weekend-market,market,(n) chợ,/ˈmɑːrkɪt/,"[Khi dùng trong chủ đề ""Weekend market shopping""]
+Market is a useful word in this topic.
+(Chợ là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""market"" naturally in a short sentence about weekend market shopping.",0
+weekend-market,fresh,(adj) tươi,/freʃ/,"[Khi dùng trong chủ đề ""Weekend market shopping""]
+Fresh is a useful word in this topic.
+(Tươi là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""fresh"" naturally in a short sentence about weekend market shopping.",0
+weekend-market,bargain,(n) món hời,/ˈbɑːrɡən/,"[Khi dùng trong chủ đề ""Weekend market shopping""]
+Bargain is a useful word in this topic.
+(Món hời là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""bargain"" naturally in a short sentence about weekend market shopping.",0
+weekend-market,vendor,(n) người bán hàng,/ˈvendər/,,0
+weekend-market,weigh,(n) cân,/weɪ/,,0
+weekend-market,bag,(n) túi,/bæɡ/,,0
+weekend-market,reusable bag,(n) túi tái sử dụng,/riˈjuːzəbəl bæɡ/,,0
+weekend-market,receipt,(n) hoá đơn,/rɪˈsiːt/,,0
+weekend-market,cash,(n) tiền mặt,/kæʃ/,,0
+weekend-market,loose change,(n) tiền lẻ,/ˌluːs ˈtʃeɪndʒ/,,0
+weekend-market,stall,(n) sạp hàng,/stɔːl/,,0
+weekend-market,ripe,(adj) chín,/raɪp/,,0
+weekend-outing,hang out,(v) đi chơi,/ˌhæŋ ˈaʊt/,"[Khi dùng trong chủ đề ""Going out with friends""]
+Hang out is a useful word in this topic.
+(Đi chơi là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""hang out"" naturally in a short sentence about going out with friends.",0
+weekend-outing,café,(n) quán cà phê,/kæˈfeɪ/,"[Khi dùng trong chủ đề ""Going out with friends""]
+Café is a useful word in this topic.
+(Quán cà phê là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""café"" naturally in a short sentence about going out with friends.",0
+weekend-outing,cinema,(n) rạp chiếu phim,/ˈsɪnəmə/,"[Khi dùng trong chủ đề ""Going out with friends""]
+Cinema is a useful word in this topic.
+(Rạp chiếu phim là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""cinema"" naturally in a short sentence about going out with friends.",0
+weekend-outing,meet up,(v) gặp nhau,/ˌmiːt ˈʌp/,,0
+weekend-outing,reservation,(n) đặt chỗ,/ˌrezərˈveɪʃən/,,0
+weekend-outing,traffic,(n) giao thông,/ˈtræfɪk/,,0
+weekend-outing,running late,(phrase) đang trễ giờ,/ˌrʌnɪŋ ˈleɪt/,,0
+weekend-outing,split the tab,(n) chia hoá đơn,/ˌsplɪt ðə ˈtæb/,,0
+weekend-outing,taxi,(n) taxi,/ˈtæksi/,,0
+weekend-outing,catch a movie,(v) xem phim,/ˌkætʃ ə ˈmuːvi/,,0
+weekend-outing,rain check,(v) dời lịch,/ˈreɪn tʃek/,,0
+weekend-outing,turn up,(v) đến,/ˌtɜːrn ˈʌp/,,0
+weekend-rest,sleep in,(v) ngủ nướng,/ˌsliːp ˈɪn/,"[Khi dùng trong chủ đề ""Rest and recharge at home""]
+Sleep in is a useful word in this topic.
+(Ngủ nướng là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""sleep in"" naturally in a short sentence about rest and recharge at home.",0
+weekend-rest,unwind,(v) thư giãn,/ʌnˈwaɪnd/,"[Khi dùng trong chủ đề ""Rest and recharge at home""]
+Unwind is a useful word in this topic.
+(Thư giãn là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""unwind"" naturally in a short sentence about rest and recharge at home.",0
+weekend-rest,nap,(n) ngủ trưa,/næp/,"[Khi dùng trong chủ đề ""Rest and recharge at home""]
+Nap is a useful word in this topic.
+(Ngủ trưa là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""nap"" naturally in a short sentence about rest and recharge at home.",0
+weekend-rest,recharge,(v) nạp năng lượng,/ˌriːˈtʃɑːrdʒ/,,0
+weekend-rest,pajamas,(n) đồ ngủ,/pəˈdʒɑːməz/,,0
+weekend-rest,cozy,(adj) ấm cúng,/ˈkoʊzi/,,0
+weekend-rest,no alarm,(phrase) không đặt báo thức,/ˌnoʊ əˈlɑːrm/,,0
+weekend-rest,binge-watch,(n) xem liên tục,/ˈbɪndʒ wɑːtʃ/,,0
+weekend-rest,lazy,(adj) lười,/ˈleɪzi/,,0
+weekend-rest,downtime,(n) thời gian nghỉ,/ˈdaʊntaɪm/,,0
+weekend-rest,take a break,(v) nghỉ ngơi,/ˌteɪk ə ˈbreɪk/,,0
+weekend-rest,screen time,(n) thời gian dùng màn hình,/ˈskriːn taɪm/,,0
+household-chores,chore,(n) việc nhà,/tʃɔːr/,"[Khi dùng trong chủ đề ""Household chores and cleaning""]
+Chore is a useful word in this topic.
+(Việc nhà là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""chore"" naturally in a short sentence about household chores and cleaning.",0
+household-chores,laundry,(v) giặt đồ,/ˈlɔːndri/,"[Khi dùng trong chủ đề ""Household chores and cleaning""]
+Laundry is a useful word in this topic.
+(Giặt đồ là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""laundry"" naturally in a short sentence about household chores and cleaning.",0
+household-chores,dishes,(v) rửa bát,/ˈdɪʃɪz/,"[Khi dùng trong chủ đề ""Household chores and cleaning""]
+Dishes is a useful word in this topic.
+(Rửa bát là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""dishes"" naturally in a short sentence about household chores and cleaning.",0
+household-chores,vacuum,(v) hút bụi,/ˈvækjuːm/,,0
+household-chores,tidy up,(v) dọn dẹp,/ˌtaɪdi ˈʌp/,,0
+household-chores,take out the trash,(v) đổ rác,/ˌteɪk aʊt ðə ˈtræʃ/,,0
+household-chores,dust,(v) lau bụi,/dʌst/,,0
+household-chores,mop,(v) lau nhà,/mɑːp/,,0
+household-chores,clean,(n) dọn sạch,/kliːn/,,0
+household-chores,declutter,(n) dọn đồ thừa,/diːˈklʌtər/,,0
+household-chores,fold the laundry,(v) gấp đồ giặt,/ˌfoʊld ðə ˈlɔːndri/,,0
+household-chores,sweep the floor,(v) quét nhà,/ˌswiːp ðə ˈflɔːr/,,0
+devops-meeting,incident,(n) sự cố,/ˈɪnsɪdənt/,"[Khi dùng trong chủ đề ""DevOps team meeting""]
+Incident is a useful word in this topic.
+(Sự cố là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""incident"" naturally in a short sentence about devops team meeting.",0
+devops-meeting,rollback,(n) khôi phục phiên bản cũ,/ˈroʊlbæk/,"[Khi dùng trong chủ đề ""DevOps team meeting""]
+Rollback is a useful word in this topic.
+(Khôi phục phiên bản cũ là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""rollback"" naturally in a short sentence about devops team meeting.",0
+devops-meeting,deployment,(n) triển khai,/dɪˈplɔɪmənt/,"[Khi dùng trong chủ đề ""DevOps team meeting""]
+Deployment is a useful word in this topic.
+(Triển khai là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""deployment"" naturally in a short sentence about devops team meeting.",0
+devops-meeting,pipeline,(n) quy trình CI/CD,/ˈpaɪplaɪn/,,0
+devops-meeting,outage,(n) gián đoạn dịch vụ,/ˈaʊtɪdʒ/,,0
+devops-meeting,root cause,(n) nguyên nhân gốc,/ˌruːt ˈkɔːz/,,0
+devops-meeting,monitoring,(v) giám sát,/ˈmɑːnɪtərɪŋ/,,0
+devops-meeting,runbook,(n) tài liệu xử lý,/ˈrʌnbʊk/,,0
+devops-meeting,postmortem,(n) đánh giá sau sự cố,/ˌpoʊstˈmɔːrtəm/,,0
+devops-meeting,escalation,(v) leo thang sự cố,/ˌeskəˈleɪʃən/,,0
+devops-meeting,on-call,(n) trực sự cố,/ˌɑːn ˈkɔːl/,,0
+devops-meeting,mitigation,(n) biện pháp giảm thiểu,/ˌmɪtɪˈɡeɪʃən/,,0
+neighbor-morning,good morning,(n) chào buổi sáng,/ɡʊd ˈmɔːrnɪŋ/,"[Khi dùng trong chủ đề ""Morning greetings with neighbors""]
+Good morning is a useful word in this topic.
+(Chào buổi sáng là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""good morning"" naturally in a short sentence about morning greetings with neighbors.",0
+neighbor-morning,how’s it going,(n) dạo này thế nào,/ˌhaʊz ɪt ˈɡoʊɪŋ/,"[Khi dùng trong chủ đề ""Morning greetings with neighbors""]
+How’s it going is a useful word in this topic.
+(Dạo này thế nào là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""how’s it going"" naturally in a short sentence about morning greetings with neighbors.",0
+neighbor-morning,lovely weather,(n) thời tiết đẹp,/ˈlʌvli ˈweðər/,"[Khi dùng trong chủ đề ""Morning greetings with neighbors""]
+Lovely weather is a useful word in this topic.
+(Thời tiết đẹp là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""lovely weather"" naturally in a short sentence about morning greetings with neighbors.",0
+neighbor-morning,commute,(n) đi lại hàng ngày,/kəˈmjuːt/,,0
+neighbor-morning,catch up,(v) trò chuyện cập nhật,/ˌkætʃ ˈʌp/,,0
+neighbor-morning,have a good one,(n) chúc một ngày tốt lành,/ˌhæv ə ˈɡʊd wʌn/,,0
+neighbor-morning,neighbor,(n) hàng xóm,/ˈneɪbər/,,0
+neighbor-morning,small talk,(n) chuyện xã giao ngắn,/ˈsmɔːl tɔːk/,,0
+neighbor-morning,take care,(n) giữ gìn sức khoẻ,/ˌteɪk ˈker/,,0
+neighbor-morning,elevator,(n) thang máy,/ˈeləveɪtər/,,0
+neighbor-morning,front door,(adj) cửa chính,/ˌfrʌnt ˈdɔːr/,,0
+neighbor-morning,have a nice day,(n) chúc ngày tốt lành,/ˌhæv ə ˈnaɪs ˈdeɪ/,,0
+daily-meals,breakfast,(n) bữa sáng,/ˈbrekfəst/,"[Khi dùng trong chủ đề ""Breakfast, lunch, and dinner""]
+Breakfast is a useful word in this topic.
+(Bữa sáng là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""breakfast"" naturally in a short sentence about breakfast, lunch, and dinner.",0
+daily-meals,lunch,(n) bữa trưa,/lʌntʃ/,"[Khi dùng trong chủ đề ""Breakfast, lunch, and dinner""]
+Lunch is a useful word in this topic.
+(Bữa trưa là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""lunch"" naturally in a short sentence about breakfast, lunch, and dinner.",0
+daily-meals,dinner,(n) bữa tối,/ˈdɪnər/,"[Khi dùng trong chủ đề ""Breakfast, lunch, and dinner""]
+Dinner is a useful word in this topic.
+(Bữa tối là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""dinner"" naturally in a short sentence about breakfast, lunch, and dinner.",0
+daily-meals,portion,(n) khẩu phần,/ˈpɔːrʃən/,,0
+daily-meals,skip a meal,(v) bỏ bữa,/ˌskɪp ə ˈmiːl/,,0
+daily-meals,eat out,(v) ăn ngoài,/ˌiːt ˈaʊt/,,0
+daily-meals,home-cooked,(adj) nấu tại nhà,/ˌhoʊm ˈkʊkt/,,0
+daily-meals,leftovers,(n) đồ ăn thừa,/ˈleftoʊvərz/,,0
+daily-meals,balanced meal,(n) bữa ăn cân đối,/ˌbælənst ˈmiːl/,,0
+daily-meals,snack,(n) bữa phụ,/snæk/,,0
+daily-meals,bowl,(n) cái bát,/boʊl/,,0
+daily-meals,grilled,(adj) món nướng,/ɡrɪld/,,0
+autumn-routine,energy level,(n) mức năng lượng,/ˈenərdʒi ˌlevəl/,"[Khi dùng trong chủ đề ""Autumn routine & energy""]
+Energy level is a useful word in this topic.
+(Mức năng lượng là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""energy level"" naturally in a short sentence about autumn routine & energy.",0
+autumn-routine,get back into a routine,(n) trở lại thói quen,/ɡet bæk ˈɪntu ə ruːˈtiːn/,"[Khi dùng trong chủ đề ""Autumn routine & energy""]
+Get back into a routine is a useful word in this topic.
+(Trở lại thói quen là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""get back into a routine"" naturally in a short sentence about autumn routine & energy.",0
+autumn-routine,wrap up warm,(n) mặc ấm,/ˌræp ʌp ˈwɔːrm/,"[Khi dùng trong chủ đề ""Autumn routine & energy""]
+Wrap up warm is a useful word in this topic.
+(Mặc ấm là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""wrap up warm"" naturally in a short sentence about autumn routine & energy.",0
+autumn-routine,cozy,(adj) ấm cúng,/ˈkoʊzi/,,0
+autumn-routine,daylight,(n) ánh sáng ban ngày,/ˈdeɪlaɪt/,,0
+autumn-routine,schedule,(n) lịch trình,/ˈskedʒuːl/,,0
+autumn-routine,stay active,(n) duy trì vận động,/ˌsteɪ ˈæktɪv/,,0
+autumn-routine,mood,(n) tâm trạng,/muːd/,,0
+autumn-routine,balanced,(adj) cân bằng,/ˈbælənst/,,0
+autumn-routine,sunlight,(n) ánh sáng mặt trời,/ˈsʌnlaɪt/,,0
+autumn-routine,layer up,(n) mặc nhiều lớp,/ˌleɪər ˈʌp/,,0
+autumn-routine,seasonal,(adj) theo mùa,/ˈsiːzənəl/,,0
+work-update,on track,(phrase) đúng tiến độ,/ˌɑːn ˈtræk/,"[Khi dùng trong chủ đề ""Work update in English""]
+On track is a useful word in this topic.
+(Đúng tiến độ là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""on track"" naturally in a short sentence about work update in english.",0
+work-update,blocker,(n) điểm chặn,/ˈblɑːkər/,"[Khi dùng trong chủ đề ""Work update in English""]
+Blocker is a useful word in this topic.
+(Điểm chặn là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""blocker"" naturally in a short sentence about work update in english.",0
+work-update,hand off,(v) bàn giao,/ˌhænd ˈɔːf/,"[Khi dùng trong chủ đề ""Work update in English""]
+Hand off is a useful word in this topic.
+(Bàn giao là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""hand off"" naturally in a short sentence about work update in english.",0
+work-update,deadline,(n) hạn chót,/ˈdedlaɪn/,,0
+work-update,progress update,(n) cập nhật tiến độ,/ˈprɑːɡres ˈʌpdeɪt/,,0
+work-update,dependency,(n) phụ thuộc,/dɪˈpendənsi/,,0
+work-update,prioritize,(v) ưu tiên,/praɪˈɔːrətaɪz/,,0
+work-update,follow up,(v) theo dõi tiếp,/ˌfɑːloʊ ˈʌp/,,0
+work-update,workload,(n) khối lượng công việc,/ˈwɜːrkloʊd/,,0
+work-update,scope creep,(n) phình phạm vi,/ˈskoʊp kriːp/,,0
+work-update,milestone,(n) cột mốc,/ˈmaɪlstoʊn/,,0
+work-update,bandwidth,(n) khả năng xử lý,/ˈbændwɪdθ/,,0
+black-friday,deal,(n) ưu đãi,/diːl/,"[Khi dùng trong chủ đề ""Black Friday shopping""]
+Deal is a useful word in this topic.
+(Ưu đãi là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""deal"" naturally in a short sentence about black friday shopping.",0
+black-friday,discount,(n) giảm giá,/ˈdɪskaʊnt/,"[Khi dùng trong chủ đề ""Black Friday shopping""]
+Discount is a useful word in this topic.
+(Giảm giá là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""discount"" naturally in a short sentence about black friday shopping.",0
+black-friday,worth it,(phrase) đáng giá,/ˌwɜːrθ ˈɪt/,"[Khi dùng trong chủ đề ""Black Friday shopping""]
+Worth it is a useful word in this topic.
+(Đáng giá là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""worth it"" naturally in a short sentence about black friday shopping.",0
+black-friday,bargain,(n) món hời,/ˈbɑːrɡən/,,0
+black-friday,checkout,(n) thanh toán,/ˈtʃekaʊt/,,0
+black-friday,limited offer,(n) ưu đãi giới hạn,/ˌlɪmɪtɪd ˈɔːfər/,,0
+black-friday,compare prices,(n) so sánh giá,/kəmˌper ˈpraɪsɪz/,,0
+black-friday,in stock,(phrase) còn hàng,/ˌɪn ˈstɑːk/,,0
+black-friday,sold out,(phrase) hết hàng,/ˌsoʊld ˈaʊt/,,0
+black-friday,flash sale,(n) ưu đãi chớp nhoáng,/ˈflæʃ seɪl/,,0
+black-friday,impulse buy,(n) mua bốc đồng,/ˈɪmpʌls baɪ/,,0
+black-friday,return policy,(adj) chính sách đổi trả,/rɪˈtɜːrn ˌpɑːləsi/,,0
+devops-release-planning,release window,(n) cửa sổ phát hành,/rɪˈliːs ˈwɪndoʊ/,"[Khi dùng trong chủ đề ""DevOps release planning""]
+Release window is a useful word in this topic.
+(Cửa sổ phát hành là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""release window"" naturally in a short sentence about devops release planning.",0
+devops-release-planning,code freeze,(n) đóng băng mã nguồn,/ˌkoʊd ˈfriːz/,"[Khi dùng trong chủ đề ""DevOps release planning""]
+Code freeze is a useful word in this topic.
+(Đóng băng mã nguồn là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""code freeze"" naturally in a short sentence about devops release planning.",0
+devops-release-planning,staging,(n) môi trường thử,/ˈsteɪdʒɪŋ/,"[Khi dùng trong chủ đề ""DevOps release planning""]
+Staging is a useful word in this topic.
+(Môi trường thử là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""staging"" naturally in a short sentence about devops release planning.",0
+devops-release-planning,canary,(n) phát hành thử,/kəˈneri/,,0
+devops-release-planning,approval,(n) phê duyệt,/əˈpruːvəl/,,0
+devops-release-planning,rollback plan,(n) phương án khôi phục,/ˈroʊlbæk plæn/,,0
+devops-release-planning,go/no-go,(n) quyết định triển khai hay không,/ˌɡoʊ noʊ ˈɡoʊ/,,0
+devops-release-planning,capacity,(n) năng lực hệ thống,/kəˈpæsəti/,,0
+devops-release-planning,smoke test,(n) kiểm tra nhanh,/ˈsmoʊk test/,,0
+devops-release-planning,changelog,(n) nhật ký thay đổi,/ˈtʃeɪndʒlɔːɡ/,,0
+devops-release-planning,feature flag,(n) cờ tính năng,/ˈfiːtʃər flæɡ/,,0
+devops-release-planning,hotfix,(n) bản vá nóng,/ˈhɑːtfɪks/,,0
+neighbor-weekend,weekend plans,(n) kế hoạch cuối tuần,/ˌwiːkˈend plænz/,"[Khi dùng trong chủ đề ""Weekend catch-up with neighbors""]
+Weekend plans is a useful word in this topic.
+(Kế hoạch cuối tuần là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""weekend plans"" naturally in a short sentence about weekend catch-up with neighbors.",0
+neighbor-weekend,forecast,(n) dự báo thời tiết,/ˈfɔːrkæst/,"[Khi dùng trong chủ đề ""Weekend catch-up with neighbors""]
+Forecast is a useful word in this topic.
+(Dự báo thời tiết là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""forecast"" naturally in a short sentence about weekend catch-up with neighbors.",0
+neighbor-weekend,garden,(n) khu vườn,/ˈɡɑːrdən/,"[Khi dùng trong chủ đề ""Weekend catch-up with neighbors""]
+Garden is a useful word in this topic.
+(Khu vườn là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""garden"" naturally in a short sentence about weekend catch-up with neighbors.",0
+neighbor-weekend,local market,(n) chợ địa phương,/ˌloʊkəl ˈmɑːrkɪt/,,0
+neighbor-weekend,lend,(v) cho mượn,/lend/,,0
+neighbor-weekend,borrow,(v) mượn,/ˈbɑːroʊ/,,0
+neighbor-weekend,catch up,(v) trò chuyện,/ˌkætʃ ˈʌp/,,0
+neighbor-weekend,take care of,(v) chăm sóc,/ˌteɪk ˈker əv/,,0
+neighbor-weekend,have a good weekend,(n) chúc cuối tuần vui vẻ,/ˌhæv ə ɡʊd ˌwiːkˈend/,,0
+neighbor-weekend,fence,(n) hàng rào,/fens/,,0
+neighbor-weekend,ladder,(n) cái thang,/ˈlædər/,,0
+neighbor-weekend,herbs,(n) rau thơm,/ɜːrbz/,,0
+eating-out,menu,(n) thực đơn,/ˈmenjuː/,"[Khi dùng trong chủ đề ""Eating out and ordering food""]
+Menu is a useful word in this topic.
+(Thực đơn là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""menu"" naturally in a short sentence about eating out and ordering food.",0
+eating-out,recommendation,(n) gợi ý,/ˌrekəmenˈdeɪʃən/,"[Khi dùng trong chủ đề ""Eating out and ordering food""]
+Recommendation is a useful word in this topic.
+(Gợi ý là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""recommendation"" naturally in a short sentence about eating out and ordering food.",0
+eating-out,order,(v) gọi món,/ˈɔːrdər/,"[Khi dùng trong chủ đề ""Eating out and ordering food""]
+Order is a useful word in this topic.
+(Gọi món là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""order"" naturally in a short sentence about eating out and ordering food.",0
+eating-out,spicy,(adj) cay,/ˈspaɪsi/,,0
+eating-out,bill,(n) hoá đơn,/bɪl/,,0
+eating-out,split the bill,(n) chia hoá đơn,/ˌsplɪt ðə ˈbɪl/,,0
+eating-out,takeaway,(n) đồ mang về,/ˈteɪkəweɪ/,,0
+eating-out,tip,(n) tiền boa,/tɪp/,,0
+eating-out,reservation,(n) đặt bàn,/ˌrezərˈveɪʃən/,,0
+eating-out,vegetarian,(n) món chay,/ˌvedʒəˈteriən/,,0
+eating-out,table for two,(n) bàn hai người,/ˌteɪbəl fər ˈtuː/,,0
+eating-out,lemonade,(n) nước chanh,/ˌleməˈneɪd/,,0
+meal-prep,groceries,(n) thực phẩm mua về,/ˈɡroʊsəriz/,"[Khi dùng trong chủ đề ""Meal prep and healthy eating""]
+Groceries is a useful word in this topic.
+(Thực phẩm mua về là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""groceries"" naturally in a short sentence about meal prep and healthy eating.",0
+meal-prep,ingredients,(n) nguyên liệu,/ɪnˈɡriːdiənts/,"[Khi dùng trong chủ đề ""Meal prep and healthy eating""]
+Ingredients is a useful word in this topic.
+(Nguyên liệu là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""ingredients"" naturally in a short sentence about meal prep and healthy eating.",0
+meal-prep,recipe,(n) công thức nấu ăn,/ˈresəpi/,"[Khi dùng trong chủ đề ""Meal prep and healthy eating""]
+Recipe is a useful word in this topic.
+(Công thức nấu ăn là từ hữu ích trong chủ đề này.)
+
+[Cách dùng / lưu ý]
+Use ""recipe"" naturally in a short sentence about meal prep and healthy eating.",0
+meal-prep,portion,(n) khẩu phần,/ˈpɔːrʃən/,,0
+meal-prep,protein,(n) chất đạm,/ˈproʊtiːn/,,0
+meal-prep,sugary,(adj) nhiều đường,/ˈʃʊɡəri/,,0
+meal-prep,stay hydrated,(v) uống đủ nước,/ˌsteɪ ˈhaɪdreɪtɪd/,,0
+meal-prep,junk food,(n) đồ ăn vặt không lành mạnh,/ˈdʒʌŋk fuːd/,,0
+meal-prep,meal prep,(v) chuẩn bị bữa ăn,/ˈmiːl prep/,,0
+meal-prep,yogurt,(n) sữa chua,/ˈjoʊɡərt/,,0
+meal-prep,vegetables,(n) rau củ,/ˈvedʒtəbəlz/,,0
+meal-prep,whole grains,(n) ngũ cốc nguyên hạt,/ˌhoʊl ˈɡreɪnz/,,0

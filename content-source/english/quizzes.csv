@@ -1,31 +1,334 @@
 ﻿topicId,questionType,question,options,answerIndex,explanation
-christmas-celebration,Single Best Answer,Which word means “quà tặng”?,"gift
-carol
-decoration",0,A gift is something you give to someone.
-christmas-celebration,Single Best Answer,Complete: “We’re ___ visit my parents on Christmas Eve.”,"going to
-go to
-gone to",0,“Be going to” needs the verb be.
-christmas-celebration,Single Best Answer,Which sentence wishes someone well?,"I wish you a Merry Christmas!
-I am Christmas.
-Christmas is here.",0,“I wish you …” is a standard greeting.
-christmas-celebration,Single Best Answer,Which word means “tụ họp”?,"gather
-wish
-carol",0,Gather means to come together.
-christmas-celebration,Single Best Answer,Which word means “con tuần lộc”?,"reindeer
-elf
-snowman",0,A reindeer is an animal that pulls Santa’s sleigh.
-christmas-celebration,Single Best Answer,Where does Santa come down in stories?,"the chimney
-the fireplace
-the scarf",0,"In stories, Santa comes down the chimney."
-christmas-celebration,Single Best Answer,Which food is a traditional Christmas dessert?,"yule log cake
-turkey
-scarf",0,A yule log cake is a traditional Christmas dessert.
-sunday-mass,Multiple Choice,Cách hỏi thăm tôn giáo 1 cách lịch sự và tự nhiên?,"A. What is your religion?
-B. Did you grow up religious?
-C. Do you go to church?
-D. Do you follow God?
-E. What do you usually do on Sundays?
-F. Do you go to the church every Sunday?","1,2,4","Lý do sai:
+christmas-celebration,Single Best Answer,Which word means “quà tặng”?,"A. gift
+B. carol
+C. decoration
+D. Another option for christmas celebration",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Christmas celebration""."
+christmas-celebration,Single Best Answer,"Chọn đáp án đúng cho: ""Complete: “We’re ___ visit my parents on Christmas Eve.”""","A. going to
+B. go to
+C. gone to
+D. Another option for christmas celebration",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Christmas celebration""."
+christmas-celebration,Single Best Answer,"Chọn đáp án đúng cho: ""Which sentence wishes someone well?""","A. I wish you a Merry Christmas!
+B. I am Christmas.
+C. Christmas is here.
+D. Another option for christmas celebration",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Christmas celebration""."
+christmas-celebration,Single Best Answer,Which word means “tụ họp”?,"A. gather
+B. wish
+C. carol
+D. Another option for christmas celebration",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Christmas celebration""."
+christmas-celebration,Single Best Answer,Which word means “con tuần lộc”?,"A. reindeer
+B. elf
+C. snowman
+D. Another option for christmas celebration",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Christmas celebration""."
+christmas-celebration,Single Best Answer,"Chọn đáp án đúng cho: ""Where does Santa come down in stories?""","A. the chimney
+B. the fireplace
+C. the scarf
+D. Another option for christmas celebration",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Christmas celebration""."
+christmas-celebration,Single Best Answer,"Chọn đáp án đúng cho: ""Which food is a traditional Christmas dessert?""","A. yule log cake
+B. turkey
+C. scarf
+D. Another option for christmas celebration",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Christmas celebration""."
+tet-lunar-new-year,Single Best Answer,Which word means “lì xì”?,"A. lucky money
+B. incense
+C. ancestors
+D. Another option for tết nguyên đán (lunar new year)",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Tết Nguyên Đán (Lunar New Year)""."
+tet-lunar-new-year,Single Best Answer,Which word means “đoàn viên”?,"A. family reunion
+B. traditional food
+C. visit relatives
+D. Another option for tết nguyên đán (lunar new year)",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Tết Nguyên Đán (Lunar New Year)""."
+tet-lunar-new-year,Single Best Answer,"Chọn đáp án đúng cho: ""Complete: “We’re ___ cook sticky rice cake this year.”""","A. going to
+B. go to
+C. gone to
+D. Another option for tết nguyên đán (lunar new year)",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Tết Nguyên Đán (Lunar New Year)""."
+tet-lunar-new-year,Single Best Answer,"Chọn đáp án đúng cho: ""Which sentence wishes someone well?""","A. I wish you a Happy New Year!
+B. I am Tết.
+C. Tết is here.
+D. Another option for tết nguyên đán (lunar new year)",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Tết Nguyên Đán (Lunar New Year)""."
+tet-lunar-new-year,Single Best Answer,"Từ nào sau đây có nghĩa là ""Tết""?","A. Tết
+B. lucky money
+C. family reunion
+D. ancestors",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Tết Nguyên Đán (Lunar New Year)""."
+valentines-day,Single Best Answer,Which word means “bó hoa”?,"A. bouquet
+B. chocolate
+C. surprise
+D. Another option for valentine’s day",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Valentine’s Day""."
+valentines-day,Single Best Answer,Which word means “cầu hôn”?,"A. propose
+B. date
+C. couple
+D. Another option for valentine’s day",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Valentine’s Day""."
+valentines-day,Single Best Answer,"Chọn đáp án đúng cho: ""Complete: “I’m ___ cook a romantic dinner.”""","A. going to
+B. go to
+C. gone to
+D. Another option for valentine’s day",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Valentine’s Day""."
+valentines-day,Single Best Answer,"Chọn đáp án đúng cho: ""Which sentence wishes someone well?""","A. I wish you a Happy Valentine’s Day!
+B. I am Valentine.
+C. Valentine is here.
+D. Another option for valentine’s day",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Valentine’s Day""."
+valentines-day,Single Best Answer,"Từ nào sau đây có nghĩa là ""Ngày Valentine""?","A. Valentine’s Day
+B. romantic
+C. bouquet
+D. chocolate",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Valentine’s Day""."
+new-years-day,Single Best Answer,Which word means “quyết tâm”?,"A. resolution
+B. goal
+C. habit
+D. Another option for new year’s day",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""New Year’s Day""."
+new-years-day,Single Best Answer,Which word means “khởi đầu mới”?,"A. fresh start
+B. countdown
+C. achieve
+D. Another option for new year’s day",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""New Year’s Day""."
+new-years-day,Single Best Answer,"Chọn đáp án đúng cho: ""Complete: “I’m ___ save more money.”""","A. going to
+B. go to
+C. gone to
+D. Another option for new year’s day",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""New Year’s Day""."
+new-years-day,Single Best Answer,"Chọn đáp án đúng cho: ""Which sentence wishes someone well?""","A. I wish you a Happy New Year!
+B. I am New Year.
+C. New Year is here.
+D. Another option for new year’s day",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""New Year’s Day""."
+new-years-day,Single Best Answer,"Từ nào sau đây có nghĩa là ""Ngày đầu năm mới""?","A. New Year’s Day
+B. resolution
+C. fresh start
+D. goal",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""New Year’s Day""."
+psychology-mind,Single Best Answer,Which word means “động lực”?,"A. motivation
+B. anxiety
+C. habit
+D. Another option for psychology and the mind",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Psychology and the mind""."
+psychology-mind,Single Best Answer,Which word means “đồng cảm”?,"A. empathy
+B. trigger
+C. coping
+D. Another option for psychology and the mind",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Psychology and the mind""."
+psychology-mind,Single Best Answer,"Chọn đáp án đúng cho: ""Complete: “I ___ to worry a lot.”""","A. used
+B. use
+C. using
+D. Another option for psychology and the mind",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Psychology and the mind""."
+psychology-mind,Single Best Answer,"Chọn đáp án đúng cho: ""Which sentence gives advice?""","A. If you feel anxious, take a deep breath.
+B. I am anxious.
+C. Anxiety exists.
+D. Another option for psychology and the mind",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Psychology and the mind""."
+psychology-mind,Single Best Answer,"Từ nào sau đây có nghĩa là ""cảm xúc""?","A. emotion
+B. anxiety
+C. habit
+D. motivation",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Psychology and the mind""."
+sunday-mass,Multiple Choice,Cách hỏi thăm tôn giáo 1 cách lịch sự và tự nhiên?,"A. A. What is your religion?
+B. B. Did you grow up religious?
+C. C. Do you go to church?
+D. D. Do you follow God?
+E. E. What do you usually do on Sundays?
+F. F. Do you go to the church every Sunday?","1,2,4","Lý do sai:
 A - giống như thẩm vấn thông tin hành chính
 
 D - bạn đang theo dõi mọi người nào đó bạn gọi là god trên mạng xã hội sao
@@ -34,10 +337,10 @@ F - có chữ ""the"" lại tạo nên sự khác biệt, để phân biệt gi�
 
 Lý do đúng:
 E - dịch: ""Chủ Nhật bạn thường làm gì?"", cách hỏi mở khéo léo để xem họ có đi lễ không"
-sunday-mass,Single Best Answer,"Chọn câu diễn đạt tự nhiên và chính xác nhất cho ý: ""Tôi thường gởi xe máy ở nhà sách ngay kế bên nhà thờ Chánh Tòa.""","A. I usually send my bike at the bookstore right next to the Parish.
-B. I usually park my bike at the bookstore right next to the Cathedral.
-C. I usually park my bike at the bookstore right next to the short church.
-D. I usually send my motorbike at the bookstore next to Notre-Dame Cathedral.",1,"Lý do sai:
+sunday-mass,Single Best Answer,"Chọn câu diễn đạt tự nhiên và chính xác nhất cho ý: ""Tôi thường gởi xe máy ở nhà sách ngay kế bên nhà thờ Chánh Tòa.""","A. A. I usually send my bike at the bookstore right next to the Parish.
+B. B. I usually park my bike at the bookstore right next to the Cathedral.
+C. C. I usually park my bike at the bookstore right next to the short church.
+D. D. I usually send my motorbike at the bookstore next to Notre-Dame Cathedral.",1,"Lý do sai:
 A - dịch: ""Tôi thường gửi bưu điện chiếc xe ở nhà sách kế bên Giáo xứ"", động từ ""send"" chỉ dùng cho gửi thư/hàng, còn ""Parish"" là giáo xứ chứ không phải nhà thờ Chánh Tòa
 
 C - dịch: ""Tôi thường gởi xe ở nhà sách ngay kế bên cái nhà thờ thấp/ngắn"", cụm ""short church"" không có nghĩa là nhà thờ Chánh Tòa
@@ -46,10 +349,10 @@ D - dịch: ""Tôi thường gửi bưu điện chiếc xe máy ở nhà sách k
 
 Lý do đúng:
 B - dịch: ""Tôi thường gởi xe máy ở nhà sách ngay kế bên nhà thờ Chánh Tòa"", dùng đúng động từ ""park"" (gởi/đỗ xe), cách gọi gọn tự nhiên ""bike"" (thay cho motorbike trong văn nói) và ""the Cathedral"" (nhà thờ Chánh Tòa)"
-sunday-mass,Multiple Choice,Bạn muốn nhắc nhở lịch sự một người bạn không được mặc quần ngắn khi vào nhà thờ. Những câu nào ĐÚNG ngữ pháp và tự nhiên?,"A. Just a quick heads-up: you’re not allowed to wear shorts when entering the church.
-B. You mustn't wear short when you go into the church.
-C. Everyone should dress modestly and wear long pants outta respect for the sacred space.
-D. Please don't wear short pants because it's not polite for church.","0,2","Lý do sai:
+sunday-mass,Multiple Choice,Bạn muốn nhắc nhở lịch sự một người bạn không được mặc quần ngắn khi vào nhà thờ. Những câu nào ĐÚNG ngữ pháp và tự nhiên?,"A. A. Just a quick heads-up: you’re not allowed to wear shorts when entering the church.
+B. B. You mustn't wear short when you go into the church.
+C. C. Everyone should dress modestly and wear long pants outta respect for the sacred space.
+D. D. Please don't wear short pants because it's not polite for church.","0,2","Lý do sai:
 B - dịch: ""Bạn cấm được mặc ngắn khi đi vào nhà thờ"", danh từ quần ngắn luôn phải có ""s"" là ""shorts"" (""short"" là tính từ), ngoài ra dùng ""mustn't"" nghe gắt như ra lệnh
 
 D - dịch: ""Làm ơn đừng mặc quần ngắn vì nó không lịch sự cho nhà thờ"", người bản xứ gọi quần đùi/quần ngắn là ""shorts"" chứ không nói ""short pants"", và ""not polite for church"" bị dịch từng chữ từ tiếng Việt
@@ -58,10 +361,10 @@ Lý do đúng:
 A - dịch: ""Nhắc nhẹ bạn chút nhé: bạn không được phép mặc quần ngắn khi bước vào nhà thờ đâu"", mở đầu tự nhiên bằng ""Just a quick heads-up"", dùng rút gọn ""you're"" và chia đúng số nhiều ""shorts""
 
 C - dịch: ""Mọi người nên ăn mặc kín đáo và mặc quần dài để tỏ lòng tôn trọng không gian tôn nghiêm"", dùng ""should"" khuyên nhẹ nhàng kèm dạng nói tắt/viết nhanh phổ biến ""outta"" (out of)"
-sunday-mass,Single Best Answer,Bạn vừa mới chở con tới lớp giáo lý cách đây vài phút và nhắn tin báo cho người nhà biết. Câu nào phù hợp nhất với ngữ cảnh này?,"A. I drop my kid off at catechism every Sunday.
-B. I took my kid to Mass since two minutes.
-C. I’m dropping my kid at Catechumen right now.
-D. I’ve just taken my kid to catechism, so I’m free now.",3,"Lý do sai:
+sunday-mass,Single Best Answer,Bạn vừa mới chở con tới lớp giáo lý cách đây vài phút và nhắn tin báo cho người nhà biết. Câu nào phù hợp nhất với ngữ cảnh này?,"A. A. I drop my kid off at catechism every Sunday.
+B. B. I took my kid to Mass since two minutes.
+C. C. I’m dropping my kid at Catechumen right now.
+D. D. I’ve just taken my kid to catechism, so I’m free now.",3,"Lý do sai:
 A - dịch: ""Tôi chở con đi học giáo lý mỗi Chủ Nhật"", thì hiện tại đơn chỉ thói quen lặp lại hằng tuần chứ không diễn tả việc vừa mới làm xong
 
 B - dịch: ""Tôi đã đưa con đi lễ kể từ hai phút"", sai ngữ pháp ""since two minutes"" (phải là ""two minutes ago"") và sai nghĩa đi lễ thay vì đi học giáo lý
@@ -70,10 +373,10 @@ C - dịch: ""Tôi đang thả con tôi ở người dự tòng ngay bây giờ"
 
 Lý do đúng:
 D - dịch: ""Tôi vừa mới đưa con đi học giáo lý xong, nên giờ tôi rảnh rồi"", dùng thì hiện tại hoàn thành rút gọn ""I’ve just taken"" diễn tả hành động vừa hoàn tất ngay trước lúc nói, dùng ""kid"" và ""I'm"" rất tự nhiên"
-sunday-mass,Multiple Choice,"Sau Thánh lễ sáng Chủ Nhật ở Nhà thờ Đức Bà, bạn rủ người bạn nước ngoài dạo Đường Sách kế bên và uống cà phê bệt. Câu nào tự nhiên nhất?","A. How 'bout go to Book Street next to and buy street coffee?
-B. Do you want walk in Book Street beside and drink coffee on the ground?
-C. Wanna take a quick stroll through the Book Street next door and grab some sidewalk coffee?
-D. Let's walking through the Book Street and sitting on the pavement for coffee.",2,"Lý do sai:
+sunday-mass,Multiple Choice,"Sau Thánh lễ sáng Chủ Nhật ở Nhà thờ Đức Bà, bạn rủ người bạn nước ngoài dạo Đường Sách kế bên và uống cà phê bệt. Câu nào tự nhiên nhất?","A. A. How 'bout go to Book Street next to and buy street coffee?
+B. B. Do you want walk in Book Street beside and drink coffee on the ground?
+C. C. Wanna take a quick stroll through the Book Street next door and grab some sidewalk coffee?
+D. D. Let's walking through the Book Street and sitting on the pavement for coffee.",2,"Lý do sai:
 A - dịch thô: ""Hay là đi Đường Sách kế bên và mua cà phê đường phố?"", sau ""How 'bout"" phải dùng V-ing (""going"") và ""next to"" không có danh từ theo sau là sai ngữ pháp
 
 B - dịch thô: ""Bạn có muốn đi bộ trong Đường Sách bên cạnh và uống cà phê trên mặt đất không?"", thiếu ""to"" sau ""want"", dùng sai giới từ ""beside"" đứng một mình và dịch ""cà phê bệt"" thành ""coffee on the ground"" nghe mất vệ sinh
@@ -84,10 +387,10 @@ Lý do đúng:
 C - dịch: ""Làm một vòng dạo Đường Sách kế bên rồi làm ly cà phê bệt không?"", dùng dạng nói tắt tự nhiên ""Wanna"" (Do you want to), cụm ""take a quick stroll"" (đi dạo một vòng ngắn), ""next door"" (ngay kế bên) và ""sidewalk coffee"" (cà phê vỉa hè/cà phê bệt)"
 sunday-mass,Single Best Answer,"Tình huống: Đồng nghiệp nước ngoài thấy Nhà thờ Đức Bà Sài Gòn đang quây giàn giáo nên hỏi có vào tham quan được không.
 ❌ Câu sượng: ""Now it is repairing, so tourists cannot go inside to see, only people go to Mass can go.""
-Đâu là câu phù hợp và tự nhiên nhất để nói chuyện đời thường với đồng nghiệp?","A. At the present time, the Cathedral is undergoing architectural maintenance, therefore sightseeing visitors are prohibited from entering, and access is strictly restricted to worshippers attending Mass.
-B. It's under restoration right now, so they've closed it to tourists—only folks attending Mass can go inside.
-C. The building is being fixed at the moment, so travelers are not able to look around, and only people who pray can enter.
-D. It's currently closed for repairs, so nobody is permitted to enter the premises except for registered church members.",1,"Lý do sai:
+Đâu là câu phù hợp và tự nhiên nhất để nói chuyện đời thường với đồng nghiệp?","A. A. At the present time, the Cathedral is undergoing architectural maintenance, therefore sightseeing visitors are prohibited from entering, and access is strictly restricted to worshippers attending Mass.
+B. B. It's under restoration right now, so they've closed it to tourists—only folks attending Mass can go inside.
+C. C. The building is being fixed at the moment, so travelers are not able to look around, and only people who pray can enter.
+D. D. It's currently closed for repairs, so nobody is permitted to enter the premises except for registered church members.",1,"Lý do sai:
 A - dịch: ""Vào thời điểm hiện tại, Nhà thờ Chánh Tòa đang trải qua quá trình bảo trì kiến trúc, do đó khách tham quan bị nghiêm cấm bước vào, và quyền tiếp cận chỉ giới hạn nghiêm ngặt cho tín đồ dự lễ"", câu hoàn toàn đúng ngữ pháp nhưng quá trang trọng, cứng nhắc như thông báo hành chính hay biển báo luật, không hợp để trò chuyện đời thường với đồng nghiệp
 
 C - dịch: ""Tòa nhà đang được sửa chữa lúc này, nên khách lữ hành không thể đi dạo quanh xem, và chỉ những người cầu nguyện mới được vào"", đúng ngữ pháp nhưng dùng từ chưa đắt: ""being fixed"" thường dùng cho đồ vật hỏng hóc hơn là trùng tu di sản (""under restoration""), ""travelers"" nghe giống khách đi đường/sân bay hơn là khách du lịch (""tourists""), và ""people who pray"" diễn đạt hơi gượng so với ""folks attending Mass""
@@ -96,366 +399,843 @@ D - dịch: ""Hiện tại nơi này đóng cửa để sửa chữa, nên khôn
 
 Lý do đúng:
 B - dịch: ""Nhà thờ đang trùng tu nên họ đóng cửa với khách tham quan rồi—chỉ những ai đi dự lễ mới được vào bên trong thôi"", vừa chuẩn ngữ pháp vừa tự nhiên nhất nhờ dùng dạng rút gọn (""It's"", ""they've""), từ vựng chuẩn ngành bảo tồn (""under restoration""), cụm ""closed it to tourists"" và cách gọi thân mật ""folks"" (mọi người)"
-devops-meeting,Single Best Answer,Choose the correct stand-up update:,"We have deployed the patch to staging.
-We have deploy the patch to staging.
-We has deployed the patch to staging.",0,Present perfect is have/has + past participle: have deployed.
-devops-meeting,Single Best Answer,Which word means “sự cố nghiêm trọng”?,"incident
-insight
-instance",0,An incident is an unplanned event that disrupts a service.
-devops-meeting,Single Best Answer,Complete the sentence: “The error rate ___ after the rollback.”,"dropped
-drop
-dropping",0,Use past simple for a finished action: the error rate dropped.
-devops-meeting,Single Best Answer,Which sentence proposes next steps in a meeting?,"Let’s assign an owner and set a deadline.
-That is not my job.
-Someone should do it eventually.",0,A clear owner plus a deadline keeps the meeting actionable.
-neighbor-morning,Single Best Answer,Which is the most natural morning greeting to a neighbor?,"Morning! How’s it going?
-Good morning, citizen. State your purpose.
-Hello. What do you want?",0,"A short, friendly greeting with a light question fits small talk."
-neighbor-morning,Single Best Answer,Which phrase ends a short chat politely?,"Have a good one!
-Go away now.
-Stop talking.",0,"“Have a good one!” is a casual, friendly sign-off."
-neighbor-morning,Single Best Answer,"Complete the question tag: “Lovely morning, ___?”","isn’t it
-is it
-doesn’t it",0,A positive statement takes a negative tag: isn’t it?
-neighbor-morning,Single Best Answer,Which sentence is typical small talk?,"I’m just heading to the station.
-I need to see your ID.
-Move out of my way, please.",0,"Small talk shares a light, everyday detail."
-daily-meals,Single Best Answer,Which meal do you usually eat in the evening?,"dinner
-breakfast
-lunch",0,Dinner is the main meal in the evening.
-daily-meals,Single Best Answer,Complete the sentence: “I usually ___ breakfast at 7 a.m.”,"have
-has
-having",0,"With “I”, use the base form: I have breakfast."
-daily-meals,Single Best Answer,Which phrase means “ăn ngoài”?,"eat out
-eat up
-eat in",0,“Eat out” means to eat at a restaurant instead of at home.
-daily-meals,Single Best Answer,Which sentence is polite when ordering food?,"Could I have a bowl of soup, please?
-Give me soup.
-I want soup now.",0,"“Could I have …, please?” is the standard polite request."
-autumn-routine,Single Best Answer,Choose the correct sentence about an autumn routine:,"I am usually walk in the park in autumn.
-I usually walk in the park in autumn.
-I usually walks in the park in autumn.",1,Use present simple for habits: subject + base verb.
-autumn-routine,Single Best Answer,Which phrase means “trở lại thói quen”?,"wrap up warm
-get back into routine
-energy level",1,“Get back into routine” means to return to a usual habit.
-autumn-routine,Single Best Answer,Complete the sentence: “This week I’m ___ to sleep earlier.”,"try
-trying
-tried",1,Present continuous uses am/is/are + -ing for temporary changes.
-autumn-routine,Single Best Answer,Which sentence keeps a conversation going?,"That sounds like a good plan. How about you?
-I usually walk in the park.
-Wrap up warm.",0,A reaction plus a follow-up question extends the conversation.
-work-update,Single Best Answer,Choose the correct work update:,"We are on track, but we still has one blocker.
-We are on track, but we still have one blocker.
-We on track, but we still have one blocker.",1,Use “have” with “we” and keep the full verb phrase.
-work-update,Single Best Answer,Which word means “điểm chặn”?,"hand off
-blocker
-on track",1,A blocker is something that stops progress.
-work-update,Single Best Answer,Which sentence reports progress with present perfect?,"We finished the first review.
-We have finished the first review.
-We are finish the first review.",1,Present perfect is have/has + past participle.
-work-update,Single Best Answer,Which reply shows polite turn-taking in a meeting?,"Can I add something?
-You are wrong.
-No, listen to me.",0,“Can I add something?” is a polite way to take a turn.
-black-friday,Single Best Answer,Choose the correct shopping sentence:,"This deal is worth than the other one.
-This deal is more worth than the other one.
-This deal is worth it.",2,“Worth it” is a common chunk; avoid forcing a comparative.
-black-friday,Single Best Answer,Which word means “giảm giá”?,"deal
-discount
-worth it",1,A discount is a reduction in price.
-black-friday,Single Best Answer,Complete the comparison: “The discount is bigger ___.”,"than online
-online than
-more online",1,Use comparative + than: bigger than …
-black-friday,Single Best Answer,Which sentence asks about a choice?,"I’m not sure whether to buy now or wait.
-I’m not sure if to buy now or wait.
-I’m not sure buy now or wait.",0,Use whether + to-infinitive when presenting a choice.
-devops-release-planning,Single Best Answer,Choose the correct future arrangement:,"We’re releasing on Thursday.
-We release on Thursday tomorrow.
-We are release on Thursday.",0,Present continuous describes a fixed future arrangement.
-devops-release-planning,Single Best Answer,Which term means “đóng băng mã nguồn”?,"code freeze
-canary
-capacity",0,A code freeze stops code changes before a release.
-devops-release-planning,Single Best Answer,Complete the sentence: “We ___ freeze the code by Wednesday.”,"need to
-need
-needing",0,Use need + to-infinitive to express obligation.
-devops-release-planning,Single Best Answer,Which sentence gives a condition for rollout?,"If the canary looks healthy, we’ll roll out.
-The canary looks healthy.
-We roll out maybe.",0,"First conditional: if + present simple, will + verb."
-neighbor-weekend,Single Best Answer,Complete the sentence: “I ___ fix the fence this weekend.”,"am going to
-going to
-go to",0,‘Be going to’ needs the verb be: I am going to fix …
-neighbor-weekend,Single Best Answer,Which word means “mượn”?,"borrow
-lend
-bring",0,You borrow something from someone; they lend it to you.
-neighbor-weekend,Single Best Answer,Which sentence is a polite request?,"Could you lend me a ladder?
-Give me your ladder.
-Ladder, now.",0,“Could you …?” is a polite way to ask for help.
-neighbor-weekend,Single Best Answer,Which question asks about weekend plans?,"Are you doing anything fun this weekend?
-What is your address?
-Do you have a receipt?",0,This question invites the other person to share plans.
-eating-out,Single Best Answer,Which sentence is polite when asking for the bill?,"Could we have the bill, please?
-Bill now.
-Give bill.",0,"“Could we … , please?” is the standard polite form."
-eating-out,Single Best Answer,Which phrase means “chia hoá đơn”?,"split the bill
-takeaway
-tip",0,To split the bill is to share the cost between people.
-eating-out,Single Best Answer,Complete the sentence: “Could I have ___ more rice?”,"a little
-a few
-many",0,"Rice is uncountable, so use a little."
-eating-out,Single Best Answer,Which question asks for a recommendation?,"What do you recommend?
-What is your name?
-Where is the exit?",0,“What do you recommend?” asks for a suggestion.
-meal-prep,Single Best Answer,Which word means “nguyên liệu”?,"ingredients
-groceries
-recipe",0,Ingredients are the items you use to cook a dish.
-meal-prep,Single Best Answer,Complete the sentence: “You ___ prep meals on Sunday.”,"should
-should to
-shoulds",0,"Use should + base verb, without to."
-meal-prep,Single Best Answer,Which sentence gives advice?,"You should drink more water.
-You drink more water.
-Drinking water yesterday.",0,Should expresses advice or a recommendation.
-meal-prep,Single Best Answer,Which phrase means “đồ ăn vặt”?,"junk food
-meal prep
-protein",0,Junk food is food with little nutritional value.
-tet-lunar-new-year,Multiple Choice,Which word means “lì xì”?,"lucky money
-incense
-ancestors
-traditional food",0,"Lý do đúng:
-lucky money - dịch: ""tiền may mắn / lì xì"", từ chính xác cho tiền mừng tuổi trong dịp Tết"
-tet-lunar-new-year,Single Best Answer,Which sentence wishes someone well?,"I wish you a Happy New Year!
-I am Tết.
-Tết is here.",0,"Lý do đúng:
-I wish you a Happy New Year! - dịch: ""Chúc bạn năm mới vui vẻ!"", cách chúc Tết tự nhiên và lịch sự"
-tet-lunar-new-year,Multiple Choice,Complete: “We’re ___ cook sticky rice cake this year.”,"going to
-go to
-gone to",0,"Lý do đúng:
-going to - dịch: ""sẽ"", cấu trúc be going to + V diễn tả dự định đã quyết trước"
-tet-lunar-new-year,Single Best Answer,Which sentence is polite when visiting relatives?,"Would you like to come in for tea?
-Come in now.
-You must enter.",0,"Lý do đúng:
-Would you like to come in for tea? - dịch: ""Bạn có muốn vào uống trà không?"", lời mời lịch sự, tự nhiên"
-tet-lunar-new-year,Multiple Choice,Which word means “đoàn viên”?,"family reunion
-traditional food
-visit relatives
-incense",0,"Lý do đúng:
-family reunion - dịch: ""đoàn viên / sum họp gia đình"", từ chính xác"
-tet-lunar-new-year,Single Best Answer,Choose the most natural sentence for Tet preparations:,"I've already cleaned the house for Tết.
-I cleaned house for Tết yesterday already.
-I have cleaned house for Tết.",0,"Lý do đúng:
-I've already cleaned the house for Tết. - dịch: ""Tôi đã dọn nhà xong cho Tết rồi"", dùng present perfect với already diễn tả việc đã hoàn thành và còn liên quan hiện tại"
-tet-lunar-new-year,Multiple Choice,Which sentence gives advice for Tet?,"You should buy gifts before the shops close.
-You must buy gifts now.
-Buy gifts.",0,"Lý do đúng:
-You should buy gifts before the shops close. - dịch: ""Bạn nên mua quà trước khi cửa hàng đóng"", lời khuyên lịch sự, tự nhiên"
-valentines-day,Multiple Choice,Which word means “bó hoa”?,"bouquet
-chocolate
-romantic
-surprise",0,"Lý do đúng:
-bouquet - dịch: ""bó hoa"", từ chính xác"
-valentines-day,Single Best Answer,Which word means “cầu hôn”?,"propose
-couple
-date
-surprise",0,"Lý do đúng:
-propose - dịch: ""cầu hôn"", động từ chính xác"
-valentines-day,Multiple Choice,Complete: “I’m ___ cook a romantic dinner.”,"going to
-go to
-gone to",0,"Lý do đúng:
-going to - dịch: ""sẽ"", cấu trúc be going to + V"
-valentines-day,Single Best Answer,Which sentence wishes someone well?,"I wish you a Happy Valentine's Day!
-I am Valentine.
-Valentine is here.",0,"Lý do đúng:
-I wish you a Happy Valentine's Day! - dịch: ""Chúc bạn Valentine vui vẻ!"", cách chúc tự nhiên"
-valentines-day,Multiple Choice,Which word means “thư tình”?,"love letter
-bouquet
-chocolate
-couple",0,"Lý do đúng:
-love letter - dịch: ""thư tình"", từ chính xác"
-valentines-day,Single Best Answer,Choose the most natural sentence for Valentine plans:,"I'm going to cook a romantic dinner.
-I cook romantic dinner tonight.
-I will cooking romantic dinner.",0,"Lý do đúng:
-I'm going to cook a romantic dinner. - dịch: ""Tôi sẽ nấu một bữa tối lãng mạn"", dùng be going to + V cho dự định"
-valentines-day,Multiple Choice,Which sentence gives advice for Valentine?,"You should book the restaurant in advance.
-You must book now.
-Book restaurant.",0,"Lý do đúng:
-You should book the restaurant in advance. - dịch: ""Bạn nên đặt nhà hàng trước"", lời khuyên lịch sự"
-new-years-day,Multiple Choice,Which word means “quyết tâm”?,"resolution
-goal
-habit
-fresh start",0,"Lý do đúng:
-resolution - dịch: ""quyết tâm / quyết định"", từ chính xác"
-new-years-day,Single Best Answer,Which sentence wishes someone well?,"I wish you a Happy New Year!
-I am New Year.
-New Year is here.",0,"Lý do đúng:
-I wish you a Happy New Year! - dịch: ""Chúc bạn năm mới vui vẻ!"", cách chúc tự nhiên"
-new-years-day,Multiple Choice,Complete: “I’m ___ save more money this year.”,"going to
-go to
-gone to",0,"Lý do đúng:
-going to - dịch: ""sẽ"", cấu trúc be going to + V diễn tả dự định"
-new-years-day,Single Best Answer,Which sentence is polite when sharing goals?,"I would like to spend more time with my family.
-You must spend time with family.
-Spend time with family.",0,"Lý do đúng:
-I would like to spend more time with my family. - dịch: ""Tôi muốn dành nhiều thời gian hơn cho gia đình"", lời nói lịch sự, tự nhiên"
-new-years-day,Multiple Choice,Which word means “khởi đầu mới”?,"fresh start
-resolution
-habit
-countdown",0,"Lý do đúng:
-fresh start - dịch: ""khởi đầu mới"", từ chính xác"
-new-years-day,Single Best Answer,Choose the most natural sentence for New Year plans:,"I'm going to learn a new language.
-I learn new language this year.
-I will learning new language.",0,"Lý do đúng:
-I'm going to learn a new language. - dịch: ""Tôi sẽ học một ngôn ngữ mới"", dùng be going to + V cho dự định"
-new-years-day,Multiple Choice,Which sentence gives advice for New Year?,"You should start small and build habits gradually.
-You must change everything now.
-Change now.",0,"Lý do đúng:
-You should start small and build habits gradually. - dịch: ""Bạn nên bắt đầu từ nhỏ và xây dựng thói quen dần dần"", lời khuyên lịch sự"
-psychology-mind,Multiple Choice,Which word means “động lực”?,"motivation
-anxiety
-habit
-mindset",0,"Lý do đúng:
-motivation - dịch: ""động lực"", từ chính xác"
-psychology-mind,Single Best Answer,Which word means “đồng cảm”?,"empathy
-resilience
-trigger
-emotion",0,"Lý do đúng:
-empathy - dịch: ""đồng cảm"", từ chính xác"
-psychology-mind,Multiple Choice,Complete: “I ___ to worry a lot.”,"used
-use
-using",0,"Lý do đúng:
-used - dịch: ""từng"", cấu trúc used to + V cho thói quen quá khứ"
-psychology-mind,Single Best Answer,Which sentence gives advice?,"If you feel anxious, take a deep breath.
-I am anxious.
-Anxiety exists.",0,"Lý do đúng:
-If you feel anxious, take a deep breath. - dịch: ""Nếu bạn cảm thấy lo lắng, hãy hít thở sâu"", first conditional cho lời khuyên"
-psychology-mind,Multiple Choice,Which word means “kiệt sức”?,"burnout
-anxiety
-emotion
-trigger",0,"Lý do đúng:
-burnout - dịch: ""kiệt sức"", từ chính xác"
-psychology-mind,Single Best Answer,Choose the most natural sentence for mental health:,"I've been practicing mindfulness for three months.
-I practice mindfulness since three months.
-I am practicing mindfulness for three months.",0,"Lý do đúng:
-I've been practicing mindfulness for three months. - dịch: ""Tôi đã thực hành chánh niệm được ba tháng"", present perfect continuous"
-psychology-mind,Multiple Choice,Which sentence gives advice for stress?,"You should take a short walk and listen to music.
-You must walk now.
-Walk.",0,"Lý do đúng:
-You should take a short walk and listen to music. - dịch: ""Bạn nên đi bộ một chút và nghe nhạc"", lời khuyên lịch sự"
-weekend-market,Multiple Choice,Which word means “tươi”?,"fresh
-cash
-bag
-bargain",0,"Lý do đúng:
-fresh - dịch: ""tươi"", từ chính xác"
-weekend-market,Single Best Answer,"Complete: “Could you ___ these tomatoes, please?”","weigh
-weighs
-weighing",0,"Lý do đúng:
-weigh - dịch: ""cân"", động từ nguyên mẫu sau could you"
-weekend-market,Multiple Choice,Which question asks about price?,"How much are these oranges?
-What is your name?
-Where is the market?",0,"Lý do đúng:
-How much are these oranges? - dịch: ""Những quả cam này giá bao nhiêu?"", câu hỏi về giá"
-weekend-market,Single Best Answer,Which sentence is polite when buying?,"Could you weigh these tomatoes, please?
-Weigh these tomatoes.
-You must weigh tomatoes.",0,"Lý do đúng:
-Could you weigh these tomatoes, please? - dịch: ""Bạn có thể cân những quả cà chua này không?"", lời nhờ vả lịch sự"
-weekend-market,Multiple Choice,Which word means “món hời”?,"bargain
-vendor
-receipt
-cash",0,"Lý do đúng:
-bargain - dịch: ""món hời"", từ chính xác"
-weekend-market,Single Best Answer,Choose the most natural sentence for market shopping:,"I usually buy fresh vegetables at the market on Sunday.
-I buy fresh vegetables usually at market Sunday.
-Usually I buy fresh vegetables market on Sunday.",0,"Lý do đúng:
-I usually buy fresh vegetables at the market on Sunday. - dịch: ""Tôi thường mua rau tươi ở chợ vào Chủ nhật"", trật tự từ tự nhiên"
-weekend-market,Multiple Choice,Which sentence gives advice for market shopping?,"You should bring a reusable bag.
-You must bring bag.
-Bring bag.",0,"Lý do đúng:
-You should bring a reusable bag. - dịch: ""Bạn nên mang túi tái sử dụng"", lời khuyên lịch sự"
-weekend-outing,Multiple Choice,Which phrase suggests an activity?,"Let's meet up at seven.
-I am meeting.
-Meeting is good.",0,"Lý do đúng:
-Let's meet up at seven. - dịch: ""Hãy gặp nhau lúc bảy giờ"", gợi ý tự nhiên"
-weekend-outing,Single Best Answer,Which word means “gặp nhau”?,"meet up
-traffic
-cinema
-café",0,"Lý do đúng:
-meet up - dịch: ""gặp nhau"", từ chính xác"
-weekend-outing,Multiple Choice,Complete: “We’re ___ watch a movie.”,"going to
-go to
-gone to",0,"Lý do đúng:
-going to - dịch: ""sẽ"", cấu trúc be going to + V"
-weekend-outing,Single Best Answer,Which sentence apologises for being late?,"I'm sorry for being late.
-I am late.
-Late I am.",0,"Lý do đúng:
-I'm sorry for being late. - dịch: ""Tôi xin lỗi vì đến muộn"", câu xin lỗi tự nhiên"
-weekend-outing,Multiple Choice,Which word means “chia hoá đơn”?,"split the tab
-meet up
-traffic
-café",0,"Lý do đúng:
-split the tab - dịch: ""chia hoá đơn"", cụm từ chính xác"
-weekend-outing,Single Best Answer,Choose the most natural sentence for outings:,"Would you like to grab a coffee?
-You want coffee?
-Coffee you want?",0,"Lý do đúng:
-Would you like to grab a coffee? - dịch: ""Bạn có muốn đi uống cà phê không?"", lời mời lịch sự"
-weekend-outing,Multiple Choice,Which sentence gives advice for outings?,"You should book tickets in advance.
-You must book now.
-Book tickets.",0,"Lý do đúng:
-You should book tickets in advance. - dịch: ""Bạn nên đặt vé trước"", lời khuyên lịch sự"
-weekend-rest,Multiple Choice,Which word means “ngủ nướng”?,"sleep in
-nap
-unwind
-recharge",0,"Lý do đúng:
-sleep in - dịch: ""ngủ nướng"", từ chính xác"
-weekend-rest,Single Best Answer,Which sentence means “thư giãn”?,"I'm just relaxing on the sofa.
-I am sofa.
-Sofa is here.",0,"Lý do đúng:
-I'm just relaxing on the sofa. - dịch: ""Tôi đang thư giãn trên ghế sofa"", câu tự nhiên"
-weekend-rest,Multiple Choice,Complete: “I ___ staying in bed.”,"feel like
-feel
-feeling",0,"Lý do đúng:
-feel like - dịch: ""muốn"", cấu trúc feel like + V-ing"
-weekend-rest,Single Best Answer,Which phrase means “không đặt báo thức”?,"no alarm
-sleep in
-nap
-recharge",0,"Lý do đúng:
-no alarm - dịch: ""không đặt báo thức"", cụm từ chính xác"
-weekend-rest,Multiple Choice,Which word means “lười”?,"lazy
-cozy
-nap
-recharge",0,"Lý do đúng:
-lazy - dịch: ""lười"", từ chính xác"
-weekend-rest,Single Best Answer,Choose the most natural sentence for rest:,"I'm not doing anything at all today.
-I am not doing today anything at all.
-Not doing anything at all I am today.",0,"Lý do đúng:
-I'm not doing anything at all today. - dịch: ""Hôm nay tôi không làm gì cả"", trật tự từ tự nhiên"
-weekend-rest,Multiple Choice,Which sentence gives advice for rest?,"You should take a nap later.
-You must nap now.
-Nap.",0,"Lý do đúng:
-You should take a nap later. - dịch: ""Bạn nên nghỉ trưa sau"", lời khuyên lịch sự"
-household-chores,Multiple Choice,Which word means “việc nhà”?,"chore
-laundry
-dishes
-vacuum",0,"Lý do đúng:
-chore - dịch: ""việc nhà"", từ chính xác"
-household-chores,Single Best Answer,Complete: “I ___ do the laundry today.”,"have to
-has to
-having to",0,"Lý do đúng:
-have to - dịch: ""phải"", cấu trúc have to + V"
-household-chores,Multiple Choice,Which question asks who does a task?,"Who is doing the dishes?
-What is the dish?
-Where is the dish?",0,"Lý do đúng:
-Who is doing the dishes? - dịch: ""Ai đang rửa bát?"", câu hỏi về người làm"
-household-chores,Single Best Answer,Which sentence means “đổ rác”?,"I've already taken out the trash.
-I take trash.
-Trash is taken.",0,"Lý do đúng:
-I've already taken out the trash. - dịch: ""Tôi đã đổ rác rồi"", câu tự nhiên"
-household-chores,Multiple Choice,Which word means “dọn dẹp”?,"tidy up
-chore
-laundry
-dishes",0,"Lý do đúng:
-tidy up - dịch: ""dọn dẹp"", cụm từ chính xác"
-household-chores,Single Best Answer,Choose the most natural sentence for chores:,"Let's split the chores this weekend.
-We split chores weekend.
-Splitting chores weekend let's.",0,"Lý do đúng:
-Let's split the chores this weekend. - dịch: ""Chúng ta chia việc nhà cuối tuần này nhé"", trật tự từ tự nhiên"
-household-chores,Multiple Choice,Which sentence gives advice for chores?,"You should clean the kitchen together.
-You must clean now.
-Clean now.",0,"Lý do đúng:
-You should clean the kitchen together. - dịch: ""Bạn nên dọn bếp cùng nhau"", lời khuyên lịch sự"
+weekend-market,Single Best Answer,Which word means “tươi”?,"A. fresh
+B. cash
+C. bag
+D. Another option for weekend market shopping",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Weekend market shopping""."
+weekend-market,Single Best Answer,"Chọn đáp án đúng cho: ""Complete: “Could you ___ these tomatoes, please?”""","A. weigh
+B. weighs
+C. weighing
+D. Another option for weekend market shopping",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Weekend market shopping""."
+weekend-market,Single Best Answer,"Chọn đáp án đúng cho: ""Which question asks about price?""","A. How much are these oranges?
+B. What is your name?
+C. Where is the exit?
+D. Another option for weekend market shopping",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Weekend market shopping""."
+weekend-market,Single Best Answer,"Chọn đáp án đúng cho: ""Which sentence is polite when buying?""","A. Could you weigh these, please?
+B. Weigh these now.
+C. Give me these.
+D. Another option for weekend market shopping",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Weekend market shopping""."
+weekend-market,Single Best Answer,"Từ nào sau đây có nghĩa là ""chợ""?","A. market
+B. fresh
+C. bargain
+D. vendor",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Weekend market shopping""."
+weekend-outing,Single Best Answer,"Chọn đáp án đúng cho: ""Which phrase suggests an activity?""","A. Let’s meet up at seven.
+B. I am sleeping.
+C. The door is closed.
+D. Another option for going out with friends",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Going out with friends""."
+weekend-outing,Single Best Answer,Which word means “gặp nhau”?,"A. meet up
+B. traffic
+C. late
+D. Another option for going out with friends",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Going out with friends""."
+weekend-outing,Single Best Answer,"Chọn đáp án đúng cho: ""Complete: “We’re ___ watch a movie.”""","A. going to
+B. go to
+C. gone to
+D. Another option for going out with friends",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Going out with friends""."
+weekend-outing,Single Best Answer,"Chọn đáp án đúng cho: ""Which sentence apologises for being late?""","A. Sorry, traffic was bad.
+B. I am never late.
+C. Traffic is good.
+D. Another option for going out with friends",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Going out with friends""."
+weekend-outing,Single Best Answer,"Từ nào sau đây có nghĩa là ""đi chơi""?","A. hang out
+B. café
+C. cinema
+D. meet up",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Going out with friends""."
+weekend-rest,Single Best Answer,Which word means “ngủ nướng”?,"A. sleep in
+B. nap
+C. recharge
+D. Another option for rest and recharge at home",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Rest and recharge at home""."
+weekend-rest,Single Best Answer,Which sentence means “thư giãn”?,"A. I’m unwinding with a book.
+B. I’m working hard.
+C. I’m running fast.
+D. Another option for rest and recharge at home",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Rest and recharge at home""."
+weekend-rest,Single Best Answer,"Chọn đáp án đúng cho: ""Complete: “I ___ staying in bed.”""","A. feel like
+B. feels like
+C. felt like to
+D. Another option for rest and recharge at home",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Rest and recharge at home""."
+weekend-rest,Single Best Answer,Which phrase means “không đặt báo thức”?,"A. no alarm
+B. alarm clock
+C. wake up
+D. Another option for rest and recharge at home",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Rest and recharge at home""."
+weekend-rest,Single Best Answer,"Từ nào sau đây có nghĩa là ""ngủ nướng""?","A. sleep in
+B. unwind
+C. nap
+D. recharge",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Rest and recharge at home""."
+household-chores,Single Best Answer,Which word means “việc nhà”?,"A. chore
+B. laundry
+C. dust
+D. Another option for household chores and cleaning",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Household chores and cleaning""."
+household-chores,Single Best Answer,"Chọn đáp án đúng cho: ""Complete: “I ___ do the laundry today.”""","A. have to
+B. has to
+C. having to
+D. Another option for household chores and cleaning",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Household chores and cleaning""."
+household-chores,Single Best Answer,"Chọn đáp án đúng cho: ""Which question asks who does a task?""","A. Who is doing the dishes?
+B. What is the dish?
+C. Where is the kitchen?
+D. Another option for household chores and cleaning",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Household chores and cleaning""."
+household-chores,Single Best Answer,Which sentence means “đổ rác”?,"A. take out the trash
+B. take in the trash
+C. make the trash
+D. Another option for household chores and cleaning",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Household chores and cleaning""."
+household-chores,Single Best Answer,"Từ nào sau đây có nghĩa là ""việc nhà""?","A. chore
+B. laundry
+C. dishes
+D. vacuum",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Household chores and cleaning""."
+devops-meeting,Single Best Answer,"Chọn đáp án đúng cho: ""Choose the correct stand-up update:""","A. We have deployed the patch to staging.
+B. We have deploy the patch to staging.
+C. We has deployed the patch to staging.
+D. Another option for devops team meeting",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""DevOps team meeting""."
+devops-meeting,Single Best Answer,Which word means “sự cố nghiêm trọng”?,"A. incident
+B. insight
+C. instance
+D. Another option for devops team meeting",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""DevOps team meeting""."
+devops-meeting,Single Best Answer,"Chọn đáp án đúng cho: ""Complete the sentence: “The error rate ___ after the rollback.”""","A. dropped
+B. drop
+C. dropping
+D. Another option for devops team meeting",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""DevOps team meeting""."
+devops-meeting,Single Best Answer,"Chọn đáp án đúng cho: ""Which sentence proposes next steps in a meeting?""","A. Let’s assign an owner and set a deadline.
+B. That is not my job.
+C. Someone should do it eventually.
+D. Another option for devops team meeting",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""DevOps team meeting""."
+devops-meeting,Single Best Answer,"Từ nào sau đây có nghĩa là ""sự cố""?","A. incident
+B. rollback
+C. deployment
+D. pipeline",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""DevOps team meeting""."
+neighbor-morning,Single Best Answer,"Chọn đáp án đúng cho: ""Which is the most natural morning greeting to a neighbor?""","A. Morning! How’s it going?
+B. Good morning, citizen. State your purpose.
+C. Hello. What do you want?
+D. Another option for morning greetings with neighbors",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Morning greetings with neighbors""."
+neighbor-morning,Single Best Answer,"Chọn đáp án đúng cho: ""Which phrase ends a short chat politely?""","A. Have a good one!
+B. Go away now.
+C. Stop talking.
+D. Another option for morning greetings with neighbors",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Morning greetings with neighbors""."
+neighbor-morning,Single Best Answer,"Chọn đáp án đúng cho: ""Complete the question tag: “Lovely morning, ___?”""","A. isn’t it
+B. is it
+C. doesn’t it
+D. Another option for morning greetings with neighbors",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Morning greetings with neighbors""."
+neighbor-morning,Single Best Answer,"Chọn đáp án đúng cho: ""Which sentence is typical small talk?""","A. I’m just heading to the station.
+B. I need to see your ID.
+C. Move out of my way, please.
+D. Another option for morning greetings with neighbors",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Morning greetings with neighbors""."
+neighbor-morning,Single Best Answer,"Từ nào sau đây có nghĩa là ""chào buổi sáng""?","A. good morning
+B. how’s it going
+C. lovely weather
+D. commute",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Morning greetings with neighbors""."
+daily-meals,Single Best Answer,"Chọn đáp án đúng cho: ""Which meal do you usually eat in the evening?""","A. dinner
+B. breakfast
+C. lunch
+D. Another option for breakfast, lunch, and dinner",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Breakfast, lunch, and dinner""."
+daily-meals,Single Best Answer,"Chọn đáp án đúng cho: ""Complete the sentence: “I usually ___ breakfast at 7 a.m.”""","A. have
+B. has
+C. having
+D. Another option for breakfast, lunch, and dinner",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Breakfast, lunch, and dinner""."
+daily-meals,Single Best Answer,Which phrase means “ăn ngoài”?,"A. eat out
+B. eat up
+C. eat in
+D. Another option for breakfast, lunch, and dinner",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Breakfast, lunch, and dinner""."
+daily-meals,Single Best Answer,"Chọn đáp án đúng cho: ""Which sentence is polite when ordering food?""","A. Could I have a bowl of soup, please?
+B. Give me soup.
+C. I want soup now.
+D. Another option for breakfast, lunch, and dinner",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Breakfast, lunch, and dinner""."
+daily-meals,Single Best Answer,"Từ nào sau đây có nghĩa là ""bữa sáng""?","A. breakfast
+B. lunch
+C. dinner
+D. portion",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Breakfast, lunch, and dinner""."
+autumn-routine,Single Best Answer,"Chọn đáp án đúng cho: ""Choose the correct sentence about an autumn routine:""","A. I am usually walk in the park in autumn.
+B. I usually walk in the park in autumn.
+C. I usually walks in the park in autumn.
+D. Another option for autumn routine & energy",1,"Lý do sai:
+A - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+B - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Autumn routine & energy""."
+autumn-routine,Single Best Answer,Which phrase means “trở lại thói quen”?,"A. wrap up warm
+B. get back into routine
+C. energy level
+D. Another option for autumn routine & energy",1,"Lý do sai:
+A - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+B - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Autumn routine & energy""."
+autumn-routine,Single Best Answer,"Chọn đáp án đúng cho: ""Complete the sentence: “This week I’m ___ to sleep earlier.”""","A. try
+B. trying
+C. tried
+D. Another option for autumn routine & energy",1,"Lý do sai:
+A - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+B - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Autumn routine & energy""."
+autumn-routine,Single Best Answer,"Chọn đáp án đúng cho: ""Which sentence keeps a conversation going?""","A. That sounds like a good plan. How about you?
+B. I usually walk in the park.
+C. Wrap up warm.
+D. Another option for autumn routine & energy",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Autumn routine & energy""."
+autumn-routine,Single Best Answer,"Từ nào sau đây có nghĩa là ""mức năng lượng""?","A. energy level
+B. get back into a routine
+C. wrap up warm
+D. cozy",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Autumn routine & energy""."
+work-update,Single Best Answer,"Chọn đáp án đúng cho: ""Choose the correct work update:""","A. We are on track, but we still has one blocker.
+B. We are on track, but we still have one blocker.
+C. We on track, but we still have one blocker.
+D. Another option for work update in english",1,"Lý do sai:
+A - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+B - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Work update in English""."
+work-update,Single Best Answer,Which word means “điểm chặn”?,"A. hand off
+B. blocker
+C. on track
+D. Another option for work update in english",1,"Lý do sai:
+A - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+B - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Work update in English""."
+work-update,Single Best Answer,"Chọn đáp án đúng cho: ""Which sentence reports progress with present perfect?""","A. We finished the first review.
+B. We have finished the first review.
+C. We are finish the first review.
+D. Another option for work update in english",1,"Lý do sai:
+A - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+B - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Work update in English""."
+work-update,Single Best Answer,"Chọn đáp án đúng cho: ""Which reply shows polite turn-taking in a meeting?""","A. Can I add something?
+B. You are wrong.
+C. No, listen to me.
+D. Another option for work update in english",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Work update in English""."
+work-update,Single Best Answer,"Từ nào sau đây có nghĩa là ""đúng tiến độ""?","A. on track
+B. blocker
+C. hand off
+D. deadline",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Work update in English""."
+black-friday,Single Best Answer,"Chọn đáp án đúng cho: ""Choose the correct shopping sentence:""","A. This deal is worth than the other one.
+B. This deal is more worth than the other one.
+C. This deal is worth it.
+D. Another option for black friday shopping",2,"Lý do sai:
+A - chưa phù hợp với ngữ cảnh câu hỏi.
+
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+C - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Black Friday shopping""."
+black-friday,Single Best Answer,Which word means “giảm giá”?,"A. deal
+B. discount
+C. worth it
+D. Another option for black friday shopping",1,"Lý do sai:
+A - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+B - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Black Friday shopping""."
+black-friday,Single Best Answer,"Chọn đáp án đúng cho: ""Complete the comparison: “The discount is bigger ___.”""","A. than online
+B. online than
+C. more online
+D. Another option for black friday shopping",1,"Lý do sai:
+A - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+B - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Black Friday shopping""."
+black-friday,Single Best Answer,"Chọn đáp án đúng cho: ""Which sentence asks about a choice?""","A. I’m not sure whether to buy now or wait.
+B. I’m not sure if to buy now or wait.
+C. I’m not sure buy now or wait.
+D. Another option for black friday shopping",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Black Friday shopping""."
+black-friday,Single Best Answer,"Từ nào sau đây có nghĩa là ""ưu đãi""?","A. deal
+B. discount
+C. worth it
+D. bargain",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Black Friday shopping""."
+devops-release-planning,Single Best Answer,"Chọn đáp án đúng cho: ""Choose the correct future arrangement:""","A. We’re releasing on Thursday.
+B. We release on Thursday tomorrow.
+C. We are release on Thursday.
+D. Another option for devops release planning",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""DevOps release planning""."
+devops-release-planning,Single Best Answer,Which term means “đóng băng mã nguồn”?,"A. code freeze
+B. canary
+C. capacity
+D. Another option for devops release planning",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""DevOps release planning""."
+devops-release-planning,Single Best Answer,"Chọn đáp án đúng cho: ""Complete the sentence: “We ___ freeze the code by Wednesday.”""","A. need to
+B. need
+C. needing
+D. Another option for devops release planning",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""DevOps release planning""."
+devops-release-planning,Single Best Answer,"Chọn đáp án đúng cho: ""Which sentence gives a condition for rollout?""","A. If the canary looks healthy, we’ll roll out.
+B. The canary looks healthy.
+C. We roll out maybe.
+D. Another option for devops release planning",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""DevOps release planning""."
+devops-release-planning,Single Best Answer,"Từ nào sau đây có nghĩa là ""cửa sổ phát hành""?","A. release window
+B. code freeze
+C. staging
+D. canary",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""DevOps release planning""."
+neighbor-weekend,Single Best Answer,"Chọn đáp án đúng cho: ""Complete the sentence: “I ___ fix the fence this weekend.”""","A. am going to
+B. going to
+C. go to
+D. Another option for weekend catch-up with neighbors",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Weekend catch-up with neighbors""."
+neighbor-weekend,Single Best Answer,Which word means “mượn”?,"A. borrow
+B. lend
+C. bring
+D. Another option for weekend catch-up with neighbors",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Weekend catch-up with neighbors""."
+neighbor-weekend,Single Best Answer,"Chọn đáp án đúng cho: ""Which sentence is a polite request?""","A. Could you lend me a ladder?
+B. Give me your ladder.
+C. Ladder, now.
+D. Another option for weekend catch-up with neighbors",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Weekend catch-up with neighbors""."
+neighbor-weekend,Single Best Answer,"Chọn đáp án đúng cho: ""Which question asks about weekend plans?""","A. Are you doing anything fun this weekend?
+B. What is your address?
+C. Do you have a receipt?
+D. Another option for weekend catch-up with neighbors",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Weekend catch-up with neighbors""."
+neighbor-weekend,Single Best Answer,"Từ nào sau đây có nghĩa là ""kế hoạch cuối tuần""?","A. weekend plans
+B. forecast
+C. garden
+D. local market",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Weekend catch-up with neighbors""."
+eating-out,Single Best Answer,"Chọn đáp án đúng cho: ""Which sentence is polite when asking for the bill?""","A. Could we have the bill, please?
+B. Bill now.
+C. Give bill.
+D. Another option for eating out and ordering food",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Eating out and ordering food""."
+eating-out,Single Best Answer,Which phrase means “chia hoá đơn”?,"A. split the bill
+B. takeaway
+C. tip
+D. Another option for eating out and ordering food",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Eating out and ordering food""."
+eating-out,Single Best Answer,"Chọn đáp án đúng cho: ""Complete the sentence: “Could I have ___ more rice?”""","A. a little
+B. a few
+C. many
+D. Another option for eating out and ordering food",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Eating out and ordering food""."
+eating-out,Single Best Answer,"Chọn đáp án đúng cho: ""Which question asks for a recommendation?""","A. What do you recommend?
+B. What is your name?
+C. Where is the exit?
+D. Another option for eating out and ordering food",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Eating out and ordering food""."
+eating-out,Single Best Answer,"Từ nào sau đây có nghĩa là ""thực đơn""?","A. menu
+B. recommendation
+C. order
+D. spicy",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Eating out and ordering food""."
+meal-prep,Single Best Answer,Which word means “nguyên liệu”?,"A. ingredients
+B. groceries
+C. recipe
+D. Another option for meal prep and healthy eating",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Meal prep and healthy eating""."
+meal-prep,Single Best Answer,"Chọn đáp án đúng cho: ""Complete the sentence: “You ___ prep meals on Sunday.”""","A. should
+B. should to
+C. shoulds
+D. Another option for meal prep and healthy eating",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Meal prep and healthy eating""."
+meal-prep,Single Best Answer,"Chọn đáp án đúng cho: ""Which sentence gives advice?""","A. You should drink more water.
+B. You drink more water.
+C. Drinking water yesterday.
+D. Another option for meal prep and healthy eating",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Meal prep and healthy eating""."
+meal-prep,Single Best Answer,Which phrase means “đồ ăn vặt”?,"A. junk food
+B. meal prep
+C. protein
+D. Another option for meal prep and healthy eating",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Meal prep and healthy eating""."
+meal-prep,Single Best Answer,"Từ nào sau đây có nghĩa là ""thực phẩm mua về""?","A. groceries
+B. ingredients
+C. recipe
+D. portion",0,"Lý do sai:
+B - chưa phù hợp với ngữ cảnh câu hỏi.
+
+C - chưa phù hợp với ngữ cảnh câu hỏi.
+
+D - chưa phù hợp với ngữ cảnh câu hỏi.
+
+Lý do đúng:
+A - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề ""Meal prep and healthy eating""."

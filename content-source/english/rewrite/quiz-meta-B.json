@@ -1,0 +1,254 @@
+{
+  "weekend-market": {
+    "existing": [
+      {
+        "question": "Which word means “tươi”?",
+        "extraOption": "Another option for weekend market shopping",
+        "explanation": "Lý do sai:\nB - chưa phù hợp với ngữ cảnh câu hỏi.\n\nC - chưa phù hợp với ngữ cảnh câu hỏi.\n\nD - chưa phù hợp với ngữ cảnh câu hỏi.\n\nLý do đúng:\nA - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề \"Weekend market shopping\"."
+      },
+      {
+        "question": "Chọn đáp án đúng cho: \"Complete: “Could you ___ these tomatoes, please?”\"",
+        "extraOption": "Another option for weekend market shopping",
+        "explanation": "Lý do sai:\nB - chưa phù hợp với ngữ cảnh câu hỏi.\n\nC - chưa phù hợp với ngữ cảnh câu hỏi.\n\nD - chưa phù hợp với ngữ cảnh câu hỏi.\n\nLý do đúng:\nA - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề \"Weekend market shopping\"."
+      },
+      {
+        "question": "Chọn đáp án đúng cho: \"Which question asks about price?\"",
+        "extraOption": "Another option for weekend market shopping",
+        "explanation": "Lý do sai:\nB - chưa phù hợp với ngữ cảnh câu hỏi.\n\nC - chưa phù hợp với ngữ cảnh câu hỏi.\n\nD - chưa phù hợp với ngữ cảnh câu hỏi.\n\nLý do đúng:\nA - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề \"Weekend market shopping\"."
+      },
+      {
+        "question": "Chọn đáp án đúng cho: \"Which sentence is polite when buying?\"",
+        "extraOption": "Another option for weekend market shopping",
+        "explanation": "Lý do sai:\nB - chưa phù hợp với ngữ cảnh câu hỏi.\n\nC - chưa phù hợp với ngữ cảnh câu hỏi.\n\nD - chưa phù hợp với ngữ cảnh câu hỏi.\n\nLý do đúng:\nA - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề \"Weekend market shopping\"."
+      }
+    ],
+    "new": {
+      "questionType": "Single Best Answer",
+      "question": "Từ nào sau đây có nghĩa là \"chợ\"?",
+      "options": [
+        "market",
+        "fresh",
+        "bargain",
+        "vendor"
+      ],
+      "answerIndex": 0,
+      "explanation": "Lý do sai:\nB - chưa phù hợp với ngữ cảnh câu hỏi.\n\nC - chưa phù hợp với ngữ cảnh câu hỏi.\n\nD - chưa phù hợp với ngữ cảnh câu hỏi.\n\nLý do đúng:\nA - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề \"Weekend market shopping\"."
+    }
+  },
+  "weekend-outing": {
+    "existing": [
+      {
+        "question": "Chọn đáp án đúng cho: \"Which phrase suggests an activity?\"",
+        "extraOption": "Another option for going out with friends",
+        "explanation": "Lý do sai:\nB - chưa phù hợp với ngữ cảnh câu hỏi.\n\nC - chưa phù hợp với ngữ cảnh câu hỏi.\n\nD - chưa phù hợp với ngữ cảnh câu hỏi.\n\nLý do đúng:\nA - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề \"Going out with friends\"."
+      },
+      {
+        "question": "Which word means “gặp nhau”?",
+        "extraOption": "Another option for going out with friends",
+        "explanation": "Lý do sai:\nB - chưa phù hợp với ngữ cảnh câu hỏi.\n\nC - chưa phù hợp với ngữ cảnh câu hỏi.\n\nD - chưa phù hợp với ngữ cảnh câu hỏi.\n\nLý do đúng:\nA - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề \"Going out with friends\"."
+      },
+      {
+        "question": "Chọn đáp án đúng cho: \"Complete: “We’re ___ watch a movie.”\"",
+        "extraOption": "Another option for going out with friends",
+        "explanation": "Lý do sai:\nB - chưa phù hợp với ngữ cảnh câu hỏi.\n\nC - chưa phù hợp với ngữ cảnh câu hỏi.\n\nD - chưa phù hợp với ngữ cảnh câu hỏi.\n\nLý do đúng:\nA - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề \"Going out with friends\"."
+      },
+      {
+        "question": "Chọn đáp án đúng cho: \"Which sentence apologises for being late?\"",
+        "extraOption": "Another option for going out with friends",
+        "explanation": "Lý do sai:\nB - chưa phù hợp với ngữ cảnh câu hỏi.\n\nC - chưa phù hợp với ngữ cảnh câu hỏi.\n\nD - chưa phù hợp với ngữ cảnh câu hỏi.\n\nLý do đúng:\nA - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề \"Going out with friends\"."
+      }
+    ],
+    "new": {
+      "questionType": "Single Best Answer",
+      "question": "Từ nào sau đây có nghĩa là \"đi chơi\"?",
+      "options": [
+        "hang out",
+        "café",
+        "cinema",
+        "meet up"
+      ],
+      "answerIndex": 0,
+      "explanation": "Lý do sai:\nB - chưa phù hợp với ngữ cảnh câu hỏi.\n\nC - chưa phù hợp với ngữ cảnh câu hỏi.\n\nD - chưa phù hợp với ngữ cảnh câu hỏi.\n\nLý do đúng:\nA - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề \"Going out with friends\"."
+    }
+  },
+  "weekend-rest": {
+    "existing": [
+      {
+        "question": "Which word means “ngủ nướng”?",
+        "extraOption": "Another option for rest and recharge at home",
+        "explanation": "Lý do sai:\nB - chưa phù hợp với ngữ cảnh câu hỏi.\n\nC - chưa phù hợp với ngữ cảnh câu hỏi.\n\nD - chưa phù hợp với ngữ cảnh câu hỏi.\n\nLý do đúng:\nA - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề \"Rest and recharge at home\"."
+      },
+      {
+        "question": "Which sentence means “thư giãn”?",
+        "extraOption": "Another option for rest and recharge at home",
+        "explanation": "Lý do sai:\nB - chưa phù hợp với ngữ cảnh câu hỏi.\n\nC - chưa phù hợp với ngữ cảnh câu hỏi.\n\nD - chưa phù hợp với ngữ cảnh câu hỏi.\n\nLý do đúng:\nA - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề \"Rest and recharge at home\"."
+      },
+      {
+        "question": "Chọn đáp án đúng cho: \"Complete: “I ___ staying in bed.”\"",
+        "extraOption": "Another option for rest and recharge at home",
+        "explanation": "Lý do sai:\nB - chưa phù hợp với ngữ cảnh câu hỏi.\n\nC - chưa phù hợp với ngữ cảnh câu hỏi.\n\nD - chưa phù hợp với ngữ cảnh câu hỏi.\n\nLý do đúng:\nA - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề \"Rest and recharge at home\"."
+      },
+      {
+        "question": "Which phrase means “không đặt báo thức”?",
+        "extraOption": "Another option for rest and recharge at home",
+        "explanation": "Lý do sai:\nB - chưa phù hợp với ngữ cảnh câu hỏi.\n\nC - chưa phù hợp với ngữ cảnh câu hỏi.\n\nD - chưa phù hợp với ngữ cảnh câu hỏi.\n\nLý do đúng:\nA - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề \"Rest and recharge at home\"."
+      }
+    ],
+    "new": {
+      "questionType": "Single Best Answer",
+      "question": "Từ nào sau đây có nghĩa là \"ngủ nướng\"?",
+      "options": [
+        "sleep in",
+        "unwind",
+        "nap",
+        "recharge"
+      ],
+      "answerIndex": 0,
+      "explanation": "Lý do sai:\nB - chưa phù hợp với ngữ cảnh câu hỏi.\n\nC - chưa phù hợp với ngữ cảnh câu hỏi.\n\nD - chưa phù hợp với ngữ cảnh câu hỏi.\n\nLý do đúng:\nA - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề \"Rest and recharge at home\"."
+    }
+  },
+  "household-chores": {
+    "existing": [
+      {
+        "question": "Which word means “việc nhà”?",
+        "extraOption": "Another option for household chores and cleaning",
+        "explanation": "Lý do sai:\nB - chưa phù hợp với ngữ cảnh câu hỏi.\n\nC - chưa phù hợp với ngữ cảnh câu hỏi.\n\nD - chưa phù hợp với ngữ cảnh câu hỏi.\n\nLý do đúng:\nA - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề \"Household chores and cleaning\"."
+      },
+      {
+        "question": "Chọn đáp án đúng cho: \"Complete: “I ___ do the laundry today.”\"",
+        "extraOption": "Another option for household chores and cleaning",
+        "explanation": "Lý do sai:\nB - chưa phù hợp với ngữ cảnh câu hỏi.\n\nC - chưa phù hợp với ngữ cảnh câu hỏi.\n\nD - chưa phù hợp với ngữ cảnh câu hỏi.\n\nLý do đúng:\nA - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề \"Household chores and cleaning\"."
+      },
+      {
+        "question": "Chọn đáp án đúng cho: \"Which question asks who does a task?\"",
+        "extraOption": "Another option for household chores and cleaning",
+        "explanation": "Lý do sai:\nB - chưa phù hợp với ngữ cảnh câu hỏi.\n\nC - chưa phù hợp với ngữ cảnh câu hỏi.\n\nD - chưa phù hợp với ngữ cảnh câu hỏi.\n\nLý do đúng:\nA - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề \"Household chores and cleaning\"."
+      },
+      {
+        "question": "Which sentence means “đổ rác”?",
+        "extraOption": "Another option for household chores and cleaning",
+        "explanation": "Lý do sai:\nB - chưa phù hợp với ngữ cảnh câu hỏi.\n\nC - chưa phù hợp với ngữ cảnh câu hỏi.\n\nD - chưa phù hợp với ngữ cảnh câu hỏi.\n\nLý do đúng:\nA - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề \"Household chores and cleaning\"."
+      }
+    ],
+    "new": {
+      "questionType": "Single Best Answer",
+      "question": "Từ nào sau đây có nghĩa là \"việc nhà\"?",
+      "options": [
+        "chore",
+        "laundry",
+        "dishes",
+        "vacuum"
+      ],
+      "answerIndex": 0,
+      "explanation": "Lý do sai:\nB - chưa phù hợp với ngữ cảnh câu hỏi.\n\nC - chưa phù hợp với ngữ cảnh câu hỏi.\n\nD - chưa phù hợp với ngữ cảnh câu hỏi.\n\nLý do đúng:\nA - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề \"Household chores and cleaning\"."
+    }
+  },
+  "devops-meeting": {
+    "existing": [
+      {
+        "question": "Chọn đáp án đúng cho: \"Choose the correct stand-up update:\"",
+        "extraOption": "Another option for devops team meeting",
+        "explanation": "Lý do sai:\nB - chưa phù hợp với ngữ cảnh câu hỏi.\n\nC - chưa phù hợp với ngữ cảnh câu hỏi.\n\nD - chưa phù hợp với ngữ cảnh câu hỏi.\n\nLý do đúng:\nA - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề \"DevOps team meeting\"."
+      },
+      {
+        "question": "Which word means “sự cố nghiêm trọng”?",
+        "extraOption": "Another option for devops team meeting",
+        "explanation": "Lý do sai:\nB - chưa phù hợp với ngữ cảnh câu hỏi.\n\nC - chưa phù hợp với ngữ cảnh câu hỏi.\n\nD - chưa phù hợp với ngữ cảnh câu hỏi.\n\nLý do đúng:\nA - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề \"DevOps team meeting\"."
+      },
+      {
+        "question": "Chọn đáp án đúng cho: \"Complete the sentence: “The error rate ___ after the rollback.”\"",
+        "extraOption": "Another option for devops team meeting",
+        "explanation": "Lý do sai:\nB - chưa phù hợp với ngữ cảnh câu hỏi.\n\nC - chưa phù hợp với ngữ cảnh câu hỏi.\n\nD - chưa phù hợp với ngữ cảnh câu hỏi.\n\nLý do đúng:\nA - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề \"DevOps team meeting\"."
+      },
+      {
+        "question": "Chọn đáp án đúng cho: \"Which sentence proposes next steps in a meeting?\"",
+        "extraOption": "Another option for devops team meeting",
+        "explanation": "Lý do sai:\nB - chưa phù hợp với ngữ cảnh câu hỏi.\n\nC - chưa phù hợp với ngữ cảnh câu hỏi.\n\nD - chưa phù hợp với ngữ cảnh câu hỏi.\n\nLý do đúng:\nA - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề \"DevOps team meeting\"."
+      }
+    ],
+    "new": {
+      "questionType": "Single Best Answer",
+      "question": "Từ nào sau đây có nghĩa là \"sự cố\"?",
+      "options": [
+        "incident",
+        "rollback",
+        "deployment",
+        "pipeline"
+      ],
+      "answerIndex": 0,
+      "explanation": "Lý do sai:\nB - chưa phù hợp với ngữ cảnh câu hỏi.\n\nC - chưa phù hợp với ngữ cảnh câu hỏi.\n\nD - chưa phù hợp với ngữ cảnh câu hỏi.\n\nLý do đúng:\nA - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề \"DevOps team meeting\"."
+    }
+  },
+  "neighbor-morning": {
+    "existing": [
+      {
+        "question": "Chọn đáp án đúng cho: \"Which is the most natural morning greeting to a neighbor?\"",
+        "extraOption": "Another option for morning greetings with neighbors",
+        "explanation": "Lý do sai:\nB - chưa phù hợp với ngữ cảnh câu hỏi.\n\nC - chưa phù hợp với ngữ cảnh câu hỏi.\n\nD - chưa phù hợp với ngữ cảnh câu hỏi.\n\nLý do đúng:\nA - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề \"Morning greetings with neighbors\"."
+      },
+      {
+        "question": "Chọn đáp án đúng cho: \"Which phrase ends a short chat politely?\"",
+        "extraOption": "Another option for morning greetings with neighbors",
+        "explanation": "Lý do sai:\nB - chưa phù hợp với ngữ cảnh câu hỏi.\n\nC - chưa phù hợp với ngữ cảnh câu hỏi.\n\nD - chưa phù hợp với ngữ cảnh câu hỏi.\n\nLý do đúng:\nA - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề \"Morning greetings with neighbors\"."
+      },
+      {
+        "question": "Chọn đáp án đúng cho: \"Complete the question tag: “Lovely morning, ___?”\"",
+        "extraOption": "Another option for morning greetings with neighbors",
+        "explanation": "Lý do sai:\nB - chưa phù hợp với ngữ cảnh câu hỏi.\n\nC - chưa phù hợp với ngữ cảnh câu hỏi.\n\nD - chưa phù hợp với ngữ cảnh câu hỏi.\n\nLý do đúng:\nA - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề \"Morning greetings with neighbors\"."
+      },
+      {
+        "question": "Chọn đáp án đúng cho: \"Which sentence is typical small talk?\"",
+        "extraOption": "Another option for morning greetings with neighbors",
+        "explanation": "Lý do sai:\nB - chưa phù hợp với ngữ cảnh câu hỏi.\n\nC - chưa phù hợp với ngữ cảnh câu hỏi.\n\nD - chưa phù hợp với ngữ cảnh câu hỏi.\n\nLý do đúng:\nA - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề \"Morning greetings with neighbors\"."
+      }
+    ],
+    "new": {
+      "questionType": "Single Best Answer",
+      "question": "Từ nào sau đây có nghĩa là \"chào buổi sáng\"?",
+      "options": [
+        "good morning",
+        "how’s it going",
+        "lovely weather",
+        "commute"
+      ],
+      "answerIndex": 0,
+      "explanation": "Lý do sai:\nB - chưa phù hợp với ngữ cảnh câu hỏi.\n\nC - chưa phù hợp với ngữ cảnh câu hỏi.\n\nD - chưa phù hợp với ngữ cảnh câu hỏi.\n\nLý do đúng:\nA - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề \"Morning greetings with neighbors\"."
+    }
+  },
+  "daily-meals": {
+    "existing": [
+      {
+        "question": "Chọn đáp án đúng cho: \"Which meal do you usually eat in the evening?\"",
+        "extraOption": "Another option for breakfast, lunch, and dinner",
+        "explanation": "Lý do sai:\nB - chưa phù hợp với ngữ cảnh câu hỏi.\n\nC - chưa phù hợp với ngữ cảnh câu hỏi.\n\nD - chưa phù hợp với ngữ cảnh câu hỏi.\n\nLý do đúng:\nA - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề \"Breakfast, lunch, and dinner\"."
+      },
+      {
+        "question": "Chọn đáp án đúng cho: \"Complete the sentence: “I usually ___ breakfast at 7 a.m.”\"",
+        "extraOption": "Another option for breakfast, lunch, and dinner",
+        "explanation": "Lý do sai:\nB - chưa phù hợp với ngữ cảnh câu hỏi.\n\nC - chưa phù hợp với ngữ cảnh câu hỏi.\n\nD - chưa phù hợp với ngữ cảnh câu hỏi.\n\nLý do đúng:\nA - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề \"Breakfast, lunch, and dinner\"."
+      },
+      {
+        "question": "Which phrase means “ăn ngoài”?",
+        "extraOption": "Another option for breakfast, lunch, and dinner",
+        "explanation": "Lý do sai:\nB - chưa phù hợp với ngữ cảnh câu hỏi.\n\nC - chưa phù hợp với ngữ cảnh câu hỏi.\n\nD - chưa phù hợp với ngữ cảnh câu hỏi.\n\nLý do đúng:\nA - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề \"Breakfast, lunch, and dinner\"."
+      },
+      {
+        "question": "Chọn đáp án đúng cho: \"Which sentence is polite when ordering food?\"",
+        "extraOption": "Another option for breakfast, lunch, and dinner",
+        "explanation": "Lý do sai:\nB - chưa phù hợp với ngữ cảnh câu hỏi.\n\nC - chưa phù hợp với ngữ cảnh câu hỏi.\n\nD - chưa phù hợp với ngữ cảnh câu hỏi.\n\nLý do đúng:\nA - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề \"Breakfast, lunch, and dinner\"."
+      }
+    ],
+    "new": {
+      "questionType": "Single Best Answer",
+      "question": "Từ nào sau đây có nghĩa là \"bữa sáng\"?",
+      "options": [
+        "breakfast",
+        "lunch",
+        "dinner",
+        "portion"
+      ],
+      "answerIndex": 0,
+      "explanation": "Lý do sai:\nB - chưa phù hợp với ngữ cảnh câu hỏi.\n\nC - chưa phù hợp với ngữ cảnh câu hỏi.\n\nD - chưa phù hợp với ngữ cảnh câu hỏi.\n\nLý do đúng:\nA - đúng vì phù hợp nhất với ngữ cảnh trong chủ đề \"Breakfast, lunch, and dinner\"."
+    }
+  }
+}

@@ -65,10 +65,14 @@ await writeFile(
 
 const grammarRows = [];
 for (const topic of bank.topics) {
-  const formulaField = topic.grammar.map((item) =>
-    item.usage ? `${item.formula}\n(${item.usage})` : item.formula,
-  ).join('\n\n');
-  const exampleField = topic.grammar.map((item) => item.example).join('\n\n');
+  const formulaField = topic.grammar.map((item) => {
+    const usage = item.usage ? `[${item.usage.replace(/^\[|\]$/g, '').trim()}]` : '';
+    return usage ? `${usage}\n${item.formula}` : item.formula;
+  }).join('\n\n');
+  const exampleField = topic.grammar.map((item) => {
+    const m = item.example.match(/^(.*?)\s*(\([^()]*\))\s*$/);
+    return m ? `${m[1].trim()}\n${m[2].trim()}` : item.example;
+  }).join('\n\n');
   const pronunciationField = topic.grammar.map((item) => item.pronunciation ?? '').join('\n\n');
   grammarRows.push({ topicId: topic.id, formula: formulaField, example: exampleField, pronunciation: pronunciationField });
 }
@@ -81,11 +85,12 @@ const quizRows = [];
 for (const topic of bank.topics) {
   for (const quiz of topic.quizzes) {
     const ai = quiz.answerIndices && quiz.answerIndices.length ? quiz.answerIndices : [quiz.answerIndex];
+    const labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     quizRows.push({
       topicId: topic.id,
       questionType: quiz.questionType ?? '',
       question: quiz.question,
-      options: quiz.options.join('\n'),
+      options: quiz.options.map((o, i) => `${labels[i]}. ${o}`).join('\n'),
       answerIndex: ai.join(','),
       explanation: quiz.explanation,
     });
@@ -96,11 +101,25 @@ await writeFile(
   toCsv(['topicId', 'questionType', 'question', 'options', 'answerIndex', 'explanation'], quizRows),
 );
 
+function formatDialogueForSheet(msgs) {
+  const out = [];
+  for (const msg of msgs) {
+    const m = msg.match(/^(.*?)\s*(\([^()]*\))\s*$/);
+    if (m && m[1].trim()) {
+      out.push(m[1].trim(), '', m[2].trim(), '');
+    } else {
+      out.push(msg, '');
+    }
+  }
+  while (out.length && out[out.length - 1] === '') out.pop();
+  return out.join('\n');
+}
+
 const dialogueRows = [];
 for (const topic of bank.topics) {
-  dialogueRows.push({ topicId: topic.id, variantIndex: 0, sentences: topic.dialogue.join('\n') });
+  dialogueRows.push({ topicId: topic.id, variantIndex: 0, sentences: formatDialogueForSheet(topic.dialogue) });
   (topic.dialogueVariants ?? []).forEach((variant, variantOffset) => {
-    dialogueRows.push({ topicId: topic.id, variantIndex: variantOffset + 1, sentences: variant.join('\n') });
+    dialogueRows.push({ topicId: topic.id, variantIndex: variantOffset + 1, sentences: formatDialogueForSheet(variant) });
   });
 }
 await writeFile(

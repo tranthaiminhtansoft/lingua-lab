@@ -175,12 +175,21 @@ const topics = topicRows.map((row) => {
         const existingTopicGrammar = existingBank?.topics?.find((t) => t.id === id)?.grammar ?? [];
         return formulaChunks.map((chunk, chunkIndex) => {
           const formulaLines = chunk.split('\n').map((line) => line.trim()).filter(Boolean);
-          const formula = formulaLines[0] ?? '';
           let usage;
-          for (const line of formulaLines.slice(1)) {
-            const match = line.match(/^\((.*)\)$/);
-            if (match) usage = match[1].trim();
+          let formula = '';
+          const first = formulaLines[0] ?? '';
+          const firstBracket = first.match(/^(?:\((.*)\)|\[(.*)\])$/);
+          if (firstBracket) {
+            usage = (firstBracket[1] ?? firstBracket[2] ?? '').trim();
+            formula = formulaLines.slice(1).join('\n').trim();
+          } else {
+            formula = first;
+            for (const line of formulaLines.slice(1)) {
+              const match = line.match(/^(?:\((.*)\)|\[(.*)\])$/);
+              if (match) usage = (match[1] ?? match[2] ?? '').trim();
+            }
           }
+          if (!formula) formula = first;
           const exampleLines = (exampleChunks[chunkIndex] ?? '').split('\n').map((line) => line.trim()).filter(Boolean);
           const exampleMain = exampleLines[0] ?? '';
           const exampleTranslation = exampleLines.slice(1).filter((line) => /^\(.*\)$/.test(line)).join(' ');
@@ -228,17 +237,29 @@ const topics = topicRows.map((row) => {
     });
   const quizzes = quizRows
     .filter((item) => item.topicId === id)
-    .map((item) => ({
-      ...(item.questionType ? { questionType: item.questionType } : {}),
-      question: item.question,
-      options: (item.options.includes('\n') ? item.options.split(/\r?\n/) : item.options.split(' | ')).map((value) => value.trim()).filter(Boolean),
-      answerIndex: Number(String(item.answerIndex).split(',')[0].trim()),
-      ...(String(item.answerIndex).includes(',')
-        ? { answerIndices: String(item.answerIndex).split(',').map((v) => Number(v.trim())).filter((n) => Number.isFinite(n)) }
-        : {}),
-      explanation: item.explanation,
-    }));
-  const splitSentences = (value) => value.split(/\r?\n/).map((s) => s.trim()).filter(Boolean);
+    .map((item) => {
+      const indices = String(item.answerIndex).split(',').map((v) => Number(v.trim())).filter((n) => Number.isFinite(n));
+      const questionType = (item.questionType || '').trim();
+      const normalizedType = /multiple/i.test(questionType) ? 'Multiple Choice' : (questionType ? 'Single Best Answer' : undefined);
+      return {
+        ...(normalizedType ? { questionType: normalizedType } : {}),
+        question: item.question,
+        options: (item.options.includes('\n') ? item.options.split(/\r?\n/) : item.options.split(' | '))
+          .map((value) => value.trim().replace(/^\s*[A-Fa-f][.)]\s*/, '')).filter(Boolean),
+        answerIndex: indices[0] ?? 0,
+        ...(indices.length > 1 ? { answerIndices: indices } : {}),
+        explanation: item.explanation,
+      };
+    });
+  const splitSentences = (value) => {
+    const lines = value.split(/\r?\n/).map((s) => s.trim()).filter(Boolean);
+    const msgs = [];
+    for (const line of lines) {
+      if (/^\(.*\)$/.test(line) && msgs.length > 0) msgs[msgs.length - 1] = `${msgs[msgs.length - 1]} ${line}`;
+      else msgs.push(line);
+    }
+    return msgs;
+  };
   const topicDialogueRows = dialogueRows.filter((item) => item.topicId === id);
   const isNewFormat = topicDialogueRows.some((item) => item.sentences !== undefined);
   let mainDialogue = [];

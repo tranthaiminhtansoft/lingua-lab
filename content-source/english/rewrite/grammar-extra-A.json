@@ -1,0 +1,42 @@
+{
+  "christmas-celebration": {
+    "usage": "Dùng khi muốn đưa ra lời khuyên hoặc gợi ý tự nhiên trong chủ đề \"Christmas celebration\".",
+    "formula": "S + should + V + O",
+    "example": "You should practice this topic every day. (Bạn nên luyện chủ đề này mỗi ngày.)",
+    "pronunciation": "/ju ʃʊd ˈpræktɪs ðɪs ˈtɑːpɪk ˈevri deɪ/",
+    "title": "Advice with should",
+    "category": "Modal"
+  },
+  "tet-lunar-new-year": {
+    "usage": "Dùng khi muốn đưa ra lời khuyên hoặc gợi ý tự nhiên trong chủ đề \"Tết Nguyên Đán (Lunar New Year)\".",
+    "formula": "S + should + V + O",
+    "example": "You should practice this topic every day. (Bạn nên luyện chủ đề này mỗi ngày.)",
+    "pronunciation": "/ju ʃʊd ˈpræktɪs ðɪs ˈtɑːpɪk ˈevri deɪ/",
+    "title": "Advice with should",
+    "category": "Modal"
+  },
+  "valentines-day": {
+    "usage": "Dùng khi muốn đưa ra lời khuyên hoặc gợi ý tự nhiên trong chủ đề \"Valentine’s Day\".",
+    "formula": "S + should + V + O",
+    "example": "You should practice this topic every day. (Bạn nên luyện chủ đề này mỗi ngày.)",
+    "pronunciation": "/ju ʃʊd ˈpræktɪs ðɪs ˈtɑːpɪk ˈevri deɪ/",
+    "title": "Advice with should",
+    "category": "Modal"
+  },
+  "new-years-day": {
+    "usage": "Dùng khi muốn đưa ra lời khuyên hoặc gợi ý tự nhiên trong chủ đề \"New Year’s Day\".",
+    "formula": "S + should + V + O",
+    "example": "You should practice this topic every day. (Bạn nên luyện chủ đề này mỗi ngày.)",
+    "pronunciation": "/ju ʃʊd ˈpræktɪs ðɪs ˈtɑːpɪk ˈevri deɪ/",
+    "title": "Advice with should",
+    "category": "Modal"
+  },
+  "psychology-mind": {
+    "usage": "Dùng khi muốn đưa ra lời khuyên hoặc gợi ý tự nhiên trong chủ đề \"Psychology and the mind\".",
+    "formula": "S + should + V + O",
+    "example": "You should practice this topic every day. (Bạn nên luyện chủ đề này mỗi ngày.)",
+    "pronunciation": "/ju ʃʊd ˈpræktɪs ðɪs ˈtɑːpɪk ˈevri deɪ/",
+    "title": "Advice with should",
+    "category": "Modal"
+  }
+}

@@ -97,9 +97,15 @@ for t in bank["topics"]:
     for g in t["grammar"]:
         f = g["formula"]
         if g.get("usage"):
-            f = f + "\n(" + g["usage"] + ")"
+            usage = g["usage"].strip()
+            if usage.startswith("[") and usage.endswith("]"):
+                f = usage + "\n" + f
+            else:
+                f = "[" + usage + "]\n" + f
         formula_parts.append(f)
-        example_parts.append(g["example"])
+        ex = g["example"]
+        m = re.match(r"^(.*?)\s*(\([^()]*\))\s*$", ex)
+        example_parts.append(m.group(1).strip() + "\n" + m.group(2).strip() if m else ex)
         pronunciation_parts.append(g.get("pronunciation") or "")
     formula_field = "\n\n".join(formula_parts)
     example_field = "\n\n".join(example_parts)
@@ -112,15 +118,29 @@ quiz_rows = []
 for t in bank["topics"]:
     for q in t["quizzes"]:
         ai = q.get("answerIndices") or [q["answerIndex"]]
-        quiz_rows.append([t["id"], q.get("questionType", ""), q["question"], "\n".join(q["options"]), ",".join(str(x) for x in ai), q["explanation"]])
+        labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        opts = [f"{labels[i]}. {o}" for i, o in enumerate(q["options"])]
+        quiz_rows.append([t["id"], q.get("questionType", ""), q["question"], "\n".join(opts), ",".join(str(x) for x in ai), q["explanation"]])
 sheets["quizzes"] = (["topicId", "questionType", "question", "options", "answerIndex", "explanation"], quiz_rows)
 
 # dialogue
+def fmt_dialogue(msgs):
+    out = []
+    for msg in msgs:
+        m = re.match(r"^(.*?)\s*(\([^()]*\))\s*$", msg)
+        if m and m.group(1).strip():
+            out.extend([m.group(1).strip(), "", m.group(2).strip(), ""])
+        else:
+            out.extend([msg, ""])
+    while out and out[-1] == "":
+        out.pop()
+    return "\n".join(out)
+
 dialogue_rows = []
 for t in bank["topics"]:
-    dialogue_rows.append([t["id"], 0, "\n".join(t["dialogue"])])
+    dialogue_rows.append([t["id"], 0, fmt_dialogue(t["dialogue"])])
     for vi, variant in enumerate(t.get("dialogueVariants", []), start=1):
-        dialogue_rows.append([t["id"], vi, "\n".join(variant)])
+        dialogue_rows.append([t["id"], vi, fmt_dialogue(variant)])
 sheets["dialogue"] = (["topicId", "variantIndex", "sentences"], dialogue_rows)
 
 # dialogue-guides

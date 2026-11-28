@@ -1,21 +1,21 @@
-﻿id,title,description,frequency,startDate,endDate,timeLimit,theme
-christmas-celebration,Christmas celebration,"Talk about Christmas plans, gifts, and festive traditions.",limitedTime,2026-12-25,2026-12-31
-tet-lunar-new-year,Tết Nguyên Đán (Lunar New Year),"Talk about Tết traditions, family visits, and lucky money.",limitedTime,2027-02-06,2027-02-20
-valentines-day,Valentine’s Day,"Talk about Valentine’s plans, gifts, and expressing love.",limitedTime,2027-02-14,2027-02-16
-new-years-day,New Year’s Day,Talk about New Year’s resolutions and fresh starts.,limitedTime,2027-01-01,2027-01-03
-psychology-mind,Psychology and the mind,"Talk about emotions, habits, and how the mind works.",everyMon,2020-01-01,none
-sunday-mass,Sunday Mass and going to church,"Talk about going to church, mass, and Sunday worship.",everyWeekend,2020-01-01,none,,weekend
-weekend-market,Weekend market shopping,Buy fresh food at the market and chat with vendors.,everyWeekend,2020-01-01,none,,weekend
-weekend-outing,Going out with friends,Plan a fun weekend with friends and handle small details.,everyWeekend,2020-01-01,none,,weekend
-weekend-rest,Rest and recharge at home,"Talk about sleeping in, relaxing, and doing nothing.",everyWeekend,2020-01-01,none,,weekend
-household-chores,Household chores and cleaning,"Talk about chores, sharing tasks, and keeping home tidy.",everyWeekend,2020-01-01,none,,weekend
-devops-meeting,DevOps team meeting,"Give a stand-up update, raise incidents, and agree next steps.",daily,2020-01-01,none,,devops
-neighbor-morning,Morning greetings with neighbors,"Say good morning, make small talk, and keep it friendly.",daily,2020-01-01,none,,neighbor
-daily-meals,"Breakfast, lunch, and dinner","Talk about meals, portions, and eating out during the day.",daily,2020-01-01,none,,meals
-autumn-routine,Autumn routine & energy,"Talk about autumn routines, energy, and weekly plans.",daily,2020-01-01,none
-work-update,Work update in English,"Give work updates, progress, and blockers in a meeting.",daily,2020-01-01,none
-black-friday,Black Friday shopping,"Talk about shopping, prices, and comparing choices.",limitedTime,2026-11-28,2026-11-30
-devops-release-planning,DevOps release planning,"Plan a release window, freeze code, and agree on go/no-go.",daily,2020-01-01,none,,devops
-neighbor-weekend,Weekend catch-up with neighbors,"Talk about weekend plans, weather, and helping each other out.",daily,2020-01-01,none,,neighbor
-eating-out,Eating out and ordering food,"Book a table, ask for recommendations, and pay politely.",daily,2020-01-01,none,,meals
-meal-prep,Meal prep and healthy eating,"Talk about groceries, recipes, and staying healthy during the week.",daily,2020-01-01,none,,meals
+﻿id,title,description,frequency,startDate,endDate,timeLimit,theme,examples,readExpected
+christmas-celebration,Christmas celebration,"Talk about Christmas plans, gifts, and festive traditions.",limitedTime,2026-12-25,2026-12-31,,,We're having dinner at my aunt's house on Christmas Eve. | I've already wrapped all the gifts.,We're having dinner at my aunt's house on Christmas Eve.
+tet-lunar-new-year,Tết Nguyên Đán (Lunar New Year),"Talk about Tết traditions, family visits, and lucky money.",limitedTime,2027-02-06,2027-02-20,,,We've already cleaned the house for Tết. | We're going to cook sticky rice cake this year.,We've already cleaned the house for Tết.
+valentines-day,Valentine’s Day,"Talk about Valentine’s plans, gifts, and expressing love.",limitedTime,2027-02-14,2027-02-16,,,I've already booked a table for two. | I'm going to cook a romantic dinner.,I've already booked a table for two.
+new-years-day,New Year’s Day,Talk about New Year’s resolutions and fresh starts.,limitedTime,2027-01-01,2027-01-03,,,I'm going to save more money this year. | I've learned a lot this year.,I'm going to save more money this year.
+psychology-mind,Psychology and the mind,"Talk about emotions, habits, and how the mind works.",everyMon,2020-01-01,none,,,I think habits shape our mindset. | I used to worry a lot.,I think habits shape our mindset.
+sunday-mass,Sunday Mass and going to church,"Talk about going to church, mass, and Sunday worship.",everyWeekend,2020-01-01,none,,weekend,"I go to church every Sunday morning. | I’ve just taken my child to catechism, so I’m free now.",I go to church every Sunday morning.
+weekend-market,Weekend market shopping,Buy fresh food at the market and chat with vendors.,everyWeekend,2020-01-01,none,,weekend,"I usually buy fresh vegetables at the market on Sunday. | Could you weigh these tomatoes, please?",I usually buy fresh vegetables at the market on Sunday.
+weekend-outing,Going out with friends,Plan a fun weekend with friends and handle small details.,everyWeekend,2020-01-01,none,,weekend,Let's meet up at seven. | I'm meeting friends at six.,Let's meet up at seven.
+weekend-rest,Rest and recharge at home,"Talk about sleeping in, relaxing, and doing nothing.",everyWeekend,2020-01-01,none,,weekend,I'm just relaxing on the sofa. | I rarely set an alarm on Sunday.,I'm just relaxing on the sofa.
+household-chores,Household chores and cleaning,"Talk about chores, sharing tasks, and keeping home tidy.",everyWeekend,2020-01-01,none,,weekend,Tidy up the living room. | I have to do the laundry today.,Tidy up the living room.
+devops-meeting,DevOps team meeting,"Give a stand-up update, raise incidents, and agree next steps.",daily,2020-01-01,none,13,devops,We have deployed the fix to staging. | We have been monitoring the cluster since the incident.,We have deployed the fix to staging.
+neighbor-morning,Morning greetings with neighbors,"Say good morning, make small talk, and keep it friendly.",daily,2020-01-01,none,,neighbor,"I'm just heading to the station. | Lovely morning, isn't it?",I'm just heading to the station.
+daily-meals,"Breakfast, lunch, and dinner","Talk about meals, portions, and eating out during the day.",daily,2020-01-01,none,,meals,I usually have rice for lunch. | I'd like a bowl of soup and some rice.,I usually have rice for lunch.
+autumn-routine,Autumn routine & energy,"Talk about autumn routines, energy, and weekly plans.",daily,2020-01-01,none,,,I usually walk in the park in autumn. | I'm trying to sleep earlier this week.,I usually walk in the park in autumn.
+work-update,Work update in English,"Give work updates, progress, and blockers in a meeting.",daily,2020-01-01,none,,,We have finished the first review. | The deployment was rolled back.,We have finished the first review.
+black-friday,Black Friday shopping,"Talk about shopping, prices, and comparing choices.",limitedTime,2026-11-28,2026-11-30,,,This laptop is cheaper than that one. | This is the cheapest option.,This laptop is cheaper than that one.
+devops-release-planning,DevOps release planning,"Plan a release window, freeze code, and agree on go/no-go.",daily,2020-01-01,none,13,devops,We're releasing on Thursday. | We need to freeze the code by Wednesday.,We're releasing on Thursday.
+neighbor-weekend,Weekend catch-up with neighbors,"Talk about weekend plans, weather, and helping each other out.",daily,2020-01-01,none,,neighbor,I'm going to fix the fence this weekend. | Could you lend me a ladder?,I'm going to fix the fence this weekend.
+eating-out,Eating out and ordering food,"Book a table, ask for recommendations, and pay politely.",daily,2020-01-01,none,0,meals,"Could we have the bill, please? | Could I have a little more rice?","Could we have the bill, please?"
+meal-prep,Meal prep and healthy eating,"Talk about groceries, recipes, and staying healthy during the week.",daily,2020-01-01,none,0,meals,You should prep meals on Sunday. | I rarely order junk food during the week.,You should prep meals on Sunday.

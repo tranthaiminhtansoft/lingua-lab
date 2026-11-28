@@ -1,0 +1,43 @@
+{
+  "christmas-celebration": {},
+  "tet-lunar-new-year": {
+    "variant1": [
+      "A: Do you want to practice talking about tết nguyên đán (lunar new year) today?",
+      "B: Yes, I think it's a useful topic for daily life.",
+      "A: Great. Can you start with a simple sentence?",
+      "B: Of course. I've been trying to use this topic more often.",
+      "A: That sounds natural. Let's add one more detail.",
+      "B: Sure. This practice helps me feel more confident."
+    ]
+  },
+  "valentines-day": {
+    "variant1": [
+      "A: Do you want to practice talking about valentine’s day today?",
+      "B: Yes, I think it's a useful topic for daily life.",
+      "A: Great. Can you start with a simple sentence?",
+      "B: Of course. I've been trying to use this topic more often.",
+      "A: That sounds natural. Let's add one more detail.",
+      "B: Sure. This practice helps me feel more confident."
+    ]
+  },
+  "new-years-day": {
+    "variant1": [
+      "A: Do you want to practice talking about new year’s day today?",
+      "B: Yes, I think it's a useful topic for daily life.",
+      "A: Great. Can you start with a simple sentence?",
+      "B: Of course. I've been trying to use this topic more often.",
+      "A: That sounds natural. Let's add one more detail.",
+      "B: Sure. This practice helps me feel more confident."
+    ]
+  },
+  "psychology-mind": {
+    "variant1": [
+      "A: Do you want to practice talking about psychology and the mind today?",
+      "B: Yes, I think it's a useful topic for daily life.",
+      "A: Great. Can you start with a simple sentence?",
+      "B: Of course. I've been trying to use this topic more often.",
+      "A: That sounds natural. Let's add one more detail.",
+      "B: Sure. This practice helps me feel more confident."
+    ]
+  }
+}
