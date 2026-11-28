@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useParams, useNavigate, useBlocker } from 'react-router-dom';
+import { formatQuizOptionLabel } from './content/englishContentFormat';
 import { getTopicProgressKeys, stripTranslation } from './content/englishProgressKeys';
 import {
   checkEnglishContentApi,
@@ -103,6 +104,51 @@ function scoreClass(score: number): string {
 
 function formatIpa(pronunciation: string): string {
   return `/${pronunciation.replace(/^\/|\/$/g, '')}/`;
+}
+
+function splitBilingual(text: string): { en: string; vi?: string } {
+  const m = text.match(/^(.*?)\s*\(([^()]+)\)\s*$/);
+  if (!m) return { en: text.trim() };
+  const en = m[1].trim();
+  const vi = m[2].trim();
+  if (!en) return { en: text.trim() };
+  return { en, vi };
+}
+
+type VocabNoteBlock = { label: string; lines: string[] };
+
+function parseVocabNotes(text: string): VocabNoteBlock[] | null {
+  const chunks = text.split(/\n\s*\n/).map((c) => c.trim()).filter(Boolean);
+  if (chunks.length === 0) return null;
+  const blocks: VocabNoteBlock[] = [];
+  for (const chunk of chunks) {
+    const lines = chunk.split(/\n/).map((l) => l.trim()).filter(Boolean);
+    if (lines.length === 0) continue;
+    const m = lines[0].match(/^\[(.+)\]$/);
+    if (m) blocks.push({ label: m[1].trim(), lines: lines.slice(1) });
+    else blocks.push({ label: '', lines });
+  }
+  return blocks.length > 0 ? blocks : null;
+}
+
+type QuizExplanation = { correct: string[]; wrong: string[] };
+
+function parseQuizExplanation(text: string): QuizExplanation | null {
+  const hasMarkers = /Lý do đúng|Lý do sai/i.test(text);
+  if (!hasMarkers) return null;
+  const correct: string[] = [];
+  const wrong: string[] = [];
+  let mode: 'correct' | 'wrong' | null = null;
+  for (const raw of text.split(/\r?\n/)) {
+    const line = raw.trim();
+    if (!line) continue;
+    if (/^Lý do đúng/i.test(line)) { mode = 'correct'; continue; }
+    if (/^Lý do sai/i.test(line)) { mode = 'wrong'; continue; }
+    if (mode === 'correct') correct.push(line);
+    else if (mode === 'wrong') wrong.push(line);
+  }
+  if (correct.length === 0 && wrong.length === 0) return null;
+  return { correct, wrong };
 }
 
 type WordFeedback = 'good' | 'near' | 'missed';
@@ -686,11 +732,28 @@ export function EnglishTopicPage() {
                     {item.meaning} · {formatIpa(item.pronunciation)} · Phát âm: <span className={scoreClass(vp.score)}>{vp.score}%</span>
                     {vp.completed ? ' (đạt ngưỡng)' : ' (chưa đạt)'}
                   </span>
-                  {item.synonyms && (
-                    <span style={{ display: 'block', marginTop: 6, fontSize: 12, color: '#35405a', whiteSpace: 'pre-wrap', lineHeight: 1.5 }}>
-                      <strong style={{ color: '#394eaa' }}>Từ đồng nghĩa / cách dùng:</strong>{'\n'}{item.synonyms}
-                    </span>
-                  )}
+                  {item.synonyms && (() => {
+                    const blocks = parseVocabNotes(item.synonyms);
+                    if (!blocks) {
+                      return <span style={{ display: 'block', marginTop: 6, fontSize: 12, color: '#35405a', whiteSpace: 'pre-wrap', lineHeight: 1.5 }}>{item.synonyms}</span>;
+                    }
+                    return (
+                      <div className="english-vocab-notes">
+                        {blocks.map((block, bi) => (
+                          <div className="english-vocab-note" key={`${item.term}-note-${bi}`}>
+                            {block.label && <div className="english-vocab-note-label">{block.label}</div>}
+                            {block.lines.map((line, li) => {
+                              const biMatch = line.match(/^\((.+)\)$/);
+                              if (biMatch) return <div key={li} className="english-vocab-note-vi">{biMatch[1]}</div>;
+                              const syn = line.match(/^(.+?)\s+-\s+(\/.+?\/)\s+-\s+(.+)$/);
+                              if (syn) return <div key={li} className="english-vocab-note-syn"><span>{syn[1]}</span> <span className="ipa">{syn[2]}</span> <span>{syn[3]}</span></div>;
+                              return <div key={li} className="english-vocab-note-en">{line}</div>;
+                            })}
+                          </div>
+                        ))}
+                      </div>
+                    );
+                  })()}
                   <div style={{ marginTop: 8, display: 'flex', gap: 8, flexWrap: 'wrap' }}>
                     <button
                       className={`english-today-button secondary${isListening ? ' listening' : ''}`}
@@ -744,22 +807,22 @@ export function EnglishTopicPage() {
                       <code key={part}>{part}</code>
                     ))}
                   </span>
-                  <span style={{ display: 'block', marginTop: 6 }}>
-                    {englishExample.split(/\s+/).map((word, wi) => (
-                      <span
-                        key={`${englishExample}-${wi}`}
-                        className={feedback ? (feedback[wi] === 'good' ? 'score-high' : feedback[wi] === 'near' ? 'score-mid' : 'score-low') : undefined}
-                        style={{ marginRight: 4 }}
-                      >
-                        {word}{' '}
-                      </span>
-                    ))}
-                  </span>
-                  {item.example !== englishExample && (
-                    <span style={{ display: 'block', marginTop: 2, color: '#2f7a55', fontSize: 13 }}>
-                      {item.example.slice(englishExample.length).trim()}
-                    </span>
-                  )}
+                  <div className="english-bilingual">
+                    <div className="english-bilingual-en">
+                      {englishExample.split(/\s+/).map((word, wi) => (
+                        <span
+                          key={`${englishExample}-${wi}`}
+                          className={feedback ? (feedback[wi] === 'good' ? 'score-high' : feedback[wi] === 'near' ? 'score-mid' : 'score-low') : undefined}
+                          style={{ marginRight: 4 }}
+                        >
+                          {word}{' '}
+                        </span>
+                      ))}
+                    </div>
+                    {splitBilingual(item.example).vi && (
+                      <div className="english-bilingual-vi">{splitBilingual(item.example).vi}</div>
+                    )}
+                  </div>
                   {item.pronunciation && (
                     <span style={{ display: 'block', marginTop: 2, color: '#697382', fontSize: 12, fontStyle: 'italic' }}>
                       {formatIpa(item.pronunciation)}
@@ -785,42 +848,7 @@ export function EnglishTopicPage() {
                       🐢 Chậm
                     </button>
                   </div>
-                  {item.alternatives && item.alternatives.length > 0 && (
-                    <div className="english-today-grammar-alts">
-                      <span className="alts-title">3 công thức cùng nghĩa, khác trường hợp</span>
-                      <div className="english-today-grammar-alt-grid">
-                        {item.alternatives.map((alternative, alternativeIndex) => {
-                          const alternativeEnglish = stripTranslation(alternative.example);
-                          const alternativeTranslation = alternative.example.slice(alternativeEnglish.length).trim();
-                          return (
-                            <div className="english-today-grammar-alt" key={`${item.title}-alt-${alternativeIndex}`}>
-                              <span className="alt-context">
-                                {alternativeIndex + 1}. {alternative.context}
-                                {alternativeIndex === 0 && <em className="alt-main-badge">Chính</em>}
-                              </span>
-                              <span className="english-today-formula">
-                                <span className="formula-label">Công thức</span>
-                                <code>{alternative.formula}</code>
-                              </span>
-                              <span className="alt-example">{alternativeEnglish}</span>
-                              {alternativeTranslation && (
-                                <span className="alt-translation">{alternativeTranslation}</span>
-                              )}
-                              <button
-                                className="english-today-button ghost alt-listen"
-                                type="button"
-                                onClick={() => speakText(alternativeEnglish)}
-                                disabled={isListening}
-                                aria-label={`Nghe ví dụ: ${alternativeEnglish}`}
-                              >
-                                🔊 Nghe
-                              </button>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  )}
+
                 </div>
               );
             })}
@@ -848,16 +876,35 @@ export function EnglishTopicPage() {
                           className={`english-today-option${answer === optionIndex ? (correctIndices.includes(optionIndex) ? ' correct' : ' wrong') : ''}`}
                           onClick={() => handleQuizAnswer(questionIndex, optionIndex)}
                         >
-                          {option}
+                          {formatQuizOptionLabel(optionIndex)} {option}
                         </button>
                       ))}
                     </div>
                     <div className="english-today-feedback">
-                      {answer === undefined
-                        ? 'Chọn một đáp án.'
-                        : correct
-                          ? quizItem.explanation
-                          : 'Chưa đúng. Hãy xem lại và thử lại.'}
+                      {answer === undefined ? (
+                        'Chọn một đáp án.'
+                      ) : correct ? (() => {
+                        const parsed = parseQuizExplanation(quizItem.explanation);
+                        if (!parsed) return <div style={{ whiteSpace: 'pre-wrap' }}>{quizItem.explanation}</div>;
+                        return (
+                          <div className="english-quiz-explain">
+                            {parsed.correct.length > 0 && (
+                              <div className="english-quiz-explain-group is-correct">
+                                <div className="english-quiz-explain-title">Lý do đúng</div>
+                                {parsed.correct.map((line, i) => <div key={i} className="english-quiz-explain-line">{line}</div>)}
+                              </div>
+                            )}
+                            {parsed.wrong.length > 0 && (
+                              <div className="english-quiz-explain-group is-wrong">
+                                <div className="english-quiz-explain-title">Lý do sai</div>
+                                {parsed.wrong.map((line, i) => <div key={i} className="english-quiz-explain-line">{line}</div>)}
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })() : (
+                        'Chưa đúng. Hãy xem lại và thử lại.'
+                      )}
                     </div>
                   </div>
                 );
@@ -901,9 +948,9 @@ export function EnglishTopicPage() {
                           </span>
                         ))}
                       </div>
-                      {sentence !== englishSentence && (
-                        <div style={{ marginTop: 4, color: '#2f7a55', fontSize: 12 }}>
-                          {sentence.slice(englishSentence.length).trim()}
+                      {splitBilingual(sentence).vi && (
+                        <div className="english-bilingual-vi" style={{ marginTop: 4 }}>
+                          {splitBilingual(sentence).vi}
                         </div>
                       )}
                       {topic.dialogueGuides?.[sentence] && (
