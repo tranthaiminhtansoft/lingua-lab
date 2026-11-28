@@ -2,6 +2,8 @@ export type EnglishVocabularyItem = {
   term: string;
   meaning: string;
   pronunciation: string;
+  /** Synonyms or usage cases, multiline text. */
+  synonyms?: string;
   score: number;
 };
 
@@ -35,13 +37,18 @@ export type EnglishGrammarItem = {
 };
 
 export type EnglishQuiz = {
+  /** "Single Best Answer" or "Multiple Choice" (optional for backward compat). */
+  questionType?: string;
   question: string;
   options: string[];
+  /** Primary correct answer index (0-based). */
   answerIndex: number;
+  /** All correct answer indices for multiple-choice questions. */
+  answerIndices?: number[];
   explanation: string;
 };
 
-export type EnglishTheme = 'devops' | 'neighbor' | 'meals' | 'weekend';
+export type EnglishTheme = string;
 
 /**
  * How often a topic is featured in the daily rotation, or whether it is a

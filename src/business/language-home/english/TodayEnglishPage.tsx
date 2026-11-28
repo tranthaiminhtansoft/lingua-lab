@@ -230,18 +230,19 @@ function describeCheckResult(
   isChecking: boolean,
 ): string {
   if (isChecking || result === null) return 'Đang kiểm tra bản mới…';
+  const warningText = result.warnings?.length ? ` | Cảnh báo: ${result.warnings.join(' | ')}` : '';
   switch (result.status) {
     case 'updated':
-      return `Đã cập nhật nội dung lên bản ${result.version}.`;
+      return `Đã cập nhật nội dung lên bản ${result.version}.${warningText}`;
     case 'current':
-      return 'Bạn đang dùng bản nội dung mới nhất.';
+      return `Bạn đang dùng bản nội dung mới nhất.${warningText}`;
     case 'fallback':
       if (result.errors && result.errors.length > 0) {
-        return `Lỗi dữ liệu: ${result.errors.join(' | ')}`;
+        return `Lỗi dữ liệu: ${result.errors.join(' | ')}${warningText}`;
       }
-      return 'Không tải được bản mới. Đang dùng bản đóng gói sẵn.';
+      return `Không tải được bản mới. Đang dùng bản đóng gói sẵn.${warningText}`;
     case 'skipped':
-      return 'Vừa kiểm tra gần đây. Bấm để kiểm tra lại ngay.';
+      return `Vừa kiểm tra gần đây. Bấm để kiểm tra lại ngay.${warningText}`;
   }
 }
 

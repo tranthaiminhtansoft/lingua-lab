@@ -1,0 +1,149 @@
+{
+  "autumn-routine": {
+    "pos": {
+      "energy level": "n",
+      "get back into a routine": "n",
+      "wrap up warm": "n",
+      "cozy": "adj",
+      "daylight": "n",
+      "schedule": "n",
+      "stay active": "n",
+      "mood": "n",
+      "balanced": "adj",
+      "sunlight": "n",
+      "layer up": "n",
+      "seasonal": "adj"
+    },
+    "notes": {
+      "energy level": "[Khi dùng trong chủ đề \"Autumn routine & energy\"]\nEnergy level is a useful word in this topic.\n(Mức năng lượng là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"energy level\" naturally in a short sentence about autumn routine & energy.",
+      "get back into a routine": "[Khi dùng trong chủ đề \"Autumn routine & energy\"]\nGet back into a routine is a useful word in this topic.\n(Trở lại thói quen là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"get back into a routine\" naturally in a short sentence about autumn routine & energy.",
+      "wrap up warm": "[Khi dùng trong chủ đề \"Autumn routine & energy\"]\nWrap up warm is a useful word in this topic.\n(Mặc ấm là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"wrap up warm\" naturally in a short sentence about autumn routine & energy."
+    }
+  },
+  "work-update": {
+    "pos": {
+      "on track": "phrase",
+      "blocker": "n",
+      "hand off": "v",
+      "deadline": "n",
+      "progress update": "n",
+      "dependency": "n",
+      "prioritize": "v",
+      "follow up": "v",
+      "workload": "n",
+      "scope creep": "n",
+      "milestone": "n",
+      "bandwidth": "n"
+    },
+    "notes": {
+      "on track": "[Khi dùng trong chủ đề \"Work update in English\"]\nOn track is a useful word in this topic.\n(Đúng tiến độ là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"on track\" naturally in a short sentence about work update in english.",
+      "blocker": "[Khi dùng trong chủ đề \"Work update in English\"]\nBlocker is a useful word in this topic.\n(Điểm chặn là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"blocker\" naturally in a short sentence about work update in english.",
+      "hand off": "[Khi dùng trong chủ đề \"Work update in English\"]\nHand off is a useful word in this topic.\n(Bàn giao là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"hand off\" naturally in a short sentence about work update in english."
+    }
+  },
+  "black-friday": {
+    "pos": {
+      "deal": "n",
+      "discount": "n",
+      "worth it": "phrase",
+      "bargain": "n",
+      "checkout": "n",
+      "limited offer": "n",
+      "compare prices": "n",
+      "in stock": "phrase",
+      "sold out": "phrase",
+      "flash sale": "n",
+      "impulse buy": "n",
+      "return policy": "adj"
+    },
+    "notes": {
+      "deal": "[Khi dùng trong chủ đề \"Black Friday shopping\"]\nDeal is a useful word in this topic.\n(Ưu đãi là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"deal\" naturally in a short sentence about black friday shopping.",
+      "discount": "[Khi dùng trong chủ đề \"Black Friday shopping\"]\nDiscount is a useful word in this topic.\n(Giảm giá là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"discount\" naturally in a short sentence about black friday shopping.",
+      "worth it": "[Khi dùng trong chủ đề \"Black Friday shopping\"]\nWorth it is a useful word in this topic.\n(Đáng giá là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"worth it\" naturally in a short sentence about black friday shopping."
+    }
+  },
+  "devops-release-planning": {
+    "pos": {
+      "release window": "n",
+      "code freeze": "n",
+      "staging": "n",
+      "canary": "n",
+      "approval": "n",
+      "rollback plan": "n",
+      "go/no-go": "n",
+      "capacity": "n",
+      "smoke test": "n",
+      "changelog": "n",
+      "feature flag": "n",
+      "hotfix": "n"
+    },
+    "notes": {
+      "release window": "[Khi dùng trong chủ đề \"DevOps release planning\"]\nRelease window is a useful word in this topic.\n(Cửa sổ phát hành là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"release window\" naturally in a short sentence about devops release planning.",
+      "code freeze": "[Khi dùng trong chủ đề \"DevOps release planning\"]\nCode freeze is a useful word in this topic.\n(Đóng băng mã nguồn là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"code freeze\" naturally in a short sentence about devops release planning.",
+      "staging": "[Khi dùng trong chủ đề \"DevOps release planning\"]\nStaging is a useful word in this topic.\n(Môi trường thử là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"staging\" naturally in a short sentence about devops release planning."
+    }
+  },
+  "neighbor-weekend": {
+    "pos": {
+      "weekend plans": "n",
+      "forecast": "n",
+      "garden": "n",
+      "local market": "n",
+      "lend": "v",
+      "borrow": "v",
+      "catch up": "v",
+      "take care of": "v",
+      "have a good weekend": "n",
+      "fence": "n",
+      "ladder": "n",
+      "herbs": "n"
+    },
+    "notes": {
+      "weekend plans": "[Khi dùng trong chủ đề \"Weekend catch-up with neighbors\"]\nWeekend plans is a useful word in this topic.\n(Kế hoạch cuối tuần là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"weekend plans\" naturally in a short sentence about weekend catch-up with neighbors.",
+      "forecast": "[Khi dùng trong chủ đề \"Weekend catch-up with neighbors\"]\nForecast is a useful word in this topic.\n(Dự báo thời tiết là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"forecast\" naturally in a short sentence about weekend catch-up with neighbors.",
+      "garden": "[Khi dùng trong chủ đề \"Weekend catch-up with neighbors\"]\nGarden is a useful word in this topic.\n(Khu vườn là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"garden\" naturally in a short sentence about weekend catch-up with neighbors."
+    }
+  },
+  "eating-out": {
+    "pos": {
+      "menu": "n",
+      "recommendation": "n",
+      "order": "v",
+      "spicy": "adj",
+      "bill": "n",
+      "split the bill": "n",
+      "takeaway": "n",
+      "tip": "n",
+      "reservation": "n",
+      "vegetarian": "n",
+      "table for two": "n",
+      "lemonade": "n"
+    },
+    "notes": {
+      "menu": "[Khi dùng trong chủ đề \"Eating out and ordering food\"]\nMenu is a useful word in this topic.\n(Thực đơn là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"menu\" naturally in a short sentence about eating out and ordering food.",
+      "recommendation": "[Khi dùng trong chủ đề \"Eating out and ordering food\"]\nRecommendation is a useful word in this topic.\n(Gợi ý là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"recommendation\" naturally in a short sentence about eating out and ordering food.",
+      "order": "[Khi dùng trong chủ đề \"Eating out and ordering food\"]\nOrder is a useful word in this topic.\n(Gọi món là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"order\" naturally in a short sentence about eating out and ordering food."
+    }
+  },
+  "meal-prep": {
+    "pos": {
+      "groceries": "n",
+      "ingredients": "n",
+      "recipe": "n",
+      "portion": "n",
+      "protein": "n",
+      "sugary": "adj",
+      "stay hydrated": "v",
+      "junk food": "n",
+      "meal prep": "v",
+      "yogurt": "n",
+      "vegetables": "n",
+      "whole grains": "n"
+    },
+    "notes": {
+      "groceries": "[Khi dùng trong chủ đề \"Meal prep and healthy eating\"]\nGroceries is a useful word in this topic.\n(Thực phẩm mua về là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"groceries\" naturally in a short sentence about meal prep and healthy eating.",
+      "ingredients": "[Khi dùng trong chủ đề \"Meal prep and healthy eating\"]\nIngredients is a useful word in this topic.\n(Nguyên liệu là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"ingredients\" naturally in a short sentence about meal prep and healthy eating.",
+      "recipe": "[Khi dùng trong chủ đề \"Meal prep and healthy eating\"]\nRecipe is a useful word in this topic.\n(Công thức nấu ăn là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"recipe\" naturally in a short sentence about meal prep and healthy eating."
+    }
+  }
+}

@@ -7,11 +7,13 @@ import { BUNDLED_ENGLISH_CONTENT, setActiveEnglishContent } from './content/engl
 beforeEach(() => {
   localStorage.clear();
   setActiveEnglishContent(BUNDLED_ENGLISH_CONTENT);
+  vi.stubEnv('VITE_ENGLISH_CONTENT_URL', 'https://example.com/content.json');
   vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new Error('offline')));
 });
 
 afterEach(() => {
   vi.unstubAllGlobals();
+  vi.unstubAllEnvs();
 });
 
 test('renders Today’s English with available topics', async () => {

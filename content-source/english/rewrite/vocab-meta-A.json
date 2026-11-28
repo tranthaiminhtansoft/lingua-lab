@@ -1,0 +1,119 @@
+{
+  "christmas-celebration": {
+    "pos": {
+      "Christmas": "n",
+      "gift": "n",
+      "decoration": "n",
+      "festive": "adj",
+      "gather": "v",
+      "family dinner": "n",
+      "carol": "n",
+      "celebrate": "v",
+      "reindeer": "n",
+      "ornament": "n",
+      "Santa sack": "n",
+      "sleigh": "n",
+      "elf": "n",
+      "snowman": "n",
+      "feast": "n",
+      "chimney": "n",
+      "fireplace": "n",
+      "scarf": "n",
+      "turkey": "n",
+      "mince pie": "n",
+      "gingerbread man": "n",
+      "yule log cake": "n",
+      "mulled wine": "n",
+      "Secret Santa": "n"
+    },
+    "notes": {
+      "gift": "[Khi nói về món quà nói chung, nhất là quà Giáng sinh]\nI bought a small gift for my sister.\n(Tôi đã mua một món quà nhỏ cho em gái.)\n\n[Khi món quà được gói cẩn thận trong hộp hoặc giấy trang trí]\npresent - /ˈprezənt/ - (n) món quà (trang trọng hơn gift)",
+      "festive": "[Khi miêu tả không khí, ánh đèn hoặc đồ trang trí mang phong cách lễ hội]\nThe whole street looks festive with all the lights.\n(Cả con phố trông rực rỡ không khí lễ hội nhờ đèn trang trí.)\n\n[Khi nói về cả mùa lễ hội nói chung]\nfestive season - /ˈfestɪv ˈsiːzən/ - (n) mùa lễ hội",
+      "gather": "[Khi cả gia đình hoặc bạn bè tụ họp ở một nơi]\nThe whole family gathers at my grandparents' house.\n(Cả gia đình tụ họp ở nhà ông bà.)\n\n[Khi muốn nói “quây quần” thân mật hơn]\nget together - /ɡet təˈɡeðər/ - (phr v) quây quần, gặp gỡ"
+    }
+  },
+  "tet-lunar-new-year": {
+    "pos": {
+      "Tết": "n",
+      "lucky money": "n",
+      "family reunion": "n",
+      "ancestors": "n",
+      "incense": "n",
+      "traditional food": "n",
+      "sticky rice cake": "n",
+      "visit relatives": "v",
+      "New Year wish": "n",
+      "peach blossom": "n",
+      "first visitor": "n",
+      "red envelope": "n"
+    },
+    "notes": {
+      "lucky money": "[Khi nói về tiền mừng tuổi trong phong bao đỏ]\nChildren receive lucky money from their elders during Tết.\n(Trẻ em nhận tiền lì xì từ người lớn trong dịp Tết.)\n\n[Khi nhấn mạnh chính chiếc phong bao đỏ]\nred envelope - /ˌred ˈenvəloʊp/ - (n) phong bao lì xì",
+      "ancestors": "[Khi nói về việc thờ cúng tổ tiên trong dịp Tết]\nWe light incense to honour our ancestors.\n(Chúng tôi thắp hương để tưởng nhớ tổ tiên.)\n\n[Khi nói về tổ tiên trong gia phả, văn phong trang trọng]\nforebears - /ˈfɔːrberz/ - (n) tổ tiên (ít dùng trong văn nói hằng ngày)",
+      "first visitor": "[Khi nói về người đến thăm nhà đầu tiên trong năm mới]\nOur first visitor was my uncle, who brought a peach branch.\n(Người đến thăm nhà đầu tiên năm mới là chú tôi, người mang theo một cành đào.)\n\n[Tục xông đất ở Scotland, gần với tục first visitor của Việt Nam]\nfirst-foot - /ˈfɜːrst fʊt/ - (n) người xông đất"
+    }
+  },
+  "valentines-day": {
+    "pos": {
+      "Valentine’s Day": "n",
+      "romantic": "adj",
+      "bouquet": "n",
+      "chocolate": "n",
+      "date": "n",
+      "surprise": "n",
+      "love letter": "n",
+      "propose": "v",
+      "couple": "n",
+      "candlelit dinner": "n",
+      "anniversary": "n",
+      "affection": "n"
+    },
+    "notes": {
+      "bouquet": "[Khi nói về bó hoa tặng trong dịp Valentine]\nHe gave her a bouquet of red roses.\n(Anh ấy tặng cô ấy một bó hồng đỏ.)\n\n[Khi chỉ một bông hoa đơn lẻ]\nsingle rose - /ˈsɪŋɡəl roʊz/ - (n) một bông hồng",
+      "propose": "[Khi nói về việc cầu hôn ai đó]\nHe proposed to her at the candlelit dinner.\n(Anh ấy cầu hôn cô ấy trong bữa tối dưới ánh nến.)\n\n[Khi nói về việc đính hôn sau khi được nhận lời]\nget engaged - /ɡet ɪnˈɡeɪdʒd/ - (phr v) đính hôn",
+      "affection": "[Khi nói về tình cảm trìu mến, dịu dàng]\nShe showed her affection with a handwritten card.\n(Cô ấy thể hiện sự trìu mến bằng một tấm thiệp viết tay.)\n\n[Khi nói về tình yêu sâu đậm hơn]\nlove - /lʌv/ - (n) tình yêu"
+    }
+  },
+  "new-years-day": {
+    "pos": {
+      "New Year’s Day": "n",
+      "resolution": "n",
+      "fresh start": "n",
+      "goal": "n",
+      "achieve": "v",
+      "habit": "n",
+      "exercise": "v",
+      "save money": "v",
+      "countdown": "n",
+      "fireworks": "n",
+      "toast": "(n)(v)",
+      "stick to": "v"
+    },
+    "notes": {
+      "resolution": "[Khi nói về quyết tâm đặt ra cho năm mới]\nMy New Year's resolution is to read more books.\n(Quyết tâm năm mới của tôi là đọc nhiều sách hơn.)\n\n[Khi nói về việc giữ được quyết tâm đó]\nkeep a resolution - /kiːp ə ˌrezəˈluːʃən/ - (phr) giữ được quyết tâm",
+      "stick to": "[Khi nói về việc kiên trì với kế hoạch hoặc thói quen đã đặt ra]\nIt's hard to stick to a new habit after January.\n(Khó mà kiên trì với thói quen mới sau tháng Một.)\n\n[Khi nói về việc từ bỏ]\ngive up - /ɡɪv ʌp/ - (phr v) từ bỏ",
+      "countdown": "[Khi nói về màn đếm ngược đón năm mới]\nWe watched the countdown on TV at midnight.\n(Chúng tôi xem màn đếm ngược trên TV lúc nửa đêm.)\n\n[Khi nói về màn bắn pháo hoa đêm giao thừa]\nfireworks display - /ˈfaɪərwɜːrks dɪˈspleɪ/ - (n) màn bắn pháo hoa"
+    }
+  },
+  "psychology-mind": {
+    "pos": {
+      "emotion": "n",
+      "anxiety": "n",
+      "habit": "n",
+      "motivation": "n",
+      "mindset": "n",
+      "trigger": "(n)(v)",
+      "coping mechanism": "n",
+      "resilience": "n",
+      "empathy": "n",
+      "burnout": "n",
+      "self-talk": "n",
+      "mindfulness": "n"
+    },
+    "notes": {
+      "anxiety": "[Khi nói về cảm giác lo âu kéo dài, không chỉ hồi hộp nhất thời]\nShe felt a wave of anxiety before the meeting.\n(Cô ấy cảm thấy một cơn lo âu trước cuộc họp.)\n\n[Khi chỉ sự hồi hộp nhẹ, thoáng qua]\nnervousness - /ˈnɜːrvəsnəs/ - (n) sự hồi hộp",
+      "resilience": "[Khi nói về khả năng đứng dậy sau khó khăn]\nResilience helps us recover from setbacks.\n(Khả năng phục hồi giúp chúng ta vượt qua thất bại.)\n\n[Khi nói về việc phục hồi sau một cú sốc cụ thể]\nbounce back - /baʊns bæk/ - (phr v) phục hồi, đứng dậy",
+      "trigger": "[Khi nói về tác nhân kích hoạt một cảm xúc hoặc phản ứng]\nLoud noises are a common trigger for my anxiety.\n(Tiếng ồn lớn là tác nhân kích hoạt lo âu thường gặp của tôi.)\n\n[Khi dùng như động từ với nghĩa gây ra]\nset off - /set ɔːf/ - (phr v) kích hoạt, gây ra"
+    }
+  }
+}

@@ -375,80 +375,26 @@
   padding-top: 2px;
 }
 
-.english-today-grammar-alts {
-  margin-top: 12px;
-  padding-top: 10px;
-  border-top: 1px dashed #d9dce8;
-}
+.english-bilingual { margin-top: 6px; }
+.english-bilingual-en { font-size: 14px; line-height: 1.6; color: #263042; }
+.english-bilingual-vi { margin-top: 2px; font-size: 12px; line-height: 1.5; color: #2f7a55; }
 
-.english-today-grammar-alts .alts-title {
-  display: block;
-  margin-bottom: 8px;
-  color: #394eaa;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .03em;
-  text-transform: uppercase;
-}
+.english-vocab-notes { display: grid; gap: 8px; margin-top: 8px; }
+.english-vocab-note { padding: 8px 10px; border-radius: 10px; background: #f7f8ff; border: 1px solid #e3e6f0; }
+.english-vocab-note-label { font-size: 11px; font-weight: 700; color: #394eaa; margin-bottom: 4px; }
+.english-vocab-note-en { font-size: 12px; color: #263042; line-height: 1.5; }
+.english-vocab-note-vi { font-size: 12px; color: #2f7a55; line-height: 1.5; }
+.english-vocab-note-syn { font-size: 12px; color: #35405a; line-height: 1.5; }
+.english-vocab-note-syn .ipa { color: #697382; font-style: italic; }
 
-.english-today-grammar-alt-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
-}
-
-.english-today-grammar-alt {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  padding: 10px;
-  border: 1px solid #e3e6f0;
-  border-radius: 10px;
-  background: #fcfcff;
-}
-
-.english-today-grammar-alt .alt-context {
-  color: #6b5b1f;
-  font-size: 11px;
-  font-weight: 700;
-  line-height: 1.4;
-}
-
-.english-today-grammar-alt .alt-main-badge {
-  margin-left: 6px;
-  padding: 1px 6px;
-  border-radius: 999px;
-  background: #e9edff;
-  color: #394eaa;
-  font-size: 9px;
-  font-style: normal;
-  text-transform: uppercase;
-}
-
-.english-today-grammar-alt .alt-example {
-  color: #263042;
-  font-size: 12px;
-  line-height: 1.5;
-}
-
-.english-today-grammar-alt .alt-translation {
-  color: #2f7a55;
-  font-size: 11px;
-  line-height: 1.45;
-}
-
-.english-today-grammar-alt .alt-listen {
-  align-self: flex-start;
-  margin-top: 2px;
-  padding: 4px 8px;
-  font-size: 11px;
-}
-
-@media (max-width: 900px) {
-  .english-today-grammar-alt-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
+.english-quiz-explain { display: grid; gap: 8px; margin-top: 4px; }
+.english-quiz-explain-group { padding: 8px 10px; border-radius: 10px; border: 1px solid #e7e5de; background: #fbfaf6; }
+.english-quiz-explain-group.is-correct { border-color: #b7dec8; background: #f2fbf6; }
+.english-quiz-explain-group.is-wrong { border-color: #efd4c2; background: #fff8f3; }
+.english-quiz-explain-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; margin-bottom: 4px; color: #394eaa; }
+.english-quiz-explain-group.is-correct .english-quiz-explain-title { color: #2f7a55; }
+.english-quiz-explain-group.is-wrong .english-quiz-explain-title { color: #9a5a32; }
+.english-quiz-explain-line { font-size: 12px; line-height: 1.5; color: #35405a; white-space: pre-wrap; }
 
 .english-today-item .english-today-formula {
   display: flex;

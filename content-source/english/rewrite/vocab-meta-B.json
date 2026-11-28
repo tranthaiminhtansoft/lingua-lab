@@ -1,0 +1,149 @@
+{
+  "weekend-market": {
+    "pos": {
+      "market": "n",
+      "fresh": "adj",
+      "bargain": "n",
+      "vendor": "n",
+      "weigh": "n",
+      "bag": "n",
+      "reusable bag": "n",
+      "receipt": "n",
+      "cash": "n",
+      "loose change": "n",
+      "stall": "n",
+      "ripe": "adj"
+    },
+    "notes": {
+      "market": "[Khi dùng trong chủ đề \"Weekend market shopping\"]\nMarket is a useful word in this topic.\n(Chợ là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"market\" naturally in a short sentence about weekend market shopping.",
+      "fresh": "[Khi dùng trong chủ đề \"Weekend market shopping\"]\nFresh is a useful word in this topic.\n(Tươi là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"fresh\" naturally in a short sentence about weekend market shopping.",
+      "bargain": "[Khi dùng trong chủ đề \"Weekend market shopping\"]\nBargain is a useful word in this topic.\n(Món hời là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"bargain\" naturally in a short sentence about weekend market shopping."
+    }
+  },
+  "weekend-outing": {
+    "pos": {
+      "hang out": "v",
+      "café": "n",
+      "cinema": "n",
+      "meet up": "v",
+      "reservation": "n",
+      "traffic": "n",
+      "running late": "phrase",
+      "split the tab": "n",
+      "taxi": "n",
+      "catch a movie": "v",
+      "rain check": "v",
+      "turn up": "v"
+    },
+    "notes": {
+      "hang out": "[Khi dùng trong chủ đề \"Going out with friends\"]\nHang out is a useful word in this topic.\n(Đi chơi là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"hang out\" naturally in a short sentence about going out with friends.",
+      "café": "[Khi dùng trong chủ đề \"Going out with friends\"]\nCafé is a useful word in this topic.\n(Quán cà phê là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"café\" naturally in a short sentence about going out with friends.",
+      "cinema": "[Khi dùng trong chủ đề \"Going out with friends\"]\nCinema is a useful word in this topic.\n(Rạp chiếu phim là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"cinema\" naturally in a short sentence about going out with friends."
+    }
+  },
+  "weekend-rest": {
+    "pos": {
+      "sleep in": "v",
+      "unwind": "v",
+      "nap": "n",
+      "recharge": "v",
+      "pajamas": "n",
+      "cozy": "adj",
+      "no alarm": "phrase",
+      "binge-watch": "n",
+      "lazy": "adj",
+      "downtime": "n",
+      "take a break": "v",
+      "screen time": "n"
+    },
+    "notes": {
+      "sleep in": "[Khi dùng trong chủ đề \"Rest and recharge at home\"]\nSleep in is a useful word in this topic.\n(Ngủ nướng là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"sleep in\" naturally in a short sentence about rest and recharge at home.",
+      "unwind": "[Khi dùng trong chủ đề \"Rest and recharge at home\"]\nUnwind is a useful word in this topic.\n(Thư giãn là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"unwind\" naturally in a short sentence about rest and recharge at home.",
+      "nap": "[Khi dùng trong chủ đề \"Rest and recharge at home\"]\nNap is a useful word in this topic.\n(Ngủ trưa là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"nap\" naturally in a short sentence about rest and recharge at home."
+    }
+  },
+  "household-chores": {
+    "pos": {
+      "chore": "n",
+      "laundry": "v",
+      "dishes": "v",
+      "vacuum": "v",
+      "tidy up": "v",
+      "take out the trash": "v",
+      "dust": "v",
+      "mop": "v",
+      "clean": "n",
+      "declutter": "n",
+      "fold the laundry": "v",
+      "sweep the floor": "v"
+    },
+    "notes": {
+      "chore": "[Khi dùng trong chủ đề \"Household chores and cleaning\"]\nChore is a useful word in this topic.\n(Việc nhà là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"chore\" naturally in a short sentence about household chores and cleaning.",
+      "laundry": "[Khi dùng trong chủ đề \"Household chores and cleaning\"]\nLaundry is a useful word in this topic.\n(Giặt đồ là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"laundry\" naturally in a short sentence about household chores and cleaning.",
+      "dishes": "[Khi dùng trong chủ đề \"Household chores and cleaning\"]\nDishes is a useful word in this topic.\n(Rửa bát là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"dishes\" naturally in a short sentence about household chores and cleaning."
+    }
+  },
+  "devops-meeting": {
+    "pos": {
+      "incident": "n",
+      "rollback": "n",
+      "deployment": "n",
+      "pipeline": "n",
+      "outage": "n",
+      "root cause": "n",
+      "monitoring": "v",
+      "runbook": "n",
+      "postmortem": "n",
+      "escalation": "v",
+      "on-call": "n",
+      "mitigation": "n"
+    },
+    "notes": {
+      "incident": "[Khi dùng trong chủ đề \"DevOps team meeting\"]\nIncident is a useful word in this topic.\n(Sự cố là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"incident\" naturally in a short sentence about devops team meeting.",
+      "rollback": "[Khi dùng trong chủ đề \"DevOps team meeting\"]\nRollback is a useful word in this topic.\n(Khôi phục phiên bản cũ là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"rollback\" naturally in a short sentence about devops team meeting.",
+      "deployment": "[Khi dùng trong chủ đề \"DevOps team meeting\"]\nDeployment is a useful word in this topic.\n(Triển khai là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"deployment\" naturally in a short sentence about devops team meeting."
+    }
+  },
+  "neighbor-morning": {
+    "pos": {
+      "good morning": "n",
+      "how’s it going": "n",
+      "lovely weather": "n",
+      "commute": "n",
+      "catch up": "v",
+      "have a good one": "n",
+      "neighbor": "n",
+      "small talk": "n",
+      "take care": "n",
+      "elevator": "n",
+      "front door": "adj",
+      "have a nice day": "n"
+    },
+    "notes": {
+      "good morning": "[Khi dùng trong chủ đề \"Morning greetings with neighbors\"]\nGood morning is a useful word in this topic.\n(Chào buổi sáng là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"good morning\" naturally in a short sentence about morning greetings with neighbors.",
+      "how’s it going": "[Khi dùng trong chủ đề \"Morning greetings with neighbors\"]\nHow’s it going is a useful word in this topic.\n(Dạo này thế nào là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"how’s it going\" naturally in a short sentence about morning greetings with neighbors.",
+      "lovely weather": "[Khi dùng trong chủ đề \"Morning greetings with neighbors\"]\nLovely weather is a useful word in this topic.\n(Thời tiết đẹp là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"lovely weather\" naturally in a short sentence about morning greetings with neighbors."
+    }
+  },
+  "daily-meals": {
+    "pos": {
+      "breakfast": "n",
+      "lunch": "n",
+      "dinner": "n",
+      "portion": "n",
+      "skip a meal": "v",
+      "eat out": "v",
+      "home-cooked": "adj",
+      "leftovers": "n",
+      "balanced meal": "n",
+      "snack": "n",
+      "bowl": "n",
+      "grilled": "adj"
+    },
+    "notes": {
+      "breakfast": "[Khi dùng trong chủ đề \"Breakfast, lunch, and dinner\"]\nBreakfast is a useful word in this topic.\n(Bữa sáng là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"breakfast\" naturally in a short sentence about breakfast, lunch, and dinner.",
+      "lunch": "[Khi dùng trong chủ đề \"Breakfast, lunch, and dinner\"]\nLunch is a useful word in this topic.\n(Bữa trưa là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"lunch\" naturally in a short sentence about breakfast, lunch, and dinner.",
+      "dinner": "[Khi dùng trong chủ đề \"Breakfast, lunch, and dinner\"]\nDinner is a useful word in this topic.\n(Bữa tối là từ hữu ích trong chủ đề này.)\n\n[Cách dùng / lưu ý]\nUse \"dinner\" naturally in a short sentence about breakfast, lunch, and dinner."
+    }
+  }
+}

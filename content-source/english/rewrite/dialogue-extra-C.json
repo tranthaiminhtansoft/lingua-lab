@@ -1,0 +1,84 @@
+{
+  "autumn-routine": {
+    "mainExtra": [
+      "A: Can you give me one more example about autumn routine & energy?",
+      "B: Sure, let's practice it together now."
+    ],
+    "variant1": [
+      "A: Do you want to practice talking about autumn routine & energy today?",
+      "B: Yes, I think it's a useful topic for daily life.",
+      "A: Great. Can you start with a simple sentence?",
+      "B: Of course. I've been trying to use this topic more often.",
+      "A: That sounds natural. Let's add one more detail.",
+      "B: Sure. This practice helps me feel more confident."
+    ]
+  },
+  "work-update": {
+    "mainExtra": [
+      "A: Can you give me one more example about work update in english?",
+      "B: Sure, let's practice it together now."
+    ],
+    "variant1": [
+      "A: Do you want to practice talking about work update in english today?",
+      "B: Yes, I think it's a useful topic for daily life.",
+      "A: Great. Can you start with a simple sentence?",
+      "B: Of course. I've been trying to use this topic more often.",
+      "A: That sounds natural. Let's add one more detail.",
+      "B: Sure. This practice helps me feel more confident."
+    ]
+  },
+  "black-friday": {
+    "mainExtra": [
+      "A: Can you give me one more example about black friday shopping?",
+      "B: Sure, let's practice it together now."
+    ],
+    "variant1": [
+      "A: Do you want to practice talking about black friday shopping today?",
+      "B: Yes, I think it's a useful topic for daily life.",
+      "A: Great. Can you start with a simple sentence?",
+      "B: Of course. I've been trying to use this topic more often.",
+      "A: That sounds natural. Let's add one more detail.",
+      "B: Sure. This practice helps me feel more confident."
+    ]
+  },
+  "devops-release-planning": {
+    "variant1": [
+      "A: Do you want to practice talking about devops release planning today?",
+      "B: Yes, I think it's a useful topic for daily life.",
+      "A: Great. Can you start with a simple sentence?",
+      "B: Of course. I've been trying to use this topic more often.",
+      "A: That sounds natural. Let's add one more detail.",
+      "B: Sure. This practice helps me feel more confident."
+    ]
+  },
+  "neighbor-weekend": {
+    "variant1": [
+      "A: Do you want to practice talking about weekend catch-up with neighbors today?",
+      "B: Yes, I think it's a useful topic for daily life.",
+      "A: Great. Can you start with a simple sentence?",
+      "B: Of course. I've been trying to use this topic more often.",
+      "A: That sounds natural. Let's add one more detail.",
+      "B: Sure. This practice helps me feel more confident."
+    ]
+  },
+  "eating-out": {
+    "variant1": [
+      "A: Do you want to practice talking about eating out and ordering food today?",
+      "B: Yes, I think it's a useful topic for daily life.",
+      "A: Great. Can you start with a simple sentence?",
+      "B: Of course. I've been trying to use this topic more often.",
+      "A: That sounds natural. Let's add one more detail.",
+      "B: Sure. This practice helps me feel more confident."
+    ]
+  },
+  "meal-prep": {
+    "variant1": [
+      "A: Do you want to practice talking about meal prep and healthy eating today?",
+      "B: Yes, I think it's a useful topic for daily life.",
+      "A: Great. Can you start with a simple sentence?",
+      "B: Of course. I've been trying to use this topic more often.",
+      "A: That sounds natural. Let's add one more detail.",
+      "B: Sure. This practice helps me feel more confident."
+    ]
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "weekend-market": {
+    "usage": "Dùng khi muốn đưa ra lời khuyên hoặc gợi ý tự nhiên trong chủ đề \"Weekend market shopping\".",
+    "formula": "S + should + V + O",
+    "example": "You should practice this topic every day. (Bạn nên luyện chủ đề này mỗi ngày.)",
+    "pronunciation": "/ju ʃʊd ˈpræktɪs ðɪs ˈtɑːpɪk ˈevri deɪ/",
+    "title": "Advice with should",
+    "category": "Modal"
+  },
+  "weekend-outing": {
+    "usage": "Dùng khi muốn đưa ra lời khuyên hoặc gợi ý tự nhiên trong chủ đề \"Going out with friends\".",
+    "formula": "S + should + V + O",
+    "example": "You should practice this topic every day. (Bạn nên luyện chủ đề này mỗi ngày.)",
+    "pronunciation": "/ju ʃʊd ˈpræktɪs ðɪs ˈtɑːpɪk ˈevri deɪ/",
+    "title": "Advice with should",
+    "category": "Modal"
+  },
+  "weekend-rest": {
+    "usage": "Dùng khi muốn đưa ra lời khuyên hoặc gợi ý tự nhiên trong chủ đề \"Rest and recharge at home\".",
+    "formula": "S + should + V + O",
+    "example": "You should practice this topic every day. (Bạn nên luyện chủ đề này mỗi ngày.)",
+    "pronunciation": "/ju ʃʊd ˈpræktɪs ðɪs ˈtɑːpɪk ˈevri deɪ/",
+    "title": "Advice with should",
+    "category": "Modal"
+  },
+  "household-chores": {
+    "usage": "Dùng khi muốn đưa ra lời khuyên hoặc gợi ý tự nhiên trong chủ đề \"Household chores and cleaning\".",
+    "formula": "S + should + V + O",
+    "example": "You should practice this topic every day. (Bạn nên luyện chủ đề này mỗi ngày.)",
+    "pronunciation": "/ju ʃʊd ˈpræktɪs ðɪs ˈtɑːpɪk ˈevri deɪ/",
+    "title": "Advice with should",
+    "category": "Modal"
+  },
+  "devops-meeting": {
+    "usage": "Dùng khi muốn đưa ra lời khuyên hoặc gợi ý tự nhiên trong chủ đề \"DevOps team meeting\".",
+    "formula": "S + should + V + O",
+    "example": "You should practice this topic every day. (Bạn nên luyện chủ đề này mỗi ngày.)",
+    "pronunciation": "/ju ʃʊd ˈpræktɪs ðɪs ˈtɑːpɪk ˈevri deɪ/",
+    "title": "Advice with should",
+    "category": "Modal"
+  },
+  "neighbor-morning": {
+    "usage": "Dùng khi muốn đưa ra lời khuyên hoặc gợi ý tự nhiên trong chủ đề \"Morning greetings with neighbors\".",
+    "formula": "S + should + V + O",
+    "example": "You should practice this topic every day. (Bạn nên luyện chủ đề này mỗi ngày.)",
+    "pronunciation": "/ju ʃʊd ˈpræktɪs ðɪs ˈtɑːpɪk ˈevri deɪ/",
+    "title": "Advice with should",
+    "category": "Modal"
+  },
+  "daily-meals": {
+    "usage": "Dùng khi muốn đưa ra lời khuyên hoặc gợi ý tự nhiên trong chủ đề \"Breakfast, lunch, and dinner\".",
+    "formula": "S + should + V + O",
+    "example": "You should practice this topic every day. (Bạn nên luyện chủ đề này mỗi ngày.)",
+    "pronunciation": "/ju ʃʊd ˈpræktɪs ðɪs ˈtɑːpɪk ˈevri deɪ/",
+    "title": "Advice with should",
+    "category": "Modal"
+  }
+}

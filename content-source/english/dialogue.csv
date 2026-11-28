@@ -1,223 +1,692 @@
 ﻿topicId,variantIndex,sentences
-christmas-celebration,0,"A: What are your plans for Christmas?
-B: We’re gathering at my parents’ house.
-A: That sounds lovely. Are you cooking?
-B: Yes, a big family dinner. What about you?
-A: I’m staying home and watching Christmas carols.
-B: Merry Christmas in advance!"
-christmas-celebration,1,"A: Have you bought gifts yet?
+christmas-celebration,0,"A: Have you bought gifts yet?
+
+(Bạn đã mua quà chưa?)
+
 B: Yes, I finished shopping last week.
+
+(Có, tôi đã mua xong tuần trước.)
+
 A: I still need one for my sister.
+
+(Tôi vẫn cần mua cho em gái.)
+
 B: Try the market downtown.
+
+(Thử chợ ở trung tâm.)
+
 A: Good idea. Merry Christmas!
+
+(Ý hay đấy. Giáng sinh vui vẻ!)
+
+B: Merry Christmas to you too!
+
+(Giáng sinh vui vẻ nhé!)"
+christmas-celebration,1,"A: Have you bought gifts yet?
+
+B: Yes, I finished shopping last week.
+
+A: I still need one for my sister.
+
+B: Try the market downtown.
+
+A: Good idea. Merry Christmas!
+
 B: Merry Christmas to you too!"
 christmas-celebration,2,"A: Look at the snowflakes! Shall we build a snowman?
+
 B: Great idea. I’ll grab my scarf and meet you outside.
+
 A: After that, let’s warm up by the fireplace.
+
 B: Perfect. I’m also baking gingerbread men and mince pies.
+
 A: Yum! Will Rudolph and the reindeer visit tonight?
+
 B: Maybe! Don’t forget to hang Santa’s sack by the chimney."
-tet-lunar-new-year,0,"A: What are your plans for Tết?
-B: We’re having a big family reunion.
-A: That sounds lovely. Are you cooking bánh chưng?
-B: Yes, and we’ll visit relatives too.
-A: Don’t forget the lucky money!
-B: Of course. Happy New Year in advance!"
-tet-lunar-new-year,1,"A: Have you cleaned the house for Tết?
-B: Yes, and we’ve put up decorations.
+tet-lunar-new-year,0,"A: Have you cleaned the house for Tết?
+
+(Bạn đã dọn nhà cho Tết chưa?)
+
+B: Yes, and we've put up decorations.
+
+(Có, và chúng tôi đã trang trí.)
+
 A: I still need to buy gifts.
+
+(Tôi vẫn cần mua quà.)
+
 B: Try the market downtown.
+
+(Thử chợ ở trung tâm.)
+
 A: Good idea. Happy Tết!
-B: Happy Tết to you too!"
-valentines-day,0,"A: What are your plans for Valentine’s Day?
-B: I’m taking her out for dinner.
-A: That sounds romantic. Did you buy a gift?
-B: Yes, a bouquet and some chocolate.
-A: She’ll love it. Surprise her!
-B: I hope so. Happy Valentine’s Day!"
-valentines-day,1,"A: Have you written a love letter?
+
+(Ý hay. Chúc Tết vui vẻ!)
+
+B: Happy Tết to you too!
+
+(Chúc Tết vui vẻ nhé!)"
+tet-lunar-new-year,1,"A: Do you want to practice talking about tết nguyên đán (lunar new year) today?
+
+B: Yes, I think it's a useful topic for daily life.
+
+A: Great. Can you start with a simple sentence?
+
+B: Of course. I've been trying to use this topic more often.
+
+A: That sounds natural. Let's add one more detail.
+
+B: Sure. This practice helps me feel more confident."
+valentines-day,0,"A: Have you written a love letter?
+
+(Bạn đã viết thư tình chưa?)
+
 B: Yes, I finished it last night.
-A: That’s sweet. Are you proposing?
-B: Maybe. I’m nervous.
-A: You’ll do great. Good luck!
-B: Thanks! Wish me luck."
-new-years-day,0,"A: Do you have any New Year’s resolutions?
-B: Yes, I want to exercise more.
-A: That’s a great goal. How often?
-B: Three times a week. What about you?
-A: I’m going to save more money.
-B: Good luck! Happy New Year!"
-new-years-day,1,"A: Did you stay up for the countdown?
+
+(Có, tôi viết xong tối qua.)
+
+A: That's sweet. Are you proposing?
+
+(Ngọt ngào quá. Bạn định cầu hôn à?)
+
+B: Maybe. I'm nervous.
+
+(Có thể. Tôi hơi hồi hộp.)
+
+A: You'll do great. Good luck!
+
+(Bạn sẽ làm tốt. Chúc may mắn!)
+
+B: Thanks! Wish me luck.
+
+(Cảm ơn! Chúc tôi may mắn nhé.)"
+valentines-day,1,"A: Do you want to practice talking about valentine’s day today?
+
+B: Yes, I think it's a useful topic for daily life.
+
+A: Great. Can you start with a simple sentence?
+
+B: Of course. I've been trying to use this topic more often.
+
+A: That sounds natural. Let's add one more detail.
+
+B: Sure. This practice helps me feel more confident."
+new-years-day,0,"A: Did you stay up for the countdown?
+
+(Bạn có thức đến đếm ngược không?)
+
 B: Yes, until midnight.
+
+(Có, đến nửa đêm.)
+
 A: Was it fun?
+
+(Vui không?)
+
 B: Very. I made a fresh start this year.
-A: Me too. Let’s achieve our goals.
-B: Agreed. Happy New Year!"
-psychology-mind,0,"A: Why do I keep procrastinating?
-B: It might be a habit, not laziness.
-A: How do I change it?
-B: Start small and track your motivation.
-A: That sounds manageable.
-B: Yes. Be kind to yourself and keep going."
-psychology-mind,1,"A: I feel anxious before presentations.
-B: That’s normal. Try deep breathing.
+
+(Rất vui. Năm nay tôi bắt đầu mới.)
+
+A: Me too. Let's achieve our goals.
+
+(Tôi cũng vậy. Hãy đạt mục tiêu nhé.)
+
+B: Agreed. Happy New Year!
+
+(Đồng ý. Chúc năm mới!)"
+new-years-day,1,"A: Do you want to practice talking about new year’s day today?
+
+B: Yes, I think it's a useful topic for daily life.
+
+A: Great. Can you start with a simple sentence?
+
+B: Of course. I've been trying to use this topic more often.
+
+A: That sounds natural. Let's add one more detail.
+
+B: Sure. This practice helps me feel more confident."
+psychology-mind,0,"A: I feel anxious before presentations.
+
+(Tôi cảm thấy lo lắng trước khi thuyết trình.)
+
+B: That's normal. Try deep breathing.
+
+(Bình thường thôi. Hãy hít thở sâu.)
+
 A: Does it really help?
+
+(Thật sự có hiệu quả không?)
+
 B: Yes, it calms the body and mind.
-A: I’ll try it next time.
-B: You’ve got this."
-sunday-mass,0,"A: Are you going to church this Sunday?
-B: Yes, at nine. Would you like to come?
-A: I’d love to. Is the choir singing?
-B: Yes, and the sermon is about forgiveness.
-A: That sounds meaningful.
-B: Great. Let’s meet at the parish gate at eight forty-five."
-sunday-mass,1,"A: What time is mass today?
-B: Nine o’clock, as usual.
-A: I’m bringing my children.
-B: Wonderful. There’s a children’s blessing.
-A: That’s lovely. See you there.
-B: See you. Have a blessed Sunday."
-weekend-market,0,"A: What are you buying today?
-B: Fresh tomatoes and some herbs.
-A: Could you weigh these, please?
-B: Sure. That’s half a kilo.
-A: How much is it?
-B: Two dollars. Do you need a bag?"
-weekend-market,1,"A: Morning! What’s fresh today?
+
+(Có, nó làm dịu cơ thể và tâm trí.)
+
+A: I'll try it next time.
+
+(Lần sau tôi sẽ thử.)
+
+B: You've got this.
+
+(Bạn làm được.)"
+psychology-mind,1,"A: Do you want to practice talking about psychology and the mind today?
+
+B: Yes, I think it's a useful topic for daily life.
+
+A: Great. Can you start with a simple sentence?
+
+B: Of course. I've been trying to use this topic more often.
+
+A: That sounds natural. Let's add one more detail.
+
+B: Sure. This practice helps me feel more confident."
+sunday-mass,0,"A: So, what do you usually get up to on Sundays? Do you have a set routine?
+
+(Vậy Chủ Nhật cậu thường làm gì? Cậu có lịch sinh hoạt cố định nào không?)
+
+B: Pretty much, yeah. Since I’m a cradle Catholic, I usually head to morning Mass at the Cathedral downtown. Even though it’s been under restoration with scaffolding all around it for years, it’s still open for regular services—it’s just closed to casual sightseers.
+
+(Gần như là vậy. Vì mình có đạo Công giáo từ nhỏ nên mình thường đi lễ sáng ở Nhà thờ Chánh Tòa dưới trung tâm. Dù nhà thờ đang trùng tu và quây giàn giáo mấy năm nay rồi, nhưng bên trong vẫn mở cửa cho các giờ lễ định kỳ—chỉ đóng cửa với khách tham quan vãng lai thôi.)
+
+A: Oh, I didn't realize you could still go inside! If I wanted to tag along sometime, is there anything I should keep in mind—like a strict dress code?
+
+(Ồ, mình không biết là vẫn vào bên trong được đấy! Nếu hôm nào mình muốn đi ké thì có cần lưu ý gì không—kiểu như quy định trang phục khắt khe chẳng hạn?)
+
+B: Definitely. Out of respect for the sacred space, you’re expected to dress modestly—meaning no shorts or sleeveless tops. Also, we’d wanna get there a bit early ’cause parking at the bookstore right next door fills up super fast.
+
+(Chắc chắn rồi. Để tỏ lòng tôn trọng không gian tôn nghiêm, mọi người được yêu cầu ăn mặc kín đáo—nghĩa là không mặc quần ngắn hay áo sát nách. Với lại tụi mình cũng nên tới sớm một chút vì chỗ gởi xe ở nhà sách ngay kế bên mau kín chỗ lắm.)
+
+A: Good to know! And what do you normally do once Mass wraps up?
+
+(Thông tin hữu ích đấy! Thế lễ xong thì bình thường cậu làm gì?)
+
+B: There’s actually an older vendor I know right outside that bookstore who sells Singaporean tofu pudding. I always make a point of buying some to support him—it’s kind of become a little post-Mass ritual of mine before heading home.
+
+(Ngay bên ngoài nhà sách đó có một bác bán hàng quen bán tàu hủ Singapore. Mình luôn chủ ý mua một ít để ủng hộ bác—việc đó gần như trở thành một thói quen nho nhỏ sau giờ lễ của mình trước khi về nhà.)"
+sunday-mass,1,"A: Hey, do you have any plans once we clock out today, or are you heading straight home?
+
+(Này, hôm nay tan làm xong cậu có kế hoạch gì chưa, hay là về thẳng nhà luôn?)
+
+B: I’m actually planning to squeeze in an evening Mass at my local parish around six. It really helps me unwind and decompress after a hectic week.
+
+(Thật ra mình đang tính tranh thủ đi lễ chiều ở giáo xứ gần nhà lúc 6 giờ. Việc đó giúp mình thư giãn và xả hơi rất tốt sau một tuần làm việc quay cuồng.)
+
+A: That sounds super grounding. Mind if I join you, or is it a members-only kind of thing?
+
+(Nghe bình yên và cân bằng ghê. Cậu có phiền nếu mình đi cùng không, hay chỗ đó chỉ dành riêng cho người có đạo thôi?)
+
+B: Not at all—anyone’s welcome! Just lemme wrap up this last report first. If I end up running late, we can always grab a quick bite beforehand and catch the later service.
+
+(Không hề—ai cũng được chào đón hết! Để mình làm nốt cái báo cáo cuối này đã. Nếu lỡ mà mình bị trễ giờ thì tụi mình có thể ăn nhẹ chút gì đó trước rồi dự thánh lễ ca sau cũng được.)
+
+A: Sounds like a plan! Oh, what if the team decides to do happy hour tonight instead?
+
+(Nghe hợp lý đấy! À, nhỡ tối nay cả nhóm lại rủ đi ăn uống tụ tập sau giờ làm thì sao?)
+
+B: Honestly, if they organize something last-minute, I’ll probably take a rain check. Staying consistent with my routine matters more to me than staying out late.
+
+(Thật lòng thì nếu mọi người rủ đột xuất vào phút chót, chắc mình sẽ xin khất sang dịp khác. Duy trì đều đặn nếp sinh hoạt cá nhân quan trọng với mình hơn là đi chơi khuya.)"
+weekend-market,0,"A: Morning! What's fresh today?
+
+(Chào buổi sáng! Hôm nay có gì tươi?)
+
 B: The spinach and carrots just arrived.
+
+(Rau chân vịt và cà rốt vừa về.)
+
 A: Could you give me a kilo of carrots?
+
+(Cho tôi một ký cà rốt.)
+
 B: Of course. Anything else?
+
+(Tất nhiên. Còn gì nữa không?)
+
 A: Just these. How much in total?
-B: Five dollars. Have a good weekend!"
-weekend-outing,0,"A: Are you free this Saturday?
-B: Yes! What do you want to do?
-A: Let’s meet up at seven and grab a coffee.
-B: Sounds good. Should we book a table?
-A: Yes, just in case it’s busy.
-B: Great. I’ll be there at seven sharp."
-weekend-outing,1,"A: Do you want to go to the cinema?
+
+(Chỉ thế này. Tổng bao nhiêu?)
+
+B: Five dollars. Have a good weekend!
+
+(Năm đô. Cuối tuần vui vẻ!)"
+weekend-market,1,"A: Do you want to practice talking about weekend market shopping today?
+
+B: Yes, I think it's a useful topic for daily life.
+
+A: Great. Can you start with a simple sentence?
+
+B: Of course. I've been trying to use this topic more often.
+
+A: That sounds natural. Let's add one more detail.
+
+B: Sure. This practice helps me feel more confident."
+weekend-outing,0,"A: Do you want to go to the cinema?
+
+(Bạn có muốn đi xem phim không?)
+
 B: Sure. What time does the movie start?
+
+(Tất nhiên. Phim bắt đầu mấy giờ?)
+
 A: Seven-thirty. Shall we meet at seven?
-B: Perfect. I’ll bring some snacks.
-A: Great. I’ll buy the tickets online.
-B: See you there!"
-weekend-rest,0,"A: How was your weekend?
-B: So relaxing. I slept in both days.
-A: Nice. Did you do anything?
-B: Just a nap and some reading.
-A: That sounds perfect.
-B: It was. I feel recharged for Monday."
-weekend-rest,1,"A: Are you doing anything today?
-B: Nothing at all. I’m in my pajamas.
+
+(Bảy giờ rưỡi. Chúng ta gặp lúc bảy giờ nhé?)
+
+B: Perfect. I'll bring some snacks.
+
+(Tuyệt. Tôi mang đồ ăn vặt.)
+
+A: Great. I'll buy the tickets online.
+
+(Tốt. Tôi mua vé online.)
+
+B: See you there!
+
+(Gặp bạn ở đó!)"
+weekend-outing,1,"A: Do you want to practice talking about going out with friends today?
+
+B: Yes, I think it's a useful topic for daily life.
+
+A: Great. Can you start with a simple sentence?
+
+B: Of course. I've been trying to use this topic more often.
+
+A: That sounds natural. Let's add one more detail.
+
+B: Sure. This practice helps me feel more confident."
+weekend-rest,0,"A: Are you doing anything today?
+
+(Hôm nay bạn làm gì không?)
+
+B: Nothing at all. I'm in my pajamas.
+
+(Không gì cả. Tôi đang mặc đồ ngủ.)
+
 A: Lucky you! I have chores.
+
+(May quá! Tôi có việc nhà.)
+
 B: Take a nap later. You deserve it.
+
+(Nghỉ trưa sau nhé. Bạn xứng đáng.)
+
 A: Maybe I will.
-B: Enjoy your rest!"
-household-chores,0,"A: Can you help with the chores today?
-B: Sure. What do you need?
-A: Could you vacuum the living room?
-B: Okay. I’ll do that after lunch.
-A: And I’ll take out the trash.
-B: Great. Then we’re done."
-household-chores,1,"A: The house is a mess.
-B: Let’s tidy up together.
-A: I’ll do the dishes, you mop.
-B: Deal. Who’s doing the laundry?
+
+(Có thể tôi sẽ.)
+
+B: Enjoy your rest!
+
+(Nghỉ ngơi vui vẻ!)"
+weekend-rest,1,"A: Do you want to practice talking about rest and recharge at home today?
+
+B: Yes, I think it's a useful topic for daily life.
+
+A: Great. Can you start with a simple sentence?
+
+B: Of course. I've been trying to use this topic more often.
+
+A: That sounds natural. Let's add one more detail.
+
+B: Sure. This practice helps me feel more confident."
+household-chores,0,"A: The house is a mess.
+
+(Nhà bừa bộn quá.)
+
+B: Let's tidy up together.
+
+(Chúng ta dọn cùng nhau.)
+
+A: I'll do the dishes, you mop.
+
+(Tôi rửa bát, bạn lau nhà.)
+
+B: Deal. Who's doing the laundry?
+
+(Đồng ý. Ai giặt đồ?)
+
 A: I already did it this morning.
-B: Nice. Teamwork!"
-devops-meeting,0,"A: Morning, everyone. Can we start with the incident?
-B: Sure. The checkout service went down at 8:40.
-A: We rolled back the last deployment, and the error rate is normal now.
-B: Do we know the root cause yet?
-A: Not yet, but we’re checking the timeout configuration.
-B: Great. Let’s write the postmortem and update the runbook today."
-devops-meeting,1,"A: Can we go over yesterday’s incident?
+
+(Tôi đã giặt sáng nay rồi.)
+
+B: Nice. Teamwork!
+
+(Tốt. Làm việc nhóm!)"
+household-chores,1,"A: Do you want to practice talking about household chores and cleaning today?
+
+B: Yes, I think it's a useful topic for daily life.
+
+A: Great. Can you start with a simple sentence?
+
+B: Of course. I've been trying to use this topic more often.
+
+A: That sounds natural. Let's add one more detail.
+
+B: Sure. This practice helps me feel more confident."
+devops-meeting,0,"A: Can we go over yesterday's incident?
+
+(Chúng ta xem lại sự cố hôm qua được không?)
+
 B: Sure. The API latency went up around noon.
+
+(Được. Độ trễ API tăng vào giữa trưa.)
+
 A: Did the rollback fix it?
-B: Yes, but we still don’t know the root cause.
-A: Let’s add more monitoring and check again tomorrow.
-B: I’ll open a ticket and assign an owner."
-neighbor-morning,0,"A: Morning, Mrs. Lan! How’s it going?
-B: Morning! Pretty good, thanks. Off to work?
-A: Yeah, I’m just heading to the station.
-B: Lovely weather today, isn’t it?
-A: It really is. Let’s catch up this weekend.
-B: Sounds good. Have a good one!"
-neighbor-morning,1,"A: Good morning! You’re out early.
-B: Yeah, I’m heading to the gym before work.
-A: Nice. How’s the family?
-B: Everyone’s good, thanks. How about yours?
-A: All fine. I’ll see you around.
-B: Take care!"
-daily-meals,0,"A: What did you have for breakfast?
-B: Just coffee and a banana, because I was in a hurry.
-A: I usually have pho, but I’m trying to eat a balanced meal.
-B: Nice. Are you eating out for lunch today?
-A: Yeah, my team is going out. Do you want to join?
-B: I’d love to, but I brought leftovers."
-daily-meals,1,"A: What are you having for lunch?
+
+(Rollback có sửa được không?)
+
+B: Yes, but we still don't know the root cause.
+
+(Có, nhưng vẫn chưa biết nguyên nhân.)
+
+A: Let's add more monitoring and check again tomorrow.
+
+(Chúng ta thêm monitoring và kiểm tra lại ngày mai.)
+
+B: I'll open a ticket and assign an owner.
+
+(Tôi sẽ mở ticket và phân công.)"
+devops-meeting,1,"A: Do you want to practice talking about devops team meeting today?
+
+B: Yes, I think it's a useful topic for daily life.
+
+A: Great. Can you start with a simple sentence?
+
+B: Of course. I've been trying to use this topic more often.
+
+A: That sounds natural. Let's add one more detail.
+
+B: Sure. This practice helps me feel more confident."
+neighbor-morning,0,"A: Good morning! You're out early.
+
+(Chào buổi sáng! Bạn ra sớm thế.)
+
+B: Yeah, I'm heading to the gym before work.
+
+(Ừ, tôi đi gym trước khi làm.)
+
+A: Nice. How's the family?
+
+(Tốt. Gia đình thế nào?)
+
+B: Everyone's good, thanks. How about yours?
+
+(Mọi người đều khỏe, cảm ơn. Còn bạn?)
+
+A: All fine. I'll see you around.
+
+(Đều ổn. Gặp bạn sau.)
+
+B: Take care!
+
+(Bảo trọng!)"
+neighbor-morning,1,"A: Do you want to practice talking about morning greetings with neighbors today?
+
+B: Yes, I think it's a useful topic for daily life.
+
+A: Great. Can you start with a simple sentence?
+
+B: Of course. I've been trying to use this topic more often.
+
+A: That sounds natural. Let's add one more detail.
+
+B: Sure. This practice helps me feel more confident."
+daily-meals,0,"A: What are you having for lunch?
+
+(Bạn ăn trưa gì?)
+
 B: Rice, grilled fish, and soup. What about you?
-A: I’m skipping lunch today because I had a late breakfast.
-B: That’s not great. Grab something small later.
+
+(Cơm, cá nướng và súp. Còn bạn?)
+
+A: I'm skipping lunch today because I had a late breakfast.
+
+(Hôm nay tôi bỏ bữa trưa vì ăn sáng muộn.)
+
+B: That's not great. Grab something small later.
+
+(Không tốt. Ăn nhẹ sau nhé.)
+
 A: Yeah, maybe a banana and some yogurt.
-B: Good. And don’t skip dinner."
+
+(Ừ, có thể chuối và sữa chua.)
+
+B: Good. And don't skip dinner.
+
+(Tốt. Và đừng bỏ bữa tối.)"
+daily-meals,1,"A: Do you want to practice talking about breakfast, lunch, and dinner today?
+
+B: Yes, I think it's a useful topic for daily life.
+
+A: Great. Can you start with a simple sentence?
+
+B: Of course. I've been trying to use this topic more often.
+
+A: That sounds natural. Let's add one more detail.
+
+B: Sure. This practice helps me feel more confident."
 autumn-routine,0,"A: In autumn, I usually feel more focused.
+
+(Mùa thu tôi thường tập trung hơn.)
+
 B: So I plan heavier tasks in the morning.
-A: This week I’m getting back into a routine.
-B: That sounds like a good plan."
-work-update,0,"A: We’re on track with the release.
+
+(Vậy tôi lên kế hoạch công việc nặng vào buổi sáng.)
+
+A: This week I'm getting back into a routine.
+
+(Tuần này tôi quay lại thói quen.)
+
+B: That sounds like a good plan.
+
+(Nghe như kế hoạch tốt.)
+
+A: Can you give me one more example about autumn routine & energy?
+
+B: Sure, let's practice it together now."
+autumn-routine,1,"A: Do you want to practice talking about autumn routine & energy today?
+
+B: Yes, I think it's a useful topic for daily life.
+
+A: Great. Can you start with a simple sentence?
+
+B: Of course. I've been trying to use this topic more often.
+
+A: That sounds natural. Let's add one more detail.
+
+B: Sure. This practice helps me feel more confident."
+work-update,0,"A: We're on track with the release.
+
+(Chúng ta đúng tiến độ release.)
+
 B: Do we still have any blockers?
+
+(Còn blocker nào không?)
+
 A: Yes, one API issue.
-B: I’ll hand off the logs after this meeting."
+
+(Có, một vấn đề API.)
+
+B: I'll hand off the logs after this meeting.
+
+(Tôi sẽ chuyển log sau cuộc họp này.)
+
+A: Can you give me one more example about work update in english?
+
+B: Sure, let's practice it together now."
+work-update,1,"A: Do you want to practice talking about work update in english today?
+
+B: Yes, I think it's a useful topic for daily life.
+
+A: Great. Can you start with a simple sentence?
+
+B: Of course. I've been trying to use this topic more often.
+
+A: That sounds natural. Let's add one more detail.
+
+B: Sure. This practice helps me feel more confident."
 black-friday,0,"A: This deal looks good.
+
+(Deal này trông tốt.)
+
 B: Is it worth it?
+
+(Có đáng không?)
+
 A: The discount is bigger online.
-B: I’ll buy it now."
-devops-release-planning,0,"A: Quick sync on Thursday’s release?
-B: Sure. The code freeze starts tonight at eight.
-A: Do we have approval from product?
-B: Yes, and the rollback plan is ready.
-A: What about the canary?
-B: We’ll check it at nine and make the go/no-go call."
-devops-release-planning,1,"A: Is the release still on for Thursday?
+
+(Giảm giá lớn hơn online.)
+
+B: I'll buy it now.
+
+(Tôi mua ngay.)
+
+A: Can you give me one more example about black friday shopping?
+
+B: Sure, let's practice it together now."
+black-friday,1,"A: Do you want to practice talking about black friday shopping today?
+
+B: Yes, I think it's a useful topic for daily life.
+
+A: Great. Can you start with a simple sentence?
+
+B: Of course. I've been trying to use this topic more often.
+
+A: That sounds natural. Let's add one more detail.
+
+B: Sure. This practice helps me feel more confident."
+devops-release-planning,0,"A: Is the release still on for Thursday?
+
+(Release vẫn vào thứ Năm chứ?)
+
 B: Yes, but we need approval from security.
+
+(Có, nhưng cần phê duyệt từ security.)
+
 A: Any risks in the rollback plan?
+
+(Rollback plan có rủi ro gì không?)
+
 B: The database migration is the main one.
-A: Then let’s run a smoke test in staging tonight.
-B: Agreed. I’ll post the go/no-go decision tomorrow morning."
-neighbor-weekend,0,"A: Morning! Are you doing anything fun this weekend?
-B: I’m going to fix the fence if the forecast is good.
-A: Nice. I’m heading to the local market on Saturday.
-B: Could you grab some tomatoes for me?
-A: Sure, no problem. I’ll drop them off in the afternoon.
-B: Thanks! Have a good weekend."
-neighbor-weekend,1,"A: Any plans for Saturday?
-B: I’m going to the local market with my kids.
+
+(Migration database là chính.)
+
+A: Then let's run a smoke test in staging tonight.
+
+(Vậy chạy smoke test staging tối nay.)
+
+B: Agreed. I'll post the go/no-go decision tomorrow morning.
+
+(Đồng ý. Tôi sẽ đăng quyết định go/no-go sáng mai.)"
+devops-release-planning,1,"A: Do you want to practice talking about devops release planning today?
+
+B: Yes, I think it's a useful topic for daily life.
+
+A: Great. Can you start with a simple sentence?
+
+B: Of course. I've been trying to use this topic more often.
+
+A: That sounds natural. Let's add one more detail.
+
+B: Sure. This practice helps me feel more confident."
+neighbor-weekend,0,"A: Any plans for Saturday?
+
+(Cuối tuần có kế hoạch gì không?)
+
+B: I'm going to the local market with my kids.
+
+(Tôi đi chợ với các con.)
+
 A: That sounds fun. Is the forecast good?
+
+(Nghe vui. Thời tiết thế nào?)
+
 B: Sunny, finally. Do you need anything?
+
+(Cuối cùng cũng nắng. Bạn cần gì không?)
+
 A: Could you get me some herbs if you see them?
-B: Of course. I’ll drop them off later."
-eating-out,0,"A: Good evening. Do you have a reservation?
-B: Yes, under Minh, for two.
-A: Here’s the menu. Can I get you something to drink?
-B: Just water, please. What do you recommend?
-A: The grilled chicken is popular, and it isn’t too spicy.
-B: Great. We’ll take that, and could we split the bill later?"
-eating-out,1,"A: Do you have a table for two?
+
+(Bạn có thể mua rau thơm nếu thấy không?)
+
+B: Of course. I'll drop them off later.
+
+(Tất nhiên. Tôi sẽ mang qua sau.)"
+neighbor-weekend,1,"A: Do you want to practice talking about weekend catch-up with neighbors today?
+
+B: Yes, I think it's a useful topic for daily life.
+
+A: Great. Can you start with a simple sentence?
+
+B: Of course. I've been trying to use this topic more often.
+
+A: That sounds natural. Let's add one more detail.
+
+B: Sure. This practice helps me feel more confident."
+eating-out,0,"A: Do you have a table for two?
+
+(Có bàn cho hai người không?)
+
 B: Sure, right this way. Here are the menus.
+
+(Có, mời đi lối này. Đây là menu.)
+
 A: Thanks. Do you have any vegetarian options?
+
+(Cảm ơn. Có món chay không?)
+
 B: Yes, the mushroom pasta is very good.
-A: We’ll order that and two lemonades.
-B: Great. Would you like to keep the bill together?"
-meal-prep,0,"A: How do you eat healthy on busy days?
-B: I do meal prep on Sunday and portion everything.
-A: Sounds smart. What do you usually cook?
-B: Chicken, rice, and vegetables. I add protein to every meal.
-A: Do you ever order junk food?
-B: Rarely. I keep fruit at home and stay hydrated."
-meal-prep,1,"A: Your lunch looks healthy.
+
+(Có, mì nấm rất ngon.)
+
+A: We'll order that and two lemonades.
+
+(Chúng tôi gọi món đó và hai chanh đá.)
+
+B: Great. Would you like to keep the bill together?
+
+(Tốt. Bạn muốn gộp bill không?)"
+eating-out,1,"A: Do you want to practice talking about eating out and ordering food today?
+
+B: Yes, I think it's a useful topic for daily life.
+
+A: Great. Can you start with a simple sentence?
+
+B: Of course. I've been trying to use this topic more often.
+
+A: That sounds natural. Let's add one more detail.
+
+B: Sure. This practice helps me feel more confident."
+meal-prep,0,"A: Your lunch looks healthy.
+
+(Bữa trưa của bạn trông lành mạnh.)
+
 B: Thanks. I did meal prep on Sunday.
-A: What’s in it?
+
+(Cảm ơn. Tôi chuẩn bị bữa ăn vào Chủ nhật.)
+
+A: What's in it?
+
+(Bên trong có gì?)
+
 B: Rice, chicken, and a lot of vegetables.
+
+(Cơm, gà và nhiều rau.)
+
 A: I should try that. Any tips?
-B: Start with two recipes and don’t skip breakfast."
+
+(Tôi nên thử. Có tips gì không?)
+
+B: Start with two recipes and don't skip breakfast.
+
+(Bắt đầu với hai công thức và đừng bỏ bữa sáng.)"
+meal-prep,1,"A: Do you want to practice talking about meal prep and healthy eating today?
+
+B: Yes, I think it's a useful topic for daily life.
+
+A: Great. Can you start with a simple sentence?
+
+B: Of course. I've been trying to use this topic more often.
+
+A: That sounds natural. Let's add one more detail.
+
+B: Sure. This practice helps me feel more confident."

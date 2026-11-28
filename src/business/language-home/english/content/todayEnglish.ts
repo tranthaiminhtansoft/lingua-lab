@@ -1,7 +1,6 @@
 import type {
   EnglishContentBank,
   EnglishQuiz,
-  EnglishTheme,
   EnglishTopic,
   EnglishVocabularyItem,
   TodayEnglishContext,
@@ -53,12 +52,7 @@ function dateKey(date: Date): string {
   return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
 }
 
-const WEEKDAY_DAILY_THEMES: EnglishTheme[] = ['devops', 'neighbor', 'meals'];
 
-function isWeekend(date: Date): boolean {
-  const day = date.getDay();
-  return day === 0 || day === 6;
-}
 
 function dayNumber(date: Date): number {
   return Math.floor(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) / 86_400_000);
@@ -98,9 +92,20 @@ function pickDailyDialogue(topic: EnglishTopic, seed: number): string[] {
 }
 
 function shuffleQuizOptions(quiz: EnglishQuiz, seed: number): EnglishQuiz {
-  const correct = quiz.options[quiz.answerIndex];
+  const correctIndices = quiz.answerIndices && quiz.answerIndices.length > 0
+    ? quiz.answerIndices
+    : [quiz.answerIndex];
+  const correctValues = new Set(correctIndices.map((i) => quiz.options[i]));
   const options = seededShuffle(quiz.options, seed);
-  return { ...quiz, options, answerIndex: Math.max(0, options.indexOf(correct)) };
+  const nextIndices = options
+    .map((option, index) => (correctValues.has(option) ? index : -1))
+    .filter((index) => index >= 0);
+  return {
+    ...quiz,
+    options,
+    answerIndex: nextIndices[0] ?? 0,
+    ...(nextIndices.length > 1 ? { answerIndices: nextIndices } : { answerIndices: undefined }),
+  };
 }
 
 function buildDailyQuizzes(
@@ -144,41 +149,32 @@ export function getDailyTopics(
   date = new Date(),
   content: EnglishContentBank = getActiveEnglishContent(),
 ): EnglishTopic[] {
-  const allTopics = content.topics;
   const seed = dayNumber(date);
-  if (isWeekend(date)) {
-    const sunday = date.getDay() === 0;
-    const weekendPool = allTopics.filter((topic) => {
-      if (!isRotatingTopic(topic) || topic.theme !== 'weekend') return false;
-      if (!isAvailableOnDay(topic, date)) return false;
-      if (sunday && topic.id === 'weekend-outing') return false;
-      if (!sunday && topic.id === 'sunday-mass') return false;
-      return true;
-    });
-    const neighborPool = allTopics.filter((topic) => isRotatingTopic(topic) && topic.theme === 'neighbor' && isAvailableOnDay(topic, date));
-    const mealsPool = allTopics.filter((topic) => isRotatingTopic(topic) && topic.theme === 'meals' && isAvailableOnDay(topic, date));
-    let weekendPicks: EnglishTopic[];
-    if (sunday) {
-      weekendPicks = [
-        allTopics.find((topic) => topic.id === 'weekend-rest'),
-        allTopics.find((topic) => topic.id === 'sunday-mass'),
-      ].filter(Boolean) as EnglishTopic[];
-    } else {
-      const outing = allTopics.find((topic) => topic.id === 'weekend-outing');
-      const otherPool = weekendPool.filter((topic) => topic.id !== 'weekend-outing');
-      weekendPicks = [outing, rotate(otherPool, seed)[0]].filter(Boolean) as EnglishTopic[];
-    }
-    return [
-      neighborPool.length ? neighborPool[seed % neighborPool.length] : null,
-      mealsPool.length ? mealsPool[seed % mealsPool.length] : null,
-      ...weekendPicks,
-    ].filter(Boolean) as EnglishTopic[];
-  }
-  return WEEKDAY_DAILY_THEMES.flatMap((theme, index) => {
-    const pool = allTopics.filter((topic) => isRotatingTopic(topic) && topic.theme === theme && isAvailableOnDay(topic, date));
-    if (pool.length === 0) return [];
-    return [pool[(seed + index) % pool.length]];
+  const available = content.topics.filter((topic) => {
+    if (!isAvailableOnDay(topic, date)) return false;
+    if (isTopicExpired(topic, date)) return false;
+    return isTopicVisible(topic, date) && isTopicAvailable(topic, date);
   });
+
+  const groups = new Map<string, EnglishTopic[]>();
+  for (const topic of available) {
+    const key = topic.theme ? `theme:${topic.theme}` : `id:${topic.id}`;
+    const list = groups.get(key) ?? [];
+    list.push(topic);
+    groups.set(key, list);
+  }
+
+  const picked: EnglishTopic[] = [];
+  for (const [key, list] of groups) {
+    if (list.length === 1) { picked.push(list[0]); continue; }
+    const rotated = rotate(list, seed + hashText(key));
+    picked.push(rotated[0]);
+  }
+
+  // Stable order: keep original content order
+  const order = new Map(content.topics.map((t, i) => [t.id, i]));
+  picked.sort((a, b) => (order.get(a.id) ?? 0) - (order.get(b.id) ?? 0));
+  return picked;
 }
 
 export function getTodayEnglishContext(
@@ -188,13 +184,15 @@ export function getTodayEnglishContext(
   const todayKey = dateKey(date);
   const day = dayNumber(date);
   // Daily themes rotate by date so the same three topics do not repeat every day.
+  const dailyPicks = getDailyTopics(date, content);
+  const selectedIds = new Set(dailyPicks.map((t) => t.id));
   const ordered = [
-    ...getDailyTopics(date, content),
+    ...dailyPicks,
     ...content.topics.filter((topic) => {
-      if (isRotatingTopic(topic)) return false;
-      if (!isAvailableOnDay(topic, date)) return false;
+      if (selectedIds.has(topic.id)) return false;
       if (isTopicExpired(topic, date)) return false;
-      return isTopicVisible(topic, date);
+      // Keep coming soon topics visible (not yet available but within window)
+      return isTopicVisible(topic, date) && !isTopicAvailable(topic, date);
     }),
   ];
   const topics = ordered.map((topic) => {
