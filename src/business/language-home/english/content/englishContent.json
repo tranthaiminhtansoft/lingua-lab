@@ -263,6 +263,7 @@
       ],
       "quizzes": [
         {
+          "questionType": "Single Best Answer",
           "question": "Which word means “quà tặng”?",
           "options": [
             "gift",
@@ -273,6 +274,7 @@
           "explanation": "A gift is something you give to someone."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Complete: “We’re ___ visit my parents on Christmas Eve.”",
           "options": [
             "going to",
@@ -283,6 +285,7 @@
           "explanation": "“Be going to” needs the verb be."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which sentence wishes someone well?",
           "options": [
             "I wish you a Merry Christmas!",
@@ -293,6 +296,7 @@
           "explanation": "“I wish you …” is a standard greeting."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which word means “tụ họp”?",
           "options": [
             "gather",
@@ -303,6 +307,7 @@
           "explanation": "Gather means to come together."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which word means “con tuần lộc”?",
           "options": [
             "reindeer",
@@ -313,6 +318,7 @@
           "explanation": "A reindeer is an animal that pulls Santa’s sleigh."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Where does Santa come down in stories?",
           "options": [
             "the chimney",
@@ -323,6 +329,7 @@
           "explanation": "In stories, Santa comes down the chimney."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which food is a traditional Christmas dessert?",
           "options": [
             "yule log cake",
@@ -371,83 +378,123 @@
       "vocab": [
         {
           "term": "Tết",
-          "meaning": "Tết",
+          "meaning": "Tết (Lunar New Year)",
           "pronunciation": "/tet/",
+          "synonyms": "[Viết tắt / tên tiếng Anh]\nLunar New Year - /ˌluːnər ˈnuː jɪr/ - Tết Nguyên Đán\n\n[Tên gọi theo mùa]\nSpring Festival - /sprɪŋ ˈfestɪvl/ - Tết (cách gọi quốc tế)",
           "score": 0
         },
         {
           "term": "lucky money",
           "meaning": "lì xì",
           "pronunciation": "/ˈlʌki ˈmʌni/",
+          "synonyms": "[Phong bao]\nred envelope money - /red ˈenvəloʊp ˈmʌni/ - tiền trong phong bao đỏ\n\n[Khẩu ngữ]\nlucky cash - /ˈlʌki kæʃ/ - tiền may mắn\n\n[Tên gọi theo dịp]\nTết money - /tet ˈmʌni/ - tiền Tết",
           "score": 0
         },
         {
           "term": "family reunion",
           "meaning": "đoàn viên",
-          "pronunciation": "/ˌfæməli riˈjuːniən/",
+          "pronunciation": "/ˌfæməli riːˈjuːniən/",
+          "synonyms": "[Đồng nghĩa]\nfamily gathering - /ˈfæməli ˈɡæðərɪŋ/ - buổi tụ họp gia đình\n\n[Khẩu ngữ]\nget together - /ɡet təˈɡeðər/ - tụ họp\n\n[Theo dịp]\nreunion dinner - /riːˈjuːniən ˈdɪnər/ - bữa cơm đoàn viên",
           "score": 0
         },
         {
           "term": "ancestors",
           "meaning": "tổ tiên",
           "pronunciation": "/ˈænsestərz/",
+          "synonyms": "[Trang trọng]\nforefathers - /ˈfɔːrˌfɑːðərz/ - tổ tiên (trang trọng)\n\n[Trang trọng]\nforebears - /ˈfɔːrberz/ - tổ tiên\n\n[Mô tả]\ndeceased relatives - /dɪˈsiːst ˈrelətɪvz/ - người thân đã khuất",
           "score": 0
         },
         {
           "term": "incense",
           "meaning": "hương",
           "pronunciation": "/ˈɪnsens/",
+          "synonyms": "[Đồng nghĩa]\nincense stick - /ˈɪnsens stɪk/ - nén hương\n\n[Hoa]\njoss stick - /dʒɔːs stɪk/ - hương (Hoa)\n\n[Mô tả]\nincense smoke - /ˈɪnsens smoʊk/ - khói hương",
           "score": 0
         },
         {
           "term": "traditional food",
           "meaning": "đồ ăn truyền thống",
-          "pronunciation": "/trəˈdɪʃənəl fuːd/",
+          "pronunciation": "/trəˈdɪʃənl fuːd/",
+          "synonyms": "[Đồng nghĩa]\nfestive food - /ˈfestɪv fuːd/ - đồ ăn ngày lễ\n\n[Theo dịp]\nholiday dishes - /ˈhɑːlədeɪ ˈdɪʃɪz/ - món ăn ngày lễ\n\n[Theo chủ đề]\nTet specialties - /tet ˈspeʃəltiz/ - đặc sản Tết",
           "score": 0
         },
         {
           "term": "sticky rice cake",
           "meaning": "bánh chưng",
           "pronunciation": "/ˌstɪki ˈraɪs keɪk/",
+          "synonyms": "[Mô tả]\nsquare sticky rice cake - /skwer ˌstɪki ˈraɪs keɪk/ - bánh chưng vuông\n\n[Tên gốc]\nbánh chưng - /bæŋ tʃʊŋ/ - giữ nguyên tên Việt\n\n[Nguyên liệu]\nglutinous rice cake - /ˈɡluːtɪnəs raɪs keɪk/ - bánh gạo nếp",
           "score": 0
         },
         {
           "term": "visit relatives",
           "meaning": "thăm họ hàng",
           "pronunciation": "/ˌvɪzɪt ˈrelətɪvz/",
+          "synonyms": "[Đồng nghĩa]\npay a visit - /peɪ ə ˈvɪzɪt/ - đến thăm\n\n[Khẩu ngữ]\ndrop by - /drɑːp baɪ/ - ghé qua\n\n[Trang trọng]\ncall on - /kɔːl ɑːn/ - đến thăm (trang trọng)",
           "score": 0
         },
         {
           "term": "New Year wish",
           "meaning": "lời chúc năm mới",
           "pronunciation": "/ˌnuː jɪr wɪʃ/",
+          "synonyms": "[Đồng nghĩa]\nNew Year greeting - /ˌnuː jɪr ˈɡriːtɪŋ/ - lời chúc năm mới\n\n[Mô tả]\nwell-wishes - /ˈwel wɪʃɪz/ - lời chúc tốt đẹp\n\n[Trang trọng]\nblessing - /ˈblesɪŋ/ - lời chúc phúc",
           "score": 0
         },
         {
           "term": "peach blossom",
           "meaning": "hoa đào",
           "pronunciation": "/piːtʃ ˈblɑːsəm/",
+          "synonyms": "[Đồng nghĩa]\npeach flower - /piːtʃ ˈflaʊər/ - hoa đào\n\n[Mô tả]\npink blossom - /pɪŋk ˈblɑːsəm/ - hoa hồng đào",
           "score": 0
         },
         {
           "term": "first visitor",
           "meaning": "người đến thăm đầu năm",
           "pronunciation": "/ˌfɜːrst ˈvɪzɪtər/",
+          "synonyms": "[Anh-Anh]\nfirst footer - /fɜːrst ˈfʊtər/ - người đến thăm đầu năm (Anh-Anh)\n\n[Đồng nghĩa]\nfirst guest - /fɜːrst ɡest/ - khách đầu tiên\n\n[Mô tả]\nfirst caller - /fɜːrst ˈkɔːlər/ - người gọi cửa đầu tiên",
           "score": 0
         },
         {
           "term": "red envelope",
           "meaning": "phong bao lì xì",
           "pronunciation": "/ˌred ˈenvəloʊp/",
+          "synonyms": "[Mô tả]\nlucky money envelope - /ˈlʌki ˈmʌni ˈenvəloʊp/ - phong bao tiền may mắn\n\n[Trung]\nhongbao - /hɔːŋ ˈbaʊ/ - bao lì xì (Trung)\n\n[Tên gọi theo dịp]\nlì xì envelope - /liː si ˈenvəloʊp/ - phong bao lì xì",
+          "score": 0
+        },
+        {
+          "term": "firecracker",
+          "meaning": "pháo nổ",
+          "pronunciation": "/ˈfaɪərˌkrækər/",
+          "synonyms": "[Đồng nghĩa]\nfireworks - /ˈfaɪərwɜːrks/ - pháo hoa\n\n[Mô tả]\ncracker - /ˈkrækər/ - pháo nổ nhỏ",
+          "score": 0
+        },
+        {
+          "term": "new clothes",
+          "meaning": "quần áo mới",
+          "pronunciation": "/nuː kloʊðz/",
+          "synonyms": "[Đồng nghĩa]\nnew outfit - /nuː ˈaʊtfɪt/ - bộ đồ mới\n\n[Trang trọng]\nnew attire - /nuː əˈtaɪər/ - trang phục mới\n\n[Mô tả]\nfresh clothes - /freʃ kloʊðz/ - quần áo mới mẻ",
+          "score": 0
+        },
+        {
+          "term": "spring cleaning",
+          "meaning": "dọn nhà đầu năm",
+          "pronunciation": "/sprɪŋ ˈkliːnɪŋ/",
+          "synonyms": "[Đồng nghĩa]\nyear-end cleaning - /jɪr end ˈkliːnɪŋ/ - dọn nhà cuối năm\n\n[Mô tả]\nhouse cleaning - /haʊs ˈkliːnɪŋ/ - dọn nhà\n\ntidying up - /ˈtaɪdiɪŋ ʌp/ - dọn dẹp",
+          "score": 0
+        },
+        {
+          "term": "fortune",
+          "meaning": "vận may / tài lộc",
+          "pronunciation": "/ˈfɔːrtʃən/",
+          "synonyms": "[Đồng nghĩa]\nluck - /lʌk/ - vận may\n\n[Trang trọng]\nprosperity - /prɑːˈsperəti/ - thịnh vượng\n\n[Mô tả]\ngood fortune - /ɡʊd ˈfɔːrtʃən/ - vận may tốt",
           "score": 0
         }
       ],
       "grammar": [
         {
-          "formula": "S + have/has + already + V3",
+          "formula": "S + have/has + already/just + V3",
           "example": "We've already cleaned the house for Tết. (Chúng tôi đã dọn nhà xong cho Tết.)",
-          "pronunciation": "/wiv ɔˈrɛdi klind ðə haʊs fər tết*/",
-          "usage": "Dùng khi việc chuẩn bị Tết đã xong và kết quả ảnh hưởng đến hiện tại.",
+          "pronunciation": "/wiːv ɔlˈredi kliːnd ðə haʊs fər tet/",
+          "usage": "Dùng khi việc chuẩn bị Tết đã xong và kết quả còn liên quan đến hiện tại; thường đi với already, just, yet.",
           "title": "Present perfect for Tet preparations",
           "category": "Tense",
           "alternatives": [
@@ -471,7 +518,7 @@
         {
           "formula": "S + am/is/are + going to + V",
           "example": "We're going to cook sticky rice cake this year. (Năm nay chúng tôi sẽ nấu bánh chưng.)",
-          "pronunciation": "/wɪr goʊɪŋ tɪ kʊk ˈstɪki raɪs keɪk ðɪs jɪr/",
+          "pronunciation": "/wɪr ˈɡoʊɪŋ tə kʊk ˈstɪki raɪs keɪk ðɪs jɪr/",
           "usage": "Dùng khi đã có dự định cho Tết nhưng chưa phải lịch cố định.",
           "title": "'Be going to' for Tet plans",
           "category": "Future",
@@ -496,7 +543,7 @@
         {
           "formula": "S + have/has to + V",
           "example": "I have to visit my relatives during Tết. (Tôi phải thăm họ hàng trong dịp Tết.)",
-          "pronunciation": "/aɪ hæv tɪ ˈvɪzɪt maɪ ˈrɛlətɪvz ˈdʊrɪŋ tết*/",
+          "pronunciation": "/aɪ hæv tə ˈvɪzɪt maɪ ˈrelətɪvz ˈdʊrɪŋ tet/",
           "usage": "Dùng khi có nghĩa vụ bên ngoài như phong tục, luật lệ hoặc yêu cầu của người khác.",
           "title": "'Have to' for Tet obligations",
           "category": "Modal",
@@ -521,7 +568,7 @@
         {
           "formula": "S + wish + O + Happy New Year",
           "example": "I wish you a Happy New Year! (Chúc bạn năm mới vui vẻ!)",
-          "pronunciation": "/aɪ wɪʃ ju ə ˈhæpi nu jɪr/",
+          "pronunciation": "/aɪ wɪʃ ju ə ˈhæpi nuː jɪr/",
           "usage": "Dùng để gửi lời chúc năm mới; có thể dùng wish, hope hoặc may tùy mức độ trang trọng.",
           "title": "New Year wishes",
           "category": "Verb pattern",
@@ -542,6 +589,12 @@
               "example": "May all your wishes come true. (Chúc mọi điều ước của bạn thành hiện thực.)"
             }
           ]
+        },
+        {
+          "formula": "N1 + be + adj-er/more adj + than + N2",
+          "example": "This year's sticky rice cake is better than last year's. (Bánh chưng năm nay ngon hơn năm ngoái.)",
+          "pronunciation": "/ðɪs jɪrz ˈstɪki raɪs keɪk ɪz ˈbetər ðən læst jɪrz/",
+          "usage": "Dùng để so sánh mức độ bận rộn, sạch sẽ, ngon miệng giữa các năm hoặc các món ăn trong dịp Tết."
         }
       ],
       "examples": [
@@ -550,36 +603,19 @@
       ],
       "quizzes": [
         {
+          "questionType": "Multiple Choice",
           "question": "Which word means “lì xì”?",
           "options": [
             "lucky money",
             "incense",
-            "ancestors"
+            "ancestors",
+            "traditional food"
           ],
           "answerIndex": 0,
-          "explanation": "Lucky money is given in red envelopes."
+          "explanation": "Lý do đúng:\nlucky money - dịch: \"tiền may mắn / lì xì\", từ chính xác cho tiền mừng tuổi trong dịp Tết"
         },
         {
-          "question": "Which word means “đoàn viên”?",
-          "options": [
-            "family reunion",
-            "traditional food",
-            "visit relatives"
-          ],
-          "answerIndex": 0,
-          "explanation": "Family reunion means gathering with family."
-        },
-        {
-          "question": "Complete: “We’re ___ cook bánh chưng this year.”",
-          "options": [
-            "going to",
-            "go to",
-            "gone to"
-          ],
-          "answerIndex": 0,
-          "explanation": "“Be going to” needs the verb be."
-        },
-        {
+          "questionType": "Single Best Answer",
           "question": "Which sentence wishes someone well?",
           "options": [
             "I wish you a Happy New Year!",
@@ -587,26 +623,84 @@
             "Tết is here."
           ],
           "answerIndex": 0,
-          "explanation": "“I wish you …” is a standard greeting."
+          "explanation": "Lý do đúng:\nI wish you a Happy New Year! - dịch: \"Chúc bạn năm mới vui vẻ!\", cách chúc Tết tự nhiên và lịch sự"
+        },
+        {
+          "questionType": "Multiple Choice",
+          "question": "Complete: “We’re ___ cook sticky rice cake this year.”",
+          "options": [
+            "going to",
+            "go to",
+            "gone to"
+          ],
+          "answerIndex": 0,
+          "explanation": "Lý do đúng:\ngoing to - dịch: \"sẽ\", cấu trúc be going to + V diễn tả dự định đã quyết trước"
+        },
+        {
+          "questionType": "Single Best Answer",
+          "question": "Which sentence is polite when visiting relatives?",
+          "options": [
+            "Would you like to come in for tea?",
+            "Come in now.",
+            "You must enter."
+          ],
+          "answerIndex": 0,
+          "explanation": "Lý do đúng:\nWould you like to come in for tea? - dịch: \"Bạn có muốn vào uống trà không?\", lời mời lịch sự, tự nhiên"
+        },
+        {
+          "questionType": "Multiple Choice",
+          "question": "Which word means “đoàn viên”?",
+          "options": [
+            "family reunion",
+            "traditional food",
+            "visit relatives",
+            "incense"
+          ],
+          "answerIndex": 0,
+          "explanation": "Lý do đúng:\nfamily reunion - dịch: \"đoàn viên / sum họp gia đình\", từ chính xác"
+        },
+        {
+          "questionType": "Single Best Answer",
+          "question": "Choose the most natural sentence for Tet preparations:",
+          "options": [
+            "I've already cleaned the house for Tết.",
+            "I cleaned house for Tết yesterday already.",
+            "I have cleaned house for Tết."
+          ],
+          "answerIndex": 0,
+          "explanation": "Lý do đúng:\nI've already cleaned the house for Tết. - dịch: \"Tôi đã dọn nhà xong cho Tết rồi\", dùng present perfect với already diễn tả việc đã hoàn thành và còn liên quan hiện tại"
+        },
+        {
+          "questionType": "Multiple Choice",
+          "question": "Which sentence gives advice for Tet?",
+          "options": [
+            "You should buy gifts before the shops close.",
+            "You must buy gifts now.",
+            "Buy gifts."
+          ],
+          "answerIndex": 0,
+          "explanation": "Lý do đúng:\nYou should buy gifts before the shops close. - dịch: \"Bạn nên mua quà trước khi cửa hàng đóng\", lời khuyên lịch sự, tự nhiên"
         }
       ],
       "readExpected": "We always visit our grandparents on the first day of Tết.",
       "dialogue": [
-        "A: What are your plans for Tết?",
-        "B: We’re having a big family reunion.",
-        "A: That sounds lovely. Are you cooking bánh chưng?",
-        "B: Yes, and we’ll visit relatives too.",
-        "A: Don’t forget the lucky money!",
-        "B: Of course. Happy New Year in advance!"
+        "A: Have you cleaned the house for Tết? (Bạn đã dọn nhà cho Tết chưa?)",
+        "B: Yes, and we've put up decorations. (Có, và chúng tôi đã trang trí.)",
+        "A: I still need to buy gifts. (Tôi vẫn cần mua quà.)",
+        "B: Try the market downtown. (Thử chợ ở trung tâm.)",
+        "A: Good idea. Happy Tết! (Ý hay. Chúc Tết vui vẻ!)",
+        "B: Happy Tết to you too! (Chúc Tết vui vẻ nhé!)"
       ],
       "dialogueVariants": [
         [
-          "A: Have you cleaned the house for Tết?",
-          "B: Yes, and we’ve put up decorations.",
-          "A: I still need to buy gifts.",
-          "B: Try the market downtown.",
-          "A: Good idea. Happy Tết!",
-          "B: Happy Tết to you too!"
+          "A: Are you going back to your hometown for Tết? (Bạn có về quê ăn Tết không?)",
+          "B: Yeah, I'm taking the train on the 28th. (Có, mình đi tàu ngày 28.)",
+          "A: Did you already buy lucky money? (Bạn đã mua lì xì chưa?)",
+          "B: Not yet—I need to get red envelopes first. (Chưa—mình cần mua phong bao đỏ trước.)",
+          "A: I can grab some for you at the stationery shop. (Mình mua giúp bạn ở cửa hàng văn phòng phẩm được.)",
+          "B: Thanks! And don't forget to bring back some peach blossoms. (Cảm ơn! Và đừng quên mang hoa đào về nhé.)",
+          "A: Will do. Drive safe and have a great Tết! (Nhất định. Lái xe an toàn và Tết vui vẻ nhé!)",
+          "B: You too! See you after the holiday. (Bạn cũng vậy! Hẹn gặp sau kỳ nghỉ.)"
         ]
       ]
     },
@@ -799,6 +893,7 @@
       ],
       "quizzes": [
         {
+          "questionType": "Single Best Answer",
           "question": "Which word means “bó hoa”?",
           "options": [
             "bouquet",
@@ -809,6 +904,7 @@
           "explanation": "A bouquet is a bunch of flowers."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which word means “cầu hôn”?",
           "options": [
             "propose",
@@ -819,6 +915,7 @@
           "explanation": "To propose is to ask someone to marry you."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Complete: “I’m ___ cook a romantic dinner.”",
           "options": [
             "going to",
@@ -829,6 +926,7 @@
           "explanation": "“Be going to” needs the verb be."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which sentence wishes someone well?",
           "options": [
             "I wish you a Happy Valentine’s Day!",
@@ -1048,6 +1146,7 @@
       ],
       "quizzes": [
         {
+          "questionType": "Single Best Answer",
           "question": "Which word means “quyết tâm”?",
           "options": [
             "resolution",
@@ -1058,6 +1157,7 @@
           "explanation": "A resolution is a firm decision to do something."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which word means “khởi đầu mới”?",
           "options": [
             "fresh start",
@@ -1068,6 +1168,7 @@
           "explanation": "A fresh start means a new beginning."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Complete: “I’m ___ save more money.”",
           "options": [
             "going to",
@@ -1078,6 +1179,7 @@
           "explanation": "“Be going to” needs the verb be."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which sentence wishes someone well?",
           "options": [
             "I wish you a Happy New Year!",
@@ -1297,6 +1399,7 @@
       ],
       "quizzes": [
         {
+          "questionType": "Single Best Answer",
           "question": "Which word means “động lực”?",
           "options": [
             "motivation",
@@ -1307,6 +1410,7 @@
           "explanation": "Motivation is the reason for acting."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which word means “đồng cảm”?",
           "options": [
             "empathy",
@@ -1317,6 +1421,7 @@
           "explanation": "Empathy is understanding others’ feelings."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Complete: “I ___ to worry a lot.”",
           "options": [
             "used",
@@ -1327,6 +1432,7 @@
           "explanation": "“Used to” describes a past habit."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which sentence gives advice?",
           "options": [
             "If you feel anxious, take a deep breath.",
@@ -1547,44 +1653,87 @@
       ],
       "quizzes": [
         {
-          "question": "Which word means “thánh lễ”?",
+          "questionType": "Multiple Choice",
+          "question": "Cách hỏi thăm tôn giáo 1 cách lịch sự và tự nhiên?",
           "options": [
-            "mass",
-            "church",
-            "parish"
+            "A. What is your religion?",
+            "B. Did you grow up religious?",
+            "C. Do you go to church?",
+            "D. Do you follow God?",
+            "E. What do you usually do on Sundays?",
+            "F. Do you go to the church every Sunday?"
           ],
-          "answerIndex": 0,
-          "explanation": "Mass is the main Sunday worship service."
+          "answerIndex": 1,
+          "answerIndices": [
+            1,
+            2,
+            4
+          ],
+          "explanation": "Lý do sai:\nA - giống như thẩm vấn thông tin hành chính\n\nD - bạn đang theo dõi mọi người nào đó bạn gọi là god trên mạng xã hội sao\n\nF - có chữ \"the\" lại tạo nên sự khác biệt, để phân biệt giữa việc hỏi \"Bạn có hay đi lễ vào Chủ Nhật?\" hoặc \"Bạn đến nhà thờ vào Chủ Nhật để làm việc gì khác không (quét dọn, tham quan hay đón con đi học giáo lý)?\"\n\nLý do đúng:\nE - dịch: \"Chủ Nhật bạn thường làm gì?\", cách hỏi mở khéo léo để xem họ có đi lễ không"
         },
         {
-          "question": "Complete: “I ___ to church every Sunday.”",
+          "questionType": "Single Best Answer",
+          "question": "Chọn câu diễn đạt tự nhiên và chính xác nhất cho ý: \"Tôi thường gởi xe máy ở nhà sách ngay kế bên nhà thờ Chánh Tòa.\"",
           "options": [
-            "go",
-            "goes",
-            "going"
+            "A. I usually send my bike at the bookstore right next to the Parish.",
+            "B. I usually park my bike at the bookstore right next to the Cathedral.",
+            "C. I usually park my bike at the bookstore right next to the short church.",
+            "D. I usually send my motorbike at the bookstore next to Notre-Dame Cathedral."
           ],
-          "answerIndex": 0,
-          "explanation": "With “I”, use the base form: go."
+          "answerIndex": 1,
+          "explanation": "Lý do sai:\nA - dịch: \"Tôi thường gửi bưu điện chiếc xe ở nhà sách kế bên Giáo xứ\", động từ \"send\" chỉ dùng cho gửi thư/hàng, còn \"Parish\" là giáo xứ chứ không phải nhà thờ Chánh Tòa\n\nC - dịch: \"Tôi thường gởi xe ở nhà sách ngay kế bên cái nhà thờ thấp/ngắn\", cụm \"short church\" không có nghĩa là nhà thờ Chánh Tòa\n\nD - dịch: \"Tôi thường gửi bưu điện chiếc xe máy ở nhà sách kế bên Nhà thờ Đức Bà\", dùng sai động từ \"send\" và \"Notre-Dame Cathedral\" chỉ riêng Nhà thờ Đức Bà\n\nLý do đúng:\nB - dịch: \"Tôi thường gởi xe máy ở nhà sách ngay kế bên nhà thờ Chánh Tòa\", dùng đúng động từ \"park\" (gởi/đỗ xe), cách gọi gọn tự nhiên \"bike\" (thay cho motorbike trong văn nói) và \"the Cathedral\" (nhà thờ Chánh Tòa)"
         },
         {
-          "question": "Which sentence is polite when inviting?",
+          "questionType": "Multiple Choice",
+          "question": "Bạn muốn nhắc nhở lịch sự một người bạn không được mặc quần ngắn khi vào nhà thờ. Những câu nào ĐÚNG ngữ pháp và tự nhiên?",
           "options": [
-            "Would you like to come to mass with us?",
-            "Come to mass now.",
-            "You must come."
+            "A. Just a quick heads-up: you’re not allowed to wear shorts when entering the church.",
+            "B. You mustn't wear short when you go into the church.",
+            "C. Everyone should dress modestly and wear long pants outta respect for the sacred space.",
+            "D. Please don't wear short pants because it's not polite for church."
           ],
           "answerIndex": 0,
-          "explanation": "“Would you like …?” is a polite invitation."
+          "answerIndices": [
+            0,
+            2
+          ],
+          "explanation": "Lý do sai:\nB - dịch: \"Bạn cấm được mặc ngắn khi đi vào nhà thờ\", danh từ quần ngắn luôn phải có \"s\" là \"shorts\" (\"short\" là tính từ), ngoài ra dùng \"mustn't\" nghe gắt như ra lệnh\n\nD - dịch: \"Làm ơn đừng mặc quần ngắn vì nó không lịch sự cho nhà thờ\", người bản xứ gọi quần đùi/quần ngắn là \"shorts\" chứ không nói \"short pants\", và \"not polite for church\" bị dịch từng chữ từ tiếng Việt\n\nLý do đúng:\nA - dịch: \"Nhắc nhẹ bạn chút nhé: bạn không được phép mặc quần ngắn khi bước vào nhà thờ đâu\", mở đầu tự nhiên bằng \"Just a quick heads-up\", dùng rút gọn \"you're\" và chia đúng số nhiều \"shorts\"\n\nC - dịch: \"Mọi người nên ăn mặc kín đáo và mặc quần dài để tỏ lòng tôn trọng không gian tôn nghiêm\", dùng \"should\" khuyên nhẹ nhàng kèm dạng nói tắt/viết nhanh phổ biến \"outta\" (out of)"
         },
         {
-          "question": "Which word means “ca đoàn”?",
+          "questionType": "Single Best Answer",
+          "question": "Bạn vừa mới chở con tới lớp giáo lý cách đây vài phút và nhắn tin báo cho người nhà biết. Câu nào phù hợp nhất với ngữ cảnh này?",
           "options": [
-            "choir",
-            "sermon",
-            "hymn"
+            "A. I drop my kid off at catechism every Sunday.",
+            "B. I took my kid to Mass since two minutes.",
+            "C. I’m dropping my kid at Catechumen right now.",
+            "D. I’ve just taken my kid to catechism, so I’m free now."
           ],
-          "answerIndex": 0,
-          "explanation": "A choir is the group that sings in church."
+          "answerIndex": 3,
+          "explanation": "Lý do sai:\nA - dịch: \"Tôi chở con đi học giáo lý mỗi Chủ Nhật\", thì hiện tại đơn chỉ thói quen lặp lại hằng tuần chứ không diễn tả việc vừa mới làm xong\n\nB - dịch: \"Tôi đã đưa con đi lễ kể từ hai phút\", sai ngữ pháp \"since two minutes\" (phải là \"two minutes ago\") và sai nghĩa đi lễ thay vì đi học giáo lý\n\nC - dịch: \"Tôi đang thả con tôi ở người dự tòng ngay bây giờ\", nhầm từ vựng giữa \"catechism\" (giáo lý) và \"Catechumen\" (người dự tòng)\n\nLý do đúng:\nD - dịch: \"Tôi vừa mới đưa con đi học giáo lý xong, nên giờ tôi rảnh rồi\", dùng thì hiện tại hoàn thành rút gọn \"I’ve just taken\" diễn tả hành động vừa hoàn tất ngay trước lúc nói, dùng \"kid\" và \"I'm\" rất tự nhiên"
+        },
+        {
+          "questionType": "Multiple Choice",
+          "question": "Sau Thánh lễ sáng Chủ Nhật ở Nhà thờ Đức Bà, bạn rủ người bạn nước ngoài dạo Đường Sách kế bên và uống cà phê bệt. Câu nào tự nhiên nhất?",
+          "options": [
+            "A. How 'bout go to Book Street next to and buy street coffee?",
+            "B. Do you want walk in Book Street beside and drink coffee on the ground?",
+            "C. Wanna take a quick stroll through the Book Street next door and grab some sidewalk coffee?",
+            "D. Let's walking through the Book Street and sitting on the pavement for coffee."
+          ],
+          "answerIndex": 2,
+          "explanation": "Lý do sai:\nA - dịch thô: \"Hay là đi Đường Sách kế bên và mua cà phê đường phố?\", sau \"How 'bout\" phải dùng V-ing (\"going\") và \"next to\" không có danh từ theo sau là sai ngữ pháp\n\nB - dịch thô: \"Bạn có muốn đi bộ trong Đường Sách bên cạnh và uống cà phê trên mặt đất không?\", thiếu \"to\" sau \"want\", dùng sai giới từ \"beside\" đứng một mình và dịch \"cà phê bệt\" thành \"coffee on the ground\" nghe mất vệ sinh\n\nD - dịch thô: \"Hãy đang đi dạo qua Đường Sách và đang ngồi trên vỉa hè uống cà phê\", sau \"Let's\" phải dùng động từ nguyên mẫu \"walk\" và \"sit\"\n\nLý do đúng:\nC - dịch: \"Làm một vòng dạo Đường Sách kế bên rồi làm ly cà phê bệt không?\", dùng dạng nói tắt tự nhiên \"Wanna\" (Do you want to), cụm \"take a quick stroll\" (đi dạo một vòng ngắn), \"next door\" (ngay kế bên) và \"sidewalk coffee\" (cà phê vỉa hè/cà phê bệt)"
+        },
+        {
+          "questionType": "Single Best Answer",
+          "question": "Tình huống: Đồng nghiệp nước ngoài thấy Nhà thờ Đức Bà Sài Gòn đang quây giàn giáo nên hỏi có vào tham quan được không.\n❌ Câu sượng: \"Now it is repairing, so tourists cannot go inside to see, only people go to Mass can go.\"\nĐâu là câu phù hợp và tự nhiên nhất để nói chuyện đời thường với đồng nghiệp?",
+          "options": [
+            "A. At the present time, the Cathedral is undergoing architectural maintenance, therefore sightseeing visitors are prohibited from entering, and access is strictly restricted to worshippers attending Mass.",
+            "B. It's under restoration right now, so they've closed it to tourists—only folks attending Mass can go inside.",
+            "C. The building is being fixed at the moment, so travelers are not able to look around, and only people who pray can enter.",
+            "D. It's currently closed for repairs, so nobody is permitted to enter the premises except for registered church members."
+          ],
+          "answerIndex": 1,
+          "explanation": "Lý do sai:\nA - dịch: \"Vào thời điểm hiện tại, Nhà thờ Chánh Tòa đang trải qua quá trình bảo trì kiến trúc, do đó khách tham quan bị nghiêm cấm bước vào, và quyền tiếp cận chỉ giới hạn nghiêm ngặt cho tín đồ dự lễ\", câu hoàn toàn đúng ngữ pháp nhưng quá trang trọng, cứng nhắc như thông báo hành chính hay biển báo luật, không hợp để trò chuyện đời thường với đồng nghiệp\n\nC - dịch: \"Tòa nhà đang được sửa chữa lúc này, nên khách lữ hành không thể đi dạo quanh xem, và chỉ những người cầu nguyện mới được vào\", đúng ngữ pháp nhưng dùng từ chưa đắt: \"being fixed\" thường dùng cho đồ vật hỏng hóc hơn là trùng tu di sản (\"under restoration\"), \"travelers\" nghe giống khách đi đường/sân bay hơn là khách du lịch (\"tourists\"), và \"people who pray\" diễn đạt hơi gượng so với \"folks attending Mass\"\n\nD - dịch: \"Hiện tại nơi này đóng cửa để sửa chữa, nên không ai được phép bước vào khuôn viên ngoại trừ các thành viên đã đăng ký của nhà thờ\", đúng ngữ pháp nhưng giọng điệu xa cách (\"permitted to enter the premises\") và sai sắc thái thực tế vì bất kỳ ai vào dự Thánh lễ một cách trang nghiêm đều được vào, chứ không bắt buộc phải là \"thành viên đăng ký\"\n\nLý do đúng:\nB - dịch: \"Nhà thờ đang trùng tu nên họ đóng cửa với khách tham quan rồi—chỉ những ai đi dự lễ mới được vào bên trong thôi\", vừa chuẩn ngữ pháp vừa tự nhiên nhất nhờ dùng dạng rút gọn (\"It's\", \"they've\"), từ vựng chuẩn ngành bảo tồn (\"under restoration\"), cụm \"closed it to tourists\" và cách gọi thân mật \"folks\" (mọi người)"
         }
       ],
       "readExpected": "I go to church every Sunday morning.",
@@ -1797,6 +1946,7 @@
       ],
       "quizzes": [
         {
+          "questionType": "Single Best Answer",
           "question": "Which word means “tươi”?",
           "options": [
             "fresh",
@@ -1807,6 +1957,7 @@
           "explanation": "Fresh means newly picked or made."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Complete: “Could you ___ these tomatoes, please?”",
           "options": [
             "weigh",
@@ -1817,6 +1968,7 @@
           "explanation": "Could you + base verb: weigh."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which question asks about price?",
           "options": [
             "How much are these oranges?",
@@ -1827,6 +1979,7 @@
           "explanation": "How much + be + noun asks about price."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which sentence is polite when buying?",
           "options": [
             "Could you weigh these, please?",
@@ -2047,6 +2200,7 @@
       ],
       "quizzes": [
         {
+          "questionType": "Single Best Answer",
           "question": "Which phrase suggests an activity?",
           "options": [
             "Let’s meet up at seven.",
@@ -2057,6 +2211,7 @@
           "explanation": "“Let’s …” is a suggestion."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which word means “gặp nhau”?",
           "options": [
             "meet up",
@@ -2067,6 +2222,7 @@
           "explanation": "Meet up means to gather with someone."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Complete: “We’re ___ watch a movie.”",
           "options": [
             "going to",
@@ -2077,6 +2233,7 @@
           "explanation": "“Be going to” needs the verb be."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which sentence apologises for being late?",
           "options": [
             "Sorry, traffic was bad.",
@@ -2297,6 +2454,7 @@
       ],
       "quizzes": [
         {
+          "questionType": "Single Best Answer",
           "question": "Which word means “ngủ nướng”?",
           "options": [
             "sleep in",
@@ -2307,6 +2465,7 @@
           "explanation": "Sleep in means to stay in bed longer than usual."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which sentence means “thư giãn”?",
           "options": [
             "I’m unwinding with a book.",
@@ -2317,6 +2476,7 @@
           "explanation": "Unwind means to relax after stress."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Complete: “I ___ staying in bed.”",
           "options": [
             "feel like",
@@ -2327,6 +2487,7 @@
           "explanation": "Feel like + V-ing expresses a desire."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which phrase means “không đặt báo thức”?",
           "options": [
             "no alarm",
@@ -2547,6 +2708,7 @@
       ],
       "quizzes": [
         {
+          "questionType": "Single Best Answer",
           "question": "Which word means “việc nhà”?",
           "options": [
             "chore",
@@ -2557,6 +2719,7 @@
           "explanation": "A chore is a household task."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Complete: “I ___ do the laundry today.”",
           "options": [
             "have to",
@@ -2567,6 +2730,7 @@
           "explanation": "I have to + base verb."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which question asks who does a task?",
           "options": [
             "Who is doing the dishes?",
@@ -2577,6 +2741,7 @@
           "explanation": "Who + be + V-ing asks about the person."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which sentence means “đổ rác”?",
           "options": [
             "take out the trash",
@@ -2797,6 +2962,7 @@
       ],
       "quizzes": [
         {
+          "questionType": "Single Best Answer",
           "question": "Choose the correct stand-up update:",
           "options": [
             "We have deployed the patch to staging.",
@@ -2807,6 +2973,7 @@
           "explanation": "Present perfect is have/has + past participle: have deployed."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which word means “sự cố nghiêm trọng”?",
           "options": [
             "incident",
@@ -2817,6 +2984,7 @@
           "explanation": "An incident is an unplanned event that disrupts a service."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Complete the sentence: “The error rate ___ after the rollback.”",
           "options": [
             "dropped",
@@ -2827,6 +2995,7 @@
           "explanation": "Use past simple for a finished action: the error rate dropped."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which sentence proposes next steps in a meeting?",
           "options": [
             "Let’s assign an owner and set a deadline.",
@@ -3047,6 +3216,7 @@
       ],
       "quizzes": [
         {
+          "questionType": "Single Best Answer",
           "question": "Which is the most natural morning greeting to a neighbor?",
           "options": [
             "Morning! How’s it going?",
@@ -3057,6 +3227,7 @@
           "explanation": "A short, friendly greeting with a light question fits small talk."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which phrase ends a short chat politely?",
           "options": [
             "Have a good one!",
@@ -3067,6 +3238,7 @@
           "explanation": "“Have a good one!” is a casual, friendly sign-off."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Complete the question tag: “Lovely morning, ___?”",
           "options": [
             "isn’t it",
@@ -3077,6 +3249,7 @@
           "explanation": "A positive statement takes a negative tag: isn’t it?"
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which sentence is typical small talk?",
           "options": [
             "I’m just heading to the station.",
@@ -3297,6 +3470,7 @@
       ],
       "quizzes": [
         {
+          "questionType": "Single Best Answer",
           "question": "Which meal do you usually eat in the evening?",
           "options": [
             "dinner",
@@ -3307,6 +3481,7 @@
           "explanation": "Dinner is the main meal in the evening."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Complete the sentence: “I usually ___ breakfast at 7 a.m.”",
           "options": [
             "have",
@@ -3317,6 +3492,7 @@
           "explanation": "With “I”, use the base form: I have breakfast."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which phrase means “ăn ngoài”?",
           "options": [
             "eat out",
@@ -3327,6 +3503,7 @@
           "explanation": "“Eat out” means to eat at a restaurant instead of at home."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which sentence is polite when ordering food?",
           "options": [
             "Could I have a bowl of soup, please?",
@@ -3546,6 +3723,7 @@
       ],
       "quizzes": [
         {
+          "questionType": "Single Best Answer",
           "question": "Choose the correct sentence about an autumn routine:",
           "options": [
             "I am usually walk in the park in autumn.",
@@ -3556,6 +3734,7 @@
           "explanation": "Use present simple for habits: subject + base verb."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which phrase means “trở lại thói quen”?",
           "options": [
             "wrap up warm",
@@ -3566,6 +3745,7 @@
           "explanation": "“Get back into routine” means to return to a usual habit."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Complete the sentence: “This week I’m ___ to sleep earlier.”",
           "options": [
             "try",
@@ -3576,6 +3756,7 @@
           "explanation": "Present continuous uses am/is/are + -ing for temporary changes."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which sentence keeps a conversation going?",
           "options": [
             "That sounds like a good plan. How about you?",
@@ -3783,6 +3964,7 @@
       ],
       "quizzes": [
         {
+          "questionType": "Single Best Answer",
           "question": "Choose the correct work update:",
           "options": [
             "We are on track, but we still has one blocker.",
@@ -3793,6 +3975,7 @@
           "explanation": "Use “have” with “we” and keep the full verb phrase."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which word means “điểm chặn”?",
           "options": [
             "hand off",
@@ -3803,6 +3986,7 @@
           "explanation": "A blocker is something that stops progress."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which sentence reports progress with present perfect?",
           "options": [
             "We finished the first review.",
@@ -3813,6 +3997,7 @@
           "explanation": "Present perfect is have/has + past participle."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which reply shows polite turn-taking in a meeting?",
           "options": [
             "Can I add something?",
@@ -4020,6 +4205,7 @@
       ],
       "quizzes": [
         {
+          "questionType": "Single Best Answer",
           "question": "Choose the correct shopping sentence:",
           "options": [
             "This deal is worth than the other one.",
@@ -4030,6 +4216,7 @@
           "explanation": "“Worth it” is a common chunk; avoid forcing a comparative."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which word means “giảm giá”?",
           "options": [
             "deal",
@@ -4040,6 +4227,7 @@
           "explanation": "A discount is a reduction in price."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Complete the comparison: “The discount is bigger ___.”",
           "options": [
             "than online",
@@ -4050,6 +4238,7 @@
           "explanation": "Use comparative + than: bigger than …"
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which sentence asks about a choice?",
           "options": [
             "I’m not sure whether to buy now or wait.",
@@ -4258,6 +4447,7 @@
       ],
       "quizzes": [
         {
+          "questionType": "Single Best Answer",
           "question": "Choose the correct future arrangement:",
           "options": [
             "We’re releasing on Thursday.",
@@ -4268,6 +4458,7 @@
           "explanation": "Present continuous describes a fixed future arrangement."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which term means “đóng băng mã nguồn”?",
           "options": [
             "code freeze",
@@ -4278,6 +4469,7 @@
           "explanation": "A code freeze stops code changes before a release."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Complete the sentence: “We ___ freeze the code by Wednesday.”",
           "options": [
             "need to",
@@ -4288,6 +4480,7 @@
           "explanation": "Use need + to-infinitive to express obligation."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which sentence gives a condition for rollout?",
           "options": [
             "If the canary looks healthy, we’ll roll out.",
@@ -4508,6 +4701,7 @@
       ],
       "quizzes": [
         {
+          "questionType": "Single Best Answer",
           "question": "Complete the sentence: “I ___ fix the fence this weekend.”",
           "options": [
             "am going to",
@@ -4518,6 +4712,7 @@
           "explanation": "‘Be going to’ needs the verb be: I am going to fix …"
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which word means “mượn”?",
           "options": [
             "borrow",
@@ -4528,6 +4723,7 @@
           "explanation": "You borrow something from someone; they lend it to you."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which sentence is a polite request?",
           "options": [
             "Could you lend me a ladder?",
@@ -4538,6 +4734,7 @@
           "explanation": "“Could you …?” is a polite way to ask for help."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which question asks about weekend plans?",
           "options": [
             "Are you doing anything fun this weekend?",
@@ -4758,6 +4955,7 @@
       ],
       "quizzes": [
         {
+          "questionType": "Single Best Answer",
           "question": "Which sentence is polite when asking for the bill?",
           "options": [
             "Could we have the bill, please?",
@@ -4768,6 +4966,7 @@
           "explanation": "“Could we … , please?” is the standard polite form."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which phrase means “chia hoá đơn”?",
           "options": [
             "split the bill",
@@ -4778,6 +4977,7 @@
           "explanation": "To split the bill is to share the cost between people."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Complete the sentence: “Could I have ___ more rice?”",
           "options": [
             "a little",
@@ -4788,6 +4988,7 @@
           "explanation": "Rice is uncountable, so use a little."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which question asks for a recommendation?",
           "options": [
             "What do you recommend?",
@@ -5008,6 +5209,7 @@
       ],
       "quizzes": [
         {
+          "questionType": "Single Best Answer",
           "question": "Which word means “nguyên liệu”?",
           "options": [
             "ingredients",
@@ -5018,6 +5220,7 @@
           "explanation": "Ingredients are the items you use to cook a dish."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Complete the sentence: “You ___ prep meals on Sunday.”",
           "options": [
             "should",
@@ -5028,6 +5231,7 @@
           "explanation": "Use should + base verb, without to."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which sentence gives advice?",
           "options": [
             "You should drink more water.",
@@ -5038,6 +5242,7 @@
           "explanation": "Should expresses advice or a recommendation."
         },
         {
+          "questionType": "Single Best Answer",
           "question": "Which phrase means “đồ ăn vặt”?",
           "options": [
             "junk food",

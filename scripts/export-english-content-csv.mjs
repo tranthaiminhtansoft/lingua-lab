@@ -80,18 +80,20 @@ await writeFile(
 const quizRows = [];
 for (const topic of bank.topics) {
   for (const quiz of topic.quizzes) {
+    const ai = quiz.answerIndices && quiz.answerIndices.length ? quiz.answerIndices : [quiz.answerIndex];
     quizRows.push({
       topicId: topic.id,
+      questionType: quiz.questionType ?? '',
       question: quiz.question,
       options: quiz.options.join('\n'),
-      answerIndex: quiz.answerIndex,
+      answerIndex: ai.join(','),
       explanation: quiz.explanation,
     });
   }
 }
 await writeFile(
   new URL('quizzes.csv', outputDirectory),
-  toCsv(['topicId', 'question', 'options', 'answerIndex', 'explanation'], quizRows),
+  toCsv(['topicId', 'questionType', 'question', 'options', 'answerIndex', 'explanation'], quizRows),
 );
 
 const dialogueRows = [];

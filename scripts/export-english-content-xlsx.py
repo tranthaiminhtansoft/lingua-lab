@@ -111,8 +111,9 @@ sheets["grammar"] = (grammar_headers, grammar_rows)
 quiz_rows = []
 for t in bank["topics"]:
     for q in t["quizzes"]:
-        quiz_rows.append([t["id"], q["question"], "\n".join(q["options"]), q["answerIndex"], q["explanation"]])
-sheets["quizzes"] = (["topicId", "question", "options", "answerIndex", "explanation"], quiz_rows)
+        ai = q.get("answerIndices") or [q["answerIndex"]]
+        quiz_rows.append([t["id"], q.get("questionType", ""), q["question"], "\n".join(q["options"]), ",".join(str(x) for x in ai), q["explanation"]])
+sheets["quizzes"] = (["topicId", "questionType", "question", "options", "answerIndex", "explanation"], quiz_rows)
 
 # dialogue
 dialogue_rows = []

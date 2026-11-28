@@ -306,12 +306,19 @@ export function parseEnglishSheetTabs(
     }
     const quizzes = (tabs.quizzes ?? [])
       .filter((q) => q.topicId === id)
-      .map((q) => ({
-        question: q.question ?? '',
-        options: (q.options ?? '').split(/\r?\n/).map((s) => s.trim()).filter(Boolean),
-        answerIndex: toNumber(q.answerIndex, 0),
-        explanation: q.explanation ?? '',
-      }));
+      .map((q) => {
+        const ai = q.answerIndex ?? '0';
+        const primary = Number(String(ai).split(',')[0].trim());
+        const hasMultiple = String(ai).includes(',');
+        return {
+          ...(q.questionType ? { questionType: q.questionType } : {}),
+          question: q.question ?? '',
+          options: (q.options ?? '').split(/\r?\n/).map((s) => s.trim()).filter(Boolean),
+          answerIndex: Number.isFinite(primary) ? primary : 0,
+          ...(hasMultiple ? { answerIndices: String(ai).split(',').map((v) => Number(v.trim())).filter((n) => Number.isFinite(n)) } : {}),
+          explanation: q.explanation ?? '',
+        };
+      });
     const dialogueRows = (tabs.dialogue ?? []).filter((d) => d.topicId === id);
     const sortedDialogue = [...dialogueRows].sort((a, b) => toNumber(a.variantIndex, 0) - toNumber(b.variantIndex, 0));
     const mainDialogueRow = sortedDialogue.find((d) => toNumber(d.variantIndex, 0) === 0) ?? sortedDialogue[0];

@@ -23,18 +23,124 @@ christmas-celebration,gingerbread man,bánh quy gừng hình người,/ˈdʒɪnd
 christmas-celebration,yule log cake,bánh khúc gỗ,/juːl lɔːɡ keɪk/,,0
 christmas-celebration,mulled wine,rượu vang nóng,/məld waɪn/,,0
 christmas-celebration,Secret Santa,trò bốc thăm tặng quà,/ˌsiːkrət ˈsæntə/,,0
-tet-lunar-new-year,Tết,Tết,/tet/,,0
-tet-lunar-new-year,lucky money,lì xì,/ˈlʌki ˈmʌni/,,0
-tet-lunar-new-year,family reunion,đoàn viên,/ˌfæməli riˈjuːniən/,,0
-tet-lunar-new-year,ancestors,tổ tiên,/ˈænsestərz/,,0
-tet-lunar-new-year,incense,hương,/ˈɪnsens/,,0
-tet-lunar-new-year,traditional food,đồ ăn truyền thống,/trəˈdɪʃənəl fuːd/,,0
-tet-lunar-new-year,sticky rice cake,bánh chưng,/ˌstɪki ˈraɪs keɪk/,,0
-tet-lunar-new-year,visit relatives,thăm họ hàng,/ˌvɪzɪt ˈrelətɪvz/,,0
-tet-lunar-new-year,New Year wish,lời chúc năm mới,/ˌnuː jɪr wɪʃ/,,0
-tet-lunar-new-year,peach blossom,hoa đào,/piːtʃ ˈblɑːsəm/,,0
-tet-lunar-new-year,first visitor,người đến thăm đầu năm,/ˌfɜːrst ˈvɪzɪtər/,,0
-tet-lunar-new-year,red envelope,phong bao lì xì,/ˌred ˈenvəloʊp/,,0
+tet-lunar-new-year,Tết,Tết (Lunar New Year),/tet/,"[Viết tắt / tên tiếng Anh]
+Lunar New Year - /ˌluːnər ˈnuː jɪr/ - Tết Nguyên Đán
+
+[Tên gọi theo mùa]
+Spring Festival - /sprɪŋ ˈfestɪvl/ - Tết (cách gọi quốc tế)",0
+tet-lunar-new-year,lucky money,lì xì,/ˈlʌki ˈmʌni/,"[Phong bao]
+red envelope money - /red ˈenvəloʊp ˈmʌni/ - tiền trong phong bao đỏ
+
+[Khẩu ngữ]
+lucky cash - /ˈlʌki kæʃ/ - tiền may mắn
+
+[Tên gọi theo dịp]
+Tết money - /tet ˈmʌni/ - tiền Tết",0
+tet-lunar-new-year,family reunion,đoàn viên,/ˌfæməli riːˈjuːniən/,"[Đồng nghĩa]
+family gathering - /ˈfæməli ˈɡæðərɪŋ/ - buổi tụ họp gia đình
+
+[Khẩu ngữ]
+get together - /ɡet təˈɡeðər/ - tụ họp
+
+[Theo dịp]
+reunion dinner - /riːˈjuːniən ˈdɪnər/ - bữa cơm đoàn viên",0
+tet-lunar-new-year,ancestors,tổ tiên,/ˈænsestərz/,"[Trang trọng]
+forefathers - /ˈfɔːrˌfɑːðərz/ - tổ tiên (trang trọng)
+
+[Trang trọng]
+forebears - /ˈfɔːrberz/ - tổ tiên
+
+[Mô tả]
+deceased relatives - /dɪˈsiːst ˈrelətɪvz/ - người thân đã khuất",0
+tet-lunar-new-year,incense,hương,/ˈɪnsens/,"[Đồng nghĩa]
+incense stick - /ˈɪnsens stɪk/ - nén hương
+
+[Hoa]
+joss stick - /dʒɔːs stɪk/ - hương (Hoa)
+
+[Mô tả]
+incense smoke - /ˈɪnsens smoʊk/ - khói hương",0
+tet-lunar-new-year,traditional food,đồ ăn truyền thống,/trəˈdɪʃənl fuːd/,"[Đồng nghĩa]
+festive food - /ˈfestɪv fuːd/ - đồ ăn ngày lễ
+
+[Theo dịp]
+holiday dishes - /ˈhɑːlədeɪ ˈdɪʃɪz/ - món ăn ngày lễ
+
+[Theo chủ đề]
+Tet specialties - /tet ˈspeʃəltiz/ - đặc sản Tết",0
+tet-lunar-new-year,sticky rice cake,bánh chưng,/ˌstɪki ˈraɪs keɪk/,"[Mô tả]
+square sticky rice cake - /skwer ˌstɪki ˈraɪs keɪk/ - bánh chưng vuông
+
+[Tên gốc]
+bánh chưng - /bæŋ tʃʊŋ/ - giữ nguyên tên Việt
+
+[Nguyên liệu]
+glutinous rice cake - /ˈɡluːtɪnəs raɪs keɪk/ - bánh gạo nếp",0
+tet-lunar-new-year,visit relatives,thăm họ hàng,/ˌvɪzɪt ˈrelətɪvz/,"[Đồng nghĩa]
+pay a visit - /peɪ ə ˈvɪzɪt/ - đến thăm
+
+[Khẩu ngữ]
+drop by - /drɑːp baɪ/ - ghé qua
+
+[Trang trọng]
+call on - /kɔːl ɑːn/ - đến thăm (trang trọng)",0
+tet-lunar-new-year,New Year wish,lời chúc năm mới,/ˌnuː jɪr wɪʃ/,"[Đồng nghĩa]
+New Year greeting - /ˌnuː jɪr ˈɡriːtɪŋ/ - lời chúc năm mới
+
+[Mô tả]
+well-wishes - /ˈwel wɪʃɪz/ - lời chúc tốt đẹp
+
+[Trang trọng]
+blessing - /ˈblesɪŋ/ - lời chúc phúc",0
+tet-lunar-new-year,peach blossom,hoa đào,/piːtʃ ˈblɑːsəm/,"[Đồng nghĩa]
+peach flower - /piːtʃ ˈflaʊər/ - hoa đào
+
+[Mô tả]
+pink blossom - /pɪŋk ˈblɑːsəm/ - hoa hồng đào",0
+tet-lunar-new-year,first visitor,người đến thăm đầu năm,/ˌfɜːrst ˈvɪzɪtər/,"[Anh-Anh]
+first footer - /fɜːrst ˈfʊtər/ - người đến thăm đầu năm (Anh-Anh)
+
+[Đồng nghĩa]
+first guest - /fɜːrst ɡest/ - khách đầu tiên
+
+[Mô tả]
+first caller - /fɜːrst ˈkɔːlər/ - người gọi cửa đầu tiên",0
+tet-lunar-new-year,red envelope,phong bao lì xì,/ˌred ˈenvəloʊp/,"[Mô tả]
+lucky money envelope - /ˈlʌki ˈmʌni ˈenvəloʊp/ - phong bao tiền may mắn
+
+[Trung]
+hongbao - /hɔːŋ ˈbaʊ/ - bao lì xì (Trung)
+
+[Tên gọi theo dịp]
+lì xì envelope - /liː si ˈenvəloʊp/ - phong bao lì xì",0
+tet-lunar-new-year,firecracker,pháo nổ,/ˈfaɪərˌkrækər/,"[Đồng nghĩa]
+fireworks - /ˈfaɪərwɜːrks/ - pháo hoa
+
+[Mô tả]
+cracker - /ˈkrækər/ - pháo nổ nhỏ",0
+tet-lunar-new-year,new clothes,quần áo mới,/nuː kloʊðz/,"[Đồng nghĩa]
+new outfit - /nuː ˈaʊtfɪt/ - bộ đồ mới
+
+[Trang trọng]
+new attire - /nuː əˈtaɪər/ - trang phục mới
+
+[Mô tả]
+fresh clothes - /freʃ kloʊðz/ - quần áo mới mẻ",0
+tet-lunar-new-year,spring cleaning,dọn nhà đầu năm,/sprɪŋ ˈkliːnɪŋ/,"[Đồng nghĩa]
+year-end cleaning - /jɪr end ˈkliːnɪŋ/ - dọn nhà cuối năm
+
+[Mô tả]
+house cleaning - /haʊs ˈkliːnɪŋ/ - dọn nhà
+
+tidying up - /ˈtaɪdiɪŋ ʌp/ - dọn dẹp",0
+tet-lunar-new-year,fortune,vận may / tài lộc,/ˈfɔːrtʃən/,"[Đồng nghĩa]
+luck - /lʌk/ - vận may
+
+[Trang trọng]
+prosperity - /prɑːˈsperəti/ - thịnh vượng
+
+[Mô tả]
+good fortune - /ɡʊd ˈfɔːrtʃən/ - vận may tốt",0
 valentines-day,Valentine’s Day,Ngày Valentine,/ˈvæləntaɪnz deɪ/,,0
 valentines-day,romantic,lãng mạn,/roʊˈmæntɪk/,,0
 valentines-day,bouquet,bó hoa,/buˈkeɪ/,,0

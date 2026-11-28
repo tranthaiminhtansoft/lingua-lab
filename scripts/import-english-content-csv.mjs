@@ -229,9 +229,13 @@ const topics = topicRows.map((row) => {
   const quizzes = quizRows
     .filter((item) => item.topicId === id)
     .map((item) => ({
+      ...(item.questionType ? { questionType: item.questionType } : {}),
       question: item.question,
       options: (item.options.includes('\n') ? item.options.split(/\r?\n/) : item.options.split(' | ')).map((value) => value.trim()).filter(Boolean),
-      answerIndex: Number(item.answerIndex),
+      answerIndex: Number(String(item.answerIndex).split(',')[0].trim()),
+      ...(String(item.answerIndex).includes(',')
+        ? { answerIndices: String(item.answerIndex).split(',').map((v) => Number(v.trim())).filter((n) => Number.isFinite(n)) }
+        : {}),
       explanation: item.explanation,
     }));
   const splitSentences = (value) => value.split(/\r?\n/).map((s) => s.trim()).filter(Boolean);
