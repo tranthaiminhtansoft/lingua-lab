@@ -1393,72 +1393,112 @@
           "term": "emotion",
           "meaning": "cảm xúc",
           "pronunciation": "/ɪˈmoʊʃən/",
+          "synonyms": "[Đồng nghĩa]\nfeeling - /ˈfiːlɪŋ/ - cảm giác\n\n[Mô tả]\nsentiment - /ˈsentɪmənt/ - tình cảm (trang trọng)",
           "score": 0
         },
         {
           "term": "anxiety",
           "meaning": "lo âu",
           "pronunciation": "/æŋˈzaɪəti/",
+          "synonyms": "[Đồng nghĩa]\nworry - /ˈwɜːri/ - lo lắng\n\n[Mô tả]\nnervousness - /ˈnɜːrvəsnəs/ - sự hồi hộp\n\n[Khẩu ngữ]\nthe jitters - /ðə ˈdʒɪtərz/ - run sợ (khẩu ngữ)",
           "score": 0
         },
         {
           "term": "habit",
           "meaning": "thói quen",
           "pronunciation": "/ˈhæbɪt/",
+          "synonyms": "[Đồng nghĩa]\nroutine - /ruːˈtiːn/ - thói quen/routine\n\n[Mô tả]\npractice - /ˈpræktɪs/ - thói quen\n\n[Khẩu ngữ]\nhabits die hard - /ˈhæbɪts daɪ hɑːrd/ - thói quen khó bỏ",
           "score": 0
         },
         {
           "term": "motivation",
           "meaning": "động lực",
           "pronunciation": "/ˌmoʊtəˈveɪʃən/",
+          "synonyms": "[Đồng nghĩa]\ndrive - /draɪv/ - động lực\n\n[Mô tả]\nincentive - /ɪnˈsentɪv/ - động cơ\n\n[Khẩu ngữ]\nget-up-and-go - /ˌɡet ʌp ənd ˈɡoʊ/ - năng lượng (khẩu ngữ)",
           "score": 0
         },
         {
           "term": "mindset",
           "meaning": "tư duy",
           "pronunciation": "/ˈmaɪndset/",
+          "synonyms": "[Đồng nghĩa]\nmentality - /menˈtæləti/ - tư duy\n\n[Mô tả]\noutlook - /ˈaʊtlʊk/ - quan điểm\n\n[Khẩu ngữ]\nheadspace - /ˈhedspeɪs/ - trạng thái tinh thần (khẩu ngữ)",
           "score": 0
         },
         {
           "term": "trigger",
           "meaning": "kích hoạt",
           "pronunciation": "/ˈtrɪɡər/",
+          "synonyms": "[Đồng nghĩa]\ncatalyst - /ˈkætəlɪst/ - chất xúc tác\n\n[Mô tả]\nspark - /spɑːrk/ - ngòi lửa\n\n[Khẩu ngữ]\nset off - /set ɔːf/ - kích hoạt (khẩu ngữ)",
           "score": 0
         },
         {
           "term": "coping mechanism",
           "meaning": "cơ chế đối phó",
           "pronunciation": "/ˈkoʊpɪŋ ˈmekəˌnɪzəm/",
+          "synonyms": "[Đồng nghĩa]\nstress relief - /stres rɪˈliːf/ - giải tỏa căng thẳng\n\n[Mô tả]\nadaptive strategy - /əˈdæptɪv ˈstrætədʒi/ - chiến lược thích nghi",
           "score": 0
         },
         {
           "term": "resilience",
           "meaning": "khả năng phục hồi",
           "pronunciation": "/rɪˈzɪliəns/",
+          "synonyms": "[Đồng nghĩa]\ntoughness - /ˈtʌfnəs/ - sự bền bỉ\n\n[Mô tả]\nbounce-back ability - /baʊns bæk əˈbɪləti/ - khả năng bật lại",
           "score": 0
         },
         {
           "term": "empathy",
           "meaning": "đồng cảm",
           "pronunciation": "/ˈempəθi/",
+          "synonyms": "[Đồng nghĩa]\ncompassion - /kəmˈpæʃn/ - lòng trắc ẩn\n\n[Mô tả]\nunderstanding - /ˌʌndərˈstændɪŋ/ - sự thấu hiểu",
           "score": 0
         },
         {
           "term": "burnout",
           "meaning": "kiệt sức",
           "pronunciation": "/ˈbɜːrnaʊt/",
+          "synonyms": "[Đồng nghĩa]\nexhaustion - /ɪɡˈzɔːstʃən/ - kiệt sức\n\n[Mô tả]\nmental fatigue - /ˈmentl fəˈtiːɡ/ - mệt mỏi tinh thần\n\n[Khẩu ngữ]\nrunning on empty - /ˈrʌnɪŋ ɑːn ˈempti/ - cạn năng lượng (khẩu ngữ)",
           "score": 0
         },
         {
           "term": "self-talk",
           "meaning": "đối thoại với bản thân",
           "pronunciation": "/ˌself ˈtɔːk/",
+          "synonyms": "[Đồng nghĩa]\ninner dialogue - /ˈɪnər ˈdaɪəlɔːɡ/ - đối thoại nội tâm\n\n[Mô tả]\ninner voice - /ˈɪnər vɔɪs/ - tiếng nói bên trong",
           "score": 0
         },
         {
           "term": "mindfulness",
           "meaning": "chánh niệm",
           "pronunciation": "/ˈmaɪndfəlnəs/",
+          "synonyms": "[Đồng nghĩa]\npresent-moment awareness - /ˈpreznt ˈmoʊmənt əˈwerneɪs/ - nhận thức hiện tại\n\n[Mô tả]\nmeditation - /ˌmedɪˈteɪʃn/ - thiền",
+          "score": 0
+        },
+        {
+          "term": "overthinking",
+          "meaning": "suy nghĩ quá nhiều",
+          "pronunciation": "/ˌoʊvərˈθɪŋkɪŋ/",
+          "synonyms": "[Đồng nghĩa]\nrumination - /ˌruːmɪˈneɪʃn/ - suy đi nghĩ lại (trang trọng)\n\n[Mô tả]\nover-analysis - /ˌoʊvər əˈnæləsɪs/ - phân tích quá mức",
+          "score": 0
+        },
+        {
+          "term": "self-esteem",
+          "meaning": "lòng tự trọng",
+          "pronunciation": "/ˌself ɪˈstiːm/",
+          "synonyms": "[Đồng nghĩa]\nself-worth - /ˌself ˈwɜːrθ/ - giá trị bản thân\n\n[Mô tả]\nself-confidence - /ˌself ˈkɑːnfədəns/ - sự tự tin",
+          "score": 0
+        },
+        {
+          "term": "cognitive bias",
+          "meaning": "thiên kiến nhận thức",
+          "pronunciation": "/ˈkɑːɡnətɪv ˈbaɪəs/",
+          "synonyms": "[Đồng nghĩa]\nmental shortcut - /ˈmentl ˈʃɔːrtkʌt/ - lối tắt tinh thần\n\n[Mô tả]\nblind spot - /blaɪnd spɑːt/ - điểm mù",
+          "score": 0
+        },
+        {
+          "term": "growth mindset",
+          "meaning": "tư duy phát triển",
+          "pronunciation": "/ɡroʊθ ˈmaɪndset/",
+          "synonyms": "[Đồng nghĩa]\nlearning mindset - /ˈlɜːrnɪŋ ˈmaɪndset/ - tư duy học hỏi\n\n[Mô tả]\nopen mindset - /ˈoʊpən ˈmaɪndset/ - tư duy cởi mở",
           "score": 0
         }
       ],
@@ -1466,7 +1506,7 @@
         {
           "formula": "S + think/feel/believe + clause",
           "example": "I think habits shape our mindset. (Tôi nghĩ thói quen hình thành tư duy.)",
-          "pronunciation": "/aɪ θɪŋk ˈhæbəts ʃeɪp ɑr ˈmaɪndˌsɛt/",
+          "pronunciation": "/aɪ θɪŋk ˈhæbɪts ʃeɪp aʊr ˈmaɪndset/",
           "usage": "Dùng với động từ chỉ trạng thái như think, feel, know, believe — không chia tiếp diễn.",
           "title": "Present simple for mental states",
           "category": "Tense",
@@ -1491,7 +1531,7 @@
         {
           "formula": "S + used to + V",
           "example": "I used to worry a lot. (Tôi từng lo lắng rất nhiều.)",
-          "pronunciation": "/aɪ juzd tɪ ˈwəri ə lɔt/",
+          "pronunciation": "/aɪ juːst tə ˈwɜːri ə lɑːt/",
           "usage": "Dùng để nói về thói quen suy nghĩ hoặc cảm xúc trong quá khứ mà nay đã thay đổi.",
           "title": "'Used to' for past mental habits",
           "category": "Tense",
@@ -1516,7 +1556,7 @@
         {
           "formula": "If + S + V(present), S + will/can + V",
           "example": "If you feel anxious, you can take a deep breath. (Nếu bạn cảm thấy lo lắng, bạn có thể hít thở sâu.)",
-          "pronunciation": "/ɪf ju fil ˈæŋʃəs, ju kən teɪk ə dip brɛθ/",
+          "pronunciation": "/ɪf ju fiːl ˈæŋkʃəs, ju kæn teɪk ə diːp brɛθ/",
           "usage": "Dùng để nói về kết quả có thể xảy ra khi một tình huống cảm xúc xảy ra.",
           "title": "First conditional for coping",
           "category": "Conditional",
@@ -1541,7 +1581,7 @@
         {
           "formula": "S + make + O + feel + adj",
           "example": "Good sleep makes me feel calmer. (Giấc ngủ tốt khiến tôi bình tĩnh hơn.)",
-          "pronunciation": "/gʊd slip meɪks mi fil ˈkɑmər/",
+          "pronunciation": "/ɡʊd sliːp meɪks mi fiːl ˈkɑːlmər/",
           "usage": "Dùng để nói một việc hoặc người gây ra cảm giác nào đó cho ai.",
           "title": "'Make' + someone + feel",
           "category": "Causative",
@@ -1562,6 +1602,12 @@
               "example": "The news left me feeling hopeful. (Tin đó khiến tôi cảm thấy hy vọng.)"
             }
           ]
+        },
+        {
+          "formula": "S + have/has + been + V-ing + for + time",
+          "example": "I've been practicing mindfulness for three months. (Tôi đã thực hành chánh niệm được ba tháng.)",
+          "pronunciation": "/aɪv bɪn ˈpræktɪsɪŋ ˈmaɪndfəlnəs fər θriː mʌnθs/",
+          "usage": "Dùng khi nhìn lại quá trình cải thiện sức khỏe tinh thần tính đến hiện tại."
         }
       ],
       "examples": [
@@ -1570,29 +1616,31 @@
       ],
       "quizzes": [
         {
-          "questionType": "Single Best Answer",
+          "questionType": "Multiple Choice",
           "question": "Which word means “động lực”?",
           "options": [
             "motivation",
             "anxiety",
-            "habit"
+            "habit",
+            "mindset"
           ],
           "answerIndex": 0,
-          "explanation": "Motivation is the reason for acting."
+          "explanation": "Lý do đúng:\nmotivation - dịch: \"động lực\", từ chính xác"
         },
         {
           "questionType": "Single Best Answer",
           "question": "Which word means “đồng cảm”?",
           "options": [
             "empathy",
+            "resilience",
             "trigger",
-            "coping"
+            "emotion"
           ],
           "answerIndex": 0,
-          "explanation": "Empathy is understanding others’ feelings."
+          "explanation": "Lý do đúng:\nempathy - dịch: \"đồng cảm\", từ chính xác"
         },
         {
-          "questionType": "Single Best Answer",
+          "questionType": "Multiple Choice",
           "question": "Complete: “I ___ to worry a lot.”",
           "options": [
             "used",
@@ -1600,7 +1648,7 @@
             "using"
           ],
           "answerIndex": 0,
-          "explanation": "“Used to” describes a past habit."
+          "explanation": "Lý do đúng:\nused - dịch: \"từng\", cấu trúc used to + V cho thói quen quá khứ"
         },
         {
           "questionType": "Single Best Answer",
@@ -1611,26 +1659,62 @@
             "Anxiety exists."
           ],
           "answerIndex": 0,
-          "explanation": "First conditional gives advice for a situation."
+          "explanation": "Lý do đúng:\nIf you feel anxious, take a deep breath. - dịch: \"Nếu bạn cảm thấy lo lắng, hãy hít thở sâu\", first conditional cho lời khuyên"
+        },
+        {
+          "questionType": "Multiple Choice",
+          "question": "Which word means “kiệt sức”?",
+          "options": [
+            "burnout",
+            "anxiety",
+            "emotion",
+            "trigger"
+          ],
+          "answerIndex": 0,
+          "explanation": "Lý do đúng:\nburnout - dịch: \"kiệt sức\", từ chính xác"
+        },
+        {
+          "questionType": "Single Best Answer",
+          "question": "Choose the most natural sentence for mental health:",
+          "options": [
+            "I've been practicing mindfulness for three months.",
+            "I practice mindfulness since three months.",
+            "I am practicing mindfulness for three months."
+          ],
+          "answerIndex": 0,
+          "explanation": "Lý do đúng:\nI've been practicing mindfulness for three months. - dịch: \"Tôi đã thực hành chánh niệm được ba tháng\", present perfect continuous"
+        },
+        {
+          "questionType": "Multiple Choice",
+          "question": "Which sentence gives advice for stress?",
+          "options": [
+            "You should take a short walk and listen to music.",
+            "You must walk now.",
+            "Walk."
+          ],
+          "answerIndex": 0,
+          "explanation": "Lý do đúng:\nYou should take a short walk and listen to music. - dịch: \"Bạn nên đi bộ một chút và nghe nhạc\", lời khuyên lịch sự"
         }
       ],
       "readExpected": "I think habits shape our mindset.",
       "dialogue": [
-        "A: Why do I keep procrastinating?",
-        "B: It might be a habit, not laziness.",
-        "A: How do I change it?",
-        "B: Start small and track your motivation.",
-        "A: That sounds manageable.",
-        "B: Yes. Be kind to yourself and keep going."
+        "A: I've been feeling anxious lately. (Dạo này mình cảm thấy lo lắng.)",
+        "B: That's totally normal. Have you tried deep breathing? (Bình thường thôi. Bạn đã thử hít thở sâu chưa?)",
+        "A: Does it really help? (Thật sự có hiệu quả không?)",
+        "B: Yes, it calms the body and mind. (Có, nó làm dịu cơ thể và tâm trí.)",
+        "A: I'll try it next time. (Lần sau tôi sẽ thử.)",
+        "B: You've got this. (Bạn làm được.)"
       ],
       "dialogueVariants": [
         [
-          "A: I feel anxious before presentations.",
-          "B: That’s normal. Try deep breathing.",
-          "A: Does it really help?",
-          "B: Yes, it calms the body and mind.",
-          "A: I’ll try it next time.",
-          "B: You’ve got this."
+          "A: How do you deal with stress at work? (Bạn xử lý căng thẳng ở công việc thế nào?)",
+          "B: I usually take a short walk and listen to music. (Mình thường đi bộ một chút và nghe nhạc.)",
+          "A: That sounds healthy. Do you ever overthink things? (Nghe lành mạnh đấy. Bạn có bao giờ suy nghĩ quá nhiều không?)",
+          "B: All the time. But I'm learning to catch myself. (Suốt. Nhưng mình đang học cách nhận ra.)",
+          "A: What do you mean? (Ý bạn là sao?)",
+          "B: Like, when I notice I'm spiraling, I ask: \"Is this thought helpful?\" (Như khi mình nhận ra mình đang xoắn, mình hỏi: \"Suy nghĩ này có ích không?\")",
+          "A: That's a great technique. (Kỹ thuật hay đấy.)",
+          "B: It takes practice, but it works. (Cần luyện tập, nhưng có hiệu quả.)"
         ]
       ]
     },

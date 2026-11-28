@@ -349,18 +349,104 @@ efficiency - /ɪˈfɪʃənsi/ - hiệu quả
 
 [Mô tả]
 output - /ˈaʊtpʊt/ - sản lượng",0
-psychology-mind,emotion,cảm xúc,/ɪˈmoʊʃən/,,0
-psychology-mind,anxiety,lo âu,/æŋˈzaɪəti/,,0
-psychology-mind,habit,thói quen,/ˈhæbɪt/,,0
-psychology-mind,motivation,động lực,/ˌmoʊtəˈveɪʃən/,,0
-psychology-mind,mindset,tư duy,/ˈmaɪndset/,,0
-psychology-mind,trigger,kích hoạt,/ˈtrɪɡər/,,0
-psychology-mind,coping mechanism,cơ chế đối phó,/ˈkoʊpɪŋ ˈmekəˌnɪzəm/,,0
-psychology-mind,resilience,khả năng phục hồi,/rɪˈzɪliəns/,,0
-psychology-mind,empathy,đồng cảm,/ˈempəθi/,,0
-psychology-mind,burnout,kiệt sức,/ˈbɜːrnaʊt/,,0
-psychology-mind,self-talk,đối thoại với bản thân,/ˌself ˈtɔːk/,,0
-psychology-mind,mindfulness,chánh niệm,/ˈmaɪndfəlnəs/,,0
+psychology-mind,emotion,cảm xúc,/ɪˈmoʊʃən/,"[Đồng nghĩa]
+feeling - /ˈfiːlɪŋ/ - cảm giác
+
+[Mô tả]
+sentiment - /ˈsentɪmənt/ - tình cảm (trang trọng)",0
+psychology-mind,anxiety,lo âu,/æŋˈzaɪəti/,"[Đồng nghĩa]
+worry - /ˈwɜːri/ - lo lắng
+
+[Mô tả]
+nervousness - /ˈnɜːrvəsnəs/ - sự hồi hộp
+
+[Khẩu ngữ]
+the jitters - /ðə ˈdʒɪtərz/ - run sợ (khẩu ngữ)",0
+psychology-mind,habit,thói quen,/ˈhæbɪt/,"[Đồng nghĩa]
+routine - /ruːˈtiːn/ - thói quen/routine
+
+[Mô tả]
+practice - /ˈpræktɪs/ - thói quen
+
+[Khẩu ngữ]
+habits die hard - /ˈhæbɪts daɪ hɑːrd/ - thói quen khó bỏ",0
+psychology-mind,motivation,động lực,/ˌmoʊtəˈveɪʃən/,"[Đồng nghĩa]
+drive - /draɪv/ - động lực
+
+[Mô tả]
+incentive - /ɪnˈsentɪv/ - động cơ
+
+[Khẩu ngữ]
+get-up-and-go - /ˌɡet ʌp ənd ˈɡoʊ/ - năng lượng (khẩu ngữ)",0
+psychology-mind,mindset,tư duy,/ˈmaɪndset/,"[Đồng nghĩa]
+mentality - /menˈtæləti/ - tư duy
+
+[Mô tả]
+outlook - /ˈaʊtlʊk/ - quan điểm
+
+[Khẩu ngữ]
+headspace - /ˈhedspeɪs/ - trạng thái tinh thần (khẩu ngữ)",0
+psychology-mind,trigger,kích hoạt,/ˈtrɪɡər/,"[Đồng nghĩa]
+catalyst - /ˈkætəlɪst/ - chất xúc tác
+
+[Mô tả]
+spark - /spɑːrk/ - ngòi lửa
+
+[Khẩu ngữ]
+set off - /set ɔːf/ - kích hoạt (khẩu ngữ)",0
+psychology-mind,coping mechanism,cơ chế đối phó,/ˈkoʊpɪŋ ˈmekəˌnɪzəm/,"[Đồng nghĩa]
+stress relief - /stres rɪˈliːf/ - giải tỏa căng thẳng
+
+[Mô tả]
+adaptive strategy - /əˈdæptɪv ˈstrætədʒi/ - chiến lược thích nghi",0
+psychology-mind,resilience,khả năng phục hồi,/rɪˈzɪliəns/,"[Đồng nghĩa]
+toughness - /ˈtʌfnəs/ - sự bền bỉ
+
+[Mô tả]
+bounce-back ability - /baʊns bæk əˈbɪləti/ - khả năng bật lại",0
+psychology-mind,empathy,đồng cảm,/ˈempəθi/,"[Đồng nghĩa]
+compassion - /kəmˈpæʃn/ - lòng trắc ẩn
+
+[Mô tả]
+understanding - /ˌʌndərˈstændɪŋ/ - sự thấu hiểu",0
+psychology-mind,burnout,kiệt sức,/ˈbɜːrnaʊt/,"[Đồng nghĩa]
+exhaustion - /ɪɡˈzɔːstʃən/ - kiệt sức
+
+[Mô tả]
+mental fatigue - /ˈmentl fəˈtiːɡ/ - mệt mỏi tinh thần
+
+[Khẩu ngữ]
+running on empty - /ˈrʌnɪŋ ɑːn ˈempti/ - cạn năng lượng (khẩu ngữ)",0
+psychology-mind,self-talk,đối thoại với bản thân,/ˌself ˈtɔːk/,"[Đồng nghĩa]
+inner dialogue - /ˈɪnər ˈdaɪəlɔːɡ/ - đối thoại nội tâm
+
+[Mô tả]
+inner voice - /ˈɪnər vɔɪs/ - tiếng nói bên trong",0
+psychology-mind,mindfulness,chánh niệm,/ˈmaɪndfəlnəs/,"[Đồng nghĩa]
+present-moment awareness - /ˈpreznt ˈmoʊmənt əˈwerneɪs/ - nhận thức hiện tại
+
+[Mô tả]
+meditation - /ˌmedɪˈteɪʃn/ - thiền",0
+psychology-mind,overthinking,suy nghĩ quá nhiều,/ˌoʊvərˈθɪŋkɪŋ/,"[Đồng nghĩa]
+rumination - /ˌruːmɪˈneɪʃn/ - suy đi nghĩ lại (trang trọng)
+
+[Mô tả]
+over-analysis - /ˌoʊvər əˈnæləsɪs/ - phân tích quá mức",0
+psychology-mind,self-esteem,lòng tự trọng,/ˌself ɪˈstiːm/,"[Đồng nghĩa]
+self-worth - /ˌself ˈwɜːrθ/ - giá trị bản thân
+
+[Mô tả]
+self-confidence - /ˌself ˈkɑːnfədəns/ - sự tự tin",0
+psychology-mind,cognitive bias,thiên kiến nhận thức,/ˈkɑːɡnətɪv ˈbaɪəs/,"[Đồng nghĩa]
+mental shortcut - /ˈmentl ˈʃɔːrtkʌt/ - lối tắt tinh thần
+
+[Mô tả]
+blind spot - /blaɪnd spɑːt/ - điểm mù",0
+psychology-mind,growth mindset,tư duy phát triển,/ɡroʊθ ˈmaɪndset/,"[Đồng nghĩa]
+learning mindset - /ˈlɜːrnɪŋ ˈmaɪndset/ - tư duy học hỏi
+
+[Mô tả]
+open mindset - /ˈoʊpən ˈmaɪndset/ - tư duy cởi mở",0
 sunday-mass,mass,thánh lễ,/mæs/,,0
 sunday-mass,church,nhà thờ,/tʃɜːrtʃ/,,0
 sunday-mass,parish,giáo xứ,/ˈpærɪʃ/,,0
