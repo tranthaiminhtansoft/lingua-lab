@@ -2704,72 +2704,112 @@
           "term": "sleep in",
           "meaning": "ngủ nướng",
           "pronunciation": "/ˌsliːp ˈɪn/",
+          "synonyms": "[Đồng nghĩa]\nlie in - /laɪ ɪn/ - ngủ nướng (Anh-Anh)\n\n[Mô tả]\noversleep - /ˌoʊvərˈsliːp/ - ngủ quên",
           "score": 0
         },
         {
           "term": "unwind",
           "meaning": "thư giãn",
           "pronunciation": "/ʌnˈwaɪnd/",
+          "synonyms": "[Đồng nghĩa]\nrelax - /rɪˈlæks/ - thư giãn\n\n[Mô tả]\ndecompress - /ˌdiːkəmˈpres/ - xả hơi (khẩu ngữ)",
           "score": 0
         },
         {
           "term": "nap",
           "meaning": "ngủ trưa",
           "pronunciation": "/næp/",
+          "synonyms": "[Đồng nghĩa]\nsnooze - /snuːz/ - chợp mắt (khẩu ngữ)\n\n[Mô tả]\ncatnap - /ˈkætnæp/ - chợp mắt ngắn",
           "score": 0
         },
         {
           "term": "recharge",
           "meaning": "nạp năng lượng",
           "pronunciation": "/ˌriːˈtʃɑːrdʒ/",
+          "synonyms": "[Đồng nghĩa]\nreplenish energy - /rɪˈplenɪʃ ˈenərdʒi/ - bổ sung năng lượng\n\n[Mô tả]\nrefuel - /ˌriːˈfjuːəl/ - nạp năng lượng (khẩu ngữ)",
           "score": 0
         },
         {
           "term": "pajamas",
           "meaning": "đồ ngủ",
           "pronunciation": "/pəˈdʒɑːməz/",
+          "synonyms": "[Đồng nghĩa]\npyjamas - /pəˈdʒɑːməz/ - đồ ngủ (Anh-Anh)\n\n[Mô tả]\nsleepwear - /ˈsliːpwer/ - đồ ngủ",
           "score": 0
         },
         {
           "term": "cozy",
           "meaning": "ấm cúng",
           "pronunciation": "/ˈkoʊzi/",
+          "synonyms": "[Đồng nghĩa]\nsnug - /snʌɡ/ - ấm áp, vừa vặn\n\n[Mô tả]\ncomfy - /ˈkʌmfi/ - thoải mái (khẩu ngữ)",
           "score": 0
         },
         {
           "term": "no alarm",
           "meaning": "không đặt báo thức",
           "pronunciation": "/ˌnoʊ əˈlɑːrm/",
+          "synonyms": "[Đồng nghĩa]\nalarm-free - /əˈlɑːrm friː/ - không báo thức\n\n[Mô tả]\nsleep in naturally - /sliːp ɪn ˈnætʃərəli/ - ngủ tự nhiên",
           "score": 0
         },
         {
           "term": "binge-watch",
           "meaning": "xem liên tục",
           "pronunciation": "/ˈbɪndʒ wɑːtʃ/",
+          "synonyms": "[Đồng nghĩa]\nmarathon - /ˈmærəθɑːn/ - xem liên tục\n\n[Mô tả]\nbinge - /bɪndʒ/ - xem/liên tục",
           "score": 0
         },
         {
           "term": "lazy",
           "meaning": "lười",
           "pronunciation": "/ˈleɪzi/",
+          "synonyms": "[Đồng nghĩa]\nidle - /ˈaɪdl/ - rảnh rỗi\n\n[Mô tả]\nsluggish - /ˈslʌɡɪʃ/ - uể oải",
           "score": 0
         },
         {
           "term": "downtime",
           "meaning": "thời gian nghỉ",
           "pronunciation": "/ˈdaʊntaɪm/",
+          "synonyms": "[Đồng nghĩa]\nfree time - /friː taɪm/ - thời gian rảnh\n\n[Mô tả]\noff time - /ɔːf taɪm/ - thời gian nghỉ",
           "score": 0
         },
         {
           "term": "take a break",
           "meaning": "nghỉ ngơi",
           "pronunciation": "/ˌteɪk ə ˈbreɪk/",
+          "synonyms": "[Đồng nghĩa]\nrest - /rest/ - nghỉ ngơi\n\n[Mô tả]\nchill out - /tʃɪl aʊt/ - thư giãn (khẩu ngữ)",
           "score": 0
         },
         {
           "term": "screen time",
           "meaning": "thời gian dùng màn hình",
           "pronunciation": "/ˈskriːn taɪm/",
+          "synonyms": "[Đồng nghĩa]\ndigital time - /ˈdɪdʒɪtl taɪm/ - thời gian kỹ thuật số\n\n[Mô tả]\ndevice time - /dɪˈvaɪs taɪm/ - thời gian dùng thiết bị",
+          "score": 0
+        },
+        {
+          "term": "do nothing",
+          "meaning": "không làm gì",
+          "pronunciation": "/duː ˈnʌθɪŋ/",
+          "synonyms": "[Đồng nghĩa]\nchill - /tʃɪl/ - chill (khẩu ngữ)\n\n[Mô tả]\nveg out - /vedʒ aʊt/ - nằm ườn (khẩu ngữ)",
+          "score": 0
+        },
+        {
+          "term": "sleep mask",
+          "meaning": "khăn bịt mắt ngủ",
+          "pronunciation": "/sliːp mæsk/",
+          "synonyms": "[Đồng nghĩa]\neye mask - /aɪ mæsk/ - bịt mắt\n\n[Mô tả]\nblindfold - /ˈblaɪndfoʊld/ - bịt mắt",
+          "score": 0
+        },
+        {
+          "term": "weekend vibes",
+          "meaning": "không khí cuối tuần",
+          "pronunciation": "/ˈwiːkˌend vaɪbz/",
+          "synonyms": "[Đồng nghĩa]\nweekend mood - /ˈwiːkˌend muːd/ - tâm trạng cuối tuần\n\n[Mô tả]\nchill vibes - /tʃɪl vaɪbz/ - không khí thư giãn",
+          "score": 0
+        },
+        {
+          "term": "stay in bed",
+          "meaning": "ở trên giường",
+          "pronunciation": "/steɪ ɪn bed/",
+          "synonyms": "[Đồng nghĩa]\nstay under the covers - /steɪ ˈʌndər ðə ˈkʌvərz/ - ở trong chăn\n\n[Mô tả]\nlounge in bed - /laʊndʒ ɪn bed/ - nằm lười trên giường",
           "score": 0
         }
       ],
@@ -2777,7 +2817,7 @@
         {
           "formula": "S + am/is/are + V-ing + now",
           "example": "I'm just relaxing on the sofa. (Tôi đang thư giãn trên ghế sofa.)",
-          "pronunciation": "/əm ʤɪst rɪˈlæksɪŋ ɔn ðə ˈsoʊfə/",
+          "pronunciation": "/aɪm dʒʌst rɪˈlæksɪŋ ɑːn ðə ˈsoʊfə/",
           "usage": "Dùng để nói về hành động thư giãn đang diễn ra ngay lúc nói.",
           "title": "Present continuous for current rest",
           "category": "Tense",
@@ -2802,7 +2842,7 @@
         {
           "formula": "S + adverb + V",
           "example": "I rarely set an alarm on Sunday. (Tôi hiếm khi đặt báo thức vào Chủ nhật.)",
-          "pronunciation": "/aɪ ˈrɛrli sɛt ən əˈlɑrm ɔn ˈsənˌdi/",
+          "pronunciation": "/aɪ ˈrerli set ən əˈlɑːrm ɑːn ˈsʌndeɪ/",
           "usage": "Dùng để nói mức độ thường xuyên của thói quen nghỉ ngơi.",
           "title": "Adverbs of frequency for rest",
           "category": "Adverb",
@@ -2827,7 +2867,7 @@
         {
           "formula": "S + feel like + V-ing",
           "example": "I feel like staying in bed. (Tôi muốn ở trên giường.)",
-          "pronunciation": "/aɪ fil laɪk steɪɪŋ ɪn bɛd/",
+          "pronunciation": "/aɪ fiːl laɪk ˈsteɪɪŋ ɪn bed/",
           "usage": "Dùng để nói mong muốn tạm thời tại thời điểm nói.",
           "title": "'Feel like' + V-ing",
           "category": "Modal",
@@ -2852,7 +2892,7 @@
         {
           "formula": "S + don't/doesn't + V + at all",
           "example": "I'm not doing anything at all today. (Hôm nay tôi không làm gì cả.)",
-          "pronunciation": "/əm nɑt duɪŋ ˈɛniˌθɪŋ æt ɔl təˈdeɪ/",
+          "pronunciation": "/aɪm nɑːt ˈduːɪŋ ˈeniθɪŋ ət ɔːl təˈdeɪ/",
           "usage": "Dùng để nhấn mạnh hoàn toàn không làm gì hoặc không có gì.",
           "title": "'Not ... at all' for emphasis",
           "category": "Adverb",
@@ -2873,6 +2913,12 @@
               "example": "I never schedule meetings on Sundays. (Tôi không bao giờ xếp họp vào Chủ nhật.)"
             }
           ]
+        },
+        {
+          "formula": "N1 + be + adj-er/more adj + than + N2",
+          "example": "Today is more relaxing than yesterday. (Hôm nay thư giãn hơn hôm qua.)",
+          "pronunciation": "/təˈdeɪ ɪz mɔːr rɪˈlæksɪŋ ðən ˈjestərdeɪ/",
+          "usage": "Dùng để so sánh mức độ thư giãn, thoải mái giữa các ngày hoặc hoạt động."
         }
       ],
       "examples": [
@@ -2881,67 +2927,105 @@
       ],
       "quizzes": [
         {
-          "questionType": "Single Best Answer",
+          "questionType": "Multiple Choice",
           "question": "Which word means “ngủ nướng”?",
           "options": [
             "sleep in",
             "nap",
+            "unwind",
             "recharge"
           ],
           "answerIndex": 0,
-          "explanation": "Sleep in means to stay in bed longer than usual."
+          "explanation": "Lý do đúng:\nsleep in - dịch: \"ngủ nướng\", từ chính xác"
         },
         {
           "questionType": "Single Best Answer",
           "question": "Which sentence means “thư giãn”?",
           "options": [
-            "I’m unwinding with a book.",
-            "I’m working hard.",
-            "I’m running fast."
+            "I'm just relaxing on the sofa.",
+            "I am sofa.",
+            "Sofa is here."
           ],
           "answerIndex": 0,
-          "explanation": "Unwind means to relax after stress."
+          "explanation": "Lý do đúng:\nI'm just relaxing on the sofa. - dịch: \"Tôi đang thư giãn trên ghế sofa\", câu tự nhiên"
         },
         {
-          "questionType": "Single Best Answer",
+          "questionType": "Multiple Choice",
           "question": "Complete: “I ___ staying in bed.”",
           "options": [
             "feel like",
-            "feels like",
-            "felt like to"
+            "feel",
+            "feeling"
           ],
           "answerIndex": 0,
-          "explanation": "Feel like + V-ing expresses a desire."
+          "explanation": "Lý do đúng:\nfeel like - dịch: \"muốn\", cấu trúc feel like + V-ing"
         },
         {
           "questionType": "Single Best Answer",
           "question": "Which phrase means “không đặt báo thức”?",
           "options": [
             "no alarm",
-            "alarm clock",
-            "wake up"
+            "sleep in",
+            "nap",
+            "recharge"
           ],
           "answerIndex": 0,
-          "explanation": "No alarm means not setting an alarm."
+          "explanation": "Lý do đúng:\nno alarm - dịch: \"không đặt báo thức\", cụm từ chính xác"
+        },
+        {
+          "questionType": "Multiple Choice",
+          "question": "Which word means “lười”?",
+          "options": [
+            "lazy",
+            "cozy",
+            "nap",
+            "recharge"
+          ],
+          "answerIndex": 0,
+          "explanation": "Lý do đúng:\nlazy - dịch: \"lười\", từ chính xác"
+        },
+        {
+          "questionType": "Single Best Answer",
+          "question": "Choose the most natural sentence for rest:",
+          "options": [
+            "I'm not doing anything at all today.",
+            "I am not doing today anything at all.",
+            "Not doing anything at all I am today."
+          ],
+          "answerIndex": 0,
+          "explanation": "Lý do đúng:\nI'm not doing anything at all today. - dịch: \"Hôm nay tôi không làm gì cả\", trật tự từ tự nhiên"
+        },
+        {
+          "questionType": "Multiple Choice",
+          "question": "Which sentence gives advice for rest?",
+          "options": [
+            "You should take a nap later.",
+            "You must nap now.",
+            "Nap."
+          ],
+          "answerIndex": 0,
+          "explanation": "Lý do đúng:\nYou should take a nap later. - dịch: \"Bạn nên nghỉ trưa sau\", lời khuyên lịch sự"
         }
       ],
       "readExpected": "I'm just relaxing on the sofa.",
       "dialogue": [
-        "A: How was your weekend?",
-        "B: So relaxing. I slept in both days.",
-        "A: Nice. Did you do anything?",
-        "B: Just a nap and some reading.",
-        "A: That sounds perfect.",
-        "B: It was. I feel recharged for Monday."
+        "A: Are you doing anything today? (Hôm nay bạn làm gì không?)",
+        "B: Nothing at all. I'm in my pajamas. (Không gì cả. Tôi đang mặc đồ ngủ.)",
+        "A: Lucky you! I have chores. (May quá! Tôi có việc nhà.)",
+        "B: Take a nap later. You deserve it. (Nghỉ trưa sau nhé. Bạn xứng đáng.)",
+        "A: Maybe I will. (Có thể tôi sẽ.)",
+        "B: Enjoy your rest! (Nghỉ ngơi vui vẻ!)"
       ],
       "dialogueVariants": [
         [
-          "A: Are you doing anything today?",
-          "B: Nothing at all. I’m in my pajamas.",
-          "A: Lucky you! I have chores.",
-          "B: Take a nap later. You deserve it.",
-          "A: Maybe I will.",
-          "B: Enjoy your rest!"
+          "A: I'm planning to do absolutely nothing this weekend. (Mình dự định không làm gì cả cuối tuần này.)",
+          "B: Same here. I've been running on empty all week. (Mình cũng vậy. Cả tuần nay mình chạy bằng năng lượng cạn kiệt.)",
+          "A: Right? I think I need a full day in bed. (Đúng không? Mình nghĩ mình cần một ngày nguyên trên giường.)",
+          "B: I'm thinking of ordering in and watching movies. (Mình đang nghĩ đến đặt đồ ăn và xem phim.)",
+          "A: That sounds perfect. Which streaming service? (Nghe hoàn hảo. Dịch vụ streaming nào?)",
+          "B: I've got a backlog on Netflix. (Mình có danh sách chờ trên Netflix.)",
+          "A: Same. Let's not even get dressed. (Mình cũng vậy. Chúng ta thậm chí không cần mặc đồ.)",
+          "B: Deal. Pajama day it is! (Đồng ý. Ngày đồ ngủ nào!)"
         ]
       ]
     },

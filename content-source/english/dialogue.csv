@@ -47,18 +47,6 @@ A: I’m bringing my children.
 B: Wonderful. There’s a children’s blessing.
 A: That’s lovely. See you there.
 B: See you. Have a blessed Sunday."
-weekend-rest,0,"A: How was your weekend?
-B: So relaxing. I slept in both days.
-A: Nice. Did you do anything?
-B: Just a nap and some reading.
-A: That sounds perfect.
-B: It was. I feel recharged for Monday."
-weekend-rest,1,"A: Are you doing anything today?
-B: Nothing at all. I’m in my pajamas.
-A: Lucky you! I have chores.
-B: Take a nap later. You deserve it.
-A: Maybe I will.
-B: Enjoy your rest!"
 household-chores,0,"A: Can you help with the chores today?
 B: Sure. What do you need?
 A: Could you vacuum the living room?
@@ -255,3 +243,17 @@ A: Good idea. I'll text her. (Ý hay. Mình nhắn tin cho cô ấy.)
 B: Cool. Let's meet at the restaurant at 7. (Tuyệt. Gặp nhau ở nhà hàng lúc 7 giờ nhé.)
 A: Perfect. I'll make a reservation. (Tuyệt. Mình đặt bàn.)
 B: Awesome. See you then! (Tuyệt vời. Hẹn gặp lúc đó!)"
+weekend-rest,0,"A: Are you doing anything today? (Hôm nay bạn làm gì không?)
+B: Nothing at all. I'm in my pajamas. (Không gì cả. Tôi đang mặc đồ ngủ.)
+A: Lucky you! I have chores. (May quá! Tôi có việc nhà.)
+B: Take a nap later. You deserve it. (Nghỉ trưa sau nhé. Bạn xứng đáng.)
+A: Maybe I will. (Có thể tôi sẽ.)
+B: Enjoy your rest! (Nghỉ ngơi vui vẻ!)"
+weekend-rest,1,"A: I'm planning to do absolutely nothing this weekend. (Mình dự định không làm gì cả cuối tuần này.)
+B: Same here. I've been running on empty all week. (Mình cũng vậy. Cả tuần nay mình chạy bằng năng lượng cạn kiệt.)
+A: Right? I think I need a full day in bed. (Đúng không? Mình nghĩ mình cần một ngày nguyên trên giường.)
+B: I'm thinking of ordering in and watching movies. (Mình đang nghĩ đến đặt đồ ăn và xem phim.)
+A: That sounds perfect. Which streaming service? (Nghe hoàn hảo. Dịch vụ streaming nào?)
+B: I've got a backlog on Netflix. (Mình có danh sách chờ trên Netflix.)
+A: Same. Let's not even get dressed. (Mình cũng vậy. Chúng ta thậm chí không cần mặc đồ.)
+B: Deal. Pajama day it is! (Đồng ý. Ngày đồ ngủ nào!)"

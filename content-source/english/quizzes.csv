@@ -96,18 +96,6 @@ D - dịch: ""Hiện tại nơi này đóng cửa để sửa chữa, nên khôn
 
 Lý do đúng:
 B - dịch: ""Nhà thờ đang trùng tu nên họ đóng cửa với khách tham quan rồi—chỉ những ai đi dự lễ mới được vào bên trong thôi"", vừa chuẩn ngữ pháp vừa tự nhiên nhất nhờ dùng dạng rút gọn (""It's"", ""they've""), từ vựng chuẩn ngành bảo tồn (""under restoration""), cụm ""closed it to tourists"" và cách gọi thân mật ""folks"" (mọi người)"
-weekend-rest,Single Best Answer,Which word means “ngủ nướng”?,"sleep in
-nap
-recharge",0,Sleep in means to stay in bed longer than usual.
-weekend-rest,Single Best Answer,Which sentence means “thư giãn”?,"I’m unwinding with a book.
-I’m working hard.
-I’m running fast.",0,Unwind means to relax after stress.
-weekend-rest,Single Best Answer,Complete: “I ___ staying in bed.”,"feel like
-feels like
-felt like to",0,Feel like + V-ing expresses a desire.
-weekend-rest,Single Best Answer,Which phrase means “không đặt báo thức”?,"no alarm
-alarm clock
-wake up",0,No alarm means not setting an alarm.
 household-chores,Single Best Answer,Which word means “việc nhà”?,"chore
 laundry
 dust",0,A chore is a household task.
@@ -422,3 +410,34 @@ weekend-outing,Multiple Choice,Which sentence gives advice for outings?,"You sho
 You must book now.
 Book tickets.",0,"Lý do đúng:
 You should book tickets in advance. - dịch: ""Bạn nên đặt vé trước"", lời khuyên lịch sự"
+weekend-rest,Multiple Choice,Which word means “ngủ nướng”?,"sleep in
+nap
+unwind
+recharge",0,"Lý do đúng:
+sleep in - dịch: ""ngủ nướng"", từ chính xác"
+weekend-rest,Single Best Answer,Which sentence means “thư giãn”?,"I'm just relaxing on the sofa.
+I am sofa.
+Sofa is here.",0,"Lý do đúng:
+I'm just relaxing on the sofa. - dịch: ""Tôi đang thư giãn trên ghế sofa"", câu tự nhiên"
+weekend-rest,Multiple Choice,Complete: “I ___ staying in bed.”,"feel like
+feel
+feeling",0,"Lý do đúng:
+feel like - dịch: ""muốn"", cấu trúc feel like + V-ing"
+weekend-rest,Single Best Answer,Which phrase means “không đặt báo thức”?,"no alarm
+sleep in
+nap
+recharge",0,"Lý do đúng:
+no alarm - dịch: ""không đặt báo thức"", cụm từ chính xác"
+weekend-rest,Multiple Choice,Which word means “lười”?,"lazy
+cozy
+nap
+recharge",0,"Lý do đúng:
+lazy - dịch: ""lười"", từ chính xác"
+weekend-rest,Single Best Answer,Choose the most natural sentence for rest:,"I'm not doing anything at all today.
+I am not doing today anything at all.
+Not doing anything at all I am today.",0,"Lý do đúng:
+I'm not doing anything at all today. - dịch: ""Hôm nay tôi không làm gì cả"", trật tự từ tự nhiên"
+weekend-rest,Multiple Choice,Which sentence gives advice for rest?,"You should take a nap later.
+You must nap now.
+Nap.",0,"Lý do đúng:
+You should take a nap later. - dịch: ""Bạn nên nghỉ trưa sau"", lời khuyên lịch sự"
