@@ -47,18 +47,6 @@ A: I’m bringing my children.
 B: Wonderful. There’s a children’s blessing.
 A: That’s lovely. See you there.
 B: See you. Have a blessed Sunday."
-weekend-outing,0,"A: Are you free this Saturday?
-B: Yes! What do you want to do?
-A: Let’s meet up at seven and grab a coffee.
-B: Sounds good. Should we book a table?
-A: Yes, just in case it’s busy.
-B: Great. I’ll be there at seven sharp."
-weekend-outing,1,"A: Do you want to go to the cinema?
-B: Sure. What time does the movie start?
-A: Seven-thirty. Shall we meet at seven?
-B: Perfect. I’ll bring some snacks.
-A: Great. I’ll buy the tickets online.
-B: See you there!"
 weekend-rest,0,"A: How was your weekend?
 B: So relaxing. I slept in both days.
 A: Nice. Did you do anything?
@@ -253,3 +241,17 @@ A: Yes, please. And do you have any ripe mangoes? (Vâng, làm ơn. Bạn có xo
 B: These are perfect—ready to eat today. (Những quả này hoàn hảo—ăn được ngay hôm nay.)
 A: I'll take three. What's the total? (Tôi lấy ba quả. Tổng bao nhiêu?)
 B: Seven dollars. Thanks for supporting local farmers! (Bảy đô. Cảm ơn bạn đã ủng hộ nông dân địa phương!)"
+weekend-outing,0,"A: Do you want to go to the cinema? (Bạn có muốn đi xem phim không?)
+B: Sure. What time does the movie start? (Tất nhiên. Phim bắt đầu mấy giờ?)
+A: Seven-thirty. Shall we meet at seven? (Bảy giờ rưỡi. Chúng ta gặp lúc bảy giờ nhé?)
+B: Perfect. I'll bring some snacks. (Tuyệt. Tôi mang đồ ăn vặt.)
+A: Great. I'll buy the tickets online. (Tốt. Tôi mua vé online.)
+B: See you there! (Gặp bạn ở đó!)"
+weekend-outing,1,"A: Hey, are you free this Saturday? (Này, thứ Bảy bạn rảnh không?)
+B: Yeah, what did you have in mind? (Có, bạn nghĩ đến làm gì?)
+A: There's a new Thai place downtown. Wanna try it? (Có quán Thái mới dưới trung tâm. Muốn thử không?)
+B: Sounds great! Should we invite Sarah too? (Nghe tuyệt! Mình mời thêm Sarah nữa nhé?)
+A: Good idea. I'll text her. (Ý hay. Mình nhắn tin cho cô ấy.)
+B: Cool. Let's meet at the restaurant at 7. (Tuyệt. Gặp nhau ở nhà hàng lúc 7 giờ nhé.)
+A: Perfect. I'll make a reservation. (Tuyệt. Mình đặt bàn.)
+B: Awesome. See you then! (Tuyệt vời. Hẹn gặp lúc đó!)"

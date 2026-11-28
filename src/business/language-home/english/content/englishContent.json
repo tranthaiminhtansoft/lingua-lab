@@ -2367,72 +2367,112 @@
           "term": "hang out",
           "meaning": "đi chơi",
           "pronunciation": "/ˌhæŋ ˈaʊt/",
+          "synonyms": "[Đồng nghĩa]\nchill - /tʃɪl/ - chill (khẩu ngữ)\n\n[Mô tả]\nspend time - /spend taɪm/ - dành thời gian",
           "score": 0
         },
         {
           "term": "café",
           "meaning": "quán cà phê",
           "pronunciation": "/kæˈfeɪ/",
+          "synonyms": "[Đồng nghĩa]\ncoffee shop - /ˈkɔːfi ʃɑːp/ - quán cà phê\n\n[Mô tả]\nbistro - /ˈbiːstroʊ/ - quán nhỏ (Pháp)",
           "score": 0
         },
         {
           "term": "cinema",
           "meaning": "rạp chiếu phim",
           "pronunciation": "/ˈsɪnəmə/",
+          "synonyms": "[Đồng nghĩa]\nmovie theater - /ˈmuːvi ˈθiːətər/ - rạp chiếu phim (Mỹ)\n\n[Mô tả]\npicture house - /ˈpɪktʃər haʊs/ - rạp chiếu phim (Anh-Anh)",
           "score": 0
         },
         {
           "term": "meet up",
           "meaning": "gặp nhau",
           "pronunciation": "/ˌmiːt ˈʌp/",
+          "synonyms": "[Đồng nghĩa]\nget together - /ɡet təˈɡeðər/ - gặp nhau\n\n[Khẩu ngữ]\ncatch up - /kætʃ ʌp/ - gặp và trò chuyện",
           "score": 0
         },
         {
           "term": "reservation",
           "meaning": "đặt chỗ",
           "pronunciation": "/ˌrezərˈveɪʃən/",
+          "synonyms": "[Đồng nghĩa]\nbooking - /ˈbʊkɪŋ/ - đặt chỗ\n\n[Mô tả]\nadvance booking - /ədˈvæns ˈbʊkɪŋ/ - đặt trước",
           "score": 0
         },
         {
           "term": "traffic",
           "meaning": "giao thông",
           "pronunciation": "/ˈtræfɪk/",
+          "synonyms": "[Đồng nghĩa]\ncongestion - /kənˈdʒestʃən/ - tắc đường\n\n[Mô tả]\nrush hour - /rʌʃ ˈaʊər/ - giờ cao điểm",
           "score": 0
         },
         {
           "term": "running late",
           "meaning": "đang trễ giờ",
           "pronunciation": "/ˌrʌnɪŋ ˈleɪt/",
+          "synonyms": "[Đồng nghĩa]\nbehind schedule - /bɪˈhaɪnd ˈskedʒuːl/ - trễ lịch\n\n[Mô tả]\nrunning behind - /ˈrʌnɪŋ bɪˈhaɪnd/ - đang trễ",
           "score": 0
         },
         {
           "term": "split the tab",
           "meaning": "chia hoá đơn",
           "pronunciation": "/ˌsplɪt ðə ˈtæb/",
+          "synonyms": "[Đồng nghĩa]\nsplit the bill - /ˌsplɪt ðə ˈbɪl/ - chia hoá đơn\n\n[Mô tả]\ngo Dutch - /ɡoʊ dʌtʃ/ - mỗi người trả phần mình",
           "score": 0
         },
         {
           "term": "taxi",
           "meaning": "taxi",
           "pronunciation": "/ˈtæksi/",
+          "synonyms": "[Đồng nghĩa]\ncab - /kæb/ - taxi (khẩu ngữ)\n\n[Mô tả]\nride-share - /ˈraɪd ʃer/ - xe chia sẻ",
           "score": 0
         },
         {
           "term": "catch a movie",
           "meaning": "xem phim",
           "pronunciation": "/ˌkætʃ ə ˈmuːvi/",
+          "synonyms": "[Đồng nghĩa]\nsee a film - /siː ə fɪlm/ - xem phim\n\n[Mô tả]\ngo to the pictures - /ɡoʊ tə ðə ˈpɪktʃərz/ - xem phim (Anh-Anh)",
           "score": 0
         },
         {
           "term": "rain check",
           "meaning": "dời lịch",
           "pronunciation": "/ˈreɪn tʃek/",
+          "synonyms": "[Đồng nghĩa]\nreschedule - /ˌriːˈskedʒuːl/ - dời lịch\n\n[Mô tả]\ntake a rain check - /teɪk ə reɪn tʃek/ - xin dời",
           "score": 0
         },
         {
           "term": "turn up",
           "meaning": "đến",
           "pronunciation": "/ˌtɜːrn ˈʌp/",
+          "synonyms": "[Đồng nghĩa]\nshow up - /ʃoʊ ʌp/ - xuất hiện\n\n[Mô tả]\narrive - /əˈraɪv/ - đến nơi",
+          "score": 0
+        },
+        {
+          "term": "venue",
+          "meaning": "địa điểm",
+          "pronunciation": "/ˈvenjuː/",
+          "synonyms": "[Đồng nghĩa]\nlocation - /loʊˈkeɪʃn/ - vị trí\n\n[Mô tả]\nspot - /spɑːt/ - chỗ (khẩu ngữ)",
+          "score": 0
+        },
+        {
+          "term": "itinerary",
+          "meaning": "lịch trình",
+          "pronunciation": "/aɪˈtɪnəreri/",
+          "synonyms": "[Đồng nghĩa]\nschedule - /ˈskedʒuːl/ - lịch trình\n\n[Mô tả]\nplan - /plæn/ - kế hoạch",
+          "score": 0
+        },
+        {
+          "term": "last-minute",
+          "meaning": "phút chót",
+          "pronunciation": "/ˌlæst ˈmɪnɪt/",
+          "synonyms": "[Đồng nghĩa]\nlast-second - /ˌlæst ˈsekənd/ - phút cuối\n\n[Mô tả]\nspur of the moment - /spɜːr əv ðə ˈmoʊmənt/ - bốc đồng",
+          "score": 0
+        },
+        {
+          "term": "hangover",
+          "meaning": "mệt sau nhậu",
+          "pronunciation": "/ˈhæŋˌoʊvər/",
+          "synonyms": "[Đồng nghĩa]\naftermath - /ˈæftərmæθ/ - hậu quả\n\n[Mô tả]\nrough morning - /rʌf ˈmɔːrnɪŋ/ - buổi sáng khó khăn",
           "score": 0
         }
       ],
@@ -2440,7 +2480,7 @@
         {
           "formula": "Let's + V",
           "example": "Let's meet up at seven. (Hãy gặp nhau lúc bảy giờ.)",
-          "pronunciation": "/lɛts mit əp æt ˈsɛvən/",
+          "pronunciation": "/lets miːt ʌp æt ˈsevən/",
           "usage": "Dùng để đưa ra gợi ý về hoạt động chung trong cuối tuần.",
           "title": "'Let's' for outing suggestions",
           "category": "Modal",
@@ -2465,7 +2505,7 @@
         {
           "formula": "S + am/is/are + V-ing + future time",
           "example": "I'm meeting friends at six. (Tôi gặp bạn bè lúc sáu giờ.)",
-          "pronunciation": "/əm ˈmitɪŋ frɛndz æt sɪks/",
+          "pronunciation": "/aɪm ˈmiːtɪŋ frendz æt sɪks/",
           "usage": "Dùng khi cuộc hẹn đã được sắp xếp cụ thể về thời gian hoặc địa điểm.",
           "title": "Present continuous for future arrangements",
           "category": "Future",
@@ -2490,7 +2530,7 @@
         {
           "formula": "at + clock time · on + day/date · in + part of day",
           "example": "The movie starts at seven on Saturday. (Phim bắt đầu lúc bảy giờ thứ Bảy.)",
-          "pronunciation": "/ðə ˈmuvi stɑrts æt ˈsɛvən ɔn ˈsæˌtɪˌdeɪ/",
+          "pronunciation": "/ðə ˈmuːvi stɑːrts æt ˈsevən ɑːn ˈsætərdeɪ/",
           "usage": "Dùng để nói thời gian của cuộc hẹn: at cho giờ, on cho ngày, in cho buổi.",
           "title": "Prepositions of time for outings",
           "category": "Preposition",
@@ -2515,7 +2555,7 @@
         {
           "formula": "Would + you + like + to + V?",
           "example": "Would you like to grab a coffee? (Bạn có muốn đi uống cà phê không?)",
-          "pronunciation": "/wʊd ju laɪk tɪ græb ə ˈkɔfi/",
+          "pronunciation": "/wʊd ju laɪk tə ɡræb ə ˈkɔːfi/",
           "usage": "Dùng để mời ai đó tham gia một hoạt động một cách tự nhiên, không gây áp lực.",
           "title": "Polite offers for outings",
           "category": "Modal",
@@ -2536,6 +2576,12 @@
               "example": "Fancy seeing a film tonight? (Có muốn xem phim tối nay không?)"
             }
           ]
+        },
+        {
+          "formula": "S + am/is/are sorry + for + V-ing",
+          "example": "I'm sorry for being late. (Tôi xin lỗi vì đến muộn.)",
+          "pronunciation": "/aɪm ˈsɑːri fər ˈbiːɪŋ leɪt/",
+          "usage": "Dùng để xin lỗi khi đến muộn trong cuộc hẹn."
         }
       ],
       "examples": [
@@ -2544,15 +2590,15 @@
       ],
       "quizzes": [
         {
-          "questionType": "Single Best Answer",
+          "questionType": "Multiple Choice",
           "question": "Which phrase suggests an activity?",
           "options": [
-            "Let’s meet up at seven.",
-            "I am sleeping.",
-            "The door is closed."
+            "Let's meet up at seven.",
+            "I am meeting.",
+            "Meeting is good."
           ],
           "answerIndex": 0,
-          "explanation": "“Let’s …” is a suggestion."
+          "explanation": "Lý do đúng:\nLet's meet up at seven. - dịch: \"Hãy gặp nhau lúc bảy giờ\", gợi ý tự nhiên"
         },
         {
           "questionType": "Single Best Answer",
@@ -2560,13 +2606,14 @@
           "options": [
             "meet up",
             "traffic",
-            "late"
+            "cinema",
+            "café"
           ],
           "answerIndex": 0,
-          "explanation": "Meet up means to gather with someone."
+          "explanation": "Lý do đúng:\nmeet up - dịch: \"gặp nhau\", từ chính xác"
         },
         {
-          "questionType": "Single Best Answer",
+          "questionType": "Multiple Choice",
           "question": "Complete: “We’re ___ watch a movie.”",
           "options": [
             "going to",
@@ -2574,37 +2621,73 @@
             "gone to"
           ],
           "answerIndex": 0,
-          "explanation": "“Be going to” needs the verb be."
+          "explanation": "Lý do đúng:\ngoing to - dịch: \"sẽ\", cấu trúc be going to + V"
         },
         {
           "questionType": "Single Best Answer",
           "question": "Which sentence apologises for being late?",
           "options": [
-            "Sorry, traffic was bad.",
-            "I am never late.",
-            "Traffic is good."
+            "I'm sorry for being late.",
+            "I am late.",
+            "Late I am."
           ],
           "answerIndex": 0,
-          "explanation": "Sorry + reason is a polite apology."
+          "explanation": "Lý do đúng:\nI'm sorry for being late. - dịch: \"Tôi xin lỗi vì đến muộn\", câu xin lỗi tự nhiên"
+        },
+        {
+          "questionType": "Multiple Choice",
+          "question": "Which word means “chia hoá đơn”?",
+          "options": [
+            "split the tab",
+            "meet up",
+            "traffic",
+            "café"
+          ],
+          "answerIndex": 0,
+          "explanation": "Lý do đúng:\nsplit the tab - dịch: \"chia hoá đơn\", cụm từ chính xác"
+        },
+        {
+          "questionType": "Single Best Answer",
+          "question": "Choose the most natural sentence for outings:",
+          "options": [
+            "Would you like to grab a coffee?",
+            "You want coffee?",
+            "Coffee you want?"
+          ],
+          "answerIndex": 0,
+          "explanation": "Lý do đúng:\nWould you like to grab a coffee? - dịch: \"Bạn có muốn đi uống cà phê không?\", lời mời lịch sự"
+        },
+        {
+          "questionType": "Multiple Choice",
+          "question": "Which sentence gives advice for outings?",
+          "options": [
+            "You should book tickets in advance.",
+            "You must book now.",
+            "Book tickets."
+          ],
+          "answerIndex": 0,
+          "explanation": "Lý do đúng:\nYou should book tickets in advance. - dịch: \"Bạn nên đặt vé trước\", lời khuyên lịch sự"
         }
       ],
       "readExpected": "Let's meet up at seven.",
       "dialogue": [
-        "A: Are you free this Saturday?",
-        "B: Yes! What do you want to do?",
-        "A: Let’s meet up at seven and grab a coffee.",
-        "B: Sounds good. Should we book a table?",
-        "A: Yes, just in case it’s busy.",
-        "B: Great. I’ll be there at seven sharp."
+        "A: Do you want to go to the cinema? (Bạn có muốn đi xem phim không?)",
+        "B: Sure. What time does the movie start? (Tất nhiên. Phim bắt đầu mấy giờ?)",
+        "A: Seven-thirty. Shall we meet at seven? (Bảy giờ rưỡi. Chúng ta gặp lúc bảy giờ nhé?)",
+        "B: Perfect. I'll bring some snacks. (Tuyệt. Tôi mang đồ ăn vặt.)",
+        "A: Great. I'll buy the tickets online. (Tốt. Tôi mua vé online.)",
+        "B: See you there! (Gặp bạn ở đó!)"
       ],
       "dialogueVariants": [
         [
-          "A: Do you want to go to the cinema?",
-          "B: Sure. What time does the movie start?",
-          "A: Seven-thirty. Shall we meet at seven?",
-          "B: Perfect. I’ll bring some snacks.",
-          "A: Great. I’ll buy the tickets online.",
-          "B: See you there!"
+          "A: Hey, are you free this Saturday? (Này, thứ Bảy bạn rảnh không?)",
+          "B: Yeah, what did you have in mind? (Có, bạn nghĩ đến làm gì?)",
+          "A: There's a new Thai place downtown. Wanna try it? (Có quán Thái mới dưới trung tâm. Muốn thử không?)",
+          "B: Sounds great! Should we invite Sarah too? (Nghe tuyệt! Mình mời thêm Sarah nữa nhé?)",
+          "A: Good idea. I'll text her. (Ý hay. Mình nhắn tin cho cô ấy.)",
+          "B: Cool. Let's meet at the restaurant at 7. (Tuyệt. Gặp nhau ở nhà hàng lúc 7 giờ nhé.)",
+          "A: Perfect. I'll make a reservation. (Tuyệt. Mình đặt bàn.)",
+          "B: Awesome. See you then! (Tuyệt vời. Hẹn gặp lúc đó!)"
         ]
       ]
     },

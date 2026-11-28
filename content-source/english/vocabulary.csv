@@ -548,18 +548,86 @@ wholesale - /ˈhoʊlseɪl/ - bán sỉ
 
 [Mô tả]
 buy in bulk - /baɪ ɪn bʌlk/ - mua số lượng lớn",0
-weekend-outing,hang out,đi chơi,/ˌhæŋ ˈaʊt/,,0
-weekend-outing,café,quán cà phê,/kæˈfeɪ/,,0
-weekend-outing,cinema,rạp chiếu phim,/ˈsɪnəmə/,,0
-weekend-outing,meet up,gặp nhau,/ˌmiːt ˈʌp/,,0
-weekend-outing,reservation,đặt chỗ,/ˌrezərˈveɪʃən/,,0
-weekend-outing,traffic,giao thông,/ˈtræfɪk/,,0
-weekend-outing,running late,đang trễ giờ,/ˌrʌnɪŋ ˈleɪt/,,0
-weekend-outing,split the tab,chia hoá đơn,/ˌsplɪt ðə ˈtæb/,,0
-weekend-outing,taxi,taxi,/ˈtæksi/,,0
-weekend-outing,catch a movie,xem phim,/ˌkætʃ ə ˈmuːvi/,,0
-weekend-outing,rain check,dời lịch,/ˈreɪn tʃek/,,0
-weekend-outing,turn up,đến,/ˌtɜːrn ˈʌp/,,0
+weekend-outing,hang out,đi chơi,/ˌhæŋ ˈaʊt/,"[Đồng nghĩa]
+chill - /tʃɪl/ - chill (khẩu ngữ)
+
+[Mô tả]
+spend time - /spend taɪm/ - dành thời gian",0
+weekend-outing,café,quán cà phê,/kæˈfeɪ/,"[Đồng nghĩa]
+coffee shop - /ˈkɔːfi ʃɑːp/ - quán cà phê
+
+[Mô tả]
+bistro - /ˈbiːstroʊ/ - quán nhỏ (Pháp)",0
+weekend-outing,cinema,rạp chiếu phim,/ˈsɪnəmə/,"[Đồng nghĩa]
+movie theater - /ˈmuːvi ˈθiːətər/ - rạp chiếu phim (Mỹ)
+
+[Mô tả]
+picture house - /ˈpɪktʃər haʊs/ - rạp chiếu phim (Anh-Anh)",0
+weekend-outing,meet up,gặp nhau,/ˌmiːt ˈʌp/,"[Đồng nghĩa]
+get together - /ɡet təˈɡeðər/ - gặp nhau
+
+[Khẩu ngữ]
+catch up - /kætʃ ʌp/ - gặp và trò chuyện",0
+weekend-outing,reservation,đặt chỗ,/ˌrezərˈveɪʃən/,"[Đồng nghĩa]
+booking - /ˈbʊkɪŋ/ - đặt chỗ
+
+[Mô tả]
+advance booking - /ədˈvæns ˈbʊkɪŋ/ - đặt trước",0
+weekend-outing,traffic,giao thông,/ˈtræfɪk/,"[Đồng nghĩa]
+congestion - /kənˈdʒestʃən/ - tắc đường
+
+[Mô tả]
+rush hour - /rʌʃ ˈaʊər/ - giờ cao điểm",0
+weekend-outing,running late,đang trễ giờ,/ˌrʌnɪŋ ˈleɪt/,"[Đồng nghĩa]
+behind schedule - /bɪˈhaɪnd ˈskedʒuːl/ - trễ lịch
+
+[Mô tả]
+running behind - /ˈrʌnɪŋ bɪˈhaɪnd/ - đang trễ",0
+weekend-outing,split the tab,chia hoá đơn,/ˌsplɪt ðə ˈtæb/,"[Đồng nghĩa]
+split the bill - /ˌsplɪt ðə ˈbɪl/ - chia hoá đơn
+
+[Mô tả]
+go Dutch - /ɡoʊ dʌtʃ/ - mỗi người trả phần mình",0
+weekend-outing,taxi,taxi,/ˈtæksi/,"[Đồng nghĩa]
+cab - /kæb/ - taxi (khẩu ngữ)
+
+[Mô tả]
+ride-share - /ˈraɪd ʃer/ - xe chia sẻ",0
+weekend-outing,catch a movie,xem phim,/ˌkætʃ ə ˈmuːvi/,"[Đồng nghĩa]
+see a film - /siː ə fɪlm/ - xem phim
+
+[Mô tả]
+go to the pictures - /ɡoʊ tə ðə ˈpɪktʃərz/ - xem phim (Anh-Anh)",0
+weekend-outing,rain check,dời lịch,/ˈreɪn tʃek/,"[Đồng nghĩa]
+reschedule - /ˌriːˈskedʒuːl/ - dời lịch
+
+[Mô tả]
+take a rain check - /teɪk ə reɪn tʃek/ - xin dời",0
+weekend-outing,turn up,đến,/ˌtɜːrn ˈʌp/,"[Đồng nghĩa]
+show up - /ʃoʊ ʌp/ - xuất hiện
+
+[Mô tả]
+arrive - /əˈraɪv/ - đến nơi",0
+weekend-outing,venue,địa điểm,/ˈvenjuː/,"[Đồng nghĩa]
+location - /loʊˈkeɪʃn/ - vị trí
+
+[Mô tả]
+spot - /spɑːt/ - chỗ (khẩu ngữ)",0
+weekend-outing,itinerary,lịch trình,/aɪˈtɪnəreri/,"[Đồng nghĩa]
+schedule - /ˈskedʒuːl/ - lịch trình
+
+[Mô tả]
+plan - /plæn/ - kế hoạch",0
+weekend-outing,last-minute,phút chót,/ˌlæst ˈmɪnɪt/,"[Đồng nghĩa]
+last-second - /ˌlæst ˈsekənd/ - phút cuối
+
+[Mô tả]
+spur of the moment - /spɜːr əv ðə ˈmoʊmənt/ - bốc đồng",0
+weekend-outing,hangover,mệt sau nhậu,/ˈhæŋˌoʊvər/,"[Đồng nghĩa]
+aftermath - /ˈæftərmæθ/ - hậu quả
+
+[Mô tả]
+rough morning - /rʌf ˈmɔːrnɪŋ/ - buổi sáng khó khăn",0
 weekend-rest,sleep in,ngủ nướng,/ˌsliːp ˈɪn/,,0
 weekend-rest,unwind,thư giãn,/ʌnˈwaɪnd/,,0
 weekend-rest,nap,ngủ trưa,/næp/,,0

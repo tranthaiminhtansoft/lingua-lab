@@ -96,18 +96,6 @@ D - dịch: ""Hiện tại nơi này đóng cửa để sửa chữa, nên khôn
 
 Lý do đúng:
 B - dịch: ""Nhà thờ đang trùng tu nên họ đóng cửa với khách tham quan rồi—chỉ những ai đi dự lễ mới được vào bên trong thôi"", vừa chuẩn ngữ pháp vừa tự nhiên nhất nhờ dùng dạng rút gọn (""It's"", ""they've""), từ vựng chuẩn ngành bảo tồn (""under restoration""), cụm ""closed it to tourists"" và cách gọi thân mật ""folks"" (mọi người)"
-weekend-outing,Single Best Answer,Which phrase suggests an activity?,"Let’s meet up at seven.
-I am sleeping.
-The door is closed.",0,“Let’s …” is a suggestion.
-weekend-outing,Single Best Answer,Which word means “gặp nhau”?,"meet up
-traffic
-late",0,Meet up means to gather with someone.
-weekend-outing,Single Best Answer,Complete: “We’re ___ watch a movie.”,"going to
-go to
-gone to",0,“Be going to” needs the verb be.
-weekend-outing,Single Best Answer,Which sentence apologises for being late?,"Sorry, traffic was bad.
-I am never late.
-Traffic is good.",0,Sorry + reason is a polite apology.
 weekend-rest,Single Best Answer,Which word means “ngủ nướng”?,"sleep in
 nap
 recharge",0,Sleep in means to stay in bed longer than usual.
@@ -404,3 +392,33 @@ weekend-market,Multiple Choice,Which sentence gives advice for market shopping?,
 You must bring bag.
 Bring bag.",0,"Lý do đúng:
 You should bring a reusable bag. - dịch: ""Bạn nên mang túi tái sử dụng"", lời khuyên lịch sự"
+weekend-outing,Multiple Choice,Which phrase suggests an activity?,"Let's meet up at seven.
+I am meeting.
+Meeting is good.",0,"Lý do đúng:
+Let's meet up at seven. - dịch: ""Hãy gặp nhau lúc bảy giờ"", gợi ý tự nhiên"
+weekend-outing,Single Best Answer,Which word means “gặp nhau”?,"meet up
+traffic
+cinema
+café",0,"Lý do đúng:
+meet up - dịch: ""gặp nhau"", từ chính xác"
+weekend-outing,Multiple Choice,Complete: “We’re ___ watch a movie.”,"going to
+go to
+gone to",0,"Lý do đúng:
+going to - dịch: ""sẽ"", cấu trúc be going to + V"
+weekend-outing,Single Best Answer,Which sentence apologises for being late?,"I'm sorry for being late.
+I am late.
+Late I am.",0,"Lý do đúng:
+I'm sorry for being late. - dịch: ""Tôi xin lỗi vì đến muộn"", câu xin lỗi tự nhiên"
+weekend-outing,Multiple Choice,Which word means “chia hoá đơn”?,"split the tab
+meet up
+traffic
+café",0,"Lý do đúng:
+split the tab - dịch: ""chia hoá đơn"", cụm từ chính xác"
+weekend-outing,Single Best Answer,Choose the most natural sentence for outings:,"Would you like to grab a coffee?
+You want coffee?
+Coffee you want?",0,"Lý do đúng:
+Would you like to grab a coffee? - dịch: ""Bạn có muốn đi uống cà phê không?"", lời mời lịch sự"
+weekend-outing,Multiple Choice,Which sentence gives advice for outings?,"You should book tickets in advance.
+You must book now.
+Book tickets.",0,"Lý do đúng:
+You should book tickets in advance. - dịch: ""Bạn nên đặt vé trước"", lời khuyên lịch sự"
