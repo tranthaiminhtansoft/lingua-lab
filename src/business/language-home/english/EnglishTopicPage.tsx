@@ -305,9 +305,6 @@ export function EnglishTopicPage() {
     return getTopicProgress(progress, topic.id, keys.vocabTerms, keys.grammarExamples, keys.dialogueSentences);
   }, [progress, topic]);
 
-  const allDialogueDone = !!topic
-    && topic.dialogue.length > 0
-    && getTopicProgressKeys(topic).dialogueSentences.every((s) => topicProgress?.dialogue[s]?.completed);
 
   useEffect(() => {
     if (!topic) return;
@@ -407,7 +404,11 @@ export function EnglishTopicPage() {
 
   function handleQuizAnswer(questionIndex: number, optionIndex: number) {
     setQuizAnswers((current) => ({ ...current, [questionIndex]: optionIndex }));
-    playFeedbackSound(optionIndex === topic?.quizzes[questionIndex]?.answerIndex);
+    const quizItem = topic?.quizzes[questionIndex];
+    const correctIndices = quizItem?.answerIndices && quizItem.answerIndices.length > 0
+      ? quizItem.answerIndices
+      : [quizItem?.answerIndex ?? -1];
+    playFeedbackSound(correctIndices.includes(optionIndex));
   }
 
   function cleanSentence(value: string): string {
@@ -829,15 +830,13 @@ export function EnglishTopicPage() {
         <div className="english-today-practice">
           <section className="english-today-card" style={{ padding: 18 }}>
             <h4 style={{ margin: '0 0 10px', fontSize: 13, color: '#394eaa', textTransform: 'uppercase' }}>Trắc nghiệm củng cố</h4>
-            {!allDialogueDone ? (
-              <p style={{ margin: 0, color: '#697382', fontSize: 13, lineHeight: 1.6 }}>
-                Hoàn thành toàn bộ đoạn hội thoại trước khi làm trắc nghiệm.
-              </p>
-            ) : (
             <div style={{ display: 'grid', gap: 18 }}>
               {topic.quizzes.map((quizItem, questionIndex) => {
                 const answer = quizAnswers[questionIndex];
-                const correct = answer === quizItem.answerIndex;
+                const correctIndices = quizItem.answerIndices && quizItem.answerIndices.length > 0
+                  ? quizItem.answerIndices
+                  : [quizItem.answerIndex];
+                const correct = answer !== undefined && correctIndices.includes(answer);
                 return (
                   <div key={quizItem.question}>
                     <p className="english-today-quiz-question">{questionIndex + 1}. {quizItem.question}</p>
@@ -846,7 +845,7 @@ export function EnglishTopicPage() {
                         <button
                           key={option}
                           type="button"
-                          className={`english-today-option${answer === optionIndex ? (optionIndex === quizItem.answerIndex ? ' correct' : ' wrong') : ''}`}
+                          className={`english-today-option${answer === optionIndex ? (correctIndices.includes(optionIndex) ? ' correct' : ' wrong') : ''}`}
                           onClick={() => handleQuizAnswer(questionIndex, optionIndex)}
                         >
                           {option}
@@ -864,7 +863,6 @@ export function EnglishTopicPage() {
                 );
               })}
             </div>
-            )}
           </section>
 
           <section className="english-today-card" style={{ padding: 18 }}>
